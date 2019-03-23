@@ -2,7 +2,7 @@
 ** 6.4-1
 ** 6.4-2
 ** 6.4-3
-   Both are \Theta(n\lg n)
+   Both are \(\Theta(n\lg n)\)
 ** 6.4-4
 ** 6.4-5
 
