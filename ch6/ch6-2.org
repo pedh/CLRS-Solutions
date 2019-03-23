@@ -1,4 +1,12 @@
 * ch6-2
+** 6.2-1
+** 6.2-2
+   The Running time of MIN-HEAPIFY is same as MAX-HEAPIFY
+** 6.2-3
+   Return with nothing changes
+** 6.2-4
+   Same as above
 ** 6.2-5
    1. The compiler should have tail recursion optimization for generating efficient instructions.
+** 6.2-6
 
