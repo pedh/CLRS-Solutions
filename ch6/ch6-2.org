@@ -1,1 +1,4 @@
 * ch6-2
+** 6.2-5
+   1. The compiler should have tail recursion optimization for generating efficient instructions.
+
