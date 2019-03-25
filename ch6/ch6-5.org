@@ -1,0 +1,29 @@
+* ch6-5
+** 6.5-1
+** 6.5-2
+** 6.5-3
+** 6.5-4
+   To make sure that the desired value is larger than the current value (-\infty)
+** 6.5-5
+** 6.5-6
+   #+BEGIN_SRC
+   HEAP-INCREASE-KEY(A, i, key)
+       if key < A[i]
+           error "new key is smaller than current key"
+       A[i] = key
+       while i > 1 and A[PARENT(i)] < A[i]
+           A[PARENT(i)] = A[i]
+	   i = PARENT(i)
+       A[i] = key
+   #+END_SRC
+** 6.5-7
+   Keeping the priority in increase/decrease order implememts stack/queue
+** 6.5-8
+   #+BEGIN_SRC
+   HEAP-DELETE(A, i)
+       A[i] = A[A.heap-size]
+       A.heap-size = A.heap-size - 1
+       MAX-HEAPIFY(A, i)
+   #+END_SRC
+** 6.5-9
+
