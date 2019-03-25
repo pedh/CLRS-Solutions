@@ -3,7 +3,7 @@
 ** 6.5-2
 ** 6.5-3
 ** 6.5-4
-   To make sure that the desired value is larger than the current value (-\infty)
+   To make sure that the desired value is larger than the current value (\(-\infty\))
 ** 6.5-5
 ** 6.5-6
    #+BEGIN_SRC

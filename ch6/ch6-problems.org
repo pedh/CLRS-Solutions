@@ -1,0 +1,68 @@
+* ch6-problems
+** 6-1
+** 6-2
+   1. define PARENT(i) and CHILD(i, j) as below
+      #+BEGIN_SRC
+      PARENT(i)
+          return floor((i - 2) / d) + 1
+      #+END_SRC
+
+      #+BEGIN_SRC
+      CHILD(i, j)
+          // the jth child of node i
+          return n * (i - 1) + j + 1
+      #+END_SRC
+   2. \(\lceil\log_{d}(n(d - 1) + 1)\rceil\)
+   3. Same as the binary heap EXTRACT-MAX, the d-ary MAX-HEAPIFY procedure contains a max-of-d-elements
+      calculation, which has \(\Theta(d)\) running time, so the running time of d-ary EXTRACT-MAX is \(\Theta(d\log_{d}n)\)
+   4. Same as the binary heap INSERT, the running time is \(\Theta(\log_{d}n)\)
+   5. Still the same as binary heap, the running time is \(\Theta(\log_{d}n)\)
+** 6-3
+   1. omitted
+   2. \(\forall(Y[x, y])[Y[x, y] \geq Y[1, 1]]\) and \(Y[1, 1]=\infty\), so Y is empty
+
+      \(\forall(Y[x, y])[Y[x, y] \leq Y[m, n]]\) and \(Y[m, n]<\infty\), so Y is full
+   3. EXTRACT-MIN(Y)
+      #+BEGIN_SRC
+      EXTRACT-MIN(Y)
+          value = Y[1, 1]
+     	  Y[1, 1] = \infty
+     	  YOUNG-TABLEAUFY(Y, 1, 1)
+      #+END_SRC
+
+      #+BEGIN_SRC
+      YOUNG-TABLEAUFY(Y, r, c)
+          smallest-r = r
+          smallest-c = c
+          if r + 1 \leq Y.m and Y[r + 1, c] < Y[r, c]
+              smallest-r = r + 1
+          if c + 1 \leq Y.n and Y[r, c + 1] < Y[r, c]
+              smallest-r = r
+          	  smallest-c = c + 1
+          if smallest-r \neq r or smallest-c \neq c
+              exchange Y[smallest-r, smallest,c] with Y[r, c]
+              YOUNG-TABLEAUFY(Y, smallest-r, smallest-c)
+      #+END_SRC
+      T(P) = T(next-P) + O(1)
+      Worst case is from YOUNG-TABLEAUFY(Y, 1, 1) recursively calling to YOUNG-TABLE(Y, m, n), the running time is O(m + n)
+   4. Like above, first put the element to the lower right corner, then keep exchanging with the min(left, upper, self) element
+   5. First create a n * n young tableau Y, set all elements to \infty, this step is \Theta(n^2) running time
+
+      Then for all the numbers, do INSERT(Y, number), this step is O(n^2 * 2n) = O(n^3) running time
+
+      At last, for 1 to n^2, do EXTRACT-MIN(Y), this step is O(n^2 * 2n) = O(n^3) running time
+
+      The total running time is O(n^3)
+   6. EXISTS(Y, n)
+      #+BEGIN_SRC
+      EXISTS(Y, number)
+          r = Y.m
+	  c = 1
+	  while r \geq 1 and c \leq Y.n
+	      if Y[r, c] == number
+	          return true
+              else if Y[r, c] > number
+	          c = c - 1
+	      else r = r + 1
+	  return false
+      #+END_SRC
