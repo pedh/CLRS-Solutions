@@ -1,0 +1,13 @@
+* ch7-2
+** 7.2-1
+** 7.2-2
+   \(\Theta(n^2)\)
+** 7.2-3
+   decreasing order: n..1 -> 1,n..2 -> 1..i,n..i+1 -> ... -> n..1
+
+   \(T(n) = T(n - 1) + \Theta(n) = \Theta(n^2)\)
+** 7.2-4
+** 7.2-5
+** 7.2-6
+   More balanced than \(1 - \alpha\) to \(\alpha\) means the pivot is between \((\alpha n, (1 - \alpha) n)\), 
+   the probability is \(1 - 2\alpha\)
