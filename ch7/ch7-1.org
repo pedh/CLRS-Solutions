@@ -1,0 +1,9 @@
+* ch7-1
+** 7.1-1
+** 7.1-2
+   - q = r
+   - track the count of values same as A[r] to c, return \(\lfloor i + 1 - \frac{c}{2} \rfloor\)
+** 7.1-3
+   The iteration implementation: \(T(n) = \Theta(1) + n * \Theta(1) = \Theta(n)\)
+** 7.1-4
+   Change the condition of \(A[j] \leq x\) to \(A[j] \geq x\)
