@@ -57,12 +57,12 @@
       #+BEGIN_SRC
       EXISTS(Y, number)
           r = Y.m
-	  c = 1
-	  while r \geq 1 and c \leq Y.n
-	      if Y[r, c] == number
-	          return true
+          c = 1
+          while r \geq 1 and c \leq Y.n
+              if Y[r, c] == number
+                  return true
               else if Y[r, c] > number
-	          c = c - 1
-	      else r = r + 1
-	  return false
+                  c = c - 1
+              else r = r + 1
+          return false
       #+END_SRC
