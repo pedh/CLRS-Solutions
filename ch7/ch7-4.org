@@ -1,0 +1,16 @@
+* ch7-4
+** 7.4-1
+** 7.4-2
+** 7.4-3
+** 7.4-4
+** 7.4-5
+   - quicksort until k elements: \(T(n) = O(n\lg(n/k))\)
+
+     insertion-sort of quicksorted array: \(T(n) = n / k * O(k^2) = O(nk)\)
+
+     total expected running time is \(T(n) = O(n\lg(n/k) + nk)\)
+   - k should satisfies \(k / \lg{k} < c\) (some constant)
+** 7.4-6
+   let \(\alpha < 1/2\), else use \(1 - \alpha\) as \(\alpha\)
+
+   Pr = \(2(3\alpha^2(1 - \alpha) + \alpha^3))\) = \(6\alpha^2 - 4\alpha^3\)
