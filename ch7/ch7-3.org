@@ -1,0 +1,9 @@
+* ch7-3
+** 7.3-1
+   The randomized algorithm does not improve the worst-case running time, 
+   it just improve the equity of pivot selection.
+** 7.3-2
+   - worst-case
+     T(n) = T(n - 1) + 1 = \(\Theta(n)\)
+   - best-case
+     T(n) = 2T(n / 2) + 1 = \(\Theta(n)\)
