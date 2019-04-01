@@ -1,0 +1,34 @@
+* ch8-1
+** 8.1-1
+   The smallest depth is n
+** 8.1-2
+   - \(lg(n!) = \sum^{n}_{k=1}\lg k\)
+
+   - \(\sum^{n}_{k=1}\lg k\)
+
+     \(\leq \sum^{n}_{k=1}\lg n = n\lg n\)
+
+     \(\Rightarrow \lg(n!) = O(n\lg n)\)
+
+   - \(\sum^{n}_{k=1}\lg k\)
+
+     \(\geq \sum^{n}_{k=\frac{n}{2}}\lg k\)
+
+     \(\geq \sum^{n}_{k=\frac{n}{2}} \lg \frac{n}{2} = \frac{n}{2}(\lg n - 1)\)
+
+     \(\Rightarrow \lg(n!) = \Omega(n\lg n)\)
+   - \(\lg(n!) = \Theta(n\lg n)\)
+** 8.1-3
+   - \(h \geq lg(\frac{n!}{2} = \Theta(n\lg n) - 1)\)
+   - \(h \geq lg(\frac{n!}{n} = \Theta(n\lg n) - \lg n)\)
+   - \(h \geq lg(\frac{n!}{2^n} = \Theta(n\lg n) - n)\)
+** 8.1-4
+   The height of the decision tree is:
+
+   \(h \geq \lg((k!)^{\frac{n}{k}})\)
+
+   \(= \frac{n}{k} \lg(k!)\)
+
+   \(= \frac{n}{k} \Omega(k\lg k)\)
+
+   \(= \Omega(n\lg k)\)
