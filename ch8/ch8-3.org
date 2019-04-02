@@ -1,0 +1,39 @@
+* ch8-3
+** 8.3-1
+** 8.3-2
+   - The insertion-sort and merge-sort are stable, heapsort and quicksort are not stable
+   - Store the original index of each elements, if two elements are equal, compare the index
+
+     The running time is not asymptotically changed
+
+     The additional space is n * (space of an index) = \(n\lg n\) bits
+** 8.3-3
+   d digits elements array radix sort
+
+   - Base case
+     i = 1, sort the array on lowest-order digit means radix sorted
+   - Inductive step
+     + Assume k digits are radix sorted, do stable sort on i = k + 1 digit
+
+     + Consider comparison of two elements a and b, the ith bit is a_i and b_i
+
+       if a_i > b_i, then a > b
+
+       if a_i < b_i, then a < b
+
+       if a_i = b_i, then the order of a and b is same as they were in the k digits radix sort
+
+     + The array are k + 1 digits radix sorted
+   - By mathematical induction, the radix sort algorithm works
+   - The assumption that the intermediate sort is stable is needed when a_i = b_i
+** 8.3-4
+   \(T(n) = \Theta(\frac{b}{r}(n + 2^r)), b = 3\lg n\)
+
+   b > \lg n, so choose r = \lg n
+
+   \(T(n) = \Theta(\frac{3\lg n}{\lg n}(n + 2^{\lg n})) = \Theta(6n) = \Theta(n)\)
+
+   Perform 3-digit radix sort on the array, each digit is from 0 to n - 1
+** 8.3-5
+   - \(\sum^{d - 1}_{i = 0}10^i = \frac{10^d - 1}{9}\) sorting passes
+   - 10 piles of cards
