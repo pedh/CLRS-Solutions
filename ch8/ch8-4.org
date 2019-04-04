@@ -1,0 +1,17 @@
+* ch8-4
+** 8.4-1
+** 8.4-2
+   - When all elements falls to one bucket, the running time is \(\Theta(n^2)\)
+   - Use \(\Theta(n^2)\) sorting algorithm like heapsort or merge sort instead of insertion sort
+** 8.4-3
+   E[X] = 0 * 1/4 + 1 * 1/2 + 2 * 1/4 = 1
+
+   E[X^2] = 0 * 1/4 + 1 * 1/2 + 4 * 1/4 = 1.5
+
+   E^2[X] = (E[X])^2 = 1
+** 8.4-4
+   The possibility of points falls into a bucket is Pr[B] = Area(B) / Area(All) = Area(B) / \pi
+
+   The kth bucket is \(B_k \{\sqrt{\frac{i - 1}{n}} < d_i \leq \sqrt{\frac{i}{n}} \}\)
+** 8.4-5
+   P(B_i) = i / n
