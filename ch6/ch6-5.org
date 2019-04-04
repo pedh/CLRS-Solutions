@@ -26,4 +26,4 @@
        MAX-HEAPIFY(A, i)
    #+END_SRC
 ** 6.5-9
-
+   Keep tracking each the minimum element of the k arrays in k-size min heap.
