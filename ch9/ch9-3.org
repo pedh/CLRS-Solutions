@@ -1,0 +1,70 @@
+* ch9-3
+** 9.3-1
+   - When divided into groups of 7, We have
+     \(T(n) \leq T(n / 7) + T(5 n / 7 + 8) + O(n) = O(n)\)
+   - When divided into groups of 3, We have
+     \(T(n) \leq T(n / 3) + T(2 n / 3 + 4) + O(n)\), which is not O(n).
+** 9.3-2
+   \(n \geq 140\)
+   \(\Rightarrow \frac{3 n}{10} - 6 \geq \frac{n}{4} + 1\)
+   \(\Rightarrow \frac{3 n}{10} - 6 \geq \lceil \frac{n}{4} \rceil\)
+** 9.3-3
+   Use SELECT to decide the pivot.
+** 9.3-4
+   If we are using only comparisons to find the ith smallest element in a set 
+   of n elements, we can build a digraph from the elements to simulate the 
+   algorithm, each edge from vertex A[i] to vertex A[j] means A[i] < A[j], 
+   then there must be a path between each other element and the ith smallest 
+   element, thus the i - 1 smaller elements and the n - 1 larger elements is 
+   determined.
+** 9.3-5
+   Use MEDIAN to decide the pivot. ([[../codes/selection_use_median.py][implementation]])
+** 9.3-6
+   Perform selection and partition of the median on the n-elements, then 
+   recursively find quantiles on the left and right subarrays.
+
+   KTH-QUANTILES(A, k)
+   #+BEGIN_SRC
+   KTH-QUANTILES(A, k)
+       if k == 1
+           return empty-list
+       if 2 divide into k
+           i = median-index of A
+           median = SELECT(A, i)
+           PARTITION(A, med)
+           return APPEND(KTH-QUANTILES(A[:i], k // 2), [median], KTH-QUANTILES(A[i + 1:], k // 2))
+       i = left-index of the median slice
+       j = right-index of the median slice
+       left = SELECT(A, i)
+       right = SELECT(A, j)
+       PARTITION(A, left)
+       left-quantiles = KTH-QUANTILES(A[:i], k // 2)
+       PARTITION(A, right)
+       right-quantiles = KTH-QUANTILES(A[j + 1:], k // 2)
+       return APPEND(left-quantiles, [left, right], right-quantiles)
+   #+END_SRC
+
+   ([[../codes/kth_quantiles.py][implementation]])
+** 9.3-7
+   K-CLOSEST-TO-MEDIAN(A, k)
+   #+BEGIN_SRC 
+   K-CLOSEST-TO-MEDIAN(A, k)
+       med = SELECT(A, median-index of A)
+       x = SELECT(A, k) by ABS(A[i] - med)
+       PARTITION(A, x) by ABS(A[i] - med)
+       return A[1..k]
+   #+END_SRC
+** 9.3-8
+   MEDIAN-OF-TWO-ARRAYS(X, Y, n)
+   #+BEGIN_SRC
+   MEDIAN-OF-TWO-ARRAYS(X, Y)
+       if MEDIAN(X) == MEDIAN(Y):
+           return MEDIAN(X)
+       if MEDIAN(X) > MEDIAN(Y):
+           return MEDIAN-OF-TWO-ARRAYS(left half of X, right half of Y)
+       return MEDIAN-OF-TWO-ARRAYS(right half of X, left half of X)
+   #+END_SRC
+** 9.3-9
+   If n is odd, the y-coordinate of the main pipeline is the median of the n y-coordinates.
+   If n is even, the y-coordinate of the main pipeline can be any value between the two medians of the y-coordinates.
+
