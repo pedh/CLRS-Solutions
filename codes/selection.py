@@ -48,4 +48,4 @@ if __name__ == "__main__":
     random.shuffle(a)
     print(a)
     i = random.randint(1, n)
-    print("The %dth element is %d" %(i, select(a, i)))
+    print("The %dth element is %d" % (i, select(a, i)))
