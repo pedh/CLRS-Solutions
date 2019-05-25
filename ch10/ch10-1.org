@@ -1,0 +1,101 @@
+* ch10-1
+** 10.1-1
+   omitted
+** 10.1-2
+   One stack save the values in A from A[1] to A[n], the other one save the 
+   values in A from A[n] down to A[1]
+** 10.1-3
+   omitted
+** 10.1-4
+   #+BEGIN_SRC
+   QUEUE-EMPTY?(Q)
+       return (Q.head == Q.tail)
+   #+END_SRC
+   #+BEGIN_SRC
+   QUEUE-FULL?(Q)
+       return (((Q.tail + 1) % Q.length) == Q.head)
+   #+END_SRC
+   #+BEGIN_SRC
+   ENQUEUE(Q, x)
+       if QUEUE-FULL?(Q)
+           error "overflow"
+       Q[Q.tail] = x
+       if Q.tail == Q.length
+           Q.tail = 1
+       else Q.tail = Q.tail + 1
+   #+END_SRC
+   #+BEGIN_SRC
+   DEQUEUE(Q)
+       if QUEUE-EMPTY?(Q)
+           error "underflow"
+       x = Q[Q.head]
+       if Q.head == Q.length
+           Q.head = 1
+       else Q.head = Q.head + 1
+            return x
+   #+END_SRC
+** 10.1-5
+   The ENQUEUE and DEQUEUE procedures of deque is same as queue.
+   #+BEGIN_SRC
+   ENQUEUE-COUNTER(Q, x)
+       if QUEUE-FULL?(Q)
+           error "overflow"
+       if Q.head == 1
+           Q.head = Q.length
+       else Q.head = Q.head - 1
+       Q[Q.head] = x
+   #+END_SRC
+   #+BEGIN_SRC
+   DEQUEUE-COUNTER(Q)
+       if QUEUE-EMPTY?(Q)
+           error "underflow"
+       if Q.tail == 1
+           Q.tail = Q.length
+       else Q.tail = Q.tail - 1
+       return Q[Q.tail]
+   #+END_SRC
+** 10.1-6
+   #+BEGIN_SRC
+   ENQUEUE(S1, S2, x)
+       PUSH(S1, x)
+   #+END_SRC
+   #+BEGIN_SRC
+   DEQUEUE(S1, S2, x)
+       if STACK-EMPTY?(S2)
+           if STACK-EMPTY?(S1)
+               error "underflow"
+           while not STACK-EMPTY?(S1)
+               PUSH(S2, POP(S1))
+       return POP(S2)
+   #+END_SRC
+
+   The ENQUEUE has O(1) running time, the DEQUEUE has worst case O(n) running 
+   time, but has an expected O(1) running time on the good average case.
+** 10.1-7
+   Assume we have a QUEUE-EMPTY? procedure implemented for queue, else we need 
+   to label on the empty queue.
+   #+BEGIN_SRC
+   PUSH(Q1, Q2, x)
+       if QUEUE-EMPTY?(Q1)
+           ENQUEUE(Q1, x)
+       else ENQUEUE(Q2, x)
+   #+END_SRC
+   #+BEGIN_SRC
+   POP(Q1, Q2)
+       if QUEUE-EMPTY?(Q1)
+           if QUEUE-EMPTY?(Q2)
+               error "underflow"
+           x = nil
+           while not QUEUE-EMPTY?(Q2)
+               x = DEQUEUE(Q2)
+               ENQUEUE(Q1, x)
+           return x
+       // ensure the scope of variable x
+       x = nil
+       while not QUEUE-EMPTY?(Q1)
+           x = DEQUEUE(Q1)
+           ENQUEUE(Q2, x)
+       return x
+   #+END_SRC
+
+   The PUSH has O(1) running time, the POP has O(n) running time.
