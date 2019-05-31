@@ -1,0 +1,106 @@
+* ch10-2
+** 10.2-1
+   The dynamic-set INSERT operation can be simply implemented by a wrapped 
+   linked-list INSERT which has O(1) running time, the DELETE operation 
+   cannot be implemented as O(1) running time.
+** 10.2-2
+   PUSH: Insert
+
+   POP: Retrieve and delete from head
+** 10.2-3
+   ENQUEUE: Insert
+
+   DEQUEUE: Retrieve and delete from tail
+** 10.2-4
+   #+BEGIN_SRC
+   LIST-SEARCH'(L, k)
+       x = L.nil.next
+       L.nil.key = k
+       while x.key != k
+           x = x.next
+       return x
+   #+END_SRC
+** 10.2-5
+   #+BEGIN_SRC
+   INSERT(L, x)
+       LIST-INSERT(L, x)
+   #+END_SRC
+   #+BEGIN_SRC
+   DELETE(L, k)
+       x = LIST-SEARCH(L, k)
+       LIST-DELETE(L, x)
+   #+END_SRC
+   #+BEGIN_SRC
+   SEARCH(L, k)
+       return LIST-SEARCH(L, k)
+   #+END_SRC
+   The running time of INSERT is O(1), the running time of DELETE and SEARCH is O(n)
+** 10.2-6
+   Link the tail of S1 with the head of S2.
+** 10.2-7
+   #+BEGIN_SRC
+   REVERSE(L)
+       x = L.head
+       if x == NIL
+           return L
+       y = x.next
+       x.next = NIL
+       while y != NIL
+           ny = y.next
+           y.next = x
+           x = y
+           y = ny
+   #+END_SRC
+
+   ([[../codes/singly_linked_list_reverse.py][implementation]])
+** 10.2-8
+   The structure is as below
+   |--------+---------+---------+-----+--------------|
+   | p1     | p2      | p3      | ... | pn           |
+   |--------+---------+---------+-----+--------------|
+   | 0 ^ p2 | p1 ^ p3 | p2 ^ p4 | ... | p(n - 1) ^ 0 |
+   |--------+---------+---------+-----+--------------|
+
+   We need the pointer to the head to access the head of the list.
+
+   #+BEGIN_SRC
+   SEARCH(L, k)
+       x = L.head
+       y = NIL
+       while x != NIL and x.key != k
+           nx = x.np ^ y
+           y = x
+           x = nx
+       return x
+   #+END_SRC
+   #+BEGIN_SRC
+   INSERT(L, x)
+       y = L.head
+       x.np = y
+       if y == NIL
+           L.tail = x
+       else y.np = y.np ^ x
+       L.head = x
+   #+END_SRC
+   DELETE(L, x) still need to go through the list
+   #+BEGIN_SRC
+   DELETE(L, k)
+       px = NIL
+       x = L.head
+       while x != NIL
+           nx = x.np ^ px
+           if x.key == k
+               if px != NIL
+                   px.np = px.np ^ x ^ nx
+               else L.head = nx
+               if nx != NIL
+                   nx.np = nx.np ^ x ^ px
+               else L.tail = px
+               return
+           px = x
+           x = nx
+   #+END_SRC
+   #+BEGIN_SRC
+   REVERSE(L)
+       exchange L.head with L.tail
+   #+END_SRC
