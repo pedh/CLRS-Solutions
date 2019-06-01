@@ -13,7 +13,7 @@
        A[i] = key
        while i > 1 and A[PARENT(i)] < A[i]
            A[PARENT(i)] = A[i]
-	   i = PARENT(i)
+           i = PARENT(i)
        A[i] = key
    #+END_SRC
 ** 6.5-7

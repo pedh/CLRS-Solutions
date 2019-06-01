@@ -9,7 +9,7 @@
       QUICKSORT(A, p, r)
           if p < r
               q = HOARE-PARTITION(A, p, r)
-	      QUICKSORT(A, p, q)
+              QUICKSORT(A, p, q)
               QUICKSORT(A, q + 1, r)
       #+END_SRC
 ** 7-2
@@ -29,7 +29,7 @@
                   A[k] = y
               else if A[k] == x:
                   j = j + 1
-                  exchange A[j] with A[k]  
+                  exchange A[j] with A[k]
           exchange A[r] with A[j + 1]
           return i + 1, j + 1
       #+END_SRC
@@ -39,7 +39,7 @@
           if p < r
               q, t = RANDOMIZED-PARTITION'(A, p, r)
               QUICKSORT(A, p, q - 1)
-	      QUICKSORT(A, t + 1, r)
+              QUICKSORT(A, t + 1, r)
       #+END_SRC
       #+BEGIN_SRC
       RANDOMIZED-PARTITION'(A, p, r)
@@ -67,7 +67,7 @@
 
       = \(2/n\sum^{n - 1}_{q=2}E[T(q)] + \Theta(n)\)
    4. Two solutions
-      - \(\int x^n\ln x dx = \frac{x^{n + 1}}{n + 1}[(n + 1)\ln x - 1] + C\) 
+      - \(\int x^n\ln x dx = \frac{x^{n + 1}}{n + 1}[(n + 1)\ln x - 1] + C\)
 
         \(\because f'(x\lg x) = \frac{1}{\ln 2}(\ln x + 1) > 0 (x \geq 2)\)
 
@@ -79,7 +79,7 @@
 
         < \(\frac{n^2}{2} \lg{n} - \frac{1}{8}n^2\)
       - \(\sum^{n - 1}_{k = 2}k \lg{k}\)
-	
+
         \(\leq \sum^{n / 2}_{k = 2} k \lg (n / 2) + \sum^{n - 1}_{k = n / 2} k \lg n\)
 
         = \(\lg n \sum^{n - 1}_{k = 2} k - \sum^{n / 2}_{k = 2} k\)
@@ -114,15 +114,15 @@
       TAIL-RECURSIVE-QUICKSORT(A, p, r)
           q = partition(A, p, r)
           if q < (p + r) / 2
-              TAIL-RECURSIVE-QUICKSORT(A, p, q - 1)  
+              TAIL-RECURSIVE-QUICKSORT(A, p, q - 1)
               p = q + 1
           else TAIL-RECURSIVE-QUICKSORT(A, q + 1, r)
-               r = q - 1 
+               r = q - 1
       #+END_SRC
 ** 7-5
    1. \(p_i = \frac{(i - 1)(n - i)}{\binom{n}{3}}\)
    2. \(\lim_{n \to \infty} \frac{\frac{(i - 1)(n - i)}{\binom{n}{3}}}{\frac{1}{n}} = \frac{3}{2}\)
-   3. 
+   3.
       - The original possibility
 
         \(Pr = \int^{\frac{2 n}{3}}_{\frac{1 n}{3}} \frac{1}{n} = \frac{1}{3}\)

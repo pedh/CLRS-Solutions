@@ -47,7 +47,7 @@
    ([[../codes/kth_quantiles.py][implementation]])
 ** 9.3-7
    K-CLOSEST-TO-MEDIAN(A, k)
-   #+BEGIN_SRC 
+   #+BEGIN_SRC
    K-CLOSEST-TO-MEDIAN(A, k)
        med = SELECT(A, median-index of A)
        x = SELECT(A, k) by ABS(A[i] - med)
@@ -67,4 +67,3 @@
 ** 9.3-9
    If n is odd, the y-coordinate of the main pipeline is the median of the n y-coordinates.
    If n is even, the y-coordinate of the main pipeline can be any value between the two medians of the y-coordinates.
-

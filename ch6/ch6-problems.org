@@ -26,8 +26,8 @@
       #+BEGIN_SRC
       EXTRACT-MIN(Y)
           value = Y[1, 1]
-     	  Y[1, 1] = \infty
-     	  YOUNG-TABLEAUFY(Y, 1, 1)
+          Y[1, 1] = \infty
+          YOUNG-TABLEAUFY(Y, 1, 1)
       #+END_SRC
 
       #+BEGIN_SRC
@@ -38,7 +38,7 @@
               smallest-r = r + 1
           if c + 1 \leq Y.n and Y[r, c + 1] < Y[r, c]
               smallest-r = r
-          	  smallest-c = c + 1
+              smallest-c = c + 1
           if smallest-r \neq r or smallest-c \neq c
               exchange Y[smallest-r, smallest,c] with Y[r, c]
               YOUNG-TABLEAUFY(Y, smallest-r, smallest-c)

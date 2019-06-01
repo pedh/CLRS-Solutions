@@ -27,7 +27,7 @@ class BigInt(object):
         if z > 0:
             s.append(z)
         return BigInt(s)
-    
+
     @property
     def value(self):
         m = 1

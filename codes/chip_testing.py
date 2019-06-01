@@ -21,8 +21,8 @@ def good_chips(tr):
 def test_result(chips):
     cl = len(chips)
     return [chips if c == 1 else [random.randint(0, 1) for _ in range(cl)] for c in chips]
-    
-    
+
+
 if __name__ == "__main__":
     cl = 100
     bad = random.randint(0, cl // 2 - 1)
@@ -32,4 +32,3 @@ if __name__ == "__main__":
     print(chips)
     tr = test_result(chips)
     print(good_chips(tr))
-    

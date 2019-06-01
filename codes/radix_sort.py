@@ -42,7 +42,7 @@ def lexicographic_order(a):
             b += bt
         return b
     return lex_r(a, 0)
-        
+
 
 def random_string():
     return ''.join(random.choice(string.ascii_lowercase) for _ in range(random.randint(1, 10)))

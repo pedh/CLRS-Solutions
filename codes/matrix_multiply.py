@@ -140,7 +140,7 @@ def main():
     print(mx1)
     print(mx * mx1)
     print(sm(mx, mx1))
-            
+
 
 if __name__ == "__main__":
     main()
