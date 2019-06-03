@@ -1,0 +1,51 @@
+* ch10-3
+** 10.3-1
+   omitted
+** 10.3-2
+   #+BEGIN_SRC
+   ALLOCATE-OBJECT()
+       if free == NIL
+           error "out of space"
+       x = free
+       free = A[x + 1]
+       return x
+   #+END_SRC
+   #+BEGIN_SRC
+   FREE-OBJECT(x)
+       A[x + 1] = free
+       free = x
+   #+END_SRC
+** 10.3-3
+   The prev attribute is not necessary for stack
+** 10.3-4
+   #+BEGIN_SRC
+   ALLOCATE-OBJECT()
+       PUSH(S, NIL)
+       return S.top
+   #+END_SRC
+   #+BEGIN_SRC
+   FREE-OBJECT(x)
+       for i = x to S.top - 1
+           S[i] = S[i + 1]
+       S.top = S.top - 1
+   #+END_SRC
+** 10.3-5
+   #+BEGIN_SRC
+   COMPACTIFY-LIST(L, F)
+       lh = L.head
+       i = 1
+       while lh != NIL
+           if lh != A[i]
+               // Also update L.head and F.head if needed
+               EXCHANGE(lh, A[i])
+           lh = lh.next
+           i = i + 1
+   #+END_SRC
+   #+BEGIN_SRC
+   EXCHANGE(a, b)
+       a.prev.next = a.next.prev = b
+       b.prev.next = b.next.prev = a
+       exchange a with b
+   #+END_SRC
+   The procedure move items in L to the head n positions, and the items in 
+   F should be in the remaining positions because we use EXCHANGE to move items.
