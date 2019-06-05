@@ -1,3 +1,5 @@
+#+TITLE: Chapter 9 problems
+
 * ch9-problems
 ** 9-1
    1. Use best asymptotic worst-case \(O(n\lg n)\) running time sorting 

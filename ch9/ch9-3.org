@@ -1,3 +1,5 @@
+#+TITLE: Chapter 9.3
+
 * ch9-3
 ** 9.3-1
    - When divided into groups of 7, We have

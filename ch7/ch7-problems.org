@@ -1,3 +1,5 @@
+#+TITLE: Chapter 7 problems
+
 * ch7-problems
 ** 7-1
    1. omitted

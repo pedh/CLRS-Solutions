@@ -1,3 +1,5 @@
+#+TITLE: Chapter 6 problems
+
 * ch6-problems
 ** 6-1
 ** 6-2

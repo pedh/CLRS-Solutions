@@ -1,3 +1,5 @@
+#+TITLE: Chapter 9.2
+
 * ch9-2
 ** 9.2-1
    Assume we make a recursive call to 0-length array in line 8, 

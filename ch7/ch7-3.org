@@ -1,3 +1,5 @@
+#+TITLE: Chapter 7.3
+
 * ch7-3
 ** 7.3-1
    The randomized algorithm does not improve the worst-case running time, 

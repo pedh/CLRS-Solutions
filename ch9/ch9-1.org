@@ -1,3 +1,5 @@
+#+TITLE: Chapter 9.1
+
 * ch9-1
 ** 9.1-1
    Build a binary tree to find the smallest value, first split the n elements to pairs 
@@ -19,4 +21,3 @@
    If n is even, the number of comparisons is \(3n / 2 - 2\).
 
    Thus the lower bound is \(\lceil 3n / 2  \rceil - 2\).
-

@@ -1,3 +1,5 @@
+#+TITLE: Chapter 8 problems
+
 * ch8-problems
 ** 8-1
    1. There are n! premutations, the probability is the same 1 / n!

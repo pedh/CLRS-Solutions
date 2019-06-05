@@ -1,0 +1,30 @@
+#+TITLE: CLRS Solutions
+
+- ch10
+  - [[file:ch10/ch10-1.org][Chapter 10.1]]
+  - [[file:ch10/ch10-2.org][Chapter 10.2]]
+  - [[file:ch10/ch10-3.org][Chapter 10.3]]
+  - [[file:ch10/ch10-4.org][Chapter 10.4]]
+- ch6
+  - [[file:ch6/ch6-problems.org][Chapter 6 problems]]
+  - [[file:ch6/ch6-2.org][Chapter 6.2]]
+  - [[file:ch6/ch6-3.org][Chapter 6.3]]
+  - [[file:ch6/ch6-4.org][Chapter 6.4]]
+  - [[file:ch6/ch6-5.org][Chapter 6.5]]
+- ch7
+  - [[file:ch7/ch7-problems.org][Chapter 7 problems]]
+  - [[file:ch7/ch7-1.org][Chapter 7.1]]
+  - [[file:ch7/ch7-2.org][Chapter 7.2]]
+  - [[file:ch7/ch7-3.org][Chapter 7.3]]
+  - [[file:ch7/ch7-4.org][Chapter 7.4]]
+- ch8
+  - [[file:ch8/ch8-problems.org][Chapter 8 problems]]
+  - [[file:ch8/ch8-1.org][Chapter 8.1]]
+  - [[file:ch8/ch8-2.org][Chapter 8.2]]
+  - [[file:ch8/ch8-3.org][Chapter 8.3]]
+  - [[file:ch8/ch8-4.org][Chapter 8.4]]
+- ch9
+  - [[file:ch9/ch9-problems.org][Chapter 9 problems]]
+  - [[file:ch9/ch9-1.org][Chapter 9.1]]
+  - [[file:ch9/ch9-2.org][Chapter 9.2]]
+  - [[file:ch9/ch9-3.org][Chapter 9.3]]
