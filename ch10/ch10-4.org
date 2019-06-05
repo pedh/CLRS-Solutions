@@ -1,0 +1,32 @@
+* ch10-4
+** 10.4-1
+   omitted
+** 10.4-2
+   #+BEGIN_SRC
+   DISPLAY-BINARY-TREE(t)
+       DISPLAY-BINART-TREE-R(t.root)
+   #+END_SRC
+   #+BEGIN_SRC
+   DISPLAY-BINARY-TREE-R(r)
+       if r != NIL
+           DISPLAY-BINARY-TREE-R(r.left)
+           display(r.key)
+           DISPLAY-BINARY-TREE-R(r.right)
+   #+END_SRC
+** 10.4-3
+   #+BEGIN_SRC
+   DISPLAY-BINARY-TREE(t)
+   s = empty stack
+   PUSH(s, t.root)
+   while not STACK-EMPTY(s)
+       r = POP(s)
+       while r != NIL
+           PUSH(s, r)
+           r = r.left
+       if not STACK-EMPTY(s)
+           r = POP(s)
+           print(r.key)
+           PUSH(s, r.right)
+   #+END_SRC
+
+   ([[../codes/binary_tree.py][implementation]])
