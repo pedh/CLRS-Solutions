@@ -32,3 +32,38 @@
    #+END_SRC
 
    ([[../codes/binary_tree.py][implementation]])
+** 10.4-4
+   LCRS (left-child, right-sibling) tree is a special binary tree.
+   The traversal is the same as a normal binary tree.
+   #+BEGIN_SRC
+   DISPLAY-LCRS-TREE(t)
+   if t == NIL
+       return
+   print(t.key)
+   DISPLAY-LCRS-TREE(t.left_child)
+   DISPLAY-LCRS-TREE(t.right_sibling)
+   #+END_SRC
+** 10.4-5
+   We could use morris traversal, but the tree will be modified during the 
+   traversal.
+   The algorithm below needs the node has the pointer to its parent.
+   #+BEGIN_SRC
+   DISPLAY-BINARY-TREE-ITER(t)
+       cur = t.root
+       leftdone = FALSE
+       while cur != NIL
+           if leftdone == FALSE
+               while cur.left != NIL
+                   cur = cur.left
+           leftdone = TRUE
+           print(cur.key)
+           if cur.right != NIL
+               cur = cur.right
+               leftdone = FALSE
+           else while cur.parent != NIL and cur == cur.parent.right
+                    cur = cur.parent
+                cur = cur.parent
+   #+END_SRC
+** 10.4-6
+   We could identify the last sibling node by the boolean, 
+   its sibling pointer points to the parent.

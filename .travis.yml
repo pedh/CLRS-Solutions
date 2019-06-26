@@ -1,5 +1,6 @@
 language: generic
 sudo: false
+dist: xenial
 
 env:
   EMACS_VERSION=26.2
