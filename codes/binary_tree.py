@@ -112,6 +112,50 @@ def print_tree_in_order_iter(t):
             s.push(x.right)
 
 
+def print_tree_in_order_iter_no_stack(t):
+    """Morris Traversal"""
+    cur = t
+    while cur:
+        if not cur.left:
+            print(cur.key, end=' ')
+            cur = cur.right
+        else:
+            x = cur.left
+            while True:
+                if not x.right:
+                    x.right = cur
+                    cur = cur.left
+                    break
+                elif x.right == cur:
+                    x.right = None
+                    print(cur.key, end= ' ')
+                    cur = cur.right
+                    break
+                x = x.right
+
+
+def print_tree_in_pre_order_iter_no_stack(t):
+    """Morris Traversal"""
+    cur = t
+    while cur:
+        if not cur.left:
+            print(cur.key, end=' ')
+            cur = cur.right
+        else:
+            x = cur.left
+            while True:
+                if not x.right:
+                    x.right = cur
+                    print(cur.key, end= ' ')
+                    cur = cur.left
+                    break
+                elif x.right == cur:
+                    x.right = None
+                    cur = cur.right
+                    break
+                x = x.right
+
+
 if __name__ == "__main__":
     n = 20
     a = list(range(n))
@@ -132,4 +176,10 @@ if __name__ == "__main__":
     print('\n')
     print("iteration in order")
     print_tree_in_order_iter(t)
+    print('\n')
+    print("iteration in pre-order without stack")
+    print_tree_in_pre_order_iter_no_stack(t)
+    print('\n')
+    print("iteration in order without stack")
+    print_tree_in_order_iter_no_stack(t)
     print('\n')
