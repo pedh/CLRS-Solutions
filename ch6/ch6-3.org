@@ -1,7 +1,8 @@
 #+TITLE: Chapter 6.3
 
-* ch6-3
+* ch6.3
 ** 6.3-1
 ** 6.3-2
-The MAX-HEAPIFY was based on the premise that the left and right nodes of the root are already max heaps.
+   The MAX-HEAPIFY was based on the premise that the left and right nodes of the
+   root are already max heaps.
 ** 6.3-3

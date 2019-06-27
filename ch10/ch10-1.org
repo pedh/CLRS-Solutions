@@ -1,10 +1,10 @@
 #+TITLE: Chapter 10.1
 
-* ch10-1
+* ch10.1
 ** 10.1-1
    omitted
 ** 10.1-2
-   One stack save the values in A from A[1] to A[n], the other one save the 
+   One stack save the values in A from A[1] to A[n], the other one save the
    values in A from A[n] down to A[1]
 ** 10.1-3
    omitted
@@ -71,10 +71,10 @@
        return POP(S2)
    #+END_SRC
 
-   The ENQUEUE has O(1) running time, the DEQUEUE has worst case O(n) running 
+   The ENQUEUE has O(1) running time, the DEQUEUE has worst case O(n) running
    time, but has an expected O(1) running time on the good average case.
 ** 10.1-7
-   Assume we have a QUEUE-EMPTY? procedure implemented for queue, else we need 
+   Assume we have a QUEUE-EMPTY? procedure implemented for queue, else we need
    to label on the empty queue.
    #+BEGIN_SRC
    PUSH(Q1, Q2, x)

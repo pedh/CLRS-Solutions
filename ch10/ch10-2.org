@@ -1,9 +1,9 @@
 #+TITLE: Chapter 10.2
 
-* ch10-2
+* ch10.2
 ** 10.2-1
-   The dynamic-set INSERT operation can be simply implemented by a wrapped 
-   linked-list INSERT which has O(1) running time, the DELETE operation 
+   The dynamic-set INSERT operation can be simply implemented by a wrapped
+   linked-list INSERT which has O(1) running time, the DELETE operation
    cannot be implemented as O(1) running time.
 ** 10.2-2
    PUSH: Insert
@@ -36,7 +36,8 @@
    SEARCH(L, k)
        return LIST-SEARCH(L, k)
    #+END_SRC
-   The running time of INSERT is O(1), the running time of DELETE and SEARCH is O(n)
+   The running time of INSERT is O(1), the running time of DELETE and SEARCH
+   is O(n).
 ** 10.2-6
    Link the tail of S1 with the head of S2.
 ** 10.2-7

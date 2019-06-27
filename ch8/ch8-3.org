@@ -1,10 +1,12 @@
 #+TITLE: Chapter 8.3
 
-* ch8-3
+* ch8.3
 ** 8.3-1
 ** 8.3-2
-   - The insertion-sort and merge-sort are stable, heapsort and quicksort are not stable
-   - Store the original index of each elements, if two elements are equal, compare the index
+   - The insertion-sort and merge-sort are stable, heapsort and quicksort are
+     not stable.
+   - Store the original index of each elements, if two elements are equal,
+     compare the index.
 
      The running time is not asymptotically changed
 
@@ -23,11 +25,13 @@
 
        if a_i < b_i, then a < b
 
-       if a_i = b_i, then the order of a and b is same as they were in the k digits radix sort
+       if a_i = b_i, then the order of a and b is same as they were in the
+       k digits radix sort.
 
      + The array are k + 1 digits radix sorted
    - By mathematical induction, the radix sort algorithm works
-   - The assumption that the intermediate sort is stable is needed when a_i = b_i
+   - The assumption that the intermediate sort is stable is needed
+     when a_i = b_i
 ** 8.3-4
    \(T(n) = \Theta(\frac{b}{r}(n + 2^r)), b = 3\lg n\)
 

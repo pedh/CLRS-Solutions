@@ -10,6 +10,7 @@
 	 :publishing-function org-html-publish-to-html
 	 :author "pedh"
 	 :email "hcn518@gmail.com"
+	 :section-numbers nil
 	 :auto-sitemap t
 	 :sitemap-filename "index.org"
 	 :sitemap-title "CLRS Solutions"

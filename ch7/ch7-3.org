@@ -1,8 +1,8 @@
 #+TITLE: Chapter 7.3
 
-* ch7-3
+* ch7.3
 ** 7.3-1
-   The randomized algorithm does not improve the worst-case running time, 
+   The randomized algorithm does not improve the worst-case running time,
    it just improve the equity of pivot selection.
 ** 7.3-2
    - worst-case

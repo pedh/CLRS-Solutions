@@ -1,6 +1,6 @@
 #+TITLE: Chapter 10.3
 
-* ch10-3
+* ch10.3
 ** 10.3-1
    omitted
 ** 10.3-2
@@ -49,5 +49,5 @@
        b.prev.next = b.next.prev = a
        exchange a with b
    #+END_SRC
-   The procedure move items in L to the head n positions, and the items in 
+   The procedure move items in L to the head n positions, and the items in
    F should be in the remaining positions because we use EXCHANGE to move items.

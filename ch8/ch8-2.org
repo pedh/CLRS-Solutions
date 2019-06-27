@@ -1,10 +1,11 @@
 #+TITLE: Chapter 8.2
 
-* ch8-2
+* ch8.2
 ** 8.2-1
 ** 8.2-2
 ** 8.2-3
-   Not stable, elements with same value appear in reverse order as they were in original array
+   Not stable, elements with same value appear in reverse order as they were
+   in original array.
 ** 8.2-4
    Same as the logic in counting-sort, get the count, then accumulate
 

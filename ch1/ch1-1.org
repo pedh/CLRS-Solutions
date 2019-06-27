@@ -1,6 +1,6 @@
 #+TITLE: Chapter 1.1
 
-* ch1-1
+* ch1.1
 ** 1.1-1
    sorting: calculate class rank
 

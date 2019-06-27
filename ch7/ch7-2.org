@@ -1,6 +1,6 @@
 #+TITLE: Chapter 7.2
 
-* ch7-2
+* ch7.2
 ** 7.2-1
 ** 7.2-2
    \(\Theta(n^2)\)
@@ -11,5 +11,5 @@
 ** 7.2-4
 ** 7.2-5
 ** 7.2-6
-   More balanced than \(1 - \alpha\) to \(\alpha\) means the pivot is between \((\alpha n, (1 - \alpha) n)\), 
-   the probability is \(1 - 2\alpha\)
+   More balanced than \(1 - \alpha\) to \(\alpha\) means the pivot is between
+   \((\alpha n, (1 - \alpha) n)\), the probability is \(1 - 2\alpha\)

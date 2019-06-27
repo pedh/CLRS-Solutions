@@ -3,7 +3,8 @@
 * ch7-problems
 ** 7-1
    1. omitted
-   2. A[p..i] and A[j..q] is the elements already accessed, A[i..j] is the elements never accessed.
+   2. A[p..i] and A[j..q] is the elements already accessed, A[i..j] is the
+      elements never accessed.
    3. \(p - 1 \leq i < j < r\)
    4. \(A[p..j] \leq x\) and \(A[j + 1..r] \geq x\)
    5. QUICKSORT(A, p, r)
@@ -101,7 +102,8 @@
 
       \(\leq a n \lg n\) (let a large enough to dominate \(\Theta(n)\))
 ** 7-4
-   1. TAIL-RECURSIVE-QUICKSORT use a recursion to handle the left part, and a iteration to handle the right part
+   1. TAIL-RECURSIVE-QUICKSORT use a recursion to handle the left part, and a
+      iteration to handle the right part.
    2. TAIL-RECURSIVE-QUICKSORT(A, 1, n)
 
       -> TAIL-RECURSIVE-QUICKSORT(A, 1, n - 1)
@@ -135,7 +137,8 @@
              = \(\frac{n^2 (n + 1) - \frac{14}{27} n^3 - 2 n^2}{n (n - 1) (n - 2)}\)
 
         \(\lim_{n \to \infty}Pr = \frac{13}{27}\)
-   4. The median-of-3 method only improve the possibility of choosing a good pivot, the running time is still \(\Omega(n \lg n)\)
+   4. The median-of-3 method only improve the possibility of choosing a good
+      pivot, the running time is still \(\Omega(n \lg n)\)
 ** 7-6
    1. The FUZZY-SORT is similar with equal-elements-quicksort in problem 7-2
       #+BEGIN_SRC
@@ -172,6 +175,7 @@
 
       \(T(n) = T(n - k - i) + T(i) + \Theta(n)\)
 
-      k is not strongly related to n, so the expected running time is \(\Theta(n\lg n)\)
+      k is not strongly related to n, so the expected running time is
+      \(\Theta(n\lg n)\).
 
       when all elements overlapped, the running time is \(\Theta(n)\)

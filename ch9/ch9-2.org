@@ -1,13 +1,13 @@
 #+TITLE: Chapter 9.2
 
-* ch9-2
+* ch9.2
 ** 9.2-1
-   Assume we make a recursive call to 0-length array in line 8, 
-   then we have q - 1 < p, so k = q - p + 1 < (p + 1) -p + 1 = 2, 
+   Assume we make a recursive call to 0-length array in line 8,
+   then we have q - 1 < p, so k = q - p + 1 < (p + 1) -p + 1 = 2,
    and i < k, so i < 1, this is an illegal value.
 
-   Assume we make a recursive call to 0-length array in line 9, 
-   then we have r < q + 1, so k = q - p + 1 > r - p, and i > k, 
+   Assume we make a recursive call to 0-length array in line 9,
+   then we have r < q + 1, so k = q - p + 1 > r - p, and i > k,
    so i > r - p + 1, this is an illegal value.
 
    So RANDOMIZED-SELECT never makes a recursive call to a 0-length array.

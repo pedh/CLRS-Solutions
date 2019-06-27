@@ -1,6 +1,6 @@
 #+TITLE: Chapter 10.4
 
-* ch10-4
+* ch10.4
 ** 10.4-1
    omitted
 ** 10.4-2
@@ -44,7 +44,7 @@
    DISPLAY-LCRS-TREE(t.right_sibling)
    #+END_SRC
 ** 10.4-5
-   We could use morris traversal, but the tree will be modified during the 
+   We could use morris traversal, but the tree will be modified during the
    traversal.
    The algorithm below needs the node has the pointer to its parent.
    #+BEGIN_SRC
@@ -65,5 +65,5 @@
                 cur = cur.parent
    #+END_SRC
 ** 10.4-6
-   We could identify the last sibling node by the boolean, 
+   We could identify the last sibling node by the boolean,
    its sibling pointer points to the parent.

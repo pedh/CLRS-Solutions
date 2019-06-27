@@ -1,20 +1,22 @@
 #+TITLE: Chapter 9.1
 
-* ch9-1
+* ch9.1
 ** 9.1-1
-   Build a binary tree to find the smallest value, first split the n elements to pairs 
-   and put them on the bottom of the tree, then find the smaller element in the pair and 
-   put it on the parent node of the pair, keep reducing the elements until we get the top 
-   of the tree, that is the smallest value, the number of comparisons is 
-   \(\sum_{i = 1}^{\lg n}2^{i - 1} = n - 1\).
-  
-   Now we consider the second smallest value, the second smallest value is not smaller than 
-   other values except the smallest value, so the second smallest value must be compared to 
-   the smallest value in the tree or it will get to the top, so the smallest of the values 
-   compared to the smallest value in the tree will be the second smallest value, the number 
-   of comparisons we need is at most \(\lg n - 1\).
-  
-   The total number of comparisons is at most \(n + \lg n - 2\). ([[../codes/second_smallest_element.py][implementation]])
+   Build a binary tree to find the smallest value, first split the n elements
+   to pairs and put them on the bottom of the tree, then find the smaller
+   element in the pair and put it on the parent node of the pair, keep reducing
+   the elements until we get the top of the tree, that is the smallest value,
+   the number of comparisons is \(\sum_{i = 1}^{\lg n}2^{i - 1} = n - 1\).
+
+   Now we consider the second smallest value, the second smallest value is not
+   smaller than other values except the smallest value, so the second smallest
+   value must be compared to the smallest value in the tree or it will get to
+   the top, so the smallest of the values compared to the smallest value in the
+   tree will be the second smallest value, the number of comparisons we need is
+   at most \(\lg n - 1\).
+
+   The total number of comparisons is at most \(n + \lg n - 2\).
+   ([[../codes/second_smallest_element.py][implementation]])
 ** 9.1-2
    If n is odd, the number of comparisons is \(3\lfloor n / 2 \rfloor\).
 
