@@ -13,8 +13,8 @@
 	 :auto-sitemap t
 	 :sitemap-filename "index.org"
 	 :sitemap-title "CLRS Solutions"
-	 :html-link-up "/project/clrs"
-	 :html-link-home "/project/clrs"
+	 :html-link-up "/CLRS-Solutions"
+	 :html-link-home "/CLRS-Solutions"
 	 :html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"/css/org-info.css\" />"
 	 :infojs-opt "path:/js/org-info.js")
 	("static"
