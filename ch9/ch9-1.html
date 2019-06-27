@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-06-27 Thu 07:12 -->
+<!-- 2019-06-27 Thu 07:54 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 9.1</title>
@@ -333,47 +333,49 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgc1ba120">1. ch9-1</a>
+<li><a href="#orgaed7a0f">ch9-1</a>
 <ul>
-<li><a href="#org07bc740">1.1. 9.1-1</a></li>
-<li><a href="#org8a29eda">1.2. 9.1-2</a></li>
+<li><a href="#org4f7ec4f">9.1-1</a></li>
+<li><a href="#org691eb8e">9.1-2</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgc1ba120" class="outline-2">
-<h2 id="orgc1ba120"><span class="section-number-2">1</span> ch9-1</h2>
-<div class="outline-text-2" id="text-1">
+<div id="outline-container-orgaed7a0f" class="outline-2">
+<h2 id="orgaed7a0f">ch9-1</h2>
+<div class="outline-text-2" id="text-orgaed7a0f">
 </div>
-<div id="outline-container-org07bc740" class="outline-3">
-<h3 id="org07bc740"><span class="section-number-3">1.1</span> 9.1-1</h3>
-<div class="outline-text-3" id="text-1-1">
+<div id="outline-container-org4f7ec4f" class="outline-3">
+<h3 id="org4f7ec4f">9.1-1</h3>
+<div class="outline-text-3" id="text-org4f7ec4f">
 <p>
-Build a binary tree to find the smallest value, first split the n elements to pairs 
-and put them on the bottom of the tree, then find the smaller element in the pair and 
-put it on the parent node of the pair, keep reducing the elements until we get the top 
-of the tree, that is the smallest value, the number of comparisons is 
-\(\sum_{i = 1}^{\lg n}2^{i - 1} = n - 1\).
+Build a binary tree to find the smallest value, first split the n elements
+to pairs and put them on the bottom of the tree, then find the smaller
+element in the pair and put it on the parent node of the pair, keep reducing
+the elements until we get the top of the tree, that is the smallest value,
+the number of comparisons is \(\sum_{i = 1}^{\lg n}2^{i - 1} = n - 1\).
 </p>
 
 <p>
-Now we consider the second smallest value, the second smallest value is not smaller than 
-other values except the smallest value, so the second smallest value must be compared to 
-the smallest value in the tree or it will get to the top, so the smallest of the values 
-compared to the smallest value in the tree will be the second smallest value, the number 
-of comparisons we need is at most \(\lg n - 1\).
+Now we consider the second smallest value, the second smallest value is not
+smaller than other values except the smallest value, so the second smallest
+value must be compared to the smallest value in the tree or it will get to
+the top, so the smallest of the values compared to the smallest value in the
+tree will be the second smallest value, the number of comparisons we need is
+at most \(\lg n - 1\).
 </p>
 
 <p>
-The total number of comparisons is at most \(n + \lg n - 2\). (<a href="../codes/second_smallest_element.py">implementation</a>)
+The total number of comparisons is at most \(n + \lg n - 2\).
+(<a href="../codes/second_smallest_element.py">implementation</a>)
 </p>
 </div>
 </div>
-<div id="outline-container-org8a29eda" class="outline-3">
-<h3 id="org8a29eda"><span class="section-number-3">1.2</span> 9.1-2</h3>
-<div class="outline-text-3" id="text-1-2">
+<div id="outline-container-org691eb8e" class="outline-3">
+<h3 id="org691eb8e">9.1-2</h3>
+<div class="outline-text-3" id="text-org691eb8e">
 <p>
 If n is odd, the number of comparisons is \(3\lfloor n / 2 \rfloor\).
 </p>
@@ -391,7 +393,7 @@ Thus the lower bound is \(\lceil 3n / 2  \rceil - 2\).
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2019-06-27 Thu 07:12</p>
+<p class="date">Created: 2019-06-27 Thu 07:54</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

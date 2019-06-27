@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-06-27 Thu 07:12 -->
+<!-- 2019-06-27 Thu 07:54 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 8 problems</title>
@@ -333,28 +333,28 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org9279fc1">1. ch8-problems</a>
+<li><a href="#orgd5c285c">ch8-problems</a>
 <ul>
-<li><a href="#org98c2132">1.1. 8-1</a></li>
-<li><a href="#orge816769">1.2. 8-2</a></li>
-<li><a href="#org9cbef5a">1.3. 8-3</a></li>
-<li><a href="#orga6b8eb9">1.4. 8-4</a></li>
-<li><a href="#org5c1a7a1">1.5. 8-5</a></li>
-<li><a href="#org0575595">1.6. 8-6</a></li>
-<li><a href="#orgff6df42">1.7. 8-7</a></li>
+<li><a href="#org6c80da6">8-1</a></li>
+<li><a href="#org59f9136">8-2</a></li>
+<li><a href="#orgbfeccda">8-3</a></li>
+<li><a href="#org000a751">8-4</a></li>
+<li><a href="#org8f5757b">8-5</a></li>
+<li><a href="#orgeac651b">8-6</a></li>
+<li><a href="#orgb4c24b4">8-7</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org9279fc1" class="outline-2">
-<h2 id="org9279fc1"><span class="section-number-2">1</span> ch8-problems</h2>
-<div class="outline-text-2" id="text-1">
+<div id="outline-container-orgd5c285c" class="outline-2">
+<h2 id="orgd5c285c">ch8-problems</h2>
+<div class="outline-text-2" id="text-orgd5c285c">
 </div>
-<div id="outline-container-org98c2132" class="outline-3">
-<h3 id="org98c2132"><span class="section-number-3">1.1</span> 8-1</h3>
-<div class="outline-text-3" id="text-1-1">
+<div id="outline-container-org6c80da6" class="outline-3">
+<h3 id="org6c80da6">8-1</h3>
+<div class="outline-text-3" id="text-org6c80da6">
 <ol class="org-ol">
 <li>There are n! premutations, the probability is the same 1 / n!</li>
 <li><p>
@@ -383,11 +383,13 @@ d(k)
 </p>
 
 <p>
-= \(min_{1 \leq i \leq k - 1}\{D(LT) + D(RT) + k\}\) (We could choose 1 to k - 1 leaves for left node)
+= \(min_{1 \leq i \leq k - 1}\{D(LT) + D(RT) + k\}\)
+  (We could choose 1 to k - 1 leaves for left node)
 </p>
 
 <p>
-= \(min_{1 \leq i \leq k - 1}\{min(D(LT)) + min(D(RT) + k)\}\) (The shapes of left node tree and right node tree are arbitrary)
+= \(min_{1 \leq i \leq k - 1}\{min(D(LT)) + min(D(RT) + k)\}\)
+  (The shapes of left node tree and right node tree are arbitrary)
 </p>
 
 <p>
@@ -414,7 +416,8 @@ Then we use substitution method to prove \(d(k) = \Omega(k\lg k)\)
 </p>
 
 <ul class="org-ul">
-<li>First we assume that \(d(i) \geq c i\lg i\) for some constant c when \(i \in [1, k - 1]\)</li>
+<li>First we assume that \(d(i) \geq c i\lg i\) for some constant c
+when \(i \in [1, k - 1]\)</li>
 
 <li><p>
 Base case
@@ -450,15 +453,17 @@ Inductive step
 <li>Thus \(d(k) = \Omega{k\lg k}\)</li>
 </ul></li>
 <li>T<sub>A</sub> has n! leaves, so \(D(T_A) = \Omega(n!\lg(n!))\),
-the average-case time to sort n elements is \(\frac{D(T_A)}{n!} = \Omega(lg(n!)) = \Omega(n\lg n)\)</li>
-<li>The needed leaves is not reduced from a randomized node to its child, 
-so the randomized node could be replaced by a deterministic node with any one of its children</li>
+the average-case time to sort n elements is
+\(\frac{D(T_A)}{n!} = \Omega(lg(n!)) = \Omega(n\lg n)\)</li>
+<li>The needed leaves is not reduced from a randomized node to its child,
+so the randomized node could be replaced by a deterministic node with
+any one of its children.</li>
 </ol>
 </div>
 </div>
-<div id="outline-container-orge816769" class="outline-3">
-<h3 id="orge816769"><span class="section-number-3">1.2</span> 8-2</h3>
-<div class="outline-text-3" id="text-1-2">
+<div id="outline-container-org59f9136" class="outline-3">
+<h3 id="org59f9136">8-2</h3>
+<div class="outline-text-3" id="text-org59f9136">
 <ol class="org-ol">
 <li>couting sort</li>
 <li>insertion sort</li>
@@ -490,13 +495,13 @@ The algorithm is not stable
 </ol>
 </div>
 </div>
-<div id="outline-container-org9cbef5a" class="outline-3">
-<h3 id="org9cbef5a"><span class="section-number-3">1.3</span> 8-3</h3>
-<div class="outline-text-3" id="text-1-3">
+<div id="outline-container-orgbfeccda" class="outline-3">
+<h3 id="orgbfeccda">8-3</h3>
+<div class="outline-text-3" id="text-orgbfeccda">
 <ol class="org-ol">
 <li><p>
-First sort and group the elements by the number of digits, 
-Then do radix sort on each group. 
+First sort and group the elements by the number of digits,
+Then do radix sort on each group.
 </p>
 
 <p>
@@ -508,17 +513,20 @@ The running time is T(n) = \(\Theta(\sum^{k}_{i = 1}D_i C_i) = \Theta(n)\)
 </ol>
 </div>
 </div>
-<div id="outline-container-orga6b8eb9" class="outline-3">
-<h3 id="orga6b8eb9"><span class="section-number-3">1.4</span> 8-4</h3>
-<div class="outline-text-3" id="text-1-4">
+<div id="outline-container-org000a751" class="outline-3">
+<h3 id="org000a751">8-4</h3>
+<div class="outline-text-3" id="text-org000a751">
 <ol class="org-ol">
 <li>Brute force</li>
 <li>Build an decision tree of the problem
 <ul class="org-ul">
-<li>One comparison of a red water jug and a blue water jug generates three results (&gt;, &lt; and =), 
-so in this decision tree a node has at most three children</li>
-<li>There are n! possible results of the pairs, so the number of leaves is n!</li>
-<li>The heigit of decision tree is h, which \(3^h \geq n!\), \(h = \Omega(n\lg n)\)</li>
+<li>One comparison of a red water jug and a blue water jug generates
+three results (&gt;, &lt; and =), so in this decision tree a node has at most
+three children.</li>
+<li>There are n! possible results of the pairs,
+so the number of leaves is n!</li>
+<li>The heigit of decision tree is h, which \(3^h \geq n!\),
+\(h = \Omega(n\lg n)\)</li>
 <li>Thus the lower bound is \(\Omega(n\lg n)\)</li>
 </ul></li>
 <li><p>
@@ -544,15 +552,15 @@ FIND-WATER-JUGS-GROUPS(R, B)
     FIND-WATER-JUGS-GROUPS(RR. BR)
 </pre>
 <p>
-The expected number of comparisons is \(\Theta(n\lg n)\), 
+The expected number of comparisons is \(\Theta(n\lg n)\),
 the worst-case number of comparisons is \(\Theta(n^2)\)
 </p></li>
 </ol>
 </div>
 </div>
-<div id="outline-container-org5c1a7a1" class="outline-3">
-<h3 id="org5c1a7a1"><span class="section-number-3">1.5</span> 8-5</h3>
-<div class="outline-text-3" id="text-1-5">
+<div id="outline-container-org8f5757b" class="outline-3">
+<h3 id="org8f5757b">8-5</h3>
+<div class="outline-text-3" id="text-org8f5757b">
 <ol class="org-ol">
 <li>1-sorted means normal sorted</li>
 <li>{5, 1, 6, 2, 7, 8, 4, 9, 10}</li>
@@ -563,17 +571,19 @@ k-sorted means \(\sum_{j = i + 1}^{i + k}A[j] - \sum_{j = i}^{i + k - 1}A[j] = A
 <p>
 \(\Rightarrow (\forall i\in [1, n - k])[A[i] \leq A[i + k]]\)
 </p></li>
-<li>The problem is equivilant to get k * (sorting n / k size array), 
-when use O(nlg n) sorting algorithm to sort the n / k size array, 
-the running time is \(T(n) = k\frac{n}{k}\lg \frac{n}{k} = n\lg \frac{n}{k}\)</li>
-<li>Use the solution to exercise 6.5-9, the running time is \(T(n) = O(k) + O(n\lg k) = O(n\lg k)\)</li>
+<li>The problem is equivilant to get k * (sorting n / k size array),
+when use O(nlg n) sorting algorithm to sort the n / k size array,
+the running time is
+\(T(n) = k\frac{n}{k}\lg \frac{n}{k} = n\lg \frac{n}{k}\)</li>
+<li>Use the solution to exercise 6.5-9,
+the running time is \(T(n) = O(k) + O(n\lg k) = O(n\lg k)\)</li>
 <li>\(T(n) = \Omega(n\lg(n / k)) = \Omega(n(\lg n - \lg k)) = \Omega(n\lg n)\)</li>
 </ol>
 </div>
 </div>
-<div id="outline-container-org0575595" class="outline-3">
-<h3 id="org0575595"><span class="section-number-3">1.6</span> 8-6</h3>
-<div class="outline-text-3" id="text-1-6">
+<div id="outline-container-orgeac651b" class="outline-3">
+<h3 id="orgeac651b">8-6</h3>
+<div class="outline-text-3" id="text-orgeac651b">
 <ol class="org-ol">
 <li>\(\binom{2 n}{n}\) possible ways</li>
 <li><p>
@@ -583,52 +593,59 @@ The height of the decision tree is h, which \(2^h \geq \binom{2 n}{n}\)
 <p>
 \(h \geq \lg \binom{2 n}{n} = 2 n - o(n)\)
 </p></li>
-<li>The two elements are consecutive means their order can't be decided by comparing to other elements, 
-and they are in different lists means their order is unknown, so they must be compared</li>
-<li>Consider the merged list of A and B is formed by (A[1], B[1], A[2], B[2]&#x2026;A[n], B[n]), 
-2n - 1 comparisons is required.</li>
+<li>The two elements are consecutive means their order can't be decided by
+comparing to other elements, and they are in different lists means their
+order is unknown, so they must be compared.</li>
+<li>Consider the merged list of A and B is formed by
+(A[1], B[1], A[2], B[2]&#x2026;A[n], B[n]), 2n - 1 comparisons is required.</li>
 </ol>
 </div>
 </div>
-<div id="outline-container-orgff6df42" class="outline-3">
-<h3 id="orgff6df42"><span class="section-number-3">1.7</span> 8-7</h3>
-<div class="outline-text-3" id="text-1-7">
+<div id="outline-container-orgb4c24b4" class="outline-3">
+<h3 id="orgb4c24b4">8-7</h3>
+<div class="outline-text-3" id="text-orgb4c24b4">
 <ol class="org-ol">
-<li>A[q] is put to the wrong location too, 
+<li>A[q] is put to the wrong location too,
 and A[p] is smallest belong all the wrong elements, so A[p] &lt; A[q]</li>
 <li><p>
-If every 0-1 sequence of array A is sorted by X, then array A is sorted by X
+If every 0-1 sequence of array A is sorted by X,
+then array A is sorted by X.
 </p>
 
 <p>
 B[p] &lt; B[q] and p &gt; q, so X fails to sort B
 </p></li>
-<li>The result after each step does not change if we are using compare-exchange 
-algorithm in the odd steps or not, so we can treat columnsort as an oblivious 
-compare-exchange algorithm</li>
+<li>The result after each step does not change if we are using
+compare-exchange, algorithm in the odd steps or not, so we can treat
+columnsort as an oblivious compare-exchange algorithm.</li>
 <li>Proofs
 <ul class="org-ul">
 <li>After step 1, all columns contains only one 0 -&gt; 1 transition</li>
-<li>After step 2, each column is transposed to r / s rows, only one of this rows is dirty</li>
-<li>After step 3, all columns are composed to 0 -&gt; 1 transition again, all the zeros are 
-on the top, and all the ones are on the bottom. The dirty rows come from the differences 
-between the numbers of zeros and ones of every columns. From the result of step 2, we 
-know the difference is at most s, so there are at most s dirty rows.</li>
+<li>After step 2, each column is transposed to r / s rows,
+only one of this rows is dirty</li>
+<li>After step 3, all columns are composed to 0 -&gt; 1 transition again,
+all the zeros are on the top, and all the ones are on the bottom.
+The dirty rows come from the differences between the numbers of zeros
+and ones of every columns. From the result of step 2, we know the
+difference is at most s, so there are at most s dirty rows.</li>
 </ul></li>
-<li>There are at most s dirty rows in after step 3, so after step 4 the dirty area has at most 
-s<sup>2</sup> elements</li>
-<li>The dirty area after step 5 places in tow kinds of position: between a column or ranges from 
-a column to the next column, the first kind of dirty area is cleaned after step 5, the second 
-kind of dirty area is cleaned after steps 6-8</li>
-<li>If s does not divide r, the row generated by the cross of the original adjacent columns may 
-also be dirty, the number of rows from this situation is at most s - 1, so the total number of 
-dirty rows is at most 2s - 1, to hold these dirty rows, r must be at least \(2s(2s - 1)\)</li>
-<li>Take out some elements from the array to let the numbers of elements in the array meet the 
-requirement of division, perform columnsort, and at last put the taken elements in the right 
-place of the sorted array</li>
+<li>There are at most s dirty rows in after step 3, so after step 4 the dirty
+area has at most s<sup>2</sup> elements.</li>
+<li>The dirty area after step 5 places in tow kinds of position: between a
+column or ranges from a column to the next column, the first kind of dirty
+area is cleaned after step 5, the second kind of dirty area is cleaned
+after steps 6-8.</li>
+<li>If s does not divide r, the row generated by the cross of the original
+adjacent columns may also be dirty, the number of rows from this situation
+is at most s - 1, so the total number of dirty rows is at most 2s - 1,
+to hold these dirty rows, r must be at least \(2s(2s - 1)\).</li>
+<li>Take out some elements from the array to let the numbers of elements in
+the array meet the requirement of division, perform columnsort, and at
+last put the taken elements in the right place of the sorted array.</li>
 </ol>
 <p>
-This algorithm can benefit from parallel processing (<a href="../codes/columnsort.c">implementation</a>)
+This algorithm can benefit from parallel processing
+(<a href="../codes/columnsort.c">implementation</a>)
 </p>
 </div>
 </div>
@@ -636,7 +653,7 @@ This algorithm can benefit from parallel processing (<a href="../codes/columnsor
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2019-06-27 Thu 07:12</p>
+<p class="date">Created: 2019-06-27 Thu 07:54</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

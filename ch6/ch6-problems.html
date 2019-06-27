@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-06-27 Thu 07:12 -->
+<!-- 2019-06-27 Thu 07:54 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 6 problems</title>
@@ -333,27 +333,27 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org032fa1d">1. ch6-problems</a>
+<li><a href="#orga8d1460">ch6-problems</a>
 <ul>
-<li><a href="#orga7f9824">1.1. 6-1</a></li>
-<li><a href="#org7bdf1c0">1.2. 6-2</a></li>
-<li><a href="#orgafb71c6">1.3. 6-3</a></li>
+<li><a href="#org72768f2">6-1</a></li>
+<li><a href="#orgc628698">6-2</a></li>
+<li><a href="#org94ad317">6-3</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org032fa1d" class="outline-2">
-<h2 id="org032fa1d"><span class="section-number-2">1</span> ch6-problems</h2>
-<div class="outline-text-2" id="text-1">
+<div id="outline-container-orga8d1460" class="outline-2">
+<h2 id="orga8d1460">ch6-problems</h2>
+<div class="outline-text-2" id="text-orga8d1460">
 </div>
-<div id="outline-container-orga7f9824" class="outline-3">
-<h3 id="orga7f9824"><span class="section-number-3">1.1</span> 6-1</h3>
+<div id="outline-container-org72768f2" class="outline-3">
+<h3 id="org72768f2">6-1</h3>
 </div>
-<div id="outline-container-org7bdf1c0" class="outline-3">
-<h3 id="org7bdf1c0"><span class="section-number-3">1.2</span> 6-2</h3>
-<div class="outline-text-3" id="text-1-2">
+<div id="outline-container-orgc628698" class="outline-3">
+<h3 id="orgc628698">6-2</h3>
+<div class="outline-text-3" id="text-orgc628698">
 <ol class="org-ol">
 <li><p>
 define PARENT(i) and CHILD(i, j) as below
@@ -369,24 +369,27 @@ CHILD(i, j)
     return n * (i - 1) + j + 1
 </pre></li>
 <li>\(\lceil\log_{d}(n(d - 1) + 1)\rceil\)</li>
-<li>Same as the binary heap EXTRACT-MAX, the d-ary MAX-HEAPIFY procedure contains a max-of-d-elements
-calculation, which has \(\Theta(d)\) running time, so the running time of d-ary EXTRACT-MAX is \(\Theta(d\log_{d}n)\)</li>
+<li>Same as the binary heap EXTRACT-MAX, the d-ary MAX-HEAPIFY procedure
+contains a max-of-d-elements calculation, which has \(\Theta(d)\) running
+time, so the running time of d-ary EXTRACT-MAX is \(\Theta(d\log_{d}n)\)</li>
 <li>Same as the binary heap INSERT, the running time is \(\Theta(\log_{d}n)\)</li>
 <li>Still the same as binary heap, the running time is \(\Theta(\log_{d}n)\)</li>
 </ol>
 </div>
 </div>
-<div id="outline-container-orgafb71c6" class="outline-3">
-<h3 id="orgafb71c6"><span class="section-number-3">1.3</span> 6-3</h3>
-<div class="outline-text-3" id="text-1-3">
+<div id="outline-container-org94ad317" class="outline-3">
+<h3 id="org94ad317">6-3</h3>
+<div class="outline-text-3" id="text-org94ad317">
 <ol class="org-ol">
 <li>omitted</li>
 <li><p>
-\(\forall(Y[x, y])[Y[x, y] \geq Y[1, 1]]\) and \(Y[1, 1]=\infty\), so Y is empty
+\(\forall(Y[x, y])[Y[x, y] \geq Y[1, 1]]\) and \(Y[1, 1]=\infty\),
+so Y is empty
 </p>
 
 <p>
-\(\forall(Y[x, y])[Y[x, y] \leq Y[m, n]]\) and \(Y[m, n]<\infty\), so Y is full
+\(\forall(Y[x, y])[Y[x, y] \leq Y[m, n]]\) and \(Y[m, n]<\infty\),
+so Y is full
 </p></li>
 <li><p>
 EXTRACT-MIN(Y)
@@ -413,19 +416,24 @@ YOUNG-TABLEAUFY(Y, r, c)
 </pre>
 <p>
 T(P) = T(next-P) + O(1)
-Worst case is from YOUNG-TABLEAUFY(Y, 1, 1) recursively calling to YOUNG-TABLE(Y, m, n), the running time is O(m + n)
+Worst case is from YOUNG-TABLEAUFY(Y, 1, 1) recursively calling to
+YOUNG-TABLE(Y, m, n), the running time is O(m + n)
 </p></li>
-<li>Like above, first put the element to the lower right corner, then keep exchanging with the min(left, upper, self) element</li>
+<li>Like above, first put the element to the lower right corner, then keep
+exchanging with the min(left, upper, self) element</li>
 <li><p>
-First create a n * n young tableau Y, set all elements to &infin;, this step is &Theta;(n<sup>2</sup>) running time
+First create a n * n young tableau Y, set all elements to &infin;, this
+step is &Theta;(n<sup>2</sup>) running time.
 </p>
 
 <p>
-Then for all the numbers, do INSERT(Y, number), this step is O(n<sup>2</sup> * 2n) = O(n<sup>3</sup>) running time
+Then for all the numbers, do INSERT(Y, number), this step is
+O(n<sup>2</sup> * 2n) = O(n<sup>3</sup>) running time.
 </p>
 
 <p>
-At last, for 1 to n<sup>2</sup>, do EXTRACT-MIN(Y), this step is O(n<sup>2</sup> * 2n) = O(n<sup>3</sup>) running time
+At last, for 1 to n<sup>2</sup>, do EXTRACT-MIN(Y), this step is
+O(n<sup>2</sup> * 2n) = O(n<sup>3</sup>) running time.
 </p>
 
 <p>
@@ -453,7 +461,7 @@ EXISTS(Y, number)
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2019-06-27 Thu 07:12</p>
+<p class="date">Created: 2019-06-27 Thu 07:54</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
