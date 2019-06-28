@@ -1,0 +1,9 @@
+#+TITLE: Chapter 1.2
+
+* ch1.2
+** 1.2-1
+   Shuffle mode music player.
+** 1.2-2
+   For \(n \in [2, 43]\).
+** 1.2-3
+   15
