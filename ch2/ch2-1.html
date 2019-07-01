@@ -6,7 +6,7 @@
 <!-- 2019-07-01 Mon 06:45 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Chapter 8.4</title>
+<title>Chapter 2.1</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="pedh" />
 <style type="text/css">
@@ -299,28 +299,6 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
-
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
-</script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -328,77 +306,283 @@ for the JavaScript code in this tag.
  |
  <a accesskey="H" href="/CLRS-Solutions"> HOME </a>
 </div><div id="content">
-<h1 class="title">Chapter 8.4</h1>
+<h1 class="title">Chapter 2.1</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgd0c6b32">ch8.4</a>
+<li><a href="#orgcc00973">ch2.1</a>
 <ul>
-<li><a href="#orga21ba9c">8.4-1</a></li>
-<li><a href="#org99526c4">8.4-2</a></li>
-<li><a href="#org5fb61a3">8.4-3</a></li>
-<li><a href="#orgcd7f608">8.4-4</a></li>
-<li><a href="#org2cbacaa">8.4-5</a></li>
+<li><a href="#org9c26980">2.1-1</a></li>
+<li><a href="#org80deedc">2.1-2</a></li>
+<li><a href="#orge57ce2b">2.1-3</a></li>
+<li><a href="#orgd7f4e44">2.1-4</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgd0c6b32" class="outline-2">
-<h2 id="orgd0c6b32">ch8.4</h2>
-<div class="outline-text-2" id="text-orgd0c6b32">
+<div id="outline-container-orgcc00973" class="outline-2">
+<h2 id="orgcc00973">ch2.1</h2>
+<div class="outline-text-2" id="text-orgcc00973">
 </div>
-<div id="outline-container-orga21ba9c" class="outline-3">
-<h3 id="orga21ba9c">8.4-1</h3>
-</div>
-<div id="outline-container-org99526c4" class="outline-3">
-<h3 id="org99526c4">8.4-2</h3>
-<div class="outline-text-3" id="text-org99526c4">
-<ul class="org-ul">
-<li>When all elements falls to one bucket, the running time is \(\Theta(n^2)\)</li>
-<li>Use \(\Theta(n^2)\) sorting algorithm like heapsort or merge sort instead
-of insertion sort</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-org5fb61a3" class="outline-3">
-<h3 id="org5fb61a3">8.4-3</h3>
-<div class="outline-text-3" id="text-org5fb61a3">
+<div id="outline-container-org9c26980" class="outline-3">
+<h3 id="org9c26980">2.1-1</h3>
+<div class="outline-text-3" id="text-org9c26980">
 <p>
-E[X] = 0 * 1/4 + 1 * 1/2 + 2 * 1/4 = 1
+(a)
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-right">31</td>
+<td class="org-left"><b>41</b></td>
+<td class="org-right">59</td>
+<td class="org-right">26</td>
+<td class="org-right">41</td>
+<td class="org-right">58</td>
+</tr>
+</tbody>
+</table>
+<p>
+(b)
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-right">31</td>
+<td class="org-right">41</td>
+<td class="org-left"><b>59</b></td>
+<td class="org-right">26</td>
+<td class="org-right">41</td>
+<td class="org-right">58</td>
+</tr>
+</tbody>
+</table>
+<p>
+(c)
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-right">31</td>
+<td class="org-right">41</td>
+<td class="org-right">59</td>
+<td class="org-left"><b>26</b></td>
+<td class="org-right">41</td>
+<td class="org-right">58</td>
+</tr>
+</tbody>
+</table>
+<p>
+(d)
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-right">26</td>
+<td class="org-right">31</td>
+<td class="org-right">41</td>
+<td class="org-right">59</td>
+<td class="org-left"><b>41</b></td>
+<td class="org-right">58</td>
+</tr>
+</tbody>
+</table>
+<p>
+(e)
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-right">26</td>
+<td class="org-right">31</td>
+<td class="org-right">41</td>
+<td class="org-right">41</td>
+<td class="org-right">59</td>
+<td class="org-left"><b>58</b></td>
+</tr>
+</tbody>
+</table>
+<p>
+(f)
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-right">26</td>
+<td class="org-right">31</td>
+<td class="org-right">41</td>
+<td class="org-right">41</td>
+<td class="org-right">58</td>
+<td class="org-right">59</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-org80deedc" class="outline-3">
+<h3 id="org80deedc">2.1-2</h3>
+<div class="outline-text-3" id="text-org80deedc">
+<pre class="example">
+INSERTION-SORT(A)
+    for j = 2 to A.length
+    key = A[j]
+    // Insert A[j] into the sorted sequence A[1..j - 1].
+    i = j - 1
+    while i &gt; 0 and A[i] &lt; key
+	A[i + 1] = A[i]
+	i = i - 1
+    A[i + 1] = key
+</pre>
+</div>
+</div>
+<div id="outline-container-orge57ce2b" class="outline-3">
+<h3 id="orge57ce2b">2.1-3</h3>
+<div class="outline-text-3" id="text-orge57ce2b">
+<pre class="example">
+LINEAR-SEARCH(A, v)
+    for i = 1 to A.length
+	if A[i] == v:
+	    return i
+    return NIL
+</pre>
+
+<p>
+<b>Loop Invariant:</b> At the start of each iteration, the elements in subarray
+A[1..i - 1] are all different from v.
 </p>
 
 <p>
-E[X<sup>2</sup>] = 0 * 1/4 + 1 * 1/2 + 4 * 1/4 = 1.5
+<b>Initialization:</b> The subarray A[1..i - 1] is empty.
 </p>
 
 <p>
-E<sup>2</sup>[X] = (E[X])<sup>2</sup> = 1
-</p>
-</div>
-</div>
-<div id="outline-container-orgcd7f608" class="outline-3">
-<h3 id="orgcd7f608">8.4-4</h3>
-<div class="outline-text-3" id="text-orgcd7f608">
-<p>
-The possibility of points falls into a bucket is
-Pr[B] = Area(B) / Area(All) = Area(B) / &pi;
+<b>Maintenance:</b> If A[i] equals v, we return i, else the elements in A[1..i]
+are all different with v, we increase i for the next iteration.
 </p>
 
 <p>
-The kth bucket is
-\(B_k \{\sqrt{\frac{i - 1}{n}} < d_i \leq \sqrt{\frac{i}{n}} \}\)
+<b>Termination:</b> We terminate at i which A[i] equals v and return i, or we
+terminate at i &gt; A.length, i.e. v does not appear in A, then we return NIL.
 </p>
 </div>
 </div>
-<div id="outline-container-org2cbacaa" class="outline-3">
-<h3 id="org2cbacaa">8.4-5</h3>
-<div class="outline-text-3" id="text-org2cbacaa">
+
+<div id="outline-container-orgd7f4e44" class="outline-3">
+<h3 id="orgd7f4e44">2.1-4</h3>
+<div class="outline-text-3" id="text-orgd7f4e44">
 <p>
-P(B<sub>i</sub>) = i / n
+<b>Input:</b> Two n-element arrays A and B, each stands for a n-bit binary
+integers. Higher bit stores at larger index.
 </p>
+
+<p>
+<b>Output:</b> The sum of the two input integers, stores in (n + 1)-element
+array C.
+</p>
+<pre class="example">
+BINARY-INTEGER-ADD(A, B)
+    n = A.length
+    C = empty (n + 1)-element array
+    carry = 0
+    for i = 1 to n
+	C[i] = (A[i] + B[i] + carry) % 2
+	carry = (A[i] + B[i] + carry) // 2
+    C[n + 1] = carry
+    return C
+</pre>
 </div>
 </div>
 </div>
