@@ -1,0 +1,77 @@
+#+TITLE: Chapter 2.1
+
+* ch2.1
+** 2.1-1
+   (a)
+   |----+------+----+----+----+----|
+   | 31 | *41* | 59 | 26 | 41 | 58 |
+   |----+------+----+----+----+----|
+   (b)
+   |----+----+------+----+----+----|
+   | 31 | 41 | *59* | 26 | 41 | 58 |
+   |----+----+------+----+----+----|
+   (c)
+   |----+----+----+------+----+----|
+   | 31 | 41 | 59 | *26* | 41 | 58 |
+   |----+----+----+------+----+----|
+   (d)
+   |----+----+----+----+------+----|
+   | 26 | 31 | 41 | 59 | *41* | 58 |
+   |----+----+----+----+------+----|
+   (e)
+   |----+----+----+----+----+------|
+   | 26 | 31 | 41 | 41 | 59 | *58* |
+   |----+----+----+----+----+------|
+   (f)
+   |----+----+----+----+----+----|
+   | 26 | 31 | 41 | 41 | 58 | 59 |
+   |----+----+----+----+----+----|
+** 2.1-2
+   #+BEGIN_SRC
+   INSERTION-SORT(A)
+       for j = 2 to A.length
+       key = A[j]
+       // Insert A[j] into the sorted sequence A[1..j - 1].
+       i = j - 1
+       while i > 0 and A[i] < key
+           A[i + 1] = A[i]
+           i = i - 1
+       A[i + 1] = key
+   #+END_SRC
+** 2.1-3
+   #+BEGIN_SRC
+   LINEAR-SEARCH(A, v)
+       for i = 1 to A.length
+           if A[i] == v:
+               return i
+       return NIL
+   #+END_SRC
+
+   *Loop Invariant:* At the start of each iteration, the elements in subarray
+   A[1..i - 1] are all different from v.
+
+   *Initialization:* The subarray A[1..i - 1] is empty.
+
+   *Maintenance:* If A[i] equals v, we return i, else the elements in A[1..i]
+   are all different with v, we increase i for the next iteration.
+
+   *Termination:* We terminate at i which A[i] equals v and return i, or we
+   terminate at i > A.length, i.e. v does not appear in A, then we return NIL.
+
+** 2.1-4
+   *Input:* Two n-element arrays A and B, each stands for a n-bit binary
+   integers. Higher bit stores at larger index.
+
+   *Output:* The sum of the two input integers, stores in (n + 1)-element
+   array C.
+   #+BEGIN_SRC
+   BINARY-INTEGER-ADD(A, B)
+       n = A.length
+       C = empty (n + 1)-element array
+       carry = 0
+       for i = 1 to n
+           C[i] = (A[i] + B[i] + carry) % 2
+           carry = (A[i] + B[i] + carry) // 2
+       C[n + 1] = carry
+       return C
+   #+END_SRC
