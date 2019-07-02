@@ -6,7 +6,7 @@
 <!-- 2019-07-02 Tue 03:34 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Chapter 6.3</title>
+<title>Chapter 2.2</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="pedh" />
 <style type="text/css">
@@ -299,6 +299,28 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -306,40 +328,89 @@ for the JavaScript code in this tag.
  |
  <a accesskey="H" href="/CLRS-Solutions"> HOME </a>
 </div><div id="content">
-<h1 class="title">Chapter 6.3</h1>
+<h1 class="title">Chapter 2.2</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org1eeaf24">ch6.3</a>
+<li><a href="#org602df3f">ch2.2</a>
 <ul>
-<li><a href="#org7934374">6.3-1</a></li>
-<li><a href="#org45483c9">6.3-2</a></li>
-<li><a href="#orge0d04f0">6.3-3</a></li>
+<li><a href="#org001de3c">2.2-1</a></li>
+<li><a href="#org406db09">2.2-2</a></li>
+<li><a href="#org1559116">2.2-3</a></li>
+<li><a href="#orgc92c1d9">2.2-4</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org1eeaf24" class="outline-2">
-<h2 id="org1eeaf24">ch6.3</h2>
-<div class="outline-text-2" id="text-org1eeaf24">
+<div id="outline-container-org602df3f" class="outline-2">
+<h2 id="org602df3f">ch2.2</h2>
+<div class="outline-text-2" id="text-org602df3f">
 </div>
-<div id="outline-container-org7934374" class="outline-3">
-<h3 id="org7934374">6.3-1</h3>
-</div>
-<div id="outline-container-org45483c9" class="outline-3">
-<h3 id="org45483c9">6.3-2</h3>
-<div class="outline-text-3" id="text-org45483c9">
+<div id="outline-container-org001de3c" class="outline-3">
+<h3 id="org001de3c">2.2-1</h3>
+<div class="outline-text-3" id="text-org001de3c">
 <p>
-The MAX-HEAPIFY was based on the premise that the left and right nodes of the
-root are already max heaps.
+\(\Theta(n^3)\)
 </p>
 </div>
 </div>
-<div id="outline-container-orge0d04f0" class="outline-3">
-<h3 id="orge0d04f0">6.3-3</h3>
+<div id="outline-container-org406db09" class="outline-3">
+<h3 id="org406db09">2.2-2</h3>
+<div class="outline-text-3" id="text-org406db09">
+<pre class="example">
+SELECTION-SORT(A)
+for i = 1 to A.length - 1
+    x = A[i]
+    k = i
+    for j = i + 1 to A.length
+	if A[j] &lt; x
+	    x = A[j]
+	    k = j
+    exchange A[i] with A[k]
+</pre>
+<p>
+<b>Loop Invariant</b>: At the start of each outer loop iteration, the subarray
+A[1..i - 1] contains the (i - 1) smallest elements.
+</p>
+
+<p>
+When the first (n - 1) elements contains the (n - 1) smallest elements, the
+nth element is indeed the largest element.
+</p>
+
+<p>
+The running time of selection sort is \(\Theta(n^2)\) on any cases.
+</p>
+</div>
+</div>
+<div id="outline-container-org1559116" class="outline-3">
+<h3 id="org1559116">2.2-3</h3>
+<div class="outline-text-3" id="text-org1559116">
+<p>
+Half of the input sequence need to be checked on the average case.
+</p>
+
+<p>
+The worst-case appears when v is not in A, all elements in A need to be
+checked.
+</p>
+
+<p>
+The average-case and worst-case running times are both \(\Theta(n)\).
+</p>
+</div>
+</div>
+<div id="outline-container-orgc92c1d9" class="outline-3">
+<h3 id="orgc92c1d9">2.2-4</h3>
+<div class="outline-text-3" id="text-orgc92c1d9">
+<p>
+Modify the algorithm to test the input, and output the immediate result when
+the input is as expected.
+</p>
+</div>
 </div>
 </div>
 </div>
