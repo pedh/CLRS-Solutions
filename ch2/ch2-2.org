@@ -1,0 +1,34 @@
+#+TITLE: Chapter 2.2
+
+* ch2.2
+** 2.2-1
+   \(\Theta(n^3)\)
+** 2.2-2
+   #+BEGIN_SRC
+   SELECTION-SORT(A)
+   for i = 1 to A.length - 1
+       x = A[i]
+       k = i
+       for j = i + 1 to A.length
+           if A[j] < x
+               x = A[j]
+               k = j
+       exchange A[i] with A[k]
+   #+END_SRC
+   *Loop Invariant*: At the start of each outer loop iteration, the subarray
+   A[1..i - 1] contains the (i - 1) smallest elements.
+
+   When the first (n - 1) elements contains the (n - 1) smallest elements, the
+   nth element is indeed the largest element.
+
+   The running time of selection sort is \(\Theta(n^2)\) on any cases.
+** 2.2-3
+   Half of the input sequence need to be checked on the average case.
+
+   The worst-case appears when v is not in A, all elements in A need to be
+   checked.
+
+   The average-case and worst-case running times are both \(\Theta(n)\).
+** 2.2-4
+   Modify the algorithm to test the input, and output the immediate result when
+   the input is as expected.
