@@ -6,7 +6,7 @@
 <!-- 2019-07-04 Thu 06:16 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Chapter 10.4</title>
+<title>Chapter 2.3</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="pedh" />
 <style type="text/css">
@@ -299,6 +299,28 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -306,126 +328,103 @@ for the JavaScript code in this tag.
  |
  <a accesskey="H" href="/CLRS-Solutions"> HOME </a>
 </div><div id="content">
-<h1 class="title">Chapter 10.4</h1>
+<h1 class="title">Chapter 2.3</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org320d175">ch10.4</a>
+<li><a href="#org43b548b">ch2.3</a>
 <ul>
-<li><a href="#orge869c04">10.4-1</a></li>
-<li><a href="#orgdd0aa7d">10.4-2</a></li>
-<li><a href="#org0863e9b">10.4-3</a></li>
-<li><a href="#org9e40f90">10.4-4</a></li>
-<li><a href="#org8cc6587">10.4-5</a></li>
-<li><a href="#org6d6c310">10.4-6</a></li>
+<li><a href="#orgaf3c774">2.3-1</a></li>
+<li><a href="#org7f97139">2.3-2</a></li>
+<li><a href="#org16816c9">2.3-3</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org320d175" class="outline-2">
-<h2 id="org320d175">ch10.4</h2>
-<div class="outline-text-2" id="text-org320d175">
+<div id="outline-container-org43b548b" class="outline-2">
+<h2 id="org43b548b">ch2.3</h2>
+<div class="outline-text-2" id="text-org43b548b">
 </div>
-<div id="outline-container-orge869c04" class="outline-3">
-<h3 id="orge869c04">10.4-1</h3>
-<div class="outline-text-3" id="text-orge869c04">
+<div id="outline-container-orgaf3c774" class="outline-3">
+<h3 id="orgaf3c774">2.3-1</h3>
+<div class="outline-text-3" id="text-orgaf3c774">
+<pre class="example">
+		      +--------------------------------+
+		      |  3  9  26  38  41  49  52  57  |
+		      +----x----------------------x----+
+			  /                        \
+			 /          merge           \
+	+---------------o---+                   +----o--------------+
+	|   3  26  41  52   |                   |   9  38  49  57   |
+	+--x-------------x--+                   +--x-------------x--+
+	  /               \                       /               \
+	 /      merge      \                     /      merge      \
+   +----o----+         +----o----+         +----o----+         +----o----+
+   |  3  41  |         |  26  52 |         |  38  57 |         |  9  49  |
+   +--x---x--+         +--x---x--+         +--x---x--+         +--x---x--+
+     /     \             /     \             /     \             /     \
+    / merge \           / merge \           / merge \           / merge \
++--o--+   +--o--+   +--o--+   +--o--+   +--o--+   +--o--+   +--o--+   +--o--+
+|  3  |   | 41  |   | 52  |   | 26  |   | 38  |   | 57  |   |  9  |   | 49  |
++-----+   +-----+   +-----+   +-----+   +-----+   +-----+   +-----+   +-----+
+</pre>
+</div>
+</div>
+<div id="outline-container-org7f97139" class="outline-3">
+<h3 id="org7f97139">2.3-2</h3>
+<div class="outline-text-3" id="text-org7f97139">
+<pre class="example">
+MERGE(A, p, q, r)
+    n1 = q - p + 1
+    n2 = r - q
+    let L[1..n1] and R[1..n2] be new arrays
+    for i = 1 to n1
+	L[i] = A[p + i - 1]
+    for j = 1 to n2
+	R[j] = A[q + j]
+    i = 1
+    j = 1
+    k = 1
+    while i &lt;= n1 and j &lt;= n2
+	if L[i] &lt;= R[j]
+	    A[k] = L[i]
+	    i = i + 1
+	else A[k] = R[j]
+	     j = j + 1
+    if i &gt; n1
+	while j &lt;= n2
+	    A[k] = R[j]
+	    k = k + 1
+	    j = j + 1
+    else while i &lt;= n1
+	     A[k] = L[i]
+	     k = k + 1
+	     i = i + 1
+</pre>
+</div>
+</div>
+<div id="outline-container-org16816c9" class="outline-3">
+<h3 id="org16816c9">2.3-3</h3>
+<div class="outline-text-3" id="text-org16816c9">
 <p>
-omitted
+<b>Base Case:</b> \(T(2) = 2\lg{2}\)
 </p>
-</div>
-</div>
-<div id="outline-container-orgdd0aa7d" class="outline-3">
-<h3 id="orgdd0aa7d">10.4-2</h3>
-<div class="outline-text-3" id="text-orgdd0aa7d">
-<pre class="example">
-DISPLAY-BINARY-TREE(t)
-    DISPLAY-BINART-TREE-R(t.root)
-</pre>
-<pre class="example">
-DISPLAY-BINARY-TREE-R(r)
-    if r != NIL
-	DISPLAY-BINARY-TREE-R(r.left)
-	display(r.key)
-	DISPLAY-BINARY-TREE-R(r.right)
-</pre>
-</div>
-</div>
-<div id="outline-container-org0863e9b" class="outline-3">
-<h3 id="org0863e9b">10.4-3</h3>
-<div class="outline-text-3" id="text-org0863e9b">
-<pre class="example">
-DISPLAY-BINARY-TREE(t)
-s = empty stack
-PUSH(s, t.root)
-while not STACK-EMPTY(s)
-    r = POP(s)
-    while r != NIL
-	PUSH(s, r)
-	r = r.left
-    if not STACK-EMPTY(s)
-	r = POP(s)
-	print(r.key)
-	PUSH(s, r.right)
-</pre>
 
 <p>
-(<a href="../codes/binary_tree.py">implementation</a>)
+<b>Inductive Step:</b> Assume \(T(n) = n\lg{n}\), Then
 </p>
-</div>
-</div>
-<div id="outline-container-org9e40f90" class="outline-3">
-<h3 id="org9e40f90">10.4-4</h3>
-<div class="outline-text-3" id="text-org9e40f90">
+\begin{align*}
+T(2n)&=2T(n)+2n\\
+     &=2n\lg{n}+2n\\
+     &=2n\lg(2n)
+\end{align*}
+
 <p>
-LCRS (left-child, right-sibling) tree is a special binary tree.
-The traversal is the same as a normal binary tree.
-</p>
-<pre class="example">
-DISPLAY-LCRS-TREE(t)
-if t == NIL
-    return
-print(t.key)
-DISPLAY-LCRS-TREE(t.left_child)
-DISPLAY-LCRS-TREE(t.right_sibling)
-</pre>
-</div>
-</div>
-<div id="outline-container-org8cc6587" class="outline-3">
-<h3 id="org8cc6587">10.4-5</h3>
-<div class="outline-text-3" id="text-org8cc6587">
-<p>
-We could use morris traversal, but the tree will be modified during the
-traversal.
-The algorithm below needs the node has the pointer to its parent.
-</p>
-<pre class="example">
-DISPLAY-BINARY-TREE-ITER(t)
-    cur = t.root
-    leftdone = FALSE
-    while cur != NIL
-	if leftdone == FALSE
-	    while cur.left != NIL
-		cur = cur.left
-	leftdone = TRUE
-	print(cur.key)
-	if cur.right != NIL
-	    cur = cur.right
-	    leftdone = FALSE
-	else while cur.parent != NIL and cur == cur.parent.right
-		 cur = cur.parent
-	     cur = cur.parent
-</pre>
-</div>
-</div>
-<div id="outline-container-org6d6c310" class="outline-3">
-<h3 id="org6d6c310">10.4-6</h3>
-<div class="outline-text-3" id="text-org6d6c310">
-<p>
-We could identify the last sibling node by the boolean,
-its sibling pointer points to the parent.
+<b>Finally:</b> By induction, we prove that \(T(n) = n\lg{n}\)
+when n is an exact power of 2.
 </p>
 </div>
 </div>
