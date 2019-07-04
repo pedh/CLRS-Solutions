@@ -1,0 +1,115 @@
+#+TITLE: Chapter 2.3
+
+* ch2.3
+** 2.3-1
+   #+BEGIN_SRC
+                         +--------------------------------+
+                         |  3  9  26  38  41  49  52  57  |
+                         +----x----------------------x----+
+                             /                        \
+                            /          merge           \
+           +---------------o---+                   +----o--------------+
+           |   3  26  41  52   |                   |   9  38  49  57   |
+           +--x-------------x--+                   +--x-------------x--+
+             /               \                       /               \
+            /      merge      \                     /      merge      \
+      +----o----+         +----o----+         +----o----+         +----o----+
+      |  3  41  |         |  26  52 |         |  38  57 |         |  9  49  |
+      +--x---x--+         +--x---x--+         +--x---x--+         +--x---x--+
+        /     \             /     \             /     \             /     \
+       / merge \           / merge \           / merge \           / merge \
+   +--o--+   +--o--+   +--o--+   +--o--+   +--o--+   +--o--+   +--o--+   +--o--+
+   |  3  |   | 41  |   | 52  |   | 26  |   | 38  |   | 57  |   |  9  |   | 49  |
+   +-----+   +-----+   +-----+   +-----+   +-----+   +-----+   +-----+   +-----+
+   #+END_SRC
+** 2.3-2
+   #+BEGIN_SRC
+   MERGE(A, p, q, r)
+       n1 = q - p + 1
+       n2 = r - q
+       let L[1..n1] and R[1..n2] be new arrays
+       for i = 1 to n1
+           L[i] = A[p + i - 1]
+       for j = 1 to n2
+           R[j] = A[q + j]
+       i = 1
+       j = 1
+       k = 1
+       while i <= n1 and j <= n2
+           if L[i] <= R[j]
+               A[k] = L[i]
+               i = i + 1
+           else A[k] = R[j]
+                j = j + 1
+       if i > n1
+           while j <= n2
+               A[k] = R[j]
+               k = k + 1
+               j = j + 1
+       else while i <= n1
+                A[k] = L[i]
+                k = k + 1
+                i = i + 1
+   #+END_SRC
+** 2.3-3
+   *Base Case:* \(T(2) = 2\lg{2}\)
+
+   *Inductive Step:* Assume \(T(n) = n\lg{n}\), Then
+   \begin{align*}
+   T(2n)&=2T(n)+2n\\
+        &=2n\lg{n}+2n\\
+        &=2n\lg(2n)
+   \end{align*}
+
+   *Finally:* By induction, we prove that \(T(n) = n\lg{n}\)
+   when n is an exact power of 2.
+** 2.3-4
+   \begin{equation*}
+   T(n)=
+   \begin{cases}
+   0 & \text{if n = 1}\\
+   T(n-1)+t(n) & \text{if n > 1, $t(n)=\Omega(1)$, $t(n)=O(n)$}
+   \end{cases}
+   \end{equation*}
+** 2.3-5
+   #+BEGIN_SRC
+   BINARY-SEARCH(A, v)
+       low = 1
+       high = A.length
+       while high >= low
+           med = (high + low) // 2
+           if A[med] == v
+               return med
+           else if A[med] > v
+               high = med - 1
+           else low = med + 1
+       return NIL
+   #+END_SRC
+   The worst case running time is
+   \begin{equation*}
+   T(n)=
+   \begin{cases}
+   \Theta(1) & \text{if n = 1}\\
+   T(\lceil n/2 \rceil)+\Theta(1) & \text{if n > 1}
+   \end{cases}
+   \end{equation*}
+   Thus,
+   \begin{align*}
+   T(n)& \leq T(2^{\lceil \lg{n} \rceil})\\
+       & \leq (\lg{n}+1)\Theta(1)\\
+       &=\Theta(\lg{n})
+   \end{align*}
+** 2.3-6
+   No, even we use binary search to find the proper position of the element,
+   the bigger elements still need to be move forward, the worst-case running
+   time is \(\Theta(n^2)\).
+** 2.3-7
+   #+BEGIN_SRC
+   EXIST-TWO-OF-SUM(S, x)
+       A = MERGE-SORT(S)
+       for i = 1 to A.length
+           k = BINARY-SEARCH(A, x - A[i])
+           if i != k
+               return True
+       return False
+   #+END_SRC
