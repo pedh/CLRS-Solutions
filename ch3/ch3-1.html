@@ -6,7 +6,7 @@
 <!-- 2019-07-08 Mon 09:49 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Chapter 7.4</title>
+<title>Chapter 3.1</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="pedh" />
 <style type="text/css">
@@ -328,71 +328,145 @@ for the JavaScript code in this tag.
  |
  <a accesskey="H" href="/CLRS-Solutions"> HOME </a>
 </div><div id="content">
-<h1 class="title">Chapter 7.4</h1>
+<h1 class="title">Chapter 3.1</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org88cbdda">ch7.4</a>
+<li><a href="#org46d0ea6">ch3.1</a>
 <ul>
-<li><a href="#org0d770ba">7.4-1</a></li>
-<li><a href="#org1b25591">7.4-2</a></li>
-<li><a href="#orgd0373be">7.4-3</a></li>
-<li><a href="#orgde233f4">7.4-4</a></li>
-<li><a href="#org5696a0b">7.4-5</a></li>
-<li><a href="#org08ccb20">7.4-6</a></li>
+<li><a href="#org59213da">3.1-1</a></li>
+<li><a href="#orge9dcf23">3.1-2</a></li>
+<li><a href="#org5938a41">3.1-3</a></li>
+<li><a href="#org3cbb3b8">3.1-4</a></li>
+<li><a href="#org9fc7ed8">3.1-5</a></li>
+<li><a href="#org7554c05">3.1-6</a></li>
+<li><a href="#orga1f0af9">3.1-7</a></li>
+<li><a href="#orgc26890a">3.1-8</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org88cbdda" class="outline-2">
-<h2 id="org88cbdda">ch7.4</h2>
-<div class="outline-text-2" id="text-org88cbdda">
+<div id="outline-container-org46d0ea6" class="outline-2">
+<h2 id="org46d0ea6">ch3.1</h2>
+<div class="outline-text-2" id="text-org46d0ea6">
 </div>
-<div id="outline-container-org0d770ba" class="outline-3">
-<h3 id="org0d770ba">7.4-1</h3>
+<div id="outline-container-org59213da" class="outline-3">
+<h3 id="org59213da">3.1-1</h3>
+<div class="outline-text-3" id="text-org59213da">
+<p>
+Since f(n) and g(n) are nonnegative, we have
+</p>
+\begin{equation*}
+(\forall n)[\frac{1}{2}(f(n)+g(n))\leq max(f(n),g(n))\leq(f(n)+g(n))]
+\end{equation*}
+<p>
+According to the definition of \(\Theta\)-notation,
+\(max(f(n), g(n)) = \Theta(f(n) + g(n))\).
+</p>
 </div>
-<div id="outline-container-org1b25591" class="outline-3">
-<h3 id="org1b25591">7.4-2</h3>
 </div>
-<div id="outline-container-orgd0373be" class="outline-3">
-<h3 id="orgd0373be">7.4-3</h3>
+<div id="outline-container-orge9dcf23" class="outline-3">
+<h3 id="orge9dcf23">3.1-2</h3>
+<div class="outline-text-3" id="text-orge9dcf23">
+<p>
+For any real constants a and b, where b &gt; 0, we have
+</p>
+\begin{equation*}
+(\forall n\geq 2\left|a\right|)[(\frac{n}{2})^b\leq (n+a)^b\leq (2n)^b]
+\end{equation*}
+<p>
+According to the definition of \(\Theta\)-notation,
+\((n + a)^b = \Theta(n^b)\).
+</p>
 </div>
-<div id="outline-container-orgde233f4" class="outline-3">
-<h3 id="orgde233f4">7.4-4</h3>
 </div>
-<div id="outline-container-org5696a0b" class="outline-3">
-<h3 id="org5696a0b">7.4-5</h3>
-<div class="outline-text-3" id="text-org5696a0b">
+<div id="outline-container-org5938a41" class="outline-3">
+<h3 id="org5938a41">3.1-3</h3>
+<div class="outline-text-3" id="text-org5938a41">
+<p>
+"The running time of algorithm A is at least \(O(n^2)\)" means the running
+time can be any value.
+</p>
+</div>
+</div>
+<div id="outline-container-org3cbb3b8" class="outline-3">
+<h3 id="org3cbb3b8">3.1-4</h3>
+<div class="outline-text-3" id="text-org3cbb3b8">
+<p>
+\(2^{n + 1} = O(2^n)\), because
+</p>
+\begin{equation*}
+(\forall n\geq 1)[2^{n+1}\leq2\times2^{n}]
+\end{equation*}
+<p>
+\(2^{2n} \neq O(2^n)\), because for any positive constant c,
+\(2^{2n} > c\,O(2^n)\) when \(n > \lg{c}\).
+</p>
+</div>
+</div>
+<div id="outline-container-org9fc7ed8" class="outline-3">
+<h3 id="org9fc7ed8">3.1-5</h3>
+<div class="outline-text-3" id="text-org9fc7ed8">
 <ul class="org-ul">
+<li>If \(f(n) = \Theta(g(n))\), it's obviously that \(f(n) = O(g(n))\) and
+\(f(n) = \Omega(g(n))\).</li>
 <li><p>
-quicksort until k elements: \(T(n) = O(n\lg(n/k))\)
+If \(f(n) = O(g(n))\) and \(f(n) = \Omega(g(n))\), then
 </p>
-
+\begin{equation*}
+(\forall n\geq n_1)[c_1\,g(n)\leq f(n)]
+\end{equation*}
+\begin{equation*}
+(\forall n\geq n_2)[f(n)\leq c_2\,g(n)]
+\end{equation*}
 <p>
-insertion-sort of quicksorted array: \(T(n) = n / k * O(k^2) = O(nk)\)
+let \(n_0 = max(n_1, n_2)\), we have
 </p>
-
+\begin{equation*}
+(\forall n\geq n_0)[c_1\,g(n)\leq f(n)\leq c_2\,g(n)]
+\end{equation*}
 <p>
-total expected running time is \(T(n) = O(n\lg(n/k) + nk)\)
+So \(f(n) = \Theta(g(n))\).
 </p></li>
-<li>k should satisfies \(k / \lg{k} < c\) (some constant)</li>
+<li>In conclusion,
+\(f(n) = \Theta(g(n)) \iff f(n) = O(g(n))\ and\ f(n) = \Omega(g(n))\).</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org08ccb20" class="outline-3">
-<h3 id="org08ccb20">7.4-6</h3>
-<div class="outline-text-3" id="text-org08ccb20">
+<div id="outline-container-org7554c05" class="outline-3">
+<h3 id="org7554c05">3.1-6</h3>
+<div class="outline-text-3" id="text-org7554c05">
 <p>
-let \(\alpha < 1/2\), else use \(1 - \alpha\) as \(\alpha\)
-</p>
-
-<p>
-Pr = \(2(3\alpha^2(1 - \alpha) + \alpha^3))\) = \(6\alpha^2 - 4\alpha^3\)
+"The worst-case running time is \(O(g(n))\) and the best-case running time
+is \(\Omega(g(n))\)" just means \(f(n) = O(g(n))\) and
+\(f(n) = \Omega(g(n))\), so the sentence is identical to Theorem 3.1.
 </p>
 </div>
+</div>
+<div id="outline-container-orga1f0af9" class="outline-3">
+<h3 id="orga1f0af9">3.1-7</h3>
+<div class="outline-text-3" id="text-orga1f0af9">
+<p>
+If \(S = o(g(n)) \cap \omega(g(n))\), we know for f(n) in S and any
+constant c &gt; 0, there are
+</p>
+\begin{equation*}
+(\exists n_1>0)[(\forall n\geq n_1)[0\leq c\,g(n)< f(n)]]
+\end{equation*}
+\begin{equation*}
+(\exists n_2>0)[(\forall n\geq n_2)[0\leq f(n)< c\,g(n)]]
+\end{equation*}
+<p>
+let \(n_0 = max(n_1, n_2)\), we have \(f(n) < c\,g(n) < f(n)\),
+it is not possible, so S is an empty set.
+</p>
+</div>
+</div>
+<div id="outline-container-orgc26890a" class="outline-3">
+<h3 id="orgc26890a">3.1-8</h3>
 </div>
 </div>
 </div>
