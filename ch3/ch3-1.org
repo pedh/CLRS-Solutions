@@ -1,0 +1,73 @@
+#+TITLE: Chapter 3.1
+
+* ch3.1
+** 3.1-1
+   Since f(n) and g(n) are nonnegative, we have
+   \begin{equation*}
+   (\forall n)[\frac{1}{2}(f(n)+g(n))\leq max(f(n),g(n))\leq(f(n)+g(n))]
+   \end{equation*}
+   According to the definition of \(\Theta\)-notation,
+   \(max(f(n), g(n)) = \Theta(f(n) + g(n))\).
+** 3.1-2
+   For any real constants a and b, where b > 0, we have
+   \begin{equation*}
+   (\forall n\geq 2\left|a\right|)[(\frac{n}{2})^b\leq (n+a)^b\leq (2n)^b]
+   \end{equation*}
+   According to the definition of \(\Theta\)-notation,
+   \((n + a)^b = \Theta(n^b)\).
+** 3.1-3
+   "The running time of algorithm A is at least \(O(n^2)\)" means the running
+   time can be any value.
+** 3.1-4
+   \(2^{n + 1} = O(2^n)\), because
+   \begin{equation*}
+   (\forall n\geq 1)[2^{n+1}\leq2\times2^{n}]
+   \end{equation*}
+   \(2^{2n} \neq O(2^n)\), because for any positive constant c,
+   \(2^{2n} > c\,O(2^n)\) when \(n > \lg{c}\).
+** 3.1-5
+   - If \(f(n) = \Theta(g(n))\), it's obviously that \(f(n) = O(g(n))\) and
+     \(f(n) = \Omega(g(n))\).
+   - If \(f(n) = O(g(n))\) and \(f(n) = \Omega(g(n))\), then
+     \begin{equation*}
+     (\forall n\geq n_1)[c_1\,g(n)\leq f(n)]
+     \end{equation*}
+     \begin{equation*}
+     (\forall n\geq n_2)[f(n)\leq c_2\,g(n)]
+     \end{equation*}
+     let \(n_0 = max(n_1, n_2)\), we have
+     \begin{equation*}
+     (\forall n\geq n_0)[c_1\,g(n)\leq f(n)\leq c_2\,g(n)]
+     \end{equation*}
+     So \(f(n) = \Theta(g(n))\).
+   - In conclusion,
+     \(f(n) = \Theta(g(n)) \iff f(n) = O(g(n))\ and\ f(n) = \Omega(g(n))\).
+** 3.1-6
+   "The worst-case running time is \(O(g(n))\) and the best-case running time
+   is \(\Omega(g(n))\)" just means \(f(n) = O(g(n))\) and
+   \(f(n) = \Omega(g(n))\), so the sentence is identical to Theorem 3.1.
+** 3.1-7
+   If \(S = o(g(n)) \cap \omega(g(n))\), we know for f(n) in S and any
+   constant c > 0, there are
+   \begin{equation*}
+   (\exists n_1>0)[(\forall n\geq n_1)[0\leq c\,g(n)< f(n)]]
+   \end{equation*}
+   \begin{equation*}
+   (\exists n_2>0)[(\forall n\geq n_2)[0\leq f(n)< c\,g(n)]]
+   \end{equation*}
+   let \(n_0 = max(n_1, n_2)\), we have \(f(n) < c\,g(n) < f(n)\),
+   it is not possible, so S is an empty set.
+** 3.1-8
+   \begin{align*}
+   \Omega(g(n,m))
+   =\{f(n,m):\,&\text{there exist positive constants }c,\,n_0\text{, and }m_0\\
+               &\text{such that }0\leq c\,g(n,m)\leq f(n,m)\\
+               &\text{for all }n\geq n_0\text{ or }m\geq m_0\}\ .
+   \end{align*}
+   \begin{align*}
+   \Theta(g(n,m))
+   =\{f(n,m):\,&\text{there exist positive constants }c_1,\,c_2,\,n_0
+                \text{, and }m_0\\
+               &\text{such that }0\leq c_1\,g(n,m)\leq f(n,m)\leq c_2\,g(n,m)\\
+               &\text{for all }n\geq n_0\text{ or }m\geq m_0\}\ .
+   \end{align*}
