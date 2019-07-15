@@ -6,7 +6,7 @@
 <!-- 2019-07-15 Mon 10:04 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Chapter 1.1</title>
+<title>Chapter 3.2</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="pedh" />
 <style type="text/css">
@@ -299,6 +299,28 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -306,95 +328,157 @@ for the JavaScript code in this tag.
  |
  <a accesskey="H" href="/CLRS-Solutions"> HOME </a>
 </div><div id="content">
-<h1 class="title">Chapter 1.1</h1>
+<h1 class="title">Chapter 3.2</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org854e4a6">ch1.1</a>
+<li><a href="#orgd031fc0">ch3.2</a>
 <ul>
-<li><a href="#orgb7f9cd4">1.1-1</a></li>
-<li><a href="#org55f113a">1.1-2</a></li>
-<li><a href="#org1402eed">1.1-3</a></li>
-<li><a href="#orgb45c015">1.1-4</a></li>
-<li><a href="#org77659c7">1.1-5</a></li>
+<li><a href="#orgfce31d7">3.2-1</a></li>
+<li><a href="#org7eb47d7">3.2-2</a></li>
+<li><a href="#org137e5af">3.2-3</a></li>
+<li><a href="#org61f6dd5">3.2-4</a></li>
+<li><a href="#org7953c5f">3.2-5</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org854e4a6" class="outline-2">
-<h2 id="org854e4a6">ch1.1</h2>
-<div class="outline-text-2" id="text-org854e4a6">
+<div id="outline-container-orgd031fc0" class="outline-2">
+<h2 id="orgd031fc0">ch3.2</h2>
+<div class="outline-text-2" id="text-orgd031fc0">
 </div>
-<div id="outline-container-orgb7f9cd4" class="outline-3">
-<h3 id="orgb7f9cd4">1.1-1</h3>
-<div class="outline-text-3" id="text-orgb7f9cd4">
-<p>
-sorting: calculate class rank
-</p>
-
-<p>
-convex hull: GIS
-</p>
-</div>
-</div>
-<div id="outline-container-org55f113a" class="outline-3">
-<h3 id="org55f113a">1.1-2</h3>
-<div class="outline-text-3" id="text-org55f113a">
-<p>
-resources, difficulty, quality
-</p>
-</div>
-</div>
-<div id="outline-container-org1402eed" class="outline-3">
-<h3 id="org1402eed">1.1-3</h3>
-<div class="outline-text-3" id="text-org1402eed">
-<p>
-Linked list
-</p>
-
-<p>
-The linked list is simple, and we could implement many other data structures
-with it. But the linked list does not support random access.
-</p>
-</div>
-</div>
-<div id="outline-container-orgb45c015" class="outline-3">
-<h3 id="orgb45c015">1.1-4</h3>
-<div class="outline-text-3" id="text-orgb45c015">
+<div id="outline-container-orgfce31d7" class="outline-3">
+<h3 id="orgfce31d7">3.2-1</h3>
+<div class="outline-text-3" id="text-orgfce31d7">
 <ul class="org-ul">
 <li><p>
-Similarity
+If \(m \leq n\), then
 </p>
-
+\begin{align*}
+f(m)+g(m)&\leq f(n)+g(m)\\
+         &\leq f(n)+g(n)
+\end{align*}
+\begin{align*}
+f(g(m))\leq f(g(n))
+\end{align*}
 <p>
-Both of them are problems to find the path with shortest distance.
+So \(f(n) + g(n)\) and \(f(g(n))\) are monotonically increasing functions.
 </p></li>
-
 <li><p>
-Difference
+If \(m \leq n\), then
 </p>
-
+\begin{align*}
+f(m)\cdot g(m)&\leq f(n)\cdot g(m)\\
+              &\leq f(n)\cdot f(n)
+\end{align*}
 <p>
-The shortest-path problem is to find the shortest path of two points,
-The traveling-salesman problem is to find the shortest path connects
-all points.
+So \(f(n)\cdot g(n)\) is monotonically increasing.
 </p></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org77659c7" class="outline-3">
-<h3 id="org77659c7">1.1-5</h3>
-<div class="outline-text-3" id="text-org77659c7">
+<div id="outline-container-org7eb47d7" class="outline-3">
+<h3 id="org7eb47d7">3.2-2</h3>
+<div class="outline-text-3" id="text-org7eb47d7">
+\begin{align*}
+a^{\log_b c}&=a^{\frac{\log_a c}{\log_a b}}\\
+            &=(a^{\log_a c})^{\frac{1}{\log_a b}}\\
+            &=c^{\frac{1}{\log_a b}}\\
+            &=c^{\log_b a}
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org137e5af" class="outline-3">
+<h3 id="org137e5af">3.2-3</h3>
+<div class="outline-text-3" id="text-org137e5af">
+<ul class="org-ul">
+<li><p>
+According to Stirling’s approximation, we have
+</p>
+\begin{align*}
+\lg(n!)&=\lg(\sqrt{2\pi n})+\lg((\frac{n}{e})^n)
+         +\lg(1+\Theta(\frac{1}{n}))\\
+       &=\Theta(\lg n)+\Theta(n\lg n)+\Theta(1/n)\\
+       &=\Theta(n\lg n)
+\end{align*}</li>
+<li><p>
+For any positive constant c &gt; 0, when \(n \geq n_0 > 4\,c\), we have
+</p>
+\begin{align*}
+n!&=n\prod_{i=2}^{n-1}i\\
+  &>4\,c\prod_{i=2}^{n-1}i\\
+  &\geq 4\,c\prod_{i=2}^{n-1}2\\
+  &=c\,2^n
+\end{align*}
 <p>
-Only the best: Find the nth fibonacci number.
+So \(n! = \omega(2^n)\).
+</p></li>
+<li><p>
+For any positive constant c &gt; 0, when \(n \geq n_0 > \frac{1}{c}\), we have
+</p>
+\begin{align*}
+n!&=\prod_{i=2}^{n}i\\
+  &\leq \prod_{i=2}^{n}n\\
+  &=n^{n-1}\\
+  &< c\,n^n
+\end{align*}
+<p>
+So \(n! = o(n^n)\).
+</p></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org61f6dd5" class="outline-3">
+<h3 id="org61f6dd5">3.2-4</h3>
+<div class="outline-text-3" id="text-org61f6dd5">
+<ul class="org-ul">
+<li><p>
+\(\lceil \lg n \rceil !\) is not polynomial bounded.
+</p>
+\begin{align*}
+\lceil\lg{n}\rceil!
+  &\geq(\lg{n})!\\
+  &=\sqrt{2\pi\lg{n}}(\frac{\lg{n}}{e})^{\lg{n}}
+    (1+\Theta(\frac{1}{\lg{n}}))\\
+  &=\Theta((\lg{n})^{\lg{n}+\frac{1}{2}})\\
+  &=\omega((2^k)^{\lg{n}})&&\text{k is a positive constant}\\
+  &=\omega(n^k)
+\end{align*}</li>
+<li><p>
+\(\lceil \lg\lg n \rceil !\) is polynomial bounded.
 </p>
 
 <p>
-Approximately the best: Solve the chess game.
+\(\exists c \in \mathbb{R}^{+}\) s.t.
+\(c\lg\lg n \geq \lceil \lg\lg n \rceil\),
+let \(x = c\lg\lg n\),
 </p>
+\begin{align*}
+\lceil\lg{\lg{n}}\rceil!
+  &\leq x!\\
+  &=\sqrt{2\pi x}(\frac{x}{e})^x(1+\Theta(\frac{1}{x}))\\
+  &=\sqrt{x}\Theta(x^x)\\
+  &=2^{\Theta(x\lg{x})}\\
+  &=2^{o(2^x)}\\
+  &=o(n^k)&&\text{k is a positive constant}
+\end{align*}</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org7953c5f" class="outline-3">
+<h3 id="org7953c5f">3.2-5</h3>
+<div class="outline-text-3" id="text-org7953c5f">
+<p>
+\(\lg^*(\lg{n})*\) is asymptotically larger.
+</p>
+\begin{align*}
+\lg^*(\lg{n})
+  &=\lg^*{n}-1\\
+  &=\omega(\lg(\lg^*n))
+\end{align*}
 </div>
 </div>
 </div>
