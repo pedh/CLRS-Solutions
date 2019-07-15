@@ -1,0 +1,162 @@
+#+TITLE: Chapter 3.2
+
+* ch3.2
+** 3.2-1
+   - If \(m \leq n\), then
+     \begin{align*}
+     f(m)+g(m)&\leq f(n)+g(m)\\
+              &\leq f(n)+g(n)
+     \end{align*}
+     \begin{align*}
+     f(g(m))\leq f(g(n))
+     \end{align*}
+     So \(f(n) + g(n)\) and \(f(g(n))\) are monotonically increasing functions.
+   - If \(m \leq n\), then
+     \begin{align*}
+     f(m)\cdot g(m)&\leq f(n)\cdot g(m)\\
+                   &\leq f(n)\cdot f(n)
+     \end{align*}
+     So \(f(n)\cdot g(n)\) is monotonically increasing.
+** 3.2-2
+   \begin{align*}
+   a^{\log_b c}&=a^{\frac{\log_a c}{\log_a b}}\\
+               &=(a^{\log_a c})^{\frac{1}{\log_a b}}\\
+               &=c^{\frac{1}{\log_a b}}\\
+               &=c^{\log_b a}
+   \end{align*}
+** 3.2-3
+   - According to Stirling’s approximation, we have
+     \begin{align*}
+     \lg(n!)&=\lg(\sqrt{2\pi n})+\lg((\frac{n}{e})^n)
+              +\lg(1+\Theta(\frac{1}{n}))\\
+            &=\Theta(\lg n)+\Theta(n\lg n)+\Theta(1/n)\\
+            &=\Theta(n\lg n)
+     \end{align*}
+   - For any positive constant c > 0, when \(n \geq n_0 > 4\,c\), we have
+     \begin{align*}
+     n!&=n\prod_{i=2}^{n-1}i\\
+       &>4\,c\prod_{i=2}^{n-1}i\\
+       &\geq 4\,c\prod_{i=2}^{n-1}2\\
+       &=c\,2^n
+     \end{align*}
+     So \(n! = \omega(2^n)\).
+   - For any positive constant c > 0, when \(n \geq n_0 > \frac{1}{c}\), we have
+     \begin{align*}
+     n!&=\prod_{i=2}^{n}i\\
+       &\leq \prod_{i=2}^{n}n\\
+       &=n^{n-1}\\
+       &< c\,n^n
+     \end{align*}
+     So \(n! = o(n^n)\).
+** 3.2-4
+   - \(\lceil \lg n \rceil !\) is not polynomial bounded.
+     \begin{align*}
+     \lceil\lg{n}\rceil!
+       &\geq(\lg{n})!\\
+       &=\sqrt{2\pi\lg{n}}(\frac{\lg{n}}{e})^{\lg{n}}
+         (1+\Theta(\frac{1}{\lg{n}}))\\
+       &=\Theta((\lg{n})^{\lg{n}+\frac{1}{2}})\\
+       &=\omega((2^k)^{\lg{n}})&&\text{k is a positive constant}\\
+       &=\omega(n^k)
+     \end{align*}
+   - \(\lceil \lg\lg n \rceil !\) is polynomial bounded.
+
+     \(\exists c \in \mathbb{R}^{+}\) s.t.
+     \(c\lg\lg n \geq \lceil \lg\lg n \rceil\),
+     let \(x = c\lg\lg n\),
+     \begin{align*}
+     \lceil\lg{\lg{n}}\rceil!
+       &\leq x!\\
+       &=\sqrt{2\pi x}(\frac{x}{e})^x(1+\Theta(\frac{1}{x}))\\
+       &=\sqrt{x}\Theta(x^x)\\
+       &=2^{\Theta(x\lg{x})}\\
+       &=2^{o(2^x)}\\
+       &=o(n^k)&&\text{k is a positive constant}
+     \end{align*}
+** 3.2-5
+   \(\lg^*(\lg{n})\) is asymptotically larger.
+   \begin{align*}
+   \lg^*(\lg{n})
+     &=\lg^*{n}-1\\
+     &=\omega(\lg(\lg^*n))
+   \end{align*}
+** 3.2-6
+   - \(\phi = \frac{1 + \sqrt{5}}{2}\)
+     \begin{align*}
+     \phi^2
+       &=(\frac{1+\sqrt{5}}{2})^2\\
+       &=\frac{6+2\sqrt{5}}{4}\\
+       &=\frac{1+\sqrt{5}}{2}+1\\
+       &=\phi+1
+     \end{align*}
+   - \(\hat{\phi} = \frac{1 - \sqrt{5}}{2}\)
+     \begin{align*}
+     \hat{\phi}^2
+       &=(\frac{1-\sqrt{5}}{2})^2\\
+       &=\frac{6-2\sqrt{5}}{4}\\
+       &=\frac{1-\sqrt{5}}{2}+1\\
+       &=\hat{\phi}+1
+     \end{align*}
+** 3.2-7
+   *Base case:* \(F_1 = \frac{\phi - \hat{\phi}}{2} = 1\),
+   \(F_2 = \frac{\phi^2 - \hat{\phi}^2}{2} = 1\)
+
+   *Inductive step:*
+   \begin{align*}
+   F_{i+2}
+     &=F_i+F_{i+1}\\
+     &=\frac{\phi^i-\hat{\phi}^i}{\sqrt{5}}
+       +\frac{\phi^{i+1}-\hat{\phi}^{i+1}}{\sqrt{5}}\\
+     &=\frac{\phi^i(\phi+1)-\hat{\phi}^i(\hat{\phi}+1)}{\sqrt{5}}\\
+     &=\frac{\phi^i\phi^2-\hat{\phi}^i\hat{\phi}^2}{\sqrt{5}}\\
+     &=\frac{\phi^{i+2}-\hat{\phi}^{i+2}}{\sqrt{5}}
+   \end{align*}
+
+   *Finally:* By induction, we prove that
+   \(F_i = \frac{\phi^i - \hat{\phi}^i}{\sqrt{5}}\).
+** 3.2-8
+   - If \(f_1(n) = \Theta(g_1(n))\) and \(f_2(n) = \Theta(g_2(n))\),
+     then \(f_1(n) / f_2(n) = \Theta(g_1(n) / g_2(n))\).
+
+     *Proof:*
+
+     \(f_1(n) = \Theta(g_1(n))\), then
+     \begin{equation*}
+     (\exists c_1,c_2,n_1\in\mathbb{R}^{+})
+     [(\forall n\geq n_1)
+      [0\leq c_1g_1(n)\leq f_1(n)\leq c_2g_1(n)]]
+     \end{equation*}
+     \(f_2(n) = \Theta(g_2(n))\), then
+     \begin{equation*}
+     (\exists c_3,c_4,n_2\in\mathbb{R}^{+})
+     [(\forall n\geq n_2)
+      [0\leq c_3g_2(n)\leq f_2(n)\leq c_4g_2(n)]]
+     \end{equation*}
+     therefore
+     \begin{equation*}
+     (\exists c_1,c_2,c_3,c_4,n_1,n_2\in\mathbb{R}^{+})
+     [(\forall n\geq max(n_1,n_2))
+      [0\leq \frac{c_1}{c_4}\frac{g_1(n)}{g_2(n)}\leq \frac{f_1(n)}{f_2(n)}
+       \leq \frac{c_2}{c_3}\frac{g_1(n)}{g_2(n)}]]
+     \end{equation*}
+     hence \(f_1(n) / f_2(n) = \Theta(g_1(n) / g_2(n))\).
+   - Now we prove that \(k\ln k = \Theta(n)\) implies \(k = \Theta(n / \ln n)\).
+
+     \(k\ln k = \Theta(n)\), so there exists positive constants \(c_1\), \(c_2\)
+     and \(n_0\) such that \(0 \leq c_1 n \leq k\ln k \leq c_2 n\).
+
+     Take logarithm of all terms in the inequality, we have
+     \(\ln(c_1 n) \leq \ln k + \ln\ln k \leq \ln(c_2 n)\).
+     Make k and n large enough, then
+     \begin{equation*}
+     0 \leq \ln n < \ln(c_1 n) \leq \ln k + \ln\ln k \leq 2\ln k
+     \end{equation*}
+     \begin{equation*}
+     0 \leq \ln k < \ln k + \ln\ln k \leq \ln(c_2 n) \leq 2\ln n
+     \end{equation*}
+     Hence \(\ln k = \Theta(\ln n)\), so
+     \begin{align*}
+     k&=\frac{k\ln k}{\ln k}\\
+      &=\frac{\Theta(n)}{\Theta(\ln n)}\\
+      &=\Theta(\frac{n}{\ln n})
+     \end{align*}
