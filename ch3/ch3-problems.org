@@ -1,0 +1,212 @@
+#+TITLE: Chapter 3 problems
+
+* ch3-problems
+** 3-1
+   - *a.*
+
+     If \(k \geq d\), then
+     \begin{align*}
+     p(n)&=\sum_{i=0}^d a_i n^i\\
+         &\leq\sum_{i=0}^d a_i n^k&&\text{when }n\geq 1
+     \end{align*}
+     Let \(c = \sum_{i=0}^d a_i\), then \(p(n) \leq cn^k\) for all \(n \geq 1\).
+     Hence \(p(n) = O(n^k)\).
+
+   - *b.*
+
+     If \(k \leq d\), then
+     \begin{align*}
+     p(n)&=\sum_{i=0}^d a_i n^i\\
+         &\geq a_k n^k
+     \end{align*}
+     Hence \(p(n) = \Omega(n^k)\).
+
+   - *c.*
+
+     If \(k = d\), then \(p(n) = O(n^k)\) and \(p(n) = \Omega(n^k)\).
+     Hence \(p(n) = \Theta(n^k)\).
+
+   - *d.*
+
+     If \(k > d\), then
+     \begin{align*}
+     \lim_{n\to\infty}\frac{p(n)}{n^k}
+       &=\lim_{n\to\infty}\frac{\sum_{n=0}^{d}a_i n^i}{n^k}\\
+       &=\lim_{n\to\infty}\sum_{n=0}^{d}a_i n^{i-k}\\
+       &=0
+     \end{align*}
+     Hence \(p(n) = o(n^k)\).
+
+   - *e.*
+
+     If \(k < d\), then
+     \begin{align*}
+     \lim_{n\to\infty}\frac{p(n)}{n^k}
+       &=\lim_{n\to\infty}\frac{\sum_{n=0}^{d}a_i n^i}{n^k}\\
+       &=\lim_{n\to\infty}\sum_{n=0}^{d}a_i n^{i-k}\\
+       &=\infty
+     \end{align*}
+     Hence \(p(n) = \omega(n^k)\).
+** 3-2
+   |------+-------------+----------------+-----+-----+------------+------------+------------|
+   |      | A           | B              | O   | o   | \(\Omega\) | \(\omega\) | \(\Theta\) |
+   |------+-------------+----------------+-----+-----+------------+------------+------------|
+   | *a.* | \(\lg^k n\) | \(n^\epsilon\) | yes | yes | no         | no         | no         |
+   | *b.* | \(n^k\)     | \(c^n\)        | yes | yes | no         | no         | no         |
+   | *c.* | \(\sqrt n\) | \(n^{\sin n}\) | no  | no  | no         | no         | no         |
+   | *d.* | \(2^n\)     | \(2^{n / 2}\)  | no  | no  | yes        | yes        | no         |
+   | *e.* | \(n\lg c\)  | \(c^{\lg n}\)  | yes | no  | yes        | no         | yes        |
+   | *f.* | \(\lg(n!)\) | \(\lg(n^n)\)   | yes | no  | yes        | no         | yes        |
+   |------+-------------+----------------+-----+-----+------------+------------+------------|
+** 3-3
+   - *a.*
+
+     The functions ordered by growth are as below.
+     \begin{array}{ccccc}
+     2^{2^{n+1}}
+     & 2^{2^n}
+     & (n+1)!
+     & n!
+     & e^n\\
+     n\cdot 2^n
+     & 2^n
+     & (\frac{3}{2})^n
+     & n^{\lg\lg n}\text{, }(\lg n)^{\lg n}
+     & (\lg n)!\\
+     n^3
+     & 4^{\lg n}\text{, }n^2
+     & \lg(n!)\text{, }n\lg n
+     & n\text{, }2^{\lg n}
+     & (\sqrt 2)^{\lg n}\\
+     2^{\sqrt{2\lg n}}
+     & \lg^2 n
+     & \ln n
+     & \sqrt{\lg n}
+     & \ln\ln n\\
+     2^{\lg^*n}
+     & \lg^*n\text{, }\lg^*(\lg n)
+     & \lg(\lg^*n)
+     & 1\text{, }n^{1 / \lg n}
+     \end{array}
+   - *b.*
+
+     \(f(n) = 2^{n!}(1 + \sin n)\).
+** 3-4
+   - *a.*
+
+     Wrong, e.g., \(\ln n = O(n)\) and \(n \neq O(\ln n)\).
+   - *b.*
+
+     Wrong, e.g., \(n + \ln n \neq \Theta(min(n, \ln n))\).
+   - *c.*
+
+     Right, when n is large enough,
+     \(0 \leq \lg(f(n)) \leq \lg(cg(n)) \leq (\lg c + 1)\lg(g(n))\)
+     since \(\lg(g(n)) \geq 1\) and \(f(n) \geq 1\),
+     hence \(\lg(f(n)) = O(\lg(g(n)))\).
+   - *d.*
+
+     Wrong, e.g., \(2n = O(n)\) and \(2^{2n} \neq O(2^n)\).
+   - *e.*
+
+     Wrong, e.g., \(\frac{1}{n} \neq O(\frac{1}{n^2})\).
+   - *f.*
+
+     Right, \(g(n) \geq \frac{1}{c}f(n) \geq 0\) when n is large enough,
+     hence \(g(n) = \Omega(f(n))\).
+   - *g.*
+
+     Wrong, e.g., \(2^n \neq O(2^{n / 2})\).
+   - *h.*
+
+     Right, \(f(n) \leq f(n) + o(f(n)) < 2f(n)\) when n is large enough,
+     hence \(f(n) + o(f(n)) = \Theta(f(n))\).
+** 3-5
+   - *a.*
+
+     + \(f(n) \neq \overset{\infty}{\Omega}(g(n)) \iff f(n) = o(g(n))\).
+
+       *Proof:*
+       1. If \(f(n) \neq \overset{\infty}{\Omega}(g(n))\),
+          and f(n) and g(n) are nonnegative, then
+          \begin{align*}
+          \neg(\exists c\in\mathbb{R}^{+})
+          [0\leq cg(n)\leq f(n)\text{ for infinitely many integers n}]\\
+          \implies(\forall c\in\mathbb{R}^{+})
+          [0\leq cg(n)\leq f(n)\text{ for only finitely many integers n}]
+          \end{align*}
+          Let \(n_0\) = max(finitely many integers) + 1, we have
+          \begin{equation*}
+          (\forall c\in\mathbb{R}^{+})
+          [(\exists n_0\in\mathbb{R}^{+})
+           [(\forall n\leq n_0)[0\leq f(n)< cg(n)]]]
+          \end{equation*}
+          Hence \(f(n) = o(g(n))\).
+       2. If \(f(n) = o(g(n))\), then
+          \begin{align*}
+          (\forall c\in\mathbb{R}^{+})
+          [(\exists n_0\in\mathbb{R}^{+})
+           [(\forall n\leq n_0)[0\leq f(n)< cg(n)]]]\\
+          \implies(\forall c\in\mathbb{R}^{+})
+          [0\leq cg(n)\leq f(n)\text{ for only finitely many integers n}]\\
+          \implies\neg(\exists c\in\mathbb{R}^{+})
+          [0\leq cg(n)\leq f(n)\text{ for infinitely many integers n}]
+          \end{align*}
+          Hence \(f(n) \neq \overset{\infty}{\Omega}(g(n))\).
+     + According to the previous theorem, we can show that
+       \begin{equation*}
+       f(n)=
+       \begin{cases}
+       O(g(n))\text{ and }\overset{\infty}{\Omega}(g(n))
+       & \text{if }f(n)=\Theta(g(n))\\
+       O(g(n))\text{ and not }\overset{\infty}{\Omega}(g(n))
+       & \text{if }f(n)=o(g(n))\\
+       \overset{\infty}{\Omega}(g(n))\text{ and not }O(g(n))
+       & \text{if }f(n)\neq O(g(n))
+       \end{cases}
+       \end{equation*}
+       This is not true if we use \(\Omega\) in place of
+       \(\overset{\infty}{\Omega}\), because
+       \(f(n) \neq \Omega(g(n)) \nRightarrow f(n) = o(g(n))\).
+   - *b.*
+
+     *Pros:*
+     The relation between nonnegative functions f(n) and g(n)
+     can be completely covered as above.
+
+     *Cons:*
+     We can not tell the value of running time exactly.
+   - *c.*
+
+     Theorem 3.1 is still established.
+
+   - *d.*
+
+     \begin{align*}
+     \widetilde{\Omega}(g(n))
+     =\{f(n):\ &\text{there exist positive constants }c,\,k\text{, and }n_0
+               \text{ such that }\\
+               &0\leq c\,g(n)\lg^{-k}(n)\leq f(n)\text{ for all }n\geq n_0\}\ .
+     \end{align*}
+     \begin{align*}
+     \widetilde{\Theta}(g(n))
+     =\{f(n):\ &\text{there exist positive constants }c,\,k\text{, and }n_0
+               \text{ such that }\\
+               &0\leq c\,g(n)\lg^{-k}(n)\leq f(n)\leq c\,g(n)\lg^{k}(n)
+               \text{ for all }n\geq n_0\}\ .
+     \end{align*}
+** 3-6
+   For appropriate large n
+   |------+----------------+-------+---------------------------------------|
+   |      | \(f(n)\)       | \(c\) | \(f_{c}^{*}(n)\)                      |
+   |------+----------------+-------+---------------------------------------|
+   |      |                |       | <c>                                   |
+   | *a.* | \(n - 1\)      | \(0\) | \(n\)                                 |
+   | *b.* | \(\lg n\)      | \(1\) | \(\lg^{*}n\)                          |
+   | *c.* | \(n / 2\)      | \(1\) | \(\lceil \lg{n} \rceil\)              |
+   | *d.* | \(n / 2\)      | \(2\) | \(\lceil \lg{n} \rceil - 1\)          |
+   | *e.* | \(\sqrt{n}\)   | \(2\) | \(\lceil \lg\lg{n} \rceil\)           |
+   | *f.* | \(\sqrt{n}\)   | \(1\) | \(\infty\)                            |
+   | *g.* | \(n^{1 / 3}\)  | \(2\) | \(\lceil \log_{3}\lg{n}\rceil\)       |
+   | *h.* | \(n / \lg{n}\) | \(2\) | \(\omega(\lg\lg n)\) and \(o(\lg n)\) |
+   |------+----------------+-------+---------------------------------------|
