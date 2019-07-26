@@ -6,7 +6,7 @@
 <!-- 2019-07-26 Fri 05:49 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Chapter 8 problems</title>
+<title>Chapter 3 problems</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="pedh" />
 <style type="text/css">
@@ -328,325 +328,362 @@ for the JavaScript code in this tag.
  |
  <a accesskey="H" href="/CLRS-Solutions"> HOME </a>
 </div><div id="content">
-<h1 class="title">Chapter 8 problems</h1>
+<h1 class="title">Chapter 3 problems</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org7b38d59">ch8-problems</a>
+<li><a href="#orgcfcc494">ch3-problems</a>
 <ul>
-<li><a href="#org7abfbb1">8-1</a></li>
-<li><a href="#orgea85b5e">8-2</a></li>
-<li><a href="#org767bb60">8-3</a></li>
-<li><a href="#orge9adae9">8-4</a></li>
-<li><a href="#orgb2ed989">8-5</a></li>
-<li><a href="#org5d80db7">8-6</a></li>
-<li><a href="#orgd7da72a">8-7</a></li>
+<li><a href="#org20740b4">3-1</a></li>
+<li><a href="#org5a30950">3-2</a></li>
+<li><a href="#org95d0742">3-3</a></li>
+<li><a href="#orga685b01">3-4</a></li>
+<li><a href="#org5d99c6c">3-5</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org7b38d59" class="outline-2">
-<h2 id="org7b38d59">ch8-problems</h2>
-<div class="outline-text-2" id="text-org7b38d59">
+<div id="outline-container-orgcfcc494" class="outline-2">
+<h2 id="orgcfcc494">ch3-problems</h2>
+<div class="outline-text-2" id="text-orgcfcc494">
 </div>
-<div id="outline-container-org7abfbb1" class="outline-3">
-<h3 id="org7abfbb1">8-1</h3>
-<div class="outline-text-3" id="text-org7abfbb1">
-<ol class="org-ol">
-<li>There are n! premutations, the probability is the same 1 / n!</li>
+<div id="outline-container-org20740b4" class="outline-3">
+<h3 id="org20740b4">3-1</h3>
+<div class="outline-text-3" id="text-org20740b4">
+<ul class="org-ul">
 <li><p>
-D(T)
-= \(\sum_{i\in T}D_T(i)\)
+<b>a.</b>
 </p>
 
 <p>
-= \(\sum_{i\in LT}D_T(i) + \sum_{i\in RT}D_T(i)\)
+If \(k \geq d\), then
+</p>
+\begin{align*}
+p(n)&=\sum_{i=0}^d a_i n^i\\
+    &\leq\sum_{i=0}^d a_i n^k&&\text{when }n\geq 1
+\end{align*}
+<p>
+Let \(c = \sum_{i=0}^d a_i\), then \(p(n) \leq cn^k\) for all \(n \geq 1\).
+Hence \(p(n) = O(n^k)\).
+</p></li>
+
+<li><p>
+<b>b.</b>
 </p>
 
 <p>
-= \(\sum_{i\in LT}(D_{LT}(i) + 1)\ + \sum_{i\in RT}(D_{RT}(i) + 1)\)
+If \(k \leq d\), then
+</p>
+\begin{align*}
+p(n)&=\sum_{i=0}^d a_i n^i\\
+    &\geq a_k n^k
+\end{align*}
+<p>
+Hence \(p(n) = \Omega(n^k)\).
+</p></li>
+
+<li><p>
+<b>c.</b>
 </p>
 
 <p>
-= D(LT) + D(RT) + k
+If \(k = d\), then \(p(n) = O(n^k)\) and \(p(n) = \Omega(n^k)\).
+Hence \(p(n) = \Theta(n^k)\).
+</p></li>
+
+<li><p>
+<b>d.</b>
+</p>
+
+<p>
+If \(k > d\), then
+</p>
+\begin{align*}
+\lim_{n\to\infty}\frac{p(n)}{n^k}
+  &=\lim_{n\to\infty}\frac{\sum_{n=0}^{d}a_i n^i}{n^k}\\
+  &=\lim_{n\to\infty}\sum_{n=0}^{d}a_i n^{i-k}\\
+  &=0
+\end{align*}
+<p>
+Hence \(p(n) = o(n^k)\).
+</p></li>
+
+<li><p>
+<b>e.</b>
+</p>
+
+<p>
+If \(k < d\), then
+</p>
+\begin{align*}
+\lim_{n\to\infty}\frac{p(n)}{n^k}
+  &=\lim_{n\to\infty}\frac{\sum_{n=0}^{d}a_i n^i}{n^k}\\
+  &=\lim_{n\to\infty}\sum_{n=0}^{d}a_i n^{i-k}\\
+  &=\infty
+\end{align*}
+<p>
+Hence \(p(n) = \omega(n^k)\).
+</p></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org5a30950" class="outline-3">
+<h3 id="org5a30950">3-2</h3>
+<div class="outline-text-3" id="text-org5a30950">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">A</th>
+<th scope="col" class="org-left">B</th>
+<th scope="col" class="org-left">O</th>
+<th scope="col" class="org-left">o</th>
+<th scope="col" class="org-left">\(\Omega\)</th>
+<th scope="col" class="org-left">\(\omega\)</th>
+<th scope="col" class="org-left">\(\Theta\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><b>a.</b></td>
+<td class="org-left">\(\lg^k n\)</td>
+<td class="org-left">\(n^\epsilon\)</td>
+<td class="org-left">yes</td>
+<td class="org-left">yes</td>
+<td class="org-left">no</td>
+<td class="org-left">no</td>
+<td class="org-left">no</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>b.</b></td>
+<td class="org-left">\(n^k\)</td>
+<td class="org-left">\(c^n\)</td>
+<td class="org-left">yes</td>
+<td class="org-left">yes</td>
+<td class="org-left">no</td>
+<td class="org-left">no</td>
+<td class="org-left">no</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>c.</b></td>
+<td class="org-left">\(\sqrt n\)</td>
+<td class="org-left">\(n^{\sin n}\)</td>
+<td class="org-left">no</td>
+<td class="org-left">no</td>
+<td class="org-left">no</td>
+<td class="org-left">no</td>
+<td class="org-left">no</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>d.</b></td>
+<td class="org-left">\(2^n\)</td>
+<td class="org-left">\(2^{n / 2}\)</td>
+<td class="org-left">no</td>
+<td class="org-left">no</td>
+<td class="org-left">yes</td>
+<td class="org-left">yes</td>
+<td class="org-left">no</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>e.</b></td>
+<td class="org-left">\(n\lg c\)</td>
+<td class="org-left">\(c^{\lg n}\)</td>
+<td class="org-left">yes</td>
+<td class="org-left">no</td>
+<td class="org-left">yes</td>
+<td class="org-left">no</td>
+<td class="org-left">yes</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>f.</b></td>
+<td class="org-left">\(\lg(n!)\)</td>
+<td class="org-left">\(\lg(n^n)\)</td>
+<td class="org-left">yes</td>
+<td class="org-left">no</td>
+<td class="org-left">yes</td>
+<td class="org-left">no</td>
+<td class="org-left">yes</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-org95d0742" class="outline-3">
+<h3 id="org95d0742">3-3</h3>
+<div class="outline-text-3" id="text-org95d0742">
+<ul class="org-ul">
+<li><p>
+<b>a.</b>
+</p>
+
+<p>
+The functions ordered by growth are as below.
+</p>
+\begin{array}{ccccc}
+2^{2^{n+1}}
+& 2^{2^n}
+& (n+1)!
+& n!
+& e^n\\
+n\cdot 2^n
+& 2^n
+& (\frac{3}{2})^n
+& n^{\lg\lg n}\text{, }(\lg n)^{\lg n}
+& (\lg n)!\\
+n^3
+& 4^{\lg n}\text{, }n^2
+& \lg(n!)\text{, }n\lg n
+& n\text{, }2^{\lg n}
+& (\sqrt 2)^{\lg n}\\
+2^{\sqrt{2\lg n}}
+& \lg^2 n
+& \ln n
+& \sqrt{\lg n}
+& \ln\ln n\\
+2^{\lg^*n}
+& \lg^*n\text{, }\lg^*(\lg n)
+& \lg(\lg^*n)
+& 1\text{, }n^{1 / \lg n}
+\end{array}</li>
+<li><p>
+<b>b.</b>
+</p>
+
+<p>
+\(f(n) = 2^{n!}(1 + \sin n)\).
+</p></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orga685b01" class="outline-3">
+<h3 id="orga685b01">3-4</h3>
+<div class="outline-text-3" id="text-orga685b01">
+<ul class="org-ul">
+<li><p>
+<b>a.</b>
+</p>
+
+<p>
+Wrong, e.g., \(\ln n = O(n)\) and \(n \neq O(\ln n)\).
 </p></li>
 <li><p>
-d(k)
-= min(D(T))
+<b>b.</b>
 </p>
 
 <p>
-= min(D(LT) + D(RT) + k)
-</p>
-
-<p>
-= \(min_{1 \leq i \leq k - 1}\{D(LT) + D(RT) + k\}\)
-  (We could choose 1 to k - 1 leaves for left node)
-</p>
-
-<p>
-= \(min_{1 \leq i \leq k - 1}\{min(D(LT)) + min(D(RT) + k)\}\)
-  (The shapes of left node tree and right node tree are arbitrary)
-</p>
-
-<p>
-= \(min_{1 \leq i \leq k - 1}\{d(i) + d(k - i) + k\}\)
+Wrong, e.g., \(n + \ln n \neq \Theta(min(n, \ln n))\).
 </p></li>
 <li><p>
-\(f(i) = i\lg i + (k - i)\lg(k - i)\, i \in [1, k - 1]\, find min(f(i))\)
+<b>c.</b>
 </p>
 
 <p>
-\(f'(i) = \frac{1}{\ln 2}[i\frac{1}{i} + \ln i - (k - i)\frac{1}{k - i} - \ln(k - i)]\)
+Right, when n is large enough,
+\(0 \leq \lg(f(n)) \leq \lg(cg(n)) \leq (\lg c + 1)\lg(g(n))\)
+since \(\lg(g(n)) \geq 1\) and \(f(n) \geq 1\),
+hence \(\lg(f(n)) = O(\lg(g(n)))\).
+</p></li>
+<li><p>
+<b>d.</b>
 </p>
 
 <p>
-\(= \frac{1}{\ln 2}[\ln i - \ln(k - i)]\)
+Wrong, e.g., \(2n = O(n)\) and \(2^{2n} \neq O(2^n)\).
+</p></li>
+<li><p>
+<b>e.</b>
 </p>
 
 <p>
-f(i) is concave when \(i \in [1, k - 1]\), the critical value is k / 2
+Wrong, e.g., \(\frac{1}{n} \neq O(\frac{1}{n^2})\).
+</p></li>
+<li><p>
+<b>f.</b>
 </p>
 
 <p>
-Then we use substitution method to prove \(d(k) = \Omega(k\lg k)\)
+Right, \(g(n) \geq \frac{1}{c}f(n) \geq 0\) when n is large enough,
+hence \(g(n) = \Omega(f(n))\).
+</p></li>
+<li><p>
+<b>g.</b>
 </p>
+
+<p>
+Wrong, e.g., \(2^n \neq O(2^{n / 2})\).
+</p></li>
+<li><p>
+<b>h.</b>
+</p>
+
+<p>
+Right, \(f(n) \leq f(n) + o(f(n)) < 2f(n)\) when n is large enough,
+hence \(f(n) + o(f(n)) = \Theta(f(n))\).
+</p></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org5d99c6c" class="outline-3">
+<h3 id="org5d99c6c">3-5</h3>
+<div class="outline-text-3" id="text-org5d99c6c">
+<ul class="org-ul">
+<li><b>a.</b>
 
 <ul class="org-ul">
-<li>First we assume that \(d(i) \geq c i\lg i\) for some constant c
-when \(i \in [1, k - 1]\)</li>
-
 <li><p>
-Base case
+\(f(n) \neq \overset{\infty}{\Omega}(g(n)) \iff f(n) = o(g(n))\).
 </p>
 
 <p>
-\(d(1) > 1 \lg 1 = 0\)
-</p></li>
-
-<li><p>
-Inductive step
+<b>Proof:</b>
 </p>
 
 <p>
-\(d(k) = min_{1 \leq i \leq k - 1}\{d(i) + d(k - i) + k\}\)
+If \(f(n) \neq \overset{\infty}{\Omega}(g(n))\), then
 </p>
-
+\begin{align*}
+\neg(\exists c\in\mathbb{R}^{+})
+[0\leq cg(n)\leq f(n)\text{ for infinitely many integers n}]\\
+\implies(\forall c\in\mathbb{R}^{+})
+[0\leq cg(n)\leq f(n)\text{ for only finitely many integers n}]
+\end{align*}
 <p>
-\(\geq min_{1 \leq i \leq k - 1}\{c i\lg i + c (k - 1)\lg(k - i) + k\}\)
+we know that f(n) and g(n) are nonnegative, so
 </p>
-
-<p>
-\(= c k\lg \frac{k}{2} + k\)
-</p>
-
-<p>
-\(= c k\lg k + (1 - c)k\)
-</p>
-
-<p>
-\(\geq c k\lg k\) when \(c \leq 1\)
-</p></li>
-<li>Thus \(d(k) = \Omega{k\lg k}\)</li>
+\begin{equation*}
+\implies(\forall c\in\mathbb{R}^{+})
+[]
+\end{equation*}</li>
+<li>asd</li>
 </ul></li>
-<li>T<sub>A</sub> has n! leaves, so \(D(T_A) = \Omega(n!\lg(n!))\),
-the average-case time to sort n elements is
-\(\frac{D(T_A)}{n!} = \Omega(lg(n!)) = \Omega(n\lg n)\)</li>
-<li>The needed leaves is not reduced from a randomized node to its child,
-so the randomized node could be replaced by a deterministic node with
-any one of its children.</li>
-</ol>
-</div>
-</div>
-<div id="outline-container-orgea85b5e" class="outline-3">
-<h3 id="orgea85b5e">8-2</h3>
-<div class="outline-text-3" id="text-orgea85b5e">
-<ol class="org-ol">
-<li>couting sort</li>
-<li>insertion sort</li>
-<li>merge sort</li>
-<li>The algorithm should be stable and runs in O(n) time</li>
-<li><p>
-COUNTING-SORT-IN-PLACE(A, k)
-</p>
-<pre class="example">
-COUNTING-SORT-IN-PLACE(A, k)
-    let C[0..k] be a new array
-    for i = 0 to k
-	C[i] = 0
-    for j = 1 to A.length
-	C[A[j]] = C[A[j]] + 1
-    for i = 1 to k
-	C[i] = C[i] + C[i - 1]
-    j = A.length
-    while j &gt;= 1
-	p = C[A[j]]
-	if j &gt; p
-	    j = j - 1
-	else exchange A[j] with A[p]
-	     C[A[p]] = p - 1
-</pre>
-<p>
-The algorithm is not stable
-</p></li>
-</ol>
-</div>
-</div>
-<div id="outline-container-org767bb60" class="outline-3">
-<h3 id="org767bb60">8-3</h3>
-<div class="outline-text-3" id="text-org767bb60">
-<ol class="org-ol">
-<li><p>
-First sort and group the elements by the number of digits,
-Then do radix sort on each group.
-</p>
-
-<p>
-Assume there is k groups, the count of elements in ith group is C<sub>i</sub>,
-the number of digits of elements in ith group is D<sub>i</sub>,
-The running time is T(n) = \(\Theta(\sum^{k}_{i = 1}D_i C_i) = \Theta(n)\)
-</p></li>
-<li>MSD radix sort (<a href="../codes/radix_sort.py">implementation</a>)</li>
-</ol>
-</div>
-</div>
-<div id="outline-container-orge9adae9" class="outline-3">
-<h3 id="orge9adae9">8-4</h3>
-<div class="outline-text-3" id="text-orge9adae9">
-<ol class="org-ol">
-<li>Brute force</li>
-<li>Build an decision tree of the problem
-<ul class="org-ul">
-<li>One comparison of a red water jug and a blue water jug generates
-three results (&gt;, &lt; and =), so in this decision tree a node has at most
-three children.</li>
-<li>There are n! possible results of the pairs,
-so the number of leaves is n!</li>
-<li>The heigit of decision tree is h, which \(3^h \geq n!\),
-\(h = \Omega(n\lg n)\)</li>
-<li>Thus the lower bound is \(\Omega(n\lg n)\)</li>
-</ul></li>
-<li><p>
-FIND-WATER-JUGS-GROUPS(R, B)
-</p>
-<pre class="example">
-FIND-WATER-JUGS-GROUPS(R, B)
-    if R.length == 0
-	return
-    r = random jug from R
-
-    // compare all jugs in B with r
-    b = jub in B same as r
-    BL = jugs in B smaller than r
-    BR = jugs in B larger than r
-
-    // compare all jugs in R with b
-    RL = jugs in R smaller than b
-    RR = jugs in R larger than b
-
-    output the pair of r and b
-    FIND-WATER-JUGS-GROUPS(RL, BL)
-    FIND-WATER-JUGS-GROUPS(RR. BR)
-</pre>
-<p>
-The expected number of comparisons is \(\Theta(n\lg n)\),
-the worst-case number of comparisons is \(\Theta(n^2)\)
-</p></li>
-</ol>
-</div>
-</div>
-<div id="outline-container-orgb2ed989" class="outline-3">
-<h3 id="orgb2ed989">8-5</h3>
-<div class="outline-text-3" id="text-orgb2ed989">
-<ol class="org-ol">
-<li>1-sorted means normal sorted</li>
-<li>{5, 1, 6, 2, 7, 8, 4, 9, 10}</li>
-<li><p>
-k-sorted means \(\sum_{j = i + 1}^{i + k}A[j] - \sum_{j = i}^{i + k - 1}A[j] = A[i + k] - A[i] \geq 0\)
-</p>
-
-<p>
-\(\Rightarrow (\forall i\in [1, n - k])[A[i] \leq A[i + k]]\)
-</p></li>
-<li>The problem is equivilant to get k * (sorting n / k size array),
-when use O(nlg n) sorting algorithm to sort the n / k size array,
-the running time is
-\(T(n) = k\frac{n}{k}\lg \frac{n}{k} = n\lg \frac{n}{k}\)</li>
-<li>Use the solution to exercise 6.5-9,
-the running time is \(T(n) = O(k) + O(n\lg k) = O(n\lg k)\)</li>
-<li>\(T(n) = \Omega(n\lg(n / k)) = \Omega(n(\lg n - \lg k)) = \Omega(n\lg n)\)</li>
-</ol>
-</div>
-</div>
-<div id="outline-container-org5d80db7" class="outline-3">
-<h3 id="org5d80db7">8-6</h3>
-<div class="outline-text-3" id="text-org5d80db7">
-<ol class="org-ol">
-<li>\(\binom{2 n}{n}\) possible ways</li>
-<li><p>
-The height of the decision tree is h, which \(2^h \geq \binom{2 n}{n}\)
-</p>
-
-<p>
-\(h \geq \lg \binom{2 n}{n} = 2 n - o(n)\)
-</p></li>
-<li>The two elements are consecutive means their order can't be decided by
-comparing to other elements, and they are in different lists means their
-order is unknown, so they must be compared.</li>
-<li>Consider the merged list of A and B is formed by
-(A[1], B[1], A[2], B[2]&#x2026;A[n], B[n]), 2n - 1 comparisons is required.</li>
-</ol>
-</div>
-</div>
-<div id="outline-container-orgd7da72a" class="outline-3">
-<h3 id="orgd7da72a">8-7</h3>
-<div class="outline-text-3" id="text-orgd7da72a">
-<ol class="org-ol">
-<li>A[q] is put to the wrong location too,
-and A[p] is smallest belong all the wrong elements, so A[p] &lt; A[q]</li>
-<li><p>
-If every 0-1 sequence of array A is sorted by X,
-then array A is sorted by X.
-</p>
-
-<p>
-B[p] &lt; B[q] and p &gt; q, so X fails to sort B
-</p></li>
-<li>The result after each step does not change if we are using
-compare-exchange, algorithm in the odd steps or not, so we can treat
-columnsort as an oblivious compare-exchange algorithm.</li>
-<li>Proofs
-<ul class="org-ul">
-<li>After step 1, all columns contains only one 0 -&gt; 1 transition</li>
-<li>After step 2, each column is transposed to r / s rows,
-only one of this rows is dirty</li>
-<li>After step 3, all columns are composed to 0 -&gt; 1 transition again,
-all the zeros are on the top, and all the ones are on the bottom.
-The dirty rows come from the differences between the numbers of zeros
-and ones of every columns. From the result of step 2, we know the
-difference is at most s, so there are at most s dirty rows.</li>
-</ul></li>
-<li>There are at most s dirty rows in after step 3, so after step 4 the dirty
-area has at most s<sup>2</sup> elements.</li>
-<li>The dirty area after step 5 places in tow kinds of position: between a
-column or ranges from a column to the next column, the first kind of dirty
-area is cleaned after step 5, the second kind of dirty area is cleaned
-after steps 6-8.</li>
-<li>If s does not divide r, the row generated by the cross of the original
-adjacent columns may also be dirty, the number of rows from this situation
-is at most s - 1, so the total number of dirty rows is at most 2s - 1,
-to hold these dirty rows, r must be at least \(2s(2s - 1)\).</li>
-<li>Take out some elements from the array to let the numbers of elements in
-the array meet the requirement of division, perform columnsort, and at
-last put the taken elements in the right place of the sorted array.</li>
-</ol>
-<p>
-This algorithm can benefit from parallel processing
-(<a href="../codes/columnsort.c">implementation</a>)
-</p>
+</ul>
 </div>
 </div>
 </div>
