@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-07-26 Fri 05:49 -->
+<!-- 2019-07-27 Sat 09:58 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 3 problems</title>
@@ -333,26 +333,26 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgd7e87bc">ch3-problems</a>
+<li><a href="#org7156a09">ch3-problems</a>
 <ul>
-<li><a href="#org478b006">3-1</a></li>
-<li><a href="#org7e2a006">3-2</a></li>
-<li><a href="#org21c090c">3-3</a></li>
-<li><a href="#org42278fd">3-4</a></li>
-<li><a href="#org8277c03">3-5</a></li>
+<li><a href="#org7ac6162">3-1</a></li>
+<li><a href="#org82d03f7">3-2</a></li>
+<li><a href="#org13913b7">3-3</a></li>
+<li><a href="#orga089718">3-4</a></li>
+<li><a href="#org4852d55">3-5</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgd7e87bc" class="outline-2">
-<h2 id="orgd7e87bc">ch3-problems</h2>
-<div class="outline-text-2" id="text-orgd7e87bc">
+<div id="outline-container-org7156a09" class="outline-2">
+<h2 id="org7156a09">ch3-problems</h2>
+<div class="outline-text-2" id="text-org7156a09">
 </div>
-<div id="outline-container-org478b006" class="outline-3">
-<h3 id="org478b006">3-1</h3>
-<div class="outline-text-3" id="text-org478b006">
+<div id="outline-container-org7ac6162" class="outline-3">
+<h3 id="org7ac6162">3-1</h3>
+<div class="outline-text-3" id="text-org7ac6162">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
@@ -430,9 +430,9 @@ Hence \(p(n) = \omega(n^k)\).
 </ul>
 </div>
 </div>
-<div id="outline-container-org7e2a006" class="outline-3">
-<h3 id="org7e2a006">3-2</h3>
-<div class="outline-text-3" id="text-org7e2a006">
+<div id="outline-container-org82d03f7" class="outline-3">
+<h3 id="org82d03f7">3-2</h3>
+<div class="outline-text-3" id="text-org82d03f7">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -535,9 +535,9 @@ Hence \(p(n) = \omega(n^k)\).
 </table>
 </div>
 </div>
-<div id="outline-container-org21c090c" class="outline-3">
-<h3 id="org21c090c">3-3</h3>
-<div class="outline-text-3" id="text-org21c090c">
+<div id="outline-container-org13913b7" class="outline-3">
+<h3 id="org13913b7">3-3</h3>
+<div class="outline-text-3" id="text-org13913b7">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
@@ -582,9 +582,9 @@ n^3
 </ul>
 </div>
 </div>
-<div id="outline-container-org42278fd" class="outline-3">
-<h3 id="org42278fd">3-4</h3>
-<div class="outline-text-3" id="text-org42278fd">
+<div id="outline-container-orga089718" class="outline-3">
+<h3 id="orga089718">3-4</h3>
+<div class="outline-text-3" id="text-orga089718">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
@@ -650,9 +650,9 @@ hence \(f(n) + o(f(n)) = \Theta(f(n))\).
 </ul>
 </div>
 </div>
-<div id="outline-container-org8277c03" class="outline-3">
-<h3 id="org8277c03">3-5</h3>
-<div class="outline-text-3" id="text-org8277c03">
+<div id="outline-container-org4852d55" class="outline-3">
+<h3 id="org4852d55">3-5</h3>
+<div class="outline-text-3" id="text-org4852d55">
 <ul class="org-ul">
 <li><b>a.</b>
 
@@ -664,9 +664,10 @@ hence \(f(n) + o(f(n)) = \Theta(f(n))\).
 <p>
 <b>Proof:</b>
 </p>
-
-<p>
-If \(f(n) \neq \overset{\infty}{\Omega}(g(n))\), then
+<ol class="org-ol">
+<li><p>
+If \(f(n) \neq \overset{\infty}{\Omega}(g(n))\),
+and f(n) and g(n) are nonnegative, then
 </p>
 \begin{align*}
 \neg(\exists c\in\mathbb{R}^{+})
@@ -675,14 +676,65 @@ If \(f(n) \neq \overset{\infty}{\Omega}(g(n))\), then
 [0\leq cg(n)\leq f(n)\text{ for only finitely many integers n}]
 \end{align*}
 <p>
-we know that f(n) and g(n) are nonnegative, so
+Let \(n_0\) = max(finitely many integers) + 1, we have
 </p>
 \begin{equation*}
+(\forall c\in\mathbb{R}^{+})
+[(\exists n_0\in\mathbb{R}^{+})
+ [(\forall n\leq n_0)[0\leq f(n)< cg(n)]]]
+\end{equation*}
+<p>
+Hence \(f(n) = o(g(n))\).
+</p></li>
+<li><p>
+If \(f(n) = o(g(n))\), then
+</p>
+\begin{align*}
+(\forall c\in\mathbb{R}^{+})
+[(\exists n_0\in\mathbb{R}^{+})
+ [(\forall n\leq n_0)[0\leq f(n)< cg(n)]]]\\
 \implies(\forall c\in\mathbb{R}^{+})
-[]
-\end{equation*}</li>
-<li>asd</li>
+[0\leq cg(n)\leq f(n)\text{ for only finitely many integers n}]\\
+\implies\neg(\exists c\in\mathbb{R}^{+})
+[0\leq cg(n)\leq f(n)\text{ for infinitely many integers n}]
+\end{align*}
+<p>
+Hence \(f(n) \neq \overset{\infty}{\Omega}(g(n))\).
+</p></li>
+</ol></li>
+<li><p>
+According to the previous theorem, we can show that
+</p>
+\begin{equation*}
+f(n)=
+\begin{cases}
+O(g(n))\text{ and }\overset{\infty}{\Omega}(g(n))
+& \text{if }f(n)=\Theta(g(n))\\
+O(g(n))\text{ and not }\overset{\infty}{\Omega}(g(n))
+& \text{if }f(n)=o(g(n))\\
+\overset{\infty}{\Omega}(g(n))\text{ and not }O(g(n))
+& \text{if }f(n)\neq O(g(n))
+\end{cases}
+\end{equation*}
+<p>
+This is not true if we use \(\Omega\) in place of
+\(\overset{\infty}{\Omega}\), because
+\(f(n) \neq \Omega(g(n)) \nRightarrow f(n) = o(g(n))\).
+</p></li>
 </ul></li>
+<li><p>
+<b>b.</b>
+</p>
+
+<p>
+<b>Pros:</b>
+The relation between nonnegative functions f(n) and g(n)
+can be completely covered as above.
+<b>Cons:</b>
+We can not tell the value of running time exactly.
+</p></li>
+<li><b>c.</b>
+TODO</li>
 </ul>
 </div>
 </div>
@@ -690,7 +742,7 @@ we know that f(n) and g(n) are nonnegative, so
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2019-07-26 Fri 05:49</p>
+<p class="date">Created: 2019-07-27 Sat 09:58</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
