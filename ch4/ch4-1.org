@@ -1,0 +1,53 @@
+#+TITLE: Chapter 4.1
+
+* ch4.1
+** 4.1-1
+   Return the maximum element and its index.
+** 4.1-2
+   #+BEGIN_SRC
+   FIND-MAXIMUM-SUBARRAY-BRUTE-FORCE(A)
+       n = A.length
+       if n == 0
+           error "Empty input array"
+       low = 0
+       high = 0
+       sum = -\infty
+       for i = 1 to n
+           s = 0
+           for j = i to n
+               s = s + A[j]
+               if s > sum
+                   sum = s
+                   low = i
+                   high = j
+       return low, high, sum
+   #+END_SRC
+** 4.1-3
+   The crossover point on my own computer is around 40.
+
+   The crossover point of optimized recursive algorithm is around 25.
+
+   ([[../codes/max_subarray.py][implementation]])
+** 4.1-4
+   Returns an empty subarray when the result is negative.
+** 4.1-5
+   #+BEGIN_SRC
+   MAXIMUM-SUBARRAY-LINEAR(A)
+   n = A.length
+   if n == 0
+       error "Empty input array"
+   i = low = high = 1
+   c = s = A[1]
+   for j = 2 to n
+       if c < 0
+           c = A[j]
+           i = j
+       else c = c + A[j]
+       if c > s
+           s = c
+           low = i
+           high = j
+   return low, high, s
+   #+END_SRC
+
+   ([[../codes/max_subarray.py][implementation]])
