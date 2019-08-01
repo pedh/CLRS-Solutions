@@ -1,0 +1,134 @@
+#+TITLE: Chapter 4.2
+
+* ch4.2
+** 4.2-1
+   \begin{equation*}
+   A=
+   \begin{pmatrix}
+   1&3\\ 7&5
+   \end{pmatrix}
+   \end{equation*}
+   \begin{equation*}
+   B=
+   \begin{pmatrix}
+   6&8\\ 4&2
+   \end{pmatrix}
+   \end{equation*}
+   First,
+   \begin{align*}
+   S_1 &= B_{12}-B_{22}= 6\\
+   S_2 &= A_{11}+A_{12}= 4\\
+   S_3 &= A_{21}+A_{22}= 12\\
+   S_4 &= B_{21}-B_{11}= -2\\
+   S_5 &= A_{11}+A_{22}= 6\\
+   S_6 &= B_{11}+B_{22}= 8\\
+   S_7 &= A_{12}-A_{22}= -2\\
+   S_8 &= B_{21}+B_{22}= 6\\
+   S_9 &= A_{11}-A_{21}= -6\\
+   S_{10} &= B_{11}+B_{12}= 14
+   \end{align*}
+   Then,
+   \begin{align*}
+   P_1 &= A_{11}\cdot S_1 = 6\\
+   P_2 &= S_2\cdot B_{22} = 8\\
+   P_3 &= S_3\cdot B_{11} = 72\\
+   P_4 &= A_{22}\cdot S_4 = -10\\
+   P_5 &= S_5\cdot S_6 = 48\\
+   P_6 &= S_7\cdot S_8 = -12\\
+   P_7 &= S_9\cdot S_10 = -84\\
+   \end{align*}
+   Finally,
+   \begin{align*}
+   C_{11} &= P_5+P_4-P_2+P_6 = 18\\
+   C_{12} &= P_1+P_2 = 14\\
+   C_{21} &= P_3+P_4 = 62\\
+   C_{22} &= P_5+P_1-P_3-P_7 = 66
+   \end{align*}
+   \begin{equation*}
+   C=
+   \begin{pmatrix}
+   18&14 \\ 62&66
+   \end{pmatrix}
+   \end{equation*}
+** 4.2-2
+   #+BEGIN_SRC
+   MATRIX-MULTIPLY-STRASSEN(A, B)
+       n = A.rows
+       let C be a new n * n matrix
+       if n == 1
+           c11 = a11 * b11
+       else partition A, B, and C as in equations (4.9)
+           S1 = B12 - B22
+           S2 = A11 + A12
+           S3 = A21 + A22
+           S4 = B21 - B11
+           S5 = A11 + A22
+           S6 = B11 + B22
+           S7 = A12 - A22
+           S8 = B21 + B22
+           S9 = A11 - A21
+           S10 = B11 + B12
+           P1 = MATRIX-MULTIPLY-STRASSEN(A11, S1)
+           P2 = MATRIX-MULTIPLY-STRASSEN(S2, B22)
+           P3 = MATRIX-MULTIPLY-STRASSEN(S3, B11)
+           P4 = MATRIX-MULTIPLY-STRASSEN(A22, S4)
+           P5 = MATRIX-MULTIPLY-STRASSEN(S5, S6)
+           P6 = MATRIX-MULTIPLY-STRASSEN(S7, S8)
+           P7 = MATRIX-MULTIPLY-STRASSEN(S9, S10)
+           C11 = P5 + P4 - P2 + P6
+           C12 = P1 + P2
+           C21 = P3 + P4
+           C22 = P5 + P1 - P3 - P7
+       return C
+   #+END_SRC
+** 4.2-3
+   Let \(k = \lceil \lg n \rceil\), extend the \(n \times n\) matrices to
+   \(2^k \times 2^k\) matrices and pad them with zeroes.
+
+   We have \(n \leq 2^k < 2n\),
+   thus \(n^{\lg 7} \leq (2^k)^{\lg 7} < (2n)^{\lg 7} = 7n^{\lg 7} \),
+   hence the running time is still \(\Theta(n^{\lg 7})\).
+** 4.2-4
+   We have
+   \begin{equation*}
+   T(n)=
+   \begin{cases}
+   \Theta(1) & \text{if }n=1\\
+   kT(n/3)+\Theta(n^2) & \text{if }n>1
+   \end{cases}
+   \end{equation*}
+   According to the master theorem, we know that when \(n > 9\),
+   \(T(n) = \Theta(n^{\log_3{k}})\).
+
+   The largest k such that \(\Theta(n^{\log_3{k}}) = o(n^{\lg 7})\)
+   is 21. The running time is \(\Theta(n^{\log_3{21}})\).
+** 4.2-5
+   Calculate the logarithms of the three ways
+   \begin{align*}
+   \log_{68}{132464} &\approx 2.795128\\
+   \log_{70}{143640} &\approx 2.795122\\
+   \log_{72}{155424} &\approx 2.795147
+   \end{align*}
+   So the way of multiplying \(70 \times 70\) matrices
+   using 143640 multiplications has best asymptotic running time.
+   It's better than Strassen's algorithm which \(\lg 7 \approx 2.81\).
+** 4.2-6
+   - Multiply a \(kn \times n\) matrix by an \(n \times kn\) matrix:
+
+     \(k^2\) multiplications of \(n \times n\) matrices.
+
+     The running time is \(\Theta(k^2 n^{\lg 7})\).
+   - Multiply an \(n \times kn\) matrix by a \(kn \times n\) matrix:
+
+     \(k\) multiplications of \(n \times n\) matrices
+     and \(k - 1\) additions of \(n \times n\) matrices.
+
+     The running time is \(\Theta(k n^{\lg 7} + (k - 1)n^2)\).
+** 4.2-7
+   Let \(p_1 = ad\), \(p_2 = bc\), \(p_3 = (a - b)(c + d)\), then
+   \begin{align*}
+   (a+bi)(c+di)
+   &=(ac-bd)+(ad+bc)i\\
+   &=((a-b)(c+d)-ad+bc)+(ad+bc)i\\
+   &=(p_3-p_1+p_2)+(p_1+p_2)i
+   \end{align*}
