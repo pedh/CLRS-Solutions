@@ -1,0 +1,109 @@
+#+TITLE: Chapter 4.3
+
+* ch4.3
+** 4.3-1
+   Guess \(c \in \mathbb{R}^{+},\ T(n) \leq cn^2\), then
+   \begin{align*}
+   T(n)
+   &=T(n-1)+n\\
+   &\leq c(n-1)^2+n\\
+   &=cn^2-2cn+c+n\\
+   &\leq cn^2 &\text{, when }c\geq\frac{n}{2n-1}
+   \end{align*}
+** 4.3-2
+   Guess \(c,d \in \mathbb{R}^{+},\ T(n) \leq c\lg(n - d)\), then
+   \begin{align*}
+   T(n)
+   &=T(\lceil n/2 \rceil)+1\\
+   &\leq c\lg(\lceil n/2 \rceil-d)+1\\
+   &\leq c\lg(n/2+1-d)+1\\
+   &=c\lg(n+2-2d)+1-c\\
+   &\leq c\lg(n-d) &\text{, when }c\geq 1,\ d\geq 2
+   \end{align*}
+** 4.3-3
+   Guess \(c,d \in \mathbb{R}^{+},\ T(n) \geq c(n + d)\lg(n + d)\), then
+   \begin{align*}
+   T(n)
+   &=2T(\lfloor n/2 \rfloor)+n\\
+   &\geq 2c(\lfloor n/2 \rfloor+d)\lg(\lfloor n/2 \rfloor+d)+n\\
+   &\geq 2c(n/2-1+d)\lg(n/2-1+d)+n\\
+   &\geq c(n+2d-2)\lg(n+2d-2)-c(n+2d-2)+n\\
+   &\geq c(n+d)\lg(n+d) &\text{, when }d\geq 2,\ c\leq\frac{n}{n+2d-2}
+   \end{align*}
+** 4.3-4
+   Guess \(c \in \mathbb{R}^{+},\ T(n) \leq cn\lg n + 1\), then
+   \begin{align*}
+   T(n)
+   &=2T(\lfloor n/2 \rfloor)+n\\
+   &=2c\lfloor n/2 \rfloor (\lg (\lfloor n/2 \rfloor))+2+n\\
+   &\leq 2c(n/2)(\lg(n/2))+2+n\\
+   &=cn\lg n-cn+n+2\\
+   &\leq cn\lg n+1 &\text{, when }c\geq\frac{n+1}{n}
+   \end{align*}
+** 4.3-5
+   - Guess \(T(n) \leq c(n - d)\lg(n - d)\), then
+     \begin{align*}
+     T(n)
+     &=T(\lfloor n/2 \rfloor)+T(\lceil n/2 \rceil)+\Theta(n)\\
+     &\leq 2T(\lceil n/2 \rceil)+an &\text{, a is an appropriate constant}\\
+     &=2c(\lceil n/2 \rceil-d)\lg(\lceil n/2 \rceil-d)+an\\
+     &\leq c(n+2-2d)\lg(n+2-2d)-c(n+2-2d)+an\\
+     &\leq c(n-d)\lg(n-d) &\text{, when }d\geq 2,\ c\geq\frac{an}{n+2-2d}
+     \end{align*}
+     Hence \(T(n) = O(n\lg n)\).
+   - Guess \(T(n) \geq c(n + d)\lg(n + d)\), then
+     \begin{align*}
+     T(n)
+     &=T(\lfloor n/2 \rfloor)+T(\lceil n/2 \rceil)+\Theta(n)\\
+     &\geq 2T(\lfloor n/2 \rfloor)+an &\text{, a is an appropriate constant}\\
+     &=2c(\lfloor n/2 \rfloor+d)\lg(\lfloor n/2 \rfloor+d)+an\\
+     &\geq c(n-2+2d)\lg(n-2+2d)-c(n-2+2d)+an\\
+     &\geq c(n-d)\lg(n-d) &\text{, when }d\geq 2,\ c\leq\frac{an}{n-2+2d}
+     \end{align*}
+     Hence \(T(n) = \Omega(n\lg n)\).
+   - In conclusion, \(T(n) = \Theta(n\lg n)\).
+** 4.3-6
+   Guess \(T(n) \leq c(n - d)\lg(n - d)\), then
+   \begin{align*}
+   T(n)
+   &=2T(\lfloor n/2 \rfloor+17)+n\\
+   &\leq 2T(n/2+17)+n\\
+   &\leq 2c(n/2+17-d)\lg(n/2+17-d)+n\\
+   &=c(n+34-2d)\lg(n+34-2d)+c(n+34-2d)+n\\
+   &\leq c(n-d)\lg(n-d) &\text{, when }d\geq 34,\ c\geq\frac{n}{n+34-2d}
+   \end{align*}
+   Hence \(T(n) = O(n\lg n)\).
+** 4.3-7
+   - First we guess \(T(n) \leq cn^{\log_3 4}\), then
+     \begin{align*}
+     T(n)
+     &=4T(n/3)+n\\
+     &\leq 4c(n/3)^{\log_3 4}+n\\
+     &=cn^{\log_3 4}+n
+     \end{align*}
+     Which fails to prove the hypothesis.
+   - To make the substitution proof work, we guess that
+     \(T(n) \leq cn^{\log_3 4} - dn\), then
+     \begin{align*}
+     T(n)
+     &=4T(n/3)+n\\
+     &\leq 4(c(n/3)^{\log_3 4} - d(n/3))+n\\
+     &=cn^{\log_3 4}-(3/4)dn+n\\
+     &\leq cn^{\log_3 4}-dn &\text{, when }d\geq 3
+     \end{align*}
+** 4.3-8
+   Using master method, the solution to the recurrence \(T(n) = 4T(n/2) + n^2\)
+   should be \(T(n) = \Theta(n^2\lg n)\).
+** 4.3-9
+   Let \(m = \lg n\), then
+   \begin{equation*}
+   T(2^m)=3T(2^{m/2})+m
+   \end{equation*}
+   Let \(T(2^m) = S(m)\), then
+   \begin{equation*}
+   S(m)=3S(m/2)+m
+   \end{equation*}
+   Using master method, we know that \(S(m) = \Theta(m^{\lg 3})\).
+
+   We obtain
+   \(T(n) = T(2^m) = S(m) = \Theta(m^{\lg 3}) = \Theta(\lg^{\lg 3}n)\).
