@@ -6,7 +6,7 @@
 <!-- 2019-08-05 Mon 09:59 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Chapter 7 problems</title>
+<title>Chapter 4.3</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="pedh" />
 <style type="text/css">
@@ -328,338 +328,185 @@ for the JavaScript code in this tag.
  |
  <a accesskey="H" href="/CLRS-Solutions"> HOME </a>
 </div><div id="content">
-<h1 class="title">Chapter 7 problems</h1>
+<h1 class="title">Chapter 4.3</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org5251b24">ch7-problems</a>
+<li><a href="#org1210329">ch4.3</a>
 <ul>
-<li><a href="#orgec12833">7-1</a></li>
-<li><a href="#org4fb1e2a">7-2</a></li>
-<li><a href="#orga9e1646">7-3</a></li>
-<li><a href="#org4bbba2f">7-4</a></li>
-<li><a href="#org129760a">7-5</a></li>
-<li><a href="#org0a80528">7-6</a></li>
+<li><a href="#org4958f8e">4.3-1</a></li>
+<li><a href="#org9358480">4.3-2</a></li>
+<li><a href="#orgc9749d7">4.3-3</a></li>
+<li><a href="#orge59f251">4.3-4</a></li>
+<li><a href="#org6f656e3">4.3-5</a></li>
+<li><a href="#org9e02106">4.3-6</a></li>
+<li><a href="#org60d7eed">4.3-7</a></li>
+<li><a href="#org6005f37">4.3-8</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org5251b24" class="outline-2">
-<h2 id="org5251b24">ch7-problems</h2>
-<div class="outline-text-2" id="text-org5251b24">
+<div id="outline-container-org1210329" class="outline-2">
+<h2 id="org1210329">ch4.3</h2>
+<div class="outline-text-2" id="text-org1210329">
 </div>
-<div id="outline-container-orgec12833" class="outline-3">
-<h3 id="orgec12833">7-1</h3>
-<div class="outline-text-3" id="text-orgec12833">
-<ol class="org-ol">
-<li>omitted</li>
-<li>A[p..i] and A[j..q] is the elements already accessed, A[i..j] is the
-elements never accessed.</li>
-<li>\(p - 1 \leq i < j < r\)</li>
-<li>\(A[p..j] \leq x\) and \(A[j + 1..r] \geq x\)</li>
-<li><p>
-QUICKSORT(A, p, r)
+<div id="outline-container-org4958f8e" class="outline-3">
+<h3 id="org4958f8e">4.3-1</h3>
+<div class="outline-text-3" id="text-org4958f8e">
+<p>
+Guess \(c \in \mathbb{R}^{+},\ T(n) \leq cn^2\), then
 </p>
-<pre class="example">
-QUICKSORT(A, p, r)
-    if p &lt; r
-	q = HOARE-PARTITION(A, p, r)
-	QUICKSORT(A, p, q)
-	QUICKSORT(A, q + 1, r)
-</pre></li>
-</ol>
+\begin{align*}
+T(n)
+&=T(n-1)+n\\
+&\leq c(n-1)^2+n\\
+&=cn^2-2cn+c+n\\
+&\leq cn^2 &\text{, when }c\geq\frac{n}{2n-1}
+\end{align*}
 </div>
 </div>
-<div id="outline-container-org4fb1e2a" class="outline-3">
-<h3 id="org4fb1e2a">7-2</h3>
-<div class="outline-text-3" id="text-org4fb1e2a">
-<ol class="org-ol">
-<li>\(O(n^2)\)</li>
-<li><p>
-PARTITION'(A, p, r)
-</p>
-<pre class="example">
-PARTITION'(A, p, r)
-    x = P[r]
-    i = j = p - 1
-    for k = p to r - 1
-	if A[k] &lt; x
-	    i = i + 1
-	    j = j + 1
-	    y = A[j]
-	    A[j] = A[i]
-	    A[i] = A[k]
-	    A[k] = y
-	else if A[k] == x:
-	    j = j + 1
-	    exchange A[j] with A[k]
-    exchange A[r] with A[j + 1]
-    return i + 1, j + 1
-</pre></li>
-<li><p>
-RANDOMIZED-QUICKSORT(A, p, r)
-</p>
-<pre class="example">
-QUICKSORT'(A, p, r)
-    if p &lt; r
-	q, t = RANDOMIZED-PARTITION'(A, p, r)
-	QUICKSORT(A, p, q - 1)
-	QUICKSORT(A, t + 1, r)
-</pre>
-<pre class="example">
-RANDOMIZED-PARTITION'(A, p, r)
-    i = RANDOM(p, r)
-    exchange A[r] with A[i]
-    return PARTITION'(A, p, r)
-</pre></li>
-<li><p>
-Assume m elements less than the pivot, k elements equal to the pivot
-</p>
-
+<div id="outline-container-org9358480" class="outline-3">
+<h3 id="org9358480">4.3-2</h3>
+<div class="outline-text-3" id="text-org9358480">
 <p>
-The expected running time is:
+Guess \(c,d \in \mathbb{R}^{+},\ T(n) \leq c\lg(n - d)\), then
 </p>
-
-<p>
-\(T(n) = T(m) + T(n - k - m) + O(n) \leq T(m + k) + T(n - k - m) + O(n) = O(n\lg{n})\)
-</p></li>
-</ol>
+\begin{align*}
+T(n)
+&=T(\lceil n/2 \rceil)+1\\
+&\leq c\lg(\lceil n/2 \rceil-d)+1\\
+&\leq c\lg(n/2+1-d)+1\\
+&=c\lg(n+2-2d)+1-c\\
+&\leq c\lg(n-d) &\text{, when }c\geq 1,\ d\geq 2
+\end{align*}
 </div>
 </div>
-<div id="outline-container-orga9e1646" class="outline-3">
-<h3 id="orga9e1646">7-3</h3>
-<div class="outline-text-3" id="text-orga9e1646">
-<ol class="org-ol">
-<li>\(E[X_i] = 1/n\)</li>
-<li><p>
-E[T(n)]
-</p>
-
+<div id="outline-container-orgc9749d7" class="outline-3">
+<h3 id="orgc9749d7">4.3-3</h3>
+<div class="outline-text-3" id="text-orgc9749d7">
 <p>
-= \(\sum^{n}_{q=1} X_q E[T(q - 1) + T(n - q) + \Theta(n)])\)
+Guess \(c,d \in \mathbb{R}^{+},\ T(n) \geq c(n + d)\lg(n + d)\), then
 </p>
-
+\begin{align*}
+T(n)
+&=2T(\lfloor n/2 \rfloor)+n\\
+&\geq 2c(\lfloor n/2 \rfloor+d)\lg(\lfloor n/2 \rfloor+d)+n\\
+&\geq 2c(n/2-1+d)\lg(n/2-1+d)+n\\
+&\geq c(n+2d-2)\lg(n+2d-2)-c(n+2d-2)+n\\
+&\geq c(n+d)\lg(n+d) &\text{, when }d\geq 2,\ c\leq\frac{n}{n+2d-2}
+\end{align*}
+</div>
+</div>
+<div id="outline-container-orge59f251" class="outline-3">
+<h3 id="orge59f251">4.3-4</h3>
+<div class="outline-text-3" id="text-orge59f251">
 <p>
-= \(E[\sum^{n}_{q=1} X_q E[T(q - 1) + T(n - 1) + \Theta(n)]]\)
-</p></li>
-<li><p>
-E[T(n)]
+Guess \(c \in \mathbb{R}^{+},\ T(n) \leq cn\lg n + 1\), then
 </p>
-
-<p>
-= \(E[\sum^{n}_{q=1} X_q E[T(q - 1) + T(n - 1) + \Theta(n)]]\)
-</p>
-
-<p>
-= \(1/n\sum^{n}_{q=1}E[T(q - 1)] + 1/n\sum^{n}_{q=1}E[T(n - q)] + 1/n\sum^{n}_{q=1}\Theta(n)\)
-</p>
-
-<p>
-= \(2/n\sum^{n - 1}_{q=2}E[T(q)] + \Theta(n)\)
-</p></li>
-<li>Two solutions
+\begin{align*}
+T(n)
+&=2T(\lfloor n/2 \rfloor)+n\\
+&=2c\lfloor n/2 \rfloor (\lg (\lfloor n/2 \rfloor))+2+n\\
+&\leq 2c(n/2)(\lg(n/2))+2+n\\
+&=cn\lg n-cn+n+2\\
+&\leq cn\lg n+1 &\text{, when }c\geq\frac{n+1}{n}
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org6f656e3" class="outline-3">
+<h3 id="org6f656e3">4.3-5</h3>
+<div class="outline-text-3" id="text-org6f656e3">
 <ul class="org-ul">
 <li><p>
-\(\int x^n\ln x dx = \frac{x^{n + 1}}{n + 1}[(n + 1)\ln x - 1] + C\)
+Guess \(T(n) \leq c(n - d)\lg(n - d)\), then
 </p>
-
+\begin{align*}
+T(n)
+&=T(\lfloor n/2 \rfloor)+T(\lceil n/2 \rceil)+\Theta(n)\\
+&\leq 2T(\lceil n/2 \rceil)+an &\text{, a is an appropriate constant}\\
+&=2c(\lceil n/2 \rceil-d)\lg(\lceil n/2 \rceil-d)+an\\
+&\leq c(n+2-2d)\lg(n+2-2d)-c(n+2-2d)+an\\
+&\leq c(n-d)\lg(n-d) &\text{, when }d\geq 2,\ c\geq\frac{an}{n+2-2d}
+\end{align*}
 <p>
-\(\because f'(x\lg x) = \frac{1}{\ln 2}(\ln x + 1) > 0 (x \geq 2)\)
-</p>
-
-<p>
-\(\therefore \sum^{n - 1}_{k = 2}k \lg{k}\)
-</p>
-
-<p>
-\(\leq \int^{n}_{2}x\lg x dx\)
-</p>
-
-<p>
-= \(\frac{n^2}{4}(2\lg n - \frac{1}{\ln 2}) - 2 + \frac{1}{\ln 2}\)
-</p>
-
-<p>
-&lt; \(\frac{n^2}{2} \lg{n} - \frac{1}{8}n^2\)
+Hence \(T(n) = O(n\lg n)\).
 </p></li>
 <li><p>
-\(\sum^{n - 1}_{k = 2}k \lg{k}\)
+Guess \(T(n) \geq c(n + d)\lg(n + d)\), then
 </p>
-
+\begin{align*}
+T(n)
+&=T(\lfloor n/2 \rfloor)+T(\lceil n/2 \rceil)+\Theta(n)\\
+&\geq 2T(\lfloor n/2 \rfloor)+an &\text{, a is an appropriate constant}\\
+&=2c(\lfloor n/2 \rfloor+d)\lg(\lfloor n/2 \rfloor+d)+an\\
+&\geq c(n-2+2d)\lg(n-2+2d)-c(n-2+2d)+an\\
+&\geq c(n-d)\lg(n-d) &\text{, when }d\geq 2,\ c\leq\frac{an}{n-2+2d}
+\end{align*}
 <p>
-\(\leq \sum^{n / 2}_{k = 2} k \lg (n / 2) + \sum^{n - 1}_{k = n / 2} k \lg n\)
-</p>
-
-<p>
-= \(\lg n \sum^{n - 1}_{k = 2} k - \sum^{n / 2}_{k = 2} k\)
-</p>
-
-<p>
-= \(\frac{n^2}{2}\lg n - \frac{1}{8} n^2\)
+Hence \(T(n) = \Omega(n\lg n)\).
 </p></li>
-</ul></li>
-<li><p>
-Guess \(E[T(n)] \leq a n \lg n\), Then
-</p>
-
-<p>
-E[T(n)]
-</p>
-
-<p>
-= \(\frac{2}{n}\sum^{n - 1}{q = 2}E[T[q]] + \Theta(n)\)
-</p>
-
-<p>
-\(\leq \frac{2}{n}\sum^{n - 1}{q = 2} a q \lg q + \Theta(n)\)
-</p>
-
-<p>
-\(\leq \frac{2}{n}(\frac{a}{2}n^2 \lg n - \frac{a}{8} n^2) + \Theta(n)\)
-</p>
-
-<p>
-= \(a n \lg n - \frac{a n}{4} + \Theta(n)\)
-</p>
-
-<p>
-\(\leq a n \lg n\) (let a large enough to dominate \(\Theta(n)\))
-</p></li>
-</ol>
+<li>In conclusion, \(T(n) = \Theta(n\lg n)\).</li>
+</ul>
 </div>
 </div>
-<div id="outline-container-org4bbba2f" class="outline-3">
-<h3 id="org4bbba2f">7-4</h3>
-<div class="outline-text-3" id="text-org4bbba2f">
-<ol class="org-ol">
-<li>TAIL-RECURSIVE-QUICKSORT use a recursion to handle the left part, and a
-iteration to handle the right part.</li>
-<li><p>
-TAIL-RECURSIVE-QUICKSORT(A, 1, n)
-</p>
-
+<div id="outline-container-org9e02106" class="outline-3">
+<h3 id="org9e02106">4.3-6</h3>
+<div class="outline-text-3" id="text-org9e02106">
 <p>
--&gt; TAIL-RECURSIVE-QUICKSORT(A, 1, n - 1)
+Guess \(T(n) \leq c(n - d)\lg(n - d)\), then
 </p>
-
+\begin{align*}
+T(n)
+&=2T(\lfloor n/2 \rfloor+17)+n\\
+&\leq 2T(n/2+17)+n\\
+&\leq 2c(n/2+17-d)\lg(n/2+17-d)+n\\
+&=c(n+34-2d)\lg(n+34-2d)+c(n+34-2d)+n\\
+&\leq c(n-d)\lg(n-d) &\text{, when }d\geq 34,\ c\geq\frac{n}{n+34-2d}
+\end{align*}
 <p>
--&gt; TAIL-RECURSIVE-QUICKSORT(A, 1, n - 2)
+Hence \(T(n) = O(n\lg n)\).
 </p>
-
-<p>
-&#x2026;
-</p>
-
-<p>
--&gt; TAIL-RECURSIVE-QUICKSORT(A, 1, 1)
-</p></li>
-<li><p>
-TAIL-RECURSIVE-QUICKSORT(A, p, r)
-</p>
-<pre class="example">
-TAIL-RECURSIVE-QUICKSORT(A, p, r)
-    q = partition(A, p, r)
-    if q &lt; (p + r) / 2
-	TAIL-RECURSIVE-QUICKSORT(A, p, q - 1)
-	p = q + 1
-    else TAIL-RECURSIVE-QUICKSORT(A, q + 1, r)
-	 r = q - 1
-</pre></li>
-</ol>
 </div>
 </div>
-<div id="outline-container-org129760a" class="outline-3">
-<h3 id="org129760a">7-5</h3>
-<div class="outline-text-3" id="text-org129760a">
-<ol class="org-ol">
-<li>\(p_i = \frac{(i - 1)(n - i)}{\binom{n}{3}}\)</li>
-<li>\(\lim_{n \to \infty} \frac{\frac{(i - 1)(n - i)}{\binom{n}{3}}}{\frac{1}{n}} = \frac{3}{2}\)</li>
-<li><ul class="org-ul">
+<div id="outline-container-org60d7eed" class="outline-3">
+<h3 id="org60d7eed">4.3-7</h3>
+<div class="outline-text-3" id="text-org60d7eed">
+<ul class="org-ul">
 <li><p>
-The original possibility
+First we guess \(T(n) \leq cn^{\log_3 4}\), then
 </p>
-
+\begin{align*}
+T(n)
+&=4T(n/3)+n\\
+&\leq 4c(n/3)^{\log_3 4}+n\\
+&=cn^{\log_3 4}+n
+\end{align*}
 <p>
-\(Pr = \int^{\frac{2 n}{3}}_{\frac{1 n}{3}} \frac{1}{n} = \frac{1}{3}\)
+Which fails to prove the hypothesis.
 </p></li>
 <li><p>
-The median-of-3 possibility
+To make the substitution proof work, we guess that
+\(T(n) \leq cn^{\log_3 4} - dn\), then
 </p>
-
-<p>
-\(Pr = \int^{\frac{2 n}{3}}_{\frac{1 n}{3}} \frac{(i - 1)(n - i)}{\binom{n}{3}}\)
-</p>
-
-<p>
-= \(\frac{n^2 (n + 1) - \frac{14}{27} n^3 - 2 n^2}{n (n - 1) (n - 2)}\)
-</p>
-
-<p>
-\(\lim_{n \to \infty}Pr = \frac{13}{27}\)
-</p></li>
-</ul></li>
-<li>The median-of-3 method only improve the possibility of choosing a good
-pivot, the running time is still \(\Omega(n \lg n)\)</li>
-</ol>
+\begin{align*}
+T(n)
+&=4T(n/3)+n\\
+&\leq 4(c(n/3)^{\log_3 4} - d(n/3))+n\\
+&=cn^{\log_3 4}-(3/4)dn+n\\
+&\leq cn^{\log_3 4}-dn &\text{, when }d\geq 3
+\end{align*}</li>
+</ul>
 </div>
 </div>
-<div id="outline-container-org0a80528" class="outline-3">
-<h3 id="org0a80528">7-6</h3>
-<div class="outline-text-3" id="text-org0a80528">
-<ol class="org-ol">
-<li><p>
-The FUZZY-SORT is similar with equal-elements-quicksort in problem 7-2
-</p>
-<pre class="example">
-FUZZY-SORT(A, p, r)
-    if p &lt; r
-	q, t = FUZZY-PARTITION(A, p, r)
-	FUZZY-SORT(A, p, q - 1)
-	FUZZY-SORT(A, t + 1, r)
-</pre>
-<pre class="example">
-FUZZY-PARTITION(A, p, r)
-    i = j = p - 1
-    x = lo = A[r].left
-    ro = A[r].right
-    for k = p to r - 1
-	if A[k].right &lt; lo
-	    y = A[k]
-	    i = i + 1
-	    j = j + 1
-	    A[k] = A[j]
-	    A[j] = A[i]
-	    A[i] = y
-	else if A[k].left &lt;= ro
-	    j = j + 1
-	    if A[k].left &gt; lo
-		lo = A[k].left
-	    if A[k].right &lt; ro
-		ro = A[k].right
-	    exchange A[j] with A[k]
-    exchange A[r] with A[j + 1]
-    return i + 1, j + 1
-</pre></li>
-<li><p>
-Assume partition on n elements return k overlapped elements
-</p>
-
+<div id="outline-container-org6005f37" class="outline-3">
+<h3 id="org6005f37">4.3-8</h3>
+<div class="outline-text-3" id="text-org6005f37">
 <p>
-\(T(n) = T(n - k - i) + T(i) + \Theta(n)\)
+TODO
 </p>
-
-<p>
-k is not strongly related to n, so the expected running time is
-\(\Theta(n\lg n)\).
-</p>
-
-<p>
-when all elements overlapped, the running time is \(\Theta(n)\)
-</p></li>
-</ol>
 </div>
 </div>
 </div>
