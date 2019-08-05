@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-08-01 Thu 02:29 -->
+<!-- 2019-08-05 Mon 02:11 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 4.2</title>
@@ -333,23 +333,28 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgae4c270">ch4.2</a>
+<li><a href="#org10ede73">ch4.2</a>
 <ul>
-<li><a href="#org4929874">4.2-1</a></li>
-<li><a href="#org375336b">4.2-2</a></li>
+<li><a href="#org91ce32e">4.2-1</a></li>
+<li><a href="#orgdfb8151">4.2-2</a></li>
+<li><a href="#org4dfc04a">4.2-3</a></li>
+<li><a href="#org1f59910">4.2-4</a></li>
+<li><a href="#org0721e0a">4.2-5</a></li>
+<li><a href="#org5dca174">4.2-6</a></li>
+<li><a href="#orgb58d7ae">4.2-7</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgae4c270" class="outline-2">
-<h2 id="orgae4c270">ch4.2</h2>
-<div class="outline-text-2" id="text-orgae4c270">
+<div id="outline-container-org10ede73" class="outline-2">
+<h2 id="org10ede73">ch4.2</h2>
+<div class="outline-text-2" id="text-org10ede73">
 </div>
-<div id="outline-container-org4929874" class="outline-3">
-<h3 id="org4929874">4.2-1</h3>
-<div class="outline-text-3" id="text-org4929874">
+<div id="outline-container-org91ce32e" class="outline-3">
+<h3 id="org91ce32e">4.2-1</h3>
+<div class="outline-text-3" id="text-org91ce32e">
 \begin{equation*}
 A=
 \begin{pmatrix}
@@ -406,19 +411,147 @@ C=
 \end{equation*}
 </div>
 </div>
-<div id="outline-container-org375336b" class="outline-3">
-<h3 id="org375336b">4.2-2</h3>
-<div class="outline-text-3" id="text-org375336b">
+<div id="outline-container-orgdfb8151" class="outline-3">
+<h3 id="orgdfb8151">4.2-2</h3>
+<div class="outline-text-3" id="text-orgdfb8151">
+<pre class="example">
+MATRIX-MULTIPLY-STRASSEN(A, B)
+    n = A.rows
+    let C be a new n * n matrix
+    if n == 1
+	c11 = a11 * b11
+    else partition A, B, and C as in equations (4.9)
+	S1 = B12 - B22
+	S2 = A11 + A12
+	S3 = A21 + A22
+	S4 = B21 - B11
+	S5 = A11 + A22
+	S6 = B11 + B22
+	S7 = A12 - A22
+	S8 = B21 + B22
+	S9 = A11 - A21
+	S10 = B11 + B12
+	P1 = MATRIX-MULTIPLY-STRASSEN(A11, S1)
+	P2 = MATRIX-MULTIPLY-STRASSEN(S2, B22)
+	P3 = MATRIX-MULTIPLY-STRASSEN(S3, B11)
+	P4 = MATRIX-MULTIPLY-STRASSEN(A22, S4)
+	P5 = MATRIX-MULTIPLY-STRASSEN(S5, S6)
+	P6 = MATRIX-MULTIPLY-STRASSEN(S7, S8)
+	P7 = MATRIX-MULTIPLY-STRASSEN(S9, S10)
+	C11 = P5 + P4 - P2 + P6
+	C12 = P1 + P2
+	C21 = P3 + P4
+	C22 = P5 + P1 - P3 - P7
+    return C
+</pre>
+</div>
+</div>
+<div id="outline-container-org4dfc04a" class="outline-3">
+<h3 id="org4dfc04a">4.2-3</h3>
+<div class="outline-text-3" id="text-org4dfc04a">
 <p>
-TODO
+Let \(k = \lceil \lg n \rceil\), extend the \(n \times n\) matrices to
+\(2^k \times 2^k\) matrices and pad them with zeroes.
 </p>
+
+<p>
+We have \(n \leq 2^k < 2n\),
+thus \(n^{\lg 7} \leq (2^k)^{\lg 7} < (2n)^{\lg 7} = 7n^{\lg 7} \),
+hence the running time is still \(\Theta(n^{\lg 7})\).
+</p>
+</div>
+</div>
+<div id="outline-container-org1f59910" class="outline-3">
+<h3 id="org1f59910">4.2-4</h3>
+<div class="outline-text-3" id="text-org1f59910">
+<p>
+We have
+</p>
+\begin{equation*}
+T(n)=
+\begin{cases}
+\Theta(1) & \text{if }n=1\\
+kT(n/3)+\Theta(n^2) & \text{if }n>1
+\end{cases}
+\end{equation*}
+<p>
+According to the master theorem, we know that when \(n > 9\),
+\(T(n) = \Theta(n^{\log_3{k}})\).
+</p>
+
+<p>
+The largest k such that \(\Theta(n^{\log_3{k}}) = o(n^{\lg 7})\)
+is 21. The running time is \(\Theta(n^{\log_3{21}})\).
+</p>
+</div>
+</div>
+<div id="outline-container-org0721e0a" class="outline-3">
+<h3 id="org0721e0a">4.2-5</h3>
+<div class="outline-text-3" id="text-org0721e0a">
+<p>
+Calculate the logarithms of the three ways
+</p>
+\begin{align*}
+\log_{68}{132464} &\approx 2.795128\\
+\log_{70}{143640} &\approx 2.795122\\
+\log_{72}{155424} &\approx 2.795147
+\end{align*}
+<p>
+So the way of multiplying \(70 \times 70\) matrices
+using 143640 multiplications has best asymptotic running time.
+It's better than Strassen's algorithm which \(\lg 7 \approx 2.81\).
+</p>
+</div>
+</div>
+<div id="outline-container-org5dca174" class="outline-3">
+<h3 id="org5dca174">4.2-6</h3>
+<div class="outline-text-3" id="text-org5dca174">
+<ul class="org-ul">
+<li><p>
+Multiply a \(kn \times n\) matrix by an \(n \times kn\) matrix:
+</p>
+
+<p>
+\(k^2\) multiplications of \(n \times n\) matrices.
+</p>
+
+<p>
+The running time is \(\Theta(k^2 n^{\lg 7})\).
+</p></li>
+<li><p>
+Multiply an \(n \times kn\) matrix by a \(kn \times n\) matrix:
+</p>
+
+<p>
+\(k\) multiplications of \(n \times n\) matrices
+and \(k - 1\) additions of \(n \times n\) matrices.
+</p>
+
+<p>
+The running time is \(\Theta(k n^{\lg 7} + (k - 1)n^2)\).
+</p></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgb58d7ae" class="outline-3">
+<h3 id="orgb58d7ae">4.2-7</h3>
+<div class="outline-text-3" id="text-orgb58d7ae">
+<p>
+Let \(p_1 = ad\), \(p_2 = bc\), \(p_3 = (a - b)(c + d)\), then
+</p>
+\begin{align*}
+(a+bi)(c+di)
+&=(ac-bd)+(ad+bc)i\\
+&=((a-b)(c+d)-ad+bc)+(ad+bc)i\\
+&=(p_3-p_1+p_2)+(p_1+p_2)i
+\end{align*}
 </div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2019-08-01 Thu 02:29</p>
+<p class="date">Created: 2019-08-05 Mon 02:11</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
