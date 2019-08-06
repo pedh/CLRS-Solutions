@@ -1,0 +1,132 @@
+#+TITLE: Chapter 4.4
+
+* ch4.4
+** 4.4-1
+   - Use a recursion tree, we have
+     \begin{align*}
+     T(n)
+     &=\sum_{i=0}^{\lg n-1}(\frac{3}{2})^in+\Theta((\frac{3}{2})^{\lg n})\\
+     &=\frac{1-(\frac{3}{2})^{\lg n}}{1-\frac{3}{2}}n+\Theta(n)\\
+     &=2n(\frac{n^{\lg 3}}{n}-1)+\Theta(n)\\
+     &=O(n^{\lg 3})
+     \end{align*}
+   - Guess \(T(n) \leq cn^{\lg 3}-dn\), then
+     \begin{align*}
+     T(n)
+     &=3T(\lfloor n/2 \rfloor)+n\\
+     &\leq 3T(n/2)+n\\
+     &\leq 3(c(n/2)^{\lg 3}-d(n/2))+n\\
+     &\leq cn^{\lg 3}-(3/2)dn+n\\
+     &\leq cn^{\lg 3}-dn &\text{, when }d\geq 2
+     \end{align*}
+** 4.4-2
+   - Use a recursion tree, we have
+     \begin{align*}
+     T(n)
+     &=\sum_{i=0}^{\lg n-1}(\frac{n}{2^i})^2+\Theta(1)\\
+     &<\sum_{i=0}^{\infty}(\frac{1}{4})^in^2+\Theta(1)\\
+     &=\frac{4}{3}n^2+\Theta(1)\\
+     &=O(n^2)
+     \end{align*}
+   - Guess \(T(n) \leq cn^2\), then
+     \begin{align*}
+     T(n)
+     &=T(n/2)+n^2\\
+     &\leq (1+\frac{c}{4})n^2\\
+     &\leq cn^2 &\text{, when }c\geq\frac{4}{3}
+     \end{align*}
+** 4.4-3
+   - Use a recursion tree, we have
+     \begin{align*}
+     T(n)
+     &=\sum_{i=0}^{\lg n-1}
+       (4^i(\frac{n}{2^i}+2\sum_{k=0}^{i-1}(\frac{1}{2})^k))
+       +\Theta(1)\\
+     &=\sum_{i=0}^{\lg n-1}(2^i(n+4(2^i-1)))+\Theta(1)\\
+     &=O(\sum_{i=0}^{\lg n-1}2^in)\\
+     &=O(n^2)
+     \end{align*}
+   - Guess \(T(n) \leq cn^2-dn\), then
+     \begin{align*}
+     T(n)
+     &=4T(n/2+2)+n\\
+     &\leq 4(c(n/2+2)^2-d(n/2))+n\\
+     &=cn^2+(1+8c-2d)n+16c\\
+     &\leq cn^2-dn &\text{, when }d\geq 8c+1+\frac{16c}{n}
+     \end{align*}
+** 4.4-4
+   - Use a recursion tree, we have
+     \begin{align*}
+     T(n)
+     &=\sum_{i=0}^{n-1}2^i+\Theta(1)\\
+     &=2^n-1+\Theta(1)\\
+     &=O(2^n)
+     \end{align*}
+   - Guess \(T(n) \leq c \cdot 2^n - d\), then
+     \begin{align*}
+     T(n)
+     &=2T(n-1)+1\\
+     &\leq 2(2c\cdot 2^{n-1}-d)+1\\
+     &=c\cdot 2^n-2d+1\\
+     &\leq c\cdot 2^n-d &\text{, when }d\geq 1
+     \end{align*}
+** 4.4-5
+   - Use a recursion tree, we have
+     \begin{align*}
+     T(n)
+     &=\sum_{i=0}^{n-1}((n-i)+\frac{n-i+1}{2}+\ldots)+\Theta(n)\\
+     \end{align*}
+     The recursion tree should be less dense than \(T(n) = 2T(n-1) + n\),
+     so we make a guess of the asymptotic upper bound to be \(T(n) = 2^n\).
+   - Guess \(T(n) \leq c \cdot 2^n\), then
+     \begin{align*}
+     T(n)
+     &=T(n-1)+T(n/2)+n\\
+     &\leq c\cdot 2^{n-1}+c\cdot 2^{n/2}+n\\
+     &\leq c\cdot 2^n &\text{, when }c\cdot 2^{n-1}\geq c\cdot 2^{n/2}+n
+     \end{align*}
+** 4.4-6
+   The length of shortest simple path from the root to a leaf is \(\log_3 n\),
+   so the running time should be
+   \begin{align*}
+   T(n)
+   &> cn\log_3 n+\Theta(n)\\
+   &=\Omega(n\lg n)
+   \end{align*}
+** 4.4-7
+   - Use a recursion tree, we have
+     \begin{align*}
+     T(n)
+     &\approx \sum_{i=0}^{\lg n-1}2^icn+\Theta(n)\\
+     &=cn(n-1)+\Theta(n)\\
+     &=\Theta(n^2)
+     \end{align*}
+   - Guess \(T(n) \leq c_0n^2 - c_1n\), then
+     \begin{align*}
+     T(n)
+     &=4T(\lfloor n/2 \rfloor)+cn\\
+     &\leq 4T(n/2)+cn\\
+     &\leq 4(c_0(n/2)^2-c_1(n/2))+cn\\
+     &=c_0n^2-2c_1n+cn\\
+     &\leq c_0n^2-c_1n &\text{, when }c_1\geq c
+     \end{align*}
+   - Guess \(T(n) \geq c_0n^2 + c_1n\), then
+     \begin{align*}
+     T(n)
+     &=4T(\lfloor n/2 \rfloor)+cn\\
+     &>4T(n/2-1)+cn\\
+     &\geq 4(c_0(n/2-1)^2+c_1(n/2-1))+cn\\
+     &=c_0n^2+(2c_1-4c_0+c)n+4c_0-4c_1\\
+     &\geq c_0n^2+c_1n &\text{, when }c_1\geq\frac{4c_0n-cn-4c_0}{n-4}
+     \end{align*}
+** 4.4-8
+   Use a recursion tree, we have
+   \begin{align*}
+   T(n)
+   &=\sum_{i=0}^{\lceil\frac{n}{a}\rceil-1}(c(n-ia)+T(a))+\Theta(1)\\
+   &\approx \frac{c}{2a}(n^2+an)+\frac{n}{a}T(a)+\Theta(1)\\
+   &=\Theta(n^2)
+   \end{align*}
+** 4.4-9
+   The running time \(T(n)\) should be between \(cn\log_{1/a}n + \Theta(n)\)
+   and \(cn\log_{1/(1-a)}n + \Theta(n)\), which shows \(T(n) = \Theta(n\lg n)\).
