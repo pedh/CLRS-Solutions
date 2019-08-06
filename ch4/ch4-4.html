@@ -6,7 +6,7 @@
 <!-- 2019-08-06 Tue 09:56 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Chapter 3.1</title>
+<title>Chapter 4.4</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="pedh" />
 <style type="text/css">
@@ -328,159 +328,156 @@ for the JavaScript code in this tag.
  |
  <a accesskey="H" href="/CLRS-Solutions"> HOME </a>
 </div><div id="content">
-<h1 class="title">Chapter 3.1</h1>
+<h1 class="title">Chapter 4.4</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org421962c">ch3.1</a>
+<li><a href="#orgeaad350">ch4.4</a>
 <ul>
-<li><a href="#orged860f3">3.1-1</a></li>
-<li><a href="#org69d763b">3.1-2</a></li>
-<li><a href="#org982f0b4">3.1-3</a></li>
-<li><a href="#orgc382d06">3.1-4</a></li>
-<li><a href="#org22bbec0">3.1-5</a></li>
-<li><a href="#orgcd4a07e">3.1-6</a></li>
-<li><a href="#org6c4388a">3.1-7</a></li>
-<li><a href="#org1954633">3.1-8</a></li>
+<li><a href="#org223e113">4.4-1</a></li>
+<li><a href="#org624a5bb">4.4-2</a></li>
+<li><a href="#orgdc265bb">4.4-3</a></li>
+<li><a href="#org1c56980">4.4-4</a></li>
+<li><a href="#org96d3d3b">4.4-5</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org421962c" class="outline-2">
-<h2 id="org421962c">ch3.1</h2>
-<div class="outline-text-2" id="text-org421962c">
+<div id="outline-container-orgeaad350" class="outline-2">
+<h2 id="orgeaad350">ch4.4</h2>
+<div class="outline-text-2" id="text-orgeaad350">
 </div>
-<div id="outline-container-orged860f3" class="outline-3">
-<h3 id="orged860f3">3.1-1</h3>
-<div class="outline-text-3" id="text-orged860f3">
-<p>
-Since f(n) and g(n) are nonnegative, we have
-</p>
-\begin{equation*}
-(\forall n)[\frac{1}{2}(f(n)+g(n))\leq max(f(n),g(n))\leq(f(n)+g(n))]
-\end{equation*}
-<p>
-According to the definition of \(\Theta\)-notation,
-\(max(f(n), g(n)) = \Theta(f(n) + g(n))\).
-</p>
-</div>
-</div>
-<div id="outline-container-org69d763b" class="outline-3">
-<h3 id="org69d763b">3.1-2</h3>
-<div class="outline-text-3" id="text-org69d763b">
-<p>
-For any real constants a and b, where b &gt; 0, we have
-</p>
-\begin{equation*}
-(\forall n\geq 2\left|a\right|)[(\frac{n}{2})^b\leq (n+a)^b\leq (2n)^b]
-\end{equation*}
-<p>
-According to the definition of \(\Theta\)-notation,
-\((n + a)^b = \Theta(n^b)\).
-</p>
-</div>
-</div>
-<div id="outline-container-org982f0b4" class="outline-3">
-<h3 id="org982f0b4">3.1-3</h3>
-<div class="outline-text-3" id="text-org982f0b4">
-<p>
-"The running time of algorithm A is at least \(O(n^2)\)" means the running
-time can be any value.
-</p>
-</div>
-</div>
-<div id="outline-container-orgc382d06" class="outline-3">
-<h3 id="orgc382d06">3.1-4</h3>
-<div class="outline-text-3" id="text-orgc382d06">
-<p>
-\(2^{n + 1} = O(2^n)\), because
-</p>
-\begin{equation*}
-(\forall n\geq 1)[2^{n+1}\leq2\times2^{n}]
-\end{equation*}
-<p>
-\(2^{2n} \neq O(2^n)\), because for any positive constant c,
-\(2^{2n} > c\,O(2^n)\) when \(n > \lg{c}\).
-</p>
-</div>
-</div>
-<div id="outline-container-org22bbec0" class="outline-3">
-<h3 id="org22bbec0">3.1-5</h3>
-<div class="outline-text-3" id="text-org22bbec0">
+<div id="outline-container-org223e113" class="outline-3">
+<h3 id="org223e113">4.4-1</h3>
+<div class="outline-text-3" id="text-org223e113">
 <ul class="org-ul">
-<li>If \(f(n) = \Theta(g(n))\), it's obviously that \(f(n) = O(g(n))\) and
-\(f(n) = \Omega(g(n))\).</li>
 <li><p>
-If \(f(n) = O(g(n))\) and \(f(n) = \Omega(g(n))\), then
+Use a recursion tree, we have
 </p>
-\begin{equation*}
-(\forall n\geq n_1)[c_1\,g(n)\leq f(n)]
-\end{equation*}
-\begin{equation*}
-(\forall n\geq n_2)[f(n)\leq c_2\,g(n)]
-\end{equation*}
-<p>
-let \(n_0 = max(n_1, n_2)\), we have
+\begin{align*}
+T(n)
+&=\sum_{i=0}^{\lg n-1}(\frac{3}{2})^in+\Theta((\frac{3}{2})^{\lg n})\\
+&=\frac{1-(\frac{3}{2})^{\lg n}}{1-\frac{3}{2}}n+\Theta(n)\\
+&=2n(\frac{n^{\lg 3}}{n}-1)+\Theta(n)\\
+&=O(n^{\lg 3})
+\end{align*}</li>
+<li><p>
+Guess \(T(n) \leq cn^{\lg 3}-dn\), then
 </p>
-\begin{equation*}
-(\forall n\geq n_0)[c_1\,g(n)\leq f(n)\leq c_2\,g(n)]
-\end{equation*}
-<p>
-So \(f(n) = \Theta(g(n))\).
-</p></li>
-<li>In conclusion,
-\(f(n) = \Theta(g(n)) \iff f(n) = O(g(n))\ and\ f(n) = \Omega(g(n))\).</li>
+\begin{align*}
+T(n)
+&=3T(\lfloor n/2 \rfloor)+n\\
+&\leq 3T(n/2)+n\\
+&\leq 3(c(n/2)^{\lg 3}-d(n/2))+n\\
+&\leq cn^{\lg 3}-(3/2)dn+n\\
+&\leq cn^{\lg 3}-dn &\text{, when }d\geq 2
+\end{align*}</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgcd4a07e" class="outline-3">
-<h3 id="orgcd4a07e">3.1-6</h3>
-<div class="outline-text-3" id="text-orgcd4a07e">
-<p>
-"The worst-case running time is \(O(g(n))\) and the best-case running time
-is \(\Omega(g(n))\)" just means \(f(n) = O(g(n))\) and
-\(f(n) = \Omega(g(n))\), so the sentence is identical to Theorem 3.1.
+<div id="outline-container-org624a5bb" class="outline-3">
+<h3 id="org624a5bb">4.4-2</h3>
+<div class="outline-text-3" id="text-org624a5bb">
+<ul class="org-ul">
+<li><p>
+Use a recursion tree, we have
 </p>
-</div>
-</div>
-<div id="outline-container-org6c4388a" class="outline-3">
-<h3 id="org6c4388a">3.1-7</h3>
-<div class="outline-text-3" id="text-org6c4388a">
-<p>
-If \(S = o(g(n)) \cap \omega(g(n))\), we know for f(n) in S and any
-constant c &gt; 0, there are
-</p>
-\begin{equation*}
-(\exists n_1>0)[(\forall n\geq n_1)[0\leq c\,g(n)< f(n)]]
-\end{equation*}
-\begin{equation*}
-(\exists n_2>0)[(\forall n\geq n_2)[0\leq f(n)< c\,g(n)]]
-\end{equation*}
-<p>
-let \(n_0 = max(n_1, n_2)\), we have \(f(n) < c\,g(n) < f(n)\),
-it is not possible, so S is an empty set.
-</p>
-</div>
-</div>
-<div id="outline-container-org1954633" class="outline-3">
-<h3 id="org1954633">3.1-8</h3>
-<div class="outline-text-3" id="text-org1954633">
 \begin{align*}
-\Omega(g(n,m))
-=\{f(n,m):\,&\text{there exist positive constants }c,\,n_0\text{, and }m_0\\
-            &\text{such that }0\leq c\,g(n,m)\leq f(n,m)\\
-            &\text{for all }n\geq n_0\text{ or }m\geq m_0\}\ .
-\end{align*}
+T(n)
+&=\sum_{i=0}^{\lg n-1}(\frac{n}{2^i})^2+\Theta(1)\\
+&<\sum_{i=0}^{\infty}(\frac{1}{4})^in^2+\Theta(1)\\
+&=\frac{4}{3}n^2+\Theta(1)\\
+&=O(n^2)
+\end{align*}</li>
+<li><p>
+Guess \(T(n) \leq cn^2\), then
+</p>
 \begin{align*}
-\Theta(g(n,m))
-=\{f(n,m):\,&\text{there exist positive constants }c_1,\,c_2,\,n_0
-             \text{, and }m_0\\
-            &\text{such that }0\leq c_1\,g(n,m)\leq f(n,m)\leq c_2\,g(n,m)\\
-            &\text{for all }n\geq n_0\text{ or }m\geq m_0\}\ .
+T(n)
+&=T(n/2)+n^2\\
+&\leq (1+\frac{c}{4})n^2\\
+&\leq cn^2 &\text{, when }c\geq\frac{4}{3}
+\end{align*}</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgdc265bb" class="outline-3">
+<h3 id="orgdc265bb">4.4-3</h3>
+<div class="outline-text-3" id="text-orgdc265bb">
+<ul class="org-ul">
+<li><p>
+Use a recursion tree, we have
+</p>
+\begin{align*}
+T(n)
+&=\sum_{i=0}^{\lg n-1}
+  (4^i(\frac{n}{2^i}+2\sum_{k=0}^{i-1}(\frac{1}{2})^k))
+  +\Theta(1)\\
+&=\sum_{i=0}^{\lg n-1}(2^i(n+4(2^i-1)))+\Theta(1)\\
+&=O(\sum_{i=0}^{\lg n-1}2^in)\\
+&=O(n^2)
+\end{align*}</li>
+<li><p>
+Guess \(T(n) \leq cn^2-dn\), then
+</p>
+\begin{align*}
+T(n)
+&=4T(n/2+2)+n\\
+&\leq 4(c(n/2+2)^2-d(n/2))+n\\
+&=cn^2+(1+8c-2d)n+16c\\
+&\leq cn^2-dn &\text{, when }d\geq 8c+1+\frac{16c}{n}
+\end{align*}</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org1c56980" class="outline-3">
+<h3 id="org1c56980">4.4-4</h3>
+<div class="outline-text-3" id="text-org1c56980">
+<ul class="org-ul">
+<li><p>
+Use a recursion tree, we have
+</p>
+\begin{align*}
+T(n)
+&=\sum_{i=0}^{n-1}2^i+\Theta(1)\\
+&=2^n-1+\Theta(1)\\
+&=O(2^n)
+\end{align*}</li>
+<li><p>
+Guess \(T(n) \leq c \cdot 2^n - d\), then
+</p>
+\begin{align*}
+T(n)
+&=2T(n-1)+1\\
+&\leq 2(2c\cdot 2^{n-1}-d)+1\\
+&=c\cdot 2^n-2d+1\\
+&\leq c\cdot 2^n-d &\text{, when }d\geq 1
+\end{align*}</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org96d3d3b" class="outline-3">
+<h3 id="org96d3d3b">4.4-5</h3>
+<div class="outline-text-3" id="text-org96d3d3b">
+<ul class="org-ul">
+<li><p>
+Use a recursion tree, we have
+</p>
+\begin{align*}
+T(n)
+&=\sum_{i=0}^{n-1}((n-i)+\frac{n-i+1}{2}+\ldots)+\Theta(n)\\
 \end{align*}
+<p>
+We guess \(T(n) = \Theta(2^n)\).
+</p></li>
+<li>Guess \(T(n) \leq cn^2\), then
+TODO</li>
+<li>Guess \(T(n) \geq cn^2\), then
+TODO</li>
+</ul>
 </div>
 </div>
 </div>
