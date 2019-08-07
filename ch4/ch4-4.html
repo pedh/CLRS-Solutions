@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-08-06 Tue 09:56 -->
+<!-- 2019-08-07 Wed 09:55 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 4.4</title>
@@ -333,26 +333,28 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgeaad350">ch4.4</a>
+<li><a href="#org47af0c0">ch4.4</a>
 <ul>
-<li><a href="#org223e113">4.4-1</a></li>
-<li><a href="#org624a5bb">4.4-2</a></li>
-<li><a href="#orgdc265bb">4.4-3</a></li>
-<li><a href="#org1c56980">4.4-4</a></li>
-<li><a href="#org96d3d3b">4.4-5</a></li>
+<li><a href="#org1473990">4.4-1</a></li>
+<li><a href="#orge8503f3">4.4-2</a></li>
+<li><a href="#org1bd3c7a">4.4-3</a></li>
+<li><a href="#org144e051">4.4-4</a></li>
+<li><a href="#org7b80d3a">4.4-5</a></li>
+<li><a href="#org33868e9">4.4-6</a></li>
+<li><a href="#orgf1dc6ec"><span class="todo TODO">TODO</span> 4.4-7</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgeaad350" class="outline-2">
-<h2 id="orgeaad350">ch4.4</h2>
-<div class="outline-text-2" id="text-orgeaad350">
+<div id="outline-container-org47af0c0" class="outline-2">
+<h2 id="org47af0c0">ch4.4</h2>
+<div class="outline-text-2" id="text-org47af0c0">
 </div>
-<div id="outline-container-org223e113" class="outline-3">
-<h3 id="org223e113">4.4-1</h3>
-<div class="outline-text-3" id="text-org223e113">
+<div id="outline-container-org1473990" class="outline-3">
+<h3 id="org1473990">4.4-1</h3>
+<div class="outline-text-3" id="text-org1473990">
 <ul class="org-ul">
 <li><p>
 Use a recursion tree, we have
@@ -378,9 +380,9 @@ T(n)
 </ul>
 </div>
 </div>
-<div id="outline-container-org624a5bb" class="outline-3">
-<h3 id="org624a5bb">4.4-2</h3>
-<div class="outline-text-3" id="text-org624a5bb">
+<div id="outline-container-orge8503f3" class="outline-3">
+<h3 id="orge8503f3">4.4-2</h3>
+<div class="outline-text-3" id="text-orge8503f3">
 <ul class="org-ul">
 <li><p>
 Use a recursion tree, we have
@@ -404,9 +406,9 @@ T(n)
 </ul>
 </div>
 </div>
-<div id="outline-container-orgdc265bb" class="outline-3">
-<h3 id="orgdc265bb">4.4-3</h3>
-<div class="outline-text-3" id="text-orgdc265bb">
+<div id="outline-container-org1bd3c7a" class="outline-3">
+<h3 id="org1bd3c7a">4.4-3</h3>
+<div class="outline-text-3" id="text-org1bd3c7a">
 <ul class="org-ul">
 <li><p>
 Use a recursion tree, we have
@@ -433,9 +435,9 @@ T(n)
 </ul>
 </div>
 </div>
-<div id="outline-container-org1c56980" class="outline-3">
-<h3 id="org1c56980">4.4-4</h3>
-<div class="outline-text-3" id="text-org1c56980">
+<div id="outline-container-org144e051" class="outline-3">
+<h3 id="org144e051">4.4-4</h3>
+<div class="outline-text-3" id="text-org144e051">
 <ul class="org-ul">
 <li><p>
 Use a recursion tree, we have
@@ -459,9 +461,9 @@ T(n)
 </ul>
 </div>
 </div>
-<div id="outline-container-org96d3d3b" class="outline-3">
-<h3 id="org96d3d3b">4.4-5</h3>
-<div class="outline-text-3" id="text-org96d3d3b">
+<div id="outline-container-org7b80d3a" class="outline-3">
+<h3 id="org7b80d3a">4.4-5</h3>
+<div class="outline-text-3" id="text-org7b80d3a">
 <ul class="org-ul">
 <li><p>
 Use a recursion tree, we have
@@ -471,12 +473,45 @@ T(n)
 &=\sum_{i=0}^{n-1}((n-i)+\frac{n-i+1}{2}+\ldots)+\Theta(n)\\
 \end{align*}
 <p>
-We guess \(T(n) = \Theta(2^n)\).
+The recursion tree should be less dense than \(T(n) = 2T(n-1) + n\),
+so we make a guess of the asymptotic upper bound to be \(T(n) = 2^n\).
 </p></li>
-<li>Guess \(T(n) \leq cn^2\), then
-TODO</li>
-<li>Guess \(T(n) \geq cn^2\), then
-TODO</li>
+<li><p>
+Guess \(T(n) \leq c \cdot 2^n\), then
+</p>
+\begin{align*}
+T(n)
+&=T(n-1)+T(n/2)+n\\
+&\leq c\cdot 2^{n-1}+c\cdot 2^{n/2}+n\\
+&\leq c\cdot 2^n &\text{, when }c\cdot 2^{n-1}\geq c\cdot 2^{n/2}+n
+\end{align*}</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org33868e9" class="outline-3">
+<h3 id="org33868e9">4.4-6</h3>
+<div class="outline-text-3" id="text-org33868e9">
+<p>
+The running time should be
+</p>
+\begin{align*}
+T(n)
+&> cn\log_3 n+\Theta(n)\\
+&=\Omega(n\lg n)
+\end{align*}
+</div>
+</div>
+<div id="outline-container-orgf1dc6ec" class="outline-3">
+<h3 id="orgf1dc6ec"><span class="todo TODO">TODO</span> 4.4-7</h3>
+<div class="outline-text-3" id="text-orgf1dc6ec">
+<ul class="org-ul">
+<li><p>
+Use a recursion tree, we have
+</p>
+\begin{align*}
+T(n)
+&=\sum_{i=0}{\lg n-1}2^icn+\Theta(n)
+\end{align*}</li>
 </ul>
 </div>
 </div>
@@ -484,7 +519,7 @@ TODO</li>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2019-08-06 Tue 09:56</p>
+<p class="date">Created: 2019-08-07 Wed 09:55</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
