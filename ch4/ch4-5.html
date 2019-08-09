@@ -6,7 +6,7 @@
 <!-- 2019-08-09 Fri 06:23 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Chapter 9.3</title>
+<title>Chapter 4.5</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="pedh" />
 <style type="text/css">
@@ -328,161 +328,127 @@ for the JavaScript code in this tag.
  |
  <a accesskey="H" href="/CLRS-Solutions"> HOME </a>
 </div><div id="content">
-<h1 class="title">Chapter 9.3</h1>
+<h1 class="title">Chapter 4.5</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgc6c3f42">ch9.3</a>
+<li><a href="#org9d01fe7">ch4.5</a>
 <ul>
-<li><a href="#org1cd6bc0">9.3-1</a></li>
-<li><a href="#orgc1deac0">9.3-2</a></li>
-<li><a href="#org8699070">9.3-3</a></li>
-<li><a href="#org7e264e3">9.3-4</a></li>
-<li><a href="#org740fce0">9.3-5</a></li>
-<li><a href="#org6c687ca">9.3-6</a></li>
-<li><a href="#org4802c9d">9.3-7</a></li>
-<li><a href="#org111ee87">9.3-8</a></li>
-<li><a href="#orge546c64">9.3-9</a></li>
+<li><a href="#org40a509a">4.5-1</a></li>
+<li><a href="#orge63b5ff">4.5-2</a></li>
+<li><a href="#orga68993a">4.5-3</a></li>
+<li><a href="#org00c2eaf">4.5-4</a></li>
+<li><a href="#org96ddb47">4.5-5</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgc6c3f42" class="outline-2">
-<h2 id="orgc6c3f42">ch9.3</h2>
-<div class="outline-text-2" id="text-orgc6c3f42">
+<div id="outline-container-org9d01fe7" class="outline-2">
+<h2 id="org9d01fe7">ch4.5</h2>
+<div class="outline-text-2" id="text-org9d01fe7">
 </div>
-<div id="outline-container-org1cd6bc0" class="outline-3">
-<h3 id="org1cd6bc0">9.3-1</h3>
-<div class="outline-text-3" id="text-org1cd6bc0">
+<div id="outline-container-org40a509a" class="outline-3">
+<h3 id="org40a509a">4.5-1</h3>
+<div class="outline-text-3" id="text-org40a509a">
 <ul class="org-ul">
-<li>When divided into groups of 7, We have
-\(T(n) \leq T(n / 7) + T(5 n / 7 + 8) + O(n) = O(n)\)</li>
-<li>When divided into groups of 3, We have
-\(T(n) \leq T(n / 3) + T(2 n / 3 + 4) + O(n)\), which is not O(n).</li>
+<li><p>
+<b>a.</b>
+</p>
+
+<p>
+\(T(n) = 2T(n/4) + 1 = \Theta(\sqrt n)\)
+</p></li>
+<li><p>
+<b>b.</b>
+</p>
+
+<p>
+\(T(n) = 2T(n/4) + \sqrt n = \Theta(\sqrt n \lg n)\)
+</p></li>
+<li><p>
+<b>c.</b>
+</p>
+
+<p>
+\(T(n) = 2T(n/4) + n = \Theta(n)\)
+</p></li>
+<li><p>
+<b>d.</b>
+</p>
+
+<p>
+\(T(n) = 2T(n/4) + n^2 = \Theta(n^2)\)
+</p></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgc1deac0" class="outline-3">
-<h3 id="orgc1deac0">9.3-2</h3>
-<div class="outline-text-3" id="text-orgc1deac0">
+<div id="outline-container-orge63b5ff" class="outline-3">
+<h3 id="orge63b5ff">4.5-2</h3>
+<div class="outline-text-3" id="text-orge63b5ff">
 <p>
-\(n \geq 140\)
-\(\Rightarrow \frac{3 n}{10} - 6 \geq \frac{n}{4} + 1\)
-\(\Rightarrow \frac{3 n}{10} - 6 \geq \lceil \frac{n}{4} \rceil\)
-</p>
-</div>
-</div>
-<div id="outline-container-org8699070" class="outline-3">
-<h3 id="org8699070">9.3-3</h3>
-<div class="outline-text-3" id="text-org8699070">
-<p>
-Use SELECT to decide the pivot.
-</p>
-</div>
-</div>
-<div id="outline-container-org7e264e3" class="outline-3">
-<h3 id="org7e264e3">9.3-4</h3>
-<div class="outline-text-3" id="text-org7e264e3">
-<p>
-If we are using only comparisons to find the ith smallest element in a set
-of n elements, we can build a digraph from the elements to simulate the
-algorithm, each edge from vertex A[i] to vertex A[j] means A[i] &lt; A[j],
-then there must be a path between each other element and the ith smallest
-element, thus the i - 1 smaller elements and the n - 1 larger elements is
-determined.
-</p>
-</div>
-</div>
-<div id="outline-container-org740fce0" class="outline-3">
-<h3 id="org740fce0">9.3-5</h3>
-<div class="outline-text-3" id="text-org740fce0">
-<p>
-Use MEDIAN to decide the pivot.
-(<a href="../codes/selection_use_median.py">implementation</a>)
-</p>
-</div>
-</div>
-<div id="outline-container-org6c687ca" class="outline-3">
-<h3 id="org6c687ca">9.3-6</h3>
-<div class="outline-text-3" id="text-org6c687ca">
-<p>
-Perform selection and partition of the median on the n-elements, then
-recursively find quantiles on the left and right subarrays.
+The running time of Strassen's algorithm is \(\Theta(n^{\lg 7})\),
+the running time that \(T(n) = aT(n/4) + \Theta(n^2)\) is
+\(\Theta(n^{\log_4 a})\) when \(a > 4^2 = 16\).
 </p>
 
 <p>
-KTH-QUANTILES(A, k)
-</p>
-<pre class="example">
-KTH-QUANTILES(A, k)
-    if k == 1
-	return empty-list
-    if 2 divide into k
-	i = median-index of A
-	median = SELECT(A, i)
-	PARTITION(A, med)
-	return APPEND(KTH-QUANTILES(A[:i], k // 2), [median], KTH-QUANTILES(A[i + 1:], k // 2))
-    i = left-index of the median slice
-    j = right-index of the median slice
-    left = SELECT(A, i)
-    right = SELECT(A, j)
-    PARTITION(A, left)
-    left-quantiles = KTH-QUANTILES(A[:i], k // 2)
-    PARTITION(A, right)
-    right-quantiles = KTH-QUANTILES(A[j + 1:], k // 2)
-    return APPEND(left-quantiles, [left, right], right-quantiles)
-</pre>
-
-<p>
-(<a href="../codes/kth_quantiles.py">implementation</a>)
+The largest integer value of a such that \(\log_4 a < \lg 7\) is 48.
 </p>
 </div>
 </div>
-<div id="outline-container-org4802c9d" class="outline-3">
-<h3 id="org4802c9d">9.3-7</h3>
-<div class="outline-text-3" id="text-org4802c9d">
+<div id="outline-container-orga68993a" class="outline-3">
+<h3 id="orga68993a">4.5-3</h3>
+<div class="outline-text-3" id="text-orga68993a">
 <p>
-K-CLOSEST-TO-MEDIAN(A, k)
-</p>
-<pre class="example">
-K-CLOSEST-TO-MEDIAN(A, k)
-    med = SELECT(A, median-index of A)
-    x = SELECT(A, k) by ABS(A[i] - med)
-    PARTITION(A, x) by ABS(A[i] - med)
-    return A[1..k]
-</pre>
-</div>
-</div>
-<div id="outline-container-org111ee87" class="outline-3">
-<h3 id="org111ee87">9.3-8</h3>
-<div class="outline-text-3" id="text-org111ee87">
-<p>
-MEDIAN-OF-TWO-ARRAYS(X, Y, n)
-</p>
-<pre class="example">
-MEDIAN-OF-TWO-ARRAYS(X, Y)
-    if MEDIAN(X) == MEDIAN(Y):
-	return MEDIAN(X)
-    if MEDIAN(X) &gt; MEDIAN(Y):
-	return MEDIAN-OF-TWO-ARRAYS(left half of X, right half of Y)
-    return MEDIAN-OF-TWO-ARRAYS(right half of X, left half of X)
-</pre>
-</div>
-</div>
-<div id="outline-container-orge546c64" class="outline-3">
-<h3 id="orge546c64">9.3-9</h3>
-<div class="outline-text-3" id="text-orge546c64">
-<p>
-If n is odd, the y-coordinate of the main pipeline is the median of the n
-y-coordinates.
+Use the master method,
+\(T(n) = T(n/2) + \Theta(1) = aT(n/b) + \Theta(n^c)\),
+then we have \(a = 1\), \(b = 2\) and \(c = 0\).
 </p>
 
 <p>
-If n is even, the y-coordinate of the main pipeline can be any value between
-the two medians of the y-coordinates.
+And \(log_b a = 0 = c\), thus \(T(n) = \Theta(n^0 \lg n) =\Theta(\lg n)\).
+</p>
+</div>
+</div>
+<div id="outline-container-org00c2eaf" class="outline-3">
+<h3 id="org00c2eaf">4.5-4</h3>
+<div class="outline-text-3" id="text-org00c2eaf">
+<p>
+The master method can't be applied to the recurrence
+\(T(n) = 4T(n/2) + n^2\lg n\), because \(n^2\lg n\) is larger but not
+polynomially larger than \(n^2\).
+</p>
+
+<p>
+We guess the asymptotic upper bound is \(n^2\lg n\lg n\).
+</p>
+</div>
+</div>
+<div id="outline-container-org96ddb47" class="outline-3">
+<h3 id="org96ddb47">4.5-5</h3>
+<div class="outline-text-3" id="text-org96ddb47">
+<p>
+\(T(n) = T(n/2) + n(1 + \sin n)\).
+</p>
+
+<p>
+For the regular condition,
+</p>
+\begin{equation*}
+\frac{n}{2}(1+\sin\frac{n}{2})\leq cn(1+\sin n)
+\end{equation*}
+<p>
+Let \(d \in \mathbb{R}^{+},\ n = (2d + 1)\pi\), we have
+</p>
+\begin{equation*}
+\frac{1}{2}(1+\sin((d+\frac{1}{2})\pi))\leq c(1+\sin((2d+1)\pi))
+\implies 1\leq c
+\end{equation*}
+<p>
+Which conflicts with the precondition \(c < 1\).
 </p>
 </div>
 </div>
