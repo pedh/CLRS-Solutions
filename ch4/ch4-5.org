@@ -1,0 +1,47 @@
+#+TITLE: Chapter 4.5
+
+* ch4.5
+** 4.5-1
+   - *a.*
+
+     \(T(n) = 2T(n/4) + 1 = \Theta(\sqrt n)\)
+   - *b.*
+
+     \(T(n) = 2T(n/4) + \sqrt n = \Theta(\sqrt n \lg n)\)
+   - *c.*
+
+     \(T(n) = 2T(n/4) + n = \Theta(n)\)
+   - *d.*
+
+     \(T(n) = 2T(n/4) + n^2 = \Theta(n^2)\)
+** 4.5-2
+   The running time of Strassen's algorithm is \(\Theta(n^{\lg 7})\),
+   the running time that \(T(n) = aT(n/4) + \Theta(n^2)\) is
+   \(\Theta(n^{\log_4 a})\) when \(a > 4^2 = 16\).
+
+   The largest integer value of a such that \(\log_4 a < \lg 7\) is 48.
+** 4.5-3
+   Use the master method,
+   \(T(n) = T(n/2) + \Theta(1) = aT(n/b) + \Theta(n^c)\),
+   then we have \(a = 1\), \(b = 2\) and \(c = 0\).
+
+   And \(log_b a = 0 = c\), thus \(T(n) = \Theta(n^0 \lg n) =\Theta(\lg n)\).
+** 4.5-4
+   The master method can't be applied to the recurrence
+   \(T(n) = 4T(n/2) + n^2\lg n\), because \(n^2\lg n\) is larger but not
+   polynomially larger than \(n^2\).
+
+   We guess the asymptotic upper bound is \(n^2\lg n\lg n\).
+** 4.5-5
+   \(T(n) = T(n/2) + n(1 + \sin n)\).
+
+   For the regular condition,
+   \begin{equation*}
+   \frac{n}{2}(1+\sin\frac{n}{2})\leq cn(1+\sin n)
+   \end{equation*}
+   Let \(d \in \mathbb{R}^{+},\ n = (2d + 1)\pi\), we have
+   \begin{equation*}
+   \frac{1}{2}(1+\sin((d+\frac{1}{2})\pi))\leq c(1+\sin((2d+1)\pi))
+   \implies 1\leq c
+   \end{equation*}
+   Which conflicts with the precondition \(c < 1\).
