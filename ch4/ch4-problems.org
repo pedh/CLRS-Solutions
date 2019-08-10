@@ -1,0 +1,288 @@
+#+TITLE: Chapter 4 problems
+
+* ch4-problems
+** 4-1
+   - *a.*
+
+     \(T(n) = 2T(n/2) + n^4 = \Theta(n^4)\). (master theorem)
+   - *b.*
+
+     \(T(n) = T(7n/10) + n = \Theta(n)\). (master theorem)
+   - *c.*
+
+     \(T(n) = 16T(n/4) + n^2 = \Theta(n^2\lg n)\). (master theorem)
+   - *d.*
+
+     \(T(n) = 7T(n/3) + n^2 = \Theta(n^2)\). (master theorem)
+   - *e.*
+
+     \(T(n) = 7(n/2) + n^2 = \Theta(n^{\lg 7})\). (master theorem)
+   - *f.*
+
+     \(T(n) = 2T(n/4) + \sqrt n = \Theta(\sqrt n \lg n)\). (master theorem)
+   - *g.*
+
+     \(T(n) = T(n - 2) + n^2 = \Theta(n^3)\).
+
+     Proof
+     \begin{align*}
+     T(n)
+     &=T(n-2)+n^2\\
+     &=\sum_{i=1}^{n/2}(2i)^2\\
+     &=\frac{4(n/2)(n/2+1)(n+1)}{6}\\
+     &=\Theta(n^3)
+     \end{align*}
+** 4-2
+   - *a.*
+
+     By pointer: \(T(n) = T(n/2) + \Theta(1) = \Theta(\lg n)\). (master theorem)
+
+     By copying: \(T(n) = T(n/2) + \Theta(N) = \Theta(N\lg n)\).
+     (master theorem)
+
+     By copying only required: \(T(n) = T(n/2) + \Theta(n) = \Theta(n)\).
+     (master theorem)
+   - *b.*
+
+     By pointer: \(T(n) = 2T(n/2) + \Theta(n) = \Theta(n\lg n)\).
+     (master theorem)
+
+     By copying: \(T(n) = 2T(n/2) + \Theta(N) = \Theta(Nn)\). (master theorem)
+
+     By copying only required: \(T(n) = 2T(n/2) + \Theta(n) = \Theta(n\lg n)\).
+     (master theorem)
+** 4-3
+   - *a.*
+
+     \(T(n) = 4T(n/3) + n\lg n = \Theta(n^{\log_3 4})\). (master theorem)
+   - *b.*
+
+     \(T(n) = 3T(n/3) + n/\lg n = \Theta(n\lg\lg n)\).
+
+     Proof
+     \begin{align*}
+     T(n)
+     &=3T(n/3)+n/\lg n\\
+     &=9T(n/9)+3(n/3)/\lg(n/3)+n/\lg n\\
+     &=\ldots\\
+     &=\Theta(n)+\sum_{i=0}^{\log_3 n-1}n/(\lg(n/3^i))\\
+     &=\Theta(n)+\frac{n}{\lg 3}\sum_{j=1}^{\log_3 n}\frac{1}{j}\\
+     &=\Theta(n)+\frac{n}{\lg 3}(\ln\log_3 n+\Theta(1))\\
+     &=\Theta(n\lg\lg n)
+     \end{align*}
+   - *c.*
+
+     \(T(n) = 4T(n/2) + n^2\sqrt n = \Theta(n^{2.5})\). (master theorem)
+   - *d.*
+
+     \(T(n) = 3T(n/3 - 2) + n/2 = \Theta(n\lg n)\). (master theorem)
+   - *e.*
+
+     \(T(n) = 2T(n/2) + n/\lg n = \Theta(n\lg\lg n)\). (same as *b.*)
+   - *f.*
+
+     \(T(n) = T(n/2) + T(n/4) + T(n/8) + n = \Theta(n)\).
+     (similar to the master theorem)
+   - *g.*
+
+     \(T(n) = T(n - 1) + 1/n = \Theta(\lg n)\).
+
+     Proof
+     \begin{align*}
+     T(n)
+     &=\sum_{i=0}^{n-2}\frac{1}{n-i}+\Theta(1)\\
+     &=\sum_{j=2}^{n}\frac{1}{j}+\Theta(1)\\
+     &=\Theta(\lg n)
+     \end{align*}
+   - *h.*
+
+     \(T(n) = T(n-1) + \lg n = \Theta(n\lg n)\).
+
+     Proof
+     \begin{align*}
+     T(n)
+     &=T(n-1)+\lg(n)\\
+     &=\sum_{i=1}^{n}\lg i + \Theta(1)
+     \end{align*}
+     We know that \(\int\ln xdx = x\ln x - x + C\),
+     so we guess that \(T(n) = \Theta(n\lg n)\),
+     then we prove the hypothesis as below.
+
+     For the upper bound
+     \begin{align*}
+     \sum_{i=1}^{n}\lg i
+     &< \sum_{i=1}^{n}\lg n\\
+     &=n\lg n\\
+     &=O(n\lg n)
+     \end{align*}
+     For the lower bound
+     \begin{align*}
+     \sum_{i=1}^{n}\lg i
+     &> \sum_{i=\frac{n}{2}+1}^{n}\lg\frac{n}{2}\\
+     &=\frac{n}{2}(\lg n-1)\\
+     &=\Omega(n\lg n)
+     \end{align*}
+     Thus \(T(n) = \Theta(n\lg n)\).
+   - *i.*
+
+     \(T(n) = T(n-2) + 1/\lg n = \Theta(\frac{n}{\lg n})\).
+
+     Proof
+     \begin{align*}
+     T(n)
+     &=T(n-2)+1/\lg n\\
+     &=\sum_{i=1}^{n/2}\frac{1}{\lg(2i)}+\Theta(1)
+     \end{align*}
+     We know \(\int_0^x \frac{dt}{\ln t} = li(x)\)
+     (Logarithmic integral function), and \(li(x) = \Theta(\frac{x}{\ln x})\),
+     so we guess that \(T(n) = \Theta(\frac{n}{\lg n})\), the proof is omitted.
+   - *j.*
+
+     \(T(n) = \sqrt n T(\sqrt n) + n = n\lg\lg n\).
+
+     Proof
+     \begin{align*}
+     T(n)
+     &=\sqrt nT(\sqrt n)+n\\
+     &=\sqrt n(n^{\frac{1}{4}}T(n^{\frac{1}{4}})+\sqrt n)+n\\
+     &=\ldots\\
+     &=\sum_{i=0}^{\lfloor \lg\lg n \rfloor}n\\
+     &=\Theta(n\lg\lg n)
+     \end{align*}
+** 4-4
+   - *a.*
+
+     We have
+     \begin{align*}
+     \mathcal F(z)
+     &=\sum_{i=0}^{\infty}F_iz^i\\
+     &=z+\sum_{i=2}^{\infty}F_iz^i\\
+     &=z+\sum_{i=2}^{\infty}(F_{i-1}+F_{i-2})z^i\\
+     &=z+\sum_{i=1}^{\infty}F_{i-1}z^i+\sum_{i=2}^{\infty}F_{i-2}z^i\\
+     &=z+z\mathcal F(z)+z^2\mathcal F(z)
+     \end{align*}
+   - *b.*
+
+     From the equation
+     \(\mathcal F(z) = z + z\mathcal F(z) + z^2\mathcal F(z)\), we know that
+     \begin{align*}
+     \mathcal F(z)
+     &=\frac{z}{1-z-z^2}\\
+     &=\frac{z}{(1-\phi z)(1-\hat\phi z)}
+     &,\ \phi=\frac{1+\sqrt 5}{2}, \hat\phi=\frac{1-\sqrt 5}{2}\\
+     &=\frac{1}{\sqrt 5}\bigg (\frac{1}{1-\phi z}-\frac{1}{1-\hat\phi z}\bigg )
+     \end{align*}
+   - *c.*
+
+     We have
+     \begin{align*}
+     \mathcal F(z)
+     &=\frac{1}{\sqrt 5}\bigg(\frac{1}{1-\phi z}-\frac{1}{1-\hat\phi z}\bigg)\\
+     &=\frac{1}{\sqrt 5}\Big(\sum_{i=0}^{\infty}(\phi z)^i
+       -\sum_{i=0}^{\infty}(\hat\phi z)^i\Big)\\
+     &=\sum_{i=0}^{\infty}\frac{1}{\sqrt 5}(\phi^i-\hat\phi^i)z^i
+     \end{align*}
+   - *d.*
+
+     When \(i > 0\), we have
+     \begin{align*}
+     F_i
+     &=\frac{1}{\sqrt 5}(\phi^i-\hat\phi^i)\\
+     &=\bigg \lfloor \frac{\phi^i}{\sqrt 5} \bigg \rceil
+     &,\ \frac{\hat\phi^i}{\sqrt 5}< \frac{1}{2}
+     \end{align*}
+** 4-5
+   - *a.*
+
+     The bad chips could fool the professor by saying all other bad chips are
+     good and all good chips are bad.
+   - *b.*
+
+     Generate \(\lfloor n/2 \rfloor\) distinct pairwise tests from the n chips,
+     and choose all the pairs which says both are good, then pick one chip from
+     each the pairs and combine them into the new chips set.
+
+   - *c.*
+
+     From the recursion above, we know that
+     \begin{equation*}
+     T(n)=
+     \begin{cases}
+     T(\lfloor n/2 \rfloor - k)+\lfloor n/2 \rfloor & k\geq 0\text{, if }n > 1\\
+     \Theta(N) & \text{N stands for the number of the original chips, if }n = 1
+     \end{cases}
+     \end{equation*}
+     so \(T(n) = O(n) + \Theta(N)\) (master theorem),
+     thus \(T(N) = \Theta(N)\).
+** 4-6
+   - *a.*
+
+     The "only if" part is obvious, and we prove the "if" part as below.
+
+     We know that
+     \begin{align*}
+     0
+     &\geq \sum_{x=i}^{k-1}(A[x,j]+A[x+1,j+1]-A[x+1,j]-A[x,j+1])
+     & ,\ 0\geq\text{all addends}\\
+     &=(\sum_{x=i}^{k-1}A[x,j]-\sum_{x=i+1}^{k}A[x,j])
+       +(\sum_{x=i+1}^{k}A[x,j+1]-\sum_{x=i}^{k-1}A[x,j+1])\\
+     &=(A[i,j]-A[k,j])+(A[k,j+1]-A[i,j+1])\\
+     \end{align*}
+     Thus \(A[i,j]+A[k,j+1]\leq A[k,j]+A[i,j+1]\) for all \(k > i\), then
+     \begin{align*}
+     0
+     &\geq \sum_{y=j}^{l-1}(A[i,y]+A[k,y+1]-A[k,y]-A[i,y+1])
+     & ,\ 0\geq\text{all addends}\\
+     &=(\sum_{y=j}^{l-1}A[i,y]-\sum_{y=j+1}^{l}A[i,y])
+       +(\sum_{y=j+1}^{l}A[k,y]-\sum_{y=j}^{l-1}A[k,y])\\
+     &=(A[i,j]-A[i,l])+(A[k,l]-A[k,j])\\
+     \end{align*}
+     Thus \(A[i,j]+A[k,l]\leq A[i,l]+A[k,j]\).
+   - *b.*
+
+     The broken part is \begin{matrix}23 & 22 \\ 6 & 7\end{matrix}
+     If we are changing 7 to x, then x has to be
+     \begin{align*}
+     x+23&\leq 22+6\\
+     x+32&\geq 22+10\\
+     x+31&\geq 30+10\\
+     x+34&\geq 6+30
+     \end{align*}
+     So we have \(2 \leq x \leq 5\), then we choose \(x = 4\),
+     and the new array is
+     \begin{matrix}
+     37 & 23 & 22 & 32\\
+     21 & 6  & 4  & 10\\
+     53 & 34 & 30 & 31\\
+     32 & 13 & 9  & 6 \\
+     43 & 21 & 15 & 8
+     \end{matrix}
+   - *c.*
+
+     If there exists \(i < j\) that \(f(i) > f(j)\),
+     then \(A[i, f(i)] < A[i, f(j)]\), \(A[j, f(j) < A[j, f(i)]]\),
+     thus \(A[i, f(j)] + A[j, f(i)] > A[j, f(j)] + A[i, f(i)]\),
+     the array is not monge.
+
+     Hence \(f(1) \leq f(2) \leq \cdots \leq f(m)\)
+     for any \(m \times n\) Monge array.
+   - *d.*
+     We know that \(f(i-1) \leq f(i) \leq f(i+1)\), so we just need to find the
+     index of minimum element between \(f(i-1)\) and \(f(i+1)\) to get \(f(i)\).
+     The total time cost is
+     \begin{align*}
+     T(m,n)
+     &=\sum_{i=1}^{\lceil \frac{m}{2} \rceil}O(f(i+1)-f(i-1))+O(1)\\
+     &=O(m+n)
+     \end{align*}
+   - *e.*
+     The running time is
+     \begin{align*}
+     T(m)
+     &=T(m/2)+O(n+m)\\
+     &=T(m/4)+O(n+m/2)+O(n+m)\\
+     &=\ldots\\
+     &=\sum_{i=0}^{\lg m-1}O(n)+\sum_{i=0}^{\lg m-1}O(m/2^i)+O(1)\\
+     &=O(n\lg m)+O(m)+O(1)\\
+     &=O(m+n\lg m)
+     \end{align*}
