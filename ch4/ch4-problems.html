@@ -6,7 +6,7 @@
 <!-- 2019-08-10 Sat 10:00 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Chapter 4.3</title>
+<title>Chapter 4 problems</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="pedh" />
 <style type="text/css">
@@ -328,212 +328,78 @@ for the JavaScript code in this tag.
  |
  <a accesskey="H" href="/CLRS-Solutions"> HOME </a>
 </div><div id="content">
-<h1 class="title">Chapter 4.3</h1>
+<h1 class="title">Chapter 4 problems</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgfa241a7">ch4.3</a>
+<li><a href="#orgfa62c1d"><span class="todo TODO">TODO</span> ch4-problems</a>
 <ul>
-<li><a href="#org552bff1">4.3-1</a></li>
-<li><a href="#org1403e98">4.3-2</a></li>
-<li><a href="#org6ebf2b9">4.3-3</a></li>
-<li><a href="#org333faef">4.3-4</a></li>
-<li><a href="#org32e28cd">4.3-5</a></li>
-<li><a href="#org72369ec">4.3-6</a></li>
-<li><a href="#orgc27cf79">4.3-7</a></li>
-<li><a href="#org6b55d51">4.3-8</a></li>
-<li><a href="#org7c4a4b1">4.3-9</a></li>
+<li><a href="#orgb782d65">4-1</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgfa241a7" class="outline-2">
-<h2 id="orgfa241a7">ch4.3</h2>
-<div class="outline-text-2" id="text-orgfa241a7">
+<div id="outline-container-orgfa62c1d" class="outline-2">
+<h2 id="orgfa62c1d"><span class="todo TODO">TODO</span> ch4-problems</h2>
+<div class="outline-text-2" id="text-orgfa62c1d">
 </div>
-<div id="outline-container-org552bff1" class="outline-3">
-<h3 id="org552bff1">4.3-1</h3>
-<div class="outline-text-3" id="text-org552bff1">
-<p>
-Guess \(c \in \mathbb{R}^{+},\ T(n) \leq cn^2\), then
-</p>
-\begin{align*}
-T(n)
-&=T(n-1)+n\\
-&\leq c(n-1)^2+n\\
-&=cn^2-2cn+c+n\\
-&\leq cn^2 &\text{, when }c\geq\frac{n}{2n-1}
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org1403e98" class="outline-3">
-<h3 id="org1403e98">4.3-2</h3>
-<div class="outline-text-3" id="text-org1403e98">
-<p>
-Guess \(c,d \in \mathbb{R}^{+},\ T(n) \leq c\lg(n - d)\), then
-</p>
-\begin{align*}
-T(n)
-&=T(\lceil n/2 \rceil)+1\\
-&\leq c\lg(\lceil n/2 \rceil-d)+1\\
-&\leq c\lg(n/2+1-d)+1\\
-&=c\lg(n+2-2d)+1-c\\
-&\leq c\lg(n-d) &\text{, when }c\geq 1,\ d\geq 2
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org6ebf2b9" class="outline-3">
-<h3 id="org6ebf2b9">4.3-3</h3>
-<div class="outline-text-3" id="text-org6ebf2b9">
-<p>
-Guess \(c,d \in \mathbb{R}^{+},\ T(n) \geq c(n + d)\lg(n + d)\), then
-</p>
-\begin{align*}
-T(n)
-&=2T(\lfloor n/2 \rfloor)+n\\
-&\geq 2c(\lfloor n/2 \rfloor+d)\lg(\lfloor n/2 \rfloor+d)+n\\
-&\geq 2c(n/2-1+d)\lg(n/2-1+d)+n\\
-&\geq c(n+2d-2)\lg(n+2d-2)-c(n+2d-2)+n\\
-&\geq c(n+d)\lg(n+d) &\text{, when }d\geq 2,\ c\leq\frac{n}{n+2d-2}
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org333faef" class="outline-3">
-<h3 id="org333faef">4.3-4</h3>
-<div class="outline-text-3" id="text-org333faef">
-<p>
-Guess \(c \in \mathbb{R}^{+},\ T(n) \leq cn\lg n + 1\), then
-</p>
-\begin{align*}
-T(n)
-&=2T(\lfloor n/2 \rfloor)+n\\
-&=2c\lfloor n/2 \rfloor (\lg (\lfloor n/2 \rfloor))+2+n\\
-&\leq 2c(n/2)(\lg(n/2))+2+n\\
-&=cn\lg n-cn+n+2\\
-&\leq cn\lg n+1 &\text{, when }c\geq\frac{n+1}{n}
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org32e28cd" class="outline-3">
-<h3 id="org32e28cd">4.3-5</h3>
-<div class="outline-text-3" id="text-org32e28cd">
+<div id="outline-container-orgb782d65" class="outline-3">
+<h3 id="orgb782d65">4-1</h3>
+<div class="outline-text-3" id="text-orgb782d65">
 <ul class="org-ul">
 <li><p>
-Guess \(T(n) \leq c(n - d)\lg(n - d)\), then
-</p>
-\begin{align*}
-T(n)
-&=T(\lfloor n/2 \rfloor)+T(\lceil n/2 \rceil)+\Theta(n)\\
-&\leq 2T(\lceil n/2 \rceil)+an &\text{, a is an appropriate constant}\\
-&=2c(\lceil n/2 \rceil-d)\lg(\lceil n/2 \rceil-d)+an\\
-&\leq c(n+2-2d)\lg(n+2-2d)-c(n+2-2d)+an\\
-&\leq c(n-d)\lg(n-d) &\text{, when }d\geq 2,\ c\geq\frac{an}{n+2-2d}
-\end{align*}
-<p>
-Hence \(T(n) = O(n\lg n)\).
-</p></li>
-<li><p>
-Guess \(T(n) \geq c(n + d)\lg(n + d)\), then
-</p>
-\begin{align*}
-T(n)
-&=T(\lfloor n/2 \rfloor)+T(\lceil n/2 \rceil)+\Theta(n)\\
-&\geq 2T(\lfloor n/2 \rfloor)+an &\text{, a is an appropriate constant}\\
-&=2c(\lfloor n/2 \rfloor+d)\lg(\lfloor n/2 \rfloor+d)+an\\
-&\geq c(n-2+2d)\lg(n-2+2d)-c(n-2+2d)+an\\
-&\geq c(n-d)\lg(n-d) &\text{, when }d\geq 2,\ c\leq\frac{an}{n-2+2d}
-\end{align*}
-<p>
-Hence \(T(n) = \Omega(n\lg n)\).
-</p></li>
-<li>In conclusion, \(T(n) = \Theta(n\lg n)\).</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-org72369ec" class="outline-3">
-<h3 id="org72369ec">4.3-6</h3>
-<div class="outline-text-3" id="text-org72369ec">
-<p>
-Guess \(T(n) \leq c(n - d)\lg(n - d)\), then
-</p>
-\begin{align*}
-T(n)
-&=2T(\lfloor n/2 \rfloor+17)+n\\
-&\leq 2T(n/2+17)+n\\
-&\leq 2c(n/2+17-d)\lg(n/2+17-d)+n\\
-&=c(n+34-2d)\lg(n+34-2d)+c(n+34-2d)+n\\
-&\leq c(n-d)\lg(n-d) &\text{, when }d\geq 34,\ c\geq\frac{n}{n+34-2d}
-\end{align*}
-<p>
-Hence \(T(n) = O(n\lg n)\).
-</p>
-</div>
-</div>
-<div id="outline-container-orgc27cf79" class="outline-3">
-<h3 id="orgc27cf79">4.3-7</h3>
-<div class="outline-text-3" id="text-orgc27cf79">
-<ul class="org-ul">
-<li><p>
-First we guess \(T(n) \leq cn^{\log_3 4}\), then
-</p>
-\begin{align*}
-T(n)
-&=4T(n/3)+n\\
-&\leq 4c(n/3)^{\log_3 4}+n\\
-&=cn^{\log_3 4}+n
-\end{align*}
-<p>
-Which fails to prove the hypothesis.
-</p></li>
-<li><p>
-To make the substitution proof work, we guess that
-\(T(n) \leq cn^{\log_3 4} - dn\), then
-</p>
-\begin{align*}
-T(n)
-&=4T(n/3)+n\\
-&\leq 4(c(n/3)^{\log_3 4} - d(n/3))+n\\
-&=cn^{\log_3 4}-(3/4)dn+n\\
-&\leq cn^{\log_3 4}-dn &\text{, when }d\geq 3
-\end{align*}</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-org6b55d51" class="outline-3">
-<h3 id="org6b55d51">4.3-8</h3>
-<div class="outline-text-3" id="text-org6b55d51">
-<p>
-Using master method, the solution to the recurrence \(T(n) = 4T(n/2) + n^2\)
-should be \(T(n) = \Theta(n^2\lg n)\).
-</p>
-</div>
-</div>
-<div id="outline-container-org7c4a4b1" class="outline-3">
-<h3 id="org7c4a4b1">4.3-9</h3>
-<div class="outline-text-3" id="text-org7c4a4b1">
-<p>
-Let \(m = \lg n\), then
-</p>
-\begin{equation*}
-T(2^m)=3T(2^{m/2})+m
-\end{equation*}
-<p>
-Let \(T(2^m) = S(m)\), then
-</p>
-\begin{equation*}
-S(m)=3S(m/2)+m
-\end{equation*}
-<p>
-Using master method, we know that \(S(m) = \Theta(m^{\lg 3})\).
+<b>a.</b>
 </p>
 
 <p>
-We obtain
-\(T(n) = T(2^m) = S(m) = \Theta(m^{\lg 3}) = \Theta(\lg^{\lg 3}n)\).
+\(T(n) = 2T(n/2) + n^4 = \Theta(n^4)\).
+</p></li>
+<li><p>
+<b>b.</b>
 </p>
+
+<p>
+\(T(n) = T(7n/10) + n = \Theta(n)\).
+</p></li>
+<li><p>
+<b>c.</b>
+</p>
+
+<p>
+\(T(n) = 16T(n/4) + n^2 = \Theta(n^2\lg n)\).
+</p></li>
+<li><p>
+<b>d.</b>
+</p>
+
+<p>
+\(T(n) = 7T(n/3) + n^2 = \Theta(n^2)\).
+</p></li>
+<li><p>
+<b>e.</b>
+</p>
+
+<p>
+\(T(n) = 7(n/2) + n^2 = \Theta(n^{\lg 7})\).
+</p></li>
+<li><p>
+<b>f.</b>
+</p>
+
+<p>
+\(T(n) = 2T(n/4) + \sqrt n = \Theta(\sqrt n \lg n)\).
+</p></li>
+<li><p>
+<b>g.</b>
+</p>
+
+<p>
+\(T(n) = T(n - 2) + n^2 = \Theta(n^3)\).
+</p></li>
+</ul>
 </div>
 </div>
 </div>
