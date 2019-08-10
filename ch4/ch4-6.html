@@ -6,7 +6,7 @@
 <!-- 2019-08-10 Sat 09:44 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Chapter 1.1</title>
+<title>Chapter 4.6</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="pedh" />
 <style type="text/css">
@@ -299,6 +299,28 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -306,94 +328,93 @@ for the JavaScript code in this tag.
  |
  <a accesskey="H" href="/CLRS-Solutions"> HOME </a>
 </div><div id="content">
-<h1 class="title">Chapter 1.1</h1>
+<h1 class="title">Chapter 4.6</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org6087fb5">ch1.1</a>
+<li><a href="#org995b7a3">ch4.6</a>
 <ul>
-<li><a href="#org8d7de4f">1.1-1</a></li>
-<li><a href="#org8377b19">1.1-2</a></li>
-<li><a href="#org5e535c0">1.1-3</a></li>
-<li><a href="#orgab49514">1.1-4</a></li>
-<li><a href="#org3fcbebc">1.1-5</a></li>
+<li><a href="#orgf8968ff">4.6-1</a></li>
+<li><a href="#org6cd3bc8">4.6-2</a></li>
+<li><a href="#org636efde">4.6-3</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org6087fb5" class="outline-2">
-<h2 id="org6087fb5">ch1.1</h2>
-<div class="outline-text-2" id="text-org6087fb5">
+<div id="outline-container-org995b7a3" class="outline-2">
+<h2 id="org995b7a3">ch4.6</h2>
+<div class="outline-text-2" id="text-org995b7a3">
 </div>
-<div id="outline-container-org8d7de4f" class="outline-3">
-<h3 id="org8d7de4f">1.1-1</h3>
-<div class="outline-text-3" id="text-org8d7de4f">
+<div id="outline-container-orgf8968ff" class="outline-3">
+<h3 id="orgf8968ff">4.6-1</h3>
+<div class="outline-text-3" id="text-orgf8968ff">
 <p>
-sorting: calculate class rank
-</p>
-
-<p>
-convex hull: GIS
+\(n_j = \lceil \frac{n}{b^j} \rceil\).
 </p>
 </div>
 </div>
-<div id="outline-container-org8377b19" class="outline-3">
-<h3 id="org8377b19">1.1-2</h3>
-<div class="outline-text-3" id="text-org8377b19">
+<div id="outline-container-org6cd3bc8" class="outline-3">
+<h3 id="org6cd3bc8">4.6-2</h3>
+<div class="outline-text-3" id="text-org6cd3bc8">
 <p>
-resources, difficulty, quality
+Assume n is an exact power of b, then use a recursion tree, we have
+</p>
+\begin{align*}
+T(n)
+&=\Theta(n^{\log_b a}+\sum_{j=0}^{\log_b n-1}(a^j f(n/b^j)))\\
+&=\Theta(n^{\log_b a}+\sum_{j=0}^{\log_b n-1}
+  (a^j (n/b^j)^{\log_b a}\lg^k(n/b^j)))\\
+&=\Theta(n^{\log_b a}+n^{\log_b a}\sum_{j=0}^{\log_b n-1}\lg^k(n/b^j))\\
+&=\Theta(n^{\log_b a}g(n)) &\text{, Let }g(n)=\sum_{i=1}^{\log_b n}i^k
+\end{align*}
+<p>
+Now analysis the asymptotic bound of \(g(n)\).
+First the lower bound of \(g(n)\)
+</p>
+\begin{align*}
+g(n)
+&=\sum_{i=1}^{\log_b n}i^k\\
+&> \sum_{i=\frac{\log_b n}{2}+1}^{\log_b n}(\frac{\log_b n}{2})^k\\
+&=(\frac{\log_b n}{2})^{k+1}\\
+&=\Omega(\lg^{k+1}n)
+\end{align*}
+<p>
+Then the upper bound of \(g(n)\)
+</p>
+\begin{align*}
+g(n)
+&=\sum_{i=1}^{\log_b n}i^k\\
+&< \sum_{i=1}^{\log_b n}\log_b^k n\\
+&=\log_b^{k+1}n\\
+&=O(\lg^{k+1}n)
+\end{align*}
+<p>
+Thus \(g(n) = \Theta(\lg^{k+1}n)\),
+hence \(T(n) = \Theta(n^{\log_b a}g(n) = \Theta(n^{\log_b a}\lg^{k+1}n)\).
 </p>
 </div>
 </div>
-<div id="outline-container-org5e535c0" class="outline-3">
-<h3 id="org5e535c0">1.1-3</h3>
-<div class="outline-text-3" id="text-org5e535c0">
+<div id="outline-container-org636efde" class="outline-3">
+<h3 id="org636efde">4.6-3</h3>
+<div class="outline-text-3" id="text-org636efde">
 <p>
-Linked list
+Base on the regularity condition \(af(n/b)\leq cf(n)\)
+for some constant \(c < 1\), we have
 </p>
-
+\begin{align*}
+f(n)
+&\geq \frac{a}{c}f(\frac{n}{b})\\
+&\geq (\frac{a}{c})^2f(\frac{n}{b^2})\\
+&\geq \ldots\\
+&\geq (\frac{a}{c})^{\log_b n}\Theta(1)\\
+&= \Omega(n^{\log_b a-\log_b c})\\
+\end{align*}
 <p>
-The linked list is simple, and we could implement many other data structures
-with it. But the linked list does not support random access.
-</p>
-</div>
-</div>
-<div id="outline-container-orgab49514" class="outline-3">
-<h3 id="orgab49514">1.1-4</h3>
-<div class="outline-text-3" id="text-orgab49514">
-<ul class="org-ul">
-<li><p>
-Similarity
-</p>
-
-<p>
-Both of them are problems to find the path with shortest distance.
-</p></li>
-
-<li><p>
-Difference
-</p>
-
-<p>
-The shortest-path problem is to find the shortest path of two points,
-The traveling-salesman problem is to find the shortest path connects
-all points.
-</p></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-org3fcbebc" class="outline-3">
-<h3 id="org3fcbebc">1.1-5</h3>
-<div class="outline-text-3" id="text-org3fcbebc">
-<p>
-Only the best: Find the nth fibonacci number.
-</p>
-
-<p>
-Approximately the best: Solve the chess game.
+Let \(\epsilon = -\log_b c > 0\),
+then \(f(n) = \Omega(n^{\log_b a+\epsilon})\).
 </p>
 </div>
 </div>
