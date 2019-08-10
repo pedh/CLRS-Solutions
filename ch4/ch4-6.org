@@ -1,0 +1,47 @@
+#+TITLE: Chapter 4.6
+
+* ch4.6
+** 4.6-1
+   \(n_j = \lceil \frac{n}{b^j} \rceil\).
+** 4.6-2
+   Assume n is an exact power of b, then use a recursion tree, we have
+   \begin{align*}
+   T(n)
+   &=\Theta(n^{\log_b a}+\sum_{j=0}^{\log_b n-1}(a^j f(n/b^j)))\\
+   &=\Theta(n^{\log_b a}+\sum_{j=0}^{\log_b n-1}
+     (a^j (n/b^j)^{\log_b a}\lg^k(n/b^j)))\\
+   &=\Theta(n^{\log_b a}+n^{\log_b a}\sum_{j=0}^{\log_b n-1}\lg^k(n/b^j))\\
+   &=\Theta(n^{\log_b a}g(n)) &\text{, Let }g(n)=\sum_{i=1}^{\log_b n}i^k
+   \end{align*}
+   Now analysis the asymptotic bound of \(g(n)\).
+   First the lower bound of \(g(n)\)
+   \begin{align*}
+   g(n)
+   &=\sum_{i=1}^{\log_b n}i^k\\
+   &> \sum_{i=\frac{\log_b n}{2}+1}^{\log_b n}(\frac{\log_b n}{2})^k\\
+   &=(\frac{\log_b n}{2})^{k+1}\\
+   &=\Omega(\lg^{k+1}n)
+   \end{align*}
+   Then the upper bound of \(g(n)\)
+   \begin{align*}
+   g(n)
+   &=\sum_{i=1}^{\log_b n}i^k\\
+   &< \sum_{i=1}^{\log_b n}\log_b^k n\\
+   &=\log_b^{k+1}n\\
+   &=O(\lg^{k+1}n)
+   \end{align*}
+   Thus \(g(n) = \Theta(\lg^{k+1}n)\),
+   hence \(T(n) = \Theta(n^{\log_b a}g(n) = \Theta(n^{\log_b a}\lg^{k+1}n)\).
+** 4.6-3
+   Base on the regularity condition \(af(n/b)\leq cf(n)\)
+   for some constant \(c < 1\), we have
+   \begin{align*}
+   f(n)
+   &\geq \frac{a}{c}f(\frac{n}{b})\\
+   &\geq (\frac{a}{c})^2f(\frac{n}{b^2})\\
+   &\geq \ldots\\
+   &\geq (\frac{a}{c})^{\log_b n}\Theta(1)\\
+   &= \Omega(n^{\log_b a-\log_b c})\\
+   \end{align*}
+   Let \(\epsilon = -\log_b c > 0\),
+   then \(f(n) = \Omega(n^{\log_b a+\epsilon})\).
