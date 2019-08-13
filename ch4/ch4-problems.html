@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-08-10 Sat 10:00 -->
+<!-- 2019-08-13 Tue 10:03 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 4 problems</title>
@@ -333,64 +333,69 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org119e7a7"><span class="todo TODO">TODO</span> ch4-problems</a>
+<li><a href="#orga01aa0f">ch4-problems</a>
 <ul>
-<li><a href="#org3f79138">4-1</a></li>
+<li><a href="#org5a22fa9">4-1</a></li>
+<li><a href="#orgca43864">4-2</a></li>
+<li><a href="#orgb2fd53a">4-3</a></li>
+<li><a href="#org00a285a">4-4</a></li>
+<li><a href="#orgddcaeb6">4-5</a></li>
+<li><a href="#org658c4ba"><span class="todo TODO">TODO</span> 4-6</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org119e7a7" class="outline-2">
-<h2 id="org119e7a7"><span class="todo TODO">TODO</span> ch4-problems</h2>
-<div class="outline-text-2" id="text-org119e7a7">
+<div id="outline-container-orga01aa0f" class="outline-2">
+<h2 id="orga01aa0f">ch4-problems</h2>
+<div class="outline-text-2" id="text-orga01aa0f">
 </div>
-<div id="outline-container-org3f79138" class="outline-3">
-<h3 id="org3f79138">4-1</h3>
-<div class="outline-text-3" id="text-org3f79138">
+<div id="outline-container-org5a22fa9" class="outline-3">
+<h3 id="org5a22fa9">4-1</h3>
+<div class="outline-text-3" id="text-org5a22fa9">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
 </p>
 
 <p>
-\(T(n) = 2T(n/2) + n^4 = \Theta(n^4)\).
+\(T(n) = 2T(n/2) + n^4 = \Theta(n^4)\). (master theorem)
 </p></li>
 <li><p>
 <b>b.</b>
 </p>
 
 <p>
-\(T(n) = T(7n/10) + n = \Theta(n)\).
+\(T(n) = T(7n/10) + n = \Theta(n)\). (master theorem)
 </p></li>
 <li><p>
 <b>c.</b>
 </p>
 
 <p>
-\(T(n) = 16T(n/4) + n^2 = \Theta(n^2\lg n)\).
+\(T(n) = 16T(n/4) + n^2 = \Theta(n^2\lg n)\). (master theorem)
 </p></li>
 <li><p>
 <b>d.</b>
 </p>
 
 <p>
-\(T(n) = 7T(n/3) + n^2 = \Theta(n^2)\).
+\(T(n) = 7T(n/3) + n^2 = \Theta(n^2)\). (master theorem)
 </p></li>
 <li><p>
 <b>e.</b>
 </p>
 
 <p>
-\(T(n) = 7(n/2) + n^2 = \Theta(n^{\lg 7})\).
+\(T(n) = 7(n/2) + n^2 = \Theta(n^{\lg 7})\). (master theorem)
 </p></li>
 <li><p>
 <b>f.</b>
 </p>
 
 <p>
-\(T(n) = 2T(n/4) + \sqrt n = \Theta(\sqrt n \lg n)\).
+\(T(n) = 2T(n/4) + \sqrt n = \Theta(\sqrt n \lg n)\). (master theorem)
 </p></li>
 <li><p>
 <b>g.</b>
@@ -398,7 +403,365 @@ for the JavaScript code in this tag.
 
 <p>
 \(T(n) = T(n - 2) + n^2 = \Theta(n^3)\).
+</p>
+
+<p>
+Proof
+</p>
+\begin{align*}
+T(n)
+&=T(n-2)+n^2\\
+&=\sum_{i=1}^{n/2}(2i)^2\\
+&=\frac{4(n/2)(n/2+1)(n+1)}{6}\\
+&=\Theta(n^3)
+\end{align*}</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgca43864" class="outline-3">
+<h3 id="orgca43864">4-2</h3>
+<div class="outline-text-3" id="text-orgca43864">
+<ul class="org-ul">
+<li><p>
+<b>a.</b>
+</p>
+
+<p>
+By pointer: \(T(n) = T(n/2) + \Theta(1) = \Theta(\lg n)\). (master theorem)
+</p>
+
+<p>
+By copying: \(T(n) = T(n/2) + \Theta(N) = \Theta(N\lg n)\).
+(master theorem)
+</p>
+
+<p>
+By copying only required: \(T(n) = T(n/2) + \Theta(n) = \Theta(n)\).
+(master theorem)
 </p></li>
+<li><p>
+<b>b.</b>
+</p>
+
+<p>
+By pointer: \(T(n) = 2T(n/2) + \Theta(n) = \Theta(n\lg n)\).
+(master theorem)
+</p>
+
+<p>
+By copying: \(T(n) = 2T(n/2) + \Theta(N) = \Theta(Nn)\). (master theorem)
+</p>
+
+<p>
+By copying only required: \(T(n) = 2T(n/2) + \Theta(n) = \Theta(n\lg n)\).
+(master theorem)
+</p></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgb2fd53a" class="outline-3">
+<h3 id="orgb2fd53a">4-3</h3>
+<div class="outline-text-3" id="text-orgb2fd53a">
+<ul class="org-ul">
+<li><p>
+<b>a.</b>
+</p>
+
+<p>
+\(T(n) = 4T(n/3) + n\lg n = \Theta(n^{\log_3 4})\). (master theorem)
+</p></li>
+<li><p>
+<b>b.</b>
+</p>
+
+<p>
+\(T(n) = 3T(n/3) + n/\lg n = \Theta(n\lg\lg n)\).
+</p>
+
+<p>
+Proof
+</p>
+\begin{align*}
+T(n)
+&=3T(n/3)+n/\lg n\\
+&=9T(n/9)+3(n/3)/\lg(n/3)+n/\lg n\\
+&=\ldots\\
+&=\Theta(n)+\sum_{i=0}^{\log_3 n-1}n/(\lg(n/3^i))\\
+&=\Theta(n)+\frac{n}{\lg 3}\sum_{j=1}^{\log_3 n}\frac{1}{j}\\
+&=\Theta(n)+\frac{n}{\lg 3}(\ln\log_3 n+\Theta(1))\\
+&=\Theta(n\lg\lg n)
+\end{align*}</li>
+<li><p>
+<b>c.</b>
+</p>
+
+<p>
+\(T(n) = 4T(n/2) + n^2\sqrt n = \Theta(n^{2.5})\). (master theorem)
+</p></li>
+<li><p>
+<b>d.</b>
+</p>
+
+<p>
+\(T(n) = 3T(n/3 - 2) + n/2 = \Theta(n\lg n)\). (master theorem)
+</p></li>
+<li><p>
+<b>e.</b>
+</p>
+
+<p>
+\(T(n) = 2T(n/2) + n/\lg n = \Theta(n\lg\lg n)\). (same as <b>b.</b>)
+</p></li>
+<li><p>
+<b>f.</b>
+</p>
+
+<p>
+\(T(n) = T(n/2) + T(n/4) + T(n/8) + n = \Theta(n)\).
+(similar to the master theorem)
+</p></li>
+<li><p>
+<b>g.</b>
+</p>
+
+<p>
+\(T(n) = T(n - 1) + 1/n = \Theta(\lg n)\).
+</p>
+
+<p>
+Proof
+</p>
+\begin{align*}
+T(n)
+&=\sum_{i=0}^{n-2}\frac{1}{n-i}+\Theta(1)\\
+&=\sum_{j=2}^{n}\frac{1}{j}+\Theta(1)\\
+&=\Theta(\lg n)
+\end{align*}</li>
+<li><p>
+<b>h.</b>
+</p>
+
+<p>
+\(T(n) = T(n-1) + \lg n = \Theta(n\lg n)\).
+</p>
+
+<p>
+Proof
+</p>
+\begin{align*}
+T(n)
+&=T(n-1)+\lg(n)\\
+&=\sum_{i=1}^{n}\lg i + \Theta(1)
+\end{align*}
+<p>
+We know that \(\int\ln xdx = x\ln x - x + C\),
+so we guess that \(T(n) = \Theta(n\lg n)\),
+then we prove the hypothesis as below.
+</p>
+
+<p>
+For the upper bound
+</p>
+\begin{align*}
+\sum_{i=1}^{n}\lg i
+&< \sum_{i=1}^{n}\lg n\\
+&=n\lg n\\
+&=O(n\lg n)
+\end{align*}
+<p>
+For the lower bound
+</p>
+\begin{align*}
+\sum_{i=1}^{n}\lg i
+&> \sum_{i=\frac{n}{2}+1}^{n}\lg\frac{n}{2}\\
+&=\frac{n}{2}(\lg n-1)\\
+&=\Omega(n\lg n)
+\end{align*}
+<p>
+Thus \(T(n) = \Theta(n\lg n)\).
+</p></li>
+<li><p>
+<b>i.</b>
+</p>
+
+<p>
+\(T(n) = T(n-2) + 1/\lg n = \Theta(\frac{n}{\lg n})\).
+</p>
+
+<p>
+Proof
+</p>
+\begin{align*}
+T(n)
+&=T(n-2)+1/\lg n\\
+&=\sum_{i=1}^{n/2}\frac{1}{\lg(2i)}+\Theta(1)
+\end{align*}
+<p>
+We know \(\int_0^x \frac{dt}{\ln t} = li(x)\)
+(Logarithmic integral function), and \(li(x) = \Theta(\frac{x}{\ln x})\),
+so we guess that \(T(n) = \Theta(\frac{n}{\lg n})\), the proof is omitted.
+</p></li>
+<li><p>
+<b>j.</b>
+</p>
+
+<p>
+\(T(n) = \sqrt n T(\sqrt n) + n = n\lg\lg n\).
+</p>
+
+<p>
+Proof
+</p>
+\begin{align*}
+T(n)
+&=\sqrt nT(\sqrt n)+n\\
+&=\sqrt n(n^{\frac{1}{4}}T(n^{\frac{1}{4}})+\sqrt n)+n\\
+&=\ldots\\
+&=\sum_{i=0}^{\lfloor \lg\lg n \rfloor}n\\
+&=\Theta(n\lg\lg n)
+\end{align*}</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org00a285a" class="outline-3">
+<h3 id="org00a285a">4-4</h3>
+<div class="outline-text-3" id="text-org00a285a">
+<ul class="org-ul">
+<li><p>
+<b>a.</b>
+</p>
+
+<p>
+We have
+</p>
+\begin{align*}
+\mathcal F(z)
+&=\sum_{i=0}^{\infty}F_iz^i\\
+&=z+\sum_{i=2}^{\infty}F_iz^i\\
+&=z+\sum_{i=2}^{\infty}(F_{i-1}+F_{i-2})z^i\\
+&=z+\sum_{i=1}^{\infty}F_{i-1}z^i+\sum_{i=2}^{\infty}F_{i-2}z^i\\
+&=z+z\mathcal F(z)+z^2\mathcal F(z)
+\end{align*}</li>
+<li><p>
+<b>b.</b>
+</p>
+
+<p>
+From the equation
+\(\mathcal F(z) = z + z\mathcal F(z) + z^2\mathcal F(z)\), we know that
+</p>
+\begin{align*}
+\mathcal F(z)
+&=\frac{z}{1-z-z^2}\\
+&=\frac{z}{(1-\phi z)(1-\hat\phi z)}
+&,\ \phi=\frac{1+\sqrt 5}{2}, \hat\phi=\frac{1-\sqrt 5}{2}\\
+&=\frac{1}{\sqrt 5}\bigg (\frac{1}{1-\phi z}-\frac{1}{1-\hat\phi z}\bigg )
+\end{align*}</li>
+<li><p>
+<b>c.</b>
+</p>
+
+<p>
+We have
+</p>
+\begin{align*}
+\mathcal F(z)
+&=\frac{1}{\sqrt 5}\bigg(\frac{1}{1-\phi z}-\frac{1}{1-\hat\phi z}\bigg)\\
+&=\frac{1}{\sqrt 5}\Big(\sum_{i=0}^{\infty}(\phi z)^i
+  -\sum_{i=0}^{\infty}(\hat\phi z)^i\Big)\\
+&=\sum_{i=0}^{\infty}\frac{1}{\sqrt 5}(\phi^i-\hat\phi^i)z^i
+\end{align*}</li>
+<li><p>
+<b>d.</b>
+</p>
+
+<p>
+When \(i > 0\), we have
+</p>
+\begin{align*}
+F_i
+&=\frac{1}{\sqrt 5}(\phi^i-\hat\phi^i)\\
+&=\bigg \lfloor \frac{\phi^i}{\sqrt 5} \bigg \rceil
+&,\ \frac{\hat\phi^i}{\sqrt 5}< \frac{1}{2}
+\end{align*}</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgddcaeb6" class="outline-3">
+<h3 id="orgddcaeb6">4-5</h3>
+<div class="outline-text-3" id="text-orgddcaeb6">
+<ul class="org-ul">
+<li><p>
+<b>a.</b>
+</p>
+
+<p>
+The bad chips could fool the professor by saying all other bad chips are
+good and all good chips are bad.
+</p></li>
+<li><p>
+<b>b.</b>
+</p>
+
+<p>
+Generate \(\lfloor n/2 \rfloor\) distinct pairwise tests from the n chips,
+and choose all the pairs which says both are good, then pick one chip from
+each the pairs and combine them into the new chips set.
+</p></li>
+
+<li><p>
+<b>c.</b>
+</p>
+
+<p>
+From the recursion above, we know that
+</p>
+\begin{equation*}
+T(n)=
+\begin{cases}
+T(\lfloor n/2 \rfloor - k)+\lfloor n/2 \rfloor & k\geq 0\text{, if }n > 1\\
+\Theta(N) & \text{N stands for the number of the original chips, if }n = 1
+\end{cases}
+\end{equation*}
+<p>
+so \(T(n) = O(n) + \Theta(N)\) (master theorem),
+thus \(T(N) = \Theta(N)\).
+</p></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org658c4ba" class="outline-3">
+<h3 id="org658c4ba"><span class="todo TODO">TODO</span> 4-6</h3>
+<div class="outline-text-3" id="text-org658c4ba">
+<ul class="org-ul">
+<li><p>
+<b>a.</b>
+</p>
+
+<p>
+The "only if" part is obvious, we prove the "if" part as below.
+</p>
+
+<p>
+First we know that
+</p>
+\begin{align*}
+0
+&\geq \sum_{x=i}^{k-1}(A[x,j]+A[x+1,j+1]-A[x+1,j]-A[x,j+1])\\
+&=(\sum_{x=i}^{k-1}A[x,j]-\sum_{x=i+1}^{k}A[x,j])
+  +(\sum_{x=i+1}^{k}A[x,j+1]-\sum_{x=i}^{k-1}A[x,j+1])\\
+&=(A[i,j]-A[k,j])+(A[k,j+1]-A[i,j+1])\\
+\end{align*}
+<p>
+Thus \(A[i,j]+A[k,j+1]\leq A[k,j]+A[i,j+1]\) for all \(k > i\), then
+</p>
+\begin{align*}
+0
+&\geq \sum_{y=j}^{l-1}(A[i,y]+A[k,y+1]-A[k,y]-A[i,y+1])\\
+&=(\sum_{y=j}^{l-1}A[k,j]-\sum_{y=j+1}^{k}A[,j])
+  +(\sum_{x=i+1}^{k}A[x,j+1]-\sum_{x=i}^{k-1}A[x,j+1])\\
+&=(A[i,j]-A[k,j])+(A[k,j+1]-A[i,j+1])\\
+\end{align*}</li>
 </ul>
 </div>
 </div>
@@ -406,7 +769,7 @@ for the JavaScript code in this tag.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2019-08-10 Sat 10:00</p>
+<p class="date">Created: 2019-08-13 Tue 10:03</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
