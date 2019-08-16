@@ -14,7 +14,6 @@ def unbiased_random():
             return 1
         if x < y:
             return 0
-        continue
 
 
 if __name__ == "__main__":
