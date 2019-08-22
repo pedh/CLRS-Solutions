@@ -1,0 +1,65 @@
+#+TITLE: Chapter 5.3
+
+* ch5.3
+** 5.3-1
+   #+BEGIN_SRC
+   RANDOMIZE-IN-PLACE(A)
+       n = A.length
+       swap A[1] with A[RANDOM(1, n)]
+       for i = 2 to n
+           swap A[i] with A[RANDOM(2, n)]
+   #+END_SRC
+   Modify the initialization case by replace \(i = 1\) to \(i = 2\).
+** 5.3-2
+   No, because the procedure can't generate the premutations that keep any
+   element identical, e.g., \(\langle A[3], A[2], A[1], \ldots\rangle\).
+** 5.3-3
+   No, because the algorithm will generate \(n^n\) permutations
+   in the same probability, and \(n^n\) does not divide by \(n!\),
+   thus the \(n!\) permutations can not have the same probability.
+** 5.3-4
+   Each offset in RANDOM(1, n) transpose A[i] to distinct position in B, i.e.,
+   each element A[i] has a 1/n probability of winding up in any particular
+   position in B.
+
+   The algorithm can only generate n permutations, so the resulting permutation
+   is not uniformly random.
+** 5.3-5
+   The probability that all elements are unique is
+   \begin{align*}
+   Pr
+   &=\frac{P(n^3,n)}{(n^3)^n}\\
+   &>\frac{(n^3-n)^n}{(n^3)^n}\\
+   &=(1-\frac{1}{n^2})^n\\
+   &> 1-\frac{1}{n} &\text{, algebra inequality}
+   \end{align*}
+** 5.3-6
+   Sort the elements with same priority in random order.
+** 5.3-7
+   We use math induction to prove the correctness of the algorithm.
+
+   *Loop invariant:* The procedure returns a random m-subset S of
+   \(\{1,2,3,\ldots,n\}\) in which m-subset is equally likely, i.e.,
+   \((\forall x \in \{1,2,3,\ldots,n\}) [Pr\{x \in S\} = \frac{m}{n}]\).
+
+   *Initialization:* The procedure returns \(\emptyset\) when \(m = 0\).
+
+   *Maintenance:* We assumes that the procedure holds the loop invariant
+   of (m-1)-subset S' of \(\{1,2,3,\ldots,n-1\}\), then for m-subset S of
+   \(\{1,2,3,\ldots,n\}\), we have
+   \begin{align*}
+   Pr\{n\in S'\}
+   &=Pr\{x=n\}+Pr\{x\in S'\}\\
+   &=\frac{1}{n}+\frac{m-1}{n}\\
+   &=\frac{m}{n}
+   \end{align*}
+   \begin{align*}
+   (\forall k\in \{1,2,3,\ldots,n-1\})Pr\{k\in S'\}
+   &=Pr\{k\in S'\}+Pr\{k\notin S'\}\times Pr\{x=k\}\\
+   &=\frac{m-1}{n-1}+(1-\frac{m-1}{n-1})\frac{1}{n}\\
+   &=\frac{m}{n}
+   \end{align*}
+   thus \((\forall x \in \{1,2,3,\ldots,n\}) [Pr\{x \in S\} = \frac{m}{n}]\).
+
+   *Termination:* At termination, the procedure returns m-subset of
+   \(\{1,2,3,\ldots,n\}\) as expected.
