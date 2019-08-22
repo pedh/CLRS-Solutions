@@ -6,7 +6,7 @@
 <!-- 2019-08-22 Thu 10:35 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Chapter 3.1</title>
+<title>Chapter 5.3</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="pedh" />
 <style type="text/css">
@@ -328,159 +328,83 @@ for the JavaScript code in this tag.
  |
  <a accesskey="H" href="/CLRS-Solutions"> HOME </a>
 </div><div id="content">
-<h1 class="title">Chapter 3.1</h1>
+<h1 class="title">Chapter 5.3</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgfcfda9e">ch3.1</a>
+<li><a href="#org6203f46">ch5.3</a>
 <ul>
-<li><a href="#org701ee0e">3.1-1</a></li>
-<li><a href="#orgb018bd8">3.1-2</a></li>
-<li><a href="#orgfb11ac8">3.1-3</a></li>
-<li><a href="#org477a11b">3.1-4</a></li>
-<li><a href="#org8785e5c">3.1-5</a></li>
-<li><a href="#orgc462b75">3.1-6</a></li>
-<li><a href="#org0d8edc1">3.1-7</a></li>
-<li><a href="#org465d651">3.1-8</a></li>
+<li><a href="#orgde310c4">5.3-1</a></li>
+<li><a href="#org6ffa519">5.3-2</a></li>
+<li><a href="#orgfd998fe">5.3-3</a></li>
+<li><a href="#org4ca8334">5.3-4</a></li>
+<li><a href="#org24c9c12">5.3-5</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgfcfda9e" class="outline-2">
-<h2 id="orgfcfda9e">ch3.1</h2>
-<div class="outline-text-2" id="text-orgfcfda9e">
+<div id="outline-container-org6203f46" class="outline-2">
+<h2 id="org6203f46">ch5.3</h2>
+<div class="outline-text-2" id="text-org6203f46">
 </div>
-<div id="outline-container-org701ee0e" class="outline-3">
-<h3 id="org701ee0e">3.1-1</h3>
-<div class="outline-text-3" id="text-org701ee0e">
+<div id="outline-container-orgde310c4" class="outline-3">
+<h3 id="orgde310c4">5.3-1</h3>
+<div class="outline-text-3" id="text-orgde310c4">
+<pre class="example">
+RANDOMIZE-IN-PLACE(A)
+    n = A.length
+    swap A[1] with A[RANDOM(1, n)]
+    for i = 2 to n
+	swap A[i] with A[RANDOM(2, n)]
+</pre>
 <p>
-Since f(n) and g(n) are nonnegative, we have
-</p>
-\begin{equation*}
-(\forall n)[\frac{1}{2}(f(n)+g(n))\leq max(f(n),g(n))\leq(f(n)+g(n))]
-\end{equation*}
-<p>
-According to the definition of \(\Theta\)-notation,
-\(max(f(n), g(n)) = \Theta(f(n) + g(n))\).
-</p>
-</div>
-</div>
-<div id="outline-container-orgb018bd8" class="outline-3">
-<h3 id="orgb018bd8">3.1-2</h3>
-<div class="outline-text-3" id="text-orgb018bd8">
-<p>
-For any real constants a and b, where b &gt; 0, we have
-</p>
-\begin{equation*}
-(\forall n\geq 2\left|a\right|)[(\frac{n}{2})^b\leq (n+a)^b\leq (2n)^b]
-\end{equation*}
-<p>
-According to the definition of \(\Theta\)-notation,
-\((n + a)^b = \Theta(n^b)\).
+Modify the initialization case by replace \(i = 1\) to \(i = 2\).
 </p>
 </div>
 </div>
-<div id="outline-container-orgfb11ac8" class="outline-3">
-<h3 id="orgfb11ac8">3.1-3</h3>
-<div class="outline-text-3" id="text-orgfb11ac8">
+<div id="outline-container-org6ffa519" class="outline-3">
+<h3 id="org6ffa519">5.3-2</h3>
+<div class="outline-text-3" id="text-org6ffa519">
 <p>
-"The running time of algorithm A is at least \(O(n^2)\)" means the running
-time can be any value.
+No, because the procedure can't generate the premutations that keep any
+element identical, e.g., \(\langle A[3], A[2], A[1], \ldots\rangle\).
 </p>
 </div>
 </div>
-<div id="outline-container-org477a11b" class="outline-3">
-<h3 id="org477a11b">3.1-4</h3>
-<div class="outline-text-3" id="text-org477a11b">
+<div id="outline-container-orgfd998fe" class="outline-3">
+<h3 id="orgfd998fe">5.3-3</h3>
+<div class="outline-text-3" id="text-orgfd998fe">
 <p>
-\(2^{n + 1} = O(2^n)\), because
-</p>
-\begin{equation*}
-(\forall n\geq 1)[2^{n+1}\leq2\times2^{n}]
-\end{equation*}
-<p>
-\(2^{2n} \neq O(2^n)\), because for any positive constant c,
-\(2^{2n} > c\,O(2^n)\) when \(n > \lg{c}\).
+No, because the algorithm will generate \(n^n\) permutations
+in the same probability, and \(n^n\) does not divide by \(n!\),
+thus the \(n!\) permutations can not have the same probability.
 </p>
 </div>
 </div>
-<div id="outline-container-org8785e5c" class="outline-3">
-<h3 id="org8785e5c">3.1-5</h3>
-<div class="outline-text-3" id="text-org8785e5c">
-<ul class="org-ul">
-<li>If \(f(n) = \Theta(g(n))\), it's obviously that \(f(n) = O(g(n))\) and
-\(f(n) = \Omega(g(n))\).</li>
-<li><p>
-If \(f(n) = O(g(n))\) and \(f(n) = \Omega(g(n))\), then
+<div id="outline-container-org4ca8334" class="outline-3">
+<h3 id="org4ca8334">5.3-4</h3>
+<div class="outline-text-3" id="text-org4ca8334">
+<p>
+Each offset in RANDOM(1, n) transpose A[i] to distinct position in B, i.e.,
+each element A[i] has a 1/n probability of winding up in any particular
+position in B.
 </p>
-\begin{equation*}
-(\forall n\geq n_1)[c_1\,g(n)\leq f(n)]
-\end{equation*}
-\begin{equation*}
-(\forall n\geq n_2)[f(n)\leq c_2\,g(n)]
-\end{equation*}
+
 <p>
-let \(n_0 = max(n_1, n_2)\), we have
-</p>
-\begin{equation*}
-(\forall n\geq n_0)[c_1\,g(n)\leq f(n)\leq c_2\,g(n)]
-\end{equation*}
-<p>
-So \(f(n) = \Theta(g(n))\).
-</p></li>
-<li>In conclusion,
-\(f(n) = \Theta(g(n)) \iff f(n) = O(g(n))\ and\ f(n) = \Omega(g(n))\).</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-orgc462b75" class="outline-3">
-<h3 id="orgc462b75">3.1-6</h3>
-<div class="outline-text-3" id="text-orgc462b75">
-<p>
-"The worst-case running time is \(O(g(n))\) and the best-case running time
-is \(\Omega(g(n))\)" just means \(f(n) = O(g(n))\) and
-\(f(n) = \Omega(g(n))\), so the sentence is identical to Theorem 3.1.
+The algorithm can only generate n permutations, so the resulting permutation
+is not uniformly random.
 </p>
 </div>
 </div>
-<div id="outline-container-org0d8edc1" class="outline-3">
-<h3 id="org0d8edc1">3.1-7</h3>
-<div class="outline-text-3" id="text-org0d8edc1">
+<div id="outline-container-org24c9c12" class="outline-3">
+<h3 id="org24c9c12">5.3-5</h3>
+<div class="outline-text-3" id="text-org24c9c12">
 <p>
-If \(S = o(g(n)) \cap \omega(g(n))\), we know for f(n) in S and any
-constant c &gt; 0, there are
+TODO
 </p>
-\begin{equation*}
-(\exists n_1>0)[(\forall n\geq n_1)[0\leq c\,g(n)< f(n)]]
-\end{equation*}
-\begin{equation*}
-(\exists n_2>0)[(\forall n\geq n_2)[0\leq f(n)< c\,g(n)]]
-\end{equation*}
-<p>
-let \(n_0 = max(n_1, n_2)\), we have \(f(n) < c\,g(n) < f(n)\),
-it is not possible, so S is an empty set.
-</p>
-</div>
-</div>
-<div id="outline-container-org465d651" class="outline-3">
-<h3 id="org465d651">3.1-8</h3>
-<div class="outline-text-3" id="text-org465d651">
-\begin{align*}
-\Omega(g(n,m))
-=\{f(n,m):\,&\text{there exist positive constants }c,\,n_0\text{, and }m_0\\
-            &\text{such that }0\leq c\,g(n,m)\leq f(n,m)\\
-            &\text{for all }n\geq n_0\text{ or }m\geq m_0\}\ .
-\end{align*}
-\begin{align*}
-\Theta(g(n,m))
-=\{f(n,m):\,&\text{there exist positive constants }c_1,\,c_2,\,n_0
-             \text{, and }m_0\\
-            &\text{such that }0\leq c_1\,g(n,m)\leq f(n,m)\leq c_2\,g(n,m)\\
-            &\text{for all }n\geq n_0\text{ or }m\geq m_0\}\ .
-\end{align*}
 </div>
 </div>
 </div>
