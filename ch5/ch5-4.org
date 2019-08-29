@@ -1,0 +1,112 @@
+#+TITLE: Chapter 5.4
+
+* ch5.4
+** 5.4-1
+   At least 253 people must be there so that the probability that someone has
+   the same birthday as me do is at least \(1/2\).
+
+   Let \(S\) be the event that someone has the same birthday as me, and let
+   \(S_i\) be the event that \(i\) number of people has the same birthday as me.
+   Assume there are \(k\) number of people and \(n = 365\) days in a year.
+   \begin{align*}
+   Pr\{S\}
+   &=1-Pr\{S_0\}\\
+   &=1-(\frac{n-1}{n})^k\\
+   &>\frac{1}{2} &,\ k > 253
+   \end{align*}
+
+   At least 253 people must be there so that the probability that at least two
+   people have a birthday on July 4 is at least \(1/2\).
+
+   Let \(S'\) be the event that at least two people have a birthday on July 4,
+   and let \(S_i\) be the event that \(i\) number of people have a birthday
+   on July 4.
+   Assume there are \(k\) number of people and \(n = 365\) days in a year.
+   \begin{align*}
+   Pr\{S'\}
+   &=1-Pr\{S_0\}-Pr\{S_1\}\\
+   &=1-(\frac{n-1}{n})^k-\frac{k}{n}(\frac{n-1}{n})^{k-1}\\
+   &>\frac{1}{2} &,\ k > 253
+   \end{align*}
+** 5.4-2
+   Assume we toss balls into \(b\) bins until some bin contains two balls
+   and the number of ball tosses is \(n\), then we have
+   \begin{equation*}
+   Pr\{n\geq x\}=
+   \begin{cases}
+   1 &\text{if $x=1$,}\\
+   0 &\text{if $x\geq b+2$,}\\
+   \frac{b!}{(b+1-k)!b^{k-1}} &\text{if $2\leq x\leq b+1$.}
+   \end{cases}
+   \end{equation*}
+   Hence the expected value of \(n\) is
+   \begin{align*}
+   E[n]
+   &=\sum_{k=1}^{\infty}Pr\{n\geq k\} &\text{, mathematical equation}\\
+   &=1+\sum_{k=1}^{b}\frac{b!}{(b-k)!b^k}
+   \end{align*}
+** 5.4-3
+   Pairwise independence is sufficient for the analysis.
+** 5.4-4
+   For each triad \((i, j, k)\) of the \(m\) people in the room, we define the
+   indicator random variable \(X_{ijk}\), for \(1 \leq i < j < k \leq m\), by
+   \begin{align*}
+   X_{ijk}
+   &=I\{\text{person i, j and k have the same birthday}\}\\
+   &=
+   \begin{cases}
+   1 &\text{if person i, j and k have the same birthday,}\\
+   0 &\text{otherwise.}
+   \end{cases}
+   \end{align*}
+   Let \(n = 365\), we have
+   \begin{align*}
+   E[X_{ijk}]
+   &=Pr\{\text{person i, j and k have the same birthday}\}\\
+   &=\frac{1}{n^2}
+   \end{align*}
+   Let X to be the random variable that counts the number of triads of
+   individuals having the same birthday, we have
+   \begin{equation*}
+   E[X]=\binom{m}{3}\frac{1}{n^2}
+   \end{equation*}
+   We should invite \(m \approx 94\) people to get \(E[X] = 1\).
+** 5.4-5
+   The probability is \(\frac{n!}{(n-k)!n^k}\).
+
+   The problem that \(k\) people have distinct birthdays is equivalent to
+   which a \(k\)-string over a set of size \(365\) forms a \(k\)-permutation.
+** 5.4-6
+   Let \(X_i\) to be the indicator random variable that after the tosses the
+   \(i\)-th bin is empty, and \(X\) to be the number of empty bins, then we have
+   \begin{align*}
+   E[X]
+   &=\sum_{i=1}^{n}E[X_i]\\
+   &=\sum_{i=1}^{n}(\frac{n-1}{n})^n\\
+   &=n(1-\frac{1}{n})^n\\
+   &\approx\frac{n}{e}
+   \end{align*}
+   Let \(X_i\) to be the indicator random variable that after the tosses the
+   \(i\)-th bin has exactly one ball, and \(X\) to be the number of bins which
+   have exactly one ball, then we have
+   \begin{align*}
+   E[X]
+   &=\sum_{i=1}^{n}E[X_i]\\
+   &=\sum_{i=1}^{n}(\frac{n-1}{n})^{n-1}\\
+   &=n(1-\frac{1}{n})^{n-1}\\
+   &\approx\frac{n}{e}
+   \end{align*}
+** 5.4-7
+   Let \(s = \lfloor \lg n - 2\lg\lg n \rfloor\), and we partition the \(n\)
+   coin flips into at least \(\lfloor n/s \rfloor\) groups of \(s\) consecutive
+   flips, then the probability that every one of these groups fails to be a
+   streak of length \(s\) is at most
+   \begin{align*}
+   Pr\{\text{no streak}\}
+   &=(1-1/2^s)^{\lfloor n/s \rfloor}\\
+   &\leq(1-1/2^{(\lg n-2\lg\lg n)})^{n/(\lg n-2\lg\lg n-1)}\\
+   &=(1-\frac{\lg^2n}{n})^\frac{n}{\lg n-2\lg\lg n-1}\\
+   &\leq e^\frac{-\lg^2n}{\lg n-2\lg\lg n - 1}\\
+   &< e^{-\lg n}\\
+   &< \frac{1}{n}
+   \end{align*}
