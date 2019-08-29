@@ -6,7 +6,7 @@
 <!-- 2019-08-29 Thu 09:41 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Chapter 5.2</title>
+<title>Chapter 5.4</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="pedh" />
 <style type="text/css">
@@ -328,107 +328,196 @@ for the JavaScript code in this tag.
  |
  <a accesskey="H" href="/CLRS-Solutions"> HOME </a>
 </div><div id="content">
-<h1 class="title">Chapter 5.2</h1>
+<h1 class="title">Chapter 5.4</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgd843d0c">ch5.2</a>
+<li><a href="#orgd2a1db7">ch5.4</a>
 <ul>
-<li><a href="#orgc590596">5.2-1</a></li>
-<li><a href="#orgd148b32">5.2-2</a></li>
-<li><a href="#orgd70b173">5.2-3</a></li>
-<li><a href="#org012ed29">5.2-4</a></li>
-<li><a href="#org4e43039">5.2-5</a></li>
+<li><a href="#org6f47759">5.4-1</a></li>
+<li><a href="#orgc68bd2d">5.4-2</a></li>
+<li><a href="#org34cc7a8">5.4-3</a></li>
+<li><a href="#orgd2c62a2">5.4-4</a></li>
+<li><a href="#orgf8a4ef9">5.4-5</a></li>
+<li><a href="#org6ab8673">5.4-6</a></li>
+<li><a href="#orgb5b6eba">5.4-7</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgd843d0c" class="outline-2">
-<h2 id="orgd843d0c">ch5.2</h2>
-<div class="outline-text-2" id="text-orgd843d0c">
+<div id="outline-container-orgd2a1db7" class="outline-2">
+<h2 id="orgd2a1db7">ch5.4</h2>
+<div class="outline-text-2" id="text-orgd2a1db7">
 </div>
-<div id="outline-container-orgc590596" class="outline-3">
-<h3 id="orgc590596">5.2-1</h3>
-<div class="outline-text-3" id="text-orgc590596">
+<div id="outline-container-org6f47759" class="outline-3">
+<h3 id="org6f47759">5.4-1</h3>
+<div class="outline-text-3" id="text-org6f47759">
 <p>
-<b>Hire exact one time:</b> The best candidate appears first,
-the probability is \(\frac{1}{n}\).
+At least 253 people must be there so that the probability that someone has
+the same birthday as me do is at least \(1/2\).
 </p>
 
 <p>
-<b>Hire n times:</b> The candidates appears in decrease order,
-the probability is \(\frac{1}{n!}\).
-</p>
-</div>
-</div>
-<div id="outline-container-orgd148b32" class="outline-3">
-<h3 id="orgd148b32">5.2-2</h3>
-<div class="outline-text-3" id="text-orgd148b32">
-<p>
-We know that the first candidate and the best candidate will
-always been hired, let the first candidate to be \(A[1]\), and the
-best candidate to be \(A[k]\), there should be \(A[1] = best(A[1..k-1])\)
-to hire exactly two candidates, i.e., choose the best of \(k-1\) candidates,
-the total probability is \(\frac{1}{n}\sum_{k=2}^{n-1}\frac{1}{k-1}\).
-</p>
-</div>
-</div>
-<div id="outline-container-orgd70b173" class="outline-3">
-<h3 id="orgd70b173">5.2-3</h3>
-<div class="outline-text-3" id="text-orgd70b173">
-<p>
-The expected value of k-th dice is
+Let \(S\) be the event that someone has the same birthday as me, and let
+\(S_i\) be the event that \(i\) number of people has the same birthday as me.
+Assume there are \(k\) number of people and \(n = 365\) days in a year.
 </p>
 \begin{align*}
-E[X_k]
-&=\sum_{x=1}^{6}xPr{X_k=x}\\
-&=\sum_{x=1}^{6}\frac{x}{6}\\
-&=\frac{7}{2}
+Pr\{S\}
+&=1-Pr\{S_0\}\\
+&=1-(\frac{n-1}{n})^k\\
+&>\frac{1}{2} &,\ k > 253
+\end{align*}
+
+<p>
+At least 253 people must be there so that the probability that at least two
+people have a birthday on July 4 is at least \(1/2\).
+</p>
+
+<p>
+Let \(S'\) be the event that at least two people have a birthday on July 4,
+and let \(S_i\) be the event that \(i\) number of people have a birthday
+on July 4.
+Assume there are \(k\) number of people and \(n = 365\) days in a year.
+</p>
+\begin{align*}
+Pr\{S'\}
+&=1-Pr\{S_0\}-Pr\{S_1\}\\
+&=1-(\frac{n-1}{n})^k-\frac{k}{n}(\frac{n-1}{n})^{k-1}\\
+&>\frac{1}{2} &,\ k > 253
+\end{align*}
+</div>
+</div>
+<div id="outline-container-orgc68bd2d" class="outline-3">
+<h3 id="orgc68bd2d">5.4-2</h3>
+<div class="outline-text-3" id="text-orgc68bd2d">
+<p>
+Assume we toss balls into \(b\) bins until some bin contains two balls
+and the number of ball tosses is \(n\), then we have
+</p>
+\begin{equation*}
+Pr\{n\geq x\}=
+\begin{cases}
+1 &\text{if $x=1$,}\\
+0 &\text{if $x\geq b+2$,}\\
+\frac{b!}{(b+1-k)!b^{k-1}} &\text{if $2\leq x\leq b+1$.}
+\end{cases}
+\end{equation*}
+<p>
+Hence the expected value of \(n\) is
+</p>
+\begin{align*}
+E[n]
+&=\sum_{k=1}^{\infty}Pr\{n\geq k\} &\text{, mathematical equation}\\
+&=1+\sum_{k=1}^{b}\frac{b!}{(b-k)!b^k}
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org34cc7a8" class="outline-3">
+<h3 id="org34cc7a8">5.4-3</h3>
+<div class="outline-text-3" id="text-org34cc7a8">
+<p>
+Pairwise independence is sufficient for the analysis.
+</p>
+</div>
+</div>
+<div id="outline-container-orgd2c62a2" class="outline-3">
+<h3 id="orgd2c62a2">5.4-4</h3>
+<div class="outline-text-3" id="text-orgd2c62a2">
+<p>
+For each triad \((i, j, k)\) of the \(m\) people in the room, we define the
+indicator random variable \(X_{ijk}\), for \(1 \leq i < j < k \leq m\), by
+</p>
+\begin{align*}
+X_{ijk}
+&=I\{\text{person i, j and k have the same birthday}\}\\
+&=
+\begin{cases}
+1 &\text{if person i, j and k have the same birthday,}\\
+0 &\text{otherwise.}
+\end{cases}
 \end{align*}
 <p>
-The expected value of the sum of n dice is
+Let \(n = 365\), we have
+</p>
+\begin{align*}
+E[X_{ijk}]
+&=Pr\{\text{person i, j and k have the same birthday}\}\\
+&=\frac{1}{n^2}
+\end{align*}
+<p>
+Let X to be the random variable that counts the number of triads of
+individuals having the same birthday, we have
+</p>
+\begin{equation*}
+E[X]=\binom{m}{3}\frac{1}{n^2}
+\end{equation*}
+<p>
+We should invite \(m \approx 94\) people to get \(E[X] = 1\).
+</p>
+</div>
+</div>
+<div id="outline-container-orgf8a4ef9" class="outline-3">
+<h3 id="orgf8a4ef9">5.4-5</h3>
+<div class="outline-text-3" id="text-orgf8a4ef9">
+<p>
+The probability is \(\frac{n!}{(n-k)!n^k}\).
+</p>
+
+<p>
+The problem that \(k\) people have distinct birthdays is equivalent to
+which a \(k\)-string over a set of size \(365\) forms a \(k\)-permutation.
+</p>
+</div>
+</div>
+<div id="outline-container-org6ab8673" class="outline-3">
+<h3 id="org6ab8673">5.4-6</h3>
+<div class="outline-text-3" id="text-org6ab8673">
+<p>
+Let \(X_i\) to be the indicator random variable that after the tosses the
+\(i\)-th bin is empty, and \(X\) to be the number of empty bins, then we have
 </p>
 \begin{align*}
 E[X]
-&=E\Bigg[\sum_{i=1}^{n}X_i\Bigg]\\
 &=\sum_{i=1}^{n}E[X_i]\\
-&=\sum_{i=1}^{n}\frac{7}{2}\\
-&=\frac{7n}{2}
+&=\sum_{i=1}^{n}(\frac{n-1}{n})^n\\
+&=n(1-\frac{1}{n})^n\\
+&\approx\frac{n}{e}
 \end{align*}
-</div>
-</div>
-<div id="outline-container-org012ed29" class="outline-3">
-<h3 id="org012ed29">5.2-4</h3>
-<div class="outline-text-3" id="text-org012ed29">
 <p>
-Each customer has \(\frac{1}{n}\) probability to get back their own hat,
-the expected value is \(E[X_k] = \frac{1}{n}\).
-</p>
-
-<p>
-The total expected number of customers who get back their own hat is
-\(E[X] = \sum_{i=1}^{n}E[X_i] = 1\).
-</p>
-</div>
-</div>
-<div id="outline-container-org4e43039" class="outline-3">
-<h3 id="org4e43039">5.2-5</h3>
-<div class="outline-text-3" id="text-org4e43039">
-<p>
-The probability that a pair is an inversion is exactly \(\frac{1}{2}\),
-the expected value is \(E[X_{ij}] = \frac{1}{2}\).
-</p>
-
-<p>
-The total expected number of inversions is
+Let \(X_i\) to be the indicator random variable that after the tosses the
+\(i\)-th bin has exactly one ball, and \(X\) to be the number of bins which
+have exactly one ball, then we have
 </p>
 \begin{align*}
 E[X]
-&=\sum_{i=1}^{n-1}\sum_{j=i}^{n}E[X_{ij}]\\
-&=\frac{n(n-1)}{4}
+&=\sum_{i=1}^{n}E[X_i]\\
+&=\sum_{i=1}^{n}(\frac{n-1}{n})^{n-1}\\
+&=n(1-\frac{1}{n})^{n-1}\\
+&\approx\frac{n}{e}
+\end{align*}
+</div>
+</div>
+<div id="outline-container-orgb5b6eba" class="outline-3">
+<h3 id="orgb5b6eba">5.4-7</h3>
+<div class="outline-text-3" id="text-orgb5b6eba">
+<p>
+Let \(s = \lfloor \lg n - 2\lg\lg n \rfloor\), and we partition the \(n\)
+coin flips into at least \(\lfloor n/s \rfloor\) groups of \(s\) consecutive
+flips, then the probability that every one of these groups fails to be a
+streak of length \(s\) is at most
+</p>
+\begin{align*}
+Pr\{\text{no streak}\}
+&=(1-1/2^s)^{\lfloor n/s \rfloor}\\
+&\leq(1-1/2^{(\lg n-2\lg\lg n)})^{n/(\lg n-2\lg\lg n-1)}\\
+&=(1-\frac{\lg^2n}{n})^\frac{n}{\lg n-2\lg\lg n-1}\\
+&\leq e^\frac{-\lg^2n}{\lg n-2\lg\lg n - 1}\\
+&< e^{-\lg n}\\
+&< \frac{1}{n}
 \end{align*}
 </div>
 </div>
