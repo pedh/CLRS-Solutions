@@ -9,8 +9,8 @@
    \(S_i\) be the event that \(i\) number of people has the same birthday as me.
    Assume there are \(k\) number of people and \(n = 365\) days in a year.
    \begin{align*}
-   Pr\{S\}
-   &=1-Pr\{S_0\}\\
+   \Pr\{S\}
+   &=1-\Pr\{S_0\}\\
    &=1-(\frac{n-1}{n})^k\\
    &>\frac{1}{2} &,\ k > 253
    \end{align*}
@@ -23,8 +23,8 @@
    on July 4.
    Assume there are \(k\) number of people and \(n = 365\) days in a year.
    \begin{align*}
-   Pr\{S'\}
-   &=1-Pr\{S_0\}-Pr\{S_1\}\\
+   \Pr\{S'\}
+   &=1-\Pr\{S_0\}-\Pr\{S_1\}\\
    &=1-(\frac{n-1}{n})^k-\frac{k}{n}(\frac{n-1}{n})^{k-1}\\
    &>\frac{1}{2} &,\ k > 253
    \end{align*}
@@ -32,7 +32,7 @@
    Assume we toss balls into \(b\) bins until some bin contains two balls
    and the number of ball tosses is \(n\), then we have
    \begin{equation*}
-   Pr\{n\geq x\}=
+   \Pr\{n\geq x\}=
    \begin{cases}
    1 &\text{if $x=1$,}\\
    0 &\text{if $x\geq b+2$,}\\
@@ -42,7 +42,7 @@
    Hence the expected value of \(n\) is
    \begin{align*}
    E[n]
-   &=\sum_{k=1}^{\infty}Pr\{n\geq k\} &\text{, mathematical equation}\\
+   &=\sum_{k=1}^{\infty}\Pr\{n\geq k\} &\text{, mathematical equation}\\
    &=1+\sum_{k=1}^{b}\frac{b!}{(b-k)!b^k}
    \end{align*}
 ** 5.4-3
@@ -62,7 +62,7 @@
    Let \(n = 365\), we have
    \begin{align*}
    E[X_{ijk}]
-   &=Pr\{\text{person i, j and k have the same birthday}\}\\
+   &=\Pr\{\text{person i, j and k have the same birthday}\}\\
    &=\frac{1}{n^2}
    \end{align*}
    Let X to be the random variable that counts the number of triads of
@@ -102,7 +102,7 @@
    flips, then the probability that every one of these groups fails to be a
    streak of length \(s\) is at most
    \begin{align*}
-   Pr\{\text{no streak}\}
+   \Pr\{\text{no streak}\}
    &=(1-1/2^s)^{\lfloor n/s \rfloor}\\
    &\leq(1-1/2^{(\lg n-2\lg\lg n)})^{n/(\lg n-2\lg\lg n-1)}\\
    &=(1-\frac{\lg^2n}{n})^\frac{n}{\lg n-2\lg\lg n-1}\\

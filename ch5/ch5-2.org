@@ -17,7 +17,7 @@
    The expected value of k-th dice is
    \begin{align*}
    E[X_k]
-   &=\sum_{x=1}^{6}xPr{X_k=x}\\
+   &=\sum_{x=1}^{6}x\Pr\{X_k=x\}\\
    &=\sum_{x=1}^{6}\frac{x}{6}\\
    &=\frac{7}{2}
    \end{align*}

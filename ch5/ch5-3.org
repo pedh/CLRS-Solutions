@@ -27,7 +27,7 @@
 ** 5.3-5
    The probability that all elements are unique is
    \begin{align*}
-   Pr
+   \Pr\{\text{all unique}\}
    &=\frac{P(n^3,n)}{(n^3)^n}\\
    &>\frac{(n^3-n)^n}{(n^3)^n}\\
    &=(1-\frac{1}{n^2})^n\\
@@ -40,7 +40,7 @@
 
    *Loop invariant:* The procedure returns a random m-subset S of
    \(\{1,2,3,\ldots,n\}\) in which m-subset is equally likely, i.e.,
-   \((\forall x \in \{1,2,3,\ldots,n\}) [Pr\{x \in S\} = \frac{m}{n}]\).
+   \((\forall x \in \{1,2,3,\ldots,n\}) [\Pr\{x \in S\} = \frac{m}{n}]\).
 
    *Initialization:* The procedure returns \(\emptyset\) when \(m = 0\).
 
@@ -48,18 +48,18 @@
    of (m-1)-subset S' of \(\{1,2,3,\ldots,n-1\}\), then for m-subset S of
    \(\{1,2,3,\ldots,n\}\), we have
    \begin{align*}
-   Pr\{n\in S'\}
-   &=Pr\{x=n\}+Pr\{x\in S'\}\\
+   \Pr\{n\in S'\}
+   &=\Pr\{x=n\}+\Pr\{x\in S'\}\\
    &=\frac{1}{n}+\frac{m-1}{n}\\
    &=\frac{m}{n}
    \end{align*}
    \begin{align*}
-   (\forall k\in \{1,2,3,\ldots,n-1\})Pr\{k\in S'\}
-   &=Pr\{k\in S'\}+Pr\{k\notin S'\}\times Pr\{x=k\}\\
+   (\forall k\in \{1,2,3,\ldots,n-1\})\Pr\{k\in S'\}
+   &=\Pr\{k\in S'\}+\Pr\{k\notin S'\}\times\Pr\{x=k\}\\
    &=\frac{m-1}{n-1}+(1-\frac{m-1}{n-1})\frac{1}{n}\\
    &=\frac{m}{n}
    \end{align*}
-   thus \((\forall x \in \{1,2,3,\ldots,n\}) [Pr\{x \in S\} = \frac{m}{n}]\).
+   thus \((\forall x \in \{1,2,3,\ldots,n\}) [\Pr\{x \in S\} = \frac{m}{n}]\).
 
    *Termination:* At termination, the procedure returns m-subset of
    \(\{1,2,3,\ldots,n\}\) as expected.
