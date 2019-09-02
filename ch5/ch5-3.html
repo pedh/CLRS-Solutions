@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-08-29 Thu 09:41 -->
+<!-- 2019-09-02 Mon 08:12 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 5.3</title>
@@ -333,28 +333,28 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org71184be">ch5.3</a>
+<li><a href="#orgcfbc80c">ch5.3</a>
 <ul>
-<li><a href="#orgbee1cec">5.3-1</a></li>
-<li><a href="#orgc614d40">5.3-2</a></li>
-<li><a href="#org030377f">5.3-3</a></li>
-<li><a href="#org52d803b">5.3-4</a></li>
-<li><a href="#org3185d68">5.3-5</a></li>
-<li><a href="#org74c7690">5.3-6</a></li>
-<li><a href="#orgf2cee9c">5.3-7</a></li>
+<li><a href="#orgeb1cf6f">5.3-1</a></li>
+<li><a href="#orgc5d702b">5.3-2</a></li>
+<li><a href="#org7d33db1">5.3-3</a></li>
+<li><a href="#orgd045781">5.3-4</a></li>
+<li><a href="#org6acd25e">5.3-5</a></li>
+<li><a href="#org027ee2c">5.3-6</a></li>
+<li><a href="#org6444591">5.3-7</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org71184be" class="outline-2">
-<h2 id="org71184be">ch5.3</h2>
-<div class="outline-text-2" id="text-org71184be">
+<div id="outline-container-orgcfbc80c" class="outline-2">
+<h2 id="orgcfbc80c">ch5.3</h2>
+<div class="outline-text-2" id="text-orgcfbc80c">
 </div>
-<div id="outline-container-orgbee1cec" class="outline-3">
-<h3 id="orgbee1cec">5.3-1</h3>
-<div class="outline-text-3" id="text-orgbee1cec">
+<div id="outline-container-orgeb1cf6f" class="outline-3">
+<h3 id="orgeb1cf6f">5.3-1</h3>
+<div class="outline-text-3" id="text-orgeb1cf6f">
 <pre class="example">
 RANDOMIZE-IN-PLACE(A)
     n = A.length
@@ -367,18 +367,18 @@ Modify the initialization case by replace \(i = 1\) to \(i = 2\).
 </p>
 </div>
 </div>
-<div id="outline-container-orgc614d40" class="outline-3">
-<h3 id="orgc614d40">5.3-2</h3>
-<div class="outline-text-3" id="text-orgc614d40">
+<div id="outline-container-orgc5d702b" class="outline-3">
+<h3 id="orgc5d702b">5.3-2</h3>
+<div class="outline-text-3" id="text-orgc5d702b">
 <p>
 No, because the procedure can't generate the premutations that keep any
 element identical, e.g., \(\langle A[3], A[2], A[1], \ldots\rangle\).
 </p>
 </div>
 </div>
-<div id="outline-container-org030377f" class="outline-3">
-<h3 id="org030377f">5.3-3</h3>
-<div class="outline-text-3" id="text-org030377f">
+<div id="outline-container-org7d33db1" class="outline-3">
+<h3 id="org7d33db1">5.3-3</h3>
+<div class="outline-text-3" id="text-org7d33db1">
 <p>
 No, because the algorithm will generate \(n^n\) permutations
 in the same probability, and \(n^n\) does not divide by \(n!\),
@@ -386,9 +386,9 @@ thus the \(n!\) permutations can not have the same probability.
 </p>
 </div>
 </div>
-<div id="outline-container-org52d803b" class="outline-3">
-<h3 id="org52d803b">5.3-4</h3>
-<div class="outline-text-3" id="text-org52d803b">
+<div id="outline-container-orgd045781" class="outline-3">
+<h3 id="orgd045781">5.3-4</h3>
+<div class="outline-text-3" id="text-orgd045781">
 <p>
 Each offset in RANDOM(1, n) transpose A[i] to distinct position in B, i.e.,
 each element A[i] has a 1/n probability of winding up in any particular
@@ -401,14 +401,14 @@ is not uniformly random.
 </p>
 </div>
 </div>
-<div id="outline-container-org3185d68" class="outline-3">
-<h3 id="org3185d68">5.3-5</h3>
-<div class="outline-text-3" id="text-org3185d68">
+<div id="outline-container-org6acd25e" class="outline-3">
+<h3 id="org6acd25e">5.3-5</h3>
+<div class="outline-text-3" id="text-org6acd25e">
 <p>
 The probability that all elements are unique is
 </p>
 \begin{align*}
-Pr
+\Pr\{\text{all unique}\}
 &=\frac{P(n^3,n)}{(n^3)^n}\\
 &>\frac{(n^3-n)^n}{(n^3)^n}\\
 &=(1-\frac{1}{n^2})^n\\
@@ -416,17 +416,17 @@ Pr
 \end{align*}
 </div>
 </div>
-<div id="outline-container-org74c7690" class="outline-3">
-<h3 id="org74c7690">5.3-6</h3>
-<div class="outline-text-3" id="text-org74c7690">
+<div id="outline-container-org027ee2c" class="outline-3">
+<h3 id="org027ee2c">5.3-6</h3>
+<div class="outline-text-3" id="text-org027ee2c">
 <p>
 Sort the elements with same priority in random order.
 </p>
 </div>
 </div>
-<div id="outline-container-orgf2cee9c" class="outline-3">
-<h3 id="orgf2cee9c">5.3-7</h3>
-<div class="outline-text-3" id="text-orgf2cee9c">
+<div id="outline-container-org6444591" class="outline-3">
+<h3 id="org6444591">5.3-7</h3>
+<div class="outline-text-3" id="text-org6444591">
 <p>
 We use math induction to prove the correctness of the algorithm.
 </p>
@@ -434,7 +434,7 @@ We use math induction to prove the correctness of the algorithm.
 <p>
 <b>Loop invariant:</b> The procedure returns a random m-subset S of
 \(\{1,2,3,\ldots,n\}\) in which m-subset is equally likely, i.e.,
-\((\forall x \in \{1,2,3,\ldots,n\}) [Pr\{x \in S\} = \frac{m}{n}]\).
+\((\forall x \in \{1,2,3,\ldots,n\}) [\Pr\{x \in S\} = \frac{m}{n}]\).
 </p>
 
 <p>
@@ -447,19 +447,19 @@ of (m-1)-subset S' of \(\{1,2,3,\ldots,n-1\}\), then for m-subset S of
 \(\{1,2,3,\ldots,n\}\), we have
 </p>
 \begin{align*}
-Pr\{n\in S'\}
-&=Pr\{x=n\}+Pr\{x\in S'\}\\
+\Pr\{n\in S'\}
+&=\Pr\{x=n\}+\Pr\{x\in S'\}\\
 &=\frac{1}{n}+\frac{m-1}{n}\\
 &=\frac{m}{n}
 \end{align*}
 \begin{align*}
-(\forall k\in \{1,2,3,\ldots,n-1\})Pr\{k\in S'\}
-&=Pr\{k\in S'\}+Pr\{k\notin S'\}\times Pr\{x=k\}\\
+(\forall k\in \{1,2,3,\ldots,n-1\})\Pr\{k\in S'\}
+&=\Pr\{k\in S'\}+\Pr\{k\notin S'\}\times\Pr\{x=k\}\\
 &=\frac{m-1}{n-1}+(1-\frac{m-1}{n-1})\frac{1}{n}\\
 &=\frac{m}{n}
 \end{align*}
 <p>
-thus \((\forall x \in \{1,2,3,\ldots,n\}) [Pr\{x \in S\} = \frac{m}{n}]\).
+thus \((\forall x \in \{1,2,3,\ldots,n\}) [\Pr\{x \in S\} = \frac{m}{n}]\).
 </p>
 
 <p>
@@ -472,7 +472,7 @@ thus \((\forall x \in \{1,2,3,\ldots,n\}) [Pr\{x \in S\} = \frac{m}{n}]\).
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2019-08-29 Thu 09:41</p>
+<p class="date">Created: 2019-09-02 Mon 08:12</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

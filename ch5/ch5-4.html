@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-08-29 Thu 09:41 -->
+<!-- 2019-09-02 Mon 08:12 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 5.4</title>
@@ -333,28 +333,28 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org214ce3c">ch5.4</a>
+<li><a href="#org8fe661d">ch5.4</a>
 <ul>
-<li><a href="#org44c1986">5.4-1</a></li>
-<li><a href="#org3c0741a">5.4-2</a></li>
-<li><a href="#orgabca6b6">5.4-3</a></li>
-<li><a href="#org56980d6">5.4-4</a></li>
-<li><a href="#orgfdbf462">5.4-5</a></li>
-<li><a href="#org001dc89">5.4-6</a></li>
-<li><a href="#org6c8ef2b">5.4-7</a></li>
+<li><a href="#org8f7ba50">5.4-1</a></li>
+<li><a href="#org550c994">5.4-2</a></li>
+<li><a href="#org46cffb2">5.4-3</a></li>
+<li><a href="#org451936c">5.4-4</a></li>
+<li><a href="#org7035c02">5.4-5</a></li>
+<li><a href="#org1875f5a">5.4-6</a></li>
+<li><a href="#org956e6f2">5.4-7</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org214ce3c" class="outline-2">
-<h2 id="org214ce3c">ch5.4</h2>
-<div class="outline-text-2" id="text-org214ce3c">
+<div id="outline-container-org8fe661d" class="outline-2">
+<h2 id="org8fe661d">ch5.4</h2>
+<div class="outline-text-2" id="text-org8fe661d">
 </div>
-<div id="outline-container-org44c1986" class="outline-3">
-<h3 id="org44c1986">5.4-1</h3>
-<div class="outline-text-3" id="text-org44c1986">
+<div id="outline-container-org8f7ba50" class="outline-3">
+<h3 id="org8f7ba50">5.4-1</h3>
+<div class="outline-text-3" id="text-org8f7ba50">
 <p>
 At least 253 people must be there so that the probability that someone has
 the same birthday as me do is at least \(1/2\).
@@ -366,8 +366,8 @@ Let \(S\) be the event that someone has the same birthday as me, and let
 Assume there are \(k\) number of people and \(n = 365\) days in a year.
 </p>
 \begin{align*}
-Pr\{S\}
-&=1-Pr\{S_0\}\\
+\Pr\{S\}
+&=1-\Pr\{S_0\}\\
 &=1-(\frac{n-1}{n})^k\\
 &>\frac{1}{2} &,\ k > 253
 \end{align*}
@@ -384,22 +384,22 @@ on July 4.
 Assume there are \(k\) number of people and \(n = 365\) days in a year.
 </p>
 \begin{align*}
-Pr\{S'\}
-&=1-Pr\{S_0\}-Pr\{S_1\}\\
+\Pr\{S'\}
+&=1-\Pr\{S_0\}-\Pr\{S_1\}\\
 &=1-(\frac{n-1}{n})^k-\frac{k}{n}(\frac{n-1}{n})^{k-1}\\
 &>\frac{1}{2} &,\ k > 253
 \end{align*}
 </div>
 </div>
-<div id="outline-container-org3c0741a" class="outline-3">
-<h3 id="org3c0741a">5.4-2</h3>
-<div class="outline-text-3" id="text-org3c0741a">
+<div id="outline-container-org550c994" class="outline-3">
+<h3 id="org550c994">5.4-2</h3>
+<div class="outline-text-3" id="text-org550c994">
 <p>
 Assume we toss balls into \(b\) bins until some bin contains two balls
 and the number of ball tosses is \(n\), then we have
 </p>
 \begin{equation*}
-Pr\{n\geq x\}=
+\Pr\{n\geq x\}=
 \begin{cases}
 1 &\text{if $x=1$,}\\
 0 &\text{if $x\geq b+2$,}\\
@@ -411,22 +411,22 @@ Hence the expected value of \(n\) is
 </p>
 \begin{align*}
 E[n]
-&=\sum_{k=1}^{\infty}Pr\{n\geq k\} &\text{, mathematical equation}\\
+&=\sum_{k=1}^{\infty}\Pr\{n\geq k\} &\text{, mathematical equation}\\
 &=1+\sum_{k=1}^{b}\frac{b!}{(b-k)!b^k}
 \end{align*}
 </div>
 </div>
-<div id="outline-container-orgabca6b6" class="outline-3">
-<h3 id="orgabca6b6">5.4-3</h3>
-<div class="outline-text-3" id="text-orgabca6b6">
+<div id="outline-container-org46cffb2" class="outline-3">
+<h3 id="org46cffb2">5.4-3</h3>
+<div class="outline-text-3" id="text-org46cffb2">
 <p>
 Pairwise independence is sufficient for the analysis.
 </p>
 </div>
 </div>
-<div id="outline-container-org56980d6" class="outline-3">
-<h3 id="org56980d6">5.4-4</h3>
-<div class="outline-text-3" id="text-org56980d6">
+<div id="outline-container-org451936c" class="outline-3">
+<h3 id="org451936c">5.4-4</h3>
+<div class="outline-text-3" id="text-org451936c">
 <p>
 For each triad \((i, j, k)\) of the \(m\) people in the room, we define the
 indicator random variable \(X_{ijk}\), for \(1 \leq i < j < k \leq m\), by
@@ -445,7 +445,7 @@ Let \(n = 365\), we have
 </p>
 \begin{align*}
 E[X_{ijk}]
-&=Pr\{\text{person i, j and k have the same birthday}\}\\
+&=\Pr\{\text{person i, j and k have the same birthday}\}\\
 &=\frac{1}{n^2}
 \end{align*}
 <p>
@@ -460,9 +460,9 @@ We should invite \(m \approx 94\) people to get \(E[X] = 1\).
 </p>
 </div>
 </div>
-<div id="outline-container-orgfdbf462" class="outline-3">
-<h3 id="orgfdbf462">5.4-5</h3>
-<div class="outline-text-3" id="text-orgfdbf462">
+<div id="outline-container-org7035c02" class="outline-3">
+<h3 id="org7035c02">5.4-5</h3>
+<div class="outline-text-3" id="text-org7035c02">
 <p>
 The probability is \(\frac{n!}{(n-k)!n^k}\).
 </p>
@@ -473,9 +473,9 @@ which a \(k\)-string over a set of size \(365\) forms a \(k\)-permutation.
 </p>
 </div>
 </div>
-<div id="outline-container-org001dc89" class="outline-3">
-<h3 id="org001dc89">5.4-6</h3>
-<div class="outline-text-3" id="text-org001dc89">
+<div id="outline-container-org1875f5a" class="outline-3">
+<h3 id="org1875f5a">5.4-6</h3>
+<div class="outline-text-3" id="text-org1875f5a">
 <p>
 Let \(X_i\) to be the indicator random variable that after the tosses the
 \(i\)-th bin is empty, and \(X\) to be the number of empty bins, then we have
@@ -501,9 +501,9 @@ E[X]
 \end{align*}
 </div>
 </div>
-<div id="outline-container-org6c8ef2b" class="outline-3">
-<h3 id="org6c8ef2b">5.4-7</h3>
-<div class="outline-text-3" id="text-org6c8ef2b">
+<div id="outline-container-org956e6f2" class="outline-3">
+<h3 id="org956e6f2">5.4-7</h3>
+<div class="outline-text-3" id="text-org956e6f2">
 <p>
 Let \(s = \lfloor \lg n - 2\lg\lg n \rfloor\), and we partition the \(n\)
 coin flips into at least \(\lfloor n/s \rfloor\) groups of \(s\) consecutive
@@ -511,7 +511,7 @@ flips, then the probability that every one of these groups fails to be a
 streak of length \(s\) is at most
 </p>
 \begin{align*}
-Pr\{\text{no streak}\}
+\Pr\{\text{no streak}\}
 &=(1-1/2^s)^{\lfloor n/s \rfloor}\\
 &\leq(1-1/2^{(\lg n-2\lg\lg n)})^{n/(\lg n-2\lg\lg n-1)}\\
 &=(1-\frac{\lg^2n}{n})^\frac{n}{\lg n-2\lg\lg n-1}\\
@@ -525,7 +525,7 @@ Pr\{\text{no streak}\}
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2019-08-29 Thu 09:41</p>
+<p class="date">Created: 2019-09-02 Mon 08:12</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
