@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-09-04 Wed 07:31 -->
+<!-- 2019-09-04 Wed 12:25 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 6.2</title>
@@ -299,6 +299,28 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -311,68 +333,116 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org9a9741e">ch6.2</a>
+<li><a href="#org96ad4f9">ch6.2</a>
 <ul>
-<li><a href="#org60dfd45">6.2-1</a></li>
-<li><a href="#org6498f8f">6.2-2</a></li>
-<li><a href="#orgbab6778">6.2-3</a></li>
-<li><a href="#orgfa56a87">6.2-4</a></li>
-<li><a href="#orga4daf43">6.2-5</a></li>
-<li><a href="#org944a681">6.2-6</a></li>
+<li><a href="#org3582ef9">6.2-1</a></li>
+<li><a href="#orge4afbed">6.2-2</a></li>
+<li><a href="#org8073745">6.2-3</a></li>
+<li><a href="#org58428de">6.2-4</a></li>
+<li><a href="#org54eb01e">6.2-5</a></li>
+<li><a href="#org2e3361e">6.2-6</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org9a9741e" class="outline-2">
-<h2 id="org9a9741e">ch6.2</h2>
-<div class="outline-text-2" id="text-org9a9741e">
+<div id="outline-container-org96ad4f9" class="outline-2">
+<h2 id="org96ad4f9">ch6.2</h2>
+<div class="outline-text-2" id="text-org96ad4f9">
 </div>
-<div id="outline-container-org60dfd45" class="outline-3">
-<h3 id="org60dfd45">6.2-1</h3>
+<div id="outline-container-org3582ef9" class="outline-3">
+<h3 id="org3582ef9">6.2-1</h3>
+<div class="outline-text-3" id="text-org3582ef9">
+<pre class="example">
+   (3 (10 (8 9)) (1 (0)))
+-&gt; (10 (3 (8 9)) ...)
+-&gt; (10 (9 (8 3)) ...)
+</pre>
 </div>
-<div id="outline-container-org6498f8f" class="outline-3">
-<h3 id="org6498f8f">6.2-2</h3>
-<div class="outline-text-3" id="text-org6498f8f">
+</div>
+<div id="outline-container-orge4afbed" class="outline-3">
+<h3 id="orge4afbed">6.2-2</h3>
+<div class="outline-text-3" id="text-orge4afbed">
+<pre class="example">
+MIN-HEAPIFY(A, i)
+    l = LEFT(i)
+    r = RIGHT(i)
+    if l &lt;= A.heap-size and A[l] &lt; A[i]
+	smallest = l
+    else smallest = i
+    if r &lt;= A.heap-size and A[r] &lt; A[smallest]
+	smallest = r
+    if smallest != i
+	exchange A[i] with A[smallest]
+	MIN-HEAPIFY(A, smallest)
+</pre>
 <p>
-The Running time of MIN-HEAPIFY is same as MAX-HEAPIFY
+The Running time of MIN-HEAPIFY is same as MAX-HEAPIFY.
 </p>
 </div>
 </div>
-<div id="outline-container-orgbab6778" class="outline-3">
-<h3 id="orgbab6778">6.2-3</h3>
-<div class="outline-text-3" id="text-orgbab6778">
+<div id="outline-container-org8073745" class="outline-3">
+<h3 id="org8073745">6.2-3</h3>
+<div class="outline-text-3" id="text-org8073745">
 <p>
-Return with nothing changes
+A[i] appears to be the largest element between itself and its children, the
+procedure returns with nothing changes.
 </p>
 </div>
 </div>
-<div id="outline-container-orgfa56a87" class="outline-3">
-<h3 id="orgfa56a87">6.2-4</h3>
-<div class="outline-text-3" id="text-orgfa56a87">
+<div id="outline-container-org58428de" class="outline-3">
+<h3 id="org58428de">6.2-4</h3>
+<div class="outline-text-3" id="text-org58428de">
 <p>
-Same as above
+A[i] has no child in A, the procedure returns with nothing changes.
 </p>
 </div>
 </div>
-<div id="outline-container-orga4daf43" class="outline-3">
-<h3 id="orga4daf43">6.2-5</h3>
-<div class="outline-text-3" id="text-orga4daf43">
-<ol class="org-ol">
-<li>The compiler should have tail recursion optimization for generating
-efficient instructions.</li>
-</ol>
+<div id="outline-container-org54eb01e" class="outline-3">
+<h3 id="org54eb01e">6.2-5</h3>
+<div class="outline-text-3" id="text-org54eb01e">
+<p>
+The compiler without tail recursion optimization will produce inefficient
+code.
+</p>
+
+<p>
+The iterative algorithm is as below.
+</p>
+<pre class="example">
+MAX-HEAPIFY(A, i)
+    while i &lt;= A.heap-size
+	l = LEFT(i)
+	r = RIGHT(i)
+	if l &lt;= A.heap-size and A[l] &gt; A[i]
+	    largest = l
+	else largest = i
+	if r &lt;= A.heap-size and A[r] &gt; A[largest]
+	    largest = r
+	if largest != i
+	    exchange A[i] with A[largest]
+	    i = largest
+	else break
+    return
+</pre>
 </div>
 </div>
-<div id="outline-container-org944a681" class="outline-3">
-<h3 id="org944a681">6.2-6</h3>
+<div id="outline-container-org2e3361e" class="outline-3">
+<h3 id="org2e3361e">6.2-6</h3>
+<div class="outline-text-3" id="text-org2e3361e">
+<p>
+The MAX-HEAPIFY would be called \(h\) (heap height) times in the worst
+case, and we know that \(h = \lfloor \lg n \rfloor\), so that the worst case
+running time is \(T(n) = \Theta{\lfloor \lg n \rfloor} = \Omega(\lg n)\).
+</p>
+</div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2019-09-04 Wed 07:31</p>
+<p class="date">Created: 2019-09-04 Wed 12:25</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
