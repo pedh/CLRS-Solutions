@@ -2,13 +2,53 @@
 
 * ch6.2
 ** 6.2-1
+   #+BEGIN_SRC
+      (3 (10 (8 9)) (1 (0)))
+   -> (10 (3 (8 9)) ...)
+   -> (10 (9 (8 3)) ...)
+   #+END_SRC
 ** 6.2-2
-   The Running time of MIN-HEAPIFY is same as MAX-HEAPIFY
+   #+BEGIN_SRC
+   MIN-HEAPIFY(A, i)
+       l = LEFT(i)
+       r = RIGHT(i)
+       if l <= A.heap-size and A[l] < A[i]
+           smallest = l
+       else smallest = i
+       if r <= A.heap-size and A[r] < A[smallest]
+           smallest = r
+       if smallest != i
+           exchange A[i] with A[smallest]
+           MIN-HEAPIFY(A, smallest)
+   #+END_SRC
+   The Running time of MIN-HEAPIFY is same as MAX-HEAPIFY.
 ** 6.2-3
-   Return with nothing changes
+   A[i] appears to be the largest element between itself and its children, the
+   procedure returns with nothing changes.
 ** 6.2-4
-   Same as above
+   A[i] has no child in A, the procedure returns with nothing changes.
 ** 6.2-5
-   1. The compiler should have tail recursion optimization for generating
-      efficient instructions.
+   The compilers without tail recursion optimization will produce inefficient
+   code.
+
+   The iterative procedure is as below.
+   #+BEGIN_SRC
+   MAX-HEAPIFY(A, i)
+       while i <= A.heap-size
+           l = LEFT(i)
+           r = RIGHT(i)
+           if l <= A.heap-size and A[l] > A[i]
+               largest = l
+           else largest = i
+           if r <= A.heap-size and A[r] > A[largest]
+               largest = r
+           if largest != i
+               exchange A[i] with A[largest]
+               i = largest
+           else break
+       return
+   #+END_SRC
 ** 6.2-6
+   The MAX-HEAPIFY would be called \(h\) (heap height) times in the worst
+   case, and we know that \(h = \lfloor \lg n \rfloor\), so that the worst case
+   running time is \(T(n) = \Theta{\lfloor \lg n \rfloor} = \Omega(\lg n)\).
