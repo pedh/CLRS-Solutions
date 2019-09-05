@@ -2,7 +2,33 @@
 
 * ch6.3
 ** 6.3-1
+   #+BEGIN_SRC
+      (5 (3 (*10* (22) (9)) (84)) (17 (19) (6)))
+   -> (5 (3 (22 (10) (9)) (84)) (*17* (19) (6)))
+   -> (5 (*3* (22 (10) (9)) (84)) (19 (17) (6)))
+   -> (*5* (84 (22 (10) (9)) (3)) (19 (17) (6)))
+   -> (84 (*5* (22 (10) (9)) (3)) (19 (17) (6)))
+   -> (84 (22 (*5* (10) (9)) (3)) (19 (17) (6)))
+   -> (84 (22 (10 (5) (9)) (3)) (19 (17) (6)))
+   #+END_SRC
 ** 6.3-2
-   The MAX-HEAPIFY was based on the premise that the left and right nodes of the
-   root are already max heaps.
+   Because the recursive MAX-HEAPIFY procedure was based on the premise that the
+   children of the node are max heaps, so we must first build the nodes with
+   larger index into max heaps.
 ** 6.3-3
+   We prove the hypothesis with mathematical induction.
+
+   *Base case:* There are at most \(\lceil n/2 \rceil\) leaves.
+
+   *Induction step:* Let \(n_k\) to be the number of nodes of height \(k\), then
+   we have \(n_k \leq \lceil n/2^{k+1} \rceil\), and we know the nodes of height
+   \(k+1\) are parents of the nodes of height \(k\), so we have
+   \begin{align*}
+   n_{k+1}
+   &=\lceil n_k/2 \rceil\\
+   &\leq\lceil \lceil n/2^{k+1} \rceil / 2\rceil\\
+   &=\lceil n/2^{k+2} \rceil
+   \end{align*}
+
+   *Finally:* There are at most \(\lceil n/2^{h+1} \rceil\) nodes of height
+   \(h\) in any \(n\)-element heap.
