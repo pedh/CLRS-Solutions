@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-09-05 Thu 02:14 -->
+<!-- 2019-09-05 Thu 08:27 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 6.3</title>
@@ -299,6 +299,28 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -311,41 +333,79 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgb76bf1f">ch6.3</a>
+<li><a href="#org75ab55a">ch6.3</a>
 <ul>
-<li><a href="#org1623781">6.3-1</a></li>
-<li><a href="#org1b220a2">6.3-2</a></li>
-<li><a href="#org48ca19b">6.3-3</a></li>
+<li><a href="#org7366a1e">6.3-1</a></li>
+<li><a href="#org46e8f92">6.3-2</a></li>
+<li><a href="#org4758925">6.3-3</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgb76bf1f" class="outline-2">
-<h2 id="orgb76bf1f">ch6.3</h2>
-<div class="outline-text-2" id="text-orgb76bf1f">
+<div id="outline-container-org75ab55a" class="outline-2">
+<h2 id="org75ab55a">ch6.3</h2>
+<div class="outline-text-2" id="text-org75ab55a">
 </div>
-<div id="outline-container-org1623781" class="outline-3">
-<h3 id="org1623781">6.3-1</h3>
+<div id="outline-container-org7366a1e" class="outline-3">
+<h3 id="org7366a1e">6.3-1</h3>
+<div class="outline-text-3" id="text-org7366a1e">
+<pre class="example">
+   (5 (3 (*10* (22) (9)) (84)) (17 (19) (6)))
+-&gt; (5 (3 (22 (10) (9)) (84)) (*17* (19) (6)))
+-&gt; (5 (*3* (22 (10) (9)) (84)) (19 (17) (6)))
+-&gt; (*5* (84 (22 (10) (9)) (3)) (19 (17) (6)))
+-&gt; (84 (*5* (22 (10) (9)) (3)) (19 (17) (6)))
+-&gt; (84 (22 (*5* (10) (9)) (3)) (19 (17) (6)))
+-&gt; (84 (22 (10 (5) (9)) (3)) (19 (17) (6)))
+</pre>
 </div>
-<div id="outline-container-org1b220a2" class="outline-3">
-<h3 id="org1b220a2">6.3-2</h3>
-<div class="outline-text-3" id="text-org1b220a2">
+</div>
+<div id="outline-container-org46e8f92" class="outline-3">
+<h3 id="org46e8f92">6.3-2</h3>
+<div class="outline-text-3" id="text-org46e8f92">
 <p>
-The MAX-HEAPIFY was based on the premise that the left and right nodes of the
-root are already max heaps.
+Because the recursive MAX-HEAPIFY procedure was based on the premise that the
+children of the node are max heaps, so we must first build the nodes with
+larger index into max heaps.
 </p>
 </div>
 </div>
-<div id="outline-container-org48ca19b" class="outline-3">
-<h3 id="org48ca19b">6.3-3</h3>
+<div id="outline-container-org4758925" class="outline-3">
+<h3 id="org4758925">6.3-3</h3>
+<div class="outline-text-3" id="text-org4758925">
+<p>
+We prove the hypothesis with mathematical induction.
+</p>
+
+<p>
+<b>Base case:</b> There are at most \(\lceil n/2 \rceil\) leaves.
+</p>
+
+<p>
+<b>Induction step:</b> Let \(n_k\) to be the number of nodes of height \(k\), then
+we have \(n_k \leq \lceil n/2^{k+1} \rceil\), and we know the nodes of height
+\(k+1\) are parents of the nodes of height \(k\), so we have
+</p>
+\begin{align*}
+n_{k+1}
+&=\lceil n_k/2 \rceil\\
+&\leq\lceil \lceil n/2^{k+1} \rceil / 2\rceil\\
+&=\lceil n/2^{k+2} \rceil
+\end{align*}
+
+<p>
+<b>Finally:</b> There are at most \(\lceil n/2^{h+1} \rceil\) nodes of height
+\(h\) in any \(n\)-element heap.
+</p>
+</div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2019-09-05 Thu 02:14</p>
+<p class="date">Created: 2019-09-05 Thu 08:27</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
