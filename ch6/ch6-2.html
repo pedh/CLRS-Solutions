@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-09-04 Wed 12:27 -->
+<!-- 2019-09-05 Thu 02:13 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 6.2</title>
@@ -333,27 +333,27 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org9c69525">ch6.2</a>
+<li><a href="#orgb4fc8d2">ch6.2</a>
 <ul>
-<li><a href="#orgc6d08b2">6.2-1</a></li>
-<li><a href="#orgd3bad4a">6.2-2</a></li>
-<li><a href="#org893bb09">6.2-3</a></li>
-<li><a href="#orgc8aa100">6.2-4</a></li>
-<li><a href="#org667b2cf">6.2-5</a></li>
-<li><a href="#org0e7e1bd">6.2-6</a></li>
+<li><a href="#org9e79381">6.2-1</a></li>
+<li><a href="#org139cb17">6.2-2</a></li>
+<li><a href="#org662f36a">6.2-3</a></li>
+<li><a href="#org2058be1">6.2-4</a></li>
+<li><a href="#org43dfbbc">6.2-5</a></li>
+<li><a href="#org3008b2f">6.2-6</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org9c69525" class="outline-2">
-<h2 id="org9c69525">ch6.2</h2>
-<div class="outline-text-2" id="text-org9c69525">
+<div id="outline-container-orgb4fc8d2" class="outline-2">
+<h2 id="orgb4fc8d2">ch6.2</h2>
+<div class="outline-text-2" id="text-orgb4fc8d2">
 </div>
-<div id="outline-container-orgc6d08b2" class="outline-3">
-<h3 id="orgc6d08b2">6.2-1</h3>
-<div class="outline-text-3" id="text-orgc6d08b2">
+<div id="outline-container-org9e79381" class="outline-3">
+<h3 id="org9e79381">6.2-1</h3>
+<div class="outline-text-3" id="text-org9e79381">
 <pre class="example">
    (3 (10 (8 9)) (1 (0)))
 -&gt; (10 (3 (8 9)) ...)
@@ -361,9 +361,9 @@ for the JavaScript code in this tag.
 </pre>
 </div>
 </div>
-<div id="outline-container-orgd3bad4a" class="outline-3">
-<h3 id="orgd3bad4a">6.2-2</h3>
-<div class="outline-text-3" id="text-orgd3bad4a">
+<div id="outline-container-org139cb17" class="outline-3">
+<h3 id="org139cb17">6.2-2</h3>
+<div class="outline-text-3" id="text-org139cb17">
 <pre class="example">
 MIN-HEAPIFY(A, i)
     l = LEFT(i)
@@ -382,33 +382,33 @@ The Running time of MIN-HEAPIFY is same as MAX-HEAPIFY.
 </p>
 </div>
 </div>
-<div id="outline-container-org893bb09" class="outline-3">
-<h3 id="org893bb09">6.2-3</h3>
-<div class="outline-text-3" id="text-org893bb09">
+<div id="outline-container-org662f36a" class="outline-3">
+<h3 id="org662f36a">6.2-3</h3>
+<div class="outline-text-3" id="text-org662f36a">
 <p>
 A[i] appears to be the largest element between itself and its children, the
 procedure returns with nothing changes.
 </p>
 </div>
 </div>
-<div id="outline-container-orgc8aa100" class="outline-3">
-<h3 id="orgc8aa100">6.2-4</h3>
-<div class="outline-text-3" id="text-orgc8aa100">
+<div id="outline-container-org2058be1" class="outline-3">
+<h3 id="org2058be1">6.2-4</h3>
+<div class="outline-text-3" id="text-org2058be1">
 <p>
 A[i] has no child in A, the procedure returns with nothing changes.
 </p>
 </div>
 </div>
-<div id="outline-container-org667b2cf" class="outline-3">
-<h3 id="org667b2cf">6.2-5</h3>
-<div class="outline-text-3" id="text-org667b2cf">
+<div id="outline-container-org43dfbbc" class="outline-3">
+<h3 id="org43dfbbc">6.2-5</h3>
+<div class="outline-text-3" id="text-org43dfbbc">
 <p>
-The compiler without tail recursion optimization will produce inefficient
+The compilers without tail recursion optimization will produce inefficient
 code.
 </p>
 
 <p>
-The iterative algorithm is as below.
+The iterative procedure is as below.
 </p>
 <pre class="example">
 MAX-HEAPIFY(A, i)
@@ -428,9 +428,9 @@ MAX-HEAPIFY(A, i)
 </pre>
 </div>
 </div>
-<div id="outline-container-org0e7e1bd" class="outline-3">
-<h3 id="org0e7e1bd">6.2-6</h3>
-<div class="outline-text-3" id="text-org0e7e1bd">
+<div id="outline-container-org3008b2f" class="outline-3">
+<h3 id="org3008b2f">6.2-6</h3>
+<div class="outline-text-3" id="text-org3008b2f">
 <p>
 The MAX-HEAPIFY would be called \(h\) (heap height) times in the worst
 case, and we know that \(h = \lfloor \lg n \rfloor\), so that the worst case
@@ -442,7 +442,7 @@ running time is \(T(n) = \Theta{\lfloor \lg n \rfloor} = \Omega(\lg n)\).
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2019-09-04 Wed 12:27</p>
+<p class="date">Created: 2019-09-05 Thu 02:13</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
