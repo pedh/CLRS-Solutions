@@ -2,8 +2,69 @@
 
 * ch6.4
 ** 6.4-1
+   #+BEGIN_SRC
+      (5 13 2 25 7 17 20 8 4)
+   -> ((25 (13 (8 (5) (4)) (7)) (20 (17) (2))))    # BUILD-MAX-HEAP
+   -> ((4 (13 (8 (5)) (7)) (20 (17) (2))) 25)
+   -> ((20 (13 (8 (5)) (7)) (17 (4) (2))) 25)
+   -> ((5 (13 (8) (7)) (17 (4) (2))) 20 25)
+   -> ((17 (13 (8) (7)) (5 (4) (2))) 20 25)
+   -> ((2 (13 (8) (7)) (5 (4))) 17 20 25)
+   -> ((13 (8 (2) (7)) (5 (4))) 17 20 25)
+   -> ((4 (8 (2) (7)) (5)) 13 17 20 25)
+   -> ((8 (7 (2) (4)) (5)) 13 17 20 25)
+   -> ((4 (7 (2)) (5)) 8 13 17 20 25)
+   -> ((7 (4 (2)) (5)) 8 13 17 20 25)
+   -> ((2 (4) (5)) 7 8 13 17 20 25)
+   -> ((5 (4) (2)) 7 8 13 17 20 25)
+   -> ((2 (4)) 5 7 8 13 17 20 25)
+   -> ((4 (2)) 5 7 8 13 17 20 25)
+   -> ((2) 4 5 7 8 13 17 20 25)
+   -> (2 4 5 7 8 13 17 20 25)
+   #+END_SRC
 ** 6.4-2
+   *Initialization:* A[1..n] is a max heap contains the \(n\) smallest elements,
+   A[n+1..n] is empty.
+
+   *Maintenance:* At the start of ith iteration, A[1] is the root of the max
+   heap A[1..i] which contains the \(i\) smallest elements of A[1..n], thus A[1]
+   is the ith largest element, and A[i+1..n] contains the \(n-i\) largest
+   elements of A[1..n] and is sorted, after we exchange A[1] with A[i], A[i..n]
+   contains the \(n-i+1\) largest elements of A[1..n] and is sorted, and the
+   A[1..i-1] is a max heap besides A[1], then we perform MAX-HEAPIFY on A[1],
+   after that A[1..i-1] becomes a max heap containing the \(i-1\) smallest
+   elements of A[1..n].
+
+   *Termination:* The procedure terminates when \(i=1\), A[1] is the smallest
+   element of A[1..n], and A[2..n] contains the \(n-1\) largest elements of
+   A[1..n] and is sorted, thus A[1..n] is the sorted permutation of the input
+   array A.
+
 ** 6.4-3
-   Both are \(\Theta(n\lg{n})\)
+   Both of them have \(\Theta(n\lg n)\) running time, the BUILD-MAX-HEAP costs
+   \(O(n)\) running time, and the sort loop costs \(\Theta(n\lg n)\) running
+   time.
 ** 6.4-4
+   If A is already sorted in decreasing order, then each MAX-HEAPIFY in the sort
+   loop will keep moving the root element till the bottom of the heap, thus the
+   running time of the sort loop is
+   \begin{align*}
+   T(n)
+   &=\sum_{i=1}^{n-1}(\Theta(1)+\Theta(\lfloor \lg(n-i)\rfloor))\\
+   &\geq \Omega(\sum_{i=1}^{n-1}(\lg(i/2)))+\Omega(n)\\
+   &=\Omega(n\lg n)
+   \end{align*}
 ** 6.4-5
+   The BUILD-MAX-HEAP has linear running time, so we just need to analyze the
+   runnig time of the sort loop.
+
+   Assume there are \(2^k - 1\) elements, then the max heap is a height \(k\)
+   complete heap, we mark the nodes from top to bottom as level \(1\) to \(k\).
+
+   There are \(2^{k-1}\) nodes at \(k\) level, and obviously there are at most
+   \(2^{k-2}\) largest nodes at \(k\) level, thus there are at least
+   \(2^{k-2} - 1\) large nodes at \(1\) to \(k - 1\) levels, and there are
+   totally \(2^{k-3} - 1\) nodes at \(1\) to \(k - 3\) levels, so there are at
+   least \(2^{k-3}\) large nodes at \(k - 2\) or \(k - 3\) level, these nodes
+   need totally at least \(2^{k-3}(k-3)\) moves to get to the top, the running
+   time is \(\Omega(n\lg n)\).
