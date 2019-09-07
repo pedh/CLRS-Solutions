@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-09-06 Fri 09:28 -->
+<!-- 2019-09-07 Sat 02:34 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 6.4</title>
@@ -333,26 +333,26 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orga0a9f7e">ch6.4</a>
+<li><a href="#orgcdbde08">ch6.4</a>
 <ul>
-<li><a href="#org57cce67">6.4-1</a></li>
-<li><a href="#orgc0d9b8e">6.4-2</a></li>
-<li><a href="#org4b8132d">6.4-3</a></li>
-<li><a href="#orgc42ccf7">6.4-4</a></li>
-<li><a href="#org6aa8714">6.4-5</a></li>
+<li><a href="#orga863ade">6.4-1</a></li>
+<li><a href="#org4f1b036">6.4-2</a></li>
+<li><a href="#orgd7950bc">6.4-3</a></li>
+<li><a href="#org2667bee">6.4-4</a></li>
+<li><a href="#orgde7acb4">6.4-5</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orga0a9f7e" class="outline-2">
-<h2 id="orga0a9f7e">ch6.4</h2>
-<div class="outline-text-2" id="text-orga0a9f7e">
+<div id="outline-container-orgcdbde08" class="outline-2">
+<h2 id="orgcdbde08">ch6.4</h2>
+<div class="outline-text-2" id="text-orgcdbde08">
 </div>
-<div id="outline-container-org57cce67" class="outline-3">
-<h3 id="org57cce67">6.4-1</h3>
-<div class="outline-text-3" id="text-org57cce67">
+<div id="outline-container-orga863ade" class="outline-3">
+<h3 id="orga863ade">6.4-1</h3>
+<div class="outline-text-3" id="text-orga863ade">
 <pre class="example">
    (5 13 2 25 7 17 20 8 4)
 -&gt; ((25 (13 (8 (5) (4)) (7)) (20 (17) (2))))    # BUILD-MAX-HEAP
@@ -375,9 +375,9 @@ for the JavaScript code in this tag.
 </pre>
 </div>
 </div>
-<div id="outline-container-orgc0d9b8e" class="outline-3">
-<h3 id="orgc0d9b8e">6.4-2</h3>
-<div class="outline-text-3" id="text-orgc0d9b8e">
+<div id="outline-container-org4f1b036" class="outline-3">
+<h3 id="org4f1b036">6.4-2</h3>
+<div class="outline-text-3" id="text-org4f1b036">
 <p>
 <b>Initialization:</b> A[1..n] is a max heap contains the \(n\) smallest elements,
 A[n+1..n] is empty.
@@ -403,9 +403,9 @@ array A.
 </div>
 </div>
 
-<div id="outline-container-org4b8132d" class="outline-3">
-<h3 id="org4b8132d">6.4-3</h3>
-<div class="outline-text-3" id="text-org4b8132d">
+<div id="outline-container-orgd7950bc" class="outline-3">
+<h3 id="orgd7950bc">6.4-3</h3>
+<div class="outline-text-3" id="text-orgd7950bc">
 <p>
 Both of them have \(\Theta(n\lg n)\) running time, the BUILD-MAX-HEAP costs
 \(O(n)\) running time, and the sort loop costs \(\Theta(n\lg n)\) running
@@ -413,9 +413,9 @@ time.
 </p>
 </div>
 </div>
-<div id="outline-container-orgc42ccf7" class="outline-3">
-<h3 id="orgc42ccf7">6.4-4</h3>
-<div class="outline-text-3" id="text-orgc42ccf7">
+<div id="outline-container-org2667bee" class="outline-3">
+<h3 id="org2667bee">6.4-4</h3>
+<div class="outline-text-3" id="text-org2667bee">
 <p>
 If A is already sorted in decreasing order, then each MAX-HEAPIFY in the sort
 loop will keep moving the root element till the bottom of the heap, thus the
@@ -429,11 +429,27 @@ T(n)
 \end{align*}
 </div>
 </div>
-<div id="outline-container-org6aa8714" class="outline-3">
-<h3 id="org6aa8714">6.4-5</h3>
-<div class="outline-text-3" id="text-org6aa8714">
+<div id="outline-container-orgde7acb4" class="outline-3">
+<h3 id="orgde7acb4">6.4-5</h3>
+<div class="outline-text-3" id="text-orgde7acb4">
 <p>
-TODO
+The BUILD-MAX-HEAP has linear running time, so we just need to analyze the
+runnig time of the sort loop.
+</p>
+
+<p>
+Assume there are \(2^k - 1\) elements, then the max heap is a height \(k\)
+complete heap, we mark the nodes from top to bottom as level \(1\) to \(k\).
+</p>
+
+<p>
+There are \(2^{k-1}\) nodes at \(k\) level, and obviously there are at most
+\(2^{k-2}\) largest nodes at \(k\) level, thus there are at least
+\(2^{k-2} - 1\) large nodes at \(1\) to \(k - 1\) levels, and there are
+totally \(2^{k-3} - 1\) nodes at \(1\) to \(k - 3\) levels, so there are at
+least \(2^{k-3}\) large nodes at \(k - 2\) or \(k - 3\) level, these nodes
+need totally at least \(2^{k-3}(k-3)\) moves to get to the top, the running
+time is \(\Omega(n\lg n)\).
 </p>
 </div>
 </div>
@@ -441,7 +457,7 @@ TODO
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2019-09-06 Fri 09:28</p>
+<p class="date">Created: 2019-09-07 Sat 02:34</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
