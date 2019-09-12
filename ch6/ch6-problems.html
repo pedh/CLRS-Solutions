@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-09-10 Tue 03:22 -->
+<!-- 2019-09-12 Thu 06:36 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 6 problems</title>
@@ -333,135 +333,271 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgbf52018">ch6-problems</a>
+<li><a href="#org61513b0">ch6-problems</a>
 <ul>
-<li><a href="#orga3ce22d">6-1</a></li>
-<li><a href="#orgff081dd">6-2</a></li>
-<li><a href="#org73246a2">6-3</a></li>
+<li><a href="#orga338788">6-1</a></li>
+<li><a href="#orgfef4a67">6-2</a></li>
+<li><a href="#org55a5ee2">6-3</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgbf52018" class="outline-2">
-<h2 id="orgbf52018">ch6-problems</h2>
-<div class="outline-text-2" id="text-orgbf52018">
+<div id="outline-container-org61513b0" class="outline-2">
+<h2 id="org61513b0">ch6-problems</h2>
+<div class="outline-text-2" id="text-org61513b0">
 </div>
-<div id="outline-container-orga3ce22d" class="outline-3">
-<h3 id="orga3ce22d">6-1</h3>
-</div>
-<div id="outline-container-orgff081dd" class="outline-3">
-<h3 id="orgff081dd">6-2</h3>
-<div class="outline-text-3" id="text-orgff081dd">
-<ol class="org-ol">
+<div id="outline-container-orga338788" class="outline-3">
+<h3 id="orga338788">6-1</h3>
+<div class="outline-text-3" id="text-orga338788">
+<ul class="org-ul">
 <li><p>
-define PARENT(i) and CHILD(i, j) as below
-</p>
-<pre class="example">
-PARENT(i)
-    return floor((i - 2) / d) + 1
-</pre>
-
-<pre class="example">
-CHILD(i, j)
-    // the jth child of node i
-    return n * (i - 1) + j + 1
-</pre></li>
-<li>\(\lceil\log_{d}(n(d - 1) + 1)\rceil\)</li>
-<li>Same as the binary heap EXTRACT-MAX, the d-ary MAX-HEAPIFY procedure
-contains a max-of-d-elements calculation, which has \(\Theta(d)\) running
-time, so the running time of d-ary EXTRACT-MAX is \(\Theta(d\log_{d}n)\)</li>
-<li>Same as the binary heap INSERT, the running time is \(\Theta(\log_{d}n)\)</li>
-<li>Still the same as binary heap, the running time is \(\Theta(\log_{d}n)\)</li>
-</ol>
-</div>
-</div>
-<div id="outline-container-org73246a2" class="outline-3">
-<h3 id="org73246a2">6-3</h3>
-<div class="outline-text-3" id="text-org73246a2">
-<ol class="org-ol">
-<li>omitted</li>
-<li><p>
-\(\forall(Y[x, y])[Y[x, y] \geq Y[1, 1]]\) and \(Y[1, 1]=\infty\),
-so Y is empty
+<b>a.</b>
 </p>
 
 <p>
-\(\forall(Y[x, y])[Y[x, y] \leq Y[m, n]]\) and \(Y[m, n]<\infty\),
-so Y is full
+No, consider \(A = \langle 1, 2, 3 \rangle\), BUILD-MAX-HEAP(A) returns
+\(\langle 3, 2, 1 \rangle\), and BUILD-MAX-HEAP'(A) returns
+\(\langle 3, 1, 2 \rangle\).
 </p></li>
 <li><p>
-EXTRACT-MIN(Y)
+<b>b.</b>
+</p>
+
+<p>
+The worst case appears when the input A is already sorted, the running time
+of BUILD-MAX-HEAP' is
+</p>
+\begin{align*}
+T(n)
+&=\sum_{i=2}^{n}\Theta(\lfloor\lg i\rfloor)\\
+&=\Theta(n\lg n)
+\end{align*}</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgfef4a67" class="outline-3">
+<h3 id="orgfef4a67">6-2</h3>
+<div class="outline-text-3" id="text-orgfef4a67">
+<ul class="org-ul">
+<li><p>
+<b>a.</b>
+</p>
+
+<p>
+We could define PARENT and CHILD as below to represent a d-ary heap.
 </p>
 <pre class="example">
+PARENT(i, d)
+    return (i + d - 2) // d
+</pre>
+<pre class="example">
+CHILD(i, j, d)
+    // the jth child of node i
+    return (i - 1) * d + 1 + j
+</pre></li>
+<li><p>
+<b>b.</b>
+</p>
+
+<p>
+The height of a d-ary heap of n elements is
+\(\lfloor\log_{d}((n - 1)(d - 1) + 1)\rfloor\).
+</p></li>
+<li><p>
+<b>c.</b>
+</p>
+
+<p>
+The running time is \(\Theta(d\log_d n)\).
+</p>
+<pre class="example">
+EXTRACT-MAX(A)
+    if A.heap-size &lt; 1
+	error "heap underflow"
+    max = A[1]
+    A[1] = A[A.heap-size]
+    A.heap-size = A.heap-size - 1
+    MAX-HEAPIFY(A, 1)
+    return max
+</pre>
+<pre class="example">
+MAX-HEAPIFY(A, i)
+    largest = i
+    for j = 1 to A.d
+	child = CHILD(i, j, d)
+	if child &gt; A.heap-size
+	    break
+	if A[child] &gt; A[largest]
+	    largest = child
+    if largest != i
+	exchange A[i] with A[largest]
+	MAX-HEAPIFY(A, largest)
+</pre></li>
+<li><p>
+<b>d.</b>
+</p>
+
+<p>
+The running time is \(O(\log_d n)\).
+</p>
+<pre class="example">
+INSERT(A, key)
+    A.heap-size = A.heap-size + 1
+    A[A.heap-size] = -\infty
+    INCREASE-KEY(A, A.heap-size, key)
+</pre></li>
+<li><p>
+<b>e.</b>
+</p>
+
+<p>
+The running time is \(O(\log_d n)\).
+</p>
+<pre class="example">
+INCREASE-KEY(A, i, key)
+    if key &lt; A[i]
+	error "new key is smaller than current key"
+    A[i] = key
+    while i &gt; 1 and A[PARENT(i)] &lt; A[i]
+	exchange A[i] with A[PARENT(i)]
+	i = PARENT(i)
+</pre></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org55a5ee2" class="outline-3">
+<h3 id="org55a5ee2">6-3</h3>
+<div class="outline-text-3" id="text-org55a5ee2">
+<ul class="org-ul">
+<li><p>
+<b>a.</b>
+</p>
+
+<p>
+The Young tableau is as below
+</p>
+\begin{matrix}
+2 & 3 & 4 & 5\\
+8 & 9 & 12 & 14\\
+16 & \infty & \infty & \infty\\
+\infty & \infty & \infty & \infty
+\end{matrix}</li>
+<li><p>
+<b>b.</b>
+</p>
+
+<p>
+\(Y[1, 1]\) is the smallest element of \(Y\), and \(Y[1, 1] = \infty\),
+so Y is empty.
+</p>
+
+<p>
+\(Y[m, n]\) is the largest element of \(Y\), and \(Y[m, n] < \infty\),
+so Y is full.
+</p></li>
+<li><p>
+<b>c.</b>
+</p>
+
+<pre class="example">
 EXTRACT-MIN(Y)
-    value = Y[1, 1]
+    min = Y[1, 1]
     Y[1, 1] = \infty
     YOUNG-TABLEAUFY(Y, 1, 1)
+    return min
 </pre>
-
 <pre class="example">
 YOUNG-TABLEAUFY(Y, r, c)
-    smallest-r = r
-    smallest-c = c
-    if r + 1 \leq Y.m and Y[r + 1, c] &lt; Y[r, c]
-	smallest-r = r + 1
-    if c + 1 \leq Y.n and Y[r, c + 1] &lt; Y[r, c]
-	smallest-r = r
-	smallest-c = c + 1
-    if smallest-r \neq r or smallest-c \neq c
-	exchange Y[smallest-r, smallest,c] with Y[r, c]
-	YOUNG-TABLEAUFY(Y, smallest-r, smallest-c)
+    right = (r, c + 1)
+    below = (r + 1, c)
+    if right &lt;= (Y.m, Y.n) and Y[right] &lt; Y[r, c]
+	smallest = right
+    else smallest = (r, c)
+    if below &lt;= (Y.m, Y.n) and Y[below] &lt; Y[smallest]
+	smallest = below
+    if smallest != (r, c)
+	exchange Y[r, c] with Y[smallest]
+	YOUNG-TABLEAUFY(Y, smallest)
 </pre>
 <p>
-T(P) = T(next-P) + O(1)
-Worst case is from YOUNG-TABLEAUFY(Y, 1, 1) recursively calling to
-YOUNG-TABLE(Y, m, n), the running time is O(m + n)
-</p></li>
-<li>Like above, first put the element to the lower right corner, then keep
-exchanging with the min(left, upper, self) element</li>
-<li><p>
-First create a n * n young tableau Y, set all elements to &infin;, this
-step is &Theta;(n<sup>2</sup>) running time.
-</p>
-
-<p>
-Then for all the numbers, do INSERT(Y, number), this step is
-O(n<sup>2</sup> * 2n) = O(n<sup>3</sup>) running time.
-</p>
-
-<p>
-At last, for 1 to n<sup>2</sup>, do EXTRACT-MIN(Y), this step is
-O(n<sup>2</sup> * 2n) = O(n<sup>3</sup>) running time.
-</p>
-
-<p>
-The total running time is O(n<sup>3</sup>)
+The running time is \(T(p) = T(p - 1) + O(1) = O(m + n)\).
 </p></li>
 <li><p>
-EXISTS(Y, n)
+<b>d.</b>
 </p>
+
 <pre class="example">
-EXISTS(Y, number)
-    r = Y.m
-    c = 1
-    while r \geq 1 and c \leq Y.n
-	if Y[r, c] == number
-	    return true
-	else if Y[r, c] &gt; number
-	    c = c - 1
-	else r = r + 1
-    return false
+YOUNG-TABLEAU-INSERT(Y, key)
+    if Y[Y.m, Y.n] &lt; \infty
+	error "the Young tableau is already full"
+    Y[Y.m, Y.n] = key
+    i = Y.m
+    j = Y.n
+    while i &gt;= 1 and j &gt;= 1
+	left = (i, j - 1)
+	above = (i - 1, j)
+	if left &gt;= (1, 1) and Y[left] &gt; Y[i, j]
+	    largest = left
+	else largest = (i, j)
+	if above &gt;= (1, 1) and Y[above] &lt; Y[largest]
+	    largest = above
+	if largest != (i, j)
+	    exchange Y[i, j] with Y[largest]
+	    (i, j) = largest
+	else return
 </pre></li>
-</ol>
+<li><p>
+<b>e.</b>
+</p>
+
+<pre class="example">
+YOUNG-TABLEAU-SORT(A, n)
+    let Y[n, n] to be new Young tableau
+    for i = 1 to n * n
+	YOUNG-TABLEAU-INSERT(Y, A[i])
+    for j = 1 to n * n
+	A[j] = EXTRACT-MIN(Y)
+</pre>
+<p>
+First we create a new Young tableau Y[n, n], it costs \(O(n^2)\) running
+time.
+</p>
+
+<p>
+Then we insert the \(n^2\) elements into Y, it costs \(O(n^3)\)
+running time.
+</p>
+
+<p>
+At last we extract the \(n^2\) elements from Y, it costs
+\(O(n^3)\) running time, the total running time is \(O(n^3)\).
+</p></li>
+<li><p>
+<b>f.</b>
+</p>
+
+<pre class="example">
+YOUNG-TABLEAU-SEARCH(Y, key)
+    i = Y.m
+    j = 1
+    while i &gt;= 1 and j &lt;= Y.n
+	if key == Y[i, j]
+	    return (i, j)
+	if key &lt; Y[i, j]
+	    i = i - 1
+	else j = j + 1
+    return False
+</pre></li>
+</ul>
 </div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2019-09-10 Tue 03:22</p>
+<p class="date">Created: 2019-09-12 Thu 06:36</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
