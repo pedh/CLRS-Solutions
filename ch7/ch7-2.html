@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-09-16 Mon 02:33 -->
+<!-- 2019-09-21 Sat 10:04 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 7.2</title>
@@ -333,59 +333,102 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org3bbf5b7">ch7.2</a>
+<li><a href="#orgfe17f22">ch7.2</a>
 <ul>
-<li><a href="#org7b018e5">7.2-1</a></li>
-<li><a href="#orgd6aa810">7.2-2</a></li>
-<li><a href="#org1d96579">7.2-3</a></li>
-<li><a href="#orge28f9d1">7.2-4</a></li>
-<li><a href="#orgcd926f4">7.2-5</a></li>
-<li><a href="#orge6edb7b">7.2-6</a></li>
+<li><a href="#orgbab1ca3">7.2-1</a></li>
+<li><a href="#orgc479096">7.2-2</a></li>
+<li><a href="#orgbc49e59">7.2-3</a></li>
+<li><a href="#org8e32b1c">7.2-4</a></li>
+<li><a href="#orgd8e1bae">7.2-5</a></li>
+<li><a href="#orgd7e1a44">7.2-6</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org3bbf5b7" class="outline-2">
-<h2 id="org3bbf5b7">ch7.2</h2>
-<div class="outline-text-2" id="text-org3bbf5b7">
+<div id="outline-container-orgfe17f22" class="outline-2">
+<h2 id="orgfe17f22">ch7.2</h2>
+<div class="outline-text-2" id="text-orgfe17f22">
 </div>
-<div id="outline-container-org7b018e5" class="outline-3">
-<h3 id="org7b018e5">7.2-1</h3>
-</div>
-<div id="outline-container-orgd6aa810" class="outline-3">
-<h3 id="orgd6aa810">7.2-2</h3>
-<div class="outline-text-3" id="text-orgd6aa810">
+<div id="outline-container-orgbab1ca3" class="outline-3">
+<h3 id="orgbab1ca3">7.2-1</h3>
+<div class="outline-text-3" id="text-orgbab1ca3">
+<ul class="org-ul">
+<li><p>
+Guess \(T(n) \leq cn^2\), then
+</p>
+\begin{align*}
+T(n)
+&=T(n-1)+\Theta(n)\\
+&\leq c(n-1)^2+dn\\
+&\leq cn^2 &\text{, when }n\geq\frac{c^2}{2c-d}
+\end{align*}
 <p>
-\(\Theta(n^2)\)
+Hence \(T(n) = O(n^2)\).
+</p></li>
+<li><p>
+Guess \(T(n) \geq c_1n^2 + c_2n\), then
+</p>
+\begin{align*}
+T(n)
+&=T(n-1)+\Theta(n)\\
+&\geq c_1(n-1)^2+c_2(n-1)+dn\\
+&\geq c_1n^2+c_2n &\text{, when }n\geq\frac{c_2-c_1}{d-2c_1}
+\end{align*}
+<p>
+Hence \(T(n) = \Omega(n^2)\).
+</p></li>
+<li>In conclusion, \(T(n) = \Theta(n^2)\).</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc479096" class="outline-3">
+<h3 id="orgc479096">7.2-2</h3>
+<div class="outline-text-3" id="text-orgc479096">
+<p>
+The running time is \(\Theta(n^2)\).
 </p>
 </div>
 </div>
-<div id="outline-container-org1d96579" class="outline-3">
-<h3 id="org1d96579">7.2-3</h3>
-<div class="outline-text-3" id="text-org1d96579">
+<div id="outline-container-orgbc49e59" class="outline-3">
+<h3 id="orgbc49e59">7.2-3</h3>
+<div class="outline-text-3" id="text-orgbc49e59">
 <p>
-decreasing order: n..1 -&gt; 1,n..2 -&gt; 1..i,n..i+1 -&gt; &#x2026; -&gt; n..1
-</p>
-
-<p>
-\(T(n) = T(n - 1) + \Theta(n) = \Theta(n^2)\)
+Each iteration move the last element into the front, and leave the relative
+positions of the other elements untouched, thus the running time is
+\(\Theta(n^2)\).
 </p>
 </div>
 </div>
-<div id="outline-container-orge28f9d1" class="outline-3">
-<h3 id="orge28f9d1">7.2-4</h3>
-</div>
-<div id="outline-container-orgcd926f4" class="outline-3">
-<h3 id="orgcd926f4">7.2-5</h3>
-</div>
-<div id="outline-container-orge6edb7b" class="outline-3">
-<h3 id="orge6edb7b">7.2-6</h3>
-<div class="outline-text-3" id="text-orge6edb7b">
+<div id="outline-container-org8e32b1c" class="outline-3">
+<h3 id="org8e32b1c">7.2-4</h3>
+<div class="outline-text-3" id="text-org8e32b1c">
 <p>
-More balanced than \(1 - \alpha\) to \(\alpha\) means the pivot is between
-\((\alpha n, (1 - \alpha) n)\), the probability is \(1 - 2\alpha\)
+The running time of INSERTION-SORT is \(\Theta(n+m)\) which there are \(m\)
+inversions, for an almost-sorted input the number of inversions is small
+enough so that INSERTION-SORT takes linear time to beat QUICKSORT.
+</p>
+</div>
+</div>
+<div id="outline-container-orgd8e1bae" class="outline-3">
+<h3 id="orgd8e1bae">7.2-5</h3>
+<div class="outline-text-3" id="text-orgd8e1bae">
+<p>
+The path to the minimum depth leaf always takes the larger half in every
+split, thus the minimum depth is approximately \(-\lg n / \lg \alpha\),
+similarly, the maximum depth is approximately \(-\lg n / \lg (1 - \alpha)\).
+</p>
+</div>
+</div>
+<div id="outline-container-orgd7e1a44" class="outline-3">
+<h3 id="orgd7e1a44">7.2-6</h3>
+<div class="outline-text-3" id="text-orgd7e1a44">
+<p>
+We needs \(\alpha n < k < (1 - \alpha)n\) to produce a split more balanced
+than \(1 - \alpha\) to \(\alpha\), which the pivot is the \(k\)-th smallest
+element, the probability is approximately \(1 - 2\alpha\) for an random input
+array.
 </p>
 </div>
 </div>
@@ -393,7 +436,7 @@ More balanced than \(1 - \alpha\) to \(\alpha\) means the pivot is between
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2019-09-16 Mon 02:33</p>
+<p class="date">Created: 2019-09-21 Sat 10:04</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
