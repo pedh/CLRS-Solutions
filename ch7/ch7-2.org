@@ -2,14 +2,39 @@
 
 * ch7.2
 ** 7.2-1
+   - Guess \(T(n) \leq cn^2\), then
+     \begin{align*}
+     T(n)
+     &=T(n-1)+\Theta(n)\\
+     &\leq c(n-1)^2+dn\\
+     &\leq cn^2 &\text{, when }n\geq\frac{c^2}{2c-d}
+     \end{align*}
+     Hence \(T(n) = O(n^2)\).
+   - Guess \(T(n) \geq c_1n^2 + c_2n\), then
+     \begin{align*}
+     T(n)
+     &=T(n-1)+\Theta(n)\\
+     &\geq c_1(n-1)^2+c_2(n-1)+dn\\
+     &\geq c_1n^2+c_2n &\text{, when }n\geq\frac{c_2-c_1}{d-2c_1}
+     \end{align*}
+     Hence \(T(n) = \Omega(n^2)\).
+   - In conclusion, \(T(n) = \Theta(n^2)\).
 ** 7.2-2
-   \(\Theta(n^2)\)
+   The running time is \(\Theta(n^2)\).
 ** 7.2-3
-   decreasing order: n..1 -> 1,n..2 -> 1..i,n..i+1 -> ... -> n..1
-
-   \(T(n) = T(n - 1) + \Theta(n) = \Theta(n^2)\)
+   Each iteration move the last element into the front, and leave the relative
+   positions of the other elements untouched, thus the running time is
+   \(\Theta(n^2)\).
 ** 7.2-4
+   The running time of INSERTION-SORT is \(\Theta(n+m)\) which there are \(m\)
+   inversions, for an almost-sorted input the number of inversions is small
+   enough so that INSERTION-SORT takes linear time to beat QUICKSORT.
 ** 7.2-5
+   The path to the minimum depth leaf always takes the larger half in every
+   split, thus the minimum depth is approximately \(-\lg n / \lg \alpha\),
+   similarly, the maximum depth is approximately \(-\lg n / \lg (1 - \alpha)\).
 ** 7.2-6
-   More balanced than \(1 - \alpha\) to \(\alpha\) means the pivot is between
-   \((\alpha n, (1 - \alpha) n)\), the probability is \(1 - 2\alpha\)
+   We needs \(\alpha n < k < (1 - \alpha)n\) to produce a split more balanced
+   than \(1 - \alpha\) to \(\alpha\), which the pivot is the \(k\)-th smallest
+   element, the probability is approximately \(1 - 2\alpha\) for an random input
+   array.
