@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-09-21 Sat 10:09 -->
+<!-- 2019-09-25 Wed 06:55 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 7.3</title>
@@ -333,45 +333,52 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgf077384">ch7.3</a>
+<li><a href="#org3768036">ch7.3</a>
 <ul>
-<li><a href="#orgbd042af">7.3-1</a></li>
-<li><a href="#org20801c6">7.3-2</a></li>
+<li><a href="#orgebfe2ad">7.3-1</a></li>
+<li><a href="#org4503d3b">7.3-2</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgf077384" class="outline-2">
-<h2 id="orgf077384">ch7.3</h2>
-<div class="outline-text-2" id="text-orgf077384">
+<div id="outline-container-org3768036" class="outline-2">
+<h2 id="org3768036">ch7.3</h2>
+<div class="outline-text-2" id="text-org3768036">
 </div>
-<div id="outline-container-orgbd042af" class="outline-3">
-<h3 id="orgbd042af">7.3-1</h3>
-<div class="outline-text-3" id="text-orgbd042af">
+<div id="outline-container-orgebfe2ad" class="outline-3">
+<h3 id="orgebfe2ad">7.3-1</h3>
+<div class="outline-text-3" id="text-orgebfe2ad">
 <p>
 The randomized algorithm does not improve the worst-case running time,
 it just improve the equity of pivot selection.
 </p>
 </div>
 </div>
-<div id="outline-container-org20801c6" class="outline-3">
-<h3 id="org20801c6">7.3-2</h3>
-<div class="outline-text-3" id="text-org20801c6">
-<ul class="org-ul">
-<li>worst-case
-T(n) = T(n - 1) + 1 = \(\Theta(n)\)</li>
-<li>best-case
-T(n) = 2T(n / 2) + 1 = \(\Theta(n)\)</li>
-</ul>
+<div id="outline-container-org4503d3b" class="outline-3">
+<h3 id="org4503d3b">7.3-2</h3>
+<div class="outline-text-3" id="text-org4503d3b">
+<p>
+The number of calls made to the random number generator RANDOM is
+</p>
+\begin{align*}
+T(n)
+&=T(n-1)+\Theta(1) &\text{, worst case}\\
+&=\Theta(n)
+\end{align*}
+\begin{align*}
+T(n)
+&=2T(n/2)+\Theta(1) &\text{, best case}\\
+&=\Theta(n)
+\end{align*}
 </div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2019-09-21 Sat 10:09</p>
+<p class="date">Created: 2019-09-25 Wed 06:55</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
