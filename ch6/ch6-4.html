@@ -333,26 +333,26 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgcfab7a2">ch6.4</a>
+<li><a href="#org44fb1a3">ch6.4</a>
 <ul>
-<li><a href="#orga8f4320">6.4-1</a></li>
-<li><a href="#orgd91e0f9">6.4-2</a></li>
-<li><a href="#orgc651786">6.4-3</a></li>
-<li><a href="#org0acb476">6.4-4</a></li>
-<li><a href="#orgf4aeffb">6.4-5</a></li>
+<li><a href="#orgf401b80">6.4-1</a></li>
+<li><a href="#org03972d4">6.4-2</a></li>
+<li><a href="#org2aa11ad">6.4-3</a></li>
+<li><a href="#org4fa35ba">6.4-4</a></li>
+<li><a href="#org19e389a">6.4-5</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgcfab7a2" class="outline-2">
-<h2 id="orgcfab7a2">ch6.4</h2>
-<div class="outline-text-2" id="text-orgcfab7a2">
+<div id="outline-container-org44fb1a3" class="outline-2">
+<h2 id="org44fb1a3">ch6.4</h2>
+<div class="outline-text-2" id="text-org44fb1a3">
 </div>
-<div id="outline-container-orga8f4320" class="outline-3">
-<h3 id="orga8f4320">6.4-1</h3>
-<div class="outline-text-3" id="text-orga8f4320">
+<div id="outline-container-orgf401b80" class="outline-3">
+<h3 id="orgf401b80">6.4-1</h3>
+<div class="outline-text-3" id="text-orgf401b80">
 <pre class="example">
    (5 13 2 25 7 17 20 8 4)
 -&gt; ((25 (13 (8 (5) (4)) (7)) (20 (17) (2))))    # BUILD-MAX-HEAP
@@ -375,9 +375,9 @@ for the JavaScript code in this tag.
 </pre>
 </div>
 </div>
-<div id="outline-container-orgd91e0f9" class="outline-3">
-<h3 id="orgd91e0f9">6.4-2</h3>
-<div class="outline-text-3" id="text-orgd91e0f9">
+<div id="outline-container-org03972d4" class="outline-3">
+<h3 id="org03972d4">6.4-2</h3>
+<div class="outline-text-3" id="text-org03972d4">
 <p>
 <b>Initialization:</b> A[1..n] is a max heap contains the \(n\) smallest elements,
 A[n+1..n] is empty.
@@ -403,9 +403,9 @@ array A.
 </div>
 </div>
 
-<div id="outline-container-orgc651786" class="outline-3">
-<h3 id="orgc651786">6.4-3</h3>
-<div class="outline-text-3" id="text-orgc651786">
+<div id="outline-container-org2aa11ad" class="outline-3">
+<h3 id="org2aa11ad">6.4-3</h3>
+<div class="outline-text-3" id="text-org2aa11ad">
 <p>
 Both of them have \(\Theta(n\lg n)\) running time, the BUILD-MAX-HEAP costs
 \(O(n)\) running time, and the sort loop costs \(\Theta(n\lg n)\) running
@@ -413,9 +413,9 @@ time.
 </p>
 </div>
 </div>
-<div id="outline-container-org0acb476" class="outline-3">
-<h3 id="org0acb476">6.4-4</h3>
-<div class="outline-text-3" id="text-org0acb476">
+<div id="outline-container-org4fa35ba" class="outline-3">
+<h3 id="org4fa35ba">6.4-4</h3>
+<div class="outline-text-3" id="text-org4fa35ba">
 <p>
 If A is already sorted in decreasing order, then each MAX-HEAPIFY in the sort
 loop will keep moving the root element till the bottom of the heap, thus the
@@ -429,9 +429,9 @@ T(n)
 \end{align*}
 </div>
 </div>
-<div id="outline-container-orgf4aeffb" class="outline-3">
-<h3 id="orgf4aeffb">6.4-5</h3>
-<div class="outline-text-3" id="text-orgf4aeffb">
+<div id="outline-container-org19e389a" class="outline-3">
+<h3 id="org19e389a">6.4-5</h3>
+<div class="outline-text-3" id="text-org19e389a">
 <p>
 The BUILD-MAX-HEAP has linear running time, so we just need to analyze the
 runnig time of the sort loop.
