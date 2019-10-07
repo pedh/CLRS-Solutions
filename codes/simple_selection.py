@@ -1,5 +1,6 @@
 import random
 
+
 def partition(a, p, r):
     x = a[r]
     i = p - 1

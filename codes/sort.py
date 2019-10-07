@@ -1,4 +1,3 @@
-import math
 import random
 import sys
 
@@ -46,6 +45,7 @@ def merge_sort(a):
             else:
                 a[i] = lr[k]
                 k += 1
+
     def merge_rec(a, p, r):
         if p >= r:
             return a
@@ -55,6 +55,7 @@ def merge_sort(a):
         merge(a, p, q, r)
     a = merge_rec(a, 0, len(a) - 1)
     return a
+
 
 if __name__ == "__main__":
     args = sys.argv

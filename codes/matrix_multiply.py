@@ -1,12 +1,11 @@
-import math
-
-
 class MatrixException(Exception):
     message = "unknown matrix error"
+
     def __init__(self, msg, *args, **kwargs):
         message = (msg % args) % kwargs
         super(MatrixException, self).__init__(message)
         self.message = message
+
     def __str__(self):
         return self.message
 
@@ -14,25 +13,44 @@ class MatrixException(Exception):
 class Matrix(object):
     def __init__(self, lst, row, column):
         if len(lst) != row * column:
-            raise MatrixException("bad matrix: length %s, row %s, column %s", len(lst), row, column)
+            raise MatrixException("bad matrix: length %(length)s, row %(row)s,"
+                                  " column %(column)s",
+                                  length=len(lst),
+                                  row=row,
+                                  column=column)
         self.v = lst
         self.r = row
         self.c = column
+
     def __repr__(self):
-        return "\n".join((" ".join(str(val) for val in self.v[r * self.c: (r + 1) * self.c])) for r in range(self.r))
+        return "\n".join(
+            (" ".join(str(val)
+                      for val in self.v[r * self.c: (r + 1) * self.c]))
+            for r in range(self.r))
+
     def value(self, r, c):
         idx = r * self.c + c
         if idx >= len(self.v):
-            raise MatrixException("out of range: row %s, column %s", r, c)
+            raise MatrixException("out of range: row %(row)s, column "
+                                  "%(column)s", row=r, column=c)
         return self.v[idx]
+
     def update(self, r, c, val):
         idx = r * self.c + c
         if idx >= len(self.v):
-            raise MatrixException("out of range: row %s, column %s", r, c)
+            raise MatrixException("out of range: row %(row)s, column "
+                                  "%(column)s", row=r, column=c)
         self.v[idx] = val
+
     def __mul__(self, m):
         if self.c != m.r:
-            raise MatrixException("Invalid Matrix multiplication: (%s*%s) matrix * (%s*%s) matrix", self.r, self.c, m.r, m.c)
+            raise MatrixException("Invalid Matrix multiplication: "
+                                  "(%(row)s*%(column)s) matrix * "
+                                  "(%(mrow)s*%(mcolumn)s) matrix",
+                                  row=self.r,
+                                  column=self.c,
+                                  mrow=m.r,
+                                  mcolumn=m.c)
         pv = [0] * (self.r * m.c)
         for i in range(self.r):
             for j in range(m.c):
@@ -41,25 +59,42 @@ class Matrix(object):
                     val += self.value(i, k) * m.value(k, j)
                 pv[i * self.c + j] = val
         return Matrix(pv, self.r, m.c)
+
     def __add__(self, m):
         if self.r != m.r or self.c != m.c:
-            raise MatrixException("Invalid Matrix addition: (%s*%s) matrix + (%s*%s) matrix", self.r, self.c, m.r, m.c)
+            raise MatrixException("Invalid Matrix addition: "
+                                  "(%(row)s*%(column)s) matrix + "
+                                  "(%(mrow)s*%(mcolumn)s) matrix",
+                                  row=self.r,
+                                  column=self.c,
+                                  mrow=m.r,
+                                  mcolumn=m.c)
         pv = [0] * (self.r * self.c)
         for i in range(self.r):
             for j in range(self.c):
                 pv[i * self.c + j] = self.value(i, j) + m.value(i, j)
         return Matrix(pv, self.r, self.c)
+
     def __sub__(self, m):
         if self.r != m.r or self.c != m.c:
-            raise MatrixException("Invalid Matrix addition: (%s*%s) matrix + (%s*%s) matrix", self.r, self.c, m.r, m.c)
+            raise MatrixException("Invalid Matrix addition: "
+                                  "(%(row)s*%(column)s) matrix + "
+                                  "(%(mrow)s*%(mcolumn)s) matrix",
+                                  row=self.r,
+                                  column=self.c,
+                                  mrow=m.r,
+                                  mcolumn=m.c)
         pv = [0] * (self.r * self.c)
         for i in range(self.r):
             for j in range(self.c):
                 pv[i * self.c + j] = self.value(i, j) - m.value(i, j)
         return Matrix(pv, self.r, self.c)
 
+
 def sub_matrix(m, r0, c0, rl, cl):
-    lst = [m.value(i, j) for i in range(r0, r0 + rl) for j in range(c0, c0 + cl)]
+    lst = [m.value(i, j)
+           for i in range(r0, r0 + rl)
+           for j in range(c0, c0 + cl)]
     return Matrix(lst, rl, cl)
 
 
