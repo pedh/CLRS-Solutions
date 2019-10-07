@@ -9,8 +9,10 @@ MIN_LENGTH = 10
 class BigInt(object):
     def __init__(self, lst):
         self.lst = lst
+
     def __repr__(self):
         return "".join(str(i) for i in self.lst)
+
     def __add__(self, au):
         a = copy.deepcopy(self.lst)
         b = copy.deepcopy(au.lst)

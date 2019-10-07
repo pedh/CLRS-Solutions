@@ -8,6 +8,7 @@ def radix_sort(a, k):
     """LSD radix sort"""
     def nth_digit(x, n):
         return x // DEC ** n % DEC
+
     def counting_sort(a, d):
         c = [0] * DEC
         for i in a:
@@ -45,7 +46,8 @@ def lexicographic_order(a):
 
 
 def random_string():
-    return ''.join(random.choice(string.ascii_lowercase) for _ in range(random.randint(1, 10)))
+    return ''.join(random.choice(string.ascii_lowercase)
+                   for _ in range(random.randint(1, 10)))
 
 
 if __name__ == "__main__":
@@ -55,4 +57,3 @@ if __name__ == "__main__":
     s = [random_string() for _ in range(100)]
     print(s)
     print(lexicographic_order(s))
-

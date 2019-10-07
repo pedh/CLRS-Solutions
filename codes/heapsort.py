@@ -2,14 +2,14 @@ import random
 
 
 def max_heapify(a, i, hs):
-    l = 2 * i + 1
-    r = 2 * i + 2
-    if l <= hs and a[l] > a[i]:
-        largest = l
+    li = 2 * i + 1
+    ri = 2 * i + 2
+    if li <= hs and a[li] > a[i]:
+        largest = li
     else:
         largest = i
-    if r <= hs and a[r] > a[largest]:
-        largest = r
+    if ri <= hs and a[ri] > a[largest]:
+        largest = ri
     if largest != i:
         a[i], a[largest] = a[largest], a[i]
         max_heapify(a, largest, hs)

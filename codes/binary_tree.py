@@ -1,6 +1,3 @@
-import random
-
-
 class Node(object):
     def __init__(self, key, left=None, right=None):
         self._key = key
@@ -128,7 +125,7 @@ def print_tree_in_order_iter_no_stack(t):
                     break
                 elif x.right == cur:
                     x.right = None
-                    print(cur.key, end= ' ')
+                    print(cur.key, end=' ')
                     cur = cur.right
                     break
                 x = x.right
@@ -146,7 +143,7 @@ def print_tree_in_pre_order_iter_no_stack(t):
             while True:
                 if not x.right:
                     x.right = cur
-                    print(cur.key, end= ' ')
+                    print(cur.key, end=' ')
                     cur = cur.left
                     break
                 elif x.right == cur:

@@ -1,5 +1,4 @@
 import itertools
-import random
 
 # Be aware of having a package with the same name
 import selection

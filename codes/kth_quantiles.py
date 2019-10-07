@@ -1,4 +1,3 @@
-import math
 import random
 
 # Be aware of having a package with the same name
@@ -13,7 +12,9 @@ def kth_quantiles(a, k):
         i = n // 2 if n % 2 else n // 2 - 1
         median = selection.select(a, i + 1)
         selection.partition(a, median)
-        return kth_quantiles(a[:i], k // 2) + [median] + kth_quantiles(a[i + 1:], k // 2)
+        return (kth_quantiles(a[:i], k // 2)
+                + [median]
+                + kth_quantiles(a[i + 1:], k // 2))
     i = (n * k - n - 1) // (2 * k)
     j = n - 1 - i
     left = selection.select(a, i + 1)
@@ -32,4 +33,3 @@ if __name__ == "__main__":
     random.shuffle(a)
     print(a)
     print(kth_quantiles(a, k))
-

@@ -40,4 +40,3 @@ if __name__ == "__main__":
     print(b)
     counting_sort_in_place(a, 3, lambda i: i % 3)
     print(a)
-
