@@ -1,31 +1,43 @@
+"""
+Quicksort.
+"""
+
 import random
 
 
-def partition(a, p, r):
-    x = a[r]
-    i = p - 1
-    for j in range(p, r):
-        if a[j] < x:
+def partition(array, left, right):
+    """Quicksort partition."""
+    pivot = array[right]
+    i = left - 1
+    for j in range(left, right):
+        if array[j] < pivot:
             i += 1
-            a[i], a[j] = a[j], a[i]
-    a[r], a[i + 1] = a[i + 1], a[r]
+            array[i], array[j] = array[j], array[i]
+    array[right], array[i + 1] = array[i + 1], array[right]
     return i + 1
 
 
-def quicksort_r(a, p, r):
-    if r > p:
-        q = partition(a, p, r)
-        quicksort_r(a, p, q - 1)
-        quicksort_r(a, q + 1, r)
+def quicksort_r(array, left, right):
+    """Quicksort recursion."""
+    if right > left:
+        pivot_i = partition(array, left, right)
+        quicksort_r(array, left, pivot_i - 1)
+        quicksort_r(array, pivot_i + 1, right)
 
 
-def quicksort(a):
-    quicksort_r(a, 0, len(a) - 1)
+def quicksort(array):
+    """Quicksort."""
+    quicksort_r(array, 0, len(array) - 1)
+
+
+def main():
+    """The main function."""
+    array = list(range(20))
+    random.shuffle(array)
+    print(array)
+    quicksort(array)
+    print(array)
 
 
 if __name__ == "__main__":
-    a = list(range(20))
-    random.shuffle(a)
-    print(a)
-    quicksort(a)
-    print(a)
+    main()

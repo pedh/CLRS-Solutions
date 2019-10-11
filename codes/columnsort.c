@@ -10,6 +10,8 @@ typedef struct {
   uint len;
 } SORT_PROTO;
 
+void columnsort(num_t **a, uint s, uint r);
+
 static int
 comp(const void *a, const void *b)
 {
@@ -37,7 +39,6 @@ static void
 sort_columns(SORT_PROTO* p, uint s)
 {
   uint i;
-  int err;
   pthread_t *pt;
   void *ret;
   pt = malloc(s * sizeof(pthread_t));
@@ -53,7 +54,7 @@ sort_columns(SORT_PROTO* p, uint s)
 static void
 display_columns(num_t **a, uint s, uint r)
 {
-  int i, j;
+  uint i, j;
   for (i = 0; i < s; ++i) {
     for (j = 0; j < r; ++j) {
       printf("%d ", a[i][j]);
@@ -69,15 +70,16 @@ columnsort(num_t **a, uint s, uint r)
   uint i, j, idx;
   SORT_PROTO *p;
   if (r % 2 != 0) {
-    fprintf(stderr, "invalid input: row %d is not even", r);
+    fprintf(stderr, "invalid input: row %d is not even.", r);
     exit(1);
   }
   if (r % s != 0) {
-    fprintf(stderr, "invalid input: column %d not divide row %d\n", s, r);
+    fprintf(stderr, "invalid input: column %d not divide row %d.\n", s, r);
     exit(1);
   }
   if (r < 2 * s * s) {
-    fprintf(stderr, "invalid input: row %d is not large enough to satisfy column %d\n", r, s);
+    fprintf(stderr, "invalid input: row %d is not large enough to satisfy column "
+            "%d.\n", r, s);
     exit(1);
   }
   p = malloc((s + 1) * sizeof(SORT_PROTO));
@@ -152,7 +154,7 @@ main(void)
   uint s, r, i, j, idx, n;
   num_t **a;
   num_t tmp;
-  srand(time(NULL));
+  srand((unsigned)time(NULL));
   s = 5;
   r = 100;
   n = s * r;
@@ -165,7 +167,7 @@ main(void)
   }
   for (i = 0; i < s; ++i) {
     for (j = 0; j < r; ++j) {
-      idx = rand() % (n - (i * r + j)) + i * r + j;
+      idx = (unsigned)rand() % (n - (i * r + j)) + i * r + j;
       tmp = a[i][j];
       a[i][j] = a[idx / r][idx % r];
       a[idx / r][idx % r] = tmp;

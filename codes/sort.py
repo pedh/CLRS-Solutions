@@ -1,71 +1,85 @@
+"""
+Sort.
+"""
+
 import random
-import sys
 
 
-def insertion_sort(lst):
-    le = len(lst)
-    for i in range(1, le):
-        k = lst[i]
-        while i > 0 and lst[i - 1] > k:
-            lst[i] = lst[i - 1]
+def insertion_sort(array):
+    """Insertion sort."""
+    length = len(array)
+    for i in range(1, length):
+        val = array[i]
+        while i > 0 and array[i - 1] > val:
+            array[i] = array[i - 1]
             i -= 1
-        lst[i] = k
-    return lst
+        array[i] = val
+    return array
 
 
-def selection_sort(lst):
-    le = len(lst)
-    for i in range(le - 1):
-        v = lst[i]
+def selection_sort(array):
+    """Selection sort."""
+    length = len(array)
+    for i in range(length - 1):
+        val = array[i]
         k = i
-        for j in range(i + 1, le):
-            if lst[j] < v:
+        for j in range(i + 1, length):
+            if array[j] < val:
                 k = j
-                v = lst[j]
-        lst[i], lst[k] = lst[k], lst[i]
-    return lst
+                val = array[j]
+        array[i], array[k] = array[k], array[i]
+    return array
 
 
-def merge_sort(a):
-    def merge(a, p, q, r):
-        ll = a[p: q + 1]
-        lr = a[q + 1: r + 1]
+def merge_sort(array):
+    """Merge sort."""
+    def merge(array, left, mid, right):
+        left_subarray = array[left: mid + 1]
+        right_subarray = array[mid + 1: right + 1]
         j = 0
         k = 0
-        for i in range(p, r + 1):
-            if j > q - p:
-                a[i: r + 1] = lr[k:]
+        for i in range(left, right + 1):
+            if j > mid - left:
+                array[i: right + 1] = right_subarray[k:]
                 break
-            elif k >= r - q:
-                a[i: r + 1] = ll[j:]
+            elif k >= right - mid:
+                array[i: right + 1] = left_subarray[j:]
                 break
-            if ll[j] <= lr[k]:
-                a[i] = ll[j]
+            if left_subarray[j] <= right_subarray[k]:
+                array[i] = left_subarray[j]
                 j += 1
             else:
-                a[i] = lr[k]
+                array[i] = right_subarray[k]
                 k += 1
 
-    def merge_rec(a, p, r):
-        if p >= r:
-            return a
-        q = (p + r) // 2
-        merge_rec(a, p, q)
-        merge_rec(a, q + 1, r)
-        merge(a, p, q, r)
-    a = merge_rec(a, 0, len(a) - 1)
-    return a
+    def merge_rec(array, left, right):
+        if left >= right:
+            return
+        mid = (left + right) // 2
+        merge_rec(array, left, mid)
+        merge_rec(array, mid + 1, right)
+        merge(array, left, mid, right)
+
+    merge_rec(array, 0, len(array) - 1)
+    return array
+
+
+def main():
+    """The main function."""
+    array = list(range(20))
+    random.shuffle(array)
+    print(array)
+    insertion_sort(array)
+    print(array)
+    random.shuffle(array)
+    print(array)
+    selection_sort(array)
+    print(array)
+    random.shuffle(array)
+    print(array)
+    merge_sort(array)
+    print(array)
 
 
 if __name__ == "__main__":
-    args = sys.argv
-    if len(args) != 2:
-        sys.exit(1)
-    func = globals().get(args[1])
-    if not func:
-        sys.exit(1)
-    lst = list(range(20))
-    random.shuffle(lst)
-    print(lst)
-    func(lst)
-    print(lst)
+    main()
