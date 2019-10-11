@@ -1,7 +1,12 @@
+"""
+Cartesian tree.
+"""
+
 import random
 
 
-class Node(object):
+class Node:
+    """Cartesian tree node."""
     def __init__(self, parent, left, right, data):
         self._parent = parent
         self._left = left
@@ -10,18 +15,22 @@ class Node(object):
 
     @property
     def parent(self):
+        """The parent node."""
         return self._parent
 
     @property
     def left(self):
+        """The left child node."""
         return self._left
 
     @property
     def right(self):
+        """The right child node."""
         return self._right
 
     @property
     def data(self):
+        """The data of the node."""
         return self._data
 
     @parent.setter
@@ -44,62 +53,71 @@ class Node(object):
         return "(%s %s %s)" % (self.data, self.left, self.right)
 
 
-def cartesian_tree_insert(cn, root, x):
-    if cn.data < x:
-        nn = Node(cn, None, None, x)
-        cn.right = nn
-        return nn, root
-    while cn.parent:
-        if cn.parent.data < x:
-            nn = Node(cn.parent, cn, None, x)
-            cn.parent.right = nn
-            cn.parent = nn
-            return nn, root
-        cn = cn.parent
-    nn = Node(None, cn, None, x)
-    cn.parent = nn
-    return nn, nn
+def cartesian_tree_insert(cur, root, val):
+    """Insert an element into the cartesian tree."""
+    if cur.data < val:
+        new = Node(cur, None, None, val)
+        cur.right = new
+        return new, root
+    while cur.parent:
+        if cur.parent.data < val:
+            new = Node(cur.parent, cur, None, val)
+            cur.parent.right = new
+            cur.parent = new
+            return new, root
+        cur = cur.parent
+    new = Node(None, cur, None, val)
+    cur.parent = new
+    return new, new
 
 
-def cartesian_tree(a):
-    if len(a) < 1:
+def cartesian_tree(array):
+    """Generate a cartesian tree from an array of elements."""
+    if not array:
         return None
-    cn = Node(None, None, None, a[0])
-    cta = [cn]
-    root = cn
-    for x in a[1:]:
-        cn, root = cartesian_tree_insert(cn, root, x)
-        cta.append(cn)
-    return root, cta
+    cur = Node(None, None, None, array[0])
+    nodes = [cur]
+    root = cur
+    for val in array[1:]:
+        cur, root = cartesian_tree_insert(cur, root, val)
+        nodes.append(cur)
+    return root, nodes
 
 
-def cartesian_tree_lca(n1, n2):
-    while n1 and n2:
-        if n1 == n2:
-            return n1
-        elif n1.data > n2.data:
-            n1 = n1.parent
+def cartesian_tree_lca(node1, node2):
+    """Lowest common ancestor of two nodes."""
+    while node1 and node2:
+        if node1 == node2:
+            return node1
+        if node1.data > node2.data:
+            node1 = node1.parent
         else:
-            n2 = n2.parent
+            node2 = node2.parent
     return None
 
 
-def range_minimum_query(cta, low, high):
-    lca = cartesian_tree_lca(cta[low], cta[high])
-    return lca.data if lca else lca
+def range_minimum_query(nodes, low, high):
+    """Range minimum query using cartesian tree."""
+    lca = cartesian_tree_lca(nodes[low], nodes[high])
+    return lca.data if lca else None
+
+
+def main():
+    """The main function."""
+    length = 20
+    array = list(range(length))
+    random.shuffle(array)
+    print(array, end='\n\n')
+    tree, nodes = cartesian_tree(array)
+    print(tree)
+    for _ in range(10):
+        low = random.randint(0, length - 2)
+        high = random.randint(low + 1, length - 1)
+        print(low, high)
+        print(range_minimum_query(nodes, low, high))
+        sub = array[low: high + 1]
+        print(min(sub), sub, end='\n\n')
 
 
 if __name__ == "__main__":
-    n = 20
-    a = list(range(20))
-    random.shuffle(a)
-    print(a, end='\n\n')
-    ct, cta = cartesian_tree(a)
-    # print(ct)
-    for _ in range(10):
-        low = random.randint(0, n - 2)
-        high = random.randint(low + 1, n - 1)
-        print(low, high)
-        print(range_minimum_query(cta, low, high))
-        slice = a[low: high + 1]
-        print(min(slice), slice, end='\n\n')
+    main()

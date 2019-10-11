@@ -1,18 +1,28 @@
+"""
+Complex multiplication.
+"""
+
 import random
 
 
-def cm(a, b, c, d):
-    s1 = (a - b) * (c + d)
-    s2 = (a + b) * (c - d)
-    s3 = b * c
-    p1 = (s1 + s2) / 2
-    p2 = (s1 - p1) + 2 * s3
-    return p1, p2
+def complex_multiply(real1, imag1, real2, imag2):
+    """Complex multiplication."""
+    sum1 = (real1 - imag1) * (real2 + imag2)
+    sum2 = (real1 + imag1) * (real2 - imag2)
+    sum3 = imag1 * real2
+    result_real = (sum1 + sum2) / 2
+    result_imag = (sum1 - result_real) + 2 * sum3
+    return result_real, result_imag
+
+
+def main():
+    """The main function."""
+    real1, imag1, real2, imag2 = (random.randint(-10, 10) for _ in range(4))
+    print(real1, imag1, real2, imag2)
+    result_real, result_imag = complex_multiply(real1, imag1, real2, imag2)
+    print(result_real, result_imag)
+    print(real1 * real2 - imag1 * imag2, real1 * imag2 + imag1 * real2)
 
 
 if __name__ == "__main__":
-    a, b, c, d = (random.randint(-10, 10) for _ in range(4))
-    print(a, b, c, d)
-    p1, p2 = cm(a, b, c, d)
-    print(p1, p2)
-    print(a * c - b * d, a * d + b * c)
+    main()

@@ -1,42 +1,53 @@
+"""
+Counting sort.
+"""
+
 import random
 
 
-def counting_sort(a, k, f):
-    c = [0] * k
-    b = [0] * len(a)
-    for i in a:
-        c[f(i)] += 1
-    for i in range(1, k):
-        c[i] += c[i - 1]
-    for i in range(len(a) - 1, -1, -1):
-        x = f(a[i])
-        b[c[x] - 1] = a[i]
-        c[x] -= 1
-    return b
+def counting_sort_non_stable(array, key_length, key_func):
+    """Non-stable counting sort."""
+    counts = [0] * key_length
+    result = [0] * len(array)
+    for i in array:
+        counts[key_func(i)] += 1
+    for i in range(1, key_length):
+        counts[i] += counts[i - 1]
+    for i in range(len(array) - 1, -1, -1):
+        key = key_func(array[i])
+        result[counts[key] - 1] = array[i]
+        counts[key] -= 1
+    return result
 
 
-def counting_sort_in_place(a, k, f):
-    c = [0] * k
-    for i in a:
-        c[f(i)] += 1
-    for i in range(1, k):
-        c[i] += c[i - 1]
-    i = len(a) - 1
+def counting_sort(array, key_length, key_func):
+    """Counting sort."""
+    counts = [0] * key_length
+    for i in array:
+        counts[key_func(i)] += 1
+    for i in range(1, key_length):
+        counts[i] += counts[i - 1]
+    i = len(array) - 1
     while i >= 0:
-        x = f(a[i])
-        pos = c[x] - 1
+        key = key_func(array[i])
+        pos = counts[key] - 1
         if i > pos:
             i -= 1
         else:
-            a[i], a[pos] = a[pos], a[i]
-            c[x] -= 1
+            array[i], array[pos] = array[pos], array[i]
+            counts[key] -= 1
+
+
+def main():
+    """The main function."""
+    array = list(range(20))
+    random.shuffle(array)
+    print(array)
+    result = counting_sort_non_stable(array, 3, lambda i: i % 3)
+    print(result)
+    counting_sort(array, 3, lambda i: i % 3)
+    print(array)
 
 
 if __name__ == "__main__":
-    a = list(range(20))
-    random.shuffle(a)
-    print(a)
-    b = counting_sort(a, 3, lambda i: i % 3)
-    print(b)
-    counting_sort_in_place(a, 3, lambda i: i % 3)
-    print(a)
+    main()

@@ -1,4 +1,10 @@
-class Node(object):
+"""
+Binary tree.
+"""
+
+
+class Node:
+    """Binary tree node."""
     def __init__(self, key, left=None, right=None):
         self._key = key
         self._left = left
@@ -6,14 +12,17 @@ class Node(object):
 
     @property
     def key(self):
+        """The key of the node."""
         return self._key
 
     @property
     def left(self):
+        """The left child node."""
         return self._left
 
     @property
     def right(self):
+        """The right child node."""
         return self._right
 
     @key.setter
@@ -32,151 +41,165 @@ class Node(object):
         return "(%s %s %s)" % (self.key, self.left, self.right)
 
 
-class Stack(object):
+class Stack:
+    """LIFO Stack."""
     def __init__(self):
-        self._a = list()
+        self._lst = list()
 
     def is_empty(self):
-        return not bool(self._a)
+        """Empty stack or not."""
+        return not bool(self._lst)
 
     def pop(self):
-        x = self._a[-1]
-        self._a = self._a[:-1]
-        return x
+        """Pop an element out from the top of the stack."""
+        val = self._lst[-1]
+        self._lst = self._lst[:-1]
+        return val
 
-    def push(self, x):
-        self._a.append(x)
+    def push(self, val):
+        """Push an element in the top of the stack."""
+        self._lst.append(val)
 
 
-def list_to_tree(a):
-    la = len(a)
-    if la == 0:
+def list_to_tree(lst):
+    """Convert a list into a binary tree."""
+    length = len(lst)
+    if length == 0:
         return None
-    if la == 1:
-        return Node(a[0])
-    m = (len(a) - 1) // 2
-    return Node(a[m], list_to_tree(a[:m]), list_to_tree(a[m + 1:]))
+    if length == 1:
+        return Node(lst[0])
+    mid = (length - 1) // 2
+    return Node(lst[mid], list_to_tree(lst[:mid]), list_to_tree(lst[mid + 1:]))
 
 
-def print_tree_pre_order(t):
-    if not t:
+def print_tree_pre_order(node):
+    """Recursively binary tree pre-order traversal."""
+    if not node:
         return
-    print(t.key, end=' ')
-    print_tree_pre_order(t.left)
-    print_tree_pre_order(t.right)
+    print(node.key, end=' ')
+    print_tree_pre_order(node.left)
+    print_tree_pre_order(node.right)
 
 
-def print_tree_in_order(t):
-    if not t:
+def print_tree_in_order(node):
+    """Recursively binary tree in-order traversal."""
+    if not node:
         return
-    print_tree_in_order(t.left)
-    print(t.key, end=' ')
-    print_tree_in_order(t.right)
+    print_tree_in_order(node.left)
+    print(node.key, end=' ')
+    print_tree_in_order(node.right)
 
 
-def print_tree_in_post_order(t):
-    if not t:
+def print_tree_in_post_order(node):
+    """Recursively binary tree post-order traversal."""
+    if not node:
         return
-    print_tree_in_post_order(t.left)
-    print_tree_in_post_order(t.right)
-    print(t.key, end=' ')
+    print_tree_in_post_order(node.left)
+    print_tree_in_post_order(node.right)
+    print(node.key, end=' ')
 
 
-def print_tree_in_pre_order_iter(t):
-    s = Stack()
-    s.push(t)
-    while not s.is_empty():
-        x = s.pop()
-        if x:
-            print(x.key, end=' ')
-            s.push(x.right)
-            s.push(x.left)
+def print_tree_in_pre_order_iter(node):
+    """Iteratively binary tree pre-order traversal."""
+    stack = Stack()
+    stack.push(node)
+    while not stack.is_empty():
+        current = stack.pop()
+        if current:
+            print(current.key, end=' ')
+            stack.push(current.right)
+            stack.push(current.left)
 
 
-def print_tree_in_order_iter(t):
-    if not t:
+def print_tree_in_order_iter(node):
+    """Iteratively binary tree in-order traversal."""
+    if not node:
         return
-    s = Stack()
-    s.push(t)
-    while not s.is_empty():
-        x = s.pop()
-        while x:
-            s.push(x)
-            x = x.left
-        if not s.is_empty():
-            x = s.pop()
-            print(x.key, end=' ')
-            s.push(x.right)
+    stack = Stack()
+    stack.push(node)
+    while not stack.is_empty():
+        current = stack.pop()
+        while current:
+            stack.push(current)
+            current = current.left
+        if not stack.is_empty():
+            prev = stack.pop()
+            print(prev.key, end=' ')
+            stack.push(prev.right)
 
 
-def print_tree_in_order_iter_no_stack(t):
-    """Morris Traversal"""
-    cur = t
+def print_tree_in_order_iter_no_stack(node):
+    """Morris Traversal."""
+    cur = node
     while cur:
         if not cur.left:
             print(cur.key, end=' ')
             cur = cur.right
         else:
-            x = cur.left
+            prev = cur.left
             while True:
-                if not x.right:
-                    x.right = cur
+                if not prev.right:
+                    prev.right = cur
                     cur = cur.left
                     break
-                elif x.right == cur:
-                    x.right = None
+                elif prev.right == cur:
+                    prev.right = None
                     print(cur.key, end=' ')
                     cur = cur.right
                     break
-                x = x.right
+                prev = prev.right
 
 
-def print_tree_in_pre_order_iter_no_stack(t):
-    """Morris Traversal"""
-    cur = t
+def print_tree_in_pre_order_iter_no_stack(node):
+    """Morris Traversal."""
+    cur = node
     while cur:
         if not cur.left:
             print(cur.key, end=' ')
             cur = cur.right
         else:
-            x = cur.left
+            prev = cur.left
             while True:
-                if not x.right:
-                    x.right = cur
+                if not prev.right:
+                    prev.right = cur
                     print(cur.key, end=' ')
                     cur = cur.left
                     break
-                elif x.right == cur:
-                    x.right = None
+                elif prev.right == cur:
+                    prev.right = None
                     cur = cur.right
                     break
-                x = x.right
+                prev = prev.right
+
+
+def main():
+    length = 20
+    lst = list(range(length))
+    print(lst, end='\n\n')
+    tree = list_to_tree(lst)
+    print(tree, end='\n\n')
+    print("recursion in pre-order")
+    print_tree_pre_order(tree)
+    print('\n')
+    print("recursion in order")
+    print_tree_in_order(tree)
+    print('\n')
+    print("recursion in post-order")
+    print_tree_in_post_order(tree)
+    print('\n')
+    print("iteration in pre-order")
+    print_tree_in_pre_order_iter(tree)
+    print('\n')
+    print("iteration in order")
+    print_tree_in_order_iter(tree)
+    print('\n')
+    print("iteration in pre-order without stack")
+    print_tree_in_pre_order_iter_no_stack(tree)
+    print('\n')
+    print("iteration in order without stack")
+    print_tree_in_order_iter_no_stack(tree)
+    print('\n')
 
 
 if __name__ == "__main__":
-    n = 20
-    a = list(range(n))
-    print(a, end='\n\n')
-    t = list_to_tree(a)
-    print(t, end='\n\n')
-    print("recursion in pre-order")
-    print_tree_pre_order(t)
-    print('\n')
-    print("recursion in order")
-    print_tree_in_order(t)
-    print('\n')
-    print("recursion in post-order")
-    print_tree_in_post_order(t)
-    print('\n')
-    print("iteration in pre-order")
-    print_tree_in_pre_order_iter(t)
-    print('\n')
-    print("iteration in order")
-    print_tree_in_order_iter(t)
-    print('\n')
-    print("iteration in pre-order without stack")
-    print_tree_in_pre_order_iter_no_stack(t)
-    print('\n')
-    print("iteration in order without stack")
-    print_tree_in_order_iter_no_stack(t)
-    print('\n')
+    main()

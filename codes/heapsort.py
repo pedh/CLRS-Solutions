@@ -1,38 +1,50 @@
+"""
+Heapsort.
+"""
+
 import random
 
 
-def max_heapify(a, i, hs):
-    li = 2 * i + 1
-    ri = 2 * i + 2
-    if li <= hs and a[li] > a[i]:
-        largest = li
+def max_heapify(heap, index, heap_size):
+    """Max-heapify."""
+    left_index = 2 * index + 1
+    right_index = 2 * index + 2
+    if left_index < heap_size and heap[left_index] > heap[index]:
+        largest = left_index
     else:
-        largest = i
-    if ri <= hs and a[ri] > a[largest]:
-        largest = ri
-    if largest != i:
-        a[i], a[largest] = a[largest], a[i]
-        max_heapify(a, largest, hs)
+        largest = index
+    if right_index < heap_size and heap[right_index] > heap[largest]:
+        largest = right_index
+    if largest != index:
+        heap[index], heap[largest] = heap[largest], heap[index]
+        max_heapify(heap, largest, heap_size)
 
 
-def build_max_heap(a, hs):
-    for i in range(len(a) // 2, -1, -1):
-        max_heapify(a, i, hs)
+def build_max_heap(heap, heap_size):
+    """Build max heap."""
+    for i in range(heap_size // 2 - 1, -1, -1):
+        max_heapify(heap, i, heap_size)
 
 
-def heapsort(a):
-    hs = len(a) - 1
-    build_max_heap(a, hs)
-    print(a)
-    for i in range(len(a) - 1, 0, -1):
-        a[0], a[i] = a[i], a[0]
-        hs -= 1
-        max_heapify(a, 0, hs)
+def heapsort(heap):
+    """Heapsort."""
+    heap_size = len(heap)
+    build_max_heap(heap, heap_size)
+    print(heap)
+    for i in range(len(heap) - 1, 0, -1):
+        heap[0], heap[i] = heap[i], heap[0]
+        heap_size -= 1
+        max_heapify(heap, 0, heap_size)
+
+
+def main():
+    """The main function."""
+    array = list(range(20))
+    random.shuffle(array)
+    print(array)
+    heapsort(array)
+    print(array)
 
 
 if __name__ == "__main__":
-    a = list(range(20))
-    random.shuffle(a)
-    print(a)
-    heapsort(a)
-    print(a)
+    main()
