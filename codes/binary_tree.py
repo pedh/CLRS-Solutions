@@ -173,6 +173,7 @@ def print_tree_in_pre_order_iter_no_stack(node):
 
 
 def main():
+    """The main function."""
     length = 20
     lst = list(range(length))
     print(lst, end='\n\n')

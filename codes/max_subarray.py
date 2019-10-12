@@ -1,35 +1,41 @@
+"""
+Maximum subarray.
+"""
+
 import math
 import random
 import time
 
 
-def max_cross_subarray(a, low, mid, high):
-    left_sum = -math.inf
+def max_cross_subarray(array, low, mid, high):
+    """Maximum subarray cross the middle."""
+    left_max_sum = -math.inf
     llow = None
-    sum = 0
+    left_sum = 0
     for i in range(mid, low - 1, -1):
-        sum += a[i]
-        if sum > left_sum:
-            left_sum = sum
+        left_sum += array[i]
+        if left_sum > left_max_sum:
+            left_max_sum = left_sum
             llow = i
-    right_sum = -math.inf
+    right_max_sum = -math.inf
     rhigh = None
-    sum = 0
+    right_sum = 0
     for i in range(mid + 1, high + 1):
-        sum += a[i]
-        if sum > right_sum:
-            right_sum = sum
+        right_max_sum += array[i]
+        if right_sum > right_max_sum:
+            right_max_sum = right_sum
             rhigh = i
-    return llow, rhigh, left_sum + right_sum
+    return llow, rhigh, left_max_sum + right_max_sum
 
 
-def max_subarray_rc(a, low, high):
+def max_subarray_rc(array, low, high):
+    """Maximum subarray recursion."""
     if high - low == 0:
-        return low, high, a[low]
+        return low, high, array[low]
     mid = (low + high) // 2
-    llow, lhigh, lsum = max_subarray_rc(a, low, mid)
-    rlow, rhigh, rsum = max_subarray_rc(a, mid + 1, high)
-    clow, chigh, csum = max_cross_subarray(a, low, mid, high)
+    llow, lhigh, lsum = max_subarray_rc(array, low, mid)
+    rlow, rhigh, rsum = max_subarray_rc(array, mid + 1, high)
+    clow, chigh, csum = max_cross_subarray(array, low, mid, high)
     if lsum >= rsum and lsum >= csum:
         return llow, lhigh, lsum
     if rsum >= lsum and rsum >= csum:
@@ -37,68 +43,75 @@ def max_subarray_rc(a, low, high):
     return clow, chigh, csum
 
 
-def max_subarray(a):
-    return max_subarray_rc(a, 0, len(a) - 1)
+def max_subarray(array):
+    """Maximum subarray."""
+    return max_subarray_rc(array, 0, len(array) - 1)
 
 
-def max_subarray_bf(a):
-    la = len(a)
+def max_subarray_bf(array):
+    """Maximum subarray brute-force."""
+    length = len(array)
     max_sum = -math.inf
     low = high = None
-    for i in range(la):
-        sum = 0
-        for j in range(i, la):
-            sum += a[j]
-            if sum > max_sum:
+    for i in range(length):
+        curr_sum = 0
+        for j in range(i, length):
+            curr_sum += array[j]
+            if curr_sum > max_sum:
                 low = i
                 high = j
-                max_sum = sum
+                max_sum = curr_sum
     return low, high, max_sum
 
 
-def maximum_subarray_linear(a):
-    if not a:
-        return
+def maximum_subarray_linear(array):
+    """Maximum subarray linear."""
+    if not array:
+        return None, None, None
     i = low = high = 0
-    c = s = a[0]
-    for j in range(1, len(a)):
-        if c < 0:
+    curr = max_sum = array[0]
+    for j in range(1, len(array)):
+        if curr < 0:
             i = j
-            c = a[j]
+            curr = array[j]
         else:
-            c += a[j]
-        if c > s:
-            s = c
+            curr += array[j]
+        if curr > max_sum:
+            max_sum = curr
             low = i
             high = j
-    return low, high, s
+    return low, high, max_sum
 
 
-def time_profile(f, *args, **kwargs):
+def time_profile(func, *args, **kwargs):
+    """Time profile helper."""
     start = time.time()
-    result = f(*args, **kwargs)
+    result = func(*args, **kwargs)
     elapsed = time.time() - start
     return elapsed, result
 
 
 def crossover_point():
+    """Get crossover point of recursion solution and brute-force."""
     for i in range(2, 100):
-        a = [random.randint(-20, 20) for _ in range(i)]
-        t1, result = time_profile(max_subarray, a)
-        t2, result = time_profile(max_subarray_bf, a)
-        if t1 < t2:
+        array = [random.randint(-20, 20) for _ in range(i)]
+        time1, _ = time_profile(max_subarray, array)
+        time2, _ = time_profile(max_subarray_bf, array)
+        if time1 < time2:
             return i
+    return None
 
 
-def max_subarray_rc_optimized(a, low, high, n0):
+def max_subarray_rc_optimized(array, low, high, cpoint):
+    """Maximum subarray recursion optimized."""
     if high - low == 0:
-        return a[low], low, high
-    if high - low < n0:
-        return max_subarray_bf(a[low: high + 1])
+        return array[low], low, high
+    if high - low < cpoint:
+        return max_subarray_bf(array[low: high + 1])
     mid = (low + high) // 2
-    llow, lhigh, lsum = max_subarray_rc_optimized(a, low, mid, n0)
-    rlow, rhigh, rsum = max_subarray_rc_optimized(a, mid + 1, high, n0)
-    clow, chigh, csum = max_cross_subarray(a, low, mid, high)
+    llow, lhigh, lsum = max_subarray_rc_optimized(array, low, mid, cpoint)
+    rlow, rhigh, rsum = max_subarray_rc_optimized(array, mid + 1, high, cpoint)
+    clow, chigh, csum = max_cross_subarray(array, low, mid, high)
     if lsum >= rsum and lsum >= csum:
         return llow, lhigh, lsum
     if rsum >= lsum and rsum >= csum:
@@ -106,32 +119,40 @@ def max_subarray_rc_optimized(a, low, high, n0):
     return clow, chigh, csum
 
 
-def max_subarray_optimized(a, n0):
-    return max_subarray_rc_optimized(a, 0, len(a) - 1, n0)
+def max_subarray_optimized(array, cpoint):
+    """Maximum subarray optimized."""
+    return max_subarray_rc_optimized(array, 0, len(array) - 1, cpoint)
 
 
-def new_crossover_point(n0):
+def new_crossover_point(cpoint):
+    """Get new crossover point."""
     for i in range(2, 100):
-        a = [random.randint(-20, 20) for _ in range(i)]
-        t1, result = time_profile(max_subarray_optimized, a, n0)
-        t2, result = time_profile(max_subarray_bf, a)
-        if t1 < t2:
+        array = [random.randint(-20, 20) for _ in range(i)]
+        time1, _ = time_profile(max_subarray_optimized, array, cpoint)
+        time2, _ = time_profile(max_subarray_bf, array)
+        if time1 < time2:
             return i
+    return None
 
 
 def test_crossover():
-    n0 = crossover_point()
+    """Test crossover."""
+    cpoint = crossover_point()
     print("The crossover point which recursive algotithm "
-          "beats brute-force algorithm is:", n0)
-    n = 40
-    a = [random.randint(-20, 20) for _ in range(n)]
-    print(time_profile(max_subarray, a))
-    print(time_profile(max_subarray_optimized, a, n0))
-    print("The new crossover point is:", new_crossover_point(n0))
+          "beats brute-force algorithm is:", cpoint)
+    array = [random.randint(-20, 20) for _ in range(40)]
+    print(time_profile(max_subarray, array))
+    print(time_profile(max_subarray_optimized, array, cpoint))
+    print("The new crossover point is:", new_crossover_point(cpoint))
+
+
+def main():
+    """The main function."""
+    # test_crossover()
+    array = [random.randint(-20, 20) for _ in range(20)]
+    print(array)
+    print(maximum_subarray_linear(array))
 
 
 if __name__ == "__main__":
-    # test_crossover()
-    a = [random.randint(-20, 20) for _ in range(20)]
-    print(a)
-    print(maximum_subarray_linear(a))
+    main()

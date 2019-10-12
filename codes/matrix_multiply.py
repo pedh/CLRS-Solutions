@@ -1,4 +1,12 @@
+# pylint: disable=too-many-locals, too-many-statements
+
+"""
+Matrix multiplication.
+"""
+
+
 class MatrixException(Exception):
+    """Matrix exception class."""
     message = "unknown matrix error"
 
     def __init__(self, msg, *args, **kwargs):
@@ -10,7 +18,8 @@ class MatrixException(Exception):
         return self.message
 
 
-class Matrix(object):
+class Matrix:
+    """Matrix class."""
     def __init__(self, lst, row, column):
         if len(lst) != row * column:
             raise MatrixException("bad matrix: length %(length)s, row %(row)s,"
@@ -18,163 +27,174 @@ class Matrix(object):
                                   length=len(lst),
                                   row=row,
                                   column=column)
-        self.v = lst
-        self.r = row
-        self.c = column
+        self.lst = lst
+        self.row = row
+        self.column = column
 
     def __repr__(self):
         return "\n".join(
             (" ".join(str(val)
-                      for val in self.v[r * self.c: (r + 1) * self.c]))
-            for r in range(self.r))
+                      for val
+                      in self.lst[i * self.column: (i + 1) * self.column]))
+            for i in range(self.row))
 
-    def value(self, r, c):
-        idx = r * self.c + c
-        if idx >= len(self.v):
+    def value(self, row, column):
+        """The value of element indexed by specified row and column."""
+        idx = row * self.column + column
+        if idx >= len(self.lst):
             raise MatrixException("out of range: row %(row)s, column "
-                                  "%(column)s", row=r, column=c)
-        return self.v[idx]
+                                  "%(column)s", row=row, column=column)
+        return self.lst[idx]
 
-    def update(self, r, c, val):
-        idx = r * self.c + c
-        if idx >= len(self.v):
+    def update(self, row, column, val):
+        """Update the value of element indexed by specified row and column."""
+        idx = row * self.column + column
+        if idx >= len(self.lst):
             raise MatrixException("out of range: row %(row)s, column "
-                                  "%(column)s", row=r, column=c)
-        self.v[idx] = val
+                                  "%(column)s", row=row, column=column)
+        self.lst[idx] = val
 
-    def __mul__(self, m):
-        if self.c != m.r:
+    def __mul__(self, mtx):
+        if self.column != mtx.row:
             raise MatrixException("Invalid Matrix multiplication: "
                                   "(%(row)s*%(column)s) matrix * "
                                   "(%(mrow)s*%(mcolumn)s) matrix",
-                                  row=self.r,
-                                  column=self.c,
-                                  mrow=m.r,
-                                  mcolumn=m.c)
-        pv = [0] * (self.r * m.c)
-        for i in range(self.r):
-            for j in range(m.c):
+                                  row=self.row,
+                                  column=self.column,
+                                  mrow=mtx.row,
+                                  mcolumn=mtx.column)
+        p_lst = [0] * (self.row * mtx.column)
+        for i in range(self.row):
+            for j in range(mtx.column):
                 val = 0
-                for k in range(self.c):
-                    val += self.value(i, k) * m.value(k, j)
-                pv[i * self.c + j] = val
-        return Matrix(pv, self.r, m.c)
+                for k in range(self.column):
+                    val += self.value(i, k) * mtx.value(k, j)
+                p_lst[i * self.column + j] = val
+        return Matrix(p_lst, self.row, mtx.column)
 
-    def __add__(self, m):
-        if self.r != m.r or self.c != m.c:
+    def __add__(self, mtx):
+        if self.row != mtx.row or self.column != mtx.column:
             raise MatrixException("Invalid Matrix addition: "
                                   "(%(row)s*%(column)s) matrix + "
                                   "(%(mrow)s*%(mcolumn)s) matrix",
-                                  row=self.r,
-                                  column=self.c,
-                                  mrow=m.r,
-                                  mcolumn=m.c)
-        pv = [0] * (self.r * self.c)
-        for i in range(self.r):
-            for j in range(self.c):
-                pv[i * self.c + j] = self.value(i, j) + m.value(i, j)
-        return Matrix(pv, self.r, self.c)
+                                  row=self.row,
+                                  column=self.column,
+                                  mrow=mtx.row,
+                                  mcolumn=mtx.column)
+        s_lst = [0] * (self.row * self.column)
+        for i in range(self.row):
+            for j in range(self.column):
+                s_lst[i * self.column + j] = self.value(i, j) + mtx.value(i, j)
+        return Matrix(s_lst, self.row, self.column)
 
-    def __sub__(self, m):
-        if self.r != m.r or self.c != m.c:
+    def __sub__(self, mtx):
+        if self.row != mtx.row or self.column != mtx.column:
             raise MatrixException("Invalid Matrix addition: "
                                   "(%(row)s*%(column)s) matrix + "
                                   "(%(mrow)s*%(mcolumn)s) matrix",
-                                  row=self.r,
-                                  column=self.c,
-                                  mrow=m.r,
-                                  mcolumn=m.c)
-        pv = [0] * (self.r * self.c)
-        for i in range(self.r):
-            for j in range(self.c):
-                pv[i * self.c + j] = self.value(i, j) - m.value(i, j)
-        return Matrix(pv, self.r, self.c)
+                                  row=self.row,
+                                  column=self.column,
+                                  mrow=mtx.row,
+                                  mcolumn=mtx.column)
+        d_lst = [0] * (self.row * self.column)
+        for i in range(self.row):
+            for j in range(self.column):
+                d_lst[i * self.column + j] = self.value(i, j) - mtx.value(i, j)
+        return Matrix(d_lst, self.row, self.column)
 
 
-def sub_matrix(m, r0, c0, rl, cl):
-    lst = [m.value(i, j)
-           for i in range(r0, r0 + rl)
-           for j in range(c0, c0 + cl)]
-    return Matrix(lst, rl, cl)
+def submatrix(mtx, row_base, column_base, row_count, column_count):
+    """Submatrix."""
+    lst = [mtx.value(i, j)
+           for i in range(row_base, row_base + row_count)
+           for j in range(column_base, column_base + column_count)]
+    return Matrix(lst, row_count, column_count)
 
 
-def add_zero_edge_matrix(m):
-    lst = [0] * (m.c + 1)
-    for i in range(m.r):
+def add_zero_edge_matrix(mtx):
+    """Add an zero edge to the matrix."""
+    lst = [0] * (mtx.column + 1)
+    for i in range(mtx.row):
         lst.append(0)
-        lst += m.v[i * m.c: (i + 1) * m.c]
-    return Matrix(lst, m.r + 1, m.c + 1)
+        lst += mtx.lst[i * mtx.column: (i + 1) * mtx.column]
+    return Matrix(lst, mtx.row + 1, mtx.column + 1)
 
 
-def sm(m1, m2):
-    if not(m1.r == m1.c == m2.r == m2.c):
+def strassen_method(mtx1, mtx2):
+    """Strassen's method of matrix multiplication."""
+    if not mtx1.row == mtx1.column == mtx2.row == mtx2.column:
         return None
-    n = m1.r
-    if n < 3:
-        return m1 * m2
-    is_even_matrix = not n % 2
+    size = mtx1.row
+    if size < 3:
+        return mtx1 * mtx2
+    is_even_matrix = not size % 2
     if not is_even_matrix:
-        n += 1
-        m1 = add_zero_edge_matrix(m1)
-        m2 = add_zero_edge_matrix(m2)
-    hn = n // 2
-    m111 = sub_matrix(m1, 0, 0, hn, hn)
-    m112 = sub_matrix(m1, 0, hn, hn, hn)
-    m121 = sub_matrix(m1, hn, 0, hn, hn)
-    m122 = sub_matrix(m1, hn, hn, hn, hn)
-    m211 = sub_matrix(m2, 0, 0, hn, hn)
-    m212 = sub_matrix(m2, 0, hn, hn, hn)
-    m221 = sub_matrix(m2, hn, 0, hn, hn)
-    m222 = sub_matrix(m2, hn, hn, hn, hn)
-    s1 = m212 - m222
-    s2 = m111 + m112
-    s3 = m121 + m122
-    s4 = m221 - m211
-    s5 = m111 + m122
-    s6 = m211 + m222
-    s7 = m112 - m122
-    s8 = m221 + m222
-    s9 = m111 - m121
-    s10 = m211 + m212
-    p1 = sm(m111, s1)
-    p2 = sm(s2, m222)
-    p3 = sm(s3, m211)
-    p4 = sm(m122, s4)
-    p5 = sm(s5, s6)
-    p6 = sm(s7, s8)
-    p7 = sm(s9, s10)
-    p11 = p5 + p4 - p2 + p6
-    p12 = p1 + p2
-    p21 = p3 + p4
-    p22 = p5 + p1 - p3 - p7
-    v = [0] * n * n
-    for i in range(n):
-        for j in range(n):
-            idx = i * n + j
-            if i < hn:
-                if j < hn:
-                    v[idx] = p11.value(i, j)
+        # The size of matrix is not even.
+        size += 1
+        mtx1 = add_zero_edge_matrix(mtx1)
+        mtx2 = add_zero_edge_matrix(mtx2)
+    mid = size // 2
+    mtx111 = submatrix(mtx1, 0, 0, mid, mid)
+    mtx112 = submatrix(mtx1, 0, mid, mid, mid)
+    mtx121 = submatrix(mtx1, mid, 0, mid, mid)
+    mtx122 = submatrix(mtx1, mid, mid, mid, mid)
+    mtx211 = submatrix(mtx2, 0, 0, mid, mid)
+    mtx212 = submatrix(mtx2, 0, mid, mid, mid)
+    mtx221 = submatrix(mtx2, mid, 0, mid, mid)
+    mtx222 = submatrix(mtx2, mid, mid, mid, mid)
+    sum1 = mtx212 - mtx222
+    sum2 = mtx111 + mtx112
+    sum3 = mtx121 + mtx122
+    sum4 = mtx221 - mtx211
+    sum5 = mtx111 + mtx122
+    sum6 = mtx211 + mtx222
+    sum7 = mtx112 - mtx122
+    sum8 = mtx221 + mtx222
+    sum9 = mtx111 - mtx121
+    sum10 = mtx211 + mtx212
+    product1 = strassen_method(mtx111, sum1)
+    product2 = strassen_method(sum2, mtx222)
+    product3 = strassen_method(sum3, mtx211)
+    product4 = strassen_method(mtx122, sum4)
+    product5 = strassen_method(sum5, sum6)
+    product6 = strassen_method(sum7, sum8)
+    product7 = strassen_method(sum9, sum10)
+    product11 = product5 + product4 - product2 + product6
+    product12 = product1 + product2
+    product21 = product3 + product4
+    product22 = product5 + product1 - product3 - product7
+    lst = [0] * size * size
+    for i in range(size):
+        for j in range(size):
+            idx = i * size + j
+            if i < mid:
+                if j < mid:
+                    lst[idx] = product11.value(i, j)
                 else:
-                    v[idx] = p12.value(i, j - hn)
+                    lst[idx] = product12.value(i, j - mid)
             else:
-                if j < hn:
-                    v[idx] = p21.value(i - hn, j)
+                if j < mid:
+                    lst[idx] = product21.value(i - mid, j)
                 else:
-                    v[idx] = p22.value(i - hn, j - hn)
-    m = Matrix(v, n, n)
+                    lst[idx] = product22.value(i - mid, j - mid)
+    mtx = Matrix(lst, size, size)
     if is_even_matrix:
-        return m
-    return sub_matrix(m, 1, 1, n - 1, n - 1)
+        return mtx
+    return submatrix(mtx, 1, 1, size - 1, size - 1)
 
 
 def main():
-    n = 9
-    mx = Matrix(list(range(n * n)), n, n)
-    mx1 = Matrix(list(range(10, n * n + 10)), n, n)
-    print(mx)
-    print(mx1)
-    print(mx * mx1)
-    print(sm(mx, mx1))
+    """The main function."""
+    size = 9
+    mtx1 = Matrix(list(range(size * size)), size, size)
+    mtx2 = Matrix(list(range(10, size * size + 10)), size, size)
+    print(mtx1)
+    print()
+    print(mtx2)
+    print()
+    print(mtx1 * mtx2)
+    print()
+    print(strassen_method(mtx1, mtx2))
 
 
 if __name__ == "__main__":

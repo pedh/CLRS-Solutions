@@ -1,37 +1,49 @@
+"""
+Simple selection.
+"""
+
 import random
 
 
-def partition(a, p, r):
-    x = a[r]
-    i = p - 1
-    for j in range(p, r):
-        if a[j] < x:
+def partition(array, left, right):
+    """Selection partition."""
+    pivot = array[right]
+    i = left - 1
+    for j in range(left, right):
+        if array[j] < pivot:
             i += 1
-            a[i], a[j] = a[j], a[i]
-    a[r], a[i + 1] = a[i + 1], a[r]
+            array[i], array[j] = array[j], array[i]
+    array[right], array[i + 1] = array[i + 1], array[right]
     return i + 1
 
 
-def select_r(a, p, r, i):
-    if p == r:
-        return a[p]
-    q = partition(a, p, r)
-    k = q - p + 1
+def select_r(array, left, right, i):
+    """Selection recursion."""
+    if left == right:
+        return array[left]
+    pivot_i = partition(array, left, right)
+    k = pivot_i - left + 1
     if i == k:
-        return a[q]
-    elif i < k:
-        return select_r(a, p, q - 1, i)
-    return select_r(a, q + 1, r, i - k)
+        return array[pivot_i]
+    if i < k:
+        return select_r(array, left, pivot_i - 1, i)
+    return select_r(array, pivot_i + 1, right, i - k)
 
 
-def select(a, i):
-    return select_r(a, 0, len(a) - 1, i)
+def select(array, i):
+    """Selection."""
+    return select_r(array, 0, len(array) - 1, i)
+
+
+def main():
+    """The main function."""
+    length = 20
+    array = list(range(1, length + 1))
+    random.shuffle(array)
+    print(array)
+    i = random.randint(1, length)
+    print("The %dth element is %d" % (i, select(array, i)))
 
 
 if __name__ == "__main__":
-    n = 20
-    a = list(range(1, n + 1))
-    random.shuffle(a)
-    print(a)
-    i = random.randint(1, n)
-    print("The %dth element is %d" % (i, select(a, i)))
+    main()
