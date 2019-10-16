@@ -2,17 +2,46 @@
 
 * ch7.4
 ** 7.4-1
+   We have
+   \begin{align*}
+   T(n)
+   &=\max_{0\leq q\leq n-1}(T(q)+T(n-q-1))+\Theta(n)\\
+   &\geq T(0)+T(n-1)+\Theta(n) &,\ q=0\\
+   &=\Omega(n^2)
+   \end{align*}
 ** 7.4-2
+   The best-case running time of quicksort is \(T(n) = 2T(n/2) + \Theta(n)\),
+   by the master theorem, we know it's \(\Theta(n\lg n)\).
 ** 7.4-3
+   Let \(f(q) = q^2 + (n - q - 1)^2\), then \(f''(q) = 4\), thus f(q) is a
+   strict convex, and \(f(0) = f(n - 1) = (n - 1)^2\), hence the expression
+   achieves a maximum when \(q = 0\) or \(q = n - 1\).
 ** 7.4-4
+   The expected running time is
+   \begin{align*}
+   E[X]
+   &=\sum_{i=1}^{n-1}\sum_{k=1}^{n-i}\frac{2}{k+1}\\
+   &>\sum_{i=1}^{n/2}\sum_{k=1}^{n/2}\frac{1}{k}\\
+   &=\Omega(n\lg n)
+   \end{align*}
 ** 7.4-5
-   - quicksort until k elements: \(T(n) = O(n\lg(n/k))\)
+   Using the improved quicksort, first we perform quicksort until the size of
+   the subarrays are smaller than k, it costs \(O(n\lg(n/k))\) running time in
+   this step, then we perform insertion sort on \(n/k\) k-sized subarray, the
+   running time is \(O(nk)\), the total running time is \(O(nk + n\lg(n/k))\).
 
-     insertion-sort of quicksorted array: \(T(n) = n / k * O(k^2) = O(nk)\)
+   In theory, if we ignore the constant factors, then we should pick k that
+   satisfies the condition \(nk + n\lg(n/k) < n\lg n\), which is impossible.
 
-     total expected running time is \(T(n) = O(n\lg(n/k) + nk)\)
-   - k should satisfies \(k / \lg{k} < c\) (some constant)
+   In practice, we should consider the constant factors, and pick k that
+   satisfies the condition \(c_1 nk + c_2 n\lg(n/k) < c_2 n\lg n\).
+
 ** 7.4-6
-   let \(\alpha < 1/2\), else use \(1 - \alpha\) as \(\alpha\)
-
-   Pr = \(2(3\alpha^2(1 - \alpha) + \alpha^3))\) = \(6\alpha^2 - 4\alpha^3\)
+   Assume \(\alpha \leq 1/2\), else substitude \(\alpha\) with \(1 - \alpha\),
+   the probability of getting at worst an \(\alpha\)-to-\((1-\alpha)\) split is
+   \begin{align*}
+   \Pr\{\text{at worst an $\alpha$-to-$(1-\alpha)$ split}\}
+   &=1-\Pr\{\text{worse than $\alpha$-to-$(1-\alpha)$ split}\}\\
+   &=1-2(\binom{3}{3}\alpha^3+\binom{3}{2}\alpha^2(1-\alpha))\\
+   &=1-6\alpha^2+4\alpha^3 &,\ \alpha \leq 1/2
+   \end{align*}
