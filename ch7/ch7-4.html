@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-10-12 Sat 09:22 -->
+<!-- 2019-10-16 Wed 09:55 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 7.4</title>
@@ -333,58 +333,86 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org394dd64">ch7.4</a>
+<li><a href="#org6452add">ch7.4</a>
 <ul>
-<li><a href="#org00b91fc">7.4-1</a></li>
-<li><a href="#org3a81c6e">7.4-2</a></li>
-<li><a href="#orgdcded5c">7.4-3</a></li>
-<li><a href="#orgaaebc53">7.4-4</a></li>
-<li><a href="#org9ba65c1">7.4-5</a></li>
-<li><a href="#orgb23f9b4">7.4-6</a></li>
+<li><a href="#org6169b0a">7.4-1</a></li>
+<li><a href="#orgf5cf7f2">7.4-2</a></li>
+<li><a href="#org0064835">7.4-3</a></li>
+<li><a href="#orge995fdc">7.4-4</a></li>
+<li><a href="#orgf5d188d"><span class="todo TODO">TODO</span> 7.4-5</a></li>
+<li><a href="#orga34d55d"><span class="todo TODO">TODO</span> 7.4-6</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org394dd64" class="outline-2">
-<h2 id="org394dd64">ch7.4</h2>
-<div class="outline-text-2" id="text-org394dd64">
+<div id="outline-container-org6452add" class="outline-2">
+<h2 id="org6452add">ch7.4</h2>
+<div class="outline-text-2" id="text-org6452add">
 </div>
-<div id="outline-container-org00b91fc" class="outline-3">
-<h3 id="org00b91fc">7.4-1</h3>
-</div>
-<div id="outline-container-org3a81c6e" class="outline-3">
-<h3 id="org3a81c6e">7.4-2</h3>
-</div>
-<div id="outline-container-orgdcded5c" class="outline-3">
-<h3 id="orgdcded5c">7.4-3</h3>
-</div>
-<div id="outline-container-orgaaebc53" class="outline-3">
-<h3 id="orgaaebc53">7.4-4</h3>
-</div>
-<div id="outline-container-org9ba65c1" class="outline-3">
-<h3 id="org9ba65c1">7.4-5</h3>
-<div class="outline-text-3" id="text-org9ba65c1">
-<ul class="org-ul">
-<li><p>
-quicksort until k elements: \(T(n) = O(n\lg(n/k))\)
-</p>
-
+<div id="outline-container-org6169b0a" class="outline-3">
+<h3 id="org6169b0a">7.4-1</h3>
+<div class="outline-text-3" id="text-org6169b0a">
 <p>
-insertion-sort of quicksorted array: \(T(n) = n / k * O(k^2) = O(nk)\)
+We have
 </p>
-
+\begin{align*}
+T(n)
+&=\max_{0\leq q\leq n-1}(T(q)+T(n-q-1))+\Theta(n)\\
+&\geq T(0)+T(n-1)+\Theta(n) &,\ q=0\\
+&=\Omega(n^2)
+\end{align*}
+</div>
+</div>
+<div id="outline-container-orgf5cf7f2" class="outline-3">
+<h3 id="orgf5cf7f2">7.4-2</h3>
+<div class="outline-text-3" id="text-orgf5cf7f2">
 <p>
-total expected running time is \(T(n) = O(n\lg(n/k) + nk)\)
-</p></li>
-<li>k should satisfies \(k / \lg{k} < c\) (some constant)</li>
-</ul>
+The best-case running time of quicksort is \(T(n) = 2T(n/2) + \Theta(n)\),
+by the master theorem, we know it's \(\Theta(n\lg n)\).
+</p>
 </div>
 </div>
-<div id="outline-container-orgb23f9b4" class="outline-3">
-<h3 id="orgb23f9b4">7.4-6</h3>
-<div class="outline-text-3" id="text-orgb23f9b4">
+<div id="outline-container-org0064835" class="outline-3">
+<h3 id="org0064835">7.4-3</h3>
+<div class="outline-text-3" id="text-org0064835">
+<p>
+Let \(f(q) = q^2 + (n - q - 1)^2\), then \(f''(q) = 4\), thus f(q) is a
+strict convex, and \(f(0) = f(n - 1) = (n - 1)^2\), hence the expression
+achieves a maximum when \(q = 0\) or \(q = n - 1\).
+</p>
+</div>
+</div>
+<div id="outline-container-orge995fdc" class="outline-3">
+<h3 id="orge995fdc">7.4-4</h3>
+<div class="outline-text-3" id="text-orge995fdc">
+<p>
+The expected running time is
+</p>
+\begin{align*}
+E[X]
+&=\sum_{i=1}^{n-1}\sum_{k=1}^{n-i}\frac{2}{k+1}\\
+&>\sum_{i=1}^{n/2}\sum_{k=1}^{n/2}\frac{1}{k}\\
+&=\Omega(n\lg n)
+\end{align*}
+</div>
+</div>
+<div id="outline-container-orgf5d188d" class="outline-3">
+<h3 id="orgf5d188d"><span class="todo TODO">TODO</span> 7.4-5</h3>
+<div class="outline-text-3" id="text-orgf5d188d">
+<p>
+Using the improved quicksort, first we perform quicksort until the size of
+the subarrays are smaller than k, it costs \(O(n\lg(n/k))\) running time in
+this step, then we perform insertion sort on \(n/k\) k-sized subarray, the
+running time is \(O(nk)\), the total running time is \(O(nk + n\lg(n/k))\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga34d55d" class="outline-3">
+<h3 id="orga34d55d"><span class="todo TODO">TODO</span> 7.4-6</h3>
+<div class="outline-text-3" id="text-orga34d55d">
 <p>
 let \(\alpha < 1/2\), else use \(1 - \alpha\) as \(\alpha\)
 </p>
@@ -398,7 +426,7 @@ Pr = \(2(3\alpha^2(1 - \alpha) + \alpha^3))\) = \(6\alpha^2 - 4\alpha^3\)
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2019-10-12 Sat 09:22</p>
+<p class="date">Created: 2019-10-16 Wed 09:55</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
