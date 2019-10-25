@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-10-16 Wed 09:55 -->
+<!-- 2019-10-25 Fri 09:21 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 7.4</title>
@@ -333,27 +333,27 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org6452add">ch7.4</a>
+<li><a href="#org2e586f9">ch7.4</a>
 <ul>
-<li><a href="#org6169b0a">7.4-1</a></li>
-<li><a href="#orgf5cf7f2">7.4-2</a></li>
-<li><a href="#org0064835">7.4-3</a></li>
-<li><a href="#orge995fdc">7.4-4</a></li>
-<li><a href="#orgf5d188d"><span class="todo TODO">TODO</span> 7.4-5</a></li>
-<li><a href="#orga34d55d"><span class="todo TODO">TODO</span> 7.4-6</a></li>
+<li><a href="#org42c7ec2">7.4-1</a></li>
+<li><a href="#org044a71f">7.4-2</a></li>
+<li><a href="#org9b81396">7.4-3</a></li>
+<li><a href="#org6e5ca14">7.4-4</a></li>
+<li><a href="#org055bf65">7.4-5</a></li>
+<li><a href="#org902cbae">7.4-6</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org6452add" class="outline-2">
-<h2 id="org6452add">ch7.4</h2>
-<div class="outline-text-2" id="text-org6452add">
+<div id="outline-container-org2e586f9" class="outline-2">
+<h2 id="org2e586f9">ch7.4</h2>
+<div class="outline-text-2" id="text-org2e586f9">
 </div>
-<div id="outline-container-org6169b0a" class="outline-3">
-<h3 id="org6169b0a">7.4-1</h3>
-<div class="outline-text-3" id="text-org6169b0a">
+<div id="outline-container-org42c7ec2" class="outline-3">
+<h3 id="org42c7ec2">7.4-1</h3>
+<div class="outline-text-3" id="text-org42c7ec2">
 <p>
 We have
 </p>
@@ -365,18 +365,18 @@ T(n)
 \end{align*}
 </div>
 </div>
-<div id="outline-container-orgf5cf7f2" class="outline-3">
-<h3 id="orgf5cf7f2">7.4-2</h3>
-<div class="outline-text-3" id="text-orgf5cf7f2">
+<div id="outline-container-org044a71f" class="outline-3">
+<h3 id="org044a71f">7.4-2</h3>
+<div class="outline-text-3" id="text-org044a71f">
 <p>
 The best-case running time of quicksort is \(T(n) = 2T(n/2) + \Theta(n)\),
 by the master theorem, we know it's \(\Theta(n\lg n)\).
 </p>
 </div>
 </div>
-<div id="outline-container-org0064835" class="outline-3">
-<h3 id="org0064835">7.4-3</h3>
-<div class="outline-text-3" id="text-org0064835">
+<div id="outline-container-org9b81396" class="outline-3">
+<h3 id="org9b81396">7.4-3</h3>
+<div class="outline-text-3" id="text-org9b81396">
 <p>
 Let \(f(q) = q^2 + (n - q - 1)^2\), then \(f''(q) = 4\), thus f(q) is a
 strict convex, and \(f(0) = f(n - 1) = (n - 1)^2\), hence the expression
@@ -384,9 +384,9 @@ achieves a maximum when \(q = 0\) or \(q = n - 1\).
 </p>
 </div>
 </div>
-<div id="outline-container-orge995fdc" class="outline-3">
-<h3 id="orge995fdc">7.4-4</h3>
-<div class="outline-text-3" id="text-orge995fdc">
+<div id="outline-container-org6e5ca14" class="outline-3">
+<h3 id="org6e5ca14">7.4-4</h3>
+<div class="outline-text-3" id="text-org6e5ca14">
 <p>
 The expected running time is
 </p>
@@ -398,35 +398,48 @@ E[X]
 \end{align*}
 </div>
 </div>
-<div id="outline-container-orgf5d188d" class="outline-3">
-<h3 id="orgf5d188d"><span class="todo TODO">TODO</span> 7.4-5</h3>
-<div class="outline-text-3" id="text-orgf5d188d">
+<div id="outline-container-org055bf65" class="outline-3">
+<h3 id="org055bf65">7.4-5</h3>
+<div class="outline-text-3" id="text-org055bf65">
 <p>
 Using the improved quicksort, first we perform quicksort until the size of
 the subarrays are smaller than k, it costs \(O(n\lg(n/k))\) running time in
 this step, then we perform insertion sort on \(n/k\) k-sized subarray, the
 running time is \(O(nk)\), the total running time is \(O(nk + n\lg(n/k))\).
 </p>
-</div>
-</div>
 
-<div id="outline-container-orga34d55d" class="outline-3">
-<h3 id="orga34d55d"><span class="todo TODO">TODO</span> 7.4-6</h3>
-<div class="outline-text-3" id="text-orga34d55d">
 <p>
-let \(\alpha < 1/2\), else use \(1 - \alpha\) as \(\alpha\)
+In theory, if we ignore the constant factors, then we should pick k that
+satisfies the condition \(nk + n\lg(n/k) < n\lg n\), which is impossible.
 </p>
 
 <p>
-Pr = \(2(3\alpha^2(1 - \alpha) + \alpha^3))\) = \(6\alpha^2 - 4\alpha^3\)
+In practice, we should consider the constant factors, and pick k that
+satisfies the condition \(c_1 nk + c_2 n\lg(n/k) < c_2 n\lg n\).
 </p>
+</div>
+</div>
+
+<div id="outline-container-org902cbae" class="outline-3">
+<h3 id="org902cbae">7.4-6</h3>
+<div class="outline-text-3" id="text-org902cbae">
+<p>
+Assume \(\alpha \leq 1/2\), else substitude \(\alpha\) with \(1 - \alpha\),
+the probability of getting at worst an \(\alpha\)-to-\((1-\alpha)\) split is
+</p>
+\begin{align*}
+\Pr\{\text{at worst an $\alpha$-to-$(1-\alpha)$ split}\}
+&=1-\Pr\{\text{worse than $\alpha$-to-$(1-\alpha)$ split}\}\\
+&=1-2(\binom{3}{3}\alpha^3+\binom{3}{2}\alpha^2(1-\alpha))\\
+&=1-6\alpha^2+4\alpha^3 &,\ \alpha \leq 1/2
+\end{align*}
 </div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2019-10-16 Wed 09:55</p>
+<p class="date">Created: 2019-10-25 Fri 09:21</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
