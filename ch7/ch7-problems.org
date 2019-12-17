@@ -2,180 +2,265 @@
 
 * ch7-problems
 ** 7-1
-   1. omitted
-   2. A[p..i] and A[j..q] is the elements already accessed, A[i..j] is the
-      elements never accessed.
-   3. \(p - 1 \leq i < j < r\)
-   4. \(A[p..j] \leq x\) and \(A[j + 1..r] \geq x\)
-   5. QUICKSORT(A, p, r)
-      #+BEGIN_SRC
-      QUICKSORT(A, p, r)
-          if p < r
-              q = HOARE-PARTITION(A, p, r)
-              QUICKSORT(A, p, q)
-              QUICKSORT(A, q + 1, r)
-      #+END_SRC
+   - *a.*
+
+     #+BEGIN_SRC
+        A = (13 19 9 5 12 8 7 4 11 2 6 21), x = 13, p = 1, r = 12, i = 0, j = 13
+     -> A = (6 19 9 5 12 8 7 4 11 2 13 21), i = 1, j = 11
+     -> A = (6 13 9 5 12 8 7 4 11 2 19 21), i = 2, j = 11
+     -> A = (6 2 9 5 12 8 7 4 11 13 19 21), i = 2, j = 10
+     -> A = (6 2 9 5 12 8 7 4 11 13 19 21), return 10
+     #+END_SRC
+   - *b.*
+
+     We start with \(i = p - 1\) and \(j = r + 1\), then we keep increasing i
+     and decreasing j until \(i \geq j\), thus we never access an element of A
+     outside the subarray A[p..r].
+   - *c.*
+
+     We terminated when \(i \geq j\), and we know that at least one exchange
+     happens, thus the procedure returns a value j such that \(p \leq j < r\).
+   - *d.*
+
+     When the procedure terminates, we have \(A[p..j] \leq x \leq A[j+1..r]\).
+   - *e.*
+
+     #+BEGIN_SRC
+     HOARE-QUICKSORT(A, p, r)
+         if p < r
+             q = HOARE-PARTITION(A, p, r)
+             HOARE-QUICKSORT(A, p, q)
+             HOARE-QUICKSORT(A, q + 1, r)
+     #+END_SRC
 ** 7-2
-   1. \(O(n^2)\)
-   2. PARTITION'(A, p, r)
-      #+BEGIN_SRC
-      PARTITION'(A, p, r)
-          x = P[r]
-          i = j = p - 1
-          for k = p to r - 1
-              if A[k] < x
-                  i = i + 1
-                  j = j + 1
-                  y = A[j]
-                  A[j] = A[i]
-                  A[i] = A[k]
-                  A[k] = y
-              else if A[k] == x:
-                  j = j + 1
-                  exchange A[j] with A[k]
-          exchange A[r] with A[j + 1]
-          return i + 1, j + 1
-      #+END_SRC
-   3. RANDOMIZED-QUICKSORT(A, p, r)
-      #+BEGIN_SRC
-      QUICKSORT'(A, p, r)
-          if p < r
-              q, t = RANDOMIZED-PARTITION'(A, p, r)
-              QUICKSORT(A, p, q - 1)
-              QUICKSORT(A, t + 1, r)
-      #+END_SRC
-      #+BEGIN_SRC
-      RANDOMIZED-PARTITION'(A, p, r)
-          i = RANDOM(p, r)
-          exchange A[r] with A[i]
-          return PARTITION'(A, p, r)
-      #+END_SRC
-   4. Assume m elements less than the pivot, k elements equal to the pivot
+   - *a.*
 
-      The expected running time is:
+     The running time is \(T(n) = T(n - 1) + \Theta(n) = \Theta(n^2)\).
+   - *b.*
 
-      \(T(n) = T(m) + T(n - k - m) + O(n) \leq T(m + k) + T(n - k - m) + O(n) = O(n\lg{n})\)
+     #+BEGIN_SRC
+     PARTITION'(A, p, r)
+         x = A[r]
+         i = j = p - 1
+         for k = p to r - 1
+             if A[k] < x
+                 i = i + 1
+                 j = j + 1
+                 y = A[j]
+                 A[j] = A[i]
+                 A[i] = A[k]
+                 A[k] = y
+             else if A[k] == x:
+                 j = j + 1
+                 exchange A[j] with A[k]
+         exchange A[r] with A[j + 1]
+         return i + 1, j + 1
+     #+END_SRC
+   - *c.*
+
+     #+BEGIN_SRC
+     RANDOMIZED-PARTITION'(A, p, r)
+         i = RANDOM(p, r)
+         exchange A[r] with A[i]
+         return PARTITION'(A, p, r)
+     #+END_SRC
+     #+BEGIN_SRC
+     QUICKSORT'(A, p, r)
+         if p < r
+             q, t = RANDOMIZED-PARTITION'(A, p, r)
+             QUICKSORT'(A, p, q - 1)
+             QUICKSORT'(A, t + 1, r)
+     #+END_SRC
+   - *d.*
+
+     The running time is
+     \begin{align*}
+     T(n)
+     &=T(m)+T(n-k-m)+O(n)
+     &\text{, m elements less than the pivot, k elements equal to the pivot}\\
+     &\leq T(m+k)+T(n-m-k)+O(n)\\
+     &=O(n\lg n)
+     \end{align*}
 ** 7-3
-   1. \(E[X_i] = 1/n\)
-   2. E[T(n)]
+   - *a.*
 
-      = \(\sum^{n}_{q=1} X_q E[T(q - 1) + T(n - q) + \Theta(n)])\)
+     We randomly pick the pivot from the n elements, thus the probability that
+     any particular element is chosen as the pivot is \(1 / n\).
 
-      = \(E[\sum^{n}_{q=1} X_q E[T(q - 1) + T(n - 1) + \Theta(n)]]\)
-   3. E[T(n)]
+     Let \(X_i = I\{ith\ smallest\ element\ is\ chosen\ as\ the\ pivot\}\), then
+     \begin{align*}
+     E[X_i]
+     &=\Pr\text{{ith smallest element is chosen as the pivot}}\\
+     &=\frac{1}{n}
+     \end{align*}
+   - *b.*
 
-      = \(E[\sum^{n}_{q=1} X_q E[T(q - 1) + T(n - 1) + \Theta(n)]]\)
+     We have
+     \begin{align*}
+     E[T(n)]
+     &=E\Bigg[\sum_{q=1}^{n}X_q T(\text{when $X_q$ happens})\Bigg]\\
+     &=E\Bigg[\sum_{q=1}^{n}X_q(T(q-1)+T(n-q)+\Theta(n))\Bigg]
+     \end{align*}
+   - *c.*
 
-      = \(1/n\sum^{n}_{q=1}E[T(q - 1)] + 1/n\sum^{n}_{q=1}E[T(n - q)] + 1/n\sum^{n}_{q=1}\Theta(n)\)
+     We have
+     \begin{align*}
+     E[T(n)]
+     &=E\Bigg[\sum_{q=1}^{n}X_q(T(q-1)+T(n-q)+\Theta(n))\Bigg]\\
+     &=E\Bigg[\frac{1}{n}\sum_{q=1}^{n}(T(q-1)+T(n-q)+\Theta(n))\Bigg]\\
+     &=\frac{2}{n}\sum_{q=2}^{n-1}E[T(q)]+\Theta(n)
+     \end{align*}
+   - *d.*
 
-      = \(2/n\sum^{n - 1}_{q=2}E[T(q)] + \Theta(n)\)
-   4. Two solutions
-      - \(\int x^n\ln x dx = \frac{x^{n + 1}}{n + 1}[(n + 1)\ln x - 1] + C\)
+     We have
+     \begin{align*}
+     \sum_{k=2}^{n-1}k\lg k
+     &\leq \sum_{k=2}^{\lceil n/2 \rceil-1}k\lg(n/2)
+      +\sum_{k=\lceil n/2 \rceil}^{n-1}k\lg n\\
+     &\leq \frac{n^2}{8}(\lg n-1)+\frac{3n^2}{8}\lg n\\
+     &=\frac{1}{2}n^2\lg n-\frac{1}{8}n^2
+     \end{align*}
 
-        \(\because f'(x\lg x) = \frac{1}{\ln 2}(\ln x + 1) > 0 (x \geq 2)\)
+   - *e.*
 
-        \(\therefore \sum^{n - 1}_{k = 2}k \lg{k}\)
-
-        \(\leq \int^{n}_{2}x\lg x dx\)
-
-        = \(\frac{n^2}{4}(2\lg n - \frac{1}{\ln 2}) - 2 + \frac{1}{\ln 2}\)
-
-        < \(\frac{n^2}{2} \lg{n} - \frac{1}{8}n^2\)
-      - \(\sum^{n - 1}_{k = 2}k \lg{k}\)
-
-        \(\leq \sum^{n / 2}_{k = 2} k \lg (n / 2) + \sum^{n - 1}_{k = n / 2} k \lg n\)
-
-        = \(\lg n \sum^{n - 1}_{k = 2} k - \sum^{n / 2}_{k = 2} k\)
-
-        = \(\frac{n^2}{2}\lg n - \frac{1}{8} n^2\)
-   5. Guess \(E[T(n)] \leq a n \lg n\), Then
-
-      E[T(n)]
-
-      = \(\frac{2}{n}\sum^{n - 1}{q = 2}E[T[q]] + \Theta(n)\)
-
-      \(\leq \frac{2}{n}\sum^{n - 1}{q = 2} a q \lg q + \Theta(n)\)
-
-      \(\leq \frac{2}{n}(\frac{a}{2}n^2 \lg n - \frac{a}{8} n^2) + \Theta(n)\)
-
-      = \(a n \lg n - \frac{a n}{4} + \Theta(n)\)
-
-      \(\leq a n \lg n\) (let a large enough to dominate \(\Theta(n)\))
+     Guess \(E[T(n)] \leq an\lg n\), then
+     \begin{align*}
+     E[T(n)]
+     &=\frac{2}{n}\sum_{q=2}^{n-1}E[T(q)]+\Theta(n)\\
+     &\leq \frac{2}{n}\sum_{q=2}^{n-1}aq\lg q|\Theta(n)\\
+     &\leq \frac{2a}{n}(\frac{1}{2}n^2\lg n-\frac{1}{8}n^2)+\Theta(n)
+     &\text{, From equation (7.7)}\\
+     &=an\lg n-\frac{a}{4}n+\Theta(n)\\
+     &\leq an\lg n &\text{, for constant a large enough}
+     \end{align*}
 ** 7-4
-   1. TAIL-RECURSIVE-QUICKSORT use a recursion to handle the left part, and a
-      iteration to handle the right part.
-   2. TAIL-RECURSIVE-QUICKSORT(A, 1, n)
+   - *a.*
 
-      -> TAIL-RECURSIVE-QUICKSORT(A, 1, n - 1)
+     We use loop invariants to prove the correctness of the procedure.
 
-      -> TAIL-RECURSIVE-QUICKSORT(A, 1, n - 2)
+     *Loop Invariant:*
+     At the start of each iteration of the while loop, \(A[1..A.length]\) is
+     partitioned by \(p\) and \(A[1..p]\) is sorted.
 
-      ...
+     *Initialization:*
+     \(A[1..p]\) is empty.
 
-      -> TAIL-RECURSIVE-QUICKSORT(A, 1, 1)
-   3. TAIL-RECURSIVE-QUICKSORT(A, p, r)
-      #+BEGIN_SRC
-      TAIL-RECURSIVE-QUICKSORT(A, p, r)
-          q = partition(A, p, r)
-          if q < (p + r) / 2
-              TAIL-RECURSIVE-QUICKSORT(A, p, q - 1)
-              p = q + 1
-          else TAIL-RECURSIVE-QUICKSORT(A, q + 1, r)
-               r = q - 1
-      #+END_SRC
+     *Maintenance:*
+     We partition \(A[p..r]\) at \(q\) and sort \(A[p..q-1]\), then we know that
+     \(A[1..q]\) is sorted, and we let \(p = q+1\) and continue with the next
+     iteration.
+
+     *Termination:*
+     The loop terminates when \(p \geq A.length\), thus the array \(A\) is
+     sorted.
+   - *b.*
+
+     When each PARTITION in the recursion does a \([p..r-1]\) to \([r..r]\)
+     split, the stack depth is \(\Theta(n)\).
+   - *c.*
+
+     After each PARTITION, we choose the smaller part for the recursion.
+     #+BEGIN_SRC
+     TAIL-RECURSIVE-QUICKSORT(A, p, r)
+         while p < r
+             //Partition and sort the smaller subarray
+             q = PARTITION(A, p, r)
+             if q < (p + r) / 2
+                 TAIL-RECURSIVE-QUICKSORT(A, p, q - 1)
+                 p = q + 1
+             else TAIL-RECURSIVE-QUICKSORT(A, q + 1, r)
+                  r = q - 1
+     #+END_SRC
 ** 7-5
-   1. \(p_i = \frac{(i - 1)(n - i)}{\binom{n}{3}}\)
-   2. \(\lim_{n \to \infty} \frac{\frac{(i - 1)(n - i)}{\binom{n}{3}}}{\frac{1}{n}} = \frac{3}{2}\)
-   3.
-      - The original possibility
+   - *a.*
 
-        \(Pr = \int^{\frac{2 n}{3}}_{\frac{1 n}{3}} \frac{1}{n} = \frac{1}{3}\)
-      - The median-of-3 possibility
+     The probability is
+     \begin{align*}
+     p_i
+     &=\Pr\{x=A'[i]\}\\
+     &=\frac{(i-1)(n-i)}{\binom{n}{3}}
+     \end{align*}
+   - *b.*
 
-        \(Pr = \int^{\frac{2 n}{3}}_{\frac{1 n}{3}} \frac{(i - 1)(n - i)}{\binom{n}{3}}\)
+     Let \(m = \lfloor (n + 1) / 2 \rfloor\), then the probability of the
+     developed implementation is \(\frac{(m-1)(n-m)}{\binom{n}{3}}\), and the
+     probability of the ordinary implementation is \(\frac{1}{n}\).
 
-             = \(\frac{n^2 (n + 1) - \frac{14}{27} n^3 - 2 n^2}{n (n - 1) (n - 2)}\)
+     The limit ratio of them is
+     \begin{align*}
+     r
+     &=\lim_{n\to \infty}\frac{\frac{(m-1)(n-m)}{\binom{n}{3}}}{\frac{1}{n}}\\
+     &=\frac{3}{2}
+     \end{align*}
+   - *c.*
 
-        \(\lim_{n \to \infty}Pr = \frac{13}{27}\)
-   4. The median-of-3 method only improve the possibility of choosing a good
-      pivot, the running time is still \(\Omega(n \lg n)\)
+     The probability of the ordinary implementation is
+     \begin{align*}
+     p'
+     &\approx \int_{\frac{n}{3}}^{\frac{2n}{3}} \frac{1}{n}dx\\
+     &=\frac{1}{3}
+     \end{align*}
+     The probability of the developed implementation is
+     \begin{align*}
+     p
+     &\approx \int_{\frac{n}{3}}^{\frac{2n}{3}}
+      \frac{(x-1)(n-x)}{\binom{n}{3}}dx\\
+     \end{align*}
+     And the limit ratio of them is
+     \begin{align*}
+     r
+     &=\lim_{n\to \infty}\frac{p}{p'}\\
+     &=\frac{13}{9}
+     \end{align*}
+   - *d.*
+
+     The median-of-3 method only improve the probability of choosing a good
+     pivot, the running time is still \(\Omega(n \lg n)\).
 ** 7-6
-   1. The FUZZY-SORT is similar with equal-elements-quicksort in problem 7-2
-      #+BEGIN_SRC
-      FUZZY-SORT(A, p, r)
-          if p < r
-              q, t = FUZZY-PARTITION(A, p, r)
-              FUZZY-SORT(A, p, q - 1)
-              FUZZY-SORT(A, t + 1, r)
-      #+END_SRC
-      #+BEGIN_SRC
-      FUZZY-PARTITION(A, p, r)
-          i = j = p - 1
-          x = lo = A[r].left
-          ro = A[r].right
-          for k = p to r - 1
-              if A[k].right < lo
-                  y = A[k]
-                  i = i + 1
-                  j = j + 1
-                  A[k] = A[j]
-                  A[j] = A[i]
-                  A[i] = y
-              else if A[k].left <= ro
-                  j = j + 1
-                  if A[k].left > lo
-                      lo = A[k].left
-                  if A[k].right < ro
-                      ro = A[k].right
-                  exchange A[j] with A[k]
-          exchange A[r] with A[j + 1]
-          return i + 1, j + 1
-      #+END_SRC
-   2. Assume partition on n elements return k overlapped elements
+   - *a.*
 
-      \(T(n) = T(n - k - i) + T(i) + \Theta(n)\)
+     The FUZZY-SORT should take advantage of overlapping intervals by consider
+     the elements with overlapped intervals as equal, then use the developed
+     algorithm in problem [[7-2][7-2]].
 
-      k is not strongly related to n, so the expected running time is
-      \(\Theta(n\lg n)\).
+     #+BEGIN_SRC
+     FUZZY-SORT(A, B, p, r)
+         if p < r
+             q, s = FUZZY-PARTITION(A, B, p, r)
+             FUZZY-SORT(A, B, p, q - 1)
+             FUZZY-SORT(A, B, s + 1, r)
+     #+END_SRC
+     #+BEGIN_SRC
+     FUZZY-PARTITION(A, B, p, r)
+         i = j = p - 1
+         left = A[r]
+         right = B[r]
+         for k = p to r - 1
+             if B[k] < left
+                 x = A[k]
+                 y = B[k]
+                 i = i + 1
+                 j = j + 1
+                 A[k], B[k] = A[j], B[j]
+                 A[j], B[j] = A[i], B[i]
+                 A[i], B[i] = x, y
+             else if A[k] <= right
+                 if A[k] > left
+                     left = A[k]
+                 if B[k] < right
+                     right = B[k]
+                 j = j + 1
+                 exchange A[k], B[k] with A[j], B[j]
+         exchange A[r], B[r] with A[j + 1], B[j + 1]
+         return i + 1, j + 1
+     #+END_SRC
+   - *b.*
 
-      when all elements overlapped, the running time is \(\Theta(n)\)
+     Assume the partition on n elements returns k overlapped elements,
+     then we get the running time
+     \begin{align*}
+     T(n) = T(n-k-i) + T(i) + \Theta(n)
+     \end{align*}
+     The expected running time is \(\Theta(n\lg n)\) when k is negligible to n.
+
+     When all of the intervals overlap, the running time is \(\Theta(n)\).
