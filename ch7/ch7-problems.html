@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-10-25 Fri 09:21 -->
+<!-- 2019-12-17 Tue 12:56 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 7 problems</title>
@@ -333,33 +333,58 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org04fd30d">ch7-problems</a>
+<li><a href="#org68c6b0c">ch7-problems</a>
 <ul>
-<li><a href="#orgdbdd714">7-1</a></li>
-<li><a href="#org96bdbfd">7-2</a></li>
-<li><a href="#orgf935141">7-3</a></li>
-<li><a href="#orgb892665">7-4</a></li>
-<li><a href="#orgf0ecdd4">7-5</a></li>
-<li><a href="#orgd34238b">7-6</a></li>
+<li><a href="#org6073e13"><span class="todo TODO">TODO</span> 7-1</a></li>
+<li><a href="#orgd331e16">7-2</a></li>
+<li><a href="#org63f960b">7-3</a></li>
+<li><a href="#orga533e50">7-4</a></li>
+<li><a href="#org4d15390">7-5</a></li>
+<li><a href="#org73d5c69">7-6</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org04fd30d" class="outline-2">
-<h2 id="org04fd30d">ch7-problems</h2>
-<div class="outline-text-2" id="text-org04fd30d">
+<div id="outline-container-org68c6b0c" class="outline-2">
+<h2 id="org68c6b0c">ch7-problems</h2>
+<div class="outline-text-2" id="text-org68c6b0c">
 </div>
-<div id="outline-container-orgdbdd714" class="outline-3">
-<h3 id="orgdbdd714">7-1</h3>
-<div class="outline-text-3" id="text-orgdbdd714">
-<ol class="org-ol">
-<li>omitted</li>
-<li>A[p..i] and A[j..q] is the elements already accessed, A[i..j] is the
-elements never accessed.</li>
-<li>\(p - 1 \leq i < j < r\)</li>
-<li>\(A[p..j] \leq x\) and \(A[j + 1..r] \geq x\)</li>
+<div id="outline-container-org6073e13" class="outline-3">
+<h3 id="org6073e13"><span class="todo TODO">TODO</span> 7-1</h3>
+<div class="outline-text-3" id="text-org6073e13">
+<ul class="org-ul">
+<li><p>
+<b>a.</b>
+</p>
+
+<pre class="example">
+   A = (13 19 9 5 12 8 7 4 11 2 6 21), x = 13, p = 1, r = 12, i = 0, j = 13
+-&gt; A = (6 19 9 5 12 8 7 4 11 2 13 21), i = 1, j = 11
+-&gt; A = (6 13 9 5 12 8 7 4 11 2 19 21), i = 2, j = 11
+-&gt; A = (6 2 9 5 12 8 7 4 11 13 19 21), i = 2, j = 10
+-&gt; A = (6 2 9 5 12 8 7 4 11 13 19 21), return 10
+</pre></li>
+<li><p>
+<b>b.</b>
+</p>
+
+<p>
+We start with \(i = p - 1\) and \(j = r + 1\), then we keep increasing i
+and decreasing j until \(i \geq j\), thus we never access an element of A
+outside the subarray A[p..r].
+</p></li>
+<li><p>
+<b>c.</b>
+</p>
+
+<p>
+We terminated when \(i \geq j\), and we know that at least one exchange
+happens, thus it returns a value j such that \(p \leq j < r\).
+</p></li>
+
+<li>When the procedure terminates, we have \(A[p..j] \leq x \leq A[j+1..r]\).</li>
 <li><p>
 QUICKSORT(A, p, r)
 </p>
@@ -370,12 +395,12 @@ QUICKSORT(A, p, r)
 	QUICKSORT(A, p, q)
 	QUICKSORT(A, q + 1, r)
 </pre></li>
-</ol>
+</ul>
 </div>
 </div>
-<div id="outline-container-org96bdbfd" class="outline-3">
-<h3 id="org96bdbfd">7-2</h3>
-<div class="outline-text-3" id="text-org96bdbfd">
+<div id="outline-container-orgd331e16" class="outline-3">
+<h3 id="orgd331e16">7-2</h3>
+<div class="outline-text-3" id="text-orgd331e16">
 <ol class="org-ol">
 <li>\(O(n^2)\)</li>
 <li><p>
@@ -429,9 +454,9 @@ The expected running time is:
 </ol>
 </div>
 </div>
-<div id="outline-container-orgf935141" class="outline-3">
-<h3 id="orgf935141">7-3</h3>
-<div class="outline-text-3" id="text-orgf935141">
+<div id="outline-container-org63f960b" class="outline-3">
+<h3 id="org63f960b">7-3</h3>
+<div class="outline-text-3" id="text-org63f960b">
 <ol class="org-ol">
 <li>\(E[X_i] = 1/n\)</li>
 <li><p>
@@ -531,9 +556,9 @@ E[T(n)]
 </ol>
 </div>
 </div>
-<div id="outline-container-orgb892665" class="outline-3">
-<h3 id="orgb892665">7-4</h3>
-<div class="outline-text-3" id="text-orgb892665">
+<div id="outline-container-orga533e50" class="outline-3">
+<h3 id="orga533e50">7-4</h3>
+<div class="outline-text-3" id="text-orga533e50">
 <ol class="org-ol">
 <li>TAIL-RECURSIVE-QUICKSORT use a recursion to handle the left part, and a
 iteration to handle the right part.</li>
@@ -571,9 +596,9 @@ TAIL-RECURSIVE-QUICKSORT(A, p, r)
 </ol>
 </div>
 </div>
-<div id="outline-container-orgf0ecdd4" class="outline-3">
-<h3 id="orgf0ecdd4">7-5</h3>
-<div class="outline-text-3" id="text-orgf0ecdd4">
+<div id="outline-container-org4d15390" class="outline-3">
+<h3 id="org4d15390">7-5</h3>
+<div class="outline-text-3" id="text-org4d15390">
 <ol class="org-ol">
 <li>\(p_i = \frac{(i - 1)(n - i)}{\binom{n}{3}}\)</li>
 <li>\(\lim_{n \to \infty} \frac{\frac{(i - 1)(n - i)}{\binom{n}{3}}}{\frac{1}{n}} = \frac{3}{2}\)</li>
@@ -606,9 +631,9 @@ pivot, the running time is still \(\Omega(n \lg n)\)</li>
 </ol>
 </div>
 </div>
-<div id="outline-container-orgd34238b" class="outline-3">
-<h3 id="orgd34238b">7-6</h3>
-<div class="outline-text-3" id="text-orgd34238b">
+<div id="outline-container-org73d5c69" class="outline-3">
+<h3 id="org73d5c69">7-6</h3>
+<div class="outline-text-3" id="text-org73d5c69">
 <ol class="org-ol">
 <li><p>
 The FUZZY-SORT is similar with equal-elements-quicksort in problem 7-2
@@ -666,7 +691,7 @@ when all elements overlapped, the running time is \(\Theta(n)\)
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2019-10-25 Fri 09:21</p>
+<p class="date">Created: 2019-12-17 Tue 12:56</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
