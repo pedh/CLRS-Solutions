@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-12-17 Tue 12:56 -->
+<!-- 2019-12-26 Thu 12:41 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 7 problems</title>
@@ -333,27 +333,27 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org7cf23ec">ch7-problems</a>
+<li><a href="#org5a376da">ch7-problems</a>
 <ul>
-<li><a href="#org42f0801"><span class="todo TODO">TODO</span> 7-1</a></li>
-<li><a href="#orga92f75b">7-2</a></li>
-<li><a href="#org8a967b0">7-3</a></li>
-<li><a href="#org947f93c">7-4</a></li>
-<li><a href="#orgf207638">7-5</a></li>
-<li><a href="#orge37566c">7-6</a></li>
+<li><a href="#orga853b8d"><span class="todo TODO">TODO</span> 7-1</a></li>
+<li><a href="#orgaaf2cc7">7-2</a></li>
+<li><a href="#org2439ee7"><span class="todo TODO">TODO</span> 7-3</a></li>
+<li><a href="#orgdecfb89">7-4</a></li>
+<li><a href="#orgabe6694">7-5</a></li>
+<li><a href="#orge627f99">7-6</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org7cf23ec" class="outline-2">
-<h2 id="org7cf23ec">ch7-problems</h2>
-<div class="outline-text-2" id="text-org7cf23ec">
+<div id="outline-container-org5a376da" class="outline-2">
+<h2 id="org5a376da">ch7-problems</h2>
+<div class="outline-text-2" id="text-org5a376da">
 </div>
-<div id="outline-container-org42f0801" class="outline-3">
-<h3 id="org42f0801"><span class="todo TODO">TODO</span> 7-1</h3>
-<div class="outline-text-3" id="text-org42f0801">
+<div id="outline-container-orga853b8d" class="outline-3">
+<h3 id="orga853b8d"><span class="todo TODO">TODO</span> 7-1</h3>
+<div class="outline-text-3" id="text-orga853b8d">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
@@ -381,34 +381,47 @@ outside the subarray A[p..r].
 
 <p>
 We terminated when \(i \geq j\), and we know that at least one exchange
-happens, thus it returns a value j such that \(p \leq j < r\).
+happens, thus the procedure returns a value j such that \(p \leq j < r\).
 </p></li>
-
-<li>When the procedure terminates, we have \(A[p..j] \leq x \leq A[j+1..r]\).</li>
 <li><p>
-QUICKSORT(A, p, r)
+<b>d.</b>
 </p>
+
+<p>
+When the procedure terminates, we have \(A[p..j] \leq x \leq A[j+1..r]\).
+</p></li>
+<li><p>
+<b>e.</b>
+</p>
+
 <pre class="example">
-QUICKSORT(A, p, r)
+HOARE-QUICKSORT(A, p, r)
     if p &lt; r
 	q = HOARE-PARTITION(A, p, r)
-	QUICKSORT(A, p, q)
-	QUICKSORT(A, q + 1, r)
+	HOARE-QUICKSORT(A, p, q)
+	HOARE-QUICKSORT(A, q + 1, r)
 </pre></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orga92f75b" class="outline-3">
-<h3 id="orga92f75b">7-2</h3>
-<div class="outline-text-3" id="text-orga92f75b">
-<ol class="org-ol">
-<li>\(O(n^2)\)</li>
+<div id="outline-container-orgaaf2cc7" class="outline-3">
+<h3 id="orgaaf2cc7">7-2</h3>
+<div class="outline-text-3" id="text-orgaaf2cc7">
+<ul class="org-ul">
 <li><p>
-PARTITION'(A, p, r)
+<b>a.</b>
 </p>
+
+<p>
+The running time is \(T(n) = T(n - 1) + \Theta(n) = \Theta(n^2)\).
+</p></li>
+<li><p>
+<b>b.</b>
+</p>
+
 <pre class="example">
 PARTITION'(A, p, r)
-    x = P[r]
+    x = A[r]
     i = j = p - 1
     for k = p to r - 1
 	if A[k] &lt; x
@@ -425,38 +438,42 @@ PARTITION'(A, p, r)
     return i + 1, j + 1
 </pre></li>
 <li><p>
-RANDOMIZED-QUICKSORT(A, p, r)
+<b>c.</b>
 </p>
-<pre class="example">
-QUICKSORT'(A, p, r)
-    if p &lt; r
-	q, t = RANDOMIZED-PARTITION'(A, p, r)
-	QUICKSORT(A, p, q - 1)
-	QUICKSORT(A, t + 1, r)
-</pre>
+
 <pre class="example">
 RANDOMIZED-PARTITION'(A, p, r)
     i = RANDOM(p, r)
     exchange A[r] with A[i]
     return PARTITION'(A, p, r)
+</pre>
+<pre class="example">
+QUICKSORT'(A, p, r)
+    if p &lt; r
+	q, t = RANDOMIZED-PARTITION'(A, p, r)
+	QUICKSORT'(A, p, q - 1)
+	QUICKSORT'(A, t + 1, r)
 </pre></li>
 <li><p>
-Assume m elements less than the pivot, k elements equal to the pivot
+<b>d.</b>
 </p>
 
 <p>
-The expected running time is:
+The running time is
 </p>
-
-<p>
-\(T(n) = T(m) + T(n - k - m) + O(n) \leq T(m + k) + T(n - k - m) + O(n) = O(n\lg{n})\)
-</p></li>
-</ol>
+\begin{align*}
+T(n)
+&=T(m)+T(n-k-m)+O(n)
+&\text{, m elements less than the pivot, k elements equal to the pivot}\\
+&\leq T(m+k)+T(n-m-k)+O(n)\\
+&=O(n\lg n)
+\end{align*}</li>
+</ul>
 </div>
 </div>
-<div id="outline-container-org8a967b0" class="outline-3">
-<h3 id="org8a967b0">7-3</h3>
-<div class="outline-text-3" id="text-org8a967b0">
+<div id="outline-container-org2439ee7" class="outline-3">
+<h3 id="org2439ee7"><span class="todo TODO">TODO</span> 7-3</h3>
+<div class="outline-text-3" id="text-org2439ee7">
 <ol class="org-ol">
 <li>\(E[X_i] = 1/n\)</li>
 <li><p>
@@ -556,9 +573,9 @@ E[T(n)]
 </ol>
 </div>
 </div>
-<div id="outline-container-org947f93c" class="outline-3">
-<h3 id="org947f93c">7-4</h3>
-<div class="outline-text-3" id="text-org947f93c">
+<div id="outline-container-orgdecfb89" class="outline-3">
+<h3 id="orgdecfb89">7-4</h3>
+<div class="outline-text-3" id="text-orgdecfb89">
 <ol class="org-ol">
 <li>TAIL-RECURSIVE-QUICKSORT use a recursion to handle the left part, and a
 iteration to handle the right part.</li>
@@ -596,9 +613,9 @@ TAIL-RECURSIVE-QUICKSORT(A, p, r)
 </ol>
 </div>
 </div>
-<div id="outline-container-orgf207638" class="outline-3">
-<h3 id="orgf207638">7-5</h3>
-<div class="outline-text-3" id="text-orgf207638">
+<div id="outline-container-orgabe6694" class="outline-3">
+<h3 id="orgabe6694">7-5</h3>
+<div class="outline-text-3" id="text-orgabe6694">
 <ol class="org-ol">
 <li>\(p_i = \frac{(i - 1)(n - i)}{\binom{n}{3}}\)</li>
 <li>\(\lim_{n \to \infty} \frac{\frac{(i - 1)(n - i)}{\binom{n}{3}}}{\frac{1}{n}} = \frac{3}{2}\)</li>
@@ -631,9 +648,9 @@ pivot, the running time is still \(\Omega(n \lg n)\)</li>
 </ol>
 </div>
 </div>
-<div id="outline-container-orge37566c" class="outline-3">
-<h3 id="orge37566c">7-6</h3>
-<div class="outline-text-3" id="text-orge37566c">
+<div id="outline-container-orge627f99" class="outline-3">
+<h3 id="orge627f99">7-6</h3>
+<div class="outline-text-3" id="text-orge627f99">
 <ol class="org-ol">
 <li><p>
 The FUZZY-SORT is similar with equal-elements-quicksort in problem 7-2
@@ -691,7 +708,7 @@ when all elements overlapped, the running time is \(\Theta(n)\)
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2019-12-17 Tue 12:56</p>
+<p class="date">Created: 2019-12-26 Thu 12:41</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
