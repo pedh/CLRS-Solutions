@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-12-26 Thu 12:41 -->
+<!-- 2020-02-07 Fri 13:25 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 7 problems</title>
@@ -333,27 +333,27 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org5a376da">ch7-problems</a>
+<li><a href="#org8ce5529">ch7-problems</a>
 <ul>
-<li><a href="#orga853b8d"><span class="todo TODO">TODO</span> 7-1</a></li>
-<li><a href="#orgaaf2cc7">7-2</a></li>
-<li><a href="#org2439ee7"><span class="todo TODO">TODO</span> 7-3</a></li>
-<li><a href="#orgdecfb89">7-4</a></li>
-<li><a href="#orgabe6694">7-5</a></li>
-<li><a href="#orge627f99">7-6</a></li>
+<li><a href="#org7ddab69">7-1</a></li>
+<li><a href="#orgebff30a">7-2</a></li>
+<li><a href="#org71d07ac">7-3</a></li>
+<li><a href="#orge798c83"><span class="todo TODO">TODO</span> 7-4</a></li>
+<li><a href="#orge0fbed0">7-5</a></li>
+<li><a href="#org61cb9c5">7-6</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org5a376da" class="outline-2">
-<h2 id="org5a376da">ch7-problems</h2>
-<div class="outline-text-2" id="text-org5a376da">
+<div id="outline-container-org8ce5529" class="outline-2">
+<h2 id="org8ce5529">ch7-problems</h2>
+<div class="outline-text-2" id="text-org8ce5529">
 </div>
-<div id="outline-container-orga853b8d" class="outline-3">
-<h3 id="orga853b8d"><span class="todo TODO">TODO</span> 7-1</h3>
-<div class="outline-text-3" id="text-orga853b8d">
+<div id="outline-container-org7ddab69" class="outline-3">
+<h3 id="org7ddab69">7-1</h3>
+<div class="outline-text-3" id="text-org7ddab69">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
@@ -404,9 +404,9 @@ HOARE-QUICKSORT(A, p, r)
 </ul>
 </div>
 </div>
-<div id="outline-container-orgaaf2cc7" class="outline-3">
-<h3 id="orgaaf2cc7">7-2</h3>
-<div class="outline-text-3" id="text-orgaaf2cc7">
+<div id="outline-container-orgebff30a" class="outline-3">
+<h3 id="orgebff30a">7-2</h3>
+<div class="outline-text-3" id="text-orgebff30a">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
@@ -471,111 +471,89 @@ T(n)
 </ul>
 </div>
 </div>
-<div id="outline-container-org2439ee7" class="outline-3">
-<h3 id="org2439ee7"><span class="todo TODO">TODO</span> 7-3</h3>
-<div class="outline-text-3" id="text-org2439ee7">
-<ol class="org-ol">
-<li>\(E[X_i] = 1/n\)</li>
-<li><p>
-E[T(n)]
-</p>
-
-<p>
-= \(\sum^{n}_{q=1} X_q E[T(q - 1) + T(n - q) + \Theta(n)])\)
-</p>
-
-<p>
-= \(E[\sum^{n}_{q=1} X_q E[T(q - 1) + T(n - 1) + \Theta(n)]]\)
-</p></li>
-<li><p>
-E[T(n)]
-</p>
-
-<p>
-= \(E[\sum^{n}_{q=1} X_q E[T(q - 1) + T(n - 1) + \Theta(n)]]\)
-</p>
-
-<p>
-= \(1/n\sum^{n}_{q=1}E[T(q - 1)] + 1/n\sum^{n}_{q=1}E[T(n - q)] + 1/n\sum^{n}_{q=1}\Theta(n)\)
-</p>
-
-<p>
-= \(2/n\sum^{n - 1}_{q=2}E[T(q)] + \Theta(n)\)
-</p></li>
-<li>Two solutions
+<div id="outline-container-org71d07ac" class="outline-3">
+<h3 id="org71d07ac">7-3</h3>
+<div class="outline-text-3" id="text-org71d07ac">
 <ul class="org-ul">
 <li><p>
-\(\int x^n\ln x dx = \frac{x^{n + 1}}{n + 1}[(n + 1)\ln x - 1] + C\)
+<b>a.</b>
 </p>
 
 <p>
-\(\because f'(x\lg x) = \frac{1}{\ln 2}(\ln x + 1) > 0 (x \geq 2)\)
+We randomly pick the pivot from the n elements, thus the probability that
+any particular element is chosen as the pivot is \(1 / n\).
 </p>
 
 <p>
-\(\therefore \sum^{n - 1}_{k = 2}k \lg{k}\)
+Let \(X_i = I\{ith\ smallest\ element\ is\ chosen\ as\ the\ pivot\}\), then
 </p>
-
-<p>
-\(\leq \int^{n}_{2}x\lg x dx\)
-</p>
-
-<p>
-= \(\frac{n^2}{4}(2\lg n - \frac{1}{\ln 2}) - 2 + \frac{1}{\ln 2}\)
-</p>
-
-<p>
-&lt; \(\frac{n^2}{2} \lg{n} - \frac{1}{8}n^2\)
-</p></li>
+\begin{align*}
+E[X_i]
+&=\Pr\text{{ith smallest element is chosen as the pivot}}\\
+&=\frac{1}{n}
+\end{align*}</li>
 <li><p>
-\(\sum^{n - 1}_{k = 2}k \lg{k}\)
+<b>b.</b>
 </p>
 
 <p>
-\(\leq \sum^{n / 2}_{k = 2} k \lg (n / 2) + \sum^{n - 1}_{k = n / 2} k \lg n\)
+We have
 </p>
-
-<p>
-= \(\lg n \sum^{n - 1}_{k = 2} k - \sum^{n / 2}_{k = 2} k\)
-</p>
-
-<p>
-= \(\frac{n^2}{2}\lg n - \frac{1}{8} n^2\)
-</p></li>
-</ul></li>
-<li><p>
-Guess \(E[T(n)] \leq a n \lg n\), Then
-</p>
-
-<p>
+\begin{align*}
 E[T(n)]
+&=E\Bigg[\sum_{q=1}^{n}X_q T(\text{when $X_q$ happens})\Bigg]\\
+&=E\Bigg[\sum_{q=1}^{n}X_q(T(q-1)+T(n-q)+\Theta(n))\Bigg]
+\end{align*}</li>
+<li><p>
+<b>c.</b>
 </p>
 
 <p>
-= \(\frac{2}{n}\sum^{n - 1}{q = 2}E[T[q]] + \Theta(n)\)
+We have
+</p>
+\begin{align*}
+E[T(n)]
+&=E\Bigg[\sum_{q=1}^{n}X_q(T(q-1)+T(n-q)+\Theta(n))\Bigg]\\
+&=E\Bigg[\frac{1}{n}\sum_{q=1}^{n}(T(q-1)+T(n-q)+\Theta(n))\Bigg]\\
+&=\frac{2}{n}\sum_{q=2}^{n-1}E[T(q)]+\Theta(n)
+\end{align*}</li>
+<li><p>
+<b>d.</b>
 </p>
 
 <p>
-\(\leq \frac{2}{n}\sum^{n - 1}{q = 2} a q \lg q + \Theta(n)\)
+We have
+</p>
+\begin{align*}
+\sum_{k=2}^{n-1}k\lg k
+&\leq \sum_{k=2}^{\lceil n/2 \rceil-1}k\lg(n/2)
+ +\sum_{k=\lceil n/2 \rceil}^{n-1}k\lg n\\
+&\leq \frac{n^2}{8}(\lg n-1)+\frac{3n^2}{8}\lg n\\
+&=\frac{1}{2}n^2\lg n-\frac{1}{8}n^2
+\end{align*}</li>
+
+<li><p>
+<b>e.</b>
 </p>
 
 <p>
-\(\leq \frac{2}{n}(\frac{a}{2}n^2 \lg n - \frac{a}{8} n^2) + \Theta(n)\)
+Guess \(E[T(n)] \leq an\lg n\), then
 </p>
-
-<p>
-= \(a n \lg n - \frac{a n}{4} + \Theta(n)\)
-</p>
-
-<p>
-\(\leq a n \lg n\) (let a large enough to dominate \(\Theta(n)\))
-</p></li>
-</ol>
+\begin{align*}
+E[T(n)]
+&=\frac{2}{n}\sum_{q=2}^{n-1}E[T(q)]+\Theta(n)\\
+&\leq \frac{2}{n}\sum_{q=2}^{n-1}aq\lg q|\Theta(n)\\
+&\leq \frac{2a}{n}(\frac{1}{2}n^2\lg n-\frac{1}{8}n^2)+\Theta(n)
+&\text{, From equation (7.7)}\\
+&=an\lg n-\frac{a}{4}n+\Theta(n)\\
+&\leq an\lg n &\text{, for constant a large enough}
+\end{align*}</li>
+</ul>
 </div>
 </div>
-<div id="outline-container-orgdecfb89" class="outline-3">
-<h3 id="orgdecfb89">7-4</h3>
-<div class="outline-text-3" id="text-orgdecfb89">
+<div id="outline-container-orge798c83" class="outline-3">
+<h3 id="orge798c83"><span class="todo TODO">TODO</span> 7-4</h3>
+<div class="outline-text-3" id="text-orge798c83">
 <ol class="org-ol">
 <li>TAIL-RECURSIVE-QUICKSORT use a recursion to handle the left part, and a
 iteration to handle the right part.</li>
@@ -613,9 +591,9 @@ TAIL-RECURSIVE-QUICKSORT(A, p, r)
 </ol>
 </div>
 </div>
-<div id="outline-container-orgabe6694" class="outline-3">
-<h3 id="orgabe6694">7-5</h3>
-<div class="outline-text-3" id="text-orgabe6694">
+<div id="outline-container-orge0fbed0" class="outline-3">
+<h3 id="orge0fbed0">7-5</h3>
+<div class="outline-text-3" id="text-orge0fbed0">
 <ol class="org-ol">
 <li>\(p_i = \frac{(i - 1)(n - i)}{\binom{n}{3}}\)</li>
 <li>\(\lim_{n \to \infty} \frac{\frac{(i - 1)(n - i)}{\binom{n}{3}}}{\frac{1}{n}} = \frac{3}{2}\)</li>
@@ -648,9 +626,9 @@ pivot, the running time is still \(\Omega(n \lg n)\)</li>
 </ol>
 </div>
 </div>
-<div id="outline-container-orge627f99" class="outline-3">
-<h3 id="orge627f99">7-6</h3>
-<div class="outline-text-3" id="text-orge627f99">
+<div id="outline-container-org61cb9c5" class="outline-3">
+<h3 id="org61cb9c5">7-6</h3>
+<div class="outline-text-3" id="text-org61cb9c5">
 <ol class="org-ol">
 <li><p>
 The FUZZY-SORT is similar with equal-elements-quicksort in problem 7-2
@@ -708,7 +686,7 @@ when all elements overlapped, the running time is \(\Theta(n)\)
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2019-12-26 Thu 12:41</p>
+<p class="date">Created: 2020-02-07 Fri 13:25</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
