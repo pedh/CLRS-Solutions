@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-02-19 Wed 07:00 -->
+<!-- 2020-02-19 Wed 09:15 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 7 problems</title>
@@ -333,27 +333,27 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org045f9d7">ch7-problems</a>
+<li><a href="#org79cef1c">ch7-problems</a>
 <ul>
-<li><a href="#org4346497">7-1</a></li>
-<li><a href="#org0782fdf">7-2</a></li>
-<li><a href="#org54f6324">7-3</a></li>
-<li><a href="#org3df6a53">7-4</a></li>
-<li><a href="#org44e1348">7-5</a></li>
-<li><a href="#org77b10b8"><span class="todo TODO">TODO</span> 7-6</a></li>
+<li><a href="#org316fbb8">7-1</a></li>
+<li><a href="#org4745159">7-2</a></li>
+<li><a href="#org24e24c9">7-3</a></li>
+<li><a href="#orge1caf38">7-4</a></li>
+<li><a href="#org498a080">7-5</a></li>
+<li><a href="#org14218d5">7-6</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org045f9d7" class="outline-2">
-<h2 id="org045f9d7">ch7-problems</h2>
-<div class="outline-text-2" id="text-org045f9d7">
+<div id="outline-container-org79cef1c" class="outline-2">
+<h2 id="org79cef1c">ch7-problems</h2>
+<div class="outline-text-2" id="text-org79cef1c">
 </div>
-<div id="outline-container-org4346497" class="outline-3">
-<h3 id="org4346497">7-1</h3>
-<div class="outline-text-3" id="text-org4346497">
+<div id="outline-container-org316fbb8" class="outline-3">
+<h3 id="org316fbb8">7-1</h3>
+<div class="outline-text-3" id="text-org316fbb8">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
@@ -404,9 +404,9 @@ HOARE-QUICKSORT(A, p, r)
 </ul>
 </div>
 </div>
-<div id="outline-container-org0782fdf" class="outline-3">
-<h3 id="org0782fdf">7-2</h3>
-<div class="outline-text-3" id="text-org0782fdf">
+<div id="outline-container-org4745159" class="outline-3">
+<h3 id="org4745159">7-2</h3>
+<div class="outline-text-3" id="text-org4745159">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
@@ -471,9 +471,9 @@ T(n)
 </ul>
 </div>
 </div>
-<div id="outline-container-org54f6324" class="outline-3">
-<h3 id="org54f6324">7-3</h3>
-<div class="outline-text-3" id="text-org54f6324">
+<div id="outline-container-org24e24c9" class="outline-3">
+<h3 id="org24e24c9">7-3</h3>
+<div class="outline-text-3" id="text-org24e24c9">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
@@ -551,9 +551,9 @@ E[T(n)]
 </ul>
 </div>
 </div>
-<div id="outline-container-org3df6a53" class="outline-3">
-<h3 id="org3df6a53">7-4</h3>
-<div class="outline-text-3" id="text-org3df6a53">
+<div id="outline-container-orge1caf38" class="outline-3">
+<h3 id="orge1caf38">7-4</h3>
+<div class="outline-text-3" id="text-orge1caf38">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
@@ -615,9 +615,9 @@ TAIL-RECURSIVE-QUICKSORT(A, p, r)
 </ul>
 </div>
 </div>
-<div id="outline-container-org44e1348" class="outline-3">
-<h3 id="org44e1348">7-5</h3>
-<div class="outline-text-3" id="text-org44e1348">
+<div id="outline-container-org498a080" class="outline-3">
+<h3 id="org498a080">7-5</h3>
+<div class="outline-text-3" id="text-org498a080">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
@@ -688,67 +688,77 @@ pivot, the running time is still \(\Omega(n \lg n)\).
 </ul>
 </div>
 </div>
-<div id="outline-container-org77b10b8" class="outline-3">
-<h3 id="org77b10b8"><span class="todo TODO">TODO</span> 7-6</h3>
-<div class="outline-text-3" id="text-org77b10b8">
-<ol class="org-ol">
+<div id="outline-container-org14218d5" class="outline-3">
+<h3 id="org14218d5">7-6</h3>
+<div class="outline-text-3" id="text-org14218d5">
+<ul class="org-ul">
 <li><p>
-The FUZZY-SORT is similar with equal-elements-quicksort in problem 7-2
+<b>a.</b>
 </p>
+
+<p>
+The FUZZY-SORT should take advantage of overlapping intervals by consider
+the elements with overlapped intervals as equal, then use the developed
+algorithm in problem <a href="#org4745159">7-2</a>.
+</p>
+
 <pre class="example">
-FUZZY-SORT(A, p, r)
+FUZZY-SORT(A, B, p, r)
     if p &lt; r
-	q, t = FUZZY-PARTITION(A, p, r)
-	FUZZY-SORT(A, p, q - 1)
-	FUZZY-SORT(A, t + 1, r)
+	q, s = FUZZY-PARTITION(A, B, p, r)
+	FUZZY-SORT(A, B, p, q - 1)
+	FUZZY-SORT(A, B, s + 1, r)
 </pre>
 <pre class="example">
-FUZZY-PARTITION(A, p, r)
+FUZZY-PARTITION(A, B, p, r)
     i = j = p - 1
-    x = lo = A[r].left
-    ro = A[r].right
+    left = A[r]
+    right = B[r]
     for k = p to r - 1
-	if A[k].right &lt; lo
-	    y = A[k]
+	if B[k] &lt; left
+	    x = A[k]
+	    y = B[k]
 	    i = i + 1
 	    j = j + 1
-	    A[k] = A[j]
-	    A[j] = A[i]
-	    A[i] = y
-	else if A[k].left &lt;= ro
+	    A[k], B[k] = A[j], B[j]
+	    A[j], B[j] = A[i], B[i]
+	    A[i], B[i] = x, y
+	else if A[k] &lt;= right
+	    if A[k] &gt; left
+		left = A[k]
+	    if B[k] &lt; right
+		right = B[k]
 	    j = j + 1
-	    if A[k].left &gt; lo
-		lo = A[k].left
-	    if A[k].right &lt; ro
-		ro = A[k].right
-	    exchange A[j] with A[k]
-    exchange A[r] with A[j + 1]
+	    exchange A[k], B[k] with A[j], B[j]
+    exchange A[r], B[r] with A[j + 1], B[j + 1]
     return i + 1, j + 1
 </pre></li>
 <li><p>
-Assume partition on n elements return k overlapped elements
+<b>b.</b>
 </p>
 
 <p>
-\(T(n) = T(n - k - i) + T(i) + \Theta(n)\)
+Assume the partition on n elements returns k overlapped elements,
+then we get the running time
+</p>
+\begin{align*}
+T(n) = T(n-k-i) + T(i) + \Theta(n)
+\end{align*}
+<p>
+The expected running time is \(\Theta(n\lg n)\) when k is negligible to n.
 </p>
 
 <p>
-k is not strongly related to n, so the expected running time is
-\(\Theta(n\lg n)\).
-</p>
-
-<p>
-when all elements overlapped, the running time is \(\Theta(n)\)
+When all of the intervals overlap, the running time is \(\Theta(n)\).
 </p></li>
-</ol>
+</ul>
 </div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2020-02-19 Wed 07:00</p>
+<p class="date">Created: 2020-02-19 Wed 09:15</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
