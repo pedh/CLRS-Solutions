@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-02-07 Fri 13:25 -->
+<!-- 2020-02-19 Wed 07:00 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 7 problems</title>
@@ -333,27 +333,27 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org91e9235">ch7-problems</a>
+<li><a href="#org045f9d7">ch7-problems</a>
 <ul>
-<li><a href="#org9add992">7-1</a></li>
-<li><a href="#orgbb23b28">7-2</a></li>
-<li><a href="#orgaf3296d">7-3</a></li>
-<li><a href="#org4b870d7"><span class="todo TODO">TODO</span> 7-4</a></li>
-<li><a href="#org00b89a0">7-5</a></li>
-<li><a href="#org1a76497">7-6</a></li>
+<li><a href="#org4346497">7-1</a></li>
+<li><a href="#org0782fdf">7-2</a></li>
+<li><a href="#org54f6324">7-3</a></li>
+<li><a href="#org3df6a53">7-4</a></li>
+<li><a href="#org44e1348">7-5</a></li>
+<li><a href="#org77b10b8"><span class="todo TODO">TODO</span> 7-6</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org91e9235" class="outline-2">
-<h2 id="org91e9235">ch7-problems</h2>
-<div class="outline-text-2" id="text-org91e9235">
+<div id="outline-container-org045f9d7" class="outline-2">
+<h2 id="org045f9d7">ch7-problems</h2>
+<div class="outline-text-2" id="text-org045f9d7">
 </div>
-<div id="outline-container-org9add992" class="outline-3">
-<h3 id="org9add992">7-1</h3>
-<div class="outline-text-3" id="text-org9add992">
+<div id="outline-container-org4346497" class="outline-3">
+<h3 id="org4346497">7-1</h3>
+<div class="outline-text-3" id="text-org4346497">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
@@ -404,9 +404,9 @@ HOARE-QUICKSORT(A, p, r)
 </ul>
 </div>
 </div>
-<div id="outline-container-orgbb23b28" class="outline-3">
-<h3 id="orgbb23b28">7-2</h3>
-<div class="outline-text-3" id="text-orgbb23b28">
+<div id="outline-container-org0782fdf" class="outline-3">
+<h3 id="org0782fdf">7-2</h3>
+<div class="outline-text-3" id="text-org0782fdf">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
@@ -471,9 +471,9 @@ T(n)
 </ul>
 </div>
 </div>
-<div id="outline-container-orgaf3296d" class="outline-3">
-<h3 id="orgaf3296d">7-3</h3>
-<div class="outline-text-3" id="text-orgaf3296d">
+<div id="outline-container-org54f6324" class="outline-3">
+<h3 id="org54f6324">7-3</h3>
+<div class="outline-text-3" id="text-org54f6324">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
@@ -551,84 +551,146 @@ E[T(n)]
 </ul>
 </div>
 </div>
-<div id="outline-container-org4b870d7" class="outline-3">
-<h3 id="org4b870d7"><span class="todo TODO">TODO</span> 7-4</h3>
-<div class="outline-text-3" id="text-org4b870d7">
-<ol class="org-ol">
-<li>TAIL-RECURSIVE-QUICKSORT use a recursion to handle the left part, and a
-iteration to handle the right part.</li>
+<div id="outline-container-org3df6a53" class="outline-3">
+<h3 id="org3df6a53">7-4</h3>
+<div class="outline-text-3" id="text-org3df6a53">
+<ul class="org-ul">
 <li><p>
-TAIL-RECURSIVE-QUICKSORT(A, 1, n)
+<b>a.</b>
 </p>
 
 <p>
--&gt; TAIL-RECURSIVE-QUICKSORT(A, 1, n - 1)
+We use loop invariants to prove the correctness of the procedure.
 </p>
 
 <p>
--&gt; TAIL-RECURSIVE-QUICKSORT(A, 1, n - 2)
+<b>Loop Invariant:</b>
+At the start of each iteration of the while loop, \(A[1..A.length]\) is
+partitioned by \(p\) and \(A[1..p]\) is sorted.
 </p>
 
 <p>
-&#x2026;
+<b>Initialization:</b>
+\(A[1..p]\) is empty.
 </p>
 
 <p>
--&gt; TAIL-RECURSIVE-QUICKSORT(A, 1, 1)
+<b>Maintenance:</b>
+We partition \(A[p..r]\) at \(q\) and sort \(A[p..q-1]\), then we know that
+\(A[1..q]\) is sorted, and we let \(p = q+1\) and continue with the next
+iteration.
+</p>
+
+<p>
+<b>Termination:</b>
+The loop terminates when \(p \geq A.length\), thus the array \(A\) is
+sorted.
 </p></li>
 <li><p>
-TAIL-RECURSIVE-QUICKSORT(A, p, r)
+<b>b.</b>
+</p>
+
+<p>
+When each PARTITION in the recursion does a \([p..r-1]\) to \([r..r]\)
+split, the stack depth is \(\Theta(n)\).
+</p></li>
+<li><p>
+<b>c.</b>
+</p>
+
+<p>
+After each PARTITION, we choose the smaller part for the recursion.
 </p>
 <pre class="example">
 TAIL-RECURSIVE-QUICKSORT(A, p, r)
-    q = partition(A, p, r)
-    if q &lt; (p + r) / 2
-	TAIL-RECURSIVE-QUICKSORT(A, p, q - 1)
-	p = q + 1
-    else TAIL-RECURSIVE-QUICKSORT(A, q + 1, r)
-	 r = q - 1
+    while p &lt; r
+	//Partition and sort the smaller subarray
+	q = PARTITION(A, p, r)
+	if q &lt; (p + r) / 2
+	    TAIL-RECURSIVE-QUICKSORT(A, p, q - 1)
+	    p = q + 1
+	else TAIL-RECURSIVE-QUICKSORT(A, q + 1, r)
+	     r = q - 1
 </pre></li>
-</ol>
+</ul>
 </div>
 </div>
-<div id="outline-container-org00b89a0" class="outline-3">
-<h3 id="org00b89a0">7-5</h3>
-<div class="outline-text-3" id="text-org00b89a0">
-<ol class="org-ol">
-<li>\(p_i = \frac{(i - 1)(n - i)}{\binom{n}{3}}\)</li>
-<li>\(\lim_{n \to \infty} \frac{\frac{(i - 1)(n - i)}{\binom{n}{3}}}{\frac{1}{n}} = \frac{3}{2}\)</li>
-<li><ul class="org-ul">
+<div id="outline-container-org44e1348" class="outline-3">
+<h3 id="org44e1348">7-5</h3>
+<div class="outline-text-3" id="text-org44e1348">
+<ul class="org-ul">
 <li><p>
-The original possibility
+<b>a.</b>
 </p>
 
 <p>
-\(Pr = \int^{\frac{2 n}{3}}_{\frac{1 n}{3}} \frac{1}{n} = \frac{1}{3}\)
-</p></li>
+The probability is
+</p>
+\begin{align*}
+p_i
+&=\Pr\{x=A'[i]\}\\
+&=\frac{(i-1)(n-i)}{\binom{n}{3}}
+\end{align*}</li>
 <li><p>
-The median-of-3 possibility
+<b>b.</b>
 </p>
 
 <p>
-\(Pr = \int^{\frac{2 n}{3}}_{\frac{1 n}{3}} \frac{(i - 1)(n - i)}{\binom{n}{3}}\)
+Let \(m = \lfloor (n + 1) / 2 \rfloor\), then the probability of the
+developed implementation is \(\frac{(m-1)(n-m)}{\binom{n}{3}}\), and the
+probability of the ordinary implementation is \(\frac{1}{n}\).
 </p>
 
 <p>
-= \(\frac{n^2 (n + 1) - \frac{14}{27} n^3 - 2 n^2}{n (n - 1) (n - 2)}\)
+The limit ratio of them is
+</p>
+\begin{align*}
+r
+&=\lim_{n\to \infty}\frac{\frac{(m-1)(n-m)}{\binom{n}{3}}}{\frac{1}{n}}\\
+&=\frac{3}{2}
+\end{align*}</li>
+<li><p>
+<b>c.</b>
 </p>
 
 <p>
-\(\lim_{n \to \infty}Pr = \frac{13}{27}\)
+The probability of the ordinary implementation is
+</p>
+\begin{align*}
+p'
+&\approx \int_{\frac{n}{3}}^{\frac{2n}{3}} \frac{1}{n}dx\\
+&=\frac{1}{3}
+\end{align*}
+<p>
+The probability of the developed implementation is
+</p>
+\begin{align*}
+p
+&\approx \int_{\frac{n}{3}}^{\frac{2n}{3}}
+ \frac{(x-1)(n-x)}{\binom{n}{3}}dx\\
+\end{align*}
+<p>
+And the limit ratio of them is
+</p>
+\begin{align*}
+r
+&=\lim_{n\to \infty}\frac{p}{p'}\\
+&=\frac{13}{9}
+\end{align*}</li>
+<li><p>
+<b>d.</b>
+</p>
+
+<p>
+The median-of-3 method only improve the probability of choosing a good
+pivot, the running time is still \(\Omega(n \lg n)\).
 </p></li>
-</ul></li>
-<li>The median-of-3 method only improve the possibility of choosing a good
-pivot, the running time is still \(\Omega(n \lg n)\)</li>
-</ol>
+</ul>
 </div>
 </div>
-<div id="outline-container-org1a76497" class="outline-3">
-<h3 id="org1a76497">7-6</h3>
-<div class="outline-text-3" id="text-org1a76497">
+<div id="outline-container-org77b10b8" class="outline-3">
+<h3 id="org77b10b8"><span class="todo TODO">TODO</span> 7-6</h3>
+<div class="outline-text-3" id="text-org77b10b8">
 <ol class="org-ol">
 <li><p>
 The FUZZY-SORT is similar with equal-elements-quicksort in problem 7-2
@@ -686,7 +748,7 @@ when all elements overlapped, the running time is \(\Theta(n)\)
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2020-02-07 Fri 13:25</p>
+<p class="date">Created: 2020-02-19 Wed 07:00</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
