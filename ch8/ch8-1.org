@@ -2,35 +2,57 @@
 
 * ch8.1
 ** 8.1-1
-   The smallest depth is n
+   Consider a graph \(G = (V, E)\), which \(V\) represents the set of all \(n\)
+   elements, and \(E\) represents the set of all comparison, then we know that
+   the graph \(G\) should be connected for a comparison sort, at least \(n - 1\)
+   edges is needed, thus the smallest possible depth of a leaf in a decision
+   tree for a comparison sort is \(n - 1\).
+
+   For example, we do comparisons between \(a_i\) and \(a_{i+1}\)
+   for \(i \in [1, n - 1]\),
+   when \(a_1 \leq a_2 \leq a_3 \leq ... \leq a_{n-1} \leq a_n\).
 ** 8.1-2
-   - \(lg(n!) = \sum^{n}_{k=1}\lg k\)
-
-   - \(\sum^{n}_{k=1}\lg k\)
-
-     \(\leq \sum^{n}_{k=1}\lg n = n\lg n\)
-
-     \(\Rightarrow \lg(n!) = O(n\lg n)\)
-
-   - \(\sum^{n}_{k=1}\lg k\)
-
-     \(\geq \sum^{n}_{k=\frac{n}{2}}\lg k\)
-
-     \(\geq \sum^{n}_{k=\frac{n}{2}} \lg \frac{n}{2} = \frac{n}{2}(\lg n - 1)\)
-
-     \(\Rightarrow \lg(n!) = \Omega(n\lg n)\)
-   - \(\lg(n!) = \Theta(n\lg n)\)
+   Since \(\lg k\) is monotonically increasing, we can approximate the summation
+   use the formula \(A.11\).
+   \begin{align*}
+   \int_{0}^{n}\lg(x)dx
+   \leq \sum_{k=1}^{n}\lg k
+   \leq \int_{1}^{n+1}\lg(x)dx
+   \end{align*}
+   Evaluate the integral, we have
+   \begin{align*}
+   \frac{n(\lg n-1)}{\ln 2}
+   \leq \sum_{k=1}^{n}\lg k
+   \leq \frac{(n+1)(\lg(n+1)-1)}{\ln 2}
+   \end{align*}
+   From the inequation, we obtain the asymptotically tight bounds
+   \(\Theta(n\lg n)\).
 ** 8.1-3
-   - \(h \geq lg(\frac{n!}{2} = \Theta(n\lg n) - 1)\)
-   - \(h \geq lg(\frac{n!}{n} = \Theta(n\lg n) - \lg n)\)
-   - \(h \geq lg(\frac{n!}{2^n} = \Theta(n\lg n) - n)\)
+   Assume the running time is at most \(cn\), we know that there are at most
+   \(2^{cn+1}\) leaves under depth \(cn\).
+
+   Since \(2^{cn+1} = o(\frac{1}{2}n!)\), there is no comparison sort whose
+   running time is linear for at least half of the \(n!\) inputs of length
+   \(n\).
+
+   Since \(2^{cn+1} = o(\frac{1}{n}n!)\), there is no comparison sort whose
+   running time is linear for at a fraction of \(1/n\) of the \(n!\) inputs of
+   length \(n\).
+
+   Since \(2^{cn+1} = o(\frac{1}{2^n}n!)\), there is no comparison sort whose
+   running time is linear for at a fraction of \(1/2^n\) of the \(n!\) inputs of
+   length \(n\).
 ** 8.1-4
-   The height of the decision tree is:
-
-   \(h \geq \lg((k!)^{\frac{n}{k}})\)
-
-   \(= \frac{n}{k} \lg(k!)\)
-
-   \(= \frac{n}{k} \Omega(k\lg k)\)
-
-   \(= \Omega(n\lg k)\)
+   Build a decision tree to represent a comparison sort of the given problem,
+   assume the number of leaves is \(l\) and the height of the tree is \(h\),
+   we know that
+   \begin{align*}
+   (k!)^{\frac{n}{k}} \leq l \leq 2^h
+   \end{align*}
+   Take logarithms on the inequation, we have
+   \begin{align*}
+   h
+   &\geq \frac{n}{k}\lg(k!)\\
+   &=\Omega(n\lg k)
+   \end{align*}
+   Thus the lower bound of the number of comparisons is \(\Omega(n\lg k)\).
