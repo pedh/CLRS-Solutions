@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-02-21 Fri 08:35 -->
+<!-- 2020-02-24 Mon 01:23 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 6.2</title>
@@ -333,27 +333,27 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgb770590">ch6.2</a>
+<li><a href="#org84583f9">ch6.2</a>
 <ul>
-<li><a href="#org9ebf3c4">6.2-1</a></li>
-<li><a href="#org0c9f24d">6.2-2</a></li>
-<li><a href="#org905e1a7">6.2-3</a></li>
-<li><a href="#org3efea49">6.2-4</a></li>
-<li><a href="#org5d269a4">6.2-5</a></li>
-<li><a href="#org5f9f581">6.2-6</a></li>
+<li><a href="#org87511c3">6.2-1</a></li>
+<li><a href="#org35b4fe4">6.2-2</a></li>
+<li><a href="#orgc933224">6.2-3</a></li>
+<li><a href="#org26500bb">6.2-4</a></li>
+<li><a href="#org58fe399">6.2-5</a></li>
+<li><a href="#orged649ae">6.2-6</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgb770590" class="outline-2">
-<h2 id="orgb770590">ch6.2</h2>
-<div class="outline-text-2" id="text-orgb770590">
+<div id="outline-container-org84583f9" class="outline-2">
+<h2 id="org84583f9">ch6.2</h2>
+<div class="outline-text-2" id="text-org84583f9">
 </div>
-<div id="outline-container-org9ebf3c4" class="outline-3">
-<h3 id="org9ebf3c4">6.2-1</h3>
-<div class="outline-text-3" id="text-org9ebf3c4">
+<div id="outline-container-org87511c3" class="outline-3">
+<h3 id="org87511c3">6.2-1</h3>
+<div class="outline-text-3" id="text-org87511c3">
 <pre class="example">
    (3 (10 (8 9)) (1 (0)))
 -&gt; (10 (3 (8 9)) ...)
@@ -361,9 +361,9 @@ for the JavaScript code in this tag.
 </pre>
 </div>
 </div>
-<div id="outline-container-org0c9f24d" class="outline-3">
-<h3 id="org0c9f24d">6.2-2</h3>
-<div class="outline-text-3" id="text-org0c9f24d">
+<div id="outline-container-org35b4fe4" class="outline-3">
+<h3 id="org35b4fe4">6.2-2</h3>
+<div class="outline-text-3" id="text-org35b4fe4">
 <pre class="example">
 MIN-HEAPIFY(A, i)
     l = LEFT(i)
@@ -382,26 +382,26 @@ The Running time of MIN-HEAPIFY is same as MAX-HEAPIFY.
 </p>
 </div>
 </div>
-<div id="outline-container-org905e1a7" class="outline-3">
-<h3 id="org905e1a7">6.2-3</h3>
-<div class="outline-text-3" id="text-org905e1a7">
+<div id="outline-container-orgc933224" class="outline-3">
+<h3 id="orgc933224">6.2-3</h3>
+<div class="outline-text-3" id="text-orgc933224">
 <p>
 A[i] appears to be the largest element between itself and its children, the
 procedure returns with nothing changes.
 </p>
 </div>
 </div>
-<div id="outline-container-org3efea49" class="outline-3">
-<h3 id="org3efea49">6.2-4</h3>
-<div class="outline-text-3" id="text-org3efea49">
+<div id="outline-container-org26500bb" class="outline-3">
+<h3 id="org26500bb">6.2-4</h3>
+<div class="outline-text-3" id="text-org26500bb">
 <p>
 A[i] has no child in A, the procedure returns with nothing changes.
 </p>
 </div>
 </div>
-<div id="outline-container-org5d269a4" class="outline-3">
-<h3 id="org5d269a4">6.2-5</h3>
-<div class="outline-text-3" id="text-org5d269a4">
+<div id="outline-container-org58fe399" class="outline-3">
+<h3 id="org58fe399">6.2-5</h3>
+<div class="outline-text-3" id="text-org58fe399">
 <p>
 The compilers without tail recursion optimization will produce inefficient
 code.
@@ -428,9 +428,9 @@ MAX-HEAPIFY(A, i)
 </pre>
 </div>
 </div>
-<div id="outline-container-org5f9f581" class="outline-3">
-<h3 id="org5f9f581">6.2-6</h3>
-<div class="outline-text-3" id="text-org5f9f581">
+<div id="outline-container-orged649ae" class="outline-3">
+<h3 id="orged649ae">6.2-6</h3>
+<div class="outline-text-3" id="text-orged649ae">
 <p>
 The MAX-HEAPIFY would be called \(h\) (heap height) times in the worst
 case, and we know that \(h = \lfloor \lg n \rfloor\), so that the worst case
@@ -442,7 +442,7 @@ running time is \(T(n) = \Theta{\lfloor \lg n \rfloor} = \Omega(\lg n)\).
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2020-02-21 Fri 08:35</p>
+<p class="date">Created: 2020-02-24 Mon 01:23</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
