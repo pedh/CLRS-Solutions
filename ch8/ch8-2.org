@@ -2,11 +2,105 @@
 
 * ch8.2
 ** 8.2-1
-** 8.2-2
-** 8.2-3
-   Not stable, elements with same value appear in reverse order as they were
-   in original array.
-** 8.2-4
-   Same as the logic in counting-sort, get the count, then accumulate
+   #+BEGIN_SRC
+   (a)
 
-   T([a..b]) = C[b] - C[a - 1], C[-1] = 0
+   A:
+   | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 |
+   |---+---+---+---+---+---+---+---+---+----+----|
+   | 6 | 0 | 2 | 0 | 1 | 3 | 4 | 6 | 1 |  3 |  2 |
+   |---+---+---+---+---+---+---+---+---+----+----|
+   C:
+   | 0 | 1 | 2 | 3 | 4 | 5 | 6 |
+   |---+---+---+---+---+---+---|
+   | 2 | 2 | 2 | 2 | 1 | 0 | 2 |
+   |---+---+---+---+---+---+---|
+   #+END_SRC
+   #+BEGIN_SRC
+   (b)
+
+   C:
+   | 0 | 1 | 2 | 3 | 4 | 5 |  6 |
+   |---+---+---+---+---+---+----|
+   | 2 | 4 | 6 | 8 | 9 | 9 | 11 |
+   |---+---+---+---+---+---+----|
+   #+END_SRC
+   #+BEGIN_SRC
+   (c)
+
+   B:
+   | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 |
+   |---+---+---+---+---+---+---+---+---+----+----|
+   |   |   |   |   |   | 2 |   |   |   |    |    |
+   |---+---+---+---+---+---+---+---+---+----+----|
+   C:
+   | 0 | 1 | 2 | 3 | 4 | 5 |  6 |
+   |---+---+---+---+---+---+----|
+   | 2 | 4 | 5 | 8 | 9 | 9 | 11 |
+   |---+---+---+---+---+---+----|
+   #+END_SRC
+   #+BEGIN_SRC
+   (d)
+
+   B:
+   | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 |
+   |---+---+---+---+---+---+---+---+---+----+----|
+   |   |   |   |   |   | 2 |   | 3 |   |    |    |
+   |---+---+---+---+---+---+---+---+---+----+----|
+   C:
+   | 0 | 1 | 2 | 3 | 4 | 5 |  6 |
+   |---+---+---+---+---+---+----|
+   | 2 | 4 | 5 | 7 | 9 | 9 | 11 |
+   |---+---+---+---+---+---+----|
+   #+END_SRC
+   #+BEGIN_SRC
+   (e)
+
+   B:
+   | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 |
+   |---+---+---+---+---+---+---+---+---+----+----|
+   |   |   |   | 1 |   | 2 |   | 3 |   |    |    |
+   |---+---+---+---+---+---+---+---+---+----+----|
+   C:
+   | 0 | 1 | 2 | 3 | 4 | 5 |  6 |
+   |---+---+---+---+---+---+----|
+   | 2 | 3 | 5 | 7 | 9 | 9 | 11 |
+   |---+---+---+---+---+---+----|
+   #+END_SRC
+   #+BEGIN_SRC
+   (f)
+
+   B:
+   | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 |
+   |---+---+---+---+---+---+---+---+---+----+----|
+   | 0 | 0 | 1 | 1 | 2 | 2 | 3 | 3 | 4 |  6 |  6 |
+   |---+---+---+---+---+---+---+---+---+----+----|
+   #+END_SRC
+** 8.2-2
+   When placing the elements into the output array B, the elements with larger
+   indices in A are placed earlier, and the elements with the same value which
+   were placed earlier are placed into the larger index in B, thus the elements
+   with the same value appear in the output array B in the same order with the
+   input array A.
+** 8.2-3
+   The algorithm works but it's not stable, because the elements with the same
+   value appear in the output array in the reverse order.
+** 8.2-4
+   Count the elements and then accumulate the count \(C\), the range count of
+   \([a..b]\) is \(C[b] - C[a - 1]\).
+   #+BEGIN_SRC
+   RANGE-COUNT-PREPROCESS(A)
+       let C[0..k] be a new array
+       for i = 0 to k
+           C[i] = 0
+       for j = 1 to A.length
+           C[A[j]] = C[A[j]] + 1
+       for i = 1 to k
+           C[i] = C[i] + C[i - 1]
+       return C
+
+   RANGE-COUNT(C, x, y)
+       if x == 0:
+           return C[y]
+       return C[y] - C[x - 1]
+   #+END_SRC
