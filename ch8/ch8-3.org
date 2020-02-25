@@ -2,44 +2,63 @@
 
 * ch8.3
 ** 8.3-1
+   #+BEGIN_SRC
+            --*      -*-      *--
+   COW      SEA      TAB      BAR
+   DOG      TEA      BAR      BIG
+   SEA      MOB      EAR      BOX
+   RUG      TAB      TAR      COW
+   ROW      DOG      SEA      DIG
+   MOB      RUG      TEA      DOG
+   BOX      DIG      DIG      EAR
+   TAB  ->  BIG  ->  BIG  ->  FOX
+   BAR      BAR      MOB      MOB
+   EAR      EAR      DOG      NOW
+   TAR      TAR      COW      ROW
+   DIG      COW      ROW      RUG
+   BIG      ROW      NOW      SEA
+   TEA      NOW      BOX      TAB
+   NOW      BOX      FOX      TAR
+   FOX      FOX      RUG      TEA
+   #+END_SRC
 ** 8.3-2
-   - The insertion-sort and merge-sort are stable, heapsort and quicksort are
-     not stable.
-   - Store the original index of each elements, if two elements are equal,
-     compare the index.
+   The insertion sort and merge sort algorithms are stable, the heapsort and
+   quicksort algorithms are not stable.
 
-     The running time is not asymptotically changed
-
-     The additional space is n * (space of an index) = \(n\lg n\) bits
+   We could store and compare the original indices of the identical elements
+   to make any comparison sorting algorithm stable.
+   The additional time does not asymptotically affect the running time, the
+   additional space is \(n\lg n\) bits if we use \(\lg n\) bits to store the
+   index of an element.
 ** 8.3-3
-   d digits elements array radix sort
+   *Loop invariant:* At the start of each iteration, the array is \(1..i-1\)
+   digits radix sorted.
 
-   - Base case
-     i = 1, sort the array on lowest-order digit means radix sorted
-   - Inductive step
-     + Assume k digits are radix sorted, do stable sort on i = k + 1 digit
+   *Initialization:* The 0 digits are radix sorted.
 
-     + Consider comparison of two elements a and b, the ith bit is a_i and b_i
+   *Maintenance:* In the \(i\)th iteration, we use a stable sort to sort the
+   array on digit \(i\), for two elements a and b, notate the \(ith\) digit with
+   \(a_i\) and \(b_i\), if \(a_i > b_i\) then \(a > b\), if \(a_i < b_i\) then
+   \(a < b\), if \(a_i = b_i\) then the order of \(a\) and \(b\) remains as they
+   were \(1..i-1\) digits radix sorted. Thus the array is \(1..i\) digits radix
+   sorted after the stable sort.
 
-       if a_i > b_i, then a > b
+   *Termination:* When the loop terminates, the array is \(1..d\) digits radix
+   sorted.
 
-       if a_i < b_i, then a < b
-
-       if a_i = b_i, then the order of a and b is same as they were in the
-       k digits radix sort.
-
-     + The array are k + 1 digits radix sorted
-   - By mathematical induction, the radix sort algorithm works
-   - The assumption that the intermediate sort is stable is needed
-     when a_i = b_i
+   The assumption that the intermediate sort is stable is needed when the
+   \(ith\) digits of two elements are the same.
 ** 8.3-4
-   \(T(n) = \Theta(\frac{b}{r}(n + 2^r)), b = 3\lg n\)
+   From Lemma 8.4, we have
+   \begin{align*}
+   T(n)&=\Theta((b/r)(n+2^r)) &, b=3\lg n
+   \end{align*}
+   Because \(b=3\lg n \geq \lfloor \lg n \rfloor\), we choose
+   \(r=\lfloor\lg n \rfloor\) to yield a running time of
+   \(\Theta(bn/\lg n) = \Theta(n)\).
 
-   b > \lg n, so choose r = \lg n
-
-   \(T(n) = \Theta(\frac{3\lg n}{\lg n}(n + 2^{\lg n})) = \Theta(6n) = \Theta(n)\)
-
-   Perform 3-digit radix sort on the array, each digit is from 0 to n - 1
+   In despite of the low level bits, we could simply perform a \(3\)-digit
+   radix sort on the integers, each digit holds \(0\) to \(n - 1\).
 ** 8.3-5
-   - \(\sum^{d - 1}_{i = 0}10^i = \frac{10^d - 1}{9}\) sorting passes
-   - 10 piles of cards
+   In the worst case, \(d\) sorting passes are needed to sort \(d\)-digit
+   decimal numbers, and an operator need to keep track of \(10\) piles of cards.
