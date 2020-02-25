@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-02-24 Mon 08:45 -->
+<!-- 2020-02-25 Tue 08:39 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 8.3</title>
@@ -333,120 +333,131 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org9bc24a7">ch8.3</a>
+<li><a href="#orge5efbd8">ch8.3</a>
 <ul>
-<li><a href="#org4c9350c">8.3-1</a></li>
-<li><a href="#orgb573a9e">8.3-2</a></li>
-<li><a href="#org465ce4e">8.3-3</a></li>
-<li><a href="#org89152ef">8.3-4</a></li>
-<li><a href="#org42379df">8.3-5</a></li>
+<li><a href="#org0467eb8">8.3-1</a></li>
+<li><a href="#org4b7ead2">8.3-2</a></li>
+<li><a href="#orgd285790">8.3-3</a></li>
+<li><a href="#orgd522a22">8.3-4</a></li>
+<li><a href="#org7cf6ef1">8.3-5</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org9bc24a7" class="outline-2">
-<h2 id="org9bc24a7">ch8.3</h2>
-<div class="outline-text-2" id="text-org9bc24a7">
+<div id="outline-container-orge5efbd8" class="outline-2">
+<h2 id="orge5efbd8">ch8.3</h2>
+<div class="outline-text-2" id="text-orge5efbd8">
 </div>
-<div id="outline-container-org4c9350c" class="outline-3">
-<h3 id="org4c9350c">8.3-1</h3>
-</div>
-<div id="outline-container-orgb573a9e" class="outline-3">
-<h3 id="orgb573a9e">8.3-2</h3>
-<div class="outline-text-3" id="text-orgb573a9e">
-<ul class="org-ul">
-<li>The insertion-sort and merge-sort are stable, heapsort and quicksort are
-not stable.</li>
-<li><p>
-Store the original index of each elements, if two elements are equal,
-compare the index.
-</p>
-
-<p>
-The running time is not asymptotically changed
-</p>
-
-<p>
-The additional space is n * (space of an index) = \(n\lg n\) bits
-</p></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-org465ce4e" class="outline-3">
-<h3 id="org465ce4e">8.3-3</h3>
-<div class="outline-text-3" id="text-org465ce4e">
-<p>
-d digits elements array radix sort
-</p>
-
-<ul class="org-ul">
-<li>Base case
-i = 1, sort the array on lowest-order digit means radix sorted</li>
-<li>Inductive step
-<ul class="org-ul">
-<li>Assume k digits are radix sorted, do stable sort on i = k + 1 digit</li>
-
-<li><p>
-Consider comparison of two elements a and b, the ith bit is a<sub>i</sub> and b<sub>i</sub>
-</p>
-
-<p>
-if a<sub>i</sub> &gt; b<sub>i</sub>, then a &gt; b
-</p>
-
-<p>
-if a<sub>i</sub> &lt; b<sub>i</sub>, then a &lt; b
-</p>
-
-<p>
-if a<sub>i</sub> = b<sub>i</sub>, then the order of a and b is same as they were in the
-k digits radix sort.
-</p></li>
-
-<li>The array are k + 1 digits radix sorted</li>
-</ul></li>
-<li>By mathematical induction, the radix sort algorithm works</li>
-<li>The assumption that the intermediate sort is stable is needed
-when a<sub>i</sub> = b<sub>i</sub></li>
-</ul>
+<div id="outline-container-org0467eb8" class="outline-3">
+<h3 id="org0467eb8">8.3-1</h3>
+<div class="outline-text-3" id="text-org0467eb8">
+<pre class="example">
+	 --*      -*-      *--
+COW      SEA      TAB      BAR
+DOG      TEA      BAR      BIG
+SEA      MOB      EAR      BOX
+RUG      TAB      TAR      COW
+ROW      DOG      SEA      DIG
+MOB      RUG      TEA      DOG
+BOX      DIG      DIG      EAR
+TAB  -&gt;  BIG  -&gt;  BIG  -&gt;  FOX
+BAR      BAR      MOB      MOB
+EAR      EAR      DOG      NOW
+TAR      TAR      COW      ROW
+DIG      COW      ROW      RUG
+BIG      ROW      NOW      SEA
+TEA      NOW      BOX      TAB
+NOW      BOX      FOX      TAR
+FOX      FOX      RUG      TEA
+</pre>
 </div>
 </div>
-<div id="outline-container-org89152ef" class="outline-3">
-<h3 id="org89152ef">8.3-4</h3>
-<div class="outline-text-3" id="text-org89152ef">
+<div id="outline-container-org4b7ead2" class="outline-3">
+<h3 id="org4b7ead2">8.3-2</h3>
+<div class="outline-text-3" id="text-org4b7ead2">
 <p>
-\(T(n) = \Theta(\frac{b}{r}(n + 2^r)), b = 3\lg n\)
+The insertion sort and merge sort algorithms are stable, the heapsort and
+quicksort algorithms are not stable.
 </p>
 
 <p>
-b &gt; lg n, so choose r = lg n
-</p>
-
-<p>
-\(T(n) = \Theta(\frac{3\lg n}{\lg n}(n + 2^{\lg n})) = \Theta(6n) = \Theta(n)\)
-</p>
-
-<p>
-Perform 3-digit radix sort on the array, each digit is from 0 to n - 1
+We could store and compare the original indices of the identical elements
+to make any comparison sorting algorithm stable.
+The additional time does not asymptotically affect the running time, the
+additional space is \(n\lg n\) bits if we use \(\lg n\) bits to store the
+index of an element.
 </p>
 </div>
 </div>
-<div id="outline-container-org42379df" class="outline-3">
-<h3 id="org42379df">8.3-5</h3>
-<div class="outline-text-3" id="text-org42379df">
-<ul class="org-ul">
-<li>\(\sum^{d - 1}_{i = 0}10^i = \frac{10^d - 1}{9}\) sorting passes</li>
-<li>10 piles of cards</li>
-</ul>
+<div id="outline-container-orgd285790" class="outline-3">
+<h3 id="orgd285790">8.3-3</h3>
+<div class="outline-text-3" id="text-orgd285790">
+<p>
+<b>Loop invariant:</b> At the start of each iteration, the array is \(1..i-1\)
+digits radix sorted.
+</p>
+
+<p>
+<b>Initialization:</b> The 0 digits are radix sorted.
+</p>
+
+<p>
+<b>Maintenance:</b> In the \(i\)th iteration, we use a stable sort to sort the
+array on digit \(i\), for two elements a and b, notate the \(ith\) digit with
+\(a_i\) and \(b_i\), if \(a_i > b_i\) then \(a > b\), if \(a_i < b_i\) then
+\(a < b\), if \(a_i = b_i\) then the order of \(a\) and \(b\) remains as they
+were \(1..i-1\) digits radix sorted. Thus the array is \(1..i\) digits radix
+sorted after the stable sort.
+</p>
+
+<p>
+<b>Termination:</b> When the loop terminates, the array is \(1..d\) digits radix
+sorted.
+</p>
+
+<p>
+The assumption that the intermediate sort is stable is needed when the
+\(ith\) digits of two elements are the same.
+</p>
+</div>
+</div>
+<div id="outline-container-orgd522a22" class="outline-3">
+<h3 id="orgd522a22">8.3-4</h3>
+<div class="outline-text-3" id="text-orgd522a22">
+<p>
+From Lemma 8.4, we have
+</p>
+\begin{align*}
+T(n)&=\Theta((b/r)(n+2^r)) &, b=3\lg n
+\end{align*}
+<p>
+Because \(b=3\lg n \geq \lfloor \lg n \rfloor\), we choose
+\(r=\lfloor\lg n \rfloor\) to yield a running time of
+\(\Theta(bn/\lg n) = \Theta(n)\).
+</p>
+
+<p>
+In despite of the low level bits, we could simply perform a \(3\)-digit
+radix sort on the integers, each digit holds \(0\) to \(n - 1\).
+</p>
+</div>
+</div>
+<div id="outline-container-org7cf6ef1" class="outline-3">
+<h3 id="org7cf6ef1">8.3-5</h3>
+<div class="outline-text-3" id="text-org7cf6ef1">
+<p>
+In the worst case, \(d\) sorting passes are needed to sort \(d\)-digit
+decimal numbers, and an operator need to keep track of \(10\) piles of cards.
+</p>
 </div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2020-02-24 Mon 08:45</p>
+<p class="date">Created: 2020-02-25 Tue 08:39</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
