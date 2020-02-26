@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-02-26 Wed 03:21 -->
+<!-- 2020-02-26 Wed 09:04 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 8.4</title>
@@ -333,26 +333,26 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org70147a5">ch8.4</a>
+<li><a href="#org86db7b8">ch8.4</a>
 <ul>
-<li><a href="#orgc159a68">8.4-1</a></li>
-<li><a href="#org30cf775">8.4-2</a></li>
-<li><a href="#orgb077b56">8.4-3</a></li>
-<li><a href="#org17a79ff"><span class="todo TODO">TODO</span> 8.4-4</a></li>
-<li><a href="#orgce63236">8.4-5</a></li>
+<li><a href="#org11187e3">8.4-1</a></li>
+<li><a href="#org4811cab">8.4-2</a></li>
+<li><a href="#org3fb176a">8.4-3</a></li>
+<li><a href="#org7d6f739">8.4-4</a></li>
+<li><a href="#org5ffa76d"><span class="todo TODO">TODO</span> 8.4-5</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org70147a5" class="outline-2">
-<h2 id="org70147a5">ch8.4</h2>
-<div class="outline-text-2" id="text-org70147a5">
+<div id="outline-container-org86db7b8" class="outline-2">
+<h2 id="org86db7b8">ch8.4</h2>
+<div class="outline-text-2" id="text-org86db7b8">
 </div>
-<div id="outline-container-orgc159a68" class="outline-3">
-<h3 id="orgc159a68">8.4-1</h3>
-<div class="outline-text-3" id="text-orgc159a68">
+<div id="outline-container-org11187e3" class="outline-3">
+<h3 id="org11187e3">8.4-1</h3>
+<div class="outline-text-3" id="text-org11187e3">
 <pre class="example">
 |    |   A |   |   | B         |
 |----+-----+---+---+-----------|
@@ -370,9 +370,9 @@ for the JavaScript code in this tag.
 </pre>
 </div>
 </div>
-<div id="outline-container-org30cf775" class="outline-3">
-<h3 id="org30cf775">8.4-2</h3>
-<div class="outline-text-3" id="text-org30cf775">
+<div id="outline-container-org4811cab" class="outline-3">
+<h3 id="org4811cab">8.4-2</h3>
+<div class="outline-text-3" id="text-org4811cab">
 <p>
 The worst case appears when all elements fall in one bucket, the worst-case
 running time is \(\Theta(n^2)\).
@@ -386,9 +386,9 @@ time \(O(n\lg n)\).
 </p>
 </div>
 </div>
-<div id="outline-container-orgb077b56" class="outline-3">
-<h3 id="orgb077b56">8.4-3</h3>
-<div class="outline-text-3" id="text-orgb077b56">
+<div id="outline-container-org3fb176a" class="outline-3">
+<h3 id="org3fb176a">8.4-3</h3>
+<div class="outline-text-3" id="text-org3fb176a">
 <p>
 We define indicator random variable
 </p>
@@ -422,23 +422,27 @@ E^2[X]
 \end{align*}
 </div>
 </div>
-<div id="outline-container-org17a79ff" class="outline-3">
-<h3 id="org17a79ff"><span class="todo TODO">TODO</span> 8.4-4</h3>
-<div class="outline-text-3" id="text-org17a79ff">
+<div id="outline-container-org7d6f739" class="outline-3">
+<h3 id="org7d6f739">8.4-4</h3>
+<div class="outline-text-3" id="text-org7d6f739">
 <p>
-The possibility of points falls into a bucket is
-Pr[B] = Area(B) / Area(All) = Area(B) / &pi;
+Sort the \(n\) points by their distances \(d_i = \sqrt{x_i^2 + y_i^2}\),
+we define the \(n\) buckets, which for \(k = 1..n\), the \(k\)th bucket is
 </p>
-
+\begin{align*}
+B_k &= \Bigg\{(x_i,y_i)
+       \bigg|\sqrt{\frac{k-1}{n}}\leq d_i\leq\sqrt{\frac{k}{n}}\Bigg\}
+\end{align*}
 <p>
-The kth bucket is
-\(B_k \{\sqrt{\frac{i - 1}{n}} < d_i \leq \sqrt{\frac{i}{n}} \}\)
+The \(n\) buckets divide the circle region into \(n\) regions which have the
+same areas, thus a point has equal probability to fall into any bucket, the
+average-case running time of the bucket sort algorithm is \(\Theta(n)\).
 </p>
 </div>
 </div>
-<div id="outline-container-orgce63236" class="outline-3">
-<h3 id="orgce63236">8.4-5</h3>
-<div class="outline-text-3" id="text-orgce63236">
+<div id="outline-container-org5ffa76d" class="outline-3">
+<h3 id="org5ffa76d"><span class="todo TODO">TODO</span> 8.4-5</h3>
+<div class="outline-text-3" id="text-org5ffa76d">
 <p>
 P(B<sub>i</sub>) = i / n
 </p>
@@ -448,7 +452,7 @@ P(B<sub>i</sub>) = i / n
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2020-02-26 Wed 03:21</p>
+<p class="date">Created: 2020-02-26 Wed 09:04</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
