@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-02-25 Tue 08:56 -->
+<!-- 2020-02-26 Wed 03:21 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 8.4</title>
@@ -333,55 +333,98 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org6310f41">ch8.4</a>
+<li><a href="#org70147a5">ch8.4</a>
 <ul>
-<li><a href="#org757267a">8.4-1</a></li>
-<li><a href="#org60e8687">8.4-2</a></li>
-<li><a href="#org9a01e00">8.4-3</a></li>
-<li><a href="#orged3e8de">8.4-4</a></li>
-<li><a href="#org9365147">8.4-5</a></li>
+<li><a href="#orgc159a68">8.4-1</a></li>
+<li><a href="#org30cf775">8.4-2</a></li>
+<li><a href="#orgb077b56">8.4-3</a></li>
+<li><a href="#org17a79ff"><span class="todo TODO">TODO</span> 8.4-4</a></li>
+<li><a href="#orgce63236">8.4-5</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org6310f41" class="outline-2">
-<h2 id="org6310f41">ch8.4</h2>
-<div class="outline-text-2" id="text-org6310f41">
+<div id="outline-container-org70147a5" class="outline-2">
+<h2 id="org70147a5">ch8.4</h2>
+<div class="outline-text-2" id="text-org70147a5">
 </div>
-<div id="outline-container-org757267a" class="outline-3">
-<h3 id="org757267a">8.4-1</h3>
+<div id="outline-container-orgc159a68" class="outline-3">
+<h3 id="orgc159a68">8.4-1</h3>
+<div class="outline-text-3" id="text-orgc159a68">
+<pre class="example">
+|    |   A |   |   | B         |
+|----+-----+---+---+-----------|
+|  1 | .79 |   | 0 |           |
+|  2 | .13 |   | 1 | (.13 .16) |
+|  3 | .16 |   | 2 | (.20)     |
+|  4 | .64 |   | 3 | (.39)     |
+|  5 | .39 |   | 4 | (.4)      |
+|  6 | .20 |   | 5 | (.53)     |
+|  7 | .89 |   | 6 | (.64)     |
+|  8 | .53 |   | 7 | (.79 .71) |
+|  9 | .71 |   | 8 | (.89)     |
+| 10 |  .4 |   | 9 |           |
+|----+-----+---+---+-----------|
+</pre>
 </div>
-<div id="outline-container-org60e8687" class="outline-3">
-<h3 id="org60e8687">8.4-2</h3>
-<div class="outline-text-3" id="text-org60e8687">
-<ul class="org-ul">
-<li>When all elements falls to one bucket, the running time is \(\Theta(n^2)\)</li>
-<li>Use \(\Theta(n^2)\) sorting algorithm like heapsort or merge sort instead
-of insertion sort</li>
-</ul>
 </div>
-</div>
-<div id="outline-container-org9a01e00" class="outline-3">
-<h3 id="org9a01e00">8.4-3</h3>
-<div class="outline-text-3" id="text-org9a01e00">
+<div id="outline-container-org30cf775" class="outline-3">
+<h3 id="org30cf775">8.4-2</h3>
+<div class="outline-text-3" id="text-org30cf775">
 <p>
-E[X] = 0 * 1/4 + 1 * 1/2 + 2 * 1/4 = 1
+The worst case appears when all elements fall in one bucket, the worst-case
+running time is \(\Theta(n^2)\).
 </p>
 
 <p>
-E[X<sup>2</sup>] = 0 * 1/4 + 1 * 1/2 + 4 * 1/4 = 1.5
+We could use \(O(n\lg n)\) sorting algorithm like heapsort or merge sort
+instead of insertion sort as the intermediate sorting algorithm, then we
+preserve the linear average-case running time and make the worst-case running
+time \(O(n\lg n)\).
 </p>
-
+</div>
+</div>
+<div id="outline-container-orgb077b56" class="outline-3">
+<h3 id="orgb077b56">8.4-3</h3>
+<div class="outline-text-3" id="text-orgb077b56">
 <p>
-E<sup>2</sup>[X] = (E[X])<sup>2</sup> = 1
+We define indicator random variable
 </p>
+\begin{align*}
+X_i &= I\{\text{got head in the ith flip of coin}\}
+\end{align*}
+<p>
+The indicator random variable \(X_i\) is \(1\) with probability \(1/2\) and
+\(0\) with probability \(1/2\). We have
+</p>
+\begin{align*}
+E[X^2]
+&=E\Bigg[\bigg(\sum_{i=1}^{2}X_i\bigg)^2\Bigg]\\
+&=E\bigg[\sum_{i=1}^{2}X_i^2
+  +\sum_{1\leq i\leq 2}\sum_{1\leq j\leq 2,\ j\neq i}X_i X_j\bigg]\\
+&=\sum_{i=1}^{2}E[X_i^2]
+  +\sum_{1\leq i\leq 2}\sum_{1\leq j\leq 2,\ j\neq i}E[X_i X_j]\\
+&=2\times(1)^2\times(1/2)+2\times(2-1)\times(1/2)^2\\
+&=3/2
+\end{align*}
+<p>
+and
+</p>
+\begin{align*}
+E^2[X]
+&=(E[X])^2\\
+&=\Bigg(E\bigg[\sum_{i=1}^{2} X_i\bigg]\Bigg)^2\\
+&=\bigg(\sum_{i=1}^{2} E[X_i]\bigg)^2\\
+&=(2\times (1/2))^2\\
+&=1
+\end{align*}
 </div>
 </div>
-<div id="outline-container-orged3e8de" class="outline-3">
-<h3 id="orged3e8de">8.4-4</h3>
-<div class="outline-text-3" id="text-orged3e8de">
+<div id="outline-container-org17a79ff" class="outline-3">
+<h3 id="org17a79ff"><span class="todo TODO">TODO</span> 8.4-4</h3>
+<div class="outline-text-3" id="text-org17a79ff">
 <p>
 The possibility of points falls into a bucket is
 Pr[B] = Area(B) / Area(All) = Area(B) / &pi;
@@ -393,9 +436,9 @@ The kth bucket is
 </p>
 </div>
 </div>
-<div id="outline-container-org9365147" class="outline-3">
-<h3 id="org9365147">8.4-5</h3>
-<div class="outline-text-3" id="text-org9365147">
+<div id="outline-container-orgce63236" class="outline-3">
+<h3 id="orgce63236">8.4-5</h3>
+<div class="outline-text-3" id="text-orgce63236">
 <p>
 P(B<sub>i</sub>) = i / n
 </p>
@@ -405,7 +448,7 @@ P(B<sub>i</sub>) = i / n
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2020-02-25 Tue 08:56</p>
+<p class="date">Created: 2020-02-26 Wed 03:21</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
