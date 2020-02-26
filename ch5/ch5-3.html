@@ -333,28 +333,28 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org3ec9eae">ch5.3</a>
+<li><a href="#org0aebdfe">ch5.3</a>
 <ul>
-<li><a href="#org36f25ff">5.3-1</a></li>
-<li><a href="#org47ba93a">5.3-2</a></li>
-<li><a href="#org50d9905">5.3-3</a></li>
-<li><a href="#orgeac2919">5.3-4</a></li>
-<li><a href="#org212a2ca">5.3-5</a></li>
-<li><a href="#org56dde88">5.3-6</a></li>
-<li><a href="#org7bfd629">5.3-7</a></li>
+<li><a href="#org71ad92e">5.3-1</a></li>
+<li><a href="#org88f492a">5.3-2</a></li>
+<li><a href="#org02f41d1">5.3-3</a></li>
+<li><a href="#org289f0df">5.3-4</a></li>
+<li><a href="#org647dda7">5.3-5</a></li>
+<li><a href="#orgcc5dfa5">5.3-6</a></li>
+<li><a href="#org7b59e1b">5.3-7</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org3ec9eae" class="outline-2">
-<h2 id="org3ec9eae">ch5.3</h2>
-<div class="outline-text-2" id="text-org3ec9eae">
+<div id="outline-container-org0aebdfe" class="outline-2">
+<h2 id="org0aebdfe">ch5.3</h2>
+<div class="outline-text-2" id="text-org0aebdfe">
 </div>
-<div id="outline-container-org36f25ff" class="outline-3">
-<h3 id="org36f25ff">5.3-1</h3>
-<div class="outline-text-3" id="text-org36f25ff">
+<div id="outline-container-org71ad92e" class="outline-3">
+<h3 id="org71ad92e">5.3-1</h3>
+<div class="outline-text-3" id="text-org71ad92e">
 <pre class="example">
 RANDOMIZE-IN-PLACE(A)
     n = A.length
@@ -367,18 +367,18 @@ Modify the initialization case by replace \(i = 1\) to \(i = 2\).
 </p>
 </div>
 </div>
-<div id="outline-container-org47ba93a" class="outline-3">
-<h3 id="org47ba93a">5.3-2</h3>
-<div class="outline-text-3" id="text-org47ba93a">
+<div id="outline-container-org88f492a" class="outline-3">
+<h3 id="org88f492a">5.3-2</h3>
+<div class="outline-text-3" id="text-org88f492a">
 <p>
 No, because the procedure can't generate the premutations that keep any
 element identical, e.g., \(\langle A[3], A[2], A[1], \ldots\rangle\).
 </p>
 </div>
 </div>
-<div id="outline-container-org50d9905" class="outline-3">
-<h3 id="org50d9905">5.3-3</h3>
-<div class="outline-text-3" id="text-org50d9905">
+<div id="outline-container-org02f41d1" class="outline-3">
+<h3 id="org02f41d1">5.3-3</h3>
+<div class="outline-text-3" id="text-org02f41d1">
 <p>
 No, because the algorithm will generate \(n^n\) permutations
 in the same probability, and \(n^n\) does not divide by \(n!\),
@@ -386,9 +386,9 @@ thus the \(n!\) permutations can not have the same probability.
 </p>
 </div>
 </div>
-<div id="outline-container-orgeac2919" class="outline-3">
-<h3 id="orgeac2919">5.3-4</h3>
-<div class="outline-text-3" id="text-orgeac2919">
+<div id="outline-container-org289f0df" class="outline-3">
+<h3 id="org289f0df">5.3-4</h3>
+<div class="outline-text-3" id="text-org289f0df">
 <p>
 Each offset in RANDOM(1, n) transpose A[i] to distinct position in B, i.e.,
 each element A[i] has a 1/n probability of winding up in any particular
@@ -401,9 +401,9 @@ is not uniformly random.
 </p>
 </div>
 </div>
-<div id="outline-container-org212a2ca" class="outline-3">
-<h3 id="org212a2ca">5.3-5</h3>
-<div class="outline-text-3" id="text-org212a2ca">
+<div id="outline-container-org647dda7" class="outline-3">
+<h3 id="org647dda7">5.3-5</h3>
+<div class="outline-text-3" id="text-org647dda7">
 <p>
 The probability that all elements are unique is
 </p>
@@ -416,17 +416,17 @@ The probability that all elements are unique is
 \end{align*}
 </div>
 </div>
-<div id="outline-container-org56dde88" class="outline-3">
-<h3 id="org56dde88">5.3-6</h3>
-<div class="outline-text-3" id="text-org56dde88">
+<div id="outline-container-orgcc5dfa5" class="outline-3">
+<h3 id="orgcc5dfa5">5.3-6</h3>
+<div class="outline-text-3" id="text-orgcc5dfa5">
 <p>
 Sort the elements with same priority in random order.
 </p>
 </div>
 </div>
-<div id="outline-container-org7bfd629" class="outline-3">
-<h3 id="org7bfd629">5.3-7</h3>
-<div class="outline-text-3" id="text-org7bfd629">
+<div id="outline-container-org7b59e1b" class="outline-3">
+<h3 id="org7b59e1b">5.3-7</h3>
+<div class="outline-text-3" id="text-org7b59e1b">
 <p>
 We use math induction to prove the correctness of the algorithm.
 </p>
