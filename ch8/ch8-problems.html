@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-02-27 Thu 02:00 -->
+<!-- 2020-02-27 Thu 09:23 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 8 problems</title>
@@ -333,137 +333,126 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org20617bf">ch8-problems</a>
+<li><a href="#orga94f2fa">ch8-problems</a>
 <ul>
-<li><a href="#org25d1725">8-1</a></li>
-<li><a href="#orgb5b47e5">8-2</a></li>
-<li><a href="#orgf7a8aac">8-3</a></li>
-<li><a href="#org86815b7">8-4</a></li>
-<li><a href="#org2925574">8-5</a></li>
-<li><a href="#org3de1851">8-6</a></li>
-<li><a href="#orga2e71c2">8-7</a></li>
+<li><a href="#org39be15b"><span class="todo TODO">TODO</span> 8-1</a></li>
+<li><a href="#orgeb5abd1">8-2</a></li>
+<li><a href="#org51232d6">8-3</a></li>
+<li><a href="#org65f594d">8-4</a></li>
+<li><a href="#org80d0847">8-5</a></li>
+<li><a href="#org165f432">8-6</a></li>
+<li><a href="#orge639363">8-7</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org20617bf" class="outline-2">
-<h2 id="org20617bf">ch8-problems</h2>
-<div class="outline-text-2" id="text-org20617bf">
+<div id="outline-container-orga94f2fa" class="outline-2">
+<h2 id="orga94f2fa">ch8-problems</h2>
+<div class="outline-text-2" id="text-orga94f2fa">
 </div>
-<div id="outline-container-org25d1725" class="outline-3">
-<h3 id="org25d1725">8-1</h3>
-<div class="outline-text-3" id="text-org25d1725">
-<ol class="org-ol">
-<li>There are n! premutations, the probability is the same 1 / n!</li>
-<li><p>
-D(T)
-= \(\sum_{i\in T}D_T(i)\)
-</p>
-
-<p>
-= \(\sum_{i\in LT}D_T(i) + \sum_{i\in RT}D_T(i)\)
-</p>
-
-<p>
-= \(\sum_{i\in LT}(D_{LT}(i) + 1)\ + \sum_{i\in RT}(D_{RT}(i) + 1)\)
-</p>
-
-<p>
-= D(LT) + D(RT) + k
-</p></li>
-<li><p>
-d(k)
-= min(D(T))
-</p>
-
-<p>
-= min(D(LT) + D(RT) + k)
-</p>
-
-<p>
-= \(min_{1 \leq i \leq k - 1}\{D(LT) + D(RT) + k\}\)
-  (We could choose 1 to k - 1 leaves for left node)
-</p>
-
-<p>
-= \(min_{1 \leq i \leq k - 1}\{min(D(LT)) + min(D(RT) + k)\}\)
-  (The shapes of left node tree and right node tree are arbitrary)
-</p>
-
-<p>
-= \(min_{1 \leq i \leq k - 1}\{d(i) + d(k - i) + k\}\)
-</p></li>
-<li><p>
-\(f(i) = i\lg i + (k - i)\lg(k - i)\, i \in [1, k - 1]\, find min(f(i))\)
-</p>
-
-<p>
-\(f'(i) = \frac{1}{\ln 2}[i\frac{1}{i} + \ln i - (k - i)\frac{1}{k - i} - \ln(k - i)]\)
-</p>
-
-<p>
-\(= \frac{1}{\ln 2}[\ln i - \ln(k - i)]\)
-</p>
-
-<p>
-f(i) is concave when \(i \in [1, k - 1]\), the critical value is k / 2
-</p>
-
-<p>
-Then we use substitution method to prove \(d(k) = \Omega(k\lg k)\)
-</p>
-
+<div id="outline-container-org39be15b" class="outline-3">
+<h3 id="org39be15b"><span class="todo TODO">TODO</span> 8-1</h3>
+<div class="outline-text-3" id="text-org39be15b">
 <ul class="org-ul">
-<li>First we assume that \(d(i) \geq c i\lg i\) for some constant c
-when \(i \in [1, k - 1]\)</li>
-
 <li><p>
-Base case
+<b>a.</b>
 </p>
 
 <p>
-\(d(1) > 1 \lg 1 = 0\)
+There are totalling \(n!\) permutations and therefore \(n!\) unique leaves,
+and the algorithm is deterministic, thus there are exactly \(n!\) leaves
+labeled by \(1/n!\), the rest are labeled \(0\).
 </p></li>
-
 <li><p>
-Inductive step
+<b>b.</b>
 </p>
 
 <p>
-\(d(k) = min_{1 \leq i \leq k - 1}\{d(i) + d(k - i) + k\}\)
+Let \(d_T(i)\) denote the depth of leaf \(i\) in tree \(T\), and \(i \in T\)
+denote the leaf \(i\) of the tree \(T\), we have
+</p>
+\begin{align*}
+D(T)
+&=\sum_{i\in T}d_T(i)\\
+&=\sum_{i\in LT}d_T(i)+\sum_{i\in RT}d_T(i)\\
+&=\sum_{i\in LT}(d_{LT}(i)+1)+\sum_{i\in RT}(d_{RT}(i)+1)\\
+&=\sum_{i\in LT}d_{LT}(i)+\sum_{i\in RT}d_{RT}(i)+\sum_{i\in T}1\\
+&=D(LT)+D(RT)+k
+\end{align*}</li>
+<li><p>
+<b>c.</b>
 </p>
 
 <p>
-\(\geq min_{1 \leq i \leq k - 1}\{c i\lg i + c (k - 1)\lg(k - i) + k\}\)
+We have
+</p>
+\begin{align*}
+d(k)
+&=min\{D(T)\}\\
+&=min\{D(LT)+D(RT)+k\}\\
+&=min_{1\leq i\leq k-1}\{D(LT)+D(RT)+k\}
+&\text{, let $i$ to be the number of leaves in $LT$}\\
+&=min_{1\leq i\leq k-1}\{min\{D(LT)\}+min\{D(RT)\}+k\}
+&\text{, the shapes of the left tree and the right tree are arbitrary}\\
+&=min_{1\leq i\leq k-1}\{d(i)+d(k-i)+k\}
+\end{align*}</li>
+<li><p>
+<b>d.</b>
 </p>
 
 <p>
-\(= c k\lg \frac{k}{2} + k\)
+Define \(f(i) = i\lg i+(k-i)\lg(k-i)\), then we have
+</p>
+\begin{align*}
+f'(i)&=\frac{\ln i-\ln(k-i)}{\ln 2}\\
+f''(i)&=\frac{\frac{1}{i}+\frac{1}{k-i}}{\ln 2}
+\end{align*}
+<p>
+When \(1\leq i\leq k-1\), we have \(f''(i)\geq 0\), thus \(f(i)\) is a convex
+function, and we have \(f'(1)<0\) and \(f'(k-1)>0\), therefore there is a
+critical point in \(1\leq i\leq k-1\), the critical point occurs at \(i=k/2\)
+which \(f'(k/2)=0\), i.e., the function \(f(i)\) is minimized at \(i=k/2\).
 </p>
 
 <p>
-\(= c k\lg k + (1 - c)k\)
+Then we use substitution method prove the assumption \(d(k)=\Omega(k\lg k)\),
+first we guess that \(d(k)\geq ck\lg k\) for some constant \(c > 0\) when
+\(k\geq 1\).
 </p>
 
 <p>
-\(\geq c k\lg k\) when \(c \leq 1\)
+<b>Base case:</b> When \(k=1\), we have \(d(1) \geq 0\).
+</p>
+
+<p>
+<b>Inductive step:</b> We have
+</p>
+\begin{align*}
+d(k)
+&=min_{1\leq i\leq k-1}\{d(i)+d(k-i)+k\}\\
+&\geq min_{1\leq i\leq k-1}\{ci\lg i+c(k-i)\lg(k-i)+k\}\\
+&=ck\lg k+(1-c)k\\
+&\geq ck\lg k &\text{, when $c\leq 1$}
+\end{align*}
+<p>
+In conclusion, we have \(d(k) = \Omega(k\lg k)\).
 </p></li>
-<li>Thus \(d(k) = \Omega{k\lg k}\)</li>
-</ul></li>
+<li><b>e.</b></li>
+
 <li>T<sub>A</sub> has n! leaves, so \(D(T_A) = \Omega(n!\lg(n!))\),
 the average-case time to sort n elements is
 \(\frac{D(T_A)}{n!} = \Omega(lg(n!)) = \Omega(n\lg n)\)</li>
 <li>The needed leaves is not reduced from a randomized node to its child,
 so the randomized node could be replaced by a deterministic node with
 any one of its children.</li>
-</ol>
+</ul>
 </div>
 </div>
-<div id="outline-container-orgb5b47e5" class="outline-3">
-<h3 id="orgb5b47e5">8-2</h3>
-<div class="outline-text-3" id="text-orgb5b47e5">
+<div id="outline-container-orgeb5abd1" class="outline-3">
+<h3 id="orgeb5abd1">8-2</h3>
+<div class="outline-text-3" id="text-orgeb5abd1">
 <ol class="org-ol">
 <li>couting sort</li>
 <li>insertion sort</li>
@@ -495,9 +484,9 @@ The algorithm is not stable
 </ol>
 </div>
 </div>
-<div id="outline-container-orgf7a8aac" class="outline-3">
-<h3 id="orgf7a8aac">8-3</h3>
-<div class="outline-text-3" id="text-orgf7a8aac">
+<div id="outline-container-org51232d6" class="outline-3">
+<h3 id="org51232d6">8-3</h3>
+<div class="outline-text-3" id="text-org51232d6">
 <ol class="org-ol">
 <li><p>
 First sort and group the elements by the number of digits,
@@ -513,9 +502,9 @@ The running time is T(n) = \(\Theta(\sum^{k}_{i = 1}D_i C_i) = \Theta(n)\)
 </ol>
 </div>
 </div>
-<div id="outline-container-org86815b7" class="outline-3">
-<h3 id="org86815b7">8-4</h3>
-<div class="outline-text-3" id="text-org86815b7">
+<div id="outline-container-org65f594d" class="outline-3">
+<h3 id="org65f594d">8-4</h3>
+<div class="outline-text-3" id="text-org65f594d">
 <ol class="org-ol">
 <li>Brute force</li>
 <li>Build an decision tree of the problem
@@ -558,9 +547,9 @@ the worst-case number of comparisons is \(\Theta(n^2)\)
 </ol>
 </div>
 </div>
-<div id="outline-container-org2925574" class="outline-3">
-<h3 id="org2925574">8-5</h3>
-<div class="outline-text-3" id="text-org2925574">
+<div id="outline-container-org80d0847" class="outline-3">
+<h3 id="org80d0847">8-5</h3>
+<div class="outline-text-3" id="text-org80d0847">
 <ol class="org-ol">
 <li>1-sorted means normal sorted</li>
 <li>{5, 1, 6, 2, 7, 8, 4, 9, 10}</li>
@@ -581,9 +570,9 @@ the running time is \(T(n) = O(k) + O(n\lg k) = O(n\lg k)\)</li>
 </ol>
 </div>
 </div>
-<div id="outline-container-org3de1851" class="outline-3">
-<h3 id="org3de1851">8-6</h3>
-<div class="outline-text-3" id="text-org3de1851">
+<div id="outline-container-org165f432" class="outline-3">
+<h3 id="org165f432">8-6</h3>
+<div class="outline-text-3" id="text-org165f432">
 <ol class="org-ol">
 <li>\(\binom{2 n}{n}\) possible ways</li>
 <li><p>
@@ -601,9 +590,9 @@ order is unknown, so they must be compared.</li>
 </ol>
 </div>
 </div>
-<div id="outline-container-orga2e71c2" class="outline-3">
-<h3 id="orga2e71c2">8-7</h3>
-<div class="outline-text-3" id="text-orga2e71c2">
+<div id="outline-container-orge639363" class="outline-3">
+<h3 id="orge639363">8-7</h3>
+<div class="outline-text-3" id="text-orge639363">
 <ol class="org-ol">
 <li>A[q] is put to the wrong location too,
 and A[p] is smallest belong all the wrong elements, so A[p] &lt; A[q]</li>
@@ -653,7 +642,7 @@ This algorithm can benefit from parallel processing
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2020-02-27 Thu 02:00</p>
+<p class="date">Created: 2020-02-27 Thu 09:23</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
