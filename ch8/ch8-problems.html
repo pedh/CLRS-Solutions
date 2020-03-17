@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-02-28 Fri 09:20 -->
+<!-- 2020-03-17 Tue 09:01 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 8 problems</title>
@@ -333,28 +333,28 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgf16d9bd">ch8-problems</a>
+<li><a href="#orgcf492ff">ch8-problems</a>
 <ul>
-<li><a href="#org070bc8a"><span class="todo TODO">TODO</span> 8-1</a></li>
-<li><a href="#org28a4a3f">8-2</a></li>
-<li><a href="#orged7d562">8-3</a></li>
-<li><a href="#org15c8ce1">8-4</a></li>
-<li><a href="#org932a048">8-5</a></li>
-<li><a href="#org94dc44e">8-6</a></li>
-<li><a href="#orga2a3bc2">8-7</a></li>
+<li><a href="#org98d0077">8-1</a></li>
+<li><a href="#orgf5b64fa">8-2</a></li>
+<li><a href="#org9b6266c"><span class="todo TODO">TODO</span> 8-3</a></li>
+<li><a href="#orgd838429">8-4</a></li>
+<li><a href="#orga602a61">8-5</a></li>
+<li><a href="#orgd0cea9e">8-6</a></li>
+<li><a href="#org589d356">8-7</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgf16d9bd" class="outline-2">
-<h2 id="orgf16d9bd">ch8-problems</h2>
-<div class="outline-text-2" id="text-orgf16d9bd">
+<div id="outline-container-orgcf492ff" class="outline-2">
+<h2 id="orgcf492ff">ch8-problems</h2>
+<div class="outline-text-2" id="text-orgcf492ff">
 </div>
-<div id="outline-container-org070bc8a" class="outline-3">
-<h3 id="org070bc8a"><span class="todo TODO">TODO</span> 8-1</h3>
-<div class="outline-text-3" id="text-org070bc8a">
+<div id="outline-container-org98d0077" class="outline-3">
+<h3 id="org98d0077">8-1</h3>
+<div class="outline-text-3" id="text-org98d0077">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
@@ -456,21 +456,69 @@ There are more than \(n!\) leaves in \(T_A\), thus we have
 </p>
 
 <p>
-todo
+The needed leaves does not reduce from a randomization node to any of its
+children, therefore if we replace each randomization node with its child
+which minimizing the external path length, we will get a deterministic
+comparison sort \(A\) whose expected number of comparisons is no more than
+those mader by \(B\).
 </p></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org28a4a3f" class="outline-3">
-<h3 id="org28a4a3f">8-2</h3>
-<div class="outline-text-3" id="text-org28a4a3f">
-<ol class="org-ol">
-<li>couting sort</li>
-<li>insertion sort</li>
-<li>merge sort</li>
-<li>The algorithm should be stable and runs in O(n) time</li>
+<div id="outline-container-orgf5b64fa" class="outline-3">
+<h3 id="orgf5b64fa">8-2</h3>
+<div class="outline-text-3" id="text-orgf5b64fa">
+<ul class="org-ul">
 <li><p>
-COUNTING-SORT-IN-PLACE(A, k)
+<b>a.</b>
+</p>
+
+<p>
+The counting sort algorithm.
+</p></li>
+<li><p>
+<b>b.</b>
+</p>
+
+<pre class="example">
+BIT-SORT(A)
+    i = 1
+    j = A.length
+    while j &gt; i
+	if A[i] == 0
+	    i = i + 1
+	    continue
+	if A[j] == 1
+	    j = j - 1
+	    continue
+	exchange A[i] with A[j]
+	i = i + 1
+	j = j - 1
+</pre></li>
+<li><p>
+<b>c.</b>
+</p>
+
+<p>
+The insertion sort algorithm.
+</p></li>
+<li><p>
+<b>d.</b>
+</p>
+
+<p>
+The sorting algorithm from part (a) can be used as the intermediate sorting
+algorithm in RADIX-SORT, because the sorting algorithm must be stable for
+RADIX-SORT to work, and the algorithm should have linear running time so
+that RADIX-SORT sorts \(n\) records with \(b\)-bit keys in \(O(bn)\) time.
+</p></li>
+
+<li><p>
+<b>e.</b>
+</p>
+
+<p>
+The algorithm is not stable.
 </p>
 <pre class="example">
 COUNTING-SORT-IN-PLACE(A, k)
@@ -482,40 +530,46 @@ COUNTING-SORT-IN-PLACE(A, k)
     for i = 1 to k
 	C[i] = C[i] + C[i - 1]
     j = A.length
-    while j &gt;= 1
+    while j &gt; 0
 	p = C[A[j]]
 	if j &gt; p
 	    j = j - 1
 	else exchange A[j] with A[p]
 	     C[A[p]] = p - 1
-</pre>
-<p>
-The algorithm is not stable
-</p></li>
-</ol>
+</pre></li>
+</ul>
 </div>
 </div>
-<div id="outline-container-orged7d562" class="outline-3">
-<h3 id="orged7d562">8-3</h3>
-<div class="outline-text-3" id="text-orged7d562">
-<ol class="org-ol">
+<div id="outline-container-org9b6266c" class="outline-3">
+<h3 id="org9b6266c"><span class="todo TODO">TODO</span> 8-3</h3>
+<div class="outline-text-3" id="text-org9b6266c">
+<ul class="org-ul">
 <li><p>
-First sort and group the elements by the number of digits,
-Then do radix sort on each group.
+<b>a.</b>
 </p>
 
 <p>
-Assume there is k groups, the count of elements in ith group is C<sub>i</sub>,
-the number of digits of elements in ith group is D<sub>i</sub>,
-The running time is T(n) = \(\Theta(\sum^{k}_{i = 1}D_i C_i) = \Theta(n)\)
-</p></li>
-<li>MSD radix sort (<a href="../codes/radix_sort.py">implementation</a>)</li>
-</ol>
+We group the elements by the number of digits, and then perform radix sort
+on each group.
+</p>
+
+<p>
+Assume there are \(k\) groups out of the elements, the \(i\)th group
+contains \(c_i\) \(d_i\)-digits elements, then the total running time is
+</p>
+\begin{align*}
+T(n)
+&=\Theta(\sum_{i=1}^{k}c_i d_i)\\
+&=\Theta(n)
+\end{align*}</li>
+<li><b>b.</b>
+MSD radix sort (<a href="../codes/radix_sort.py">implementation</a>)</li>
+</ul>
 </div>
 </div>
-<div id="outline-container-org15c8ce1" class="outline-3">
-<h3 id="org15c8ce1">8-4</h3>
-<div class="outline-text-3" id="text-org15c8ce1">
+<div id="outline-container-orgd838429" class="outline-3">
+<h3 id="orgd838429">8-4</h3>
+<div class="outline-text-3" id="text-orgd838429">
 <ol class="org-ol">
 <li>Brute force</li>
 <li>Build an decision tree of the problem
@@ -558,9 +612,9 @@ the worst-case number of comparisons is \(\Theta(n^2)\)
 </ol>
 </div>
 </div>
-<div id="outline-container-org932a048" class="outline-3">
-<h3 id="org932a048">8-5</h3>
-<div class="outline-text-3" id="text-org932a048">
+<div id="outline-container-orga602a61" class="outline-3">
+<h3 id="orga602a61">8-5</h3>
+<div class="outline-text-3" id="text-orga602a61">
 <ol class="org-ol">
 <li>1-sorted means normal sorted</li>
 <li>{5, 1, 6, 2, 7, 8, 4, 9, 10}</li>
@@ -581,9 +635,9 @@ the running time is \(T(n) = O(k) + O(n\lg k) = O(n\lg k)\)</li>
 </ol>
 </div>
 </div>
-<div id="outline-container-org94dc44e" class="outline-3">
-<h3 id="org94dc44e">8-6</h3>
-<div class="outline-text-3" id="text-org94dc44e">
+<div id="outline-container-orgd0cea9e" class="outline-3">
+<h3 id="orgd0cea9e">8-6</h3>
+<div class="outline-text-3" id="text-orgd0cea9e">
 <ol class="org-ol">
 <li>\(\binom{2 n}{n}\) possible ways</li>
 <li><p>
@@ -601,9 +655,9 @@ order is unknown, so they must be compared.</li>
 </ol>
 </div>
 </div>
-<div id="outline-container-orga2a3bc2" class="outline-3">
-<h3 id="orga2a3bc2">8-7</h3>
-<div class="outline-text-3" id="text-orga2a3bc2">
+<div id="outline-container-org589d356" class="outline-3">
+<h3 id="org589d356">8-7</h3>
+<div class="outline-text-3" id="text-org589d356">
 <ol class="org-ol">
 <li>A[q] is put to the wrong location too,
 and A[p] is smallest belong all the wrong elements, so A[p] &lt; A[q]</li>
@@ -653,7 +707,7 @@ This algorithm can benefit from parallel processing
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2020-02-28 Fri 09:20</p>
+<p class="date">Created: 2020-03-17 Tue 09:01</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

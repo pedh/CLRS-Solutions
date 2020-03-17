@@ -5,8 +5,8 @@ Counting sort.
 import random
 
 
-def counting_sort_non_stable(array, key_length, key_func):
-    """Non-stable counting sort."""
+def counting_sort(array, key_length, key_func):
+    """Counting sort."""
     counts = [0] * key_length
     result = [0] * len(array)
     for i in array:
@@ -20,8 +20,8 @@ def counting_sort_non_stable(array, key_length, key_func):
     return result
 
 
-def counting_sort(array, key_length, key_func):
-    """Counting sort."""
+def counting_sort_in_place(array, key_length, key_func):
+    """Counting sort in place, not stable."""
     counts = [0] * key_length
     for i in array:
         counts[key_func(i)] += 1
@@ -43,9 +43,9 @@ def main():
     array = list(range(20))
     random.shuffle(array)
     print(array)
-    result = counting_sort_non_stable(array, 3, lambda i: i % 3)
+    result = counting_sort(array, 3, lambda i: i % 3)
     print(result)
-    counting_sort(array, 3, lambda i: i % 3)
+    counting_sort_in_place(array, 3, lambda i: i % 3)
     print(array)
 
 
