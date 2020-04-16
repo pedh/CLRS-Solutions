@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-03-17 Tue 09:01 -->
+<!-- 2020-04-16 Thu 09:19 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 8 problems</title>
@@ -333,28 +333,28 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org4122f9f">ch8-problems</a>
+<li><a href="#org547c0c1">ch8-problems</a>
 <ul>
-<li><a href="#orgb2a19b3">8-1</a></li>
-<li><a href="#org1fba35b">8-2</a></li>
-<li><a href="#org3db63d8"><span class="todo TODO">TODO</span> 8-3</a></li>
-<li><a href="#org84707db">8-4</a></li>
-<li><a href="#org47f235f">8-5</a></li>
-<li><a href="#org89faa86">8-6</a></li>
-<li><a href="#org8c05521">8-7</a></li>
+<li><a href="#org65111e0">8-1</a></li>
+<li><a href="#orgf77de6e">8-2</a></li>
+<li><a href="#orgf6d9dfd">8-3</a></li>
+<li><a href="#orgb1ead31">8-4</a></li>
+<li><a href="#org945f43a">8-5</a></li>
+<li><a href="#org3799cf5">8-6</a></li>
+<li><a href="#org656e668"><span class="todo TODO">TODO</span> 8-7</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org4122f9f" class="outline-2">
-<h2 id="org4122f9f">ch8-problems</h2>
-<div class="outline-text-2" id="text-org4122f9f">
+<div id="outline-container-org547c0c1" class="outline-2">
+<h2 id="org547c0c1">ch8-problems</h2>
+<div class="outline-text-2" id="text-org547c0c1">
 </div>
-<div id="outline-container-orgb2a19b3" class="outline-3">
-<h3 id="orgb2a19b3">8-1</h3>
-<div class="outline-text-3" id="text-orgb2a19b3">
+<div id="outline-container-org65111e0" class="outline-3">
+<h3 id="org65111e0">8-1</h3>
+<div class="outline-text-3" id="text-org65111e0">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
@@ -465,9 +465,9 @@ those mader by \(B\).
 </ul>
 </div>
 </div>
-<div id="outline-container-org1fba35b" class="outline-3">
-<h3 id="org1fba35b">8-2</h3>
-<div class="outline-text-3" id="text-org1fba35b">
+<div id="outline-container-orgf77de6e" class="outline-3">
+<h3 id="orgf77de6e">8-2</h3>
+<div class="outline-text-3" id="text-orgf77de6e">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
@@ -540,9 +540,9 @@ COUNTING-SORT-IN-PLACE(A, k)
 </ul>
 </div>
 </div>
-<div id="outline-container-org3db63d8" class="outline-3">
-<h3 id="org3db63d8"><span class="todo TODO">TODO</span> 8-3</h3>
-<div class="outline-text-3" id="text-org3db63d8">
+<div id="outline-container-orgf6d9dfd" class="outline-3">
+<h3 id="orgf6d9dfd">8-3</h3>
+<div class="outline-text-3" id="text-orgf6d9dfd">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
@@ -567,98 +567,229 @@ MSD radix sort (<a href="../codes/radix_sort.py">implementation</a>)</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org84707db" class="outline-3">
-<h3 id="org84707db">8-4</h3>
-<div class="outline-text-3" id="text-org84707db">
-<ol class="org-ol">
-<li>Brute force</li>
-<li>Build an decision tree of the problem
+<div id="outline-container-orgb1ead31" class="outline-3">
+<h3 id="orgb1ead31">8-4</h3>
+<div class="outline-text-3" id="text-orgb1ead31">
 <ul class="org-ul">
-<li>One comparison of a red water jug and a blue water jug generates
-three results (&gt;, &lt; and =), so in this decision tree a node has at most
-three children.</li>
-<li>There are n! possible results of the pairs,
-so the number of leaves is n!</li>
-<li>The heigit of decision tree is h, which \(3^h \geq n!\),
-\(h = \Omega(n\lg n)\)</li>
-<li>Thus the lower bound is \(\Omega(n\lg n)\)</li>
-</ul></li>
 <li><p>
-FIND-WATER-JUGS-GROUPS(R, B)
+<b>a.</b>
+</p>
+
+<p>
+The brute force algorithm uses \(\Theta(n^2)\) comparisons to group the
+jugs into pairs.
 </p>
 <pre class="example">
 FIND-WATER-JUGS-GROUPS(R, B)
-    if R.length == 0
+    Let C be a new empty set
+    while R is not empty
+	i = R.pop()
+	for j in B
+	    if i == j
+		C.add((i, j))
+		B.remove(j)
+    return C
+</pre></li>
+<li><p>
+<b>b.</b>
+</p>
+
+<p>
+We build the decision tree for the problem, which each permutation of the
+pairs appears as a reachable leaf, and each comparison generates at most
+three results.
+</p>
+
+<p>
+Let \(h\) be the height of the decision tree, and we know there are \(n!\)
+permutations of pairs, thus we have
+</p>
+\begin{align*}
+h
+\geq \log_{3}(n!)\\
+= \Omega(n\lg n)
+\end{align*}
+<p>
+The lower bound of the number of comparisons is \(\Omega(n\lg n)\).
+</p></li>
+<li><p>
+<b>c.</b>
+</p>
+
+<pre class="example">
+Let C be a new empty set
+
+FIND-WARTER-JUGS-GROUPS(R, B, C)
+    if R is empty
 	return
-    r = random jug from R
+    Let i be a random jug from R
+    Let RL be a new empty set
+    Let BL be a new empty set
+    for j in B
+	if i == j
+	    R.remove(i)
+	    B.remove(j)
+	    C.add((i, j))
+	    for k in R
+		if k &lt; j
+		    R.remove(k)
+		    RL.add(k)
+	else if i &lt; j
+	    B.remove(j)
+	    BL.add(j)
+    FIND-WATER-JUGS-GROUPS(RL, BL, C)
+    FIND-WATER-JUGS-GROUPS(R, B, C)
+</pre>
 
-    // compare all jugs in B with r
-    b = jub in B same as r
-    BL = jugs in B smaller than r
-    BR = jugs in B larger than r
+<p>
+The number of comparisons is \(S(n) = S(k) + S(n-k+1) +\Theta(n)\),
+which \(k\) is the number of jugs smaller than the pivot jug, like the
+quicksort algorithm, the expected value of \(S(n)\) is \(O(n\lg n)\),
+the worst-case value of \(S(n)\) is \(\Theta(n^2)\).
+</p></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org945f43a" class="outline-3">
+<h3 id="org945f43a">8-5</h3>
+<div class="outline-text-3" id="text-org945f43a">
+<ul class="org-ul">
+<li><p>
+<b>a.</b>
+</p>
 
-    // compare all jugs in R with b
-    RL = jugs in R smaller than b
-    RR = jugs in R larger than b
+<p>
+\(1\)-sorted means that \((\forall i\in 1,2,...,n-1)[A[i]\leq A[i+1]]\),
+i.e. normal sorted.
+</p></li>
+<li><p>
+<b>b.</b>
+</p>
 
-    output the pair of r and b
-    FIND-WATER-JUGS-GROUPS(RL, BL)
-    FIND-WATER-JUGS-GROUPS(RR. BR)
+<p>
+\(\{2, 1, 4, 3, 6, 5, 8, 7, 10, 9\}\) is \(2\)-sorted, but not sorted.
+</p></li>
+<li><p>
+<b>c.</b>
+</p>
+
+<p>
+For all \(i=1,2,...,n-k\), we have
+</p>
+\begin{align*}
+\frac{\sum_{j=i}^{i+k-1}A[j]}{k}\leq\frac{\sum_{j=i+1}^{i+k}A[j]}{k}
+\iff A[i]\leq A[i+k]
+\end{align*}</li>
+<li><p>
+<b>d.</b>
+</p>
+
+<p>
+The algorithm is as below.
+</p>
+<pre class="example">
+K-SORT(A, k)
+    for i = 1 to k
+	sort A[i,k+i,2k+i,...,((A.length-1)//k)*k+i] with HEAPSORT
 </pre>
 <p>
-The expected number of comparisons is \(\Theta(n\lg n)\),
-the worst-case number of comparisons is \(\Theta(n^2)\)
+The running time is \(O(n\lg(n/k))\).
 </p></li>
-</ol>
-</div>
-</div>
-<div id="outline-container-org47f235f" class="outline-3">
-<h3 id="org47f235f">8-5</h3>
-<div class="outline-text-3" id="text-org47f235f">
-<ol class="org-ol">
-<li>1-sorted means normal sorted</li>
-<li>{5, 1, 6, 2, 7, 8, 4, 9, 10}</li>
 <li><p>
-k-sorted means \(\sum_{j = i + 1}^{i + k}A[j] - \sum_{j = i}^{i + k - 1}A[j] = A[i + k] - A[i] \geq 0\)
+<b>e.</b>
 </p>
 
 <p>
-\(\Rightarrow (\forall i\in [1, n - k])[A[i] \leq A[i + k]]\)
-</p></li>
-<li>The problem is equivilant to get k * (sorting n / k size array),
-when use O(nlg n) sorting algorithm to sort the n / k size array,
-the running time is
-\(T(n) = k\frac{n}{k}\lg \frac{n}{k} = n\lg \frac{n}{k}\)</li>
-<li>Use the solution to exercise 6.5-9,
-the running time is \(T(n) = O(k) + O(n\lg k) = O(n\lg k)\)</li>
-<li>\(T(n) = \Omega(n\lg(n / k)) = \Omega(n(\lg n - \lg k)) = \Omega(n\lg n)\)</li>
-</ol>
-</div>
-</div>
-<div id="outline-container-org89faa86" class="outline-3">
-<h3 id="org89faa86">8-6</h3>
-<div class="outline-text-3" id="text-org89faa86">
-<ol class="org-ol">
-<li>\(\binom{2 n}{n}\) possible ways</li>
+The algorithm is as below, which MERGE-SORTED-LISTS is an \(O(n\lg k)\)
+running time algorithm to merge \(k\) sorted lists into one sorted list.
+(<a href="file:///home/travis/git/CLRS-Solutions/ch6/ch6-5.html">exercise ch6.5-9</a>)
+</p>
+<pre class="example">
+SORT-K-SORTED-LIST(A, k)
+    B = MERGE-SORTED-LISTS([A[i,k+i,2k+i,...,((A.length-1)//k)*k+i]
+			   for i = 1 to k], k)
+    for i = 1 to A.length
+	A[i] = B[i]
+</pre></li>
 <li><p>
-The height of the decision tree is h, which \(2^h \geq \binom{2 n}{n}\)
+<b>f.</b>
 </p>
 
 <p>
-\(h \geq \lg \binom{2 n}{n} = 2 n - o(n)\)
+We know that to \(k\)-sort an n-element array, we need to sort \(k\)
+arrays of each \(n / k\) elements. The running time is
+</p>
+\begin{align*}
+T(n)
+&=k\Omega((n/k)\lg(n/k))\\
+&=\Omega(n\lg n) &\text{, $k$ is a constant}
+\end{align*}</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org3799cf5" class="outline-3">
+<h3 id="org3799cf5">8-6</h3>
+<div class="outline-text-3" id="text-org3799cf5">
+<ul class="org-ul">
+<li><p>
+<b>a.</b>
+</p>
+
+<p>
+There are \(\binom{2n}{n}\) possible ways.
 </p></li>
-<li>The two elements are consecutive means their order can't be decided by
-comparing to other elements, and they are in different lists means their
-order is unknown, so they must be compared.</li>
-<li>Consider the merged list of A and B is formed by
-(A[1], B[1], A[2], B[2]&#x2026;A[n], B[n]), 2n - 1 comparisons is required.</li>
-</ol>
+<li><p>
+<b>b.</b>
+</p>
+
+<p>
+Build a decision tree of height \(h\) for the problem, we have
+</p>
+\begin{align*}
+h
+&\geq\lg\binom{2n}{n}\\
+&=2n-o(n) &\text{, Stirling's approximation}
+\end{align*}</li>
+<li><p>
+<b>c.</b>
+</p>
+
+<p>
+If two elements are consecutive in the sorted order, the the order of them
+cannot be decided by comparing to other elements, and they are from
+different lists, which means the two elements must be compared.
+</p></li>
+
+<li><p>
+<b>d.</b>
+</p>
+
+<p>
+Let \(A, B\) to be the two lists, when
+</p>
+\begin{align*}
+A[1]\leq B[1]\leq A[2]\leq B[2]\leq\ldots\leq A[i]\leq B[i]\leq\ldots
+\leq A[n]\leq B[n]
+\end{align*}
+<p>
+we must compare at least \((\forall i\in[1,n])(A[i],B[i])\) and
+\((\forall i\in[1,n-1])(B[i],A[i+1])\) to merge the two lists, to generate
+\(2n - 1\) comparisons in total.
+</p></li>
+</ul>
 </div>
 </div>
-<div id="outline-container-org8c05521" class="outline-3">
-<h3 id="org8c05521">8-7</h3>
-<div class="outline-text-3" id="text-org8c05521">
-<ol class="org-ol">
+<div id="outline-container-org656e668" class="outline-3">
+<h3 id="org656e668"><span class="todo TODO">TODO</span> 8-7</h3>
+<div class="outline-text-3" id="text-org656e668">
+<ul class="org-ul">
+<li><p>
+<b>a.</b>
+</p>
+
+<p>
+todo
+</p></li>
 <li>A[q] is put to the wrong location too,
 and A[p] is smallest belong all the wrong elements, so A[p] &lt; A[q]</li>
 <li><p>
@@ -696,7 +827,7 @@ to hold these dirty rows, r must be at least \(2s(2s - 1)\).</li>
 <li>Take out some elements from the array to let the numbers of elements in
 the array meet the requirement of division, perform columnsort, and at
 last put the taken elements in the right place of the sorted array.</li>
-</ol>
+</ul>
 <p>
 This algorithm can benefit from parallel processing
 (<a href="../codes/columnsort.c">implementation</a>)
@@ -707,7 +838,7 @@ This algorithm can benefit from parallel processing
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2020-03-17 Tue 09:01</p>
+<p class="date">Created: 2020-04-16 Thu 09:19</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
