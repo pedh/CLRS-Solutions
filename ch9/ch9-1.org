@@ -2,24 +2,36 @@
 
 * ch9.1
 ** 9.1-1
-   Build a binary tree to find the smallest value, first split the n elements
-   to pairs and put them on the bottom of the tree, then find the smaller
-   element in the pair and put it on the parent node of the pair, keep reducing
-   the elements until we get the top of the tree, that is the smallest value,
-   the number of comparisons is \(\sum_{i = 1}^{\lg n}2^{i - 1} = n - 1\).
+   First we build a binary tree to find the smallest element, we split the n
+   elements to \(\lceil n / 2 \rceil\) pairs and put them in the bottom of the
+   tree, then we compare the elements of each pair and make the smaller one to
+   be the parent node of the pair, we keep doing the reduction until we reach
+   the top of the tree, then we find the smallest element, the number of
+   comparisons is \(n - 1\).
 
-   Now we consider the second smallest value, the second smallest value is not
-   smaller than other values except the smallest value, so the second smallest
-   value must be compared to the smallest value in the tree or it will get to
-   the top, so the smallest of the values compared to the smallest value in the
-   tree will be the second smallest value, the number of comparisons we need is
-   at most \(\lg n - 1\).
+   Then we consider about the second smallest element, the second smallest
+   element must have been compared to the smallest element in the first step,
+   we trace the path of the smallest element in the tree, the smallest element
+   of the elements who have been compared to the smallest element, is the second
+   smallest element, and the number of comparisons we need in this step is at
+   most \(\lceil \lg n \rceil - 1\).
 
-   The total number of comparisons is at most \(n + \lg n - 2\).
+   The total number of comparisons is at most \(n + \lceil \lg n \rceil - 2\).
+
    ([[../codes/second_smallest_element.py][implementation]])
 ** 9.1-2
-   If n is odd, the number of comparisons is \(3\lfloor n / 2 \rfloor\).
+   Let \(S_{max}\) be the set of numbers which are potentially the maximum, and
+   \(S_{min}\) be the set of numbers which are potentially the minimum. At the
+   beginning, both \(S_{max}\) and \(S_{min}\) contain all \(n\) numbers.
 
-   If n is even, the number of comparisons is \(3n / 2 - 2\).
+   After each comparison of two number \(a\) and \(b\), if \(a \geq b\), we can
+   remove \(a\) from \(S_{min}\) if \(a \in S_{min}\), and remove \(b\) from
+   \(S_{max}\) if \(b \in S_{max}\).
 
-   Thus the lower bound is \(\lceil 3n / 2  \rceil - 2\).
+   In the best case, we first take \(\lfloor n / 2 \rfloor\) comparisons, to
+   reduce the sizes of \(S_{max}\) and \(S_{min}\) to \(\lfloor n / 2 \rfloor\)
+   and \(\lceil n / 2 \rceil\), then we take
+   \(\lfloor n / 2 \rfloor - 1 + \lceil n / 2 \rceil - 1 = n / 2 - 2\)
+   comparisons to get the maximum and minimum, by comparing the numbers in
+   \(S_{max}\) and comparing the numbers in \(S_{min}\), the total number of
+   comparisons is \(\lfloor n/2 \rfloor + n/2 - 2 = \lfloor 3n/2 \rfloor - 2\).
