@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-05-12 Tue 02:22 -->
+<!-- 2020-05-12 Tue 11:43 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 9.1</title>
@@ -333,59 +333,73 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orga0d0398">ch9.1</a>
+<li><a href="#org89ea9c4">ch9.1</a>
 <ul>
-<li><a href="#org7b3dd8b">9.1-1</a></li>
-<li><a href="#orgaac6eff">9.1-2</a></li>
+<li><a href="#org33e8fe7">9.1-1</a></li>
+<li><a href="#org722dc76">9.1-2</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orga0d0398" class="outline-2">
-<h2 id="orga0d0398">ch9.1</h2>
-<div class="outline-text-2" id="text-orga0d0398">
+<div id="outline-container-org89ea9c4" class="outline-2">
+<h2 id="org89ea9c4">ch9.1</h2>
+<div class="outline-text-2" id="text-org89ea9c4">
 </div>
-<div id="outline-container-org7b3dd8b" class="outline-3">
-<h3 id="org7b3dd8b">9.1-1</h3>
-<div class="outline-text-3" id="text-org7b3dd8b">
+<div id="outline-container-org33e8fe7" class="outline-3">
+<h3 id="org33e8fe7">9.1-1</h3>
+<div class="outline-text-3" id="text-org33e8fe7">
 <p>
-Build a binary tree to find the smallest value, first split the n elements
-to pairs and put them on the bottom of the tree, then find the smaller
-element in the pair and put it on the parent node of the pair, keep reducing
-the elements until we get the top of the tree, that is the smallest value,
-the number of comparisons is \(\sum_{i = 1}^{\lg n}2^{i - 1} = n - 1\).
+First we build a binary tree to find the smallest element, we split the n
+elements to \(\lceil n / 2 \rceil\) pairs and put them in the bottom of the
+tree, then we compare the elements of each pair and make the smaller one to
+be the parent node of the pair, we keep doing the reduction until we reach
+the top of the tree, then we find the smallest element, the number of
+comparisons is \(n - 1\).
 </p>
 
 <p>
-Now we consider the second smallest value, the second smallest value is not
-smaller than other values except the smallest value, so the second smallest
-value must be compared to the smallest value in the tree or it will get to
-the top, so the smallest of the values compared to the smallest value in the
-tree will be the second smallest value, the number of comparisons we need is
-at most \(\lg n - 1\).
+Then we consider about the second smallest element, the second smallest
+element must have been compared to the smallest element in the first step,
+we trace the path of the smallest element in the tree, the smallest element
+of the elements who have been compared to the smallest element, is the second
+smallest element, and the number of comparisons we need in this step is at
+most \(\lceil \lg n \rceil - 1\).
 </p>
 
 <p>
-The total number of comparisons is at most \(n + \lg n - 2\).
+The total number of comparisons is at most \(n + \lceil \lg n \rceil - 2\).
+</p>
+
+<p>
 (<a href="../codes/second_smallest_element.py">implementation</a>)
 </p>
 </div>
 </div>
-<div id="outline-container-orgaac6eff" class="outline-3">
-<h3 id="orgaac6eff">9.1-2</h3>
-<div class="outline-text-3" id="text-orgaac6eff">
+<div id="outline-container-org722dc76" class="outline-3">
+<h3 id="org722dc76">9.1-2</h3>
+<div class="outline-text-3" id="text-org722dc76">
 <p>
-If n is odd, the number of comparisons is \(3\lfloor n / 2 \rfloor\).
+Let \(S_{max}\) be the set of numbers which are potentially the maximum, and
+\(S_{min}\) be the set of numbers which are potentially the minimum. At the
+beginning, both \(S_{max}\) and \(S_{min}\) contain all \(n\) numbers.
 </p>
 
 <p>
-If n is even, the number of comparisons is \(3n / 2 - 2\).
+After each comparison of two number \(a\) and \(b\), if \(a \geq b\), we can
+remove \(a\) from \(S_{min}\) if \(a \in S_{min}\), and remove \(b\) from
+\(S_{max}\) if \(b \in S_{max}\).
 </p>
 
 <p>
-Thus the lower bound is \(\lceil 3n / 2  \rceil - 2\).
+In the best case, we first take \(\lfloor n / 2 \rfloor\) comparisons, to
+reduce the sizes of \(S_{max}\) and \(S_{min}\) to \(\lfloor n / 2 \rfloor\)
+and \(\lceil n / 2 \rceil\), then we take
+\(\lfloor n / 2 \rfloor - 1 + \lceil n / 2 \rceil - 1 = n / 2 - 2\)
+comparisons to get the maximum and minimum, by comparing the numbers in
+\(S_{max}\) and comparing the numbers in \(S_{min}\), the total number of
+comparisons is \(\lfloor n/2 \rfloor + n/2 - 2 = \lfloor 3n/2 \rfloor - 2\).
 </p>
 </div>
 </div>
@@ -393,7 +407,7 @@ Thus the lower bound is \(\lceil 3n / 2  \rceil - 2\).
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2020-05-12 Tue 02:22</p>
+<p class="date">Created: 2020-05-12 Tue 11:43</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
