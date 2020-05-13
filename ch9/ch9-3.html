@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-05-13 Wed 08:07 -->
+<!-- 2020-05-13 Wed 13:53 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 9.3</title>
@@ -333,59 +333,82 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgedcf7ee">ch9.3</a>
+<li><a href="#org4796347">ch9.3</a>
 <ul>
-<li><a href="#org7a39d64">9.3-1</a></li>
-<li><a href="#org9e989e1">9.3-2</a></li>
-<li><a href="#org7166b12">9.3-3</a></li>
-<li><a href="#org415c04b">9.3-4</a></li>
-<li><a href="#org26056cf">9.3-5</a></li>
-<li><a href="#org8867ca4">9.3-6</a></li>
-<li><a href="#org2d6d7c8">9.3-7</a></li>
-<li><a href="#org0458586">9.3-8</a></li>
-<li><a href="#org404de4f">9.3-9</a></li>
+<li><a href="#orgb0ab61b">9.3-1</a></li>
+<li><a href="#orgc8fb973">9.3-2</a></li>
+<li><a href="#org4cadd0a">9.3-3</a></li>
+<li><a href="#org293ccd2">9.3-4</a></li>
+<li><a href="#orgfac5f55">9.3-5</a></li>
+<li><a href="#org461e897">9.3-6</a></li>
+<li><a href="#org7f81db7">9.3-7</a></li>
+<li><a href="#org014d676">9.3-8</a></li>
+<li><a href="#orgfd044d2">9.3-9</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgedcf7ee" class="outline-2">
-<h2 id="orgedcf7ee">ch9.3</h2>
-<div class="outline-text-2" id="text-orgedcf7ee">
+<div id="outline-container-org4796347" class="outline-2">
+<h2 id="org4796347">ch9.3</h2>
+<div class="outline-text-2" id="text-org4796347">
 </div>
-<div id="outline-container-org7a39d64" class="outline-3">
-<h3 id="org7a39d64">9.3-1</h3>
-<div class="outline-text-3" id="text-org7a39d64">
-<ul class="org-ul">
-<li>When divided into groups of 7, We have
-\(T(n) \leq T(n / 7) + T(5 n / 7 + 8) + O(n) = O(n)\)</li>
-<li>When divided into groups of 3, We have
-\(T(n) \leq T(n / 3) + T(2 n / 3 + 4) + O(n)\), which is not O(n).</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-org9e989e1" class="outline-3">
-<h3 id="org9e989e1">9.3-2</h3>
-<div class="outline-text-3" id="text-org9e989e1">
+<div id="outline-container-orgb0ab61b" class="outline-3">
+<h3 id="orgb0ab61b">9.3-1</h3>
+<div class="outline-text-3" id="text-orgb0ab61b">
 <p>
-\(n \geq 140\)
-\(\Rightarrow \frac{3 n}{10} - 6 \geq \frac{n}{4} + 1\)
-\(\Rightarrow \frac{3 n}{10} - 6 \geq \lceil \frac{n}{4} \rceil\)
+If we divide the input elements into groups of \(7\), the running time is
+</p>
+\begin{align*}
+T(n)&\leq
+\begin{cases}
+O(1) &\text{if $n < 112$}\\
+T(\lceil n/7 \rceil)+T(5n/7+8)+O(n) &\text{if $n \geq 112$}
+\end{cases}
+\end{align*}
+<p>
+\(T(n) = O(n)\) can be proved by substitution mode, thus the algorithm works
+in linear time if the input elements were divided into groups of \(7\).
+</p>
+
+<p>
+If we divide the input elements into groups of \(3\), the running time is
+</p>
+\begin{align*}
+T(n)&\leq
+\begin{cases}
+O(1) &\text{if $n < 60$}\\
+T(\lceil n/3 \rceil)+T(2n/3+4)+O(n) &\text{if $n \geq 60$}
+\end{cases}
+\end{align*}
+<p>
+The running time is not \(O(n)\), the algorithm does not work in linear time
+if the input elements were divided into groups of \(3\).
 </p>
 </div>
 </div>
-<div id="outline-container-org7166b12" class="outline-3">
-<h3 id="org7166b12">9.3-3</h3>
-<div class="outline-text-3" id="text-org7166b12">
+
+<div id="outline-container-orgc8fb973" class="outline-3">
+<h3 id="orgc8fb973">9.3-2</h3>
+<div class="outline-text-3" id="text-orgc8fb973">
 <p>
-Use SELECT to decide the pivot.
+If \(n \geq 140\), we have \(3n/10 - 6 \geq n/4 + 1 \geq \lceil n/4 \rceil\).
 </p>
 </div>
 </div>
-<div id="outline-container-org415c04b" class="outline-3">
-<h3 id="org415c04b">9.3-4</h3>
-<div class="outline-text-3" id="text-org415c04b">
+<div id="outline-container-org4cadd0a" class="outline-3">
+<h3 id="org4cadd0a">9.3-3</h3>
+<div class="outline-text-3" id="text-org4cadd0a">
+<p>
+We can achieve the \(O(n\lg n)\) worst-case running time of quicksort, with
+using SELECT algorithm to choose the pivot in partitions.
+</p>
+</div>
+</div>
+<div id="outline-container-org293ccd2" class="outline-3">
+<h3 id="org293ccd2">9.3-4</h3>
+<div class="outline-text-3" id="text-org293ccd2">
 <p>
 If we are using only comparisons to find the ith smallest element in a set
 of n elements, we can build a digraph from the elements to simulate the
@@ -396,18 +419,18 @@ determined.
 </p>
 </div>
 </div>
-<div id="outline-container-org26056cf" class="outline-3">
-<h3 id="org26056cf">9.3-5</h3>
-<div class="outline-text-3" id="text-org26056cf">
+<div id="outline-container-orgfac5f55" class="outline-3">
+<h3 id="orgfac5f55">9.3-5</h3>
+<div class="outline-text-3" id="text-orgfac5f55">
 <p>
 Use MEDIAN to decide the pivot.
 (<a href="../codes/selection_use_median.py">implementation</a>)
 </p>
 </div>
 </div>
-<div id="outline-container-org8867ca4" class="outline-3">
-<h3 id="org8867ca4">9.3-6</h3>
-<div class="outline-text-3" id="text-org8867ca4">
+<div id="outline-container-org461e897" class="outline-3">
+<h3 id="org461e897">9.3-6</h3>
+<div class="outline-text-3" id="text-org461e897">
 <p>
 Perform selection and partition of the median on the n-elements, then
 recursively find quantiles on the left and right subarrays.
@@ -441,9 +464,9 @@ KTH-QUANTILES(A, k)
 </p>
 </div>
 </div>
-<div id="outline-container-org2d6d7c8" class="outline-3">
-<h3 id="org2d6d7c8">9.3-7</h3>
-<div class="outline-text-3" id="text-org2d6d7c8">
+<div id="outline-container-org7f81db7" class="outline-3">
+<h3 id="org7f81db7">9.3-7</h3>
+<div class="outline-text-3" id="text-org7f81db7">
 <p>
 K-CLOSEST-TO-MEDIAN(A, k)
 </p>
@@ -456,9 +479,9 @@ K-CLOSEST-TO-MEDIAN(A, k)
 </pre>
 </div>
 </div>
-<div id="outline-container-org0458586" class="outline-3">
-<h3 id="org0458586">9.3-8</h3>
-<div class="outline-text-3" id="text-org0458586">
+<div id="outline-container-org014d676" class="outline-3">
+<h3 id="org014d676">9.3-8</h3>
+<div class="outline-text-3" id="text-org014d676">
 <p>
 MEDIAN-OF-TWO-ARRAYS(X, Y, n)
 </p>
@@ -472,9 +495,9 @@ MEDIAN-OF-TWO-ARRAYS(X, Y)
 </pre>
 </div>
 </div>
-<div id="outline-container-org404de4f" class="outline-3">
-<h3 id="org404de4f">9.3-9</h3>
-<div class="outline-text-3" id="text-org404de4f">
+<div id="outline-container-orgfd044d2" class="outline-3">
+<h3 id="orgfd044d2">9.3-9</h3>
+<div class="outline-text-3" id="text-orgfd044d2">
 <p>
 If n is odd, the y-coordinate of the main pipeline is the median of the n
 y-coordinates.
@@ -490,7 +513,7 @@ the two medians of the y-coordinates.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2020-05-13 Wed 08:07</p>
+<p class="date">Created: 2020-05-13 Wed 13:53</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
