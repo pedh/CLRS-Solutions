@@ -2,31 +2,60 @@
 
 * ch9.3
 ** 9.3-1
-   - When divided into groups of 7, We have
-     \(T(n) \leq T(n / 7) + T(5 n / 7 + 8) + O(n) = O(n)\)
-   - When divided into groups of 3, We have
-     \(T(n) \leq T(n / 3) + T(2 n / 3 + 4) + O(n)\), which is not O(n).
-** 9.3-2
-   \(n \geq 140\)
-   \(\Rightarrow \frac{3 n}{10} - 6 \geq \frac{n}{4} + 1\)
-   \(\Rightarrow \frac{3 n}{10} - 6 \geq \lceil \frac{n}{4} \rceil\)
-** 9.3-3
-   Use SELECT to decide the pivot.
-** 9.3-4
-   If we are using only comparisons to find the ith smallest element in a set
-   of n elements, we can build a digraph from the elements to simulate the
-   algorithm, each edge from vertex A[i] to vertex A[j] means A[i] < A[j],
-   then there must be a path between each other element and the ith smallest
-   element, thus the i - 1 smaller elements and the n - 1 larger elements is
-   determined.
-** 9.3-5
-   Use MEDIAN to decide the pivot.
-   ([[../codes/selection_use_median.py][implementation]])
-** 9.3-6
-   Perform selection and partition of the median on the n-elements, then
-   recursively find quantiles on the left and right subarrays.
+   If we divide the input elements into groups of \(7\), the running time is
+   \begin{align*}
+   T(n)&\leq
+   \begin{cases}
+   O(1) &\text{if $n < 112$}\\
+   T(\lceil n/7 \rceil)+T(5n/7+8)+O(n) &\text{if $n \geq 112$}
+   \end{cases}
+   \end{align*}
+   we can prove \(T(n) = O(n)\) by substitution method, thus the algorithm works
+   in linear time if the input elements were divided into groups of \(7\).
 
-   KTH-QUANTILES(A, k)
+   If we divide the input elements into groups of \(3\), the running time is
+   \begin{align*}
+   T(n)&\leq
+   \begin{cases}
+   O(1) &\text{if $n < 60$}\\
+   T(\lceil n/3 \rceil)+T(2n/3+4)+O(n) &\text{if $n \geq 60$}
+   \end{cases}
+   \end{align*}
+   The algorithm does not work in linear time if the input elements were divided
+   into groups of \(3\).
+
+** 9.3-2
+   If \(n \geq 140\), we have \(3n/10 - 6 \geq n/4 + 1 \geq \lceil n/4 \rceil\).
+** 9.3-3
+   We can achieve the \(O(n\lg n)\) worst-case running time of quicksort, with
+   using SELECT algorithm to choose the pivot in partitions.
+** 9.3-4
+   First we create a graph of \(n\) vertices, the \(i\)th vertex (named \(V_i\))
+   points to the \(i\)th element (named \(A_i\)).
+
+   Then we perform the given algorithm, we add a directed edge from \(V_i\) to
+   \(V_j\) if we have compared \(A_i\) and \(A_j\) and got \(A_i \geq A_j\).
+
+   Finally we find the vertex point to the \(i\)th smallest element, named
+   \(V_x\), then for all the vertices in the graph besides \(V_x\), if there
+   exists a path from \(V_i\) to \(V_x\), then \(A_i\) is one of the \(n - i\)
+   larger element, if there exists a path from \(V_x\) to \(V_i\), then \(A_i\)
+   is one of to the \(i - 1\) smaller element.
+** 9.3-5
+   We use the "black-box" median subroutine to find the median, and use the
+   median as the pivot in partition.
+   ([[../codes/selection_use_median.py][implementation]])
+
+   The running time is
+   \begin{align*}
+   T(n)
+   &\leq T(n/2)+O(n)\\
+   &=O(n)
+   \end{align*}
+** 9.3-6
+   We partition the n-elements by the median, and recursively find the
+   propotional quantiles of the left and right part, then we combine the
+   quantiles together, finally we obtain the \(k\)th quantiles.
    #+BEGIN_SRC
    KTH-QUANTILES(A, k)
        if k == 1
@@ -35,7 +64,8 @@
            i = median-index of A
            median = SELECT(A, i)
            PARTITION(A, med)
-           return APPEND(KTH-QUANTILES(A[:i], k // 2), [median], KTH-QUANTILES(A[i + 1:], k // 2))
+           return APPEND(KTH-QUANTILES(A[:i], k // 2), [median],
+                         KTH-QUANTILES(A[i + 1:], k // 2))
        i = left-index of the median slice
        j = right-index of the median slice
        left = SELECT(A, i)
@@ -46,19 +76,28 @@
        right-quantiles = KTH-QUANTILES(A[j + 1:], k // 2)
        return APPEND(left-quantiles, [left, right], right-quantiles)
    #+END_SRC
-
    ([[../codes/kth_quantiles.py][implementation]])
+
+   The running time is
+   \begin{align*}
+   T(n,k)
+   &=2T(\lfloor n/2 \rfloor,\lfloor k/2 \rfloor)+O(n)\\
+   &=O(n\lg k)
+   \end{align*}
 ** 9.3-7
-   K-CLOSEST-TO-MEDIAN(A, k)
+   First we find the median of \(S\), and SELECT the \(k\)th closest number to
+   the median of \(S\) by comparing the absolute deviation to the median, then
+   we PARTITION \(S\) on the \(k\)th closest number by comparing the absolute
+   deviation to the median, and the left part is the \(k\) numbers in \(S\) that
+   are closest to the median of \(S\).
    #+BEGIN_SRC
-   K-CLOSEST-TO-MEDIAN(A, k)
-       med = SELECT(A, median-index of A)
-       x = SELECT(A, k) by ABS(A[i] - med)
-       PARTITION(A, x) by ABS(A[i] - med)
-       return A[1..k]
+   K-CLOSEST-TO-THE-MEDIAN(A, k)
+   med = SELECT(A, A.length / 2)
+   k_closest = SELECT(A, k) by comparing abs(A_i, med)
+   PARTITION(A, k_closest) by comparing abs(A_i, med)
    #+END_SRC
 ** 9.3-8
-   MEDIAN-OF-TWO-ARRAYS(X, Y, n)
+   The algotithm is as below
    #+BEGIN_SRC
    MEDIAN-OF-TWO-ARRAYS(X, Y)
        if MEDIAN(X) == MEDIAN(Y):
@@ -67,9 +106,19 @@
            return MEDIAN-OF-TWO-ARRAYS(left half of X, right half of Y)
        return MEDIAN-OF-TWO-ARRAYS(right half of X, left half of X)
    #+END_SRC
+   The running time is
+   \begin{align*}
+   T(n)
+   &\leq T(\lceil n/2 \rceil) + O(1)\\
+   &=O(\lg n)
+   \end{align*}
 ** 9.3-9
-   If n is odd, the y-coordinate of the main pipeline is the median of the n
-   y-coordinates.
+   Assume the y-coordinate of the optimal location is \(y_0\), and name the
+   y-coordinate of the \(i\)th well after \(y_i\), and we minimize the total
+   length of the spurs, i.e. \(\sum_{i=1}^{n}|y_i-y_0|\).
 
-   If n is even, the y-coordinate of the main pipeline can be any value between
-   the two medians of the y-coordinates.
+   If \(n\) is odd, then \(y_0\) should be the median of the y-coordinates of
+   the wells.
+
+   If \(n\) is even, then \(y_0\) could be any value between the lower median
+   and the upper median of the y-coordinates of the wells.
