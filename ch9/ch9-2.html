@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-05-12 Tue 11:43 -->
+<!-- 2020-05-13 Wed 08:07 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 9.2</title>
@@ -299,6 +299,28 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -311,56 +333,55 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org11969d7">ch9.2</a>
+<li><a href="#org61f7e56">ch9.2</a>
 <ul>
-<li><a href="#org2df11c3">9.2-1</a></li>
-<li><a href="#org10849d6">9.2-2</a></li>
-<li><a href="#org5558b10">9.2-3</a></li>
-<li><a href="#org9ace58c">9.2-4</a></li>
+<li><a href="#orgc552aea">9.2-1</a></li>
+<li><a href="#org0b8f6c4">9.2-2</a></li>
+<li><a href="#orgf8d15f9">9.2-3</a></li>
+<li><a href="#orga7d94f7">9.2-4</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org11969d7" class="outline-2">
-<h2 id="org11969d7">ch9.2</h2>
-<div class="outline-text-2" id="text-org11969d7">
+<div id="outline-container-org61f7e56" class="outline-2">
+<h2 id="org61f7e56">ch9.2</h2>
+<div class="outline-text-2" id="text-org61f7e56">
 </div>
-<div id="outline-container-org2df11c3" class="outline-3">
-<h3 id="org2df11c3">9.2-1</h3>
-<div class="outline-text-3" id="text-org2df11c3">
+<div id="outline-container-orgc552aea" class="outline-3">
+<h3 id="orgc552aea">9.2-1</h3>
+<div class="outline-text-3" id="text-orgc552aea">
 <p>
-Assume we make a recursive call to 0-length array in line 8,
-then we have q - 1 &lt; p, so k = q - p + 1 &lt; (p + 1) -p + 1 = 2,
-and i &lt; k, so i &lt; 1, this is an illegal value.
+If we make a recursive call to \(0\)-length array in line 8, then we have
+\(q - 1 < p\), and \(i < k = q - p + 1\), thus we have \(i < 1\), which is
+illegal.
 </p>
 
 <p>
-Assume we make a recursive call to 0-length array in line 9,
-then we have r &lt; q + 1, so k = q - p + 1 &gt; r - p, and i &gt; k,
-so i &gt; r - p + 1, this is an illegal value.
+If we make a recursive call to \(0\)-length array in line 9, then we have
+\(r < q + 1\), and \(i > k = q - p + 1\), thus we have \(i > r - p + 1\),
+which is illegal.
 </p>
 
 <p>
-So RANDOMIZED-SELECT never makes a recursive call to a 0-length array.
+Thus RANDOMIZED-SELECT never makes a recursive call to a \(0\)-length array.
 </p>
 </div>
 </div>
-<div id="outline-container-org10849d6" class="outline-3">
-<h3 id="org10849d6">9.2-2</h3>
-<div class="outline-text-3" id="text-org10849d6">
+<div id="outline-container-org0b8f6c4" class="outline-3">
+<h3 id="org0b8f6c4">9.2-2</h3>
+<div class="outline-text-3" id="text-org0b8f6c4">
 <p>
-T(max(k - 1, n - k)) is not related to the value of X<sub>k</sub>.
+The value \(T(max(k-1,n-k))\) does not affect the incicator random variable
+\(X_k\), and the \(X_k\) does not affect \(T(max(k-1,n-k))\) either, thus
+they are independent.
 </p>
 </div>
 </div>
-<div id="outline-container-org5558b10" class="outline-3">
-<h3 id="org5558b10">9.2-3</h3>
-<div class="outline-text-3" id="text-org5558b10">
-<p>
-RANDOMIZED-SELECT-ITER(A, i)
-</p>
+<div id="outline-container-orgf8d15f9" class="outline-3">
+<h3 id="orgf8d15f9">9.2-3</h3>
+<div class="outline-text-3" id="text-orgf8d15f9">
 <pre class="example">
 RANDOMIZED-SELECT-ITER(A, i)
     p = 1
@@ -370,19 +391,21 @@ RANDOMIZED-SELECT-ITER(A, i)
 	k = q - p + 1
 	if i == k
 	    return A[q]
-	elseif i &lt; k
+	else if i &lt; k
 	    r = q - 1
 	else p = q + 1
-	    i = i - k
+	     i = i - k
     return A[p]
 </pre>
 </div>
 </div>
-<div id="outline-container-org9ace58c" class="outline-3">
-<h3 id="org9ace58c">9.2-4</h3>
-<div class="outline-text-3" id="text-org9ace58c">
+<div id="outline-container-orga7d94f7" class="outline-3">
+<h3 id="orga7d94f7">9.2-4</h3>
+<div class="outline-text-3" id="text-orga7d94f7">
 <p>
-Always partition on the maximum element.
+The sequence of partitions results in a worst-case performance of
+RANDOMIZED-SELECT, if we always choose the maximum element of the subarray
+as the pivot.
 </p>
 </div>
 </div>
@@ -390,7 +413,7 @@ Always partition on the maximum element.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2020-05-12 Tue 11:43</p>
+<p class="date">Created: 2020-05-13 Wed 08:07</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
