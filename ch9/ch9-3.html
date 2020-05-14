@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-05-13 Wed 13:53 -->
+<!-- 2020-05-14 Thu 12:27 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 9.3</title>
@@ -333,30 +333,30 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org4796347">ch9.3</a>
+<li><a href="#orgae70e18">ch9.3</a>
 <ul>
-<li><a href="#orgb0ab61b">9.3-1</a></li>
-<li><a href="#orgc8fb973">9.3-2</a></li>
-<li><a href="#org4cadd0a">9.3-3</a></li>
-<li><a href="#org293ccd2">9.3-4</a></li>
-<li><a href="#orgfac5f55">9.3-5</a></li>
-<li><a href="#org461e897">9.3-6</a></li>
-<li><a href="#org7f81db7">9.3-7</a></li>
-<li><a href="#org014d676">9.3-8</a></li>
-<li><a href="#orgfd044d2">9.3-9</a></li>
+<li><a href="#orga5eeed9">9.3-1</a></li>
+<li><a href="#org4039b82">9.3-2</a></li>
+<li><a href="#org7fd021c">9.3-3</a></li>
+<li><a href="#org12be86a">9.3-4</a></li>
+<li><a href="#orge7bcae0">9.3-5</a></li>
+<li><a href="#org6808191">9.3-6</a></li>
+<li><a href="#org070e91f">9.3-7</a></li>
+<li><a href="#org5850e71">9.3-8</a></li>
+<li><a href="#org38e12c3">9.3-9</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org4796347" class="outline-2">
-<h2 id="org4796347">ch9.3</h2>
-<div class="outline-text-2" id="text-org4796347">
+<div id="outline-container-orgae70e18" class="outline-2">
+<h2 id="orgae70e18">ch9.3</h2>
+<div class="outline-text-2" id="text-orgae70e18">
 </div>
-<div id="outline-container-orgb0ab61b" class="outline-3">
-<h3 id="orgb0ab61b">9.3-1</h3>
-<div class="outline-text-3" id="text-orgb0ab61b">
+<div id="outline-container-orga5eeed9" class="outline-3">
+<h3 id="orga5eeed9">9.3-1</h3>
+<div class="outline-text-3" id="text-orga5eeed9">
 <p>
 If we divide the input elements into groups of \(7\), the running time is
 </p>
@@ -389,56 +389,81 @@ if the input elements were divided into groups of \(3\).
 </div>
 </div>
 
-<div id="outline-container-orgc8fb973" class="outline-3">
-<h3 id="orgc8fb973">9.3-2</h3>
-<div class="outline-text-3" id="text-orgc8fb973">
+<div id="outline-container-org4039b82" class="outline-3">
+<h3 id="org4039b82">9.3-2</h3>
+<div class="outline-text-3" id="text-org4039b82">
 <p>
 If \(n \geq 140\), we have \(3n/10 - 6 \geq n/4 + 1 \geq \lceil n/4 \rceil\).
 </p>
 </div>
 </div>
-<div id="outline-container-org4cadd0a" class="outline-3">
-<h3 id="org4cadd0a">9.3-3</h3>
-<div class="outline-text-3" id="text-org4cadd0a">
+<div id="outline-container-org7fd021c" class="outline-3">
+<h3 id="org7fd021c">9.3-3</h3>
+<div class="outline-text-3" id="text-org7fd021c">
 <p>
 We can achieve the \(O(n\lg n)\) worst-case running time of quicksort, with
 using SELECT algorithm to choose the pivot in partitions.
 </p>
 </div>
 </div>
-<div id="outline-container-org293ccd2" class="outline-3">
-<h3 id="org293ccd2">9.3-4</h3>
-<div class="outline-text-3" id="text-org293ccd2">
+<div id="outline-container-org12be86a" class="outline-3">
+<h3 id="org12be86a">9.3-4</h3>
+<div class="outline-text-3" id="text-org12be86a">
 <p>
-If we are using only comparisons to find the ith smallest element in a set
-of n elements, we can build a digraph from the elements to simulate the
-algorithm, each edge from vertex A[i] to vertex A[j] means A[i] &lt; A[j],
-then there must be a path between each other element and the ith smallest
-element, thus the i - 1 smaller elements and the n - 1 larger elements is
-determined.
-</p>
-</div>
-</div>
-<div id="outline-container-orgfac5f55" class="outline-3">
-<h3 id="orgfac5f55">9.3-5</h3>
-<div class="outline-text-3" id="text-orgfac5f55">
-<p>
-Use MEDIAN to decide the pivot.
-(<a href="../codes/selection_use_median.py">implementation</a>)
-</p>
-</div>
-</div>
-<div id="outline-container-org461e897" class="outline-3">
-<h3 id="org461e897">9.3-6</h3>
-<div class="outline-text-3" id="text-org461e897">
-<p>
-Perform selection and partition of the median on the n-elements, then
-recursively find quantiles on the left and right subarrays.
+First we create a graph of \(n\) vertices, the \(i\)th vertex (named \(V_i\))
+points to the \(i\)th element (named \(A_i\)).
 </p>
 
 <p>
-KTH-QUANTILES(A, k)
+Then we perform the given algorithm, we add a directed edge from \(V_i\) to
+\(V_j\) if we have compared \(A_i\) and \(A_j\) and got \(A_i \geq A_j\).
 </p>
+
+<p>
+Finally we find the vertex point to the \(i\)th smallest element, named
+\(V_x\), then for all the vertices in the graph besides \(V_x\), if there
+exists a path from \(V_i\) to \(V_x\), then \(A_i\) is one of the \(n - i\)
+larger element, if there exists a path from \(V_x\) to \(V_i\), then \(A_i\)
+is one of to the \(i - 1\) smaller element.
+</p>
+</div>
+</div>
+<div id="outline-container-orge7bcae0" class="outline-3">
+<h3 id="orge7bcae0">9.3-5</h3>
+<div class="outline-text-3" id="text-orge7bcae0">
+<p>
+We use the "black-box" median subroutine to find the median, and use the
+median as the pivot in partition.
+(<a href="../codes/selection_use_median.py">implementation</a>)
+</p>
+
+<p>
+The running time is
+</p>
+\begin{align*}
+T(n)
+&\leq T(n/2)+O(n)\\
+&=O(n)
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org6808191" class="outline-3">
+<h3 id="org6808191">9.3-6</h3>
+<div class="outline-text-3" id="text-org6808191">
+<p>
+We partition the n-elements by the median, and recursively find the
+propotional quantiles of the left and right part, then we combine the
+quantiles together, finally we obtain the \(k\)th quantiles.
+</p>
+
+<p>
+The running time is
+</p>
+\begin{align*}
+T(n,k)
+&=2T(\lfloor n/2 \rfloor,\lfloor k/2 \rfloor)+O(n)\\
+&=O(n\lg k)
+\end{align*}
 <pre class="example">
 KTH-QUANTILES(A, k)
     if k == 1
@@ -447,7 +472,8 @@ KTH-QUANTILES(A, k)
 	i = median-index of A
 	median = SELECT(A, i)
 	PARTITION(A, med)
-	return APPEND(KTH-QUANTILES(A[:i], k // 2), [median], KTH-QUANTILES(A[i + 1:], k // 2))
+	return APPEND(KTH-QUANTILES(A[:i], k // 2), [median],
+		      KTH-QUANTILES(A[i + 1:], k // 2))
     i = left-index of the median slice
     j = right-index of the median slice
     left = SELECT(A, i)
@@ -458,30 +484,32 @@ KTH-QUANTILES(A, k)
     right-quantiles = KTH-QUANTILES(A[j + 1:], k // 2)
     return APPEND(left-quantiles, [left, right], right-quantiles)
 </pre>
-
 <p>
 (<a href="../codes/kth_quantiles.py">implementation</a>)
 </p>
 </div>
 </div>
-<div id="outline-container-org7f81db7" class="outline-3">
-<h3 id="org7f81db7">9.3-7</h3>
-<div class="outline-text-3" id="text-org7f81db7">
+<div id="outline-container-org070e91f" class="outline-3">
+<h3 id="org070e91f">9.3-7</h3>
+<div class="outline-text-3" id="text-org070e91f">
 <p>
-K-CLOSEST-TO-MEDIAN(A, k)
+First we find the median of \(S\), and SELECT the \(k\)th closest number to
+the median of \(S\) by comparing the absolute deviation to the median, then
+we PARTITION \(S\) on the \(k\)th closest number by comparing the absolute
+deviation to the median, and the left part is the \(k\) numbers in \(S\) that
+are closest to the median of \(S\).
 </p>
 <pre class="example">
-K-CLOSEST-TO-MEDIAN(A, k)
-    med = SELECT(A, median-index of A)
-    x = SELECT(A, k) by ABS(A[i] - med)
-    PARTITION(A, x) by ABS(A[i] - med)
-    return A[1..k]
+K-CLOSEST-TO-THE-MEDIAN(A, k)
+med = SELECT(A, A.length / 2)
+k_closest = SELECT(A, k) by comparing abs(A_i, med)
+PARTITION(A, k_closest) by comparing abs(A_i, med)
 </pre>
 </div>
 </div>
-<div id="outline-container-org014d676" class="outline-3">
-<h3 id="org014d676">9.3-8</h3>
-<div class="outline-text-3" id="text-org014d676">
+<div id="outline-container-org5850e71" class="outline-3">
+<h3 id="org5850e71">9.3-8</h3>
+<div class="outline-text-3" id="text-org5850e71">
 <p>
 MEDIAN-OF-TWO-ARRAYS(X, Y, n)
 </p>
@@ -495,9 +523,9 @@ MEDIAN-OF-TWO-ARRAYS(X, Y)
 </pre>
 </div>
 </div>
-<div id="outline-container-orgfd044d2" class="outline-3">
-<h3 id="orgfd044d2">9.3-9</h3>
-<div class="outline-text-3" id="text-orgfd044d2">
+<div id="outline-container-org38e12c3" class="outline-3">
+<h3 id="org38e12c3">9.3-9</h3>
+<div class="outline-text-3" id="text-org38e12c3">
 <p>
 If n is odd, the y-coordinate of the main pipeline is the median of the n
 y-coordinates.
@@ -513,7 +541,7 @@ the two medians of the y-coordinates.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2020-05-13 Wed 13:53</p>
+<p class="date">Created: 2020-05-14 Thu 12:27</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
