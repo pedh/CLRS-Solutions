@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-05-15 Fri 07:36 -->
+<!-- 2020-05-15 Fri 10:47 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 9 problems</title>
@@ -333,77 +333,153 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org2537ace">ch9-problems</a>
+<li><a href="#org106f6dc">ch9-problems</a>
 <ul>
-<li><a href="#org0fb19e0">9-1</a></li>
-<li><a href="#org2792384">9-2</a></li>
-<li><a href="#org8099598">9-3</a></li>
-<li><a href="#org256c84a">9-4</a></li>
+<li><a href="#org8ab9615">9-1</a></li>
+<li><a href="#org6327625">9-2</a></li>
+<li><a href="#org2a8d611">9-3</a></li>
+<li><a href="#orge672446">9-4</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org2537ace" class="outline-2">
-<h2 id="org2537ace">ch9-problems</h2>
-<div class="outline-text-2" id="text-org2537ace">
+<div id="outline-container-org106f6dc" class="outline-2">
+<h2 id="org106f6dc">ch9-problems</h2>
+<div class="outline-text-2" id="text-org106f6dc">
 </div>
-<div id="outline-container-org0fb19e0" class="outline-3">
-<h3 id="org0fb19e0">9-1</h3>
-<div class="outline-text-3" id="text-org0fb19e0">
-<ol class="org-ol">
-<li>Use best asymptotic worst-case \(O(n\lg n)\) running time sorting
-algorithm (heapsort, merge-sort) to sort the numbers, then list the
-i largest number, the total running time is asymptotically same as
-the sorting algorithm we are using.</li>
-<li>Build a max-priority queue from the numbers using BUILD-MAX-HEAP
-in \(\Theta(n)\) running time, then call EXTRACT-MAX i times, which each
-EXTRACT-MAX has \(O(\lg n)\) running time in worst case, the total
-worst-case running time is \(O(n + i\lg n)\).</li>
-<li>Use an order-statistic algorithm to find the ith largest number in
-\(\Theta(n)\) running time, then partition around that number in
-\(\Theta(n)\) running time, at last we sort the i largest numbers
-in asymptotically \(O(i\lg i)\) running time, the total running time
-is \(O(n + i\lg i)\).</li>
-</ol>
-</div>
-</div>
-<div id="outline-container-org2792384" class="outline-3">
-<h3 id="org2792384">9-2</h3>
-<div class="outline-text-3" id="text-org2792384">
-<ol class="org-ol">
-<li>Let i to be the weighted median, we have
-\(\sum_{k = 1}^{i - 1} \frac{1}{n} = \frac{i - 1}{n} < \frac{1}{2}\),
-and \(\sum_{k = 1}^{i} \frac{1}{n} = \frac{i}{n} \geq \frac{1}{2}\),
-so \(i = \lceil \frac{n}{2} \rceil = median\).</li>
-<li>Use worst-case \(O(n\lg n)\) running time sorting algorithm to sort
-the elements by weight, then accumulate weights from the left to the
-right until the sum of weights reaches 1 / 2, the present element is
-the weighted median.</li>
+<div id="outline-container-org8ab9615" class="outline-3">
+<h3 id="org8ab9615">9-1</h3>
+<div class="outline-text-3" id="text-org8ab9615">
+<ul class="org-ul">
 <li><p>
-WEIGHTED-MEDIAN(A)
+<b>a.</b>
+</p>
+
+<p>
+First we use worst-case \(O(n\lg n)\) running time sorting method, such as
+heapsort or merge sort, to sort the \(n\) numbers, and list the \(i\)
+largest numbers.
+</p>
+
+<p>
+The running time is \(O(n\lg n)\).
+</p></li>
+
+<li><p>
+<b>b.</b>
+</p>
+
+<p>
+First we use BUILD-MAX-HEAP to build a max-priority queue from the \(n\)
+numbers, which takes \(O(n)\) running time, then we call EXTRACT-MAX \(i\)
+times, which takes \(O(i\lg n)\) running time.
+</p>
+
+<p>
+The running time is \(O(n + i\lg n)\).
+</p></li>
+
+<li><p>
+<b>c.</b>
+</p>
+
+<p>
+We use an order-statistic algorithm to find the \(i\)th largest number, and
+partiton around that number, which takes \(O(n)\) running time, then we
+use worst-case \(O(n\lg n)\) running time sorting method, such as heapsort
+or merge sort, to sort the \(i\) largest numbers, which takes \(O(i\lg i)\)
+running time.
+</p>
+
+<p>
+The running time is \(O(n + i\lg i)\).
+</p></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org6327625" class="outline-3">
+<h3 id="org6327625">9-2</h3>
+<div class="outline-text-3" id="text-org6327625">
+<ul class="org-ul">
+<li><p>
+<b>a.</b>
+</p>
+
+<p>
+Assume \(x_k\) is the median of \(x_1,x_2,...,x_n\), then we have
+</p>
+\begin{align*}
+\sum_{x_i < x_k}\omega_{i}
+&=\sum_{i=1}^{\lfloor \frac{n}{2} \rfloor - 1}\frac{1}{n}
+=\frac{\lfloor \frac{n}{2} \rfloor - 1}{n}
+<\frac{1}{2}\\
+\sum_{x_i > x_k}\omega_{i}
+&=\sum_{i=\lfloor \frac{n}{2} \rfloor + 1}^{n}\frac{1}{n}
+=\frac{\lfloor \frac{n}{2} \rfloor + 1}{n}
+\leq \frac{1}{2}
+\end{align*}
+<p>
+Thus the median is also the weighted median of the \(x_i\) with weights
+\(\omega_{i} = 1/n\) for \(i=1,2,...,n\).
+</p></li>
+<li><p>
+<b>b.</b>
+</p>
+
+<p>
+First we use worst-case \(O(n\lg n)\) running time sorting method, such as
+heapsort or mergesort, to sort the \(n\) elements by weight, then we
+traverse the array, accumulate the weights until the summation exceeds
+\(1/2\), and the current element we arrived is the weighted median. The
+worst-case running time is \(O(n\lg n)\).
+</p></li>
+
+<li><p>
+<b>c.</b>
+</p>
+
+<p>
+The algorithm is as below
 </p>
 <pre class="example">
 WEIGHTED-MEDIAN(A)
-    return WEIGHTED-MEDIAN-RECUR(A, 1, 0.5)
+    return WEIGHTED-MEDIAN-R(A, 0.5)
 
-WEIGHTED-MEDIAN-RECUR(A, x, y)
+WEIGHTED-MEDIAN-R(A, x)
     if A.length == 1
-	return A[0]
-    m = median index of A
+	return A[1]
+    m = A.length / 2
     med = SELECT(A, m)
     PARTITION(A, med)
-    lsum = SUM(A[1..m])
-    if lsum &lt; y
-	if lsum + med &gt;= y
+    sum = 0
+    for i = 1 to m - 1
+	sum = sum + A[i]
+    if sum &lt; x
+	if sum + med &gt;= x
 	    return med
-	return WEIGHTED-MEDIAN-RECUR(A[m + 1:], x - lsum - med, y - lsum - med)
-    return WEIGHTED-MEDIAN-RECUR(A[:m], x, lsum)
+	return WEIGHTED-MEDIAN-R(A[m + 1..A.length], x - sum - med)
+    return WEIGHTED-MEDIAN-R(A[1..m - 1], x)
 </pre>
-
 <p>
 (<a href="../codes/weighted_median.py">implementation</a>)
+</p>
+
+<p>
+The worst-case running time is
+</p>
+\begin{align*}
+T(n)
+&=T(n/2)+\Theta(n)\\
+&=\Theta(n)
+\end{align*}</li>
+<li><p>
+<b>d.</b>
+</p>
+
+<p>
+todo
 </p></li>
 <li>Let p to be the weighted median, q to be a position other than p, compare
 the sum of weighted distances of the two.
@@ -444,12 +520,12 @@ equivalent to two 1-dimensional post-office location problems of
 x-coordinates and y-coordinates, we find the weighted median x<sub>med</sub> of
 x-coordinates and the weighted median y<sub>med</sub> of y-coordinates, and the
 desired location is (x<sub>med</sub>, y<sub>med</sub>).</li>
-</ol>
+</ul>
 </div>
 </div>
-<div id="outline-container-org8099598" class="outline-3">
-<h3 id="org8099598">9-3</h3>
-<div class="outline-text-3" id="text-org8099598">
+<div id="outline-container-org2a8d611" class="outline-3">
+<h3 id="org2a8d611">9-3</h3>
+<div class="outline-text-3" id="text-org2a8d611">
 <ol class="org-ol">
 <li>The algorithm is described as below
 <ul class="org-ul">
@@ -479,9 +555,9 @@ if k = 2, then \(U_i(n) = T(n) < n + T(n) = n + O(T(2n / k) \lg k)\)
 </ol>
 </div>
 </div>
-<div id="outline-container-org256c84a" class="outline-3">
-<h3 id="org256c84a">9-4</h3>
-<div class="outline-text-3" id="text-org256c84a">
+<div id="outline-container-orge672446" class="outline-3">
+<h3 id="orge672446">9-4</h3>
+<div class="outline-text-3" id="text-orge672446">
 <ol class="org-ol">
 <li><p>
 z<sub>i</sub> or z<sub>j</sub> must be chosen as pivot through \(Z_{ijk}\)
@@ -520,7 +596,7 @@ So \(E[X_k] \leq 2(n + n) = 4n\)
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2020-05-15 Fri 07:36</p>
+<p class="date">Created: 2020-05-15 Fri 10:47</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
