@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-05-14 Thu 12:27 -->
+<!-- 2020-05-15 Fri 07:20 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 9.3</title>
@@ -333,30 +333,30 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgae70e18">ch9.3</a>
+<li><a href="#orgd2f27b2">ch9.3</a>
 <ul>
-<li><a href="#orga5eeed9">9.3-1</a></li>
-<li><a href="#org4039b82">9.3-2</a></li>
-<li><a href="#org7fd021c">9.3-3</a></li>
-<li><a href="#org12be86a">9.3-4</a></li>
-<li><a href="#orge7bcae0">9.3-5</a></li>
-<li><a href="#org6808191">9.3-6</a></li>
-<li><a href="#org070e91f">9.3-7</a></li>
-<li><a href="#org5850e71">9.3-8</a></li>
-<li><a href="#org38e12c3">9.3-9</a></li>
+<li><a href="#org4841f94">9.3-1</a></li>
+<li><a href="#org7266d0e">9.3-2</a></li>
+<li><a href="#orgb7e165c">9.3-3</a></li>
+<li><a href="#org0e35371">9.3-4</a></li>
+<li><a href="#orgbf58605">9.3-5</a></li>
+<li><a href="#orgc0b6a38">9.3-6</a></li>
+<li><a href="#org4d9cd07">9.3-7</a></li>
+<li><a href="#org3966c91">9.3-8</a></li>
+<li><a href="#org6b204a4">9.3-9</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgae70e18" class="outline-2">
-<h2 id="orgae70e18">ch9.3</h2>
-<div class="outline-text-2" id="text-orgae70e18">
+<div id="outline-container-orgd2f27b2" class="outline-2">
+<h2 id="orgd2f27b2">ch9.3</h2>
+<div class="outline-text-2" id="text-orgd2f27b2">
 </div>
-<div id="outline-container-orga5eeed9" class="outline-3">
-<h3 id="orga5eeed9">9.3-1</h3>
-<div class="outline-text-3" id="text-orga5eeed9">
+<div id="outline-container-org4841f94" class="outline-3">
+<h3 id="org4841f94">9.3-1</h3>
+<div class="outline-text-3" id="text-org4841f94">
 <p>
 If we divide the input elements into groups of \(7\), the running time is
 </p>
@@ -368,7 +368,7 @@ T(\lceil n/7 \rceil)+T(5n/7+8)+O(n) &\text{if $n \geq 112$}
 \end{cases}
 \end{align*}
 <p>
-\(T(n) = O(n)\) can be proved by substitution mode, thus the algorithm works
+we can prove \(T(n) = O(n)\) by substitution method, thus the algorithm works
 in linear time if the input elements were divided into groups of \(7\).
 </p>
 
@@ -383,32 +383,32 @@ T(\lceil n/3 \rceil)+T(2n/3+4)+O(n) &\text{if $n \geq 60$}
 \end{cases}
 \end{align*}
 <p>
-The running time is not \(O(n)\), the algorithm does not work in linear time
-if the input elements were divided into groups of \(3\).
+The algorithm does not work in linear time if the input elements were divided
+into groups of \(3\).
 </p>
 </div>
 </div>
 
-<div id="outline-container-org4039b82" class="outline-3">
-<h3 id="org4039b82">9.3-2</h3>
-<div class="outline-text-3" id="text-org4039b82">
+<div id="outline-container-org7266d0e" class="outline-3">
+<h3 id="org7266d0e">9.3-2</h3>
+<div class="outline-text-3" id="text-org7266d0e">
 <p>
 If \(n \geq 140\), we have \(3n/10 - 6 \geq n/4 + 1 \geq \lceil n/4 \rceil\).
 </p>
 </div>
 </div>
-<div id="outline-container-org7fd021c" class="outline-3">
-<h3 id="org7fd021c">9.3-3</h3>
-<div class="outline-text-3" id="text-org7fd021c">
+<div id="outline-container-orgb7e165c" class="outline-3">
+<h3 id="orgb7e165c">9.3-3</h3>
+<div class="outline-text-3" id="text-orgb7e165c">
 <p>
 We can achieve the \(O(n\lg n)\) worst-case running time of quicksort, with
 using SELECT algorithm to choose the pivot in partitions.
 </p>
 </div>
 </div>
-<div id="outline-container-org12be86a" class="outline-3">
-<h3 id="org12be86a">9.3-4</h3>
-<div class="outline-text-3" id="text-org12be86a">
+<div id="outline-container-org0e35371" class="outline-3">
+<h3 id="org0e35371">9.3-4</h3>
+<div class="outline-text-3" id="text-org0e35371">
 <p>
 First we create a graph of \(n\) vertices, the \(i\)th vertex (named \(V_i\))
 points to the \(i\)th element (named \(A_i\)).
@@ -428,9 +428,9 @@ is one of to the \(i - 1\) smaller element.
 </p>
 </div>
 </div>
-<div id="outline-container-orge7bcae0" class="outline-3">
-<h3 id="orge7bcae0">9.3-5</h3>
-<div class="outline-text-3" id="text-orge7bcae0">
+<div id="outline-container-orgbf58605" class="outline-3">
+<h3 id="orgbf58605">9.3-5</h3>
+<div class="outline-text-3" id="text-orgbf58605">
 <p>
 We use the "black-box" median subroutine to find the median, and use the
 median as the pivot in partition.
@@ -447,23 +447,14 @@ T(n)
 \end{align*}
 </div>
 </div>
-<div id="outline-container-org6808191" class="outline-3">
-<h3 id="org6808191">9.3-6</h3>
-<div class="outline-text-3" id="text-org6808191">
+<div id="outline-container-orgc0b6a38" class="outline-3">
+<h3 id="orgc0b6a38">9.3-6</h3>
+<div class="outline-text-3" id="text-orgc0b6a38">
 <p>
 We partition the n-elements by the median, and recursively find the
 propotional quantiles of the left and right part, then we combine the
 quantiles together, finally we obtain the \(k\)th quantiles.
 </p>
-
-<p>
-The running time is
-</p>
-\begin{align*}
-T(n,k)
-&=2T(\lfloor n/2 \rfloor,\lfloor k/2 \rfloor)+O(n)\\
-&=O(n\lg k)
-\end{align*}
 <pre class="example">
 KTH-QUANTILES(A, k)
     if k == 1
@@ -487,11 +478,20 @@ KTH-QUANTILES(A, k)
 <p>
 (<a href="../codes/kth_quantiles.py">implementation</a>)
 </p>
+
+<p>
+The running time is
+</p>
+\begin{align*}
+T(n,k)
+&=2T(\lfloor n/2 \rfloor,\lfloor k/2 \rfloor)+O(n)\\
+&=O(n\lg k)
+\end{align*}
 </div>
 </div>
-<div id="outline-container-org070e91f" class="outline-3">
-<h3 id="org070e91f">9.3-7</h3>
-<div class="outline-text-3" id="text-org070e91f">
+<div id="outline-container-org4d9cd07" class="outline-3">
+<h3 id="org4d9cd07">9.3-7</h3>
+<div class="outline-text-3" id="text-org4d9cd07">
 <p>
 First we find the median of \(S\), and SELECT the \(k\)th closest number to
 the median of \(S\) by comparing the absolute deviation to the median, then
@@ -507,11 +507,11 @@ PARTITION(A, k_closest) by comparing abs(A_i, med)
 </pre>
 </div>
 </div>
-<div id="outline-container-org5850e71" class="outline-3">
-<h3 id="org5850e71">9.3-8</h3>
-<div class="outline-text-3" id="text-org5850e71">
+<div id="outline-container-org3966c91" class="outline-3">
+<h3 id="org3966c91">9.3-8</h3>
+<div class="outline-text-3" id="text-org3966c91">
 <p>
-MEDIAN-OF-TWO-ARRAYS(X, Y, n)
+The algotithm is as below
 </p>
 <pre class="example">
 MEDIAN-OF-TWO-ARRAYS(X, Y)
@@ -521,19 +521,33 @@ MEDIAN-OF-TWO-ARRAYS(X, Y)
 	return MEDIAN-OF-TWO-ARRAYS(left half of X, right half of Y)
     return MEDIAN-OF-TWO-ARRAYS(right half of X, left half of X)
 </pre>
-</div>
-</div>
-<div id="outline-container-org38e12c3" class="outline-3">
-<h3 id="org38e12c3">9.3-9</h3>
-<div class="outline-text-3" id="text-org38e12c3">
 <p>
-If n is odd, the y-coordinate of the main pipeline is the median of the n
-y-coordinates.
+The running time is
+</p>
+\begin{align*}
+T(n)
+&\leq T(\lceil n/2 \rceil) + O(1)\\
+&=O(\lg n)
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org6b204a4" class="outline-3">
+<h3 id="org6b204a4">9.3-9</h3>
+<div class="outline-text-3" id="text-org6b204a4">
+<p>
+Assume the y-coordinate of the optimal location is \(y_0\), and name the
+y-coordinate of the \(i\)th well by \(y_i\), then we should minimize the
+total length of the spurs, i.e. \(\sum_{i=1}^{n}(y_i-y_0)\).
 </p>
 
 <p>
-If n is even, the y-coordinate of the main pipeline can be any value between
-the two medians of the y-coordinates.
+If \(n\) is odd, then \(y_0\) should be the median of the y-coordinates of
+the wells.
+</p>
+
+<p>
+If \(n\) is even, then \(y_0\) could be any value between the lower median
+and the upper median of the y-coordinates of the wells.
 </p>
 </div>
 </div>
@@ -541,7 +555,7 @@ the two medians of the y-coordinates.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2020-05-14 Thu 12:27</p>
+<p class="date">Created: 2020-05-15 Fri 07:20</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
