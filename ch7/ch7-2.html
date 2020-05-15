@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-05-15 Fri 07:25 -->
+<!-- 2020-05-15 Fri 07:36 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 7.2</title>
@@ -333,27 +333,27 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org591c783">ch7.2</a>
+<li><a href="#org3d71957">ch7.2</a>
 <ul>
-<li><a href="#org67285b3">7.2-1</a></li>
-<li><a href="#org308cbb9">7.2-2</a></li>
-<li><a href="#orgd4bfd04">7.2-3</a></li>
-<li><a href="#org437a820">7.2-4</a></li>
-<li><a href="#org2ff1660">7.2-5</a></li>
-<li><a href="#org7d37c5e">7.2-6</a></li>
+<li><a href="#org2004483">7.2-1</a></li>
+<li><a href="#org7b435f6">7.2-2</a></li>
+<li><a href="#orgc52b5f6">7.2-3</a></li>
+<li><a href="#orgbe66169">7.2-4</a></li>
+<li><a href="#orgd548f56">7.2-5</a></li>
+<li><a href="#org3e9ef20">7.2-6</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org591c783" class="outline-2">
-<h2 id="org591c783">ch7.2</h2>
-<div class="outline-text-2" id="text-org591c783">
+<div id="outline-container-org3d71957" class="outline-2">
+<h2 id="org3d71957">ch7.2</h2>
+<div class="outline-text-2" id="text-org3d71957">
 </div>
-<div id="outline-container-org67285b3" class="outline-3">
-<h3 id="org67285b3">7.2-1</h3>
-<div class="outline-text-3" id="text-org67285b3">
+<div id="outline-container-org2004483" class="outline-3">
+<h3 id="org2004483">7.2-1</h3>
+<div class="outline-text-3" id="text-org2004483">
 <ul class="org-ul">
 <li><p>
 Guess \(T(n) \leq cn^2\), then
@@ -383,17 +383,17 @@ Hence \(T(n) = \Omega(n^2)\).
 </ul>
 </div>
 </div>
-<div id="outline-container-org308cbb9" class="outline-3">
-<h3 id="org308cbb9">7.2-2</h3>
-<div class="outline-text-3" id="text-org308cbb9">
+<div id="outline-container-org7b435f6" class="outline-3">
+<h3 id="org7b435f6">7.2-2</h3>
+<div class="outline-text-3" id="text-org7b435f6">
 <p>
 The running time is \(\Theta(n^2)\).
 </p>
 </div>
 </div>
-<div id="outline-container-orgd4bfd04" class="outline-3">
-<h3 id="orgd4bfd04">7.2-3</h3>
-<div class="outline-text-3" id="text-orgd4bfd04">
+<div id="outline-container-orgc52b5f6" class="outline-3">
+<h3 id="orgc52b5f6">7.2-3</h3>
+<div class="outline-text-3" id="text-orgc52b5f6">
 <p>
 Each iteration move the last element into the front, and leave the relative
 positions of the other elements untouched, thus the running time is
@@ -401,9 +401,9 @@ positions of the other elements untouched, thus the running time is
 </p>
 </div>
 </div>
-<div id="outline-container-org437a820" class="outline-3">
-<h3 id="org437a820">7.2-4</h3>
-<div class="outline-text-3" id="text-org437a820">
+<div id="outline-container-orgbe66169" class="outline-3">
+<h3 id="orgbe66169">7.2-4</h3>
+<div class="outline-text-3" id="text-orgbe66169">
 <p>
 The running time of INSERTION-SORT is \(\Theta(n+m)\) which there are \(m\)
 inversions, for an almost-sorted input the number of inversions is small
@@ -411,9 +411,9 @@ enough so that INSERTION-SORT takes linear time to beat QUICKSORT.
 </p>
 </div>
 </div>
-<div id="outline-container-org2ff1660" class="outline-3">
-<h3 id="org2ff1660">7.2-5</h3>
-<div class="outline-text-3" id="text-org2ff1660">
+<div id="outline-container-orgd548f56" class="outline-3">
+<h3 id="orgd548f56">7.2-5</h3>
+<div class="outline-text-3" id="text-orgd548f56">
 <p>
 The path to the minimum depth leaf always takes the larger half in every
 split, thus the minimum depth is approximately \(-\lg n / \lg \alpha\),
@@ -421,9 +421,9 @@ similarly, the maximum depth is approximately \(-\lg n / \lg (1 - \alpha)\).
 </p>
 </div>
 </div>
-<div id="outline-container-org7d37c5e" class="outline-3">
-<h3 id="org7d37c5e">7.2-6</h3>
-<div class="outline-text-3" id="text-org7d37c5e">
+<div id="outline-container-org3e9ef20" class="outline-3">
+<h3 id="org3e9ef20">7.2-6</h3>
+<div class="outline-text-3" id="text-org3e9ef20">
 <p>
 We needs \(\alpha n < k < (1 - \alpha)n\) to produce a split more balanced
 than \(1 - \alpha\) to \(\alpha\), which the pivot is the \(k\)-th smallest
@@ -436,7 +436,7 @@ array.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2020-05-15 Fri 07:25</p>
+<p class="date">Created: 2020-05-15 Fri 07:36</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
