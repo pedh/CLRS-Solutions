@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-05-15 Fri 10:47 -->
+<!-- 2020-05-26 Tue 12:49 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 9 problems</title>
@@ -333,25 +333,25 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgf0d124a">ch9-problems</a>
+<li><a href="#org969cc72">ch9-problems</a>
 <ul>
-<li><a href="#org1142b36">9-1</a></li>
-<li><a href="#org5af7028">9-2</a></li>
-<li><a href="#org69a307b">9-3</a></li>
-<li><a href="#org3602fd1">9-4</a></li>
+<li><a href="#orga3be52c">9-1</a></li>
+<li><a href="#orgd7f12d0">9-2</a></li>
+<li><a href="#org2dd5655"><span class="todo TODO">TODO</span> 9-3</a></li>
+<li><a href="#org71d477d">9-4</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgf0d124a" class="outline-2">
-<h2 id="orgf0d124a">ch9-problems</h2>
-<div class="outline-text-2" id="text-orgf0d124a">
+<div id="outline-container-org969cc72" class="outline-2">
+<h2 id="org969cc72">ch9-problems</h2>
+<div class="outline-text-2" id="text-org969cc72">
 </div>
-<div id="outline-container-org1142b36" class="outline-3">
-<h3 id="org1142b36">9-1</h3>
-<div class="outline-text-3" id="text-org1142b36">
+<div id="outline-container-orga3be52c" class="outline-3">
+<h3 id="orga3be52c">9-1</h3>
+<div class="outline-text-3" id="text-orga3be52c">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
@@ -399,9 +399,9 @@ The running time is \(O(n + i\lg i)\).
 </ul>
 </div>
 </div>
-<div id="outline-container-org5af7028" class="outline-3">
-<h3 id="org5af7028">9-2</h3>
-<div class="outline-text-3" id="text-org5af7028">
+<div id="outline-container-orgd7f12d0" class="outline-3">
+<h3 id="orgd7f12d0">9-2</h3>
+<div class="outline-text-3" id="text-orgd7f12d0">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
@@ -479,53 +479,56 @@ T(n)
 </p>
 
 <p>
-todo
-</p></li>
-<li>Let p to be the weighted median, q to be a position other than p, compare
-the sum of weighted distances of the two.
+Let \(p\) to be the weighted median, \(q\) to be an arbitrary point.
+</p>
 
-<ul class="org-ul">
+<p>
+If \(q < p\), we have
+</p>
+\begin{align*}
+|p_i-q|-|p_i-p|&=
+\begin{cases}
+q-p &\text{if $p_i < q$}\\
+2p_i-p-q\geq q-p &\text{if $q\leq p_i < p$}\\
+p-q &\text{if $p_i\geq p$}
+\end{cases}
+\end{align*}
+<p>
+then
+</p>
+\begin{align*}
+\sum_{i=1}^{n}\omega_i d(p_i, q)-\sum_{i=1}^{n}\omega_i d(p_i, p)
+&=\sum_{i=1}^{n}\omega_i(|p_i-q|-|p_i-p|)\\
+&\geq\sum_{p_i < p}\omega_i(q-p)+\sum_{p_i\geq p}\omega_i(p-q)\\
+&=(p-q)(\sum_{p_i\geq p}\omega_i-\sum_{p_i < p}\omega_i)\\
+&>0
+\end{align*}
+<p>
+It's similar when \(q > p\), thus the weighted median is a best solution
+for the 1-dimensional post-office location problem.
+</p></li>
 <li><p>
-If q &lt; p, then
+<b>e.</b>
 </p>
 
 <p>
-if p<sub>i</sub> &lt; q &lt; p, then \(|p_i - q| - |p_i - p| = q - p\)
+The x-coordinate and the y-coordinate are independent, and we have
 </p>
-
+\begin{align*}
+\sum_{i=1}^{n}\omega_i d(p,p_i)
+&=\sum_{i=1}^{n}\omega_i|x_i-x|+\sum_{i=1}^{n}|y_i-y|\\
+\end{align*}
 <p>
-if \(q \leq p_i < p\),
-then \(|p_i - q| - |p_i - p| = 2 p_i - p - q \geq q - p\)
-</p>
-
-<p>
-if \(q < p \leq p_i\), then \(|p_i - q| - |p_i - p| = p - q\)
-</p>
-
-<p>
-\(\sum_{i = 1}^{n} w_i d(p, p_i) - \sum_{i = 1}^{n} w_i d(q, p_i)\)
-</p>
-
-<p>
-\(\geq \sum_{p_i < p} w_i (q - p) + \sum_{p_i \geq p} w_i (p - q)\)
-</p>
-
-<p>
-\(= (p - q) (\sum_{p_i \geq p} w_i - \sum_{p_i < p} w_i) > 0\)
+thus we could find the weighted median of the x-coordinates \(x_m\) and the
+weighted median of the y-coordinates \(y_m\), then we find the best
+solution for the 2-dimensional post-office problem \((x_m, y_m)\).
 </p></li>
-<li>If q &gt; p, the situation is similar as above</li>
-</ul></li>
-<li>The 2-dimensional post-office location problem of Manhattan distance is
-equivalent to two 1-dimensional post-office location problems of
-x-coordinates and y-coordinates, we find the weighted median x<sub>med</sub> of
-x-coordinates and the weighted median y<sub>med</sub> of y-coordinates, and the
-desired location is (x<sub>med</sub>, y<sub>med</sub>).</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org69a307b" class="outline-3">
-<h3 id="org69a307b">9-3</h3>
-<div class="outline-text-3" id="text-org69a307b">
+<div id="outline-container-org2dd5655" class="outline-3">
+<h3 id="org2dd5655"><span class="todo TODO">TODO</span> 9-3</h3>
+<div class="outline-text-3" id="text-org2dd5655">
 <ol class="org-ol">
 <li>The algorithm is described as below
 <ul class="org-ul">
@@ -555,9 +558,9 @@ if k = 2, then \(U_i(n) = T(n) < n + T(n) = n + O(T(2n / k) \lg k)\)
 </ol>
 </div>
 </div>
-<div id="outline-container-org3602fd1" class="outline-3">
-<h3 id="org3602fd1">9-4</h3>
-<div class="outline-text-3" id="text-org3602fd1">
+<div id="outline-container-org71d477d" class="outline-3">
+<h3 id="org71d477d">9-4</h3>
+<div class="outline-text-3" id="text-org71d477d">
 <ol class="org-ol">
 <li><p>
 z<sub>i</sub> or z<sub>j</sub> must be chosen as pivot through \(Z_{ijk}\)
@@ -596,7 +599,7 @@ So \(E[X_k] \leq 2(n + n) = 4n\)
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2020-05-15 Fri 10:47</p>
+<p class="date">Created: 2020-05-26 Tue 12:49</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
