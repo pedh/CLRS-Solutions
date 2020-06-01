@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-05-26 Tue 12:49 -->
+<!-- 2020-06-01 Mon 12:55 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 9 problems</title>
@@ -333,25 +333,25 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org969cc72">ch9-problems</a>
+<li><a href="#org3009b43">ch9-problems</a>
 <ul>
-<li><a href="#orga3be52c">9-1</a></li>
-<li><a href="#orgd7f12d0">9-2</a></li>
-<li><a href="#org2dd5655"><span class="todo TODO">TODO</span> 9-3</a></li>
-<li><a href="#org71d477d">9-4</a></li>
+<li><a href="#orgfb53dbc">9-1</a></li>
+<li><a href="#org70e9912">9-2</a></li>
+<li><a href="#org402a779"><span class="todo TODO">TODO</span> 9-3</a></li>
+<li><a href="#org230c92b">9-4</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org969cc72" class="outline-2">
-<h2 id="org969cc72">ch9-problems</h2>
-<div class="outline-text-2" id="text-org969cc72">
+<div id="outline-container-org3009b43" class="outline-2">
+<h2 id="org3009b43">ch9-problems</h2>
+<div class="outline-text-2" id="text-org3009b43">
 </div>
-<div id="outline-container-orga3be52c" class="outline-3">
-<h3 id="orga3be52c">9-1</h3>
-<div class="outline-text-3" id="text-orga3be52c">
+<div id="outline-container-orgfb53dbc" class="outline-3">
+<h3 id="orgfb53dbc">9-1</h3>
+<div class="outline-text-3" id="text-orgfb53dbc">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
@@ -399,9 +399,9 @@ The running time is \(O(n + i\lg i)\).
 </ul>
 </div>
 </div>
-<div id="outline-container-orgd7f12d0" class="outline-3">
-<h3 id="orgd7f12d0">9-2</h3>
-<div class="outline-text-3" id="text-orgd7f12d0">
+<div id="outline-container-org70e9912" class="outline-3">
+<h3 id="org70e9912">9-2</h3>
+<div class="outline-text-3" id="text-org70e9912">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
@@ -526,59 +526,115 @@ solution for the 2-dimensional post-office problem \((x_m, y_m)\).
 </ul>
 </div>
 </div>
-<div id="outline-container-org2dd5655" class="outline-3">
-<h3 id="org2dd5655"><span class="todo TODO">TODO</span> 9-3</h3>
-<div class="outline-text-3" id="text-org2dd5655">
-<ol class="org-ol">
-<li>The algorithm is described as below
+<div id="outline-container-org402a779" class="outline-3">
+<h3 id="org402a779"><span class="todo TODO">TODO</span> 9-3</h3>
+<div class="outline-text-3" id="text-org402a779">
 <ul class="org-ul">
-<li>If i &gt;= n / 2, we select the ith element and partition around it.</li>
 <li><p>
-Else we break the n elements into \(\lfloor \frac{n}{2} \rfloor\)
-pairs, and sort the two elements in each pair.
+<b>a.</b>
 </p>
 
 <p>
-Then we recursively select the ith pair and partition around the
-pair by the smaller part of the pair, the ith elements must be in
-the i smallest pairs after the partition, we select the i smallest
-element of the 2i elements in the pairs and return the element.
-</p></li>
-</ul></li>
-<li>\(U_i(n) = n / 2 + U_i(n / 2) + T(2i) = n + O(T(2i) \lg(n / i))\)</li>
-<li>i is a constant, then \(U_i(n) = n + O(T(2i) \lg(n / i))) = n + O(\lg n)\)</li>
-<li><p>
-if k &gt; 2,
-then \(U_i(n) = n + O(T(2i) \lg(n / i))) = n + O(T(2n / k) \lg k)\)
+If \(i\geq n/2\), we simply use SELECT to find the \(i\)th smallest of n
+elements. The number of comparisons is \(T(n)\).
 </p>
 
 <p>
-if k = 2, then \(U_i(n) = T(n) < n + T(n) = n + O(T(2n / k) \lg k)\)
+If \(i < n/2\), we first break the \(n\) elements into
+\(\lfloor n/2 \rfloor\) pairs, and sort the two elements in each pair, then
+we compare the pairs base on the smaller element of each pair, to find the
+\(i\)th smallest pair and partition the pairs on it, then we know the
+\(i\)th smallest element must be in the \(2i\) elements of the \(i\)
+smallest pairs, and we use SELECT to find it. The total number of
+comparisons is \(\lfloor n/2 \rfloor + U_i(\lceil n/2 \rceil) + T(2i)\).
 </p></li>
-</ol>
+
+<li><p>
+<b>b.</b>
+</p>
+
+<p>
+If \(i < n/2\), then
+</p>
+\begin{align*}
+U_i(n)
+&=\lfloor n/2\rfloor+U_i(\lceil n/2\rceil)+T(2i)\\
+&=\lfloor n/2\rfloor+\lfloor n/4\rfloor+U_i(\lceil n/4\rceil)+T(2i)\\
+&=\cdots\\
+&=\sum_{k=1}^{\lg(n/i)-1}(\lfloor n/2^k\rfloor+T(2i))+O(T(2i))\\
+&=n+O(T(2i)lg(n/i))
+\end{align*}</li>
+
+<li><p>
+<b>c.</b>
+</p>
+
+<p>
+If \(i\) is a constant less than \(n/2\), then
+</p>
+\begin{align*}
+U_i(n)
+&=n+O(T(2i)lg(n/i))\\
+&=n+O(T(2i)\lg{n}-T(2i)\lg{i})\\
+&=n+O(\lg n)
+\end{align*}</li>
+<li><p>
+<b>d.</b>
+</p>
+
+<p>
+If \(i = n/k\) for \(k \geq 2\), then
+</p>
+\begin{align*}
+U_i(n)
+&=n+O(T(2i)lg(n/i))\\
+&=n+O(T(2n/k)\lg k)
+\end{align*}</li>
+</ul>
 </div>
 </div>
-<div id="outline-container-org71d477d" class="outline-3">
-<h3 id="org71d477d">9-4</h3>
-<div class="outline-text-3" id="text-org71d477d">
-<ol class="org-ol">
+<div id="outline-container-org230c92b" class="outline-3">
+<h3 id="org230c92b">9-4</h3>
+<div class="outline-text-3" id="text-org230c92b">
+<ul class="org-ul">
 <li><p>
-z<sub>i</sub> or z<sub>j</sub> must be chosen as pivot through \(Z_{ijk}\)
+<b>a.</b>
 </p>
 
 <p>
-\(Z_{ijk} = max(Z_{i..j}, Z_{i..k}, Z_{k..j})\)
+For \(1 \leq i < j \leq n\), we have
 </p>
-
+\begin{align*}
+X_{ijk}
+&=\text{I{$z_i$ is compared with $z_j$ sometime during the execution of
+  the algorithm to find $z_k$}}\\
+&=\text{I{$z_i$ or $z_j$ is chosen as the pivot between
+  $z_{i..j}\cup z_{i..k}\cup z_{k..j}$}}
+\end{align*}
 <p>
-So \(E[X_{ijk}] = \frac{2}{max(j - i + 1, k - i + 1, j - k + 1)}\)
+The expected value of \(X_{ijk}\) is
+\(E[X_{ijk}] = \frac{2}{max(j-i+1,k-i+1,k-j+1)}\).
 </p></li>
 <li><p>
-\(E[X_k] = \sum_{i=1}^{n-1} \sum_{j=i+1}^{n} \frac{2}{max(j-i+1, k-i+1, j-k+1)}\)
+<b>b.</b>
 </p>
 
 <p>
-\(\leq 2 (\sum_{i=1}^{k} \sum_{j=k}^{n} \frac{1}{j-i+1} + \sum_{j=k+1}^{n} \frac{j-k-1}{j-k+1} + \sum_{i=1}^{k-2} \frac{k-i-1}{k-i+1})\)
+Let \(X_k\) denote the total number of comparisons between elements of
+array \(A\) when finding \(z_k\), we have
+</p>
+\begin{align*}
+E[X_k]
+&=\sum_{i=1}^{n-1}\sum_{j=i+1}^{n}\frac{2}{max(j-i+1,k-i+1,k-j+1)}\\
+&=\sum_{i=k}^{n-1}\sum_{j=i+1}^{n}\frac{2}{j-k+1}
+  +\sum_{i=i}^{k-1}\sum_{j=k}^{n}\frac{2}{j-i+1}
+  +\sum_{i=1}^{k-2}\sum_{j=i+1}^{k-1}\frac{2}{k-i+1}\\
+&=2\Bigg(\sum_{i=1}^{k-1}\sum_{j=k}^{n}\frac{1}{j-i+1}
+  +\sum_{j=k+1}^{n}\frac{j-k-1}{j-k+1}
+  +\sum_{i=1}^{k-2}\frac{k-i-1}{k-i+1}\Bigg)
+\end{align*}
+<p>
+todo
 </p></li>
 <li><p>
 \(\sum_{i=1}^{k} \sum_{j=k}^{n} \frac{1}{j-i+1} = \sum_{x=0}^{n} \frac{x+1}{x+1} = n\)
@@ -592,14 +648,14 @@ So \(E[X_{ijk}] = \frac{2}{max(j - i + 1, k - i + 1, j - k + 1)}\)
 So \(E[X_k] \leq 2(n + n) = 4n\)
 </p></li>
 <li>T(n) = O(n) + E[X<sub>k</sub>] = O(n)</li>
-</ol>
+</ul>
 </div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2020-05-26 Tue 12:49</p>
+<p class="date">Created: 2020-06-01 Mon 12:55</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
