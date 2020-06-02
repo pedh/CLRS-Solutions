@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-06-01 Mon 12:55 -->
+<!-- 2020-06-02 Tue 09:06 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 9 problems</title>
@@ -333,25 +333,25 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org3009b43">ch9-problems</a>
+<li><a href="#orgc796b0a">ch9-problems</a>
 <ul>
-<li><a href="#orgfb53dbc">9-1</a></li>
-<li><a href="#org70e9912">9-2</a></li>
-<li><a href="#org402a779"><span class="todo TODO">TODO</span> 9-3</a></li>
-<li><a href="#org230c92b">9-4</a></li>
+<li><a href="#org287eedb">9-1</a></li>
+<li><a href="#org0e31cdd">9-2</a></li>
+<li><a href="#org0dd3904">9-3</a></li>
+<li><a href="#org9d4ec1c">9-4</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org3009b43" class="outline-2">
-<h2 id="org3009b43">ch9-problems</h2>
-<div class="outline-text-2" id="text-org3009b43">
+<div id="outline-container-orgc796b0a" class="outline-2">
+<h2 id="orgc796b0a">ch9-problems</h2>
+<div class="outline-text-2" id="text-orgc796b0a">
 </div>
-<div id="outline-container-orgfb53dbc" class="outline-3">
-<h3 id="orgfb53dbc">9-1</h3>
-<div class="outline-text-3" id="text-orgfb53dbc">
+<div id="outline-container-org287eedb" class="outline-3">
+<h3 id="org287eedb">9-1</h3>
+<div class="outline-text-3" id="text-org287eedb">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
@@ -399,9 +399,9 @@ The running time is \(O(n + i\lg i)\).
 </ul>
 </div>
 </div>
-<div id="outline-container-org70e9912" class="outline-3">
-<h3 id="org70e9912">9-2</h3>
-<div class="outline-text-3" id="text-org70e9912">
+<div id="outline-container-org0e31cdd" class="outline-3">
+<h3 id="org0e31cdd">9-2</h3>
+<div class="outline-text-3" id="text-org0e31cdd">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
@@ -526,9 +526,9 @@ solution for the 2-dimensional post-office problem \((x_m, y_m)\).
 </ul>
 </div>
 </div>
-<div id="outline-container-org402a779" class="outline-3">
-<h3 id="org402a779"><span class="todo TODO">TODO</span> 9-3</h3>
-<div class="outline-text-3" id="text-org402a779">
+<div id="outline-container-org0dd3904" class="outline-3">
+<h3 id="org0dd3904">9-3</h3>
+<div class="outline-text-3" id="text-org0dd3904">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
@@ -593,9 +593,9 @@ U_i(n)
 </ul>
 </div>
 </div>
-<div id="outline-container-org230c92b" class="outline-3">
-<h3 id="org230c92b">9-4</h3>
-<div class="outline-text-3" id="text-org230c92b">
+<div id="outline-container-org9d4ec1c" class="outline-3">
+<h3 id="org9d4ec1c">9-4</h3>
+<div class="outline-text-3" id="text-org9d4ec1c">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
@@ -621,33 +621,55 @@ The expected value of \(X_{ijk}\) is
 
 <p>
 Let \(X_k\) denote the total number of comparisons between elements of
-array \(A\) when finding \(z_k\), we have
+array \(A\) when finding \(z_k\), then
 </p>
 \begin{align*}
 E[X_k]
 &=\sum_{i=1}^{n-1}\sum_{j=i+1}^{n}\frac{2}{max(j-i+1,k-i+1,k-j+1)}\\
-&=\sum_{i=k}^{n-1}\sum_{j=i+1}^{n}\frac{2}{j-k+1}
-  +\sum_{i=i}^{k-1}\sum_{j=k}^{n}\frac{2}{j-i+1}
-  +\sum_{i=1}^{k-2}\sum_{j=i+1}^{k-1}\frac{2}{k-i+1}\\
-&=2\Bigg(\sum_{i=1}^{k-1}\sum_{j=k}^{n}\frac{1}{j-i+1}
+&=\sum_{i=k+1}^{n-1}\sum_{j=i+1}^{n}\frac{2}{j-k+1}
+  +\sum_{i=1}^{k}\sum_{j=k+1}^{n}\frac{2}{j-i+1}
+  +\sum_{i=1}^{k-1}\sum_{j=i+1}^{k}\frac{2}{k-i+1}\\
+&\leq 2\Bigg(\sum_{i=1}^{k}\sum_{j=k}^{n}\frac{1}{j-i+1}
   +\sum_{j=k+1}^{n}\frac{j-k-1}{j-k+1}
   +\sum_{i=1}^{k-2}\frac{k-i-1}{k-i+1}\Bigg)
+\end{align*}</li>
+<li><p>
+<b>c.</b>
+</p>
+
+<p>
+For the first addend, we have
+</p>
+\begin{align*}
+\sum_{i=1}^{k}\sum_{j=k}^{n}\frac{1}{j-i+1}
+&=\sum_{j=k}^{n}\frac{1}{j}+\sum_{j=k}^{n}\frac{1}{j-1}+\cdots
+  +\sum_{j=k}^{n}\frac{1}{j-k+1}\\
+&=\sum_{x=1}^{k}1+\sum_{x=k+1}^{n-k}\frac{k}{x}
+  +\sum_{x=n-k+1}^{n}\frac{x}{n-x}\\
+&\leq \sum_{x=1}^{n}1\\
+&=n
 \end{align*}
 <p>
-todo
-</p></li>
+Then for the expected value, we have
+</p>
+\begin{align*}
+E[X_k]
+&\leq 2\Bigg(\sum_{i=1}^{k}\sum_{j=k}^{n}\frac{1}{j-i+1}
+  +\sum_{j=k+1}^{n}\frac{j-k-1}{j-k+1}
+  +\sum_{i=1}^{k-2}\frac{k-i-1}{k-i+1}\Bigg)\\
+&\leq 2\Bigg(n+\sum_{j=k+1}^{n}\frac{j-k-1}{j-k+1}
+  +\sum_{i=1}^{k-2}\frac{k-i-1}{k-i+1}\Bigg)\\
+&\leq 2\Bigg(n+\sum_{j=k+1}^{n}1+\sum_{i=1}^{k-2}1\Bigg)\\
+&< 4n
+\end{align*}</li>
 <li><p>
-\(\sum_{i=1}^{k} \sum_{j=k}^{n} \frac{1}{j-i+1} = \sum_{x=0}^{n} \frac{x+1}{x+1} = n\)
+<b>d.</b>
 </p>
 
 <p>
-\(\sum_{j=k+1}^{n} \frac{j-k-1}{j-k+1} + \sum_{i=1}^{k-2} \frac{k-i-1}{k-i+1} \leq n\)
-</p>
-
-<p>
-So \(E[X_k] \leq 2(n + n) = 4n\)
+The running time of RANDOMIZED-SELECT is determined by the total number of
+comparisons, thus the expected running time is \(O(n)\).
 </p></li>
-<li>T(n) = O(n) + E[X<sub>k</sub>] = O(n)</li>
 </ul>
 </div>
 </div>
@@ -655,7 +677,7 @@ So \(E[X_k] \leq 2(n + n) = 4n\)
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2020-06-01 Mon 12:55</p>
+<p class="date">Created: 2020-06-02 Tue 09:06</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
