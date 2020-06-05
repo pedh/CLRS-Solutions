@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-06-02 Tue 09:06 -->
+<!-- 2020-06-05 Fri 10:08 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 10.1</title>
@@ -311,85 +311,178 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org92dfca2">ch10.1</a>
+<li><a href="#orge07ef6c">ch10.1</a>
 <ul>
-<li><a href="#org36d6af6">10.1-1</a></li>
-<li><a href="#orgd1e4149">10.1-2</a></li>
-<li><a href="#org652d885">10.1-3</a></li>
-<li><a href="#orga14b07d">10.1-4</a></li>
-<li><a href="#org9a565b1">10.1-5</a></li>
-<li><a href="#org606f6a0">10.1-6</a></li>
-<li><a href="#org3ffb4fc">10.1-7</a></li>
+<li><a href="#org2d3a760">10.1-1</a></li>
+<li><a href="#orgf5fcb8f">10.1-2</a></li>
+<li><a href="#org8848d75">10.1-3</a></li>
+<li><a href="#org2345d13">10.1-4</a></li>
+<li><a href="#orgcdaa18a"><span class="todo TODO">TODO</span> 10.1-5</a></li>
+<li><a href="#org812b8ae">10.1-6</a></li>
+<li><a href="#orga74e25a">10.1-7</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org92dfca2" class="outline-2">
-<h2 id="org92dfca2">ch10.1</h2>
-<div class="outline-text-2" id="text-org92dfca2">
+<div id="outline-container-orge07ef6c" class="outline-2">
+<h2 id="orge07ef6c">ch10.1</h2>
+<div class="outline-text-2" id="text-orge07ef6c">
 </div>
-<div id="outline-container-org36d6af6" class="outline-3">
-<h3 id="org36d6af6">10.1-1</h3>
-<div class="outline-text-3" id="text-org36d6af6">
+<div id="outline-container-org2d3a760" class="outline-3">
+<h3 id="org2d3a760">10.1-1</h3>
+<div class="outline-text-3" id="text-org2d3a760">
+<pre class="example">
+Initially empty stack S
+|-------+---+---+---+---+---+---|
+| S     | 1 | 2 | 3 | 4 | 5 | 6 |
+|-------+---+---+---+---+---+---|
+| top=0 |   |   |   |   |   |   |
+|-------+---+---+---+---+---+---|
+
+PUSH(S, 4)
+|-------+---+---+---+---+---+---|
+| S     | 1 | 2 | 3 | 4 | 5 | 6 |
+|-------+---+---+---+---+---+---|
+| top=1 | 4 |   |   |   |   |   |
+|-------+---+---+---+---+---+---|
+
+PUSH(S, 1)
+|-------+---+---+---+---+---+---|
+| S     | 1 | 2 | 3 | 4 | 5 | 6 |
+|-------+---+---+---+---+---+---|
+| top=2 | 4 | 1 |   |   |   |   |
+|-------+---+---+---+---+---+---|
+
+PUSH(S, 3)
+|-------+---+---+---+---+---+---|
+| S     | 1 | 2 | 3 | 4 | 5 | 6 |
+|-------+---+---+---+---+---+---|
+| top=3 | 4 | 1 | 3 |   |   |   |
+|-------+---+---+---+---+---+---|
+
+POP(S) -&gt; 3
+|-------+---+---+---+---+---+---|
+| S     | 1 | 2 | 3 | 4 | 5 | 6 |
+|-------+---+---+---+---+---+---|
+| top=2 | 4 | 1 | 3 |   |   |   |
+|-------+---+---+---+---+---+---|
+
+PUSH(S, 8)
+|-------+---+---+---+---+---+---|
+| S     | 1 | 2 | 3 | 4 | 5 | 6 |
+|-------+---+---+---+---+---+---|
+| top=3 | 4 | 1 | 8 |   |   |   |
+|-------+---+---+---+---+---+---|
+
+POP(S) -&gt; 8
+|-------+---+---+---+---+---+---|
+| S     | 1 | 2 | 3 | 4 | 5 | 6 |
+|-------+---+---+---+---+---+---|
+| top=2 | 4 | 1 | 8 |   |   |   |
+|-------+---+---+---+---+---+---|
+</pre>
+</div>
+</div>
+<div id="outline-container-orgf5fcb8f" class="outline-3">
+<h3 id="orgf5fcb8f">10.1-2</h3>
+<div class="outline-text-3" id="text-orgf5fcb8f">
 <p>
-omitted
+We could store the elements of one stack from A[1] up to A[n], and store the
+elements of another stack from A[n] down to A[1].
 </p>
 </div>
 </div>
-<div id="outline-container-orgd1e4149" class="outline-3">
-<h3 id="orgd1e4149">10.1-2</h3>
-<div class="outline-text-3" id="text-orgd1e4149">
-<p>
-One stack save the values in A from A[1] to A[n], the other one save the
-values in A from A[n] down to A[1]
-</p>
+<div id="outline-container-org8848d75" class="outline-3">
+<h3 id="org8848d75">10.1-3</h3>
+<div class="outline-text-3" id="text-org8848d75">
+<pre class="example">
+Initially empty queue Q
+|---------------+---+---+---+---+---+---|
+| Q             | 1 | 2 | 3 | 4 | 5 | 6 |
+|---------------+---+---+---+---+---+---|
+| head=1 tail=1 |   |   |   |   |   |   |
+|---------------+---+---+---+---+---+---|
+
+ENQUEUE(Q, 4)
+|---------------+---+---+---+---+---+---|
+| Q             | 1 | 2 | 3 | 4 | 5 | 6 |
+|---------------+---+---+---+---+---+---|
+| head=1 tail=2 | 4 |   |   |   |   |   |
+|---------------+---+---+---+---+---+---|
+
+ENQUEUE(Q, 1)
+|---------------+---+---+---+---+---+---|
+| Q             | 1 | 2 | 3 | 4 | 5 | 6 |
+|---------------+---+---+---+---+---+---|
+| head=1 tail=3 | 4 | 1 |   |   |   |   |
+|---------------+---+---+---+---+---+---|
+
+ENQUEUE(Q, 3)
+|---------------+---+---+---+---+---+---|
+| Q             | 1 | 2 | 3 | 4 | 5 | 6 |
+|---------------+---+---+---+---+---+---|
+| head=1 tail=4 | 4 | 1 | 3 |   |   |   |
+|---------------+---+---+---+---+---+---|
+
+DEQUEUE(Q) -&gt; 4
+|---------------+---+---+---+---+---+---|
+| Q             | 1 | 2 | 3 | 4 | 5 | 6 |
+|---------------+---+---+---+---+---+---|
+| head=2 tail=4 | 4 | 1 | 3 |   |   |   |
+|---------------+---+---+---+---+---+---|
+
+ENQUEUE(Q, 8)
+|---------------+---+---+---+---+---+---|
+| Q             | 1 | 2 | 3 | 4 | 5 | 6 |
+|---------------+---+---+---+---+---+---|
+| head=2 tail=5 | 4 | 1 | 3 | 8 |   |   |
+|---------------+---+---+---+---+---+---|
+
+DEQUEUE(Q) -&gt; 1
+|---------------+---+---+---+---+---+---|
+| Q             | 1 | 2 | 3 | 4 | 5 | 6 |
+|---------------+---+---+---+---+---+---|
+| head=3 tail=5 | 4 | 1 | 3 | 8 |   |   |
+|---------------+---+---+---+---+---+---|
+</pre>
 </div>
 </div>
-<div id="outline-container-org652d885" class="outline-3">
-<h3 id="org652d885">10.1-3</h3>
-<div class="outline-text-3" id="text-org652d885">
-<p>
-omitted
-</p>
-</div>
-</div>
-<div id="outline-container-orga14b07d" class="outline-3">
-<h3 id="orga14b07d">10.1-4</h3>
-<div class="outline-text-3" id="text-orga14b07d">
+<div id="outline-container-org2345d13" class="outline-3">
+<h3 id="org2345d13">10.1-4</h3>
+<div class="outline-text-3" id="text-org2345d13">
 <pre class="example">
 QUEUE-EMPTY?(Q)
-    return (Q.head == Q.tail)
-</pre>
-<pre class="example">
+    return Q.head == Q.tail
+
 QUEUE-FULL?(Q)
-    return (((Q.tail + 1) % Q.length) == Q.head)
-</pre>
-<pre class="example">
+    if Q.head == 1
+	return Q.tail == Q.length
+    return Q.head == Q.tail + 1
+
 ENQUEUE(Q, x)
     if QUEUE-FULL?(Q)
-	error "overflow"
+	error "the queue overflows"
     Q[Q.tail] = x
-    if Q.tail == Q.length
+    if Q[Q.tail] == Q.length
 	Q.tail = 1
     else Q.tail = Q.tail + 1
-</pre>
-<pre class="example">
+
 DEQUEUE(Q)
     if QUEUE-EMPTY?(Q)
-	error "underflow"
+	error "the queue underflows"
     x = Q[Q.head]
     if Q.head == Q.length
 	Q.head = 1
     else Q.head = Q.head + 1
-	 return x
+    return x
 </pre>
 </div>
 </div>
-<div id="outline-container-org9a565b1" class="outline-3">
-<h3 id="org9a565b1">10.1-5</h3>
-<div class="outline-text-3" id="text-org9a565b1">
+<div id="outline-container-orgcdaa18a" class="outline-3">
+<h3 id="orgcdaa18a"><span class="todo TODO">TODO</span> 10.1-5</h3>
+<div class="outline-text-3" id="text-orgcdaa18a">
 <p>
 The ENQUEUE and DEQUEUE procedures of deque is same as queue.
 </p>
@@ -413,9 +506,9 @@ DEQUEUE-COUNTER(Q)
 </pre>
 </div>
 </div>
-<div id="outline-container-org606f6a0" class="outline-3">
-<h3 id="org606f6a0">10.1-6</h3>
-<div class="outline-text-3" id="text-org606f6a0">
+<div id="outline-container-org812b8ae" class="outline-3">
+<h3 id="org812b8ae">10.1-6</h3>
+<div class="outline-text-3" id="text-org812b8ae">
 <pre class="example">
 ENQUEUE(S1, S2, x)
     PUSH(S1, x)
@@ -436,9 +529,9 @@ time, but has an expected O(1) running time on the good average case.
 </p>
 </div>
 </div>
-<div id="outline-container-org3ffb4fc" class="outline-3">
-<h3 id="org3ffb4fc">10.1-7</h3>
-<div class="outline-text-3" id="text-org3ffb4fc">
+<div id="outline-container-orga74e25a" class="outline-3">
+<h3 id="orga74e25a">10.1-7</h3>
+<div class="outline-text-3" id="text-orga74e25a">
 <p>
 Assume we have a QUEUE-EMPTY? procedure implemented for queue, else we need
 to label on the empty queue.
@@ -476,7 +569,7 @@ The PUSH has O(1) running time, the POP has O(n) running time.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2020-06-02 Tue 09:06</p>
+<p class="date">Created: 2020-06-05 Fri 10:08</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
