@@ -311,28 +311,28 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orge07ef6c">ch10.1</a>
+<li><a href="#orgf9b9b6f">ch10.1</a>
 <ul>
-<li><a href="#org2d3a760">10.1-1</a></li>
-<li><a href="#orgf5fcb8f">10.1-2</a></li>
-<li><a href="#org8848d75">10.1-3</a></li>
-<li><a href="#org2345d13">10.1-4</a></li>
-<li><a href="#orgcdaa18a"><span class="todo TODO">TODO</span> 10.1-5</a></li>
-<li><a href="#org812b8ae">10.1-6</a></li>
-<li><a href="#orga74e25a">10.1-7</a></li>
+<li><a href="#orgd44f530">10.1-1</a></li>
+<li><a href="#org6742f16">10.1-2</a></li>
+<li><a href="#orgc176720">10.1-3</a></li>
+<li><a href="#org8e32358">10.1-4</a></li>
+<li><a href="#org1934f03"><span class="todo TODO">TODO</span> 10.1-5</a></li>
+<li><a href="#org66d05fd">10.1-6</a></li>
+<li><a href="#org2fb8046">10.1-7</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orge07ef6c" class="outline-2">
-<h2 id="orge07ef6c">ch10.1</h2>
-<div class="outline-text-2" id="text-orge07ef6c">
+<div id="outline-container-orgf9b9b6f" class="outline-2">
+<h2 id="orgf9b9b6f">ch10.1</h2>
+<div class="outline-text-2" id="text-orgf9b9b6f">
 </div>
-<div id="outline-container-org2d3a760" class="outline-3">
-<h3 id="org2d3a760">10.1-1</h3>
-<div class="outline-text-3" id="text-org2d3a760">
+<div id="outline-container-orgd44f530" class="outline-3">
+<h3 id="orgd44f530">10.1-1</h3>
+<div class="outline-text-3" id="text-orgd44f530">
 <pre class="example">
 Initially empty stack S
 |-------+---+---+---+---+---+---|
@@ -385,18 +385,18 @@ POP(S) -&gt; 8
 </pre>
 </div>
 </div>
-<div id="outline-container-orgf5fcb8f" class="outline-3">
-<h3 id="orgf5fcb8f">10.1-2</h3>
-<div class="outline-text-3" id="text-orgf5fcb8f">
+<div id="outline-container-org6742f16" class="outline-3">
+<h3 id="org6742f16">10.1-2</h3>
+<div class="outline-text-3" id="text-org6742f16">
 <p>
 We could store the elements of one stack from A[1] up to A[n], and store the
 elements of another stack from A[n] down to A[1].
 </p>
 </div>
 </div>
-<div id="outline-container-org8848d75" class="outline-3">
-<h3 id="org8848d75">10.1-3</h3>
-<div class="outline-text-3" id="text-org8848d75">
+<div id="outline-container-orgc176720" class="outline-3">
+<h3 id="orgc176720">10.1-3</h3>
+<div class="outline-text-3" id="text-orgc176720">
 <pre class="example">
 Initially empty queue Q
 |---------------+---+---+---+---+---+---|
@@ -449,9 +449,9 @@ DEQUEUE(Q) -&gt; 1
 </pre>
 </div>
 </div>
-<div id="outline-container-org2345d13" class="outline-3">
-<h3 id="org2345d13">10.1-4</h3>
-<div class="outline-text-3" id="text-org2345d13">
+<div id="outline-container-org8e32358" class="outline-3">
+<h3 id="org8e32358">10.1-4</h3>
+<div class="outline-text-3" id="text-org8e32358">
 <pre class="example">
 QUEUE-EMPTY?(Q)
     return Q.head == Q.tail
@@ -480,9 +480,9 @@ DEQUEUE(Q)
 </pre>
 </div>
 </div>
-<div id="outline-container-orgcdaa18a" class="outline-3">
-<h3 id="orgcdaa18a"><span class="todo TODO">TODO</span> 10.1-5</h3>
-<div class="outline-text-3" id="text-orgcdaa18a">
+<div id="outline-container-org1934f03" class="outline-3">
+<h3 id="org1934f03"><span class="todo TODO">TODO</span> 10.1-5</h3>
+<div class="outline-text-3" id="text-org1934f03">
 <p>
 The ENQUEUE and DEQUEUE procedures of deque is same as queue.
 </p>
@@ -506,9 +506,9 @@ DEQUEUE-COUNTER(Q)
 </pre>
 </div>
 </div>
-<div id="outline-container-org812b8ae" class="outline-3">
-<h3 id="org812b8ae">10.1-6</h3>
-<div class="outline-text-3" id="text-org812b8ae">
+<div id="outline-container-org66d05fd" class="outline-3">
+<h3 id="org66d05fd">10.1-6</h3>
+<div class="outline-text-3" id="text-org66d05fd">
 <pre class="example">
 ENQUEUE(S1, S2, x)
     PUSH(S1, x)
@@ -529,9 +529,9 @@ time, but has an expected O(1) running time on the good average case.
 </p>
 </div>
 </div>
-<div id="outline-container-orga74e25a" class="outline-3">
-<h3 id="orga74e25a">10.1-7</h3>
-<div class="outline-text-3" id="text-orga74e25a">
+<div id="outline-container-org2fb8046" class="outline-3">
+<h3 id="org2fb8046">10.1-7</h3>
+<div class="outline-text-3" id="text-org2fb8046">
 <p>
 Assume we have a QUEUE-EMPTY? procedure implemented for queue, else we need
 to label on the empty queue.
