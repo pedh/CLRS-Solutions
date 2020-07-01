@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-06-09 Tue 10:04 -->
+<!-- 2020-07-01 Wed 10:58 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 10.2</title>
@@ -299,6 +299,28 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -311,63 +333,81 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org4182e7f">ch10.2</a>
+<li><a href="#orga35795d">ch10.2</a>
 <ul>
-<li><a href="#orgea210be">10.2-1</a></li>
-<li><a href="#org96cb68d">10.2-2</a></li>
-<li><a href="#org5a7ce3d">10.2-3</a></li>
-<li><a href="#org92d759a">10.2-4</a></li>
-<li><a href="#org0c1bd7e">10.2-5</a></li>
-<li><a href="#org0e0f6b1">10.2-6</a></li>
-<li><a href="#org6dab861">10.2-7</a></li>
-<li><a href="#orge8bcffe">10.2-8</a></li>
+<li><a href="#orge868a14">10.2-1</a></li>
+<li><a href="#org442fc98">10.2-2</a></li>
+<li><a href="#org7695e5e">10.2-3</a></li>
+<li><a href="#orgc2c8f5c">10.2-4</a></li>
+<li><a href="#org4ed815d">10.2-5</a></li>
+<li><a href="#org48342f1">10.2-6</a></li>
+<li><a href="#org56ce746">10.2-7</a></li>
+<li><a href="#org56c7e57"><span class="todo TODO">TODO</span> 10.2-8</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org4182e7f" class="outline-2">
-<h2 id="org4182e7f">ch10.2</h2>
-<div class="outline-text-2" id="text-org4182e7f">
+<div id="outline-container-orga35795d" class="outline-2">
+<h2 id="orga35795d">ch10.2</h2>
+<div class="outline-text-2" id="text-orga35795d">
 </div>
-<div id="outline-container-orgea210be" class="outline-3">
-<h3 id="orgea210be">10.2-1</h3>
-<div class="outline-text-3" id="text-orgea210be">
+<div id="outline-container-orge868a14" class="outline-3">
+<h3 id="orge868a14">10.2-1</h3>
+<div class="outline-text-3" id="text-orge868a14">
 <p>
-The dynamic-set INSERT operation can be simply implemented by a wrapped
-linked-list INSERT which has O(1) running time, the DELETE operation
-cannot be implemented as O(1) running time.
+We could implement the dynamic-set operation <code>INSERT</code> by the singly linked
+list <code>LIST-INSERT</code> operation, to achieve \(O(1)\) running time. But the
+dynamic-set operation <code>DELETE</code> cannot be implemented in \(O(1)\) running
+time, because we must first call the <code>LIST-SEARCH</code> to find the element with
+the given key.
 </p>
 </div>
 </div>
-<div id="outline-container-org96cb68d" class="outline-3">
-<h3 id="org96cb68d">10.2-2</h3>
-<div class="outline-text-3" id="text-org96cb68d">
-<p>
-PUSH: Insert
-</p>
+<div id="outline-container-org442fc98" class="outline-3">
+<h3 id="org442fc98">10.2-2</h3>
+<div class="outline-text-3" id="text-org442fc98">
+<pre class="example">
+PUSH(L, x)
+    nx = new node to carry x
+    LIST-INSERT(L, nx)
 
-<p>
-POP: Retrieve and delete from head
-</p>
+POP(L)
+    if L.head == NIL
+	error "the stack underflows"
+    x = L.head.data
+    LIST-DELETE(L, L.head)
+    return x
+</pre>
 </div>
 </div>
-<div id="outline-container-org5a7ce3d" class="outline-3">
-<h3 id="org5a7ce3d">10.2-3</h3>
-<div class="outline-text-3" id="text-org5a7ce3d">
+<div id="outline-container-org7695e5e" class="outline-3">
+<h3 id="org7695e5e">10.2-3</h3>
+<div class="outline-text-3" id="text-org7695e5e">
 <p>
-ENQUEUE: Insert
+The singly linked list \(L\) should support \(L.tail\) attribute.
 </p>
+<pre class="example">
+ENQUEUE(L, x)
+    nx = new node to carry x
+    if L.head == NIL
+	LIST-INSERT(L, x)
+	L.tail = x
+    else L.tail.next = x
 
-<p>
-DEQUEUE: Retrieve and delete from tail
-</p>
+DEQUEUE(L)
+    if L.head == NIL
+	error "the queue underflows"
+    x = L.head.data
+    LIST-DELETE(L, L.head)
+    return x
+</pre>
 </div>
 </div>
-<div id="outline-container-org92d759a" class="outline-3">
-<h3 id="org92d759a">10.2-4</h3>
-<div class="outline-text-3" id="text-org92d759a">
+<div id="outline-container-orgc2c8f5c" class="outline-3">
+<h3 id="orgc2c8f5c">10.2-4</h3>
+<div class="outline-text-3" id="text-orgc2c8f5c">
 <pre class="example">
 LIST-SEARCH'(L, k)
     x = L.nil.next
@@ -378,61 +418,75 @@ LIST-SEARCH'(L, k)
 </pre>
 </div>
 </div>
-<div id="outline-container-org0c1bd7e" class="outline-3">
-<h3 id="org0c1bd7e">10.2-5</h3>
-<div class="outline-text-3" id="text-org0c1bd7e">
+<div id="outline-container-org4ed815d" class="outline-3">
+<h3 id="org4ed815d">10.2-5</h3>
+<div class="outline-text-3" id="text-org4ed815d">
 <pre class="example">
-INSERT(L, x)
-    LIST-INSERT(L, x)
-</pre>
-<pre class="example">
+INSERT(L, k, v)
+    x = SEARCH(L, k)
+    if x == L.nil
+	x = new node to carry v with key k
+	x.next = L.nil.next
+	L.nil.next = x
+    else x.data = v
+
 DELETE(L, k)
-    x = LIST-SEARCH(L, k)
-    LIST-DELETE(L, x)
-</pre>
-<pre class="example">
+    x = L.nil
+    while x.next != L.nil and x.next.key != k
+	x = x.next
+    x.next = x.next.next
+
 SEARCH(L, k)
-    return LIST-SEARCH(L, k)
+    x = L.nil.next
+    while x != L.nil and x.key != k
+	x = x.next
+    return x
 </pre>
 <p>
-The running time of INSERT is O(1), the running time of DELETE and SEARCH
-is O(n).
+The running times of <code>INSERT</code>, <code>SEARCH</code> and <code>DELETE</code> are \(O(n)\).
 </p>
 </div>
 </div>
-<div id="outline-container-org0e0f6b1" class="outline-3">
-<h3 id="org0e0f6b1">10.2-6</h3>
-<div class="outline-text-3" id="text-org0e0f6b1">
+<div id="outline-container-org48342f1" class="outline-3">
+<h3 id="org48342f1">10.2-6</h3>
+<div class="outline-text-3" id="text-org48342f1">
 <p>
-Link the tail of S1 with the head of S2.
+We can represent the dynamic set as a doubly linked list, and implement
+<code>UNION</code> as below.
 </p>
+<pre class="example">
+UNION(S1, S2)
+    S1.nil.prev.next = S2.nil.next
+    S2.nil.next.prev = S1.nil.prev
+    S1.nil.prev = S2.nil.prev
+    S2.nil.prev.next = S1.nil
+    return S1
+</pre>
 </div>
 </div>
-<div id="outline-container-org6dab861" class="outline-3">
-<h3 id="org6dab861">10.2-7</h3>
-<div class="outline-text-3" id="text-org6dab861">
+<div id="outline-container-org56ce746" class="outline-3">
+<h3 id="org56ce746">10.2-7</h3>
+<div class="outline-text-3" id="text-org56ce746">
 <pre class="example">
 REVERSE(L)
     x = L.head
-    if x == NIL
-	return L
+    if x = NIL
+	return
     y = x.next
-    x.next = NIL
     while y != NIL
 	ny = y.next
 	y.next = x
 	x = y
 	y = ny
 </pre>
-
 <p>
 (<a href="../codes/singly_linked_list_reverse.py">implementation</a>)
 </p>
 </div>
 </div>
-<div id="outline-container-orge8bcffe" class="outline-3">
-<h3 id="orge8bcffe">10.2-8</h3>
-<div class="outline-text-3" id="text-orge8bcffe">
+<div id="outline-container-org56c7e57" class="outline-3">
+<h3 id="org56c7e57"><span class="todo TODO">TODO</span> 10.2-8</h3>
+<div class="outline-text-3" id="text-org56c7e57">
 <p>
 The structure is as below
 </p>
@@ -523,7 +577,7 @@ REVERSE(L)
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2020-06-09 Tue 10:04</p>
+<p class="date">Created: 2020-07-01 Wed 10:58</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
