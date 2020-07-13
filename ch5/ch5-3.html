@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-07-06 Mon 09:46 -->
+<!-- 2020-07-13 Mon 10:01 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 5.3</title>
@@ -333,28 +333,28 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orge0b8cc0">ch5.3</a>
+<li><a href="#orgf7246fe">ch5.3</a>
 <ul>
-<li><a href="#orgc06444d">5.3-1</a></li>
-<li><a href="#org96bc12d">5.3-2</a></li>
-<li><a href="#orgf3c0db6">5.3-3</a></li>
-<li><a href="#orgca518c3">5.3-4</a></li>
-<li><a href="#org6defcea">5.3-5</a></li>
-<li><a href="#org45a182b">5.3-6</a></li>
-<li><a href="#org64b58b4">5.3-7</a></li>
+<li><a href="#orgc789cdb">5.3-1</a></li>
+<li><a href="#org354fb08">5.3-2</a></li>
+<li><a href="#org6d80c2c">5.3-3</a></li>
+<li><a href="#org263ba2f">5.3-4</a></li>
+<li><a href="#org6b3426f">5.3-5</a></li>
+<li><a href="#org155548f">5.3-6</a></li>
+<li><a href="#org79e7a58">5.3-7</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orge0b8cc0" class="outline-2">
-<h2 id="orge0b8cc0">ch5.3</h2>
-<div class="outline-text-2" id="text-orge0b8cc0">
+<div id="outline-container-orgf7246fe" class="outline-2">
+<h2 id="orgf7246fe">ch5.3</h2>
+<div class="outline-text-2" id="text-orgf7246fe">
 </div>
-<div id="outline-container-orgc06444d" class="outline-3">
-<h3 id="orgc06444d">5.3-1</h3>
-<div class="outline-text-3" id="text-orgc06444d">
+<div id="outline-container-orgc789cdb" class="outline-3">
+<h3 id="orgc789cdb">5.3-1</h3>
+<div class="outline-text-3" id="text-orgc789cdb">
 <pre class="example">
 RANDOMIZE-IN-PLACE(A)
     n = A.length
@@ -367,18 +367,18 @@ Modify the initialization case by replace \(i = 1\) to \(i = 2\).
 </p>
 </div>
 </div>
-<div id="outline-container-org96bc12d" class="outline-3">
-<h3 id="org96bc12d">5.3-2</h3>
-<div class="outline-text-3" id="text-org96bc12d">
+<div id="outline-container-org354fb08" class="outline-3">
+<h3 id="org354fb08">5.3-2</h3>
+<div class="outline-text-3" id="text-org354fb08">
 <p>
 No, because the procedure can't generate the premutations that keep any
 element identical, e.g., \(\langle A[3], A[2], A[1], \ldots\rangle\).
 </p>
 </div>
 </div>
-<div id="outline-container-orgf3c0db6" class="outline-3">
-<h3 id="orgf3c0db6">5.3-3</h3>
-<div class="outline-text-3" id="text-orgf3c0db6">
+<div id="outline-container-org6d80c2c" class="outline-3">
+<h3 id="org6d80c2c">5.3-3</h3>
+<div class="outline-text-3" id="text-org6d80c2c">
 <p>
 No, because the algorithm will generate \(n^n\) permutations
 in the same probability, and \(n^n\) does not divide by \(n!\),
@@ -386,9 +386,9 @@ thus the \(n!\) permutations can not have the same probability.
 </p>
 </div>
 </div>
-<div id="outline-container-orgca518c3" class="outline-3">
-<h3 id="orgca518c3">5.3-4</h3>
-<div class="outline-text-3" id="text-orgca518c3">
+<div id="outline-container-org263ba2f" class="outline-3">
+<h3 id="org263ba2f">5.3-4</h3>
+<div class="outline-text-3" id="text-org263ba2f">
 <p>
 Each offset in RANDOM(1, n) transpose A[i] to distinct position in B, i.e.,
 each element A[i] has a 1/n probability of winding up in any particular
@@ -401,9 +401,9 @@ is not uniformly random.
 </p>
 </div>
 </div>
-<div id="outline-container-org6defcea" class="outline-3">
-<h3 id="org6defcea">5.3-5</h3>
-<div class="outline-text-3" id="text-org6defcea">
+<div id="outline-container-org6b3426f" class="outline-3">
+<h3 id="org6b3426f">5.3-5</h3>
+<div class="outline-text-3" id="text-org6b3426f">
 <p>
 The probability that all elements are unique is
 </p>
@@ -416,17 +416,17 @@ The probability that all elements are unique is
 \end{align*}
 </div>
 </div>
-<div id="outline-container-org45a182b" class="outline-3">
-<h3 id="org45a182b">5.3-6</h3>
-<div class="outline-text-3" id="text-org45a182b">
+<div id="outline-container-org155548f" class="outline-3">
+<h3 id="org155548f">5.3-6</h3>
+<div class="outline-text-3" id="text-org155548f">
 <p>
 Sort the elements with same priority in random order.
 </p>
 </div>
 </div>
-<div id="outline-container-org64b58b4" class="outline-3">
-<h3 id="org64b58b4">5.3-7</h3>
-<div class="outline-text-3" id="text-org64b58b4">
+<div id="outline-container-org79e7a58" class="outline-3">
+<h3 id="org79e7a58">5.3-7</h3>
+<div class="outline-text-3" id="text-org79e7a58">
 <p>
 We use math induction to prove the correctness of the algorithm.
 </p>
@@ -472,7 +472,7 @@ thus \((\forall x \in \{1,2,3,\ldots,n\}) [\Pr\{x \in S\} = \frac{m}{n}]\).
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2020-07-06 Mon 09:46</p>
+<p class="date">Created: 2020-07-13 Mon 10:01</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
