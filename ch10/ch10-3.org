@@ -2,7 +2,39 @@
 
 * ch10.3
 ** 10.3-1
-   omitted
+   #+BEGIN_SRC
+   (13, 4, 8, 19, 5, 11) stored as a doubly linked list.
+
+   1. using the multiple-array representation
+   |----------+----+----+---+---+----+---|
+   | L.head=2 |  1 |  2 | 3 | 4 |  5 | 6 |
+   |----------+----+----+---+---+----+---|
+   | next     |  4 |  3 | 6 | 5 |  / | 1 |
+   |----------+----+----+---+---+----+---|
+   | key      | 19 | 13 | 4 | 5 | 11 | 8 |
+   |----------+----+----+---+---+----+---|
+   | prev     |  6 |  / | 2 | 1 |  4 | 3 |
+   |----------+----+----+---+---+----+---|
+
+   2. using the single-array representation
+   |---------------+----+----+----+----+---+---|
+   | L.head=4      |  1 |  2 |  3 |  4 | 5 | 6 |
+   |---------------+----+----+----+----+---+---|
+   | key,next,prev | 19 | 10 | 16 | 13 | 7 | / |
+   |---------------+----+----+----+----+---+---|
+
+   |---+----+---+----+----+----|
+   | 7 |  8 | 9 | 10 | 11 | 12 |
+   |---+----+---+----+----+----|
+   | 4 | 16 | 4 |  5 | 13 |  1 |
+   |---+----+---+----+----+----|
+
+   |----+----+----+----+----+----|
+   | 13 | 14 | 15 | 16 | 17 | 18 |
+   |----+----+----+----+----+----|
+   | 11 |  / | 10 |  8 |  1 |  7 |
+   |----+----+----+----+----+----|
+   #+END_SRC
 ** 10.3-2
    #+BEGIN_SRC
    ALLOCATE-OBJECT()
@@ -11,21 +43,20 @@
        x = free
        free = A[x + 1]
        return x
-   #+END_SRC
-   #+BEGIN_SRC
+
    FREE-OBJECT(x)
        A[x + 1] = free
        free = x
    #+END_SRC
 ** 10.3-3
-   The prev attribute is not necessary for stack
+   We don't need to set or reset the =prev= attributes of objects, because the
+   free list works like a stack, i.e. a singly linked list.
 ** 10.3-4
    #+BEGIN_SRC
    ALLOCATE-OBJECT()
        PUSH(S, NIL)
        return S.top
-   #+END_SRC
-   #+BEGIN_SRC
+
    FREE-OBJECT(x)
        for i = x to S.top - 1
            S[i] = S[i + 1]
@@ -34,20 +65,28 @@
 ** 10.3-5
    #+BEGIN_SRC
    COMPACTIFY-LIST(L, F)
-       lh = L.head
+       cur = L.head
+       if cur != NIL
+           L.head = 1
        i = 1
-       while lh != NIL
-           if lh != A[i]
-               // Also update L.head and F.head if needed
-               EXCHANGE(lh, A[i])
-           lh = lh.next
+       while cur != NIL
+           if cur != i
+               if F.head = i
+                    F.head = cur
+               if next[cur] != NIL
+                   prev[next[cur]] = i
+               if prev[cur] != NIL
+                   next[prev[cur]] = i
+               if next[i] != NIL
+                   prev[next[i]] = cur
+               if prev[i] != NIL
+                   next[prev[i]] = cur
+               exchange key[cur] with key[i]
+               exchange next[cur] with next[i]
+               exchange prev[cur] with prev[i]
+           cur = next[i]
            i = i + 1
    #+END_SRC
-   #+BEGIN_SRC
-   EXCHANGE(a, b)
-       a.prev.next = a.next.prev = b
-       b.prev.next = b.next.prev = a
-       exchange a with b
-   #+END_SRC
-   The procedure move items in L to the head n positions, and the items in
-   F should be in the remaining positions because we use EXCHANGE to move items.
+   After the procedure is done, the items in \(L\) occupy array positions
+   \(1,2,...,n\), and we only used =exchange= to move items, thus the items in
+   \(F\) occupy the rest of the array positions \(n+1,n+2...m\).
