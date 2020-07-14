@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-07-13 Mon 10:01 -->
+<!-- 2020-07-14 Tue 08:09 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 10.3</title>
@@ -299,6 +299,28 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -311,26 +333,26 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orga33c592">ch10.3</a>
+<li><a href="#orgd4e4a40">ch10.3</a>
 <ul>
-<li><a href="#org67a9aad">10.3-1</a></li>
-<li><a href="#org4939fbe">10.3-2</a></li>
-<li><a href="#org18e4f7e">10.3-3</a></li>
-<li><a href="#orgf824087"><span class="todo TODO">TODO</span> 10.3-4</a></li>
-<li><a href="#orgfe01c6a">10.3-5</a></li>
+<li><a href="#orgdc94f87">10.3-1</a></li>
+<li><a href="#org8c19222">10.3-2</a></li>
+<li><a href="#orgc623993">10.3-3</a></li>
+<li><a href="#orgdbe850b">10.3-4</a></li>
+<li><a href="#org7ef636a">10.3-5</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orga33c592" class="outline-2">
-<h2 id="orga33c592">ch10.3</h2>
-<div class="outline-text-2" id="text-orga33c592">
+<div id="outline-container-orgd4e4a40" class="outline-2">
+<h2 id="orgd4e4a40">ch10.3</h2>
+<div class="outline-text-2" id="text-orgd4e4a40">
 </div>
-<div id="outline-container-org67a9aad" class="outline-3">
-<h3 id="org67a9aad">10.3-1</h3>
-<div class="outline-text-3" id="text-org67a9aad">
+<div id="outline-container-orgdc94f87" class="outline-3">
+<h3 id="orgdc94f87">10.3-1</h3>
+<div class="outline-text-3" id="text-orgdc94f87">
 <pre class="example">
 (13, 4, 8, 19, 5, 11) stored as a doubly linked list.
 
@@ -366,41 +388,40 @@ for the JavaScript code in this tag.
 </pre>
 </div>
 </div>
-<div id="outline-container-org4939fbe" class="outline-3">
-<h3 id="org4939fbe">10.3-2</h3>
-<div class="outline-text-3" id="text-org4939fbe">
+<div id="outline-container-org8c19222" class="outline-3">
+<h3 id="org8c19222">10.3-2</h3>
+<div class="outline-text-3" id="text-org8c19222">
 <pre class="example">
 ALLOCATE-OBJECT()
-   if free == NIL
-       error "out of space"
-   x = free
-   free = A[x + 1]
-   return x
+    if free == NIL
+	error "out of space"
+    x = free
+    free = A[x + 1]
+    return x
 
 FREE-OBJECT(x)
-   A[x + 1] = free
-   free = x
+    A[x + 1] = free
+    free = x
 </pre>
 </div>
 </div>
-<div id="outline-container-org18e4f7e" class="outline-3">
-<h3 id="org18e4f7e">10.3-3</h3>
-<div class="outline-text-3" id="text-org18e4f7e">
+<div id="outline-container-orgc623993" class="outline-3">
+<h3 id="orgc623993">10.3-3</h3>
+<div class="outline-text-3" id="text-orgc623993">
 <p>
 We don't need to set or reset the <code>prev</code> attributes of objects, because the
 free list works like a stack, i.e. a singly linked list.
 </p>
 </div>
 </div>
-<div id="outline-container-orgf824087" class="outline-3">
-<h3 id="orgf824087"><span class="todo TODO">TODO</span> 10.3-4</h3>
-<div class="outline-text-3" id="text-orgf824087">
+<div id="outline-container-orgdbe850b" class="outline-3">
+<h3 id="orgdbe850b">10.3-4</h3>
+<div class="outline-text-3" id="text-orgdbe850b">
 <pre class="example">
 ALLOCATE-OBJECT()
     PUSH(S, NIL)
     return S.top
-</pre>
-<pre class="example">
+
 FREE-OBJECT(x)
     for i = x to S.top - 1
 	S[i] = S[i + 1]
@@ -408,29 +429,37 @@ FREE-OBJECT(x)
 </pre>
 </div>
 </div>
-<div id="outline-container-orgfe01c6a" class="outline-3">
-<h3 id="orgfe01c6a">10.3-5</h3>
-<div class="outline-text-3" id="text-orgfe01c6a">
+<div id="outline-container-org7ef636a" class="outline-3">
+<h3 id="org7ef636a">10.3-5</h3>
+<div class="outline-text-3" id="text-org7ef636a">
 <pre class="example">
 COMPACTIFY-LIST(L, F)
-    lh = L.head
+    cur = L.head
+    if cur != NIL
+	L.head = 1
     i = 1
-    while lh != NIL
-	if lh != A[i]
-	    // Also update L.head and F.head if needed
-	    EXCHANGE(lh, A[i])
-	lh = lh.next
+    while cur != NIL
+	if cur != i
+	    if F.head = i
+		 F.head = cur
+	    if next[cur] != NIL
+		prev[next[cur]] = i
+	    if prev[cur] != NIL
+		next[prev[cur]] = i
+	    if next[i] != NIL
+		prev[next[i]] = cur
+	    if prev[i] != NIL
+		next[prev[i]] = cur
+	    exchange key[cur] with key[i]
+	    exchange next[cur] with next[i]
+	    exchange prev[cur] with prev[i]
+	cur = next[i]
 	i = i + 1
 </pre>
-<pre class="example">
-EXCHANGE(a, b)
-    a.prev.next = a.next.prev = b
-    b.prev.next = b.next.prev = a
-    exchange a with b
-</pre>
 <p>
-The procedure move items in L to the head n positions, and the items in
-F should be in the remaining positions because we use EXCHANGE to move items.
+After the procedure is done, the items in \(L\) occupy array positions
+\(1,2,...,n\), and we only used <code>exchange</code> to move items, thus the items in
+\(F\) occupy the rest of the array positions \(n+1,n+2...m\).
 </p>
 </div>
 </div>
@@ -438,7 +467,7 @@ F should be in the remaining positions because we use EXCHANGE to move items.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2020-07-13 Mon 10:01</p>
+<p class="date">Created: 2020-07-14 Tue 08:09</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
