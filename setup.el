@@ -1,5 +1,11 @@
 (require 'ox-publish)
 
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((dot . t)))
+
+(setq org-confirm-babel-evaluate nil)
+
 (setq org-publish-project-alist
       '(("html"
 	 :base-directory "."
@@ -20,7 +26,7 @@
 	 :infojs-opt "path:/js/org-info.js")
 	("static"
 	 :base-directory "."
-	 :base-extension "py\\|c"
+	 :base-extension "py\\|c\\|png"
 	 :publishing-directory "_build/html"
 	 :recursive t
 	 :publishing-function org-publish-attachment

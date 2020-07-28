@@ -1,9 +1,12 @@
 language: generic
-sudo: false
 dist: xenial
 
 env:
   EMACS_VERSION=26.2
+
+before_install:
+  - sudo apt-get update -y
+  - sudo apt-get install -y graphviz
 
 install:
   - curl -LO https://github.com/npostavs/emacs-travis/releases/download/bins/emacs-bin-${EMACS_VERSION}.tar.gz

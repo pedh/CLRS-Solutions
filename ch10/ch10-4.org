@@ -2,68 +2,70 @@
 
 * ch10.4
 ** 10.4-1
-   omitted
+#+BEGIN_SRC dot :file ch10-4-1.png :output-dir ../images/ :exports results
+digraph {
+  12 -> 7, 4;
+  4 -> 5;
+  10 -> 2, 21;
+  18 -> 12, 10;
+}
+#+END_SRC
+
 ** 10.4-2
    #+BEGIN_SRC
-   DISPLAY-BINARY-TREE(t)
-       DISPLAY-BINART-TREE-R(t.root)
-   #+END_SRC
-   #+BEGIN_SRC
-   DISPLAY-BINARY-TREE-R(r)
-       if r != NIL
-           DISPLAY-BINARY-TREE-R(r.left)
-           display(r.key)
-           DISPLAY-BINARY-TREE-R(r.right)
+   PRINT-BINARY-TREE-KEYS(T)
+       PRINT-NODE-KEYS(T.root)
+
+   PRINT-NODE-KEYS(x)
+       if x != NIL
+           PRINT(x.key)
+           PRINT-NODE-KEYS(x.left)
+           PRINT-NODE-KEYS(x.right)
    #+END_SRC
 ** 10.4-3
    #+BEGIN_SRC
-   DISPLAY-BINARY-TREE(t)
-   s = empty stack
-   PUSH(s, t.root)
-   while not STACK-EMPTY(s)
-       r = POP(s)
-       while r != NIL
-           PUSH(s, r)
-           r = r.left
-       if not STACK-EMPTY(s)
-           r = POP(s)
-           print(r.key)
-           PUSH(s, r.right)
+   PRINT-BINARY-TREE-KEYS(T)
+       let s to be an empty stack
+       PUSH(s, T.root)
+       while not EMPTY?(s):
+           x = POP(s)
+           if x != NIL:
+               PRINT(x.key)
+               PUSH(x.left)
+               PUSH(x.right)
    #+END_SRC
-
-   ([[../codes/binary_tree.py][implementation]])
 ** 10.4-4
-   LCRS (left-child, right-sibling) tree is a special binary tree.
-   The traversal is the same as a normal binary tree.
    #+BEGIN_SRC
-   DISPLAY-LCRS-TREE(t)
-   if t == NIL
-       return
-   print(t.key)
-   DISPLAY-LCRS-TREE(t.left_child)
-   DISPLAY-LCRS-TREE(t.right_sibling)
+   PRINT-LCRS-TREE-KEYS(T)
+       PRINT-LCRS-NODE-KEYS(T.root)
+
+   PRINT-LCRS-NODE-KEYS(x)
+       if x != NIL
+           PRINT(x.key)
+           PRINT-LCRS-NODE-KEYS(x.left-child)
+           PRINT-LCRS-NODE-KEYS(x.right-sibling)
    #+END_SRC
 ** 10.4-5
-   We could use morris traversal, but the tree will be modified during the
-   traversal.
-   The algorithm below needs the node has the pointer to its parent.
    #+BEGIN_SRC
-   DISPLAY-BINARY-TREE-ITER(t)
-       cur = t.root
-       leftdone = FALSE
-       while cur != NIL
-           if leftdone == FALSE
-               while cur.left != NIL
-                   cur = cur.left
-           leftdone = TRUE
-           print(cur.key)
-           if cur.right != NIL
-               cur = cur.right
-               leftdone = FALSE
-           else while cur.parent != NIL and cur == cur.parent.right
-                    cur = cur.parent
-                cur = cur.parent
+   PRINT-BINARY-TREE-KEYS(T)
+       // in-order binary tree traversal
+       x = T.root
+       left_done = FALSE
+       while x != NIL
+           if not left_done:
+               while x.left != NIL
+                   x = x.left
+               left_done = TRUE
+           print(x.key)
+           if x.right != NIL
+               x = x.right
+               left_done = FALSE
+           else while x.p != NIL and x == x.p.right
+                   x = x.p
+               x = x.p
    #+END_SRC
 ** 10.4-6
-   We could identify the last sibling node by the boolean,
-   its sibling pointer points to the parent.
+   We can use two pointers =left-child= and =right-sibling= and one boolean
+   value =is-last-child= to represent an arbitrary rooted trees. If the node is
+   the rightmost child of its parent, then the =is-last-child= value of the node
+   is true, and the =right-sibling= pointer of the node points to its parent.
