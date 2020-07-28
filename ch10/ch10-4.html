@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-07-14 Tue 08:09 -->
+<!-- 2020-07-28 Tue 10:44 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 10.4</title>
@@ -311,35 +311,38 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org9d93aff">ch10.4</a>
+<li><a href="#org9413c6f">ch10.4</a>
 <ul>
-<li><a href="#org2e3060f">10.4-1</a></li>
-<li><a href="#orgb6b9bc4">10.4-2</a></li>
-<li><a href="#orgb23daf3">10.4-3</a></li>
-<li><a href="#orgabdb787">10.4-4</a></li>
-<li><a href="#org8df0b6a">10.4-5</a></li>
-<li><a href="#orgf56e995">10.4-6</a></li>
+<li><a href="#org48650a9">10.4-1</a></li>
+<li><a href="#orgdaa3f87"><span class="todo TODO">TODO</span> 10.4-2</a></li>
+<li><a href="#org64a837a">10.4-3</a></li>
+<li><a href="#orgc687ae8">10.4-4</a></li>
+<li><a href="#org333fe4c">10.4-5</a></li>
+<li><a href="#org393c205">10.4-6</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org9d93aff" class="outline-2">
-<h2 id="org9d93aff">ch10.4</h2>
-<div class="outline-text-2" id="text-org9d93aff">
+<div id="outline-container-org9413c6f" class="outline-2">
+<h2 id="org9413c6f">ch10.4</h2>
+<div class="outline-text-2" id="text-org9413c6f">
 </div>
-<div id="outline-container-org2e3060f" class="outline-3">
-<h3 id="org2e3060f">10.4-1</h3>
-<div class="outline-text-3" id="text-org2e3060f">
-<p>
-omitted
+<div id="outline-container-org48650a9" class="outline-3">
+<h3 id="org48650a9">10.4-1</h3>
+<div class="outline-text-3" id="text-org48650a9">
+
+<div class="figure">
+<p><img src="../images/ch10-4-1.png" alt="ch10-4-1.png" />
 </p>
 </div>
 </div>
-<div id="outline-container-orgb6b9bc4" class="outline-3">
-<h3 id="orgb6b9bc4">10.4-2</h3>
-<div class="outline-text-3" id="text-orgb6b9bc4">
+</div>
+
+<div id="outline-container-orgdaa3f87" class="outline-3">
+<h3 id="orgdaa3f87"><span class="todo TODO">TODO</span> 10.4-2</h3>
+<div class="outline-text-3" id="text-orgdaa3f87">
 <pre class="example">
 DISPLAY-BINARY-TREE(t)
     DISPLAY-BINART-TREE-R(t.root)
@@ -353,9 +356,9 @@ DISPLAY-BINARY-TREE-R(r)
 </pre>
 </div>
 </div>
-<div id="outline-container-orgb23daf3" class="outline-3">
-<h3 id="orgb23daf3">10.4-3</h3>
-<div class="outline-text-3" id="text-orgb23daf3">
+<div id="outline-container-org64a837a" class="outline-3">
+<h3 id="org64a837a">10.4-3</h3>
+<div class="outline-text-3" id="text-org64a837a">
 <pre class="example">
 DISPLAY-BINARY-TREE(t)
 s = empty stack
@@ -376,9 +379,9 @@ while not STACK-EMPTY(s)
 </p>
 </div>
 </div>
-<div id="outline-container-orgabdb787" class="outline-3">
-<h3 id="orgabdb787">10.4-4</h3>
-<div class="outline-text-3" id="text-orgabdb787">
+<div id="outline-container-orgc687ae8" class="outline-3">
+<h3 id="orgc687ae8">10.4-4</h3>
+<div class="outline-text-3" id="text-orgc687ae8">
 <p>
 LCRS (left-child, right-sibling) tree is a special binary tree.
 The traversal is the same as a normal binary tree.
@@ -393,9 +396,9 @@ DISPLAY-LCRS-TREE(t.right_sibling)
 </pre>
 </div>
 </div>
-<div id="outline-container-org8df0b6a" class="outline-3">
-<h3 id="org8df0b6a">10.4-5</h3>
-<div class="outline-text-3" id="text-org8df0b6a">
+<div id="outline-container-org333fe4c" class="outline-3">
+<h3 id="org333fe4c">10.4-5</h3>
+<div class="outline-text-3" id="text-org333fe4c">
 <p>
 We could use morris traversal, but the tree will be modified during the
 traversal.
@@ -420,9 +423,9 @@ DISPLAY-BINARY-TREE-ITER(t)
 </pre>
 </div>
 </div>
-<div id="outline-container-orgf56e995" class="outline-3">
-<h3 id="orgf56e995">10.4-6</h3>
-<div class="outline-text-3" id="text-orgf56e995">
+<div id="outline-container-org393c205" class="outline-3">
+<h3 id="org393c205">10.4-6</h3>
+<div class="outline-text-3" id="text-org393c205">
 <p>
 We could identify the last sibling node by the boolean,
 its sibling pointer points to the parent.
@@ -433,7 +436,7 @@ its sibling pointer points to the parent.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2020-07-14 Tue 08:09</p>
+<p class="date">Created: 2020-07-28 Tue 10:44</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
