@@ -6,7 +6,7 @@
 <!-- 2020-07-30 Thu 09:59 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Chapter 4.6</title>
+<title>Chapter 10 problems</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="pedh" />
 <style type="text/css">
@@ -328,94 +328,149 @@ for the JavaScript code in this tag.
  |
  <a accesskey="H" href="/CLRS-Solutions"> HOME </a>
 </div><div id="content">
-<h1 class="title">Chapter 4.6</h1>
+<h1 class="title">Chapter 10 problems</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org354a8e2">ch4.6</a>
+<li><a href="#org73711d5">ch10-problems</a>
 <ul>
-<li><a href="#orgaad5a22">4.6-1</a></li>
-<li><a href="#org05f90e9">4.6-2</a></li>
-<li><a href="#orgdd37eb5">4.6-3</a></li>
+<li><a href="#org79b4ef1">10-1</a></li>
+<li><a href="#org2b4b8bf"><span class="todo TODO">TODO</span> 10-2</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org354a8e2" class="outline-2">
-<h2 id="org354a8e2">ch4.6</h2>
-<div class="outline-text-2" id="text-org354a8e2">
+<div id="outline-container-org73711d5" class="outline-2">
+<h2 id="org73711d5">ch10-problems</h2>
+<div class="outline-text-2" id="text-org73711d5">
 </div>
-<div id="outline-container-orgaad5a22" class="outline-3">
-<h3 id="orgaad5a22">4.6-1</h3>
-<div class="outline-text-3" id="text-orgaad5a22">
-<p>
-\(n_j = \lceil \frac{n}{b^j} \rceil\).
-</p>
+<div id="outline-container-org79b4ef1" class="outline-3">
+<h3 id="org79b4ef1">10-1</h3>
+<div class="outline-text-3" id="text-org79b4ef1">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">asymptotic</th>
+<th scope="col" class="org-left">unsorted,</th>
+<th scope="col" class="org-left">sorted,</th>
+<th scope="col" class="org-left">unsorted,</th>
+<th scope="col" class="org-left">sorted,</th>
+</tr>
+
+<tr>
+<th scope="col" class="org-left">worst-case</th>
+<th scope="col" class="org-left">singly</th>
+<th scope="col" class="org-left">singly</th>
+<th scope="col" class="org-left">doubly</th>
+<th scope="col" class="org-left">doubly</th>
+</tr>
+
+<tr>
+<th scope="col" class="org-left">running time</th>
+<th scope="col" class="org-left">linked</th>
+<th scope="col" class="org-left">linked</th>
+<th scope="col" class="org-left">linked</th>
+<th scope="col" class="org-left">linked</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">SEARCH(L, k)</td>
+<td class="org-left">\(O(n)\)</td>
+<td class="org-left">\(O(n)\)</td>
+<td class="org-left">\(O(n)\)</td>
+<td class="org-left">\(O(n)\)</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">INSERT(L, x)</td>
+<td class="org-left">\(O(1)\)</td>
+<td class="org-left">\(O(n)\)</td>
+<td class="org-left">\(O(1)\)</td>
+<td class="org-left">\(O(n)\)</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">DELETE(L, x)</td>
+<td class="org-left">\(O(n)\)</td>
+<td class="org-left">\(O(n)\)</td>
+<td class="org-left">\(O(1)\)</td>
+<td class="org-left">\(O(1)\)</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">SUCCESSOR(L, x)</td>
+<td class="org-left">\(O(1)\)</td>
+<td class="org-left">\(O(1)\)</td>
+<td class="org-left">\(O(1)\)</td>
+<td class="org-left">\(O(1)\)</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">PREDECESSOR(L, x)</td>
+<td class="org-left">\(O(n)\)</td>
+<td class="org-left">\(O(n)\)</td>
+<td class="org-left">\(O(1)\)</td>
+<td class="org-left">\(O(1)\)</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">MINIMUM(L)</td>
+<td class="org-left">\(O(n)\)</td>
+<td class="org-left">\(O(1)\)</td>
+<td class="org-left">\(O(n)\)</td>
+<td class="org-left">\(O(1)\)</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">MAXIMUM(L)</td>
+<td class="org-left">\(O(n)\)</td>
+<td class="org-left">\(O(n)\)</td>
+<td class="org-left">\(O(n)\)</td>
+<td class="org-left">\(O(1)\)</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
-<div id="outline-container-org05f90e9" class="outline-3">
-<h3 id="org05f90e9">4.6-2</h3>
-<div class="outline-text-3" id="text-org05f90e9">
-<p>
-Assume n is an exact power of b, then use a recursion tree, we have
+<div id="outline-container-org2b4b8bf" class="outline-3">
+<h3 id="org2b4b8bf"><span class="todo TODO">TODO</span> 10-2</h3>
+<div class="outline-text-3" id="text-org2b4b8bf">
+<ul class="org-ul">
+<li><p>
+<b>a.</b>
 </p>
-\begin{align*}
-T(n)
-&=\Theta(n^{\log_b a}+\sum_{j=0}^{\log_b n-1}(a^j f(n/b^j)))\\
-&=\Theta(n^{\log_b a}+\sum_{j=0}^{\log_b n-1}
-  (a^j (n/b^j)^{\log_b a}\lg^k(n/b^j)))\\
-&=\Theta(n^{\log_b a}+n^{\log_b a}\sum_{j=0}^{\log_b n-1}\lg^k(n/b^j))\\
-&=\Theta(n^{\log_b a}g(n)) &\text{, Let }g(n)=\sum_{i=1}^{\log_b n}i^k
-\end{align*}
-<p>
-Now analysis the asymptotic bound of \(g(n)\).
-First the lower bound of \(g(n)\)
-</p>
-\begin{align*}
-g(n)
-&=\sum_{i=1}^{\log_b n}i^k\\
-&> \sum_{i=\frac{\log_b n}{2}+1}^{\log_b n}(\frac{\log_b n}{2})^k\\
-&=(\frac{\log_b n}{2})^{k+1}\\
-&=\Omega(\lg^{k+1}n)
-\end{align*}
-<p>
-Then the upper bound of \(g(n)\)
-</p>
-\begin{align*}
-g(n)
-&=\sum_{i=1}^{\log_b n}i^k\\
-&< \sum_{i=1}^{\log_b n}\log_b^k n\\
-&=\log_b^{k+1}n\\
-&=O(\lg^{k+1}n)
-\end{align*}
-<p>
-Thus \(g(n) = \Theta(\lg^{k+1}n)\),
-hence \(T(n) = \Theta(n^{\log_b a}g(n) = \Theta(n^{\log_b a}\lg^{k+1}n)\).
-</p>
-</div>
-</div>
-<div id="outline-container-orgdd37eb5" class="outline-3">
-<h3 id="orgdd37eb5">4.6-3</h3>
-<div class="outline-text-3" id="text-orgdd37eb5">
-<p>
-Base on the regularity condition \(af(n/b)\leq cf(n)\)
-for some constant \(c < 1\), we have
-</p>
-\begin{align*}
-f(n)
-&\geq \frac{a}{c}f(\frac{n}{b})\\
-&\geq (\frac{a}{c})^2f(\frac{n}{b^2})\\
-&\geq \ldots\\
-&\geq (\frac{a}{c})^{\log_b n}\Theta(1)\\
-&= \Omega(n^{\log_b a-\log_b c})\\
-\end{align*}
-<p>
-Let \(\epsilon = -\log_b c > 0\),
-then \(f(n) = \Omega(n^{\log_b a+\epsilon})\).
-</p>
+
+<pre class="example">
+MAKE-HEAP()
+let L to be a new doubly linked list
+return L
+
+INSERT(L)
+</pre></li>
+</ul>
 </div>
 </div>
 </div>
