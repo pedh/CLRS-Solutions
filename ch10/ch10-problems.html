@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-07-30 Thu 09:59 -->
+<!-- 2020-07-30 Thu 12:34 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 10 problems</title>
@@ -333,23 +333,23 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org4ee00c0">ch10-problems</a>
+<li><a href="#orgcb47485">ch10-problems</a>
 <ul>
-<li><a href="#org3e54e47">10-1</a></li>
-<li><a href="#orgdbf4043"><span class="todo TODO">TODO</span> 10-2</a></li>
+<li><a href="#org7ebcdb0">10-1</a></li>
+<li><a href="#orgf3f0425"><span class="todo TODO">TODO</span> 10-2</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org4ee00c0" class="outline-2">
-<h2 id="org4ee00c0">ch10-problems</h2>
-<div class="outline-text-2" id="text-org4ee00c0">
+<div id="outline-container-orgcb47485" class="outline-2">
+<h2 id="orgcb47485">ch10-problems</h2>
+<div class="outline-text-2" id="text-orgcb47485">
 </div>
-<div id="outline-container-org3e54e47" class="outline-3">
-<h3 id="org3e54e47">10-1</h3>
-<div class="outline-text-3" id="text-org3e54e47">
+<div id="outline-container-org7ebcdb0" class="outline-3">
+<h3 id="org7ebcdb0">10-1</h3>
+<div class="outline-text-3" id="text-org7ebcdb0">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -455,9 +455,9 @@ for the JavaScript code in this tag.
 </table>
 </div>
 </div>
-<div id="outline-container-orgdbf4043" class="outline-3">
-<h3 id="orgdbf4043"><span class="todo TODO">TODO</span> 10-2</h3>
-<div class="outline-text-3" id="text-orgdbf4043">
+<div id="outline-container-orgf3f0425" class="outline-3">
+<h3 id="orgf3f0425"><span class="todo TODO">TODO</span> 10-2</h3>
+<div class="outline-text-3" id="text-orgf3f0425">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
@@ -465,10 +465,48 @@ for the JavaScript code in this tag.
 
 <pre class="example">
 MAKE-HEAP()
-let L to be a new doubly linked list
-return L
+    let L to be a new singly linked list
+    return L
 
-INSERT(L)
+INSERT(L, x)
+    cur = L.head
+    prev = NIL
+    while cur != NIL and cur.key &lt; x.key
+	prev = cur
+	cur = cur.next
+    x.next = cur
+    if prev != NIL
+	prev.next = x
+    else L.head = x
+
+MINIMUM(L)
+    x = L.head
+    if x == NIL
+	error "the heap is empty"
+    return x.key
+
+EXTRACT-MIN(L)
+    if L.head == NIL
+	error "the heap is empty"
+    k = L.head.key
+    L.head = L.head.next
+
+UNION(La, Lb)
+    let L to be a new singly linked list
+    L.head = MERGE-LISTS(La.head, Lb.head)
+    return L
+
+MERGE-LISTS(ha, hb)
+    if ha == NIL
+	return hb
+    if hb == NIL
+	return ha
+    if ha.key &lt; hb.key
+	head = ha
+	head.next = MERGE-LISTS(ha.next, hb)
+    else head = hb
+	 head.next = MERGE-LISTS(hb.next, ha)
+    return head
 </pre></li>
 </ul>
 </div>
@@ -477,7 +515,7 @@ INSERT(L)
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2020-07-30 Thu 09:59</p>
+<p class="date">Created: 2020-07-30 Thu 12:34</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
