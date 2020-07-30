@@ -1,0 +1,209 @@
+#+TITLE: Chapter 10 problems
+
+* ch10-problems
+** 10-1
+   |-------------------+-----------+----------+-----------+----------|
+   | asymptotic        | unsorted, | sorted,  | unsorted, | sorted,  |
+   | worst-case        | singly    | singly   | doubly    | doubly   |
+   | running time      | linked    | linked   | linked    | linked   |
+   |-------------------+-----------+----------+-----------+----------|
+   | SEARCH(L, k)      | \(O(n)\)  | \(O(n)\) | \(O(n)\)  | \(O(n)\) |
+   |-------------------+-----------+----------+-----------+----------|
+   | INSERT(L, x)      | \(O(1)\)  | \(O(n)\) | \(O(1)\)  | \(O(n)\) |
+   |-------------------+-----------+----------+-----------+----------|
+   | DELETE(L, x)      | \(O(n)\)  | \(O(n)\) | \(O(1)\)  | \(O(1)\) |
+   |-------------------+-----------+----------+-----------+----------|
+   | SUCCESSOR(L, x)   | \(O(1)\)  | \(O(1)\) | \(O(1)\)  | \(O(1)\) |
+   |-------------------+-----------+----------+-----------+----------|
+   | PREDECESSOR(L, x) | \(O(n)\)  | \(O(n)\) | \(O(1)\)  | \(O(1)\) |
+   |-------------------+-----------+----------+-----------+----------|
+   | MINIMUM(L)        | \(O(n)\)  | \(O(1)\) | \(O(n)\)  | \(O(1)\) |
+   |-------------------+-----------+----------+-----------+----------|
+   | MAXIMUM(L)        | \(O(n)\)  | \(O(n)\) | \(O(n)\)  | \(O(1)\) |
+   |-------------------+-----------+----------+-----------+----------|
+** 10-2
+   - *a.*
+
+     #+BEGIN_SRC
+     MAKE-HEAP()
+         let L to be a new singly linked list
+         return L
+
+     INSERT(L, x)
+         cur = L.head
+         prev = NIL
+         while cur != NIL and cur.key < x.key
+             prev = cur
+             cur = cur.next
+         x.next = cur
+         if prev != NIL
+             prev.next = x
+         else L.head = x
+
+     MINIMUM(L)
+         x = L.head
+         if x == NIL
+             error "the heap is empty"
+         return x.key
+
+     EXTRACT-MIN(L)
+         if L.head == NIL
+             error "the heap is empty"
+         k = L.head.key
+         L.head = L.head.next
+         return k
+
+     UNION(La, Lb)
+         let L to be a new singly linked list
+         L.head = MERGE-LISTS(La.head, Lb.head)
+         return L
+
+     MERGE-LISTS(ha, hb)
+         if ha == NIL
+             return hb
+         if hb == NIL
+             return ha
+         if ha.key < hb.key
+             head = ha
+             head.next = MERGE-LISTS(ha.next, hb)
+         else head = hb
+              head.next = MERGE-LISTS(hb.next, ha)
+         return head
+     #+END_SRC
+     The running times of the operations are as below.
+     |-------------+--------------|
+     | Operation   | Running time |
+     |-------------+--------------|
+     | MAKE-HEAP   | \(O(1)\)     |
+     |-------------+--------------|
+     | INSERT      | \(O(n)\)     |
+     |-------------+--------------|
+     | MINIMUM     | \(O(1)\)     |
+     |-------------+--------------|
+     | EXTRACT-MIN | \(O(1)\)     |
+     |-------------+--------------|
+     | UNION       | \(O(m+n)\)   |
+     |-------------+--------------|
+   - *b.*
+
+     #+BEGIN_SRC
+     MAKE-HEAP()
+         let L to be a new doubly linked list
+         return L
+
+     INSERT(L, x)
+         x.next = L.nil.next
+         L.nil.next.prev = x
+         L.nil.next = x
+         x.prev = L.nil
+
+     MINIMUM(L)
+         if L.nil.next == L.nil
+             error "the heap is empty"
+         min = L.nil.next
+         x = L.nil.next.next
+         while x != L.nil
+             if x.key < min.key
+                 min = x
+         return min.key
+
+     EXTRACT-MIN(L)
+         if L.nil.next == L.nil
+             error "the heap is empty"
+         min = L.nil.next
+         x = L.nil.next.next
+         while x != L.nil
+             if x.key < min.key
+                 min = x
+         min.prev.next = min.next
+         min.next.prev = min.prev
+         return min.key
+
+     UNION(La, Lb)
+     if Lb.nil.next != Lb.nil
+         La.nil.prev.next = Lb.nil.next
+         Lb.nil.next.prev = La.nil.prev
+         Lb.nil.prev.next = La.nil
+         La.nil.prev = Lb.nil.prev
+     return La
+     #+END_SRC
+     The running times of the operations are as below.
+     |-------------+--------------|
+     | Operation   | Running time |
+     |-------------+--------------|
+     | MAKE-HEAP   | \(O(1)\)     |
+     |-------------+--------------|
+     | INSERT      | \(O(1)\)     |
+     |-------------+--------------|
+     | MINIMUM     | \(O(n)\)     |
+     |-------------+--------------|
+     | EXTRACT-MIN | \(O(n)\)     |
+     |-------------+--------------|
+     | UNION       | \(O(1)\)     |
+     |-------------+--------------|
+   - *c.*
+
+     Same as b.
+** 10-3
+   - *a.*
+
+     We have made =RANDOM= for \(t\) times to find the result in the origin
+     algorithm, thus the total number of iterations within the related algorithm
+     is at least \(t\).
+   - *b.*
+
+     The running time of the *for* loops is \(O(t)\), and the expected running
+     time of the *while* loops is \(O(E[X_t])\), thus the total expected running
+     time is \(O(t + E[X_t])\).
+   - *c.*
+
+     We have
+     \begin{align*}
+     E[X_t]
+     &=\sum_{i=1}^{\infty}\Pr\{x\geq i\}\\
+     &=\sum_{r=1}^{k-1}\Big(\frac{k-r}{n}\Big)^t &,\ k\leq n\\
+     &\leq \sum_{r=1}^{n}(1-r/n)^t
+     \end{align*}
+   - *d.*
+
+     Let \(f(x) = x^t\), we have
+     \begin{align*}
+     f''(x)
+     &=t(t-1)x^{t-2}\\
+     &\geq 0 &,\ x\geq 0
+     \end{align*}
+     And \(f(x)\) is continuous when \(x\geq 0\), thus \(f(x)\) is convex when
+     \(x\geq 0\), then we have
+     \begin{align*}
+     \sum_{r=0}^{n-1}r^t
+     &\leq\int_{0}^{n}r^tdr\\
+     &=n^{t+1}/(t+1)
+     \end{align*}
+   - *e.*
+
+     We have
+     \begin{align*}
+     E[X_t]
+     &\leq \sum_{r=1}^{n}(1-r/n)^t\\
+     &=\sum_{r=0}^{n-1}(r/n)^t\\
+     &\leq n/(t+1)
+     \end{align*}
+   - *f.*
+
+     The expected running time of =COMPACT-LIST-SEARCH'(L,n,k,t)= is
+     \begin{align*}
+     T(n,t)
+     &=O(t+E[X_t])\\
+     &\leq O\Big(t+\frac{n}{t+1}\Big)\\
+     &=O(t+n/t)
+     \end{align*}
+   - *g.*
+
+     The expected value of \(t\) is the critical point of \(f(t)=t+n/t\), which
+     is \(\sqrt{n}\), so that =COMPACT-LIST-SEARCH= runs in \(O(\sqrt{n})\)
+     expected time.
+   - *h.*
+
+     If not all the keys of the compact list is dinstinct, then the random skips
+     will fail between the repeated keys, when there are plenty enough repeated
+     keys, the random skips do not necessarily help asymptotically.

@@ -5,4 +5,5 @@ __*__
 _build
 *.html
 index.org
-images
+static/generated/images
+ltximg

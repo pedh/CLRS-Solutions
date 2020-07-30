@@ -1,0 +1,4 @@
+#+TITLE: Introduction to Algorithms Third Edition
+
+* The pdf book
+  [[../static/misc/clrs.pdf][Introduction to Algorithms Third Edition]]

@@ -71,7 +71,7 @@
        i = 1
        while cur != NIL
            if cur != i
-               if F.head = i
+               if F.head == i
                     F.head = cur
                if next[cur] != NIL
                    prev[next[cur]] = i

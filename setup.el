@@ -26,7 +26,7 @@
 	 :infojs-opt "path:/js/org-info.js")
 	("static"
 	 :base-directory "."
-	 :base-extension "py\\|c\\|png"
+	 :base-extension "py\\|c\\|png\\|pdf"
 	 :publishing-directory "_build/html"
 	 :recursive t
 	 :publishing-function org-publish-attachment

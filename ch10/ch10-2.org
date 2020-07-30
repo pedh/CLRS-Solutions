@@ -84,7 +84,7 @@
    #+BEGIN_SRC
    REVERSE(L)
        x = L.head
-       if x = NIL
+       if x == NIL
            return
        y = x.next
        while y != NIL

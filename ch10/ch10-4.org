@@ -2,7 +2,7 @@
 
 * ch10.4
 ** 10.4-1
-#+BEGIN_SRC dot :file ch10-4-1.png :output-dir ../images/ :exports results
+#+BEGIN_SRC dot :file ch10-4-1.png :output-dir ../static/generated/images/ :exports results
 digraph {
   12 -> 7, 4;
   4 -> 5;
