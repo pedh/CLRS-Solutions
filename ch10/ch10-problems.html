@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-07-30 Thu 12:34 -->
+<!-- 2020-07-31 Fri 07:09 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 10 problems</title>
@@ -333,23 +333,23 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgf902bee">ch10-problems</a>
+<li><a href="#org7f9049c">ch10-problems</a>
 <ul>
-<li><a href="#org7d70d1b">10-1</a></li>
-<li><a href="#org81b10e6"><span class="todo TODO">TODO</span> 10-2</a></li>
+<li><a href="#orgb9a7a33">10-1</a></li>
+<li><a href="#org049be60">10-2</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgf902bee" class="outline-2">
-<h2 id="orgf902bee">ch10-problems</h2>
-<div class="outline-text-2" id="text-orgf902bee">
+<div id="outline-container-org7f9049c" class="outline-2">
+<h2 id="org7f9049c">ch10-problems</h2>
+<div class="outline-text-2" id="text-org7f9049c">
 </div>
-<div id="outline-container-org7d70d1b" class="outline-3">
-<h3 id="org7d70d1b">10-1</h3>
-<div class="outline-text-3" id="text-org7d70d1b">
+<div id="outline-container-orgb9a7a33" class="outline-3">
+<h3 id="orgb9a7a33">10-1</h3>
+<div class="outline-text-3" id="text-orgb9a7a33">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -455,9 +455,9 @@ for the JavaScript code in this tag.
 </table>
 </div>
 </div>
-<div id="outline-container-org81b10e6" class="outline-3">
-<h3 id="org81b10e6"><span class="todo TODO">TODO</span> 10-2</h3>
-<div class="outline-text-3" id="text-org81b10e6">
+<div id="outline-container-org049be60" class="outline-3">
+<h3 id="org049be60">10-2</h3>
+<div class="outline-text-3" id="text-org049be60">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
@@ -490,6 +490,7 @@ EXTRACT-MIN(L)
 	error "the heap is empty"
     k = L.head.key
     L.head = L.head.next
+    return k
 
 UNION(La, Lb)
     let L to be a new singly linked list
@@ -507,7 +508,155 @@ MERGE-LISTS(ha, hb)
     else head = hb
 	 head.next = MERGE-LISTS(hb.next, ha)
     return head
-</pre></li>
+</pre>
+<p>
+The running times of the operations are as below.
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Operation</th>
+<th scope="col" class="org-left">Running time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">MAKE-HEAP</td>
+<td class="org-left">\(O(1)\)</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">INSERT</td>
+<td class="org-left">\(O(n)\)</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">MINIMUM</td>
+<td class="org-left">\(O(1)\)</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">EXTRACT-MIN</td>
+<td class="org-left">\(O(1)\)</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">UNION</td>
+<td class="org-left">\(O(m+n)\)</td>
+</tr>
+</tbody>
+</table></li>
+<li><p>
+<b>b.</b>
+</p>
+
+<pre class="example">
+MAKE-HEAP()
+    let L to be a new doubly linked list
+    return L
+
+INSERT(L, x)
+    x.next = L.nil.next
+    L.nil.next.prev = x
+    L.nil.next = x
+    x.prev = L.nil
+
+MINIMUM(L)
+    if L.nil.next == L.nil
+	error "the heap is empty"
+    min = L.nil.next
+    x = L.nil.next.next
+    while x != L.nil
+	if x.key &lt; min.key
+	    min = x
+    return min.key
+
+EXTRACT-MIN(L)
+    if L.nil.next == L.nil
+	error "the heap is empty"
+    min = L.nil.next
+    x = L.nil.next.next
+    while x != L.nil
+	if x.key &lt; min.key
+	    min = x
+    min.prev.next = min.next
+    min.next.prev = min.prev
+    return min.key
+
+UNION(La, Lb)
+if Lb.nil.next != Lb.nil
+    La.nil.prev.next = Lb.nil.next
+    Lb.nil.next.prev = La.nil.prev
+    Lb.nil.prev.next = La.nil
+    La.nil.prev = Lb.nil.prev
+return La
+</pre>
+<p>
+The running times of the operations are as below.
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Operation</th>
+<th scope="col" class="org-left">Running time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">MAKE-HEAP</td>
+<td class="org-left">\(O(1)\)</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">INSERT</td>
+<td class="org-left">\(O(1)\)</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">MINIMUM</td>
+<td class="org-left">\(O(n)\)</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">EXTRACT-MIN</td>
+<td class="org-left">\(O(n)\)</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">UNION</td>
+<td class="org-left">\(O(1)\)</td>
+</tr>
+</tbody>
+</table></li>
+<li><p>
+<b>c.</b>
+</p>
+
+<p>
+Same as b.
+</p></li>
 </ul>
 </div>
 </div>
@@ -515,7 +664,7 @@ MERGE-LISTS(ha, hb)
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2020-07-30 Thu 12:34</p>
+<p class="date">Created: 2020-07-31 Fri 07:09</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
