@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-07-31 Fri 07:18 -->
+<!-- 2020-08-04 Tue 08:58 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 10 problems</title>
@@ -333,23 +333,24 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgb0ecb7a">ch10-problems</a>
+<li><a href="#org1748352">ch10-problems</a>
 <ul>
-<li><a href="#org2c9090d">10-1</a></li>
-<li><a href="#org5c8766e">10-2</a></li>
+<li><a href="#org94e46ce">10-1</a></li>
+<li><a href="#org9adab56">10-2</a></li>
+<li><a href="#org8c0ee42">10-3</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgb0ecb7a" class="outline-2">
-<h2 id="orgb0ecb7a">ch10-problems</h2>
-<div class="outline-text-2" id="text-orgb0ecb7a">
+<div id="outline-container-org1748352" class="outline-2">
+<h2 id="org1748352">ch10-problems</h2>
+<div class="outline-text-2" id="text-org1748352">
 </div>
-<div id="outline-container-org2c9090d" class="outline-3">
-<h3 id="org2c9090d">10-1</h3>
-<div class="outline-text-3" id="text-org2c9090d">
+<div id="outline-container-org94e46ce" class="outline-3">
+<h3 id="org94e46ce">10-1</h3>
+<div class="outline-text-3" id="text-org94e46ce">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -455,9 +456,9 @@ for the JavaScript code in this tag.
 </table>
 </div>
 </div>
-<div id="outline-container-org5c8766e" class="outline-3">
-<h3 id="org5c8766e">10-2</h3>
-<div class="outline-text-3" id="text-org5c8766e">
+<div id="outline-container-org9adab56" class="outline-3">
+<h3 id="org9adab56">10-2</h3>
+<div class="outline-text-3" id="text-org9adab56">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
@@ -660,11 +661,77 @@ Same as b.
 </ul>
 </div>
 </div>
+<div id="outline-container-org8c0ee42" class="outline-3">
+<h3 id="org8c0ee42">10-3</h3>
+<div class="outline-text-3" id="text-org8c0ee42">
+<ul class="org-ul">
+<li><p>
+<b>a.</b>
+</p>
+
+<p>
+We have made <code>RANDOM</code> for \(t\) times to find the result in the origin
+algorithm, thus the total number of iterations within the related algorithm
+is at least \(t\).
+</p></li>
+<li><p>
+<b>b.</b>
+</p>
+
+<p>
+The running time of the <b>for</b> loops is \(O(t)\), and the expected running
+time of the <b>while</b> loops is \(O(E[X_t])\), thus the total expected running
+time is \(O(t + E[X_t])\).
+</p></li>
+<li><p>
+<b>c.</b>
+</p>
+
+<p>
+We have
+</p>
+\begin{align*}
+E[X_t]
+&=\sum_{i=1}^{\infty}\Pr\{x\geq i\}\\
+&=\sum_{r=1}^{k-1}(\frac{k-r}{n})^t &,\ k\leq n\\
+&\leq \sum_{r=1}^{n}(1-r/n)^t
+\end{align*}</li>
+<li><p>
+<b>d.</b>
+</p>
+
+<p>
+Let \(f(x) = x^t\), we have
+</p>
+\begin{align*}
+f''(x)
+&=t(t-1)x^{t-2}\\
+&\geq 0 &,\ x\geq 0
+\end{align*}
+<p>
+And \(f(x)\) is continuous when \(x\geq 0\), thus \(f(x)\) is convex when
+\(x\geq 0\), then we have
+</p>
+\begin{align*}
+\sum_{r=0}^{n-1}r^t
+&\leq\int_{0}^{n}r^tdr\\
+&=n^{t+1}/(t+1)
+\end{align*}</li>
+<li><p>
+<b>e.</b>
+</p>
+
+<p>
+todo
+</p></li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2020-07-31 Fri 07:18</p>
+<p class="date">Created: 2020-08-04 Tue 08:58</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
