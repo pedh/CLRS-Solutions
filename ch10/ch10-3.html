@@ -333,26 +333,26 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orga8d5043">ch10.3</a>
+<li><a href="#orgc23847e">ch10.3</a>
 <ul>
-<li><a href="#orgd8fb7b5">10.3-1</a></li>
-<li><a href="#orge0ed1eb">10.3-2</a></li>
-<li><a href="#orge703e37">10.3-3</a></li>
-<li><a href="#orge74df8c">10.3-4</a></li>
-<li><a href="#org8334d0e">10.3-5</a></li>
+<li><a href="#org036ab94">10.3-1</a></li>
+<li><a href="#org020433d">10.3-2</a></li>
+<li><a href="#org3b5354b">10.3-3</a></li>
+<li><a href="#org3bcda5e">10.3-4</a></li>
+<li><a href="#orga23153d">10.3-5</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orga8d5043" class="outline-2">
-<h2 id="orga8d5043">ch10.3</h2>
-<div class="outline-text-2" id="text-orga8d5043">
+<div id="outline-container-orgc23847e" class="outline-2">
+<h2 id="orgc23847e">ch10.3</h2>
+<div class="outline-text-2" id="text-orgc23847e">
 </div>
-<div id="outline-container-orgd8fb7b5" class="outline-3">
-<h3 id="orgd8fb7b5">10.3-1</h3>
-<div class="outline-text-3" id="text-orgd8fb7b5">
+<div id="outline-container-org036ab94" class="outline-3">
+<h3 id="org036ab94">10.3-1</h3>
+<div class="outline-text-3" id="text-org036ab94">
 <pre class="example">
 (13, 4, 8, 19, 5, 11) stored as a doubly linked list.
 
@@ -388,9 +388,9 @@ for the JavaScript code in this tag.
 </pre>
 </div>
 </div>
-<div id="outline-container-orge0ed1eb" class="outline-3">
-<h3 id="orge0ed1eb">10.3-2</h3>
-<div class="outline-text-3" id="text-orge0ed1eb">
+<div id="outline-container-org020433d" class="outline-3">
+<h3 id="org020433d">10.3-2</h3>
+<div class="outline-text-3" id="text-org020433d">
 <pre class="example">
 ALLOCATE-OBJECT()
     if free == NIL
@@ -405,18 +405,18 @@ FREE-OBJECT(x)
 </pre>
 </div>
 </div>
-<div id="outline-container-orge703e37" class="outline-3">
-<h3 id="orge703e37">10.3-3</h3>
-<div class="outline-text-3" id="text-orge703e37">
+<div id="outline-container-org3b5354b" class="outline-3">
+<h3 id="org3b5354b">10.3-3</h3>
+<div class="outline-text-3" id="text-org3b5354b">
 <p>
 We don't need to set or reset the <code>prev</code> attributes of objects, because the
 free list works like a stack, i.e. a singly linked list.
 </p>
 </div>
 </div>
-<div id="outline-container-orge74df8c" class="outline-3">
-<h3 id="orge74df8c">10.3-4</h3>
-<div class="outline-text-3" id="text-orge74df8c">
+<div id="outline-container-org3bcda5e" class="outline-3">
+<h3 id="org3bcda5e">10.3-4</h3>
+<div class="outline-text-3" id="text-org3bcda5e">
 <pre class="example">
 ALLOCATE-OBJECT()
     PUSH(S, NIL)
@@ -429,9 +429,9 @@ FREE-OBJECT(x)
 </pre>
 </div>
 </div>
-<div id="outline-container-org8334d0e" class="outline-3">
-<h3 id="org8334d0e">10.3-5</h3>
-<div class="outline-text-3" id="text-org8334d0e">
+<div id="outline-container-orga23153d" class="outline-3">
+<h3 id="orga23153d">10.3-5</h3>
+<div class="outline-text-3" id="text-orga23153d">
 <pre class="example">
 COMPACTIFY-LIST(L, F)
     cur = L.head
