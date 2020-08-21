@@ -6,7 +6,7 @@
 <!-- 2020-08-21 Fri 09:59 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Chapter 3 problems</title>
+<title>Chapter 11.1</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="pedh" />
 <style type="text/css">
@@ -328,527 +328,89 @@ for the JavaScript code in this tag.
  |
  <a accesskey="H" href="/CLRS-Solutions"> HOME </a>
 </div><div id="content">
-<h1 class="title">Chapter 3 problems</h1>
+<h1 class="title">Chapter 11.1</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org95af369">ch3-problems</a>
+<li><a href="#orgfe1586d">ch11.1</a>
 <ul>
-<li><a href="#org8c98d10">3-1</a></li>
-<li><a href="#org4cc0dc2">3-2</a></li>
-<li><a href="#orgd84107d">3-3</a></li>
-<li><a href="#org42cf92d">3-4</a></li>
-<li><a href="#org1c10621">3-5</a></li>
-<li><a href="#org5f20807">3-6</a></li>
+<li><a href="#org8684dec">11.1-1</a></li>
+<li><a href="#orgba8086e">11.1-2</a></li>
+<li><a href="#org569f895">11.1-3</a></li>
+<li><a href="#org78e0f98">11.1-4</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org95af369" class="outline-2">
-<h2 id="org95af369">ch3-problems</h2>
-<div class="outline-text-2" id="text-org95af369">
+<div id="outline-container-orgfe1586d" class="outline-2">
+<h2 id="orgfe1586d">ch11.1</h2>
+<div class="outline-text-2" id="text-orgfe1586d">
 </div>
-<div id="outline-container-org8c98d10" class="outline-3">
-<h3 id="org8c98d10">3-1</h3>
-<div class="outline-text-3" id="text-org8c98d10">
-<ul class="org-ul">
-<li><p>
-<b>a.</b>
-</p>
-
+<div id="outline-container-org8684dec" class="outline-3">
+<h3 id="org8684dec">11.1-1</h3>
+<div class="outline-text-3" id="text-org8684dec">
+<pre class="example">
+DIRECT-ADDRESS-MAXIMUM(T, m)
+    for i to m down to 1
+	if T[i] != NIL
+	    return T[i]
+    return NIL
+</pre>
 <p>
-If \(k \geq d\), then
+The worst-case running time of the procedure is \(O(m)\).
 </p>
-\begin{align*}
-p(n)&=\sum_{i=0}^d a_i n^i\\
-    &\leq\sum_{i=0}^d a_i n^k&&\text{when }n\geq 1
-\end{align*}
-<p>
-Let \(c = \sum_{i=0}^d a_i\), then \(p(n) \leq cn^k\) for all \(n \geq 1\).
-Hence \(p(n) = O(n^k)\).
-</p></li>
-
-<li><p>
-<b>b.</b>
-</p>
-
-<p>
-If \(k \leq d\), then
-</p>
-\begin{align*}
-p(n)&=\sum_{i=0}^d a_i n^i\\
-    &\geq a_k n^k
-\end{align*}
-<p>
-Hence \(p(n) = \Omega(n^k)\).
-</p></li>
-
-<li><p>
-<b>c.</b>
-</p>
-
-<p>
-If \(k = d\), then \(p(n) = O(n^k)\) and \(p(n) = \Omega(n^k)\).
-Hence \(p(n) = \Theta(n^k)\).
-</p></li>
-
-<li><p>
-<b>d.</b>
-</p>
-
-<p>
-If \(k > d\), then
-</p>
-\begin{align*}
-\lim_{n\to\infty}\frac{p(n)}{n^k}
-  &=\lim_{n\to\infty}\frac{\sum_{n=0}^{d}a_i n^i}{n^k}\\
-  &=\lim_{n\to\infty}\sum_{n=0}^{d}a_i n^{i-k}\\
-  &=0
-\end{align*}
-<p>
-Hence \(p(n) = o(n^k)\).
-</p></li>
-
-<li><p>
-<b>e.</b>
-</p>
-
-<p>
-If \(k < d\), then
-</p>
-\begin{align*}
-\lim_{n\to\infty}\frac{p(n)}{n^k}
-  &=\lim_{n\to\infty}\frac{\sum_{n=0}^{d}a_i n^i}{n^k}\\
-  &=\lim_{n\to\infty}\sum_{n=0}^{d}a_i n^{i-k}\\
-  &=\infty
-\end{align*}
-<p>
-Hence \(p(n) = \omega(n^k)\).
-</p></li>
-</ul>
 </div>
 </div>
-<div id="outline-container-org4cc0dc2" class="outline-3">
-<h3 id="org4cc0dc2">3-2</h3>
-<div class="outline-text-3" id="text-org4cc0dc2">
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<div id="outline-container-orgba8086e" class="outline-3">
+<h3 id="orgba8086e">11.1-2</h3>
+<div class="outline-text-3" id="text-orgba8086e">
+<p>
+We can use \(i\)th bit to represent element \(i\).
+</p>
+<pre class="example">
+BIT-VECTOR-INSERT(B, i)
+    B[i] = 1
 
+BIT-VECTOR-DELETE(B, i)
+    B[i] = 0
 
-<colgroup>
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-left">&#xa0;</th>
-<th scope="col" class="org-left">A</th>
-<th scope="col" class="org-left">B</th>
-<th scope="col" class="org-left">O</th>
-<th scope="col" class="org-left">o</th>
-<th scope="col" class="org-left">\(\Omega\)</th>
-<th scope="col" class="org-left">\(\omega\)</th>
-<th scope="col" class="org-left">\(\Theta\)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="org-left"><b>a.</b></td>
-<td class="org-left">\(\lg^k n\)</td>
-<td class="org-left">\(n^\epsilon\)</td>
-<td class="org-left">yes</td>
-<td class="org-left">yes</td>
-<td class="org-left">no</td>
-<td class="org-left">no</td>
-<td class="org-left">no</td>
-</tr>
-
-<tr>
-<td class="org-left"><b>b.</b></td>
-<td class="org-left">\(n^k\)</td>
-<td class="org-left">\(c^n\)</td>
-<td class="org-left">yes</td>
-<td class="org-left">yes</td>
-<td class="org-left">no</td>
-<td class="org-left">no</td>
-<td class="org-left">no</td>
-</tr>
-
-<tr>
-<td class="org-left"><b>c.</b></td>
-<td class="org-left">\(\sqrt n\)</td>
-<td class="org-left">\(n^{\sin n}\)</td>
-<td class="org-left">no</td>
-<td class="org-left">no</td>
-<td class="org-left">no</td>
-<td class="org-left">no</td>
-<td class="org-left">no</td>
-</tr>
-
-<tr>
-<td class="org-left"><b>d.</b></td>
-<td class="org-left">\(2^n\)</td>
-<td class="org-left">\(2^{n / 2}\)</td>
-<td class="org-left">no</td>
-<td class="org-left">no</td>
-<td class="org-left">yes</td>
-<td class="org-left">yes</td>
-<td class="org-left">no</td>
-</tr>
-
-<tr>
-<td class="org-left"><b>e.</b></td>
-<td class="org-left">\(n\lg c\)</td>
-<td class="org-left">\(c^{\lg n}\)</td>
-<td class="org-left">yes</td>
-<td class="org-left">no</td>
-<td class="org-left">yes</td>
-<td class="org-left">no</td>
-<td class="org-left">yes</td>
-</tr>
-
-<tr>
-<td class="org-left"><b>f.</b></td>
-<td class="org-left">\(\lg(n!)\)</td>
-<td class="org-left">\(\lg(n^n)\)</td>
-<td class="org-left">yes</td>
-<td class="org-left">no</td>
-<td class="org-left">yes</td>
-<td class="org-left">no</td>
-<td class="org-left">yes</td>
-</tr>
-</tbody>
-</table>
+BIT-VECTOR-SEARCH(B, i)
+    return B[i]
+</pre>
 </div>
 </div>
-<div id="outline-container-orgd84107d" class="outline-3">
-<h3 id="orgd84107d">3-3</h3>
-<div class="outline-text-3" id="text-orgd84107d">
-<ul class="org-ul">
-<li><p>
-<b>a.</b>
-</p>
-
+<div id="outline-container-org569f895" class="outline-3">
+<h3 id="org569f895">11.1-3</h3>
+<div class="outline-text-3" id="text-org569f895">
 <p>
-The functions ordered by growth are as below.
+We can use linked lists to store the elements with the same keys, and the
+operations run in \(O(1)\) time, if the beneath linked list operations run in
+\(O(1)\) time.
 </p>
-\begin{array}{ccccc}
-2^{2^{n+1}}
-& 2^{2^n}
-& (n+1)!
-& n!
-& e^n\\
-n\cdot 2^n
-& 2^n
-& (\frac{3}{2})^n
-& n^{\lg\lg n}\text{, }(\lg n)^{\lg n}
-& (\lg n)!\\
-n^3
-& 4^{\lg n}\text{, }n^2
-& \lg(n!)\text{, }n\lg n
-& n\text{, }2^{\lg n}
-& (\sqrt 2)^{\lg n}\\
-2^{\sqrt{2\lg n}}
-& \lg^2 n
-& \ln n
-& \sqrt{\lg n}
-& \ln\ln n\\
-2^{\lg^*n}
-& \lg^*n\text{, }\lg^*(\lg n)
-& \lg(\lg^*n)
-& 1\text{, }n^{1 / \lg n}
-\end{array}</li>
-<li><p>
-<b>b.</b>
-</p>
+<pre class="example">
+DIRECT-ADDRESS-INSERT(T, x)
+L = T[x.key]
+LINKED-LIST-INSERT(L, x)
 
-<p>
-\(f(n) = 2^{n!}(1 + \sin n)\).
-</p></li>
-</ul>
+DIRECT-ADDRESS-DELETE(T, x)
+L = T[x.key]
+LINKED-LIST-DELETE(L, x)
+
+DIRECT-ADDRESS-SEARCH(T, k)
+L = T[k]
+return L.head
+</pre>
 </div>
 </div>
-<div id="outline-container-org42cf92d" class="outline-3">
-<h3 id="org42cf92d">3-4</h3>
-<div class="outline-text-3" id="text-org42cf92d">
-<ul class="org-ul">
-<li><p>
-<b>a.</b>
-</p>
-
+<div id="outline-container-org78e0f98" class="outline-3">
+<h3 id="org78e0f98">11.1-4</h3>
+<div class="outline-text-3" id="text-org78e0f98">
 <p>
-Wrong, e.g., \(\ln n = O(n)\) and \(n \neq O(\ln n)\).
-</p></li>
-<li><p>
-<b>b.</b>
+todo
 </p>
-
-<p>
-Wrong, e.g., \(n + \ln n \neq \Theta(min(n, \ln n))\).
-</p></li>
-<li><p>
-<b>c.</b>
-</p>
-
-<p>
-Right, when n is large enough,
-\(0 \leq \lg(f(n)) \leq \lg(cg(n)) \leq (\lg c + 1)\lg(g(n))\)
-since \(\lg(g(n)) \geq 1\) and \(f(n) \geq 1\),
-hence \(\lg(f(n)) = O(\lg(g(n)))\).
-</p></li>
-<li><p>
-<b>d.</b>
-</p>
-
-<p>
-Wrong, e.g., \(2n = O(n)\) and \(2^{2n} \neq O(2^n)\).
-</p></li>
-<li><p>
-<b>e.</b>
-</p>
-
-<p>
-Wrong, e.g., \(\frac{1}{n} \neq O(\frac{1}{n^2})\).
-</p></li>
-<li><p>
-<b>f.</b>
-</p>
-
-<p>
-Right, \(g(n) \geq \frac{1}{c}f(n) \geq 0\) when n is large enough,
-hence \(g(n) = \Omega(f(n))\).
-</p></li>
-<li><p>
-<b>g.</b>
-</p>
-
-<p>
-Wrong, e.g., \(2^n \neq O(2^{n / 2})\).
-</p></li>
-<li><p>
-<b>h.</b>
-</p>
-
-<p>
-Right, \(f(n) \leq f(n) + o(f(n)) < 2f(n)\) when n is large enough,
-hence \(f(n) + o(f(n)) = \Theta(f(n))\).
-</p></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-org1c10621" class="outline-3">
-<h3 id="org1c10621">3-5</h3>
-<div class="outline-text-3" id="text-org1c10621">
-<ul class="org-ul">
-<li><b>a.</b>
-
-<ul class="org-ul">
-<li><p>
-\(f(n) \neq \overset{\infty}{\Omega}(g(n)) \iff f(n) = o(g(n))\).
-</p>
-
-<p>
-<b>Proof:</b>
-</p>
-<ol class="org-ol">
-<li><p>
-If \(f(n) \neq \overset{\infty}{\Omega}(g(n))\),
-and f(n) and g(n) are nonnegative, then
-</p>
-\begin{align*}
-\neg(\exists c\in\mathbb{R}^{+})
-[0\leq cg(n)\leq f(n)\text{ for infinitely many integers n}]\\
-\implies(\forall c\in\mathbb{R}^{+})
-[0\leq cg(n)\leq f(n)\text{ for only finitely many integers n}]
-\end{align*}
-<p>
-Let \(n_0\) = max(finitely many integers) + 1, we have
-</p>
-\begin{equation*}
-(\forall c\in\mathbb{R}^{+})
-[(\exists n_0\in\mathbb{R}^{+})
- [(\forall n\leq n_0)[0\leq f(n)< cg(n)]]]
-\end{equation*}
-<p>
-Hence \(f(n) = o(g(n))\).
-</p></li>
-<li><p>
-If \(f(n) = o(g(n))\), then
-</p>
-\begin{align*}
-(\forall c\in\mathbb{R}^{+})
-[(\exists n_0\in\mathbb{R}^{+})
- [(\forall n\leq n_0)[0\leq f(n)< cg(n)]]]\\
-\implies(\forall c\in\mathbb{R}^{+})
-[0\leq cg(n)\leq f(n)\text{ for only finitely many integers n}]\\
-\implies\neg(\exists c\in\mathbb{R}^{+})
-[0\leq cg(n)\leq f(n)\text{ for infinitely many integers n}]
-\end{align*}
-<p>
-Hence \(f(n) \neq \overset{\infty}{\Omega}(g(n))\).
-</p></li>
-</ol></li>
-<li><p>
-According to the previous theorem, we can show that
-</p>
-\begin{equation*}
-f(n)=
-\begin{cases}
-O(g(n))\text{ and }\overset{\infty}{\Omega}(g(n))
-& \text{if }f(n)=\Theta(g(n))\\
-O(g(n))\text{ and not }\overset{\infty}{\Omega}(g(n))
-& \text{if }f(n)=o(g(n))\\
-\overset{\infty}{\Omega}(g(n))\text{ and not }O(g(n))
-& \text{if }f(n)\neq O(g(n))
-\end{cases}
-\end{equation*}
-<p>
-This is not true if we use \(\Omega\) in place of
-\(\overset{\infty}{\Omega}\), because
-\(f(n) \neq \Omega(g(n)) \nRightarrow f(n) = o(g(n))\).
-</p></li>
-</ul></li>
-<li><p>
-<b>b.</b>
-</p>
-
-<p>
-<b>Pros:</b>
-The relation between nonnegative functions f(n) and g(n)
-can be completely covered as above.
-</p>
-
-<p>
-<b>Cons:</b>
-We can not tell the value of running time exactly.
-</p></li>
-<li><p>
-<b>c.</b>
-</p>
-
-<p>
-Theorem 3.1 is still established.
-</p></li>
-
-<li><p>
-<b>d.</b>
-</p>
-
-\begin{align*}
-\widetilde{\Omega}(g(n))
-=\{f(n):\ &\text{there exist positive constants }c,\,k\text{, and }n_0
-          \text{ such that }\\
-          &0\leq c\,g(n)\lg^{-k}(n)\leq f(n)\text{ for all }n\geq n_0\}\ .
-\end{align*}
-\begin{align*}
-\widetilde{\Theta}(g(n))
-=\{f(n):\ &\text{there exist positive constants }c,\,k\text{, and }n_0
-          \text{ such that }\\
-          &0\leq c\,g(n)\lg^{-k}(n)\leq f(n)\leq c\,g(n)\lg^{k}(n)
-          \text{ for all }n\geq n_0\}\ .
-\end{align*}</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-org5f20807" class="outline-3">
-<h3 id="org5f20807">3-6</h3>
-<div class="outline-text-3" id="text-org5f20807">
-<p>
-For appropriate large n
-</p>
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-center" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-left">&#xa0;</th>
-<th scope="col" class="org-left">\(f(n)\)</th>
-<th scope="col" class="org-left">\(c\)</th>
-<th scope="col" class="org-center">\(f_{c}^{*}(n)\)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="org-left"><b>a.</b></td>
-<td class="org-left">\(n - 1\)</td>
-<td class="org-left">\(0\)</td>
-<td class="org-center">\(n\)</td>
-</tr>
-
-<tr>
-<td class="org-left"><b>b.</b></td>
-<td class="org-left">\(\lg n\)</td>
-<td class="org-left">\(1\)</td>
-<td class="org-center">\(\lg^{*}n\)</td>
-</tr>
-
-<tr>
-<td class="org-left"><b>c.</b></td>
-<td class="org-left">\(n / 2\)</td>
-<td class="org-left">\(1\)</td>
-<td class="org-center">\(\lceil \lg{n} \rceil\)</td>
-</tr>
-
-<tr>
-<td class="org-left"><b>d.</b></td>
-<td class="org-left">\(n / 2\)</td>
-<td class="org-left">\(2\)</td>
-<td class="org-center">\(\lceil \lg{n} \rceil - 1\)</td>
-</tr>
-
-<tr>
-<td class="org-left"><b>e.</b></td>
-<td class="org-left">\(\sqrt{n}\)</td>
-<td class="org-left">\(2\)</td>
-<td class="org-center">\(\lceil \lg\lg{n} \rceil\)</td>
-</tr>
-
-<tr>
-<td class="org-left"><b>f.</b></td>
-<td class="org-left">\(\sqrt{n}\)</td>
-<td class="org-left">\(1\)</td>
-<td class="org-center">\(\infty\)</td>
-</tr>
-
-<tr>
-<td class="org-left"><b>g.</b></td>
-<td class="org-left">\(n^{1 / 3}\)</td>
-<td class="org-left">\(2\)</td>
-<td class="org-center">\(\lceil \log_{3}\lg{n}\rceil\)</td>
-</tr>
-
-<tr>
-<td class="org-left"><b>h.</b></td>
-<td class="org-left">\(n / \lg{n}\)</td>
-<td class="org-left">\(2\)</td>
-<td class="org-center">\(\omega(\lg\lg n)\) and \(o(\lg n)\)</td>
-</tr>
-</tbody>
-</table>
 </div>
 </div>
 </div>
