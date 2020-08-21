@@ -1,0 +1,79 @@
+#+TITLE: Chapter 11.1
+
+* ch11.1
+** 11.1-1
+   #+begin_src
+   DIRECT-ADDRESS-MAXIMUM(T, m)
+       for i to m down to 1
+           if T[i] != NIL
+               return T[i]
+       return NIL
+   #+end_src
+   The worst-case running time of the procedure is \(O(m)\).
+** 11.1-2
+   We can use \(i\)th bit to represent element \(i\).
+   #+begin_src
+   BIT-VECTOR-INSERT(B, i)
+       B[i] = 1
+
+   BIT-VECTOR-DELETE(B, i)
+       B[i] = 0
+
+   BIT-VECTOR-SEARCH(B, i)
+       return B[i]
+   #+end_src
+** 11.1-3
+   We can use linked lists to store the elements with the same keys, and the
+   operations run in \(O(1)\) time, if the beneath linked list operations run in
+   \(O(1)\) time.
+   #+begin_src
+   DIRECT-ADDRESS-INSERT(T, x)
+   L = T[x.key]
+   LINKED-LIST-INSERT(L, x)
+
+   DIRECT-ADDRESS-DELETE(T, x)
+   L = T[x.key]
+   LINKED-LIST-DELETE(L, x)
+
+   DIRECT-ADDRESS-SEARCH(T, k)
+   L = T[k]
+   return L.head
+   #+end_src
+** 11.1-4
+   To implement a dictionary using direct addressing on a huge array, we need a
+   huge array =H=, an additional array =S= to indicate the actual elements of
+   =H=, and a linked list =F= to store the free indices of =S=.
+   #+begin_src
+   INITIALIZE(H, S, F)
+       let H to be a new huge array
+       let S to be a new empty array
+       let F to be a new empty linked list
+
+   SEARCH(H, S, F, k)
+       x = H[k]
+       p = x.pos
+       if S[p] == k
+           return x
+       return NIL
+
+   INSERT(H, S, F, x)
+       y = SEARCH(H, S, F, x.key)
+       if y != NIL
+           x.pos = y.pos
+           H[x.key] = x
+       else if F.head == NIL
+                S[S.length + 1] = x.key
+                x.pos = S.length + 1
+                S.length = S.length + 1
+            else p = F.head
+                 LINKED-LIST-DELETE(F, p)
+                 x.pos = p.key
+                 S[p.key] = x.key
+
+   DELETE(H, S, F, x)
+       H[x.key] = NIL
+       S[x.pos] = NIL
+       let p to be a new node
+       p.key = x.pos
+       LINKED-LIST-INSERT(F, p)
+   #+end_src
