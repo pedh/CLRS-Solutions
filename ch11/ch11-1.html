@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-08-21 Fri 09:59 -->
+<!-- 2020-08-24 Mon 10:45 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 11.1</title>
@@ -333,25 +333,25 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgfe1586d">ch11.1</a>
+<li><a href="#org6c15857">ch11.1</a>
 <ul>
-<li><a href="#org8684dec">11.1-1</a></li>
-<li><a href="#orgba8086e">11.1-2</a></li>
-<li><a href="#org569f895">11.1-3</a></li>
-<li><a href="#org78e0f98">11.1-4</a></li>
+<li><a href="#org39b2167">11.1-1</a></li>
+<li><a href="#orga5dc337">11.1-2</a></li>
+<li><a href="#org5f5b409">11.1-3</a></li>
+<li><a href="#orgff941b3">11.1-4</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgfe1586d" class="outline-2">
-<h2 id="orgfe1586d">ch11.1</h2>
-<div class="outline-text-2" id="text-orgfe1586d">
+<div id="outline-container-org6c15857" class="outline-2">
+<h2 id="org6c15857">ch11.1</h2>
+<div class="outline-text-2" id="text-org6c15857">
 </div>
-<div id="outline-container-org8684dec" class="outline-3">
-<h3 id="org8684dec">11.1-1</h3>
-<div class="outline-text-3" id="text-org8684dec">
+<div id="outline-container-org39b2167" class="outline-3">
+<h3 id="org39b2167">11.1-1</h3>
+<div class="outline-text-3" id="text-org39b2167">
 <pre class="example">
 DIRECT-ADDRESS-MAXIMUM(T, m)
     for i to m down to 1
@@ -364,9 +364,9 @@ The worst-case running time of the procedure is \(O(m)\).
 </p>
 </div>
 </div>
-<div id="outline-container-orgba8086e" class="outline-3">
-<h3 id="orgba8086e">11.1-2</h3>
-<div class="outline-text-3" id="text-orgba8086e">
+<div id="outline-container-orga5dc337" class="outline-3">
+<h3 id="orga5dc337">11.1-2</h3>
+<div class="outline-text-3" id="text-orga5dc337">
 <p>
 We can use \(i\)th bit to represent element \(i\).
 </p>
@@ -382,9 +382,9 @@ BIT-VECTOR-SEARCH(B, i)
 </pre>
 </div>
 </div>
-<div id="outline-container-org569f895" class="outline-3">
-<h3 id="org569f895">11.1-3</h3>
-<div class="outline-text-3" id="text-org569f895">
+<div id="outline-container-org5f5b409" class="outline-3">
+<h3 id="org5f5b409">11.1-3</h3>
+<div class="outline-text-3" id="text-org5f5b409">
 <p>
 We can use linked lists to store the elements with the same keys, and the
 operations run in \(O(1)\) time, if the beneath linked list operations run in
@@ -405,19 +405,55 @@ return L.head
 </pre>
 </div>
 </div>
-<div id="outline-container-org78e0f98" class="outline-3">
-<h3 id="org78e0f98">11.1-4</h3>
-<div class="outline-text-3" id="text-org78e0f98">
+<div id="outline-container-orgff941b3" class="outline-3">
+<h3 id="orgff941b3">11.1-4</h3>
+<div class="outline-text-3" id="text-orgff941b3">
 <p>
-todo
+To implement a dictionary using direct addressing on a huge array, we need a
+huge array <code>H</code>, an additional array <code>S</code> to indicate the actual elements of
+<code>H</code>, and a linked list <code>F</code> to store the free indices of <code>S</code>.
 </p>
+<pre class="example">
+INITIALIZE(H, S, F)
+    let H to be a new huge array
+    let S to be a new empty array
+    let F to be a new empty linked list
+
+SEARCH(H, S, F, k)
+    x = H[k]
+    p = x.pos
+    if S[p] == k
+	return x
+    return NIL
+
+INSERT(H, S, F, x)
+    y = SEARCH(H, S, F, x.key)
+    if y != NIL
+	x.pos = y.pos
+	H[x.key] = x
+    else if F.head == NIL
+	     S[S.length + 1] = x.key
+	     x.pos = S.length + 1
+	     S.length = S.length + 1
+	 else p = F.head
+	      LINKED-LIST-DELETE(F, p)
+	      x.pos = p.key
+	      S[p.key] = x.key
+
+DELETE(H, S, F, x)
+    H[x.key] = NIL
+    S[x.pos] = NIL
+    let p to be a new node
+    p.key = x.pos
+    LINKED-LIST-INSERT(F, p)
+</pre>
 </div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2020-08-21 Fri 09:59</p>
+<p class="date">Created: 2020-08-24 Mon 10:45</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

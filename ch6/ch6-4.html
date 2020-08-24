@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-08-21 Fri 09:59 -->
+<!-- 2020-08-24 Mon 10:45 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 6.4</title>
@@ -333,26 +333,26 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgccdb841">ch6.4</a>
+<li><a href="#org65e58f4">ch6.4</a>
 <ul>
-<li><a href="#orgaa74219">6.4-1</a></li>
-<li><a href="#org3f0af80">6.4-2</a></li>
-<li><a href="#orgbe49545">6.4-3</a></li>
-<li><a href="#orgcd56ccc">6.4-4</a></li>
-<li><a href="#org825b4ed">6.4-5</a></li>
+<li><a href="#orgd6b0c15">6.4-1</a></li>
+<li><a href="#org35ad713">6.4-2</a></li>
+<li><a href="#orga9f3ef8">6.4-3</a></li>
+<li><a href="#org1cf1c9b">6.4-4</a></li>
+<li><a href="#org7c57514">6.4-5</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgccdb841" class="outline-2">
-<h2 id="orgccdb841">ch6.4</h2>
-<div class="outline-text-2" id="text-orgccdb841">
+<div id="outline-container-org65e58f4" class="outline-2">
+<h2 id="org65e58f4">ch6.4</h2>
+<div class="outline-text-2" id="text-org65e58f4">
 </div>
-<div id="outline-container-orgaa74219" class="outline-3">
-<h3 id="orgaa74219">6.4-1</h3>
-<div class="outline-text-3" id="text-orgaa74219">
+<div id="outline-container-orgd6b0c15" class="outline-3">
+<h3 id="orgd6b0c15">6.4-1</h3>
+<div class="outline-text-3" id="text-orgd6b0c15">
 <pre class="example">
    (5 13 2 25 7 17 20 8 4)
 -&gt; ((25 (13 (8 (5) (4)) (7)) (20 (17) (2))))    # BUILD-MAX-HEAP
@@ -375,9 +375,9 @@ for the JavaScript code in this tag.
 </pre>
 </div>
 </div>
-<div id="outline-container-org3f0af80" class="outline-3">
-<h3 id="org3f0af80">6.4-2</h3>
-<div class="outline-text-3" id="text-org3f0af80">
+<div id="outline-container-org35ad713" class="outline-3">
+<h3 id="org35ad713">6.4-2</h3>
+<div class="outline-text-3" id="text-org35ad713">
 <p>
 <b>Initialization:</b> A[1..n] is a max heap contains the \(n\) smallest elements,
 A[n+1..n] is empty.
@@ -403,9 +403,9 @@ array A.
 </div>
 </div>
 
-<div id="outline-container-orgbe49545" class="outline-3">
-<h3 id="orgbe49545">6.4-3</h3>
-<div class="outline-text-3" id="text-orgbe49545">
+<div id="outline-container-orga9f3ef8" class="outline-3">
+<h3 id="orga9f3ef8">6.4-3</h3>
+<div class="outline-text-3" id="text-orga9f3ef8">
 <p>
 Both of them have \(\Theta(n\lg n)\) running time, the BUILD-MAX-HEAP costs
 \(O(n)\) running time, and the sort loop costs \(\Theta(n\lg n)\) running
@@ -413,9 +413,9 @@ time.
 </p>
 </div>
 </div>
-<div id="outline-container-orgcd56ccc" class="outline-3">
-<h3 id="orgcd56ccc">6.4-4</h3>
-<div class="outline-text-3" id="text-orgcd56ccc">
+<div id="outline-container-org1cf1c9b" class="outline-3">
+<h3 id="org1cf1c9b">6.4-4</h3>
+<div class="outline-text-3" id="text-org1cf1c9b">
 <p>
 If A is already sorted in decreasing order, then each MAX-HEAPIFY in the sort
 loop will keep moving the root element till the bottom of the heap, thus the
@@ -429,9 +429,9 @@ T(n)
 \end{align*}
 </div>
 </div>
-<div id="outline-container-org825b4ed" class="outline-3">
-<h3 id="org825b4ed">6.4-5</h3>
-<div class="outline-text-3" id="text-org825b4ed">
+<div id="outline-container-org7c57514" class="outline-3">
+<h3 id="org7c57514">6.4-5</h3>
+<div class="outline-text-3" id="text-org7c57514">
 <p>
 The BUILD-MAX-HEAP has linear running time, so we just need to analyze the
 runnig time of the sort loop.
@@ -457,7 +457,7 @@ time is \(\Omega(n\lg n)\).
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2020-08-21 Fri 09:59</p>
+<p class="date">Created: 2020-08-24 Mon 10:45</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
