@@ -333,27 +333,27 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org570eb56">ch6.2</a>
+<li><a href="#orgd2ff166">ch6.2</a>
 <ul>
-<li><a href="#org68033b9">6.2-1</a></li>
-<li><a href="#org689c4a4">6.2-2</a></li>
-<li><a href="#org488ac03">6.2-3</a></li>
-<li><a href="#org6cbdcc1">6.2-4</a></li>
-<li><a href="#orgbd7379b">6.2-5</a></li>
-<li><a href="#org7efd48b">6.2-6</a></li>
+<li><a href="#orga79b04d">6.2-1</a></li>
+<li><a href="#org2949032">6.2-2</a></li>
+<li><a href="#orgd10a7a7">6.2-3</a></li>
+<li><a href="#orgfbd872f">6.2-4</a></li>
+<li><a href="#org4e345ea">6.2-5</a></li>
+<li><a href="#org119bc20">6.2-6</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org570eb56" class="outline-2">
-<h2 id="org570eb56">ch6.2</h2>
-<div class="outline-text-2" id="text-org570eb56">
+<div id="outline-container-orgd2ff166" class="outline-2">
+<h2 id="orgd2ff166">ch6.2</h2>
+<div class="outline-text-2" id="text-orgd2ff166">
 </div>
-<div id="outline-container-org68033b9" class="outline-3">
-<h3 id="org68033b9">6.2-1</h3>
-<div class="outline-text-3" id="text-org68033b9">
+<div id="outline-container-orga79b04d" class="outline-3">
+<h3 id="orga79b04d">6.2-1</h3>
+<div class="outline-text-3" id="text-orga79b04d">
 <pre class="example">
    (3 (10 (8 9)) (1 (0)))
 -&gt; (10 (3 (8 9)) ...)
@@ -361,9 +361,9 @@ for the JavaScript code in this tag.
 </pre>
 </div>
 </div>
-<div id="outline-container-org689c4a4" class="outline-3">
-<h3 id="org689c4a4">6.2-2</h3>
-<div class="outline-text-3" id="text-org689c4a4">
+<div id="outline-container-org2949032" class="outline-3">
+<h3 id="org2949032">6.2-2</h3>
+<div class="outline-text-3" id="text-org2949032">
 <pre class="example">
 MIN-HEAPIFY(A, i)
     l = LEFT(i)
@@ -382,26 +382,26 @@ The Running time of MIN-HEAPIFY is same as MAX-HEAPIFY.
 </p>
 </div>
 </div>
-<div id="outline-container-org488ac03" class="outline-3">
-<h3 id="org488ac03">6.2-3</h3>
-<div class="outline-text-3" id="text-org488ac03">
+<div id="outline-container-orgd10a7a7" class="outline-3">
+<h3 id="orgd10a7a7">6.2-3</h3>
+<div class="outline-text-3" id="text-orgd10a7a7">
 <p>
 A[i] appears to be the largest element between itself and its children, the
 procedure returns with nothing changes.
 </p>
 </div>
 </div>
-<div id="outline-container-org6cbdcc1" class="outline-3">
-<h3 id="org6cbdcc1">6.2-4</h3>
-<div class="outline-text-3" id="text-org6cbdcc1">
+<div id="outline-container-orgfbd872f" class="outline-3">
+<h3 id="orgfbd872f">6.2-4</h3>
+<div class="outline-text-3" id="text-orgfbd872f">
 <p>
 A[i] has no child in A, the procedure returns with nothing changes.
 </p>
 </div>
 </div>
-<div id="outline-container-orgbd7379b" class="outline-3">
-<h3 id="orgbd7379b">6.2-5</h3>
-<div class="outline-text-3" id="text-orgbd7379b">
+<div id="outline-container-org4e345ea" class="outline-3">
+<h3 id="org4e345ea">6.2-5</h3>
+<div class="outline-text-3" id="text-org4e345ea">
 <p>
 The compilers without tail recursion optimization will produce inefficient
 code.
@@ -428,9 +428,9 @@ MAX-HEAPIFY(A, i)
 </pre>
 </div>
 </div>
-<div id="outline-container-org7efd48b" class="outline-3">
-<h3 id="org7efd48b">6.2-6</h3>
-<div class="outline-text-3" id="text-org7efd48b">
+<div id="outline-container-org119bc20" class="outline-3">
+<h3 id="org119bc20">6.2-6</h3>
+<div class="outline-text-3" id="text-org119bc20">
 <p>
 The MAX-HEAPIFY would be called \(h\) (heap height) times in the worst
 case, and we know that \(h = \lfloor \lg n \rfloor\), so that the worst case

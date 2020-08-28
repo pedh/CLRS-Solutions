@@ -6,7 +6,7 @@
 <!-- 2020-08-28 Fri 10:22 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Chapter 6 problems</title>
+<title>Chapter 11.2</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="pedh" />
 <style type="text/css">
@@ -328,269 +328,214 @@ for the JavaScript code in this tag.
  |
  <a accesskey="H" href="/CLRS-Solutions"> HOME </a>
 </div><div id="content">
-<h1 class="title">Chapter 6 problems</h1>
+<h1 class="title">Chapter 11.2</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgf1a8871">ch6-problems</a>
+<li><a href="#org24fcbef">ch11.2</a>
 <ul>
-<li><a href="#org6c66a80">6-1</a></li>
-<li><a href="#orgf8f671b">6-2</a></li>
-<li><a href="#orga1e66d1">6-3</a></li>
+<li><a href="#orge8a5cb3">11.2-1</a></li>
+<li><a href="#org121bb19">11.2-2</a></li>
+<li><a href="#org74bef8b">11.2-3</a></li>
+<li><a href="#org91d694b">11.2-4</a></li>
+<li><a href="#org38c0600">11.2-5</a></li>
+<li><a href="#org4deb4d8">11.2-6</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgf1a8871" class="outline-2">
-<h2 id="orgf1a8871">ch6-problems</h2>
-<div class="outline-text-2" id="text-orgf1a8871">
+<div id="outline-container-org24fcbef" class="outline-2">
+<h2 id="org24fcbef">ch11.2</h2>
+<div class="outline-text-2" id="text-org24fcbef">
 </div>
-<div id="outline-container-org6c66a80" class="outline-3">
-<h3 id="org6c66a80">6-1</h3>
-<div class="outline-text-3" id="text-org6c66a80">
-<ul class="org-ul">
-<li><p>
-<b>a.</b>
-</p>
-
+<div id="outline-container-orge8a5cb3" class="outline-3">
+<h3 id="orge8a5cb3">11.2-1</h3>
+<div class="outline-text-3" id="text-orge8a5cb3">
 <p>
-No, consider \(A = \langle 1, 2, 3 \rangle\), BUILD-MAX-HEAP(A) returns
-\(\langle 3, 2, 1 \rangle\), and BUILD-MAX-HEAP'(A) returns
-\(\langle 3, 1, 2 \rangle\).
-</p></li>
-<li><p>
-<b>b.</b>
-</p>
-
-<p>
-The worst case appears when the input A is already sorted, the running time
-of BUILD-MAX-HEAP' is
+Let \(k_1, k_2, ..., k_n\) denote the \(n\) distinct keys, for keys \(k_i\)
+and \(k_j\), we define the indicator random variable
+\(X_{ij} = I\{h(k_i)=h(k_j)\}\). Under the assumption of simple uniform
+hashing, we have \(Pr\{h(k_i)=h(k_j)\}=1/m\), and so by Lemma 5.1, we have
+\(E[X_{ij}]=1/m\). Thus, the expected number of collisions is
 </p>
 \begin{align*}
-T(n)
-&=\sum_{i=2}^{n}\Theta(\lfloor\lg i\rfloor)\\
-&=\Theta(n\lg n)
-\end{align*}</li>
-</ul>
+C(n,m)
+&=\sum_{i=1}^{n}\sum_{j=i+1}^{n}E[X_{ij}]\\
+&=\sum_{i=1}^{n}\frac{n-i}{m}\\
+&=\frac{n^2-n}{2m}
+\end{align*}
 </div>
 </div>
-<div id="outline-container-orgf8f671b" class="outline-3">
-<h3 id="orgf8f671b">6-2</h3>
-<div class="outline-text-3" id="text-orgf8f671b">
-<ul class="org-ul">
-<li><p>
-<b>a.</b>
-</p>
-
-<p>
-We could define PARENT and CHILD as below to represent a d-ary heap.
-</p>
+<div id="outline-container-org121bb19" class="outline-3">
+<h3 id="org121bb19">11.2-2</h3>
+<div class="outline-text-3" id="text-org121bb19">
 <pre class="example">
-PARENT(i, d)
-    return (i + d - 2) // d
+1. The keys remaining: 5, 28, 19, 15, 20, 33, 12, 17, 10
+|---+---+---+---+---+---+---+---+---|
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
+|---+---+---+---+---+---+---+---+---|
+|   |   |   |   |   |   |   |   |   |
+|---+---+---+---+---+---+---+---+---|
+
+2. The keys remaining: 28, 19, 15, 20, 33, 12, 17, 10
+|---+---+---+---+---+-----+---+---+---|
+| 0 | 1 | 2 | 3 | 4 |   5 | 6 | 7 | 8 |
+|---+---+---+---+---+-----+---+---+---|
+|   |   |   |   |   | (5) |   |   |   |
+|---+---+---+---+---+-----+---+---+---|
+
+3. The keys remaining: 19, 15, 20, 33, 12, 17, 10
+|---+------+---+---+---+-----+---+---+---|
+| 0 |    1 | 2 | 3 | 4 |   5 | 6 | 7 | 8 |
+|---+------+---+---+---+-----+---+---+---|
+|   | (28) |   |   |   | (5) |   |   |   |
+|---+------+---+---+---+-----+---+---+---|
+
+4. The keys remaining: 15, 20, 33, 12, 17, 10
+|---+----------+---+---+---+-----+---+---+---|
+| 0 |        1 | 2 | 3 | 4 |   5 | 6 | 7 | 8 |
+|---+----------+---+---+---+-----+---+---+---|
+|   | (19, 28) |   |   |   | (5) |   |   |   |
+|---+----------+---+---+---+-----+---+---+---|
+
+5. The keys remaining: 20, 33, 12, 17, 10
+|---+----------+---+---+---+-----+------+---+---|
+| 0 |        1 | 2 | 3 | 4 |   5 |    6 | 7 | 8 |
+|---+----------+---+---+---+-----+------+---+---|
+|   | (19, 28) |   |   |   | (5) | (15) |   |   |
+|---+----------+---+---+---+-----+------+---+---|
+
+6. The keys remaining: 33, 12, 17, 10
+|---+----------+------+---+---+-----+------+---+---|
+| 0 |        1 |    2 | 3 | 4 |   5 |    6 | 7 | 8 |
+|---+----------+------+---+---+-----+------+---+---|
+|   | (19, 28) | (20) |   |   | (5) | (15) |   |   |
+|---+----------+------+---+---+-----+------+---+---|
+
+7. The keys remaining: 12, 17, 10
+|---+----------+------+---+---+-----+----------+---+---|
+| 0 |        1 |    2 | 3 | 4 |   5 |        6 | 7 | 8 |
+|---+----------+------+---+---+-----+----------+---+---|
+|   | (19, 28) | (20) |   |   | (5) | (33, 15) |   |   |
+|---+----------+------+---+---+-----+----------+---+---|
+
+8. The keys remaining: 17, 10
+|---+----------+------+------+---+-----+----------+---+---|
+| 0 |        1 |    2 |    3 | 4 |   5 |        6 | 7 | 8 |
+|---+----------+------+------+---+-----+----------+---+---|
+|   | (19, 28) | (20) | (12) |   | (5) | (33, 15) |   |   |
+|---+----------+------+------+---+-----+----------+---+---|
+
+9. The keys remaining: 10
+|---+----------+------+------+---+-----+----------+---+------|
+| 0 |        1 |    2 |    3 | 4 |   5 |        6 | 7 |    8 |
+|---+----------+------+------+---+-----+----------+---+------|
+|   | (19, 28) | (20) | (12) |   | (5) | (33, 15) |   | (17) |
+|---+----------+------+------+---+-----+----------+---+------|
+
+10. No keys remaining
+|---+--------------+------+------+---+-----+----------+---+------|
+| 0 |            1 |    2 |    3 | 4 |   5 |        6 | 7 |    8 |
+|---+--------------+------+------+---+-----+----------+---+------|
+|   | (10, 19, 28) | (20) | (12) |   | (5) | (33, 15) |   | (17) |
+|---+--------------+------+------+---+-----+----------+---+------|
 </pre>
-<pre class="example">
-CHILD(i, j, d)
-    // the jth child of node i
-    return (i - 1) * d + 1 + j
-</pre></li>
-<li><p>
-<b>b.</b>
-</p>
-
-<p>
-The height of a d-ary heap of n elements is
-\(\lfloor\log_{d}((n - 1)(d - 1) + 1)\rfloor\).
-</p></li>
-<li><p>
-<b>c.</b>
-</p>
-
-<p>
-The running time is \(\Theta(d\log_d n)\).
-</p>
-<pre class="example">
-EXTRACT-MAX(A)
-    if A.heap-size &lt; 1
-	error "heap underflow"
-    max = A[1]
-    A[1] = A[A.heap-size]
-    A.heap-size = A.heap-size - 1
-    MAX-HEAPIFY(A, 1)
-    return max
-</pre>
-<pre class="example">
-MAX-HEAPIFY(A, i)
-    largest = i
-    for j = 1 to A.d
-	child = CHILD(i, j, d)
-	if child &gt; A.heap-size
-	    break
-	if A[child] &gt; A[largest]
-	    largest = child
-    if largest != i
-	exchange A[i] with A[largest]
-	MAX-HEAPIFY(A, largest)
-</pre></li>
-<li><p>
-<b>d.</b>
-</p>
-
-<p>
-The running time is \(O(\log_d n)\).
-</p>
-<pre class="example">
-INSERT(A, key)
-    A.heap-size = A.heap-size + 1
-    A[A.heap-size] = -\infty
-    INCREASE-KEY(A, A.heap-size, key)
-</pre></li>
-<li><p>
-<b>e.</b>
-</p>
-
-<p>
-The running time is \(O(\log_d n)\).
-</p>
-<pre class="example">
-INCREASE-KEY(A, i, key)
-    if key &lt; A[i]
-	error "new key is smaller than current key"
-    A[i] = key
-    while i &gt; 1 and A[PARENT(i)] &lt; A[i]
-	exchange A[i] with A[PARENT(i)]
-	i = PARENT(i)
-</pre></li>
-</ul>
 </div>
 </div>
-<div id="outline-container-orga1e66d1" class="outline-3">
-<h3 id="orga1e66d1">6-3</h3>
-<div class="outline-text-3" id="text-orga1e66d1">
-<ul class="org-ul">
-<li><p>
-<b>a.</b>
+<div id="outline-container-org74bef8b" class="outline-3">
+<h3 id="org74bef8b">11.2-3</h3>
+<div class="outline-text-3" id="text-org74bef8b">
+<p>
+The data structure of the chain would affect the running time after the
+modification.
 </p>
 
 <p>
-The Young tableau is as below
-</p>
-\begin{matrix}
-2 & 3 & 4 & 5\\
-8 & 9 & 12 & 14\\
-16 & \infty & \infty & \infty\\
-\infty & \infty & \infty & \infty
-\end{matrix}</li>
-<li><p>
-<b>b.</b>
+If we are using linked list as the chain, then the average running time for
+successful searches, unsuccessful searches and insertions is
+\(O(1 + \alpha)\), the average running time for deletions is \(O(1)\).
 </p>
 
 <p>
-\(Y[1, 1]\) is the smallest element of \(Y\), and \(Y[1, 1] = \infty\),
-so Y is empty.
+If we are using more efficient data structure, e.g. skip list with \(O(n)\)
+extra space, as the chain, then the average running time for successful
+searches, unsuccessful searches and insertions is \(O(1 + \lg\alpha)\), the
+average running time for deletions is \(O(1)\).
 </p>
-
+</div>
+</div>
+<div id="outline-container-org91d694b" class="outline-3">
+<h3 id="org91d694b">11.2-4</h3>
+<div class="outline-text-3" id="text-org91d694b">
 <p>
-\(Y[m, n]\) is the largest element of \(Y\), and \(Y[m, n] < \infty\),
-so Y is full.
-</p></li>
-<li><p>
-<b>c.</b>
+Define a hash table <code>T</code> and a free list <code>F</code> within , each slot <code>s</code> stores one
+flag <code>s.free?</code> and two pointers, <code>s.prev</code> and <code>s.next</code>.
 </p>
+<pre class="example">
+INITIALIZE(T, F)
+    let F to be a new doubly linked list
+    for i = T.length down to 1
+	T[i].free? = True
+	LINKED-LIST-INSERT(F, T[i])
 
-<pre class="example">
-EXTRACT-MIN(Y)
-    min = Y[1, 1]
-    Y[1, 1] = \infty
-    YOUNG-TABLEAUFY(Y, 1, 1)
-    return min
-</pre>
-<pre class="example">
-YOUNG-TABLEAUFY(Y, r, c)
-    right = (r, c + 1)
-    below = (r + 1, c)
-    if right &lt;= (Y.m, Y.n) and Y[right] &lt; Y[r, c]
-	smallest = right
-    else smallest = (r, c)
-    if below &lt;= (Y.m, Y.n) and Y[below] &lt; Y[smallest]
-	smallest = below
-    if smallest != (r, c)
-	exchange Y[r, c] with Y[smallest]
-	YOUNG-TABLEAUFY(Y, smallest)
-</pre>
-<p>
-The running time is \(T(p) = T(p - 1) + O(1) = O(m + n)\).
-</p></li>
-<li><p>
-<b>d.</b>
-</p>
+SEARCH(T, F, k)
+    s = T[h(k)]
+    if not s.free?
+	return LINKED-LIST-SEARCH(s.next, k)
+    return NIL
 
-<pre class="example">
-YOUNG-TABLEAU-INSERT(Y, key)
-    if Y[Y.m, Y.n] &lt; \infty
-	error "the Young tableau is already full"
-    Y[Y.m, Y.n] = key
-    i = Y.m
-    j = Y.n
-    while i &gt;= 1 and j &gt;= 1
-	left = (i, j - 1)
-	above = (i - 1, j)
-	if left &gt;= (1, 1) and Y[left] &gt; Y[i, j]
-	    largest = left
-	else largest = (i, j)
-	if above &gt;= (1, 1) and Y[above] &lt; Y[largest]
-	    largest = above
-	if largest != (i, j)
-	    exchange Y[i, j] with Y[largest]
-	    (i, j) = largest
-	else return
-</pre></li>
-<li><p>
-<b>e.</b>
-</p>
+INSERT(T, F, x)
+    s = T[h(x.key)]
+    if s.free?
+	LINKED-LIST-DELETE(F, s)
+	let s.next to be a new doubly linked list
+    LINKED-LIST-INSERT(s.next, x)
 
-<pre class="example">
-YOUNG-TABLEAU-SORT(A, n)
-    let Y[n, n] to be new Young tableau
-    for i = 1 to n * n
-	YOUNG-TABLEAU-INSERT(Y, A[i])
-    for j = 1 to n * n
-	A[j] = EXTRACT-MIN(Y)
+DELETE(T, F, x)
+    s = T[h(x.key)]
+    LINKED-LIST-DELETE(s.next, x)
+    if LINKED-LIST-EMPTY?(s.next)
+	s.free? = True
+	LINKED-LIST-INSERT(F, s)
 </pre>
 <p>
-First we create a new Young tableau Y[n, n], it costs \(O(n^2)\) running
-time.
+The free list need to be doubly linked, to ensure the \(O(1)\) running time
+for deletion in the free list.
 </p>
-
+</div>
+</div>
+<div id="outline-container-org38c0600" class="outline-3">
+<h3 id="org38c0600">11.2-5</h3>
+<div class="outline-text-3" id="text-org38c0600">
 <p>
-Then we insert the \(n^2\) elements into Y, it costs \(O(n^3)\)
-running time.
+Assume that when hash all keys from \(U\) to the hash table, there are no
+more than \(n\) keys be hashed to the same slot, then the total number of
+keys in the hash table is no more than \(nm\), which conflicts with the
+precondition \(|U|>nm\), thus \(U\) must have a subset of size \(n\)
+consisting of keys that all hash to the same slot, so that the worst-case
+searching time for hasing with chaining is \(\Theta(n)\).
 </p>
-
+</div>
+</div>
+<div id="outline-container-org4deb4d8" class="outline-3">
+<h3 id="org4deb4d8">11.2-6</h3>
+<div class="outline-text-3" id="text-org4deb4d8">
 <p>
-At last we extract the \(n^2\) elements from Y, it costs
-\(O(n^3)\) running time, the total running time is \(O(n^3)\).
-</p></li>
-<li><p>
-<b>f.</b>
+We could select a key uniformly at random from among the keys in the hash
+table as below.
 </p>
-
-<pre class="example">
-YOUNG-TABLEAU-SEARCH(Y, key)
-    i = Y.m
-    j = 1
-    while i &gt;= 1 and j &lt;= Y.n
-	if key == Y[i, j]
-	    return (i, j)
-	if key &lt; Y[i, j]
-	    i = i - 1
-	else j = j + 1
-    return False
-</pre></li>
-</ul>
+<ol class="org-ol">
+<li>Randomly select \(i\)th chain from the \(m\) chains.</li>
+<li>Randomly select an index \(k\) from \([1, L]\), if \(k\) is no more than
+the length \(n_i\) of the \(i\)th chain, then we return the \(k\)th
+element of the \(i\)th chain, else we repeat step 1-2.</li>
+</ol>
+<p>
+todo
+</p>
 </div>
 </div>
 </div>
