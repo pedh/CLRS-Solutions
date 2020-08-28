@@ -1,0 +1,151 @@
+#+TITLE: Chapter 11.2
+
+* ch11.2
+** 11.2-1
+   Let \(k_1, k_2, ..., k_n\) denote the \(n\) distinct keys, for keys \(k_i\)
+   and \(k_j\), we define the indicator random variable
+   \(X_{ij} = I\{h(k_i)=h(k_j)\}\). Under the assumption of simple uniform
+   hashing, we have \(Pr\{h(k_i)=h(k_j)\}=1/m\), and so by Lemma 5.1, we have
+   \(E[X_{ij}]=1/m\). Thus, the expected number of collisions is
+   \begin{align*}
+   C(n,m)
+   &=\sum_{i=1}^{n}\sum_{j=i+1}^{n}E[X_{ij}]\\
+   &=\sum_{i=1}^{n}\frac{n-i}{m}\\
+   &=\frac{n^2-n}{2m}
+   \end{align*}
+** 11.2-2
+   #+begin_src
+   1. The keys remaining: 5, 28, 19, 15, 20, 33, 12, 17, 10
+   |---+---+---+---+---+---+---+---+---|
+   | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
+   |---+---+---+---+---+---+---+---+---|
+   |   |   |   |   |   |   |   |   |   |
+   |---+---+---+---+---+---+---+---+---|
+
+   2. The keys remaining: 28, 19, 15, 20, 33, 12, 17, 10
+   |---+---+---+---+---+-----+---+---+---|
+   | 0 | 1 | 2 | 3 | 4 |   5 | 6 | 7 | 8 |
+   |---+---+---+---+---+-----+---+---+---|
+   |   |   |   |   |   | (5) |   |   |   |
+   |---+---+---+---+---+-----+---+---+---|
+
+   3. The keys remaining: 19, 15, 20, 33, 12, 17, 10
+   |---+------+---+---+---+-----+---+---+---|
+   | 0 |    1 | 2 | 3 | 4 |   5 | 6 | 7 | 8 |
+   |---+------+---+---+---+-----+---+---+---|
+   |   | (28) |   |   |   | (5) |   |   |   |
+   |---+------+---+---+---+-----+---+---+---|
+
+   4. The keys remaining: 15, 20, 33, 12, 17, 10
+   |---+----------+---+---+---+-----+---+---+---|
+   | 0 |        1 | 2 | 3 | 4 |   5 | 6 | 7 | 8 |
+   |---+----------+---+---+---+-----+---+---+---|
+   |   | (19, 28) |   |   |   | (5) |   |   |   |
+   |---+----------+---+---+---+-----+---+---+---|
+
+   5. The keys remaining: 20, 33, 12, 17, 10
+   |---+----------+---+---+---+-----+------+---+---|
+   | 0 |        1 | 2 | 3 | 4 |   5 |    6 | 7 | 8 |
+   |---+----------+---+---+---+-----+------+---+---|
+   |   | (19, 28) |   |   |   | (5) | (15) |   |   |
+   |---+----------+---+---+---+-----+------+---+---|
+
+   6. The keys remaining: 33, 12, 17, 10
+   |---+----------+------+---+---+-----+------+---+---|
+   | 0 |        1 |    2 | 3 | 4 |   5 |    6 | 7 | 8 |
+   |---+----------+------+---+---+-----+------+---+---|
+   |   | (19, 28) | (20) |   |   | (5) | (15) |   |   |
+   |---+----------+------+---+---+-----+------+---+---|
+
+   7. The keys remaining: 12, 17, 10
+   |---+----------+------+---+---+-----+----------+---+---|
+   | 0 |        1 |    2 | 3 | 4 |   5 |        6 | 7 | 8 |
+   |---+----------+------+---+---+-----+----------+---+---|
+   |   | (19, 28) | (20) |   |   | (5) | (33, 15) |   |   |
+   |---+----------+------+---+---+-----+----------+---+---|
+
+   8. The keys remaining: 17, 10
+   |---+----------+------+------+---+-----+----------+---+---|
+   | 0 |        1 |    2 |    3 | 4 |   5 |        6 | 7 | 8 |
+   |---+----------+------+------+---+-----+----------+---+---|
+   |   | (19, 28) | (20) | (12) |   | (5) | (33, 15) |   |   |
+   |---+----------+------+------+---+-----+----------+---+---|
+
+   9. The keys remaining: 10
+   |---+----------+------+------+---+-----+----------+---+------|
+   | 0 |        1 |    2 |    3 | 4 |   5 |        6 | 7 |    8 |
+   |---+----------+------+------+---+-----+----------+---+------|
+   |   | (19, 28) | (20) | (12) |   | (5) | (33, 15) |   | (17) |
+   |---+----------+------+------+---+-----+----------+---+------|
+
+   10. No keys remaining
+   |---+--------------+------+------+---+-----+----------+---+------|
+   | 0 |            1 |    2 |    3 | 4 |   5 |        6 | 7 |    8 |
+   |---+--------------+------+------+---+-----+----------+---+------|
+   |   | (10, 19, 28) | (20) | (12) |   | (5) | (33, 15) |   | (17) |
+   |---+--------------+------+------+---+-----+----------+---+------|
+   #+end_src
+** 11.2-3
+   The data structure of the chain would affect the running time after the
+   modification.
+
+   If we are using linked list as the chain, then the average running time for
+   successful searches, unsuccessful searches and insertions is
+   \(O(1 + \alpha)\), the average running time for deletions is \(O(1)\).
+
+   If we are using more efficient data structure, e.g. skip list with \(O(n)\)
+   extra space, as the chain, then the average running time for successful
+   searches, unsuccessful searches and insertions is \(O(1 + \lg\alpha)\), the
+   average running time for deletions is \(O(1)\).
+** 11.2-4
+   Define a hash table =T= and a free list =F= within , each slot =s= stores one
+   flag =s.free?= and two pointers, =s.prev= and =s.next=.
+   #+begin_src
+   INITIALIZE(T, F)
+       let F to be a new doubly linked list
+       for i = T.length down to 1
+           T[i].free? = True
+           LINKED-LIST-INSERT(F, T[i])
+
+   SEARCH(T, F, k)
+       s = T[h(k)]
+       if not s.free?
+           return LINKED-LIST-SEARCH(s.next, k)
+       return NIL
+
+   INSERT(T, F, x)
+       s = T[h(x.key)]
+       if s.free?
+           LINKED-LIST-DELETE(F, s)
+           let s.next to be a new doubly linked list
+       LINKED-LIST-INSERT(s.next, x)
+
+   DELETE(T, F, x)
+       s = T[h(x.key)]
+       LINKED-LIST-DELETE(s.next, x)
+       if LINKED-LIST-EMPTY?(s.next)
+           s.free? = True
+           LINKED-LIST-INSERT(F, s)
+   #+end_src
+   The free list need to be doubly linked, to ensure the \(O(1)\) running time
+   for deletion in the free list.
+** 11.2-5
+   Assume that when hash all keys from \(U\) to the hash table, there are no
+   more than \(n\) keys be hashed to the same slot, then the total number of
+   keys in the hash table is no more than \(nm\), which conflicts with the
+   precondition \(|U|>nm\), thus \(U\) must have a subset of size \(n\)
+   consisting of keys that all hash to the same slot, so that the worst-case
+   searching time for hasing with chaining is \(\Theta(n)\).
+** 11.2-6
+   We could select a key uniformly at random from among the keys in the hash
+   table as below.
+   1. Randomly select \(i\)th chain from the \(m\) chains.
+   2. Randomly select an index \(k\) from \([1, L]\), if \(k\) is no more than
+      the length \(n_i\) of the \(i\)th chain, then we return the \(k\)th
+      element of the \(i\)th chain, else we repeat steps 1-2.
+   First we analyze the expected count of experiments of steps 1-2, to complete
+   the selection, the probability of each experiment is \(\alpha / L\), thus the
+   expected count of experiments is \(L / \alpha\), and the expected running
+   time of repetition is \(O(L / \alpha)\). And we know the expected running
+   time of key selection from a single chain is \(O(L)\), thus the total
+   expected running time is \(O(L \cdot (1 + 1 / \alpha))\).
