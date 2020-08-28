@@ -6,7 +6,7 @@
 <!-- 2020-08-28 Fri 10:12 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Chapter 5.1</title>
+<title>Chapter 11.2</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="pedh" />
 <style type="text/css">
@@ -328,100 +328,213 @@ for the JavaScript code in this tag.
  |
  <a accesskey="H" href="/CLRS-Solutions"> HOME </a>
 </div><div id="content">
-<h1 class="title">Chapter 5.1</h1>
+<h1 class="title">Chapter 11.2</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgd723ff8">ch5.1</a>
+<li><a href="#org1267d1e">ch11.2</a>
 <ul>
-<li><a href="#org5ae1bdd">5.1-1</a></li>
-<li><a href="#orgbc587df">5.1-2</a></li>
-<li><a href="#org60aec4e">5.1-3</a></li>
+<li><a href="#orgd36d7e3">11.2-1</a></li>
+<li><a href="#org522c828">11.2-2</a></li>
+<li><a href="#orgcf15555">11.2-3</a></li>
+<li><a href="#org4ba7509">11.2-4</a></li>
+<li><a href="#org15292a5">11.2-5</a></li>
+<li><a href="#org6d75967">11.2-6</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgd723ff8" class="outline-2">
-<h2 id="orgd723ff8">ch5.1</h2>
-<div class="outline-text-2" id="text-orgd723ff8">
+<div id="outline-container-org1267d1e" class="outline-2">
+<h2 id="org1267d1e">ch11.2</h2>
+<div class="outline-text-2" id="text-org1267d1e">
 </div>
-<div id="outline-container-org5ae1bdd" class="outline-3">
-<h3 id="org5ae1bdd">5.1-1</h3>
-<div class="outline-text-3" id="text-org5ae1bdd">
+<div id="outline-container-orgd36d7e3" class="outline-3">
+<h3 id="orgd36d7e3">11.2-1</h3>
+<div class="outline-text-3" id="text-orgd36d7e3">
 <p>
-Total order is a binary relation on some set X, which is antisymmetric,
-transitive, and a connex relation.
+Let \(k_1, k_2, ..., k_n\) denote the \(n\) distinct keys, for keys \(k_i\)
+and \(k_j\), we define the indicator random variable
+\(X_{ij} = I\{h(k_i)=h(k_j)\}\). Under the assumption of simple uniform
+hashing, we have \(Pr\{h(k_i)=h(k_j)\}=1/m\), and so by Lemma 5.1, we have
+\(E[X_{ij}]=1/m\). Thus, the expected number of collisions is
+</p>
+\begin{align*}
+C(n,m)
+&=\sum_{i=1}^{n}\sum_{j=i+1}^{n}E[X_{ij}]\\
+&=\sum_{i=1}^{n}\frac{n-i}{m}\\
+&=\frac{n^2-n}{2m}
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org522c828" class="outline-3">
+<h3 id="org522c828">11.2-2</h3>
+<div class="outline-text-3" id="text-org522c828">
+<pre class="example">
+1. The keys remaining: 5, 28, 19, 15, 20, 33, 12, 17, 10
+|---+---+---+---+---+---+---+---+---|
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
+|---+---+---+---+---+---+---+---+---|
+|   |   |   |   |   |   |   |   |   |
+|---+---+---+---+---+---+---+---+---|
+
+2. The keys remaining: 28, 19, 15, 20, 33, 12, 17, 10
+|---+---+---+---+---+-----+---+---+---|
+| 0 | 1 | 2 | 3 | 4 |   5 | 6 | 7 | 8 |
+|---+---+---+---+---+-----+---+---+---|
+|   |   |   |   |   | (5) |   |   |   |
+|---+---+---+---+---+-----+---+---+---|
+
+3. The keys remaining: 19, 15, 20, 33, 12, 17, 10
+|---+------+---+---+---+-----+---+---+---|
+| 0 |    1 | 2 | 3 | 4 |   5 | 6 | 7 | 8 |
+|---+------+---+---+---+-----+---+---+---|
+|   | (28) |   |   |   | (5) |   |   |   |
+|---+------+---+---+---+-----+---+---+---|
+
+4. The keys remaining: 15, 20, 33, 12, 17, 10
+|---+----------+---+---+---+-----+---+---+---|
+| 0 |        1 | 2 | 3 | 4 |   5 | 6 | 7 | 8 |
+|---+----------+---+---+---+-----+---+---+---|
+|   | (19, 28) |   |   |   | (5) |   |   |   |
+|---+----------+---+---+---+-----+---+---+---|
+
+5. The keys remaining: 20, 33, 12, 17, 10
+|---+----------+---+---+---+-----+------+---+---|
+| 0 |        1 | 2 | 3 | 4 |   5 |    6 | 7 | 8 |
+|---+----------+---+---+---+-----+------+---+---|
+|   | (19, 28) |   |   |   | (5) | (15) |   |   |
+|---+----------+---+---+---+-----+------+---+---|
+
+6. The keys remaining: 33, 12, 17, 10
+|---+----------+------+---+---+-----+------+---+---|
+| 0 |        1 |    2 | 3 | 4 |   5 |    6 | 7 | 8 |
+|---+----------+------+---+---+-----+------+---+---|
+|   | (19, 28) | (20) |   |   | (5) | (15) |   |   |
+|---+----------+------+---+---+-----+------+---+---|
+
+7. The keys remaining: 12, 17, 10
+|---+----------+------+---+---+-----+----------+---+---|
+| 0 |        1 |    2 | 3 | 4 |   5 |        6 | 7 | 8 |
+|---+----------+------+---+---+-----+----------+---+---|
+|   | (19, 28) | (20) |   |   | (5) | (33, 15) |   |   |
+|---+----------+------+---+---+-----+----------+---+---|
+
+8. The keys remaining: 17, 10
+|---+----------+------+------+---+-----+----------+---+---|
+| 0 |        1 |    2 |    3 | 4 |   5 |        6 | 7 | 8 |
+|---+----------+------+------+---+-----+----------+---+---|
+|   | (19, 28) | (20) | (12) |   | (5) | (33, 15) |   |   |
+|---+----------+------+------+---+-----+----------+---+---|
+
+9. The keys remaining: 10
+|---+----------+------+------+---+-----+----------+---+------|
+| 0 |        1 |    2 |    3 | 4 |   5 |        6 | 7 |    8 |
+|---+----------+------+------+---+-----+----------+---+------|
+|   | (19, 28) | (20) | (12) |   | (5) | (33, 15) |   | (17) |
+|---+----------+------+------+---+-----+----------+---+------|
+
+10. No keys remaining
+|---+--------------+------+------+---+-----+----------+---+------|
+| 0 |            1 |    2 |    3 | 4 |   5 |        6 | 7 |    8 |
+|---+--------------+------+------+---+-----+----------+---+------|
+|   | (10, 19, 28) | (20) | (12) |   | (5) | (33, 15) |   | (17) |
+|---+--------------+------+------+---+-----+----------+---+------|
+</pre>
+</div>
+</div>
+<div id="outline-container-orgcf15555" class="outline-3">
+<h3 id="orgcf15555">11.2-3</h3>
+<div class="outline-text-3" id="text-orgcf15555">
+<p>
+The data structure of the chain would affect the running time after the
+modification.
 </p>
 
 <p>
-A binary relation R is a total order on set X if the following statements
-hold for all a,b and c in X:
+If we are using linked list as the chain, then the average running time for
+successful searches, unsuccessful searches and insertions is
+\(O(1 + \alpha)\), the average running time for deletions is \(O(1)\).
 </p>
-
-<ul class="org-ul">
-<li><b>Antisymmetry</b>:
-If \(aRb\) and \(bRa\), then \(a = b\).</li>
-
-<li><b>Transitivity</b>:
-If \(aRb\) and \(bRc\), then \(aRc\).</li>
-
-<li><b>Connexity</b>:
-Either or both of \(aRb\) or \(bRa\) hold(s).</li>
-</ul>
 
 <p>
-We could simply obtain the three statements from the assumption that we are
-always able to determine which candidate is best, hence we know a total order
-on the ranks of the candidates.
+If we are using more efficient data structure, e.g. skip list with \(O(n)\)
+extra space, as the chain, then the average running time for successful
+searches, unsuccessful searches and insertions is \(O(1 + \lg\alpha)\), the
+average running time for deletions is \(O(1)\).
 </p>
 </div>
 </div>
-<div id="outline-container-orgbc587df" class="outline-3">
-<h3 id="orgbc587df">5.1-2</h3>
-<div class="outline-text-3" id="text-orgbc587df">
-<ul class="org-ul">
-<li><p>
-\(T(a, b) = \Theta(b - a)\) running time
+<div id="outline-container-org4ba7509" class="outline-3">
+<h3 id="org4ba7509">11.2-4</h3>
+<div class="outline-text-3" id="text-org4ba7509">
+<p>
+Define a hash table <code>T</code> and a free list <code>F</code> within , each slot <code>s</code> stores one
+flag <code>s.free?</code> and two pointers, <code>s.prev</code> and <code>s.next</code>.
 </p>
 <pre class="example">
-RANDOM-INT(a, b)
-    for i = a to b
-	a = a + RANDOM(0, 1)
-    return a
-</pre></li>
-<li><p>
-\(T(a, b) = \Theta(\lg (b - a))\) running time
-</p>
-<pre class="example">
-RANDOM-INT(a, b)
-    while a &lt; b
-	mid = (a + b) // 2
-	if RANDOM(0, 1) == 0
-	    b = mid
-	else a = mid + 1
-    return a
-</pre></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-org60aec4e" class="outline-3">
-<h3 id="org60aec4e">5.1-3</h3>
-<div class="outline-text-3" id="text-org60aec4e">
-<pre class="example">
-UNBIASED-RANDOM()
-    while True:
-	x = BIASED-RANDOM()
-	y = BIASED-RANDOM()
-	if x &gt; y
-	    return 1
-	if x &lt; y
-	    return 0
+INITIALIZE(T, F)
+    let F to be a new doubly linked list
+    for i = T.length down to 1
+	T[i].free? = True
+	LINKED-LIST-INSERT(F, T[i])
+
+SEARCH(T, F, k)
+    s = T[h(k)]
+    if not s.free?
+	return LINKED-LIST-SEARCH(s.next, k)
+    return NIL
+
+INSERT(T, F, x)
+    s = T[h(x.key)]
+    if s.free?
+	LINKED-LIST-DELETE(F, s)
+	let s.next to be a new doubly linked list
+    LINKED-LIST-INSERT(s.next, x)
+
+DELETE(T, F, x)
+    s = T[h(x.key)]
+    LINKED-LIST-DELETE(s.next, x)
+    if LINKED-LIST-EMPTY?(s.next)
+	s.free? = True
+	LINKED-LIST-INSERT(F, s)
 </pre>
 <p>
-The expected running time is \(T(n) = \Theta(\frac{1}{2p(1-p)})\).
+The free list need to be doubly linked, to ensure the \(O(1)\) running time
+for deletion in the free list.
+</p>
+</div>
+</div>
+<div id="outline-container-org15292a5" class="outline-3">
+<h3 id="org15292a5">11.2-5</h3>
+<div class="outline-text-3" id="text-org15292a5">
+<p>
+Assume that when hash all keys from \(U\) to the hash table, there are no
+more than \(n\) keys be hashed to the same slot, then the total number of
+keys in the hash table is no more than \(nm\), which conflicts with the
+precondition \(|U|>nm\), thus \(U\) must have a subset of size \(n\)
+consisting of keys that all hash to the same slot, so that the worst-case
+searching time for hasing with chaining is \(\Theta(n)\).
+</p>
+</div>
+</div>
+<div id="outline-container-org6d75967" class="outline-3">
+<h3 id="org6d75967">11.2-6</h3>
+<div class="outline-text-3" id="text-org6d75967">
+<p>
+We could select a key uniformly at random from among the keys in the hash
+table as below.
+</p>
+<ol class="org-ol">
+<li>Randomly select \(i\)th chain from the \(m\) chains.</li>
+<li>Randomly select an index \(k\) from \([1, L]\), if \(k\) is no more than
+the length \(n_i\) of the \(i\)th chain, then we return the \(k\)th
+element of the \(i\)th chain, else we repeat step 1-2.</li>
+</ol>
+<p>
+todo
 </p>
 </div>
 </div>
