@@ -6,7 +6,7 @@
 <!-- 2020-08-31 Mon 09:59 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Chapter 6 problems</title>
+<title>Chapter 11.3</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="pedh" />
 <style type="text/css">
@@ -328,269 +328,51 @@ for the JavaScript code in this tag.
  |
  <a accesskey="H" href="/CLRS-Solutions"> HOME </a>
 </div><div id="content">
-<h1 class="title">Chapter 6 problems</h1>
+<h1 class="title">Chapter 11.3</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orge7f9ee0">ch6-problems</a>
+<li><a href="#orgdad52cb">ch11.3</a>
 <ul>
-<li><a href="#org922c157">6-1</a></li>
-<li><a href="#org8c397c0">6-2</a></li>
-<li><a href="#org4fb4fa3">6-3</a></li>
+<li><a href="#orga72c2ba">11.3-1</a></li>
+<li><a href="#org7ab9a3a">11.3-2</a></li>
+<li><a href="#org602acb5">11.3-3</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orge7f9ee0" class="outline-2">
-<h2 id="orge7f9ee0">ch6-problems</h2>
-<div class="outline-text-2" id="text-orge7f9ee0">
+<div id="outline-container-orgdad52cb" class="outline-2">
+<h2 id="orgdad52cb">ch11.3</h2>
+<div class="outline-text-2" id="text-orgdad52cb">
 </div>
-<div id="outline-container-org922c157" class="outline-3">
-<h3 id="org922c157">6-1</h3>
-<div class="outline-text-3" id="text-org922c157">
-<ul class="org-ul">
-<li><p>
-<b>a.</b>
-</p>
-
+<div id="outline-container-orga72c2ba" class="outline-3">
+<h3 id="orga72c2ba">11.3-1</h3>
+<div class="outline-text-3" id="text-orga72c2ba">
 <p>
-No, consider \(A = \langle 1, 2, 3 \rangle\), BUILD-MAX-HEAP(A) returns
-\(\langle 3, 2, 1 \rangle\), and BUILD-MAX-HEAP'(A) returns
-\(\langle 3, 1, 2 \rangle\).
-</p></li>
-<li><p>
-<b>b.</b>
+We could compare the hash value instead of compare the key value, to avoid
+the influence of the string length on the running time.
 </p>
-
-<p>
-The worst case appears when the input A is already sorted, the running time
-of BUILD-MAX-HEAP' is
-</p>
-\begin{align*}
-T(n)
-&=\sum_{i=2}^{n}\Theta(\lfloor\lg i\rfloor)\\
-&=\Theta(n\lg n)
-\end{align*}</li>
-</ul>
 </div>
 </div>
-<div id="outline-container-org8c397c0" class="outline-3">
-<h3 id="org8c397c0">6-2</h3>
-<div class="outline-text-3" id="text-org8c397c0">
-<ul class="org-ul">
-<li><p>
-<b>a.</b>
-</p>
-
+<div id="outline-container-org7ab9a3a" class="outline-3">
+<h3 id="org7ab9a3a">11.3-2</h3>
+<div class="outline-text-3" id="text-org7ab9a3a">
 <p>
-We could define PARENT and CHILD as below to represent a d-ary heap.
+We know that a character, says a radix-\(128\) number, is a \(7\)-bit length
+number, thus we could take the last \(5\) characters from the string, and
+divide \(m\) to get the reminder, which is the hash value.
 </p>
-<pre class="example">
-PARENT(i, d)
-    return (i + d - 2) // d
-</pre>
-<pre class="example">
-CHILD(i, j, d)
-    // the jth child of node i
-    return (i - 1) * d + 1 + j
-</pre></li>
-<li><p>
-<b>b.</b>
-</p>
-
-<p>
-The height of a d-ary heap of n elements is
-\(\lfloor\log_{d}((n - 1)(d - 1) + 1)\rfloor\).
-</p></li>
-<li><p>
-<b>c.</b>
-</p>
-
-<p>
-The running time is \(\Theta(d\log_d n)\).
-</p>
-<pre class="example">
-EXTRACT-MAX(A)
-    if A.heap-size &lt; 1
-	error "heap underflow"
-    max = A[1]
-    A[1] = A[A.heap-size]
-    A.heap-size = A.heap-size - 1
-    MAX-HEAPIFY(A, 1)
-    return max
-</pre>
-<pre class="example">
-MAX-HEAPIFY(A, i)
-    largest = i
-    for j = 1 to A.d
-	child = CHILD(i, j, d)
-	if child &gt; A.heap-size
-	    break
-	if A[child] &gt; A[largest]
-	    largest = child
-    if largest != i
-	exchange A[i] with A[largest]
-	MAX-HEAPIFY(A, largest)
-</pre></li>
-<li><p>
-<b>d.</b>
-</p>
-
-<p>
-The running time is \(O(\log_d n)\).
-</p>
-<pre class="example">
-INSERT(A, key)
-    A.heap-size = A.heap-size + 1
-    A[A.heap-size] = -\infty
-    INCREASE-KEY(A, A.heap-size, key)
-</pre></li>
-<li><p>
-<b>e.</b>
-</p>
-
-<p>
-The running time is \(O(\log_d n)\).
-</p>
-<pre class="example">
-INCREASE-KEY(A, i, key)
-    if key &lt; A[i]
-	error "new key is smaller than current key"
-    A[i] = key
-    while i &gt; 1 and A[PARENT(i)] &lt; A[i]
-	exchange A[i] with A[PARENT(i)]
-	i = PARENT(i)
-</pre></li>
-</ul>
 </div>
 </div>
-<div id="outline-container-org4fb4fa3" class="outline-3">
-<h3 id="org4fb4fa3">6-3</h3>
-<div class="outline-text-3" id="text-org4fb4fa3">
-<ul class="org-ul">
-<li><p>
-<b>a.</b>
-</p>
-
+<div id="outline-container-org602acb5" class="outline-3">
+<h3 id="org602acb5">11.3-3</h3>
+<div class="outline-text-3" id="text-org602acb5">
 <p>
-The Young tableau is as below
+todo
 </p>
-\begin{matrix}
-2 & 3 & 4 & 5\\
-8 & 9 & 12 & 14\\
-16 & \infty & \infty & \infty\\
-\infty & \infty & \infty & \infty
-\end{matrix}</li>
-<li><p>
-<b>b.</b>
-</p>
-
-<p>
-\(Y[1, 1]\) is the smallest element of \(Y\), and \(Y[1, 1] = \infty\),
-so Y is empty.
-</p>
-
-<p>
-\(Y[m, n]\) is the largest element of \(Y\), and \(Y[m, n] < \infty\),
-so Y is full.
-</p></li>
-<li><p>
-<b>c.</b>
-</p>
-
-<pre class="example">
-EXTRACT-MIN(Y)
-    min = Y[1, 1]
-    Y[1, 1] = \infty
-    YOUNG-TABLEAUFY(Y, 1, 1)
-    return min
-</pre>
-<pre class="example">
-YOUNG-TABLEAUFY(Y, r, c)
-    right = (r, c + 1)
-    below = (r + 1, c)
-    if right &lt;= (Y.m, Y.n) and Y[right] &lt; Y[r, c]
-	smallest = right
-    else smallest = (r, c)
-    if below &lt;= (Y.m, Y.n) and Y[below] &lt; Y[smallest]
-	smallest = below
-    if smallest != (r, c)
-	exchange Y[r, c] with Y[smallest]
-	YOUNG-TABLEAUFY(Y, smallest)
-</pre>
-<p>
-The running time is \(T(p) = T(p - 1) + O(1) = O(m + n)\).
-</p></li>
-<li><p>
-<b>d.</b>
-</p>
-
-<pre class="example">
-YOUNG-TABLEAU-INSERT(Y, key)
-    if Y[Y.m, Y.n] &lt; \infty
-	error "the Young tableau is already full"
-    Y[Y.m, Y.n] = key
-    i = Y.m
-    j = Y.n
-    while i &gt;= 1 and j &gt;= 1
-	left = (i, j - 1)
-	above = (i - 1, j)
-	if left &gt;= (1, 1) and Y[left] &gt; Y[i, j]
-	    largest = left
-	else largest = (i, j)
-	if above &gt;= (1, 1) and Y[above] &lt; Y[largest]
-	    largest = above
-	if largest != (i, j)
-	    exchange Y[i, j] with Y[largest]
-	    (i, j) = largest
-	else return
-</pre></li>
-<li><p>
-<b>e.</b>
-</p>
-
-<pre class="example">
-YOUNG-TABLEAU-SORT(A, n)
-    let Y[n, n] to be new Young tableau
-    for i = 1 to n * n
-	YOUNG-TABLEAU-INSERT(Y, A[i])
-    for j = 1 to n * n
-	A[j] = EXTRACT-MIN(Y)
-</pre>
-<p>
-First we create a new Young tableau Y[n, n], it costs \(O(n^2)\) running
-time.
-</p>
-
-<p>
-Then we insert the \(n^2\) elements into Y, it costs \(O(n^3)\)
-running time.
-</p>
-
-<p>
-At last we extract the \(n^2\) elements from Y, it costs
-\(O(n^3)\) running time, the total running time is \(O(n^3)\).
-</p></li>
-<li><p>
-<b>f.</b>
-</p>
-
-<pre class="example">
-YOUNG-TABLEAU-SEARCH(Y, key)
-    i = Y.m
-    j = 1
-    while i &gt;= 1 and j &lt;= Y.n
-	if key == Y[i, j]
-	    return (i, j)
-	if key &lt; Y[i, j]
-	    i = i - 1
-	else j = j + 1
-    return False
-</pre></li>
-</ul>
 </div>
 </div>
 </div>
