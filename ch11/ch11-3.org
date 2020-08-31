@@ -1,0 +1,69 @@
+#+TITLE: Chapter 11.3
+
+* ch11.3
+** 11.3-1
+   We could compare the hash value instead of to compare the key value, to avoid
+   the influence of the length of the string on the running time.
+** 11.3-2
+   To calculate the modulus of a large number, we could use the following
+   theorems to simplify the problem.
+   \begin{align*}
+   (A+B)\bmod C&=(A\bmod C+B\bmod C)\bmod C\\
+   (A*B)\bmod C&=(A\bmod C*B\bmod C)\bmod C
+   \end{align*}
+   The hash value of the string of \(r\) characters is
+   \begin{align*}
+   h(s)
+   &=h(\sum_{i=1}^{r}128^i\cdot c_i) &\text{, $c_i$ stands for ith character.}\\
+   &=\bigg(\sum_{i=1}^{r}c_i(128^i\bmod m)\bigg)\bmod m
+   \end{align*}
+   The modulus \((128^i\bmod m)\) could also be simplified by the theorems.
+** 11.3-3
+   Assume that \(x\) is a string of \(r\) characters, as each character \(c_i\)
+   interpreted in radix \(2^p\), and \(m = 2^p - 1\), then we have
+   \begin{align*}
+   h(k)
+   &=k\bmod m\\
+   &=\bigg(\sum_{i=1}^{r}c_i\bmod m\cdot(2^p)^i\bmod m\bigg)\bmod m\\
+   &=\bigg(\sum_{i=1}^{r}c_i\bmod m\bigg)\bmod m\\
+   \end{align*}
+   Thus \(x\) and \(y\) hash to the same value, if string \(y\) is a permutation
+   of string \(x\). This property would be undesirable if we are handling
+   permutations in an application, such as cards shuffling in card game, player
+   arrangement in sports, etc.
+** 11.3-4
+   The hash values are as below.
+   \begin{align*}
+   h(61)&=700\\
+   h(62)&=318\\
+   h(63)&=936\\
+   h(64)&=554\\
+   h(65)&=172
+   \end{align*}
+** 11.3-5
+   For a specific hash function \(h\) in family \(\mathscr{H}\), the number of
+   collisions is
+   \begin{align*}
+   C(h)
+   &\geq\Bigg\lceil\binom{\frac{|U|}{|B|}}{2}\cdot|B|\Bigg\rceil\\
+   &\geq\frac{|U|^2-|U||B|}{2|B|}
+   \end{align*}
+   Thus for an \(\epsilon-universal\) family \(\mathscr{H}\), we have
+   \begin{align*}
+   \epsilon
+   &\geq\frac{\sum_{h\in\mathscr{H}}C(h)}
+    {\sum_{h\in\mathscr{H}\binom{|U|}{|2|}}}\\
+   &\geq\frac{|U|^2-|U||B|}{|U|(|U|-1)|B|}\\
+   &\geq\frac{1}{|B|}-\frac{1}{|U|}
+   \end{align*}
+** 11.3-6
+   For all pairs of distinct elements \(x, y\in U\), and all hash function
+   \(h_b\) where \(b\in \mathbb{Z}_p\), we have
+   \begin{align*}
+   Pr\{h(x)=h(y)\}
+   &=Pr\Bigg\{\bigg(\sum_{j=0}^{n-1}x_jb^j\bigg)\bmod p
+     =\bigg(\sum_{k=0}^{n-1}y_kb^k\bigg)\bmod p\Bigg\}\\
+   &=Pr\Bigg\{\bigg(\sum_{j=0}^{n-1}(x_j-y_j)b^j\bigg)\equiv 0\pmod p\Bigg\}\\
+   &\leq\frac{n-1}{p} &\text{, from Exercise 31.4-4}
+   \end{align*}
+   Thus \(\mathscr{H}=\{h_b:b\in\mathbb{Z}_p\}\) is \(((n-1)/p)\)-universal.
