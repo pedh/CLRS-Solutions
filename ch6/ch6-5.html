@@ -333,30 +333,30 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org47a93cd">ch6.5</a>
+<li><a href="#org74910b9">ch6.5</a>
 <ul>
-<li><a href="#orgdad1c4c">6.5-1</a></li>
-<li><a href="#org07d4eaf">6.5-2</a></li>
-<li><a href="#orgdadf25f">6.5-3</a></li>
-<li><a href="#org7014e52">6.5-4</a></li>
-<li><a href="#org39b0c0d">6.5-5</a></li>
-<li><a href="#org82a1d9b">6.5-6</a></li>
-<li><a href="#org2a29f24">6.5-7</a></li>
-<li><a href="#orgc4b183a">6.5-8</a></li>
-<li><a href="#org6c10144">6.5-9</a></li>
+<li><a href="#org3d40e1c">6.5-1</a></li>
+<li><a href="#org2fc4b07">6.5-2</a></li>
+<li><a href="#orgbd9589d">6.5-3</a></li>
+<li><a href="#org7986849">6.5-4</a></li>
+<li><a href="#org84b714e">6.5-5</a></li>
+<li><a href="#org7e9f56f">6.5-6</a></li>
+<li><a href="#orgfe41ca6">6.5-7</a></li>
+<li><a href="#org125e4d9">6.5-8</a></li>
+<li><a href="#orgf5faa74">6.5-9</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org47a93cd" class="outline-2">
-<h2 id="org47a93cd">ch6.5</h2>
-<div class="outline-text-2" id="text-org47a93cd">
+<div id="outline-container-org74910b9" class="outline-2">
+<h2 id="org74910b9">ch6.5</h2>
+<div class="outline-text-2" id="text-org74910b9">
 </div>
-<div id="outline-container-orgdad1c4c" class="outline-3">
-<h3 id="orgdad1c4c">6.5-1</h3>
-<div class="outline-text-3" id="text-orgdad1c4c">
+<div id="outline-container-org3d40e1c" class="outline-3">
+<h3 id="org3d40e1c">6.5-1</h3>
+<div class="outline-text-3" id="text-org3d40e1c">
 <pre class="example">
    (15 (13 (5 (4) (0)) (12 (6) (2))) (9 (8 (1)) (7)))
 -&gt; (1 (13 (5 (4) (0)) (12 (6) (2))) (9 (8) (7)))       # extract 15
@@ -364,9 +364,9 @@ for the JavaScript code in this tag.
 </pre>
 </div>
 </div>
-<div id="outline-container-org07d4eaf" class="outline-3">
-<h3 id="org07d4eaf">6.5-2</h3>
-<div class="outline-text-3" id="text-org07d4eaf">
+<div id="outline-container-org2fc4b07" class="outline-3">
+<h3 id="org2fc4b07">6.5-2</h3>
+<div class="outline-text-3" id="text-org2fc4b07">
 <pre class="example">
    (15 (13 (5 (4) (0)) (12 (6) (2))) (9 (8 (1)) (7)))
 -&gt; (15 (13 (5 (4) (0)) (12 (6) (2))) (9 (8 (1) (*10*)) (7)))
@@ -376,9 +376,9 @@ for the JavaScript code in this tag.
 </pre>
 </div>
 </div>
-<div id="outline-container-orgdadf25f" class="outline-3">
-<h3 id="orgdadf25f">6.5-3</h3>
-<div class="outline-text-3" id="text-orgdadf25f">
+<div id="outline-container-orgbd9589d" class="outline-3">
+<h3 id="orgbd9589d">6.5-3</h3>
+<div class="outline-text-3" id="text-orgbd9589d">
 <pre class="example">
 HEAP-MINIMUM(A)
     return A[1]
@@ -410,18 +410,18 @@ MIN-HEAP-INSERT(A, key)
 </pre>
 </div>
 </div>
-<div id="outline-container-org7014e52" class="outline-3">
-<h3 id="org7014e52">6.5-4</h3>
-<div class="outline-text-3" id="text-org7014e52">
+<div id="outline-container-org7986849" class="outline-3">
+<h3 id="org7986849">6.5-4</h3>
+<div class="outline-text-3" id="text-org7986849">
 <p>
 Set the key to \(-\infty\) to keep the max heap and ensure that the desired
 value is larger than the current value.
 </p>
 </div>
 </div>
-<div id="outline-container-org39b0c0d" class="outline-3">
-<h3 id="org39b0c0d">6.5-5</h3>
-<div class="outline-text-3" id="text-org39b0c0d">
+<div id="outline-container-org84b714e" class="outline-3">
+<h3 id="org84b714e">6.5-5</h3>
+<div class="outline-text-3" id="text-org84b714e">
 <p>
 <b>Initialization:</b> The subarray is same as the original max heap except
 \(A[i] = key\), and there may exists one exception that \(A[i] = key\) may be
@@ -441,9 +441,9 @@ the violation is resolved, the subarray becomes a max heap.
 </div>
 </div>
 
-<div id="outline-container-org82a1d9b" class="outline-3">
-<h3 id="org82a1d9b">6.5-6</h3>
-<div class="outline-text-3" id="text-org82a1d9b">
+<div id="outline-container-org7e9f56f" class="outline-3">
+<h3 id="org7e9f56f">6.5-6</h3>
+<div class="outline-text-3" id="text-org7e9f56f">
 <pre class="example">
 HEAP-INCREASE-KEY(A, i, key)
     if key &lt; A[i]
@@ -455,9 +455,9 @@ HEAP-INCREASE-KEY(A, i, key)
 </pre>
 </div>
 </div>
-<div id="outline-container-org2a29f24" class="outline-3">
-<h3 id="org2a29f24">6.5-7</h3>
-<div class="outline-text-3" id="text-org2a29f24">
+<div id="outline-container-orgfe41ca6" class="outline-3">
+<h3 id="orgfe41ca6">6.5-7</h3>
+<div class="outline-text-3" id="text-orgfe41ca6">
 <p>
 <b>FIFO queue:</b> Use a min-priority queue, increase the priority on every
 insertion.
@@ -474,9 +474,9 @@ need to consider reassignment of the priorities.
 </p>
 </div>
 </div>
-<div id="outline-container-orgc4b183a" class="outline-3">
-<h3 id="orgc4b183a">6.5-8</h3>
-<div class="outline-text-3" id="text-orgc4b183a">
+<div id="outline-container-org125e4d9" class="outline-3">
+<h3 id="org125e4d9">6.5-8</h3>
+<div class="outline-text-3" id="text-org125e4d9">
 <pre class="example">
 HEAP-DELETE(A, i)
     key = A[A.heap-size]
@@ -488,9 +488,9 @@ HEAP-DELETE(A, i)
 </pre>
 </div>
 </div>
-<div id="outline-container-org6c10144" class="outline-3">
-<h3 id="org6c10144">6.5-9</h3>
-<div class="outline-text-3" id="text-org6c10144">
+<div id="outline-container-orgf5faa74" class="outline-3">
+<h3 id="orgf5faa74">6.5-9</h3>
+<div class="outline-text-3" id="text-orgf5faa74">
 <pre class="example">
 MERGE-SORTED-LISTS(L, k)
     let A[1..k] be a new array
