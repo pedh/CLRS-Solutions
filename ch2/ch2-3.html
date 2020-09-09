@@ -333,28 +333,28 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgbd56faa">ch2.3</a>
+<li><a href="#org6a0ec91">ch2.3</a>
 <ul>
-<li><a href="#orgfdc18f7">2.3-1</a></li>
-<li><a href="#org59987b9">2.3-2</a></li>
-<li><a href="#org4096ece">2.3-3</a></li>
-<li><a href="#orga5fd46f">2.3-4</a></li>
-<li><a href="#org2d20cbd">2.3-5</a></li>
-<li><a href="#org70cb1de">2.3-6</a></li>
-<li><a href="#orga589ccd">2.3-7</a></li>
+<li><a href="#orgd0f7aa6">2.3-1</a></li>
+<li><a href="#org7a26e4a">2.3-2</a></li>
+<li><a href="#orgba3d824">2.3-3</a></li>
+<li><a href="#orgfe38293">2.3-4</a></li>
+<li><a href="#orga8f949c">2.3-5</a></li>
+<li><a href="#org7614661">2.3-6</a></li>
+<li><a href="#orge000552">2.3-7</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgbd56faa" class="outline-2">
-<h2 id="orgbd56faa">ch2.3</h2>
-<div class="outline-text-2" id="text-orgbd56faa">
+<div id="outline-container-org6a0ec91" class="outline-2">
+<h2 id="org6a0ec91">ch2.3</h2>
+<div class="outline-text-2" id="text-org6a0ec91">
 </div>
-<div id="outline-container-orgfdc18f7" class="outline-3">
-<h3 id="orgfdc18f7">2.3-1</h3>
-<div class="outline-text-3" id="text-orgfdc18f7">
+<div id="outline-container-orgd0f7aa6" class="outline-3">
+<h3 id="orgd0f7aa6">2.3-1</h3>
+<div class="outline-text-3" id="text-orgd0f7aa6">
 <pre class="example">
 		      +--------------------------------+
 		      |  3  9  26  38  41  49  52  57  |
@@ -377,9 +377,9 @@ for the JavaScript code in this tag.
 </pre>
 </div>
 </div>
-<div id="outline-container-org59987b9" class="outline-3">
-<h3 id="org59987b9">2.3-2</h3>
-<div class="outline-text-3" id="text-org59987b9">
+<div id="outline-container-org7a26e4a" class="outline-3">
+<h3 id="org7a26e4a">2.3-2</h3>
+<div class="outline-text-3" id="text-org7a26e4a">
 <pre class="example">
 MERGE(A, p, q, r)
     n1 = q - p + 1
@@ -410,9 +410,9 @@ MERGE(A, p, q, r)
 </pre>
 </div>
 </div>
-<div id="outline-container-org4096ece" class="outline-3">
-<h3 id="org4096ece">2.3-3</h3>
-<div class="outline-text-3" id="text-org4096ece">
+<div id="outline-container-orgba3d824" class="outline-3">
+<h3 id="orgba3d824">2.3-3</h3>
+<div class="outline-text-3" id="text-orgba3d824">
 <p>
 <b>Base Case:</b> \(T(2) = 2\lg{2}\)
 </p>
@@ -432,9 +432,9 @@ when n is an exact power of 2.
 </p>
 </div>
 </div>
-<div id="outline-container-orga5fd46f" class="outline-3">
-<h3 id="orga5fd46f">2.3-4</h3>
-<div class="outline-text-3" id="text-orga5fd46f">
+<div id="outline-container-orgfe38293" class="outline-3">
+<h3 id="orgfe38293">2.3-4</h3>
+<div class="outline-text-3" id="text-orgfe38293">
 \begin{equation*}
 T(n)=
 \begin{cases}
@@ -444,9 +444,9 @@ T(n-1)+t(n) & \text{if n > 1, $t(n)=\Omega(1)$, $t(n)=O(n)$}
 \end{equation*}
 </div>
 </div>
-<div id="outline-container-org2d20cbd" class="outline-3">
-<h3 id="org2d20cbd">2.3-5</h3>
-<div class="outline-text-3" id="text-org2d20cbd">
+<div id="outline-container-orga8f949c" class="outline-3">
+<h3 id="orga8f949c">2.3-5</h3>
+<div class="outline-text-3" id="text-orga8f949c">
 <pre class="example">
 BINARY-SEARCH(A, v)
     low = 1
@@ -480,9 +480,9 @@ T(n)& \leq T(2^{\lceil \lg{n} \rceil})\\
 \end{align*}
 </div>
 </div>
-<div id="outline-container-org70cb1de" class="outline-3">
-<h3 id="org70cb1de">2.3-6</h3>
-<div class="outline-text-3" id="text-org70cb1de">
+<div id="outline-container-org7614661" class="outline-3">
+<h3 id="org7614661">2.3-6</h3>
+<div class="outline-text-3" id="text-org7614661">
 <p>
 No, even we use binary search to find the proper position of the element,
 the bigger elements still need to be move forward, the worst-case running
@@ -490,9 +490,9 @@ time is \(\Theta(n^2)\).
 </p>
 </div>
 </div>
-<div id="outline-container-orga589ccd" class="outline-3">
-<h3 id="orga589ccd">2.3-7</h3>
-<div class="outline-text-3" id="text-orga589ccd">
+<div id="outline-container-orge000552" class="outline-3">
+<h3 id="orge000552">2.3-7</h3>
+<div class="outline-text-3" id="text-orge000552">
 <pre class="example">
 EXIST-TWO-OF-SUM(S, x)
     A = MERGE-SORT(S)
