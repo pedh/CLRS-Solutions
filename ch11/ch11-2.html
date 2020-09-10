@@ -333,27 +333,27 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgf9cd8a9">ch11.2</a>
+<li><a href="#orge18ce81">ch11.2</a>
 <ul>
-<li><a href="#org99b5d8a">11.2-1</a></li>
-<li><a href="#org56109a3">11.2-2</a></li>
-<li><a href="#orgf554f84">11.2-3</a></li>
-<li><a href="#orge2209df">11.2-4</a></li>
-<li><a href="#orgdb4ab57">11.2-5</a></li>
-<li><a href="#org4059f5b">11.2-6</a></li>
+<li><a href="#orgc9658aa">11.2-1</a></li>
+<li><a href="#orga8679ca">11.2-2</a></li>
+<li><a href="#org49f8057">11.2-3</a></li>
+<li><a href="#orgf52395d">11.2-4</a></li>
+<li><a href="#org8ed8325">11.2-5</a></li>
+<li><a href="#org9d5eeb9">11.2-6</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgf9cd8a9" class="outline-2">
-<h2 id="orgf9cd8a9">ch11.2</h2>
-<div class="outline-text-2" id="text-orgf9cd8a9">
+<div id="outline-container-orge18ce81" class="outline-2">
+<h2 id="orge18ce81">ch11.2</h2>
+<div class="outline-text-2" id="text-orge18ce81">
 </div>
-<div id="outline-container-org99b5d8a" class="outline-3">
-<h3 id="org99b5d8a">11.2-1</h3>
-<div class="outline-text-3" id="text-org99b5d8a">
+<div id="outline-container-orgc9658aa" class="outline-3">
+<h3 id="orgc9658aa">11.2-1</h3>
+<div class="outline-text-3" id="text-orgc9658aa">
 <p>
 Let \(k_1, k_2, ..., k_n\) denote the \(n\) distinct keys, for keys \(k_i\)
 and \(k_j\), we define the indicator random variable
@@ -369,9 +369,9 @@ C(n,m)
 \end{align*}
 </div>
 </div>
-<div id="outline-container-org56109a3" class="outline-3">
-<h3 id="org56109a3">11.2-2</h3>
-<div class="outline-text-3" id="text-org56109a3">
+<div id="outline-container-orga8679ca" class="outline-3">
+<h3 id="orga8679ca">11.2-2</h3>
+<div class="outline-text-3" id="text-orga8679ca">
 <pre class="example">
 1. The keys remaining: 5, 28, 19, 15, 20, 33, 12, 17, 10
 |---+---+---+---+---+---+---+---+---|
@@ -445,9 +445,9 @@ C(n,m)
 </pre>
 </div>
 </div>
-<div id="outline-container-orgf554f84" class="outline-3">
-<h3 id="orgf554f84">11.2-3</h3>
-<div class="outline-text-3" id="text-orgf554f84">
+<div id="outline-container-org49f8057" class="outline-3">
+<h3 id="org49f8057">11.2-3</h3>
+<div class="outline-text-3" id="text-org49f8057">
 <p>
 The data structure of the chain would affect the running time after the
 modification.
@@ -467,9 +467,9 @@ average running time for deletions is \(O(1)\).
 </p>
 </div>
 </div>
-<div id="outline-container-orge2209df" class="outline-3">
-<h3 id="orge2209df">11.2-4</h3>
-<div class="outline-text-3" id="text-orge2209df">
+<div id="outline-container-orgf52395d" class="outline-3">
+<h3 id="orgf52395d">11.2-4</h3>
+<div class="outline-text-3" id="text-orgf52395d">
 <p>
 Define a hash table <code>T</code> and a free list <code>F</code> within , each slot <code>s</code> stores one
 flag <code>s.free?</code> and two pointers, <code>s.prev</code> and <code>s.next</code>.
@@ -507,9 +507,9 @@ for deletion in the free list.
 </p>
 </div>
 </div>
-<div id="outline-container-orgdb4ab57" class="outline-3">
-<h3 id="orgdb4ab57">11.2-5</h3>
-<div class="outline-text-3" id="text-orgdb4ab57">
+<div id="outline-container-org8ed8325" class="outline-3">
+<h3 id="org8ed8325">11.2-5</h3>
+<div class="outline-text-3" id="text-org8ed8325">
 <p>
 Assume that when hash all keys from \(U\) to the hash table, there are no
 more than \(n\) keys be hashed to the same slot, then the total number of
@@ -520,9 +520,9 @@ searching time for hasing with chaining is \(\Theta(n)\).
 </p>
 </div>
 </div>
-<div id="outline-container-org4059f5b" class="outline-3">
-<h3 id="org4059f5b">11.2-6</h3>
-<div class="outline-text-3" id="text-org4059f5b">
+<div id="outline-container-org9d5eeb9" class="outline-3">
+<h3 id="org9d5eeb9">11.2-6</h3>
+<div class="outline-text-3" id="text-org9d5eeb9">
 <p>
 We could select a key uniformly at random from among the keys in the hash
 table as below.

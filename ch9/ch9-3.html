@@ -333,30 +333,30 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org24ecfb8">ch9.3</a>
+<li><a href="#orgd419eb1">ch9.3</a>
 <ul>
-<li><a href="#orga646dcf">9.3-1</a></li>
-<li><a href="#org802b323">9.3-2</a></li>
-<li><a href="#org383894e">9.3-3</a></li>
-<li><a href="#orgcc507c8">9.3-4</a></li>
-<li><a href="#orgc611f34">9.3-5</a></li>
-<li><a href="#org5d405c4">9.3-6</a></li>
-<li><a href="#org2fc42c2">9.3-7</a></li>
-<li><a href="#orgbcfbe6f">9.3-8</a></li>
-<li><a href="#org65d0806">9.3-9</a></li>
+<li><a href="#org2e64c4c">9.3-1</a></li>
+<li><a href="#org595e9de">9.3-2</a></li>
+<li><a href="#org2e09b44">9.3-3</a></li>
+<li><a href="#org53fecfa">9.3-4</a></li>
+<li><a href="#org3bc638d">9.3-5</a></li>
+<li><a href="#orgcdd4f8b">9.3-6</a></li>
+<li><a href="#org0096181">9.3-7</a></li>
+<li><a href="#orgd5d2965">9.3-8</a></li>
+<li><a href="#org65c928e">9.3-9</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org24ecfb8" class="outline-2">
-<h2 id="org24ecfb8">ch9.3</h2>
-<div class="outline-text-2" id="text-org24ecfb8">
+<div id="outline-container-orgd419eb1" class="outline-2">
+<h2 id="orgd419eb1">ch9.3</h2>
+<div class="outline-text-2" id="text-orgd419eb1">
 </div>
-<div id="outline-container-orga646dcf" class="outline-3">
-<h3 id="orga646dcf">9.3-1</h3>
-<div class="outline-text-3" id="text-orga646dcf">
+<div id="outline-container-org2e64c4c" class="outline-3">
+<h3 id="org2e64c4c">9.3-1</h3>
+<div class="outline-text-3" id="text-org2e64c4c">
 <p>
 If we divide the input elements into groups of \(7\), the running time is
 </p>
@@ -389,26 +389,26 @@ into groups of \(3\).
 </div>
 </div>
 
-<div id="outline-container-org802b323" class="outline-3">
-<h3 id="org802b323">9.3-2</h3>
-<div class="outline-text-3" id="text-org802b323">
+<div id="outline-container-org595e9de" class="outline-3">
+<h3 id="org595e9de">9.3-2</h3>
+<div class="outline-text-3" id="text-org595e9de">
 <p>
 If \(n \geq 140\), we have \(3n/10 - 6 \geq n/4 + 1 \geq \lceil n/4 \rceil\).
 </p>
 </div>
 </div>
-<div id="outline-container-org383894e" class="outline-3">
-<h3 id="org383894e">9.3-3</h3>
-<div class="outline-text-3" id="text-org383894e">
+<div id="outline-container-org2e09b44" class="outline-3">
+<h3 id="org2e09b44">9.3-3</h3>
+<div class="outline-text-3" id="text-org2e09b44">
 <p>
 We can achieve the \(O(n\lg n)\) worst-case running time of quicksort, with
 using SELECT algorithm to choose the pivot in partitions.
 </p>
 </div>
 </div>
-<div id="outline-container-orgcc507c8" class="outline-3">
-<h3 id="orgcc507c8">9.3-4</h3>
-<div class="outline-text-3" id="text-orgcc507c8">
+<div id="outline-container-org53fecfa" class="outline-3">
+<h3 id="org53fecfa">9.3-4</h3>
+<div class="outline-text-3" id="text-org53fecfa">
 <p>
 First we create a graph of \(n\) vertices, the \(i\)th vertex (named \(V_i\))
 points to the \(i\)th element (named \(A_i\)).
@@ -428,9 +428,9 @@ is one of to the \(i - 1\) smaller element.
 </p>
 </div>
 </div>
-<div id="outline-container-orgc611f34" class="outline-3">
-<h3 id="orgc611f34">9.3-5</h3>
-<div class="outline-text-3" id="text-orgc611f34">
+<div id="outline-container-org3bc638d" class="outline-3">
+<h3 id="org3bc638d">9.3-5</h3>
+<div class="outline-text-3" id="text-org3bc638d">
 <p>
 We use the "black-box" median subroutine to find the median, and use the
 median as the pivot in partition.
@@ -447,9 +447,9 @@ T(n)
 \end{align*}
 </div>
 </div>
-<div id="outline-container-org5d405c4" class="outline-3">
-<h3 id="org5d405c4">9.3-6</h3>
-<div class="outline-text-3" id="text-org5d405c4">
+<div id="outline-container-orgcdd4f8b" class="outline-3">
+<h3 id="orgcdd4f8b">9.3-6</h3>
+<div class="outline-text-3" id="text-orgcdd4f8b">
 <p>
 We partition the n-elements by the median, and recursively find the
 propotional quantiles of the left and right part, then we combine the
@@ -489,9 +489,9 @@ T(n,k)
 \end{align*}
 </div>
 </div>
-<div id="outline-container-org2fc42c2" class="outline-3">
-<h3 id="org2fc42c2">9.3-7</h3>
-<div class="outline-text-3" id="text-org2fc42c2">
+<div id="outline-container-org0096181" class="outline-3">
+<h3 id="org0096181">9.3-7</h3>
+<div class="outline-text-3" id="text-org0096181">
 <p>
 First we find the median of \(S\), and SELECT the \(k\)th closest number to
 the median of \(S\) by comparing the absolute deviation to the median, then
@@ -507,9 +507,9 @@ PARTITION(A, k_closest) by comparing abs(A_i, med)
 </pre>
 </div>
 </div>
-<div id="outline-container-orgbcfbe6f" class="outline-3">
-<h3 id="orgbcfbe6f">9.3-8</h3>
-<div class="outline-text-3" id="text-orgbcfbe6f">
+<div id="outline-container-orgd5d2965" class="outline-3">
+<h3 id="orgd5d2965">9.3-8</h3>
+<div class="outline-text-3" id="text-orgd5d2965">
 <p>
 The algotithm is as below
 </p>
@@ -531,9 +531,9 @@ T(n)
 \end{align*}
 </div>
 </div>
-<div id="outline-container-org65d0806" class="outline-3">
-<h3 id="org65d0806">9.3-9</h3>
-<div class="outline-text-3" id="text-org65d0806">
+<div id="outline-container-org65c928e" class="outline-3">
+<h3 id="org65c928e">9.3-9</h3>
+<div class="outline-text-3" id="text-org65c928e">
 <p>
 Assume the y-coordinate of the optimal location is \(y_0\), and name the
 y-coordinate of the \(i\)th well after \(y_i\), and we minimize the total

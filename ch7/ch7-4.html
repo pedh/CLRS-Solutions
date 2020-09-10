@@ -333,27 +333,27 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orge18e6ff">ch7.4</a>
+<li><a href="#orgffa97e0">ch7.4</a>
 <ul>
-<li><a href="#orgac42f7d">7.4-1</a></li>
-<li><a href="#org45c9633">7.4-2</a></li>
-<li><a href="#org8867382">7.4-3</a></li>
-<li><a href="#org6a65e1b">7.4-4</a></li>
-<li><a href="#orge40b2b7">7.4-5</a></li>
-<li><a href="#org9147555">7.4-6</a></li>
+<li><a href="#org86668c1">7.4-1</a></li>
+<li><a href="#orgf31d544">7.4-2</a></li>
+<li><a href="#orgfcb71fe">7.4-3</a></li>
+<li><a href="#org522596d">7.4-4</a></li>
+<li><a href="#org7876901">7.4-5</a></li>
+<li><a href="#org38eeb81">7.4-6</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orge18e6ff" class="outline-2">
-<h2 id="orge18e6ff">ch7.4</h2>
-<div class="outline-text-2" id="text-orge18e6ff">
+<div id="outline-container-orgffa97e0" class="outline-2">
+<h2 id="orgffa97e0">ch7.4</h2>
+<div class="outline-text-2" id="text-orgffa97e0">
 </div>
-<div id="outline-container-orgac42f7d" class="outline-3">
-<h3 id="orgac42f7d">7.4-1</h3>
-<div class="outline-text-3" id="text-orgac42f7d">
+<div id="outline-container-org86668c1" class="outline-3">
+<h3 id="org86668c1">7.4-1</h3>
+<div class="outline-text-3" id="text-org86668c1">
 <p>
 We have
 </p>
@@ -365,18 +365,18 @@ T(n)
 \end{align*}
 </div>
 </div>
-<div id="outline-container-org45c9633" class="outline-3">
-<h3 id="org45c9633">7.4-2</h3>
-<div class="outline-text-3" id="text-org45c9633">
+<div id="outline-container-orgf31d544" class="outline-3">
+<h3 id="orgf31d544">7.4-2</h3>
+<div class="outline-text-3" id="text-orgf31d544">
 <p>
 The best-case running time of quicksort is \(T(n) = 2T(n/2) + \Theta(n)\),
 by the master theorem, we know it's \(\Theta(n\lg n)\).
 </p>
 </div>
 </div>
-<div id="outline-container-org8867382" class="outline-3">
-<h3 id="org8867382">7.4-3</h3>
-<div class="outline-text-3" id="text-org8867382">
+<div id="outline-container-orgfcb71fe" class="outline-3">
+<h3 id="orgfcb71fe">7.4-3</h3>
+<div class="outline-text-3" id="text-orgfcb71fe">
 <p>
 Let \(f(q) = q^2 + (n - q - 1)^2\), then \(f''(q) = 4\), thus f(q) is a
 strict convex, and \(f(0) = f(n - 1) = (n - 1)^2\), hence the expression
@@ -384,9 +384,9 @@ achieves a maximum when \(q = 0\) or \(q = n - 1\).
 </p>
 </div>
 </div>
-<div id="outline-container-org6a65e1b" class="outline-3">
-<h3 id="org6a65e1b">7.4-4</h3>
-<div class="outline-text-3" id="text-org6a65e1b">
+<div id="outline-container-org522596d" class="outline-3">
+<h3 id="org522596d">7.4-4</h3>
+<div class="outline-text-3" id="text-org522596d">
 <p>
 The expected running time is
 </p>
@@ -398,9 +398,9 @@ E[X]
 \end{align*}
 </div>
 </div>
-<div id="outline-container-orge40b2b7" class="outline-3">
-<h3 id="orge40b2b7">7.4-5</h3>
-<div class="outline-text-3" id="text-orge40b2b7">
+<div id="outline-container-org7876901" class="outline-3">
+<h3 id="org7876901">7.4-5</h3>
+<div class="outline-text-3" id="text-org7876901">
 <p>
 Using the improved quicksort, first we perform quicksort until the size of
 the subarrays are smaller than k, it costs \(O(n\lg(n/k))\) running time in
@@ -420,9 +420,9 @@ satisfies the condition \(c_1 nk + c_2 n\lg(n/k) < c_2 n\lg n\).
 </div>
 </div>
 
-<div id="outline-container-org9147555" class="outline-3">
-<h3 id="org9147555">7.4-6</h3>
-<div class="outline-text-3" id="text-org9147555">
+<div id="outline-container-org38eeb81" class="outline-3">
+<h3 id="org38eeb81">7.4-6</h3>
+<div class="outline-text-3" id="text-org38eeb81">
 <p>
 Assume \(\alpha \leq 1/2\), else substitude \(\alpha\) with \(1 - \alpha\),
 the probability of getting at worst an \(\alpha\)-to-\((1-\alpha)\) split is
