@@ -1,0 +1,21 @@
+#+TITLE: Chapter 11.5
+
+* ch11.5
+** 11.5-1
+   Let us define the event \(A_{i,j}\), for \(i,j=1,2,\dots,n\) to be the event
+   that the \(i\)th key and the \(j\)th key do not collide. Then the event that
+   no collisions occur is the intersection of events
+   \(A_{1,2}\cap A_{1,3}\cap\cdots\cap A_{n-1,n}\), we have
+   \begin{align*}
+   \Pr\{A_{1,2}\cap A_{1,3}\cap\cdots\cap A_{n-1,n}\}
+   &=\Pr\{A_{1,2}\}\cdot\Pr\{A_{1,3}|A_{1,2}\}\cdots
+   \Pr\{A_{n-1,n}|A_{1,2}\cap A_{1,3}\cap\cdots\cap A_{n-2,n}\}\\
+   &\leq\Pr\{A_{1,2}\}\cdot\Pr\{A_{1,3}\}\cdots\Pr\{A_{n-1,n}\}\\
+   &=\Big(1-\frac{1}{m}\Big)^{\binom{n}{2}}\\
+   &\leq \mathrm{e}^{-n(n-1)/2m}
+   \end{align*}
+   Let \(f(n)=\mathrm{e}^{-n(n-1)/2m}\), we know that \(f(n)\) is a concave
+   function, and \(f'(\sqrt{m})\approx (-2\sqrt{m}+1)\mathrm{e}^{-1/2}\), which
+   is proportional to \(\sqrt{m}\), i.e. negatively large, thus when \(n\)
+   exceeds \(\sqrt{m}\), the probability of avoiding collisions goes rapidly to
+   zero.
