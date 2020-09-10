@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-09-09 Wed 10:03 -->
+<!-- 2020-09-10 Thu 03:17 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 11.4</title>
@@ -333,26 +333,26 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org3a12829">ch11.4</a>
+<li><a href="#org5f47d04">ch11.4</a>
 <ul>
-<li><a href="#org01ae864">11.4-1</a></li>
-<li><a href="#org6908e58">11.4-2</a></li>
-<li><a href="#org62f3e21">11.4-3</a></li>
-<li><a href="#orgbaad3ac">11.4-4</a></li>
-<li><a href="#org27cb58f">11.4-5</a></li>
+<li><a href="#org22189b3">11.4-1</a></li>
+<li><a href="#org9eeabd8">11.4-2</a></li>
+<li><a href="#org71f33de">11.4-3</a></li>
+<li><a href="#org450d02c">11.4-4</a></li>
+<li><a href="#orgf99946d">11.4-5</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org3a12829" class="outline-2">
-<h2 id="org3a12829">ch11.4</h2>
-<div class="outline-text-2" id="text-org3a12829">
+<div id="outline-container-org5f47d04" class="outline-2">
+<h2 id="org5f47d04">ch11.4</h2>
+<div class="outline-text-2" id="text-org5f47d04">
 </div>
-<div id="outline-container-org01ae864" class="outline-3">
-<h3 id="org01ae864">11.4-1</h3>
-<div class="outline-text-3" id="text-org01ae864">
+<div id="outline-container-org22189b3" class="outline-3">
+<h3 id="org22189b3">11.4-1</h3>
+<div class="outline-text-3" id="text-org22189b3">
 <pre class="example">
 1. line probing
 h(10, 0) = 10
@@ -581,9 +581,9 @@ h(59, 3) = 1
 </pre>
 </div>
 </div>
-<div id="outline-container-org6908e58" class="outline-3">
-<h3 id="org6908e58">11.4-2</h3>
-<div class="outline-text-3" id="text-org6908e58">
+<div id="outline-container-org9eeabd8" class="outline-3">
+<h3 id="org9eeabd8">11.4-2</h3>
+<div class="outline-text-3" id="text-org9eeabd8">
 <pre class="example">
 HASH-DELETE(T, k)
     i = HASH-SEARCH(k)
@@ -603,9 +603,9 @@ HASH-INSERT(T, k)
 </pre>
 </div>
 </div>
-<div id="outline-container-org62f3e21" class="outline-3">
-<h3 id="org62f3e21">11.4-3</h3>
-<div class="outline-text-3" id="text-org62f3e21">
+<div id="outline-container-org71f33de" class="outline-3">
+<h3 id="org71f33de">11.4-3</h3>
+<div class="outline-text-3" id="text-org71f33de">
 <p>
 When the load factor is \(3 / 4\), the upper bound on the expected number of
 probes in an unsuccessful search is \(4\), the upper bound on the expected
@@ -619,9 +619,9 @@ number of probes in a successful search is \(\frac{8\ln8}{7}\approx 2.377\).
 </p>
 </div>
 </div>
-<div id="outline-container-orgbaad3ac" class="outline-3">
-<h3 id="orgbaad3ac">11.4-4</h3>
-<div class="outline-text-3" id="text-orgbaad3ac">
+<div id="outline-container-org450d02c" class="outline-3">
+<h3 id="org450d02c">11.4-4</h3>
+<div class="outline-text-3" id="text-org450d02c">
 <p>
 From theorem 31.24, we know that the equation \(ih_2(k)\equiv 0\pmod{m}\) has
 exactly \(d\) distinct solutions, modulo m, given by \(i_k = k(m/d)\) for
@@ -632,9 +632,9 @@ entire table.
 </p>
 </div>
 </div>
-<div id="outline-container-org27cb58f" class="outline-3">
-<h3 id="org27cb58f">11.4-5</h3>
-<div class="outline-text-3" id="text-org27cb58f">
+<div id="outline-container-orgf99946d" class="outline-3">
+<h3 id="orgf99946d">11.4-5</h3>
+<div class="outline-text-3" id="text-orgf99946d">
 <p>
 To find the nonzero value \(\alpha\) for which the expected number of probes
 in an unsuccessful search equals twice the expected number of probes in a
@@ -644,7 +644,20 @@ successful search, we need to solve the equation below.
 \frac{1}{1-\alpha}=\frac{2}{\alpha}\ln\frac{1}{1-\alpha}
 \end{align*}
 <p>
-todo
+To solve the equation, we need to use the <b>Lambert W function</b>, which is the
+inverse function of \(f(w) = w\mathrm{e}^w\).
+</p>
+\begin{align*}
+&\frac{1}{1-\alpha}=\frac{2}{\alpha}\ln\frac{1}{1-\alpha}\\
+\implies&\mathrm{e}^{\frac{\alpha}{2(1-\alpha)}}=\frac{1}{1-\alpha}\\
+\implies&-\frac{1}{2}\mathrm{e}^{-\frac{1}{2}}=\frac{1}{2(\alpha-1)}
+\mathrm{e}^{\frac{1}{2(\alpha-1)}}\\
+\implies&\frac{1}{2(\alpha-1)}=W(-\frac{1}{2}\mathrm{e}^{-\frac{1}{2}})
+\end{align*}
+<p>
+Since \(-\frac{1}{\mathrm{e}}< -\frac{1}{2}\mathrm{e}^{-\frac{1}{2}}< 0\), we
+could use two branches \(W_0\) and \(W_{-1}\) to dealing with real numbers
+only, after calculation, we found the result \(\alpha \approx 0.7153\).
 </p>
 </div>
 </div>
@@ -652,7 +665,7 @@ todo
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2020-09-09 Wed 10:03</p>
+<p class="date">Created: 2020-09-10 Thu 03:17</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
