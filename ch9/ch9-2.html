@@ -333,25 +333,25 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org5d98ffc">ch9.2</a>
+<li><a href="#org8222f62">ch9.2</a>
 <ul>
-<li><a href="#org552c156">9.2-1</a></li>
-<li><a href="#org2a1dc7c">9.2-2</a></li>
-<li><a href="#org544fbd7">9.2-3</a></li>
-<li><a href="#orgde39eea">9.2-4</a></li>
+<li><a href="#org48e88a5">9.2-1</a></li>
+<li><a href="#org01e7c8a">9.2-2</a></li>
+<li><a href="#org611be86">9.2-3</a></li>
+<li><a href="#orga8093c1">9.2-4</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org5d98ffc" class="outline-2">
-<h2 id="org5d98ffc">ch9.2</h2>
-<div class="outline-text-2" id="text-org5d98ffc">
+<div id="outline-container-org8222f62" class="outline-2">
+<h2 id="org8222f62">ch9.2</h2>
+<div class="outline-text-2" id="text-org8222f62">
 </div>
-<div id="outline-container-org552c156" class="outline-3">
-<h3 id="org552c156">9.2-1</h3>
-<div class="outline-text-3" id="text-org552c156">
+<div id="outline-container-org48e88a5" class="outline-3">
+<h3 id="org48e88a5">9.2-1</h3>
+<div class="outline-text-3" id="text-org48e88a5">
 <p>
 If we make a recursive call to \(0\)-length array in line 8, then we have
 \(q - 1 < p\), and \(i < k = q - p + 1\), thus we have \(i < 1\), which is
@@ -369,9 +369,9 @@ Thus RANDOMIZED-SELECT never makes a recursive call to a \(0\)-length array.
 </p>
 </div>
 </div>
-<div id="outline-container-org2a1dc7c" class="outline-3">
-<h3 id="org2a1dc7c">9.2-2</h3>
-<div class="outline-text-3" id="text-org2a1dc7c">
+<div id="outline-container-org01e7c8a" class="outline-3">
+<h3 id="org01e7c8a">9.2-2</h3>
+<div class="outline-text-3" id="text-org01e7c8a">
 <p>
 The value \(T(max(k-1,n-k))\) does not affect the incicator random variable
 \(X_k\), and the \(X_k\) does not affect \(T(max(k-1,n-k))\) either, thus
@@ -379,9 +379,9 @@ they are independent.
 </p>
 </div>
 </div>
-<div id="outline-container-org544fbd7" class="outline-3">
-<h3 id="org544fbd7">9.2-3</h3>
-<div class="outline-text-3" id="text-org544fbd7">
+<div id="outline-container-org611be86" class="outline-3">
+<h3 id="org611be86">9.2-3</h3>
+<div class="outline-text-3" id="text-org611be86">
 <pre class="example">
 RANDOMIZED-SELECT-ITER(A, i)
     p = 1
@@ -399,9 +399,9 @@ RANDOMIZED-SELECT-ITER(A, i)
 </pre>
 </div>
 </div>
-<div id="outline-container-orgde39eea" class="outline-3">
-<h3 id="orgde39eea">9.2-4</h3>
-<div class="outline-text-3" id="text-orgde39eea">
+<div id="outline-container-orga8093c1" class="outline-3">
+<h3 id="orga8093c1">9.2-4</h3>
+<div class="outline-text-3" id="text-orga8093c1">
 <p>
 The sequence of partitions results in a worst-case performance of
 RANDOMIZED-SELECT, if we always choose the maximum element of the subarray
