@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-09-10 Thu 10:12 -->
+<!-- 2020-09-10 Thu 10:15 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 10.2</title>
@@ -333,29 +333,29 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org2a2b93f">ch10.2</a>
+<li><a href="#orgfcb48f9">ch10.2</a>
 <ul>
-<li><a href="#org56e4d12">10.2-1</a></li>
-<li><a href="#orgaacef2f">10.2-2</a></li>
-<li><a href="#orgdf3d2ca">10.2-3</a></li>
-<li><a href="#org38aab8f">10.2-4</a></li>
-<li><a href="#org8d9a1ef">10.2-5</a></li>
-<li><a href="#orge762f84">10.2-6</a></li>
-<li><a href="#orgf00a8f7">10.2-7</a></li>
-<li><a href="#orgcdd7adb">10.2-8</a></li>
+<li><a href="#org77d28f1">10.2-1</a></li>
+<li><a href="#orgd89ddd0">10.2-2</a></li>
+<li><a href="#org94026f4">10.2-3</a></li>
+<li><a href="#org98e299e">10.2-4</a></li>
+<li><a href="#orgd2a40a0">10.2-5</a></li>
+<li><a href="#org2df9c68">10.2-6</a></li>
+<li><a href="#orga47875f">10.2-7</a></li>
+<li><a href="#org44b69b0">10.2-8</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org2a2b93f" class="outline-2">
-<h2 id="org2a2b93f">ch10.2</h2>
-<div class="outline-text-2" id="text-org2a2b93f">
+<div id="outline-container-orgfcb48f9" class="outline-2">
+<h2 id="orgfcb48f9">ch10.2</h2>
+<div class="outline-text-2" id="text-orgfcb48f9">
 </div>
-<div id="outline-container-org56e4d12" class="outline-3">
-<h3 id="org56e4d12">10.2-1</h3>
-<div class="outline-text-3" id="text-org56e4d12">
+<div id="outline-container-org77d28f1" class="outline-3">
+<h3 id="org77d28f1">10.2-1</h3>
+<div class="outline-text-3" id="text-org77d28f1">
 <p>
 We could implement the dynamic-set operation <code>INSERT</code> by the singly linked
 list <code>LIST-INSERT</code> operation, to achieve \(O(1)\) running time. But the
@@ -365,9 +365,9 @@ the given key.
 </p>
 </div>
 </div>
-<div id="outline-container-orgaacef2f" class="outline-3">
-<h3 id="orgaacef2f">10.2-2</h3>
-<div class="outline-text-3" id="text-orgaacef2f">
+<div id="outline-container-orgd89ddd0" class="outline-3">
+<h3 id="orgd89ddd0">10.2-2</h3>
+<div class="outline-text-3" id="text-orgd89ddd0">
 <pre class="example">
 PUSH(L, x)
     nx = new node to carry x
@@ -382,9 +382,9 @@ POP(L)
 </pre>
 </div>
 </div>
-<div id="outline-container-orgdf3d2ca" class="outline-3">
-<h3 id="orgdf3d2ca">10.2-3</h3>
-<div class="outline-text-3" id="text-orgdf3d2ca">
+<div id="outline-container-org94026f4" class="outline-3">
+<h3 id="org94026f4">10.2-3</h3>
+<div class="outline-text-3" id="text-org94026f4">
 <p>
 The singly linked list \(L\) should support \(L.tail\) attribute.
 </p>
@@ -405,9 +405,9 @@ DEQUEUE(L)
 </pre>
 </div>
 </div>
-<div id="outline-container-org38aab8f" class="outline-3">
-<h3 id="org38aab8f">10.2-4</h3>
-<div class="outline-text-3" id="text-org38aab8f">
+<div id="outline-container-org98e299e" class="outline-3">
+<h3 id="org98e299e">10.2-4</h3>
+<div class="outline-text-3" id="text-org98e299e">
 <pre class="example">
 LIST-SEARCH'(L, k)
     x = L.nil.next
@@ -418,9 +418,9 @@ LIST-SEARCH'(L, k)
 </pre>
 </div>
 </div>
-<div id="outline-container-org8d9a1ef" class="outline-3">
-<h3 id="org8d9a1ef">10.2-5</h3>
-<div class="outline-text-3" id="text-org8d9a1ef">
+<div id="outline-container-orgd2a40a0" class="outline-3">
+<h3 id="orgd2a40a0">10.2-5</h3>
+<div class="outline-text-3" id="text-orgd2a40a0">
 <pre class="example">
 INSERT(L, k, v)
     x = SEARCH(L, k)
@@ -447,9 +447,9 @@ The running times of <code>INSERT</code>, <code>SEARCH</code> and <code>DELETE</
 </p>
 </div>
 </div>
-<div id="outline-container-orge762f84" class="outline-3">
-<h3 id="orge762f84">10.2-6</h3>
-<div class="outline-text-3" id="text-orge762f84">
+<div id="outline-container-org2df9c68" class="outline-3">
+<h3 id="org2df9c68">10.2-6</h3>
+<div class="outline-text-3" id="text-org2df9c68">
 <p>
 We can represent the dynamic set as a doubly linked list, and implement
 <code>UNION</code> as below.
@@ -464,9 +464,9 @@ UNION(S1, S2)
 </pre>
 </div>
 </div>
-<div id="outline-container-orgf00a8f7" class="outline-3">
-<h3 id="orgf00a8f7">10.2-7</h3>
-<div class="outline-text-3" id="text-orgf00a8f7">
+<div id="outline-container-orga47875f" class="outline-3">
+<h3 id="orga47875f">10.2-7</h3>
+<div class="outline-text-3" id="text-orga47875f">
 <pre class="example">
 REVERSE(L)
     x = L.head
@@ -484,9 +484,9 @@ REVERSE(L)
 </p>
 </div>
 </div>
-<div id="outline-container-orgcdd7adb" class="outline-3">
-<h3 id="orgcdd7adb">10.2-8</h3>
-<div class="outline-text-3" id="text-orgcdd7adb">
+<div id="outline-container-org44b69b0" class="outline-3">
+<h3 id="org44b69b0">10.2-8</h3>
+<div class="outline-text-3" id="text-org44b69b0">
 <p>
 We need the pointer to the head to access the head of the list.
 </p>
@@ -579,7 +579,7 @@ REVERSE(L)
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2020-09-10 Thu 10:12</p>
+<p class="date">Created: 2020-09-10 Thu 10:15</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
