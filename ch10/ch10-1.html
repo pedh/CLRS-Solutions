@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-09-10 Thu 10:15 -->
+<!-- 2020-09-11 Fri 10:26 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 10.1</title>
@@ -333,28 +333,28 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org1038257">ch10.1</a>
+<li><a href="#org960b0ae">ch10.1</a>
 <ul>
-<li><a href="#org2e073a2">10.1-1</a></li>
-<li><a href="#orgca9a5a1">10.1-2</a></li>
-<li><a href="#org05f1d83">10.1-3</a></li>
-<li><a href="#org4fd72a6">10.1-4</a></li>
-<li><a href="#org2f5e06d">10.1-5</a></li>
-<li><a href="#org2b13175">10.1-6</a></li>
-<li><a href="#org4d2c80b">10.1-7</a></li>
+<li><a href="#org66bf74d">10.1-1</a></li>
+<li><a href="#orge82129d">10.1-2</a></li>
+<li><a href="#org7cec740">10.1-3</a></li>
+<li><a href="#org7540efc">10.1-4</a></li>
+<li><a href="#org65df06c">10.1-5</a></li>
+<li><a href="#org56aa2a9">10.1-6</a></li>
+<li><a href="#org98c8d60">10.1-7</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org1038257" class="outline-2">
-<h2 id="org1038257">ch10.1</h2>
-<div class="outline-text-2" id="text-org1038257">
+<div id="outline-container-org960b0ae" class="outline-2">
+<h2 id="org960b0ae">ch10.1</h2>
+<div class="outline-text-2" id="text-org960b0ae">
 </div>
-<div id="outline-container-org2e073a2" class="outline-3">
-<h3 id="org2e073a2">10.1-1</h3>
-<div class="outline-text-3" id="text-org2e073a2">
+<div id="outline-container-org66bf74d" class="outline-3">
+<h3 id="org66bf74d">10.1-1</h3>
+<div class="outline-text-3" id="text-org66bf74d">
 <pre class="example">
 Initially empty stack S
 |-------+---+---+---+---+---+---|
@@ -407,18 +407,18 @@ POP(S) -&gt; 8
 </pre>
 </div>
 </div>
-<div id="outline-container-orgca9a5a1" class="outline-3">
-<h3 id="orgca9a5a1">10.1-2</h3>
-<div class="outline-text-3" id="text-orgca9a5a1">
+<div id="outline-container-orge82129d" class="outline-3">
+<h3 id="orge82129d">10.1-2</h3>
+<div class="outline-text-3" id="text-orge82129d">
 <p>
 We could store the elements of one stack from A[1] up to A[n], and store the
 elements of another stack from A[n] down to A[1].
 </p>
 </div>
 </div>
-<div id="outline-container-org05f1d83" class="outline-3">
-<h3 id="org05f1d83">10.1-3</h3>
-<div class="outline-text-3" id="text-org05f1d83">
+<div id="outline-container-org7cec740" class="outline-3">
+<h3 id="org7cec740">10.1-3</h3>
+<div class="outline-text-3" id="text-org7cec740">
 <pre class="example">
 Initially empty queue Q
 |---------------+---+---+---+---+---+---|
@@ -471,9 +471,9 @@ DEQUEUE(Q) -&gt; 1
 </pre>
 </div>
 </div>
-<div id="outline-container-org4fd72a6" class="outline-3">
-<h3 id="org4fd72a6">10.1-4</h3>
-<div class="outline-text-3" id="text-org4fd72a6">
+<div id="outline-container-org7540efc" class="outline-3">
+<h3 id="org7540efc">10.1-4</h3>
+<div class="outline-text-3" id="text-org7540efc">
 <pre class="example">
 QUEUE-EMPTY?(Q)
     return Q.head == Q.tail
@@ -502,9 +502,9 @@ DEQUEUE(Q)
 </pre>
 </div>
 </div>
-<div id="outline-container-org2f5e06d" class="outline-3">
-<h3 id="org2f5e06d">10.1-5</h3>
-<div class="outline-text-3" id="text-org2f5e06d">
+<div id="outline-container-org65df06c" class="outline-3">
+<h3 id="org65df06c">10.1-5</h3>
+<div class="outline-text-3" id="text-org65df06c">
 <p>
 The <code>ENQUEUE</code> and <code>DEQUEUE</code> operations of deque are same as those of queue.
 </p>
@@ -527,9 +527,9 @@ DEQUEUE-COUNTER(Q)
 </pre>
 </div>
 </div>
-<div id="outline-container-org2b13175" class="outline-3">
-<h3 id="org2b13175">10.1-6</h3>
-<div class="outline-text-3" id="text-org2b13175">
+<div id="outline-container-org56aa2a9" class="outline-3">
+<h3 id="org56aa2a9">10.1-6</h3>
+<div class="outline-text-3" id="text-org56aa2a9">
 <p>
 Assume the queue <code>Q</code> has two internal stacks <code>Q.S1</code> and <code>Q.S2</code>.
 </p>
@@ -551,9 +551,9 @@ takes \(O(n)\) worst-case running time and \(O(1)\) running time on average.
 </p>
 </div>
 </div>
-<div id="outline-container-org4d2c80b" class="outline-3">
-<h3 id="org4d2c80b">10.1-7</h3>
-<div class="outline-text-3" id="text-org4d2c80b">
+<div id="outline-container-org98c8d60" class="outline-3">
+<h3 id="org98c8d60">10.1-7</h3>
+<div class="outline-text-3" id="text-org98c8d60">
 <p>
 Assume the stack <code>S</code> has two internal queues <code>S.Q1</code> and <code>S.Q2</code>, and the queue
 supports <code>QUEUE-EMPTY?</code> operation.
@@ -581,7 +581,7 @@ POP(S)
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2020-09-10 Thu 10:15</p>
+<p class="date">Created: 2020-09-11 Fri 10:26</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
