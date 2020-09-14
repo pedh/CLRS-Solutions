@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-09-11 Fri 10:26 -->
+<!-- 2020-09-14 Mon 09:35 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 11 problems</title>
@@ -333,23 +333,23 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org7db0258">ch11-problems</a>
+<li><a href="#org1dd8b1d">ch11-problems</a>
 <ul>
-<li><a href="#org55a9507">11-1</a></li>
-<li><a href="#org37d0e73">11-2</a></li>
+<li><a href="#orgc15e6e8">11-1</a></li>
+<li><a href="#orgdcd28d5">11-2</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org7db0258" class="outline-2">
-<h2 id="org7db0258">ch11-problems</h2>
-<div class="outline-text-2" id="text-org7db0258">
+<div id="outline-container-org1dd8b1d" class="outline-2">
+<h2 id="org1dd8b1d">ch11-problems</h2>
+<div class="outline-text-2" id="text-org1dd8b1d">
 </div>
-<div id="outline-container-org55a9507" class="outline-3">
-<h3 id="org55a9507">11-1</h3>
-<div class="outline-text-3" id="text-org55a9507">
+<div id="outline-container-orgc15e6e8" class="outline-3">
+<h3 id="orgc15e6e8">11-1</h3>
+<div class="outline-text-3" id="text-orgc15e6e8">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
@@ -400,9 +400,9 @@ E[X]
 </ul>
 </div>
 </div>
-<div id="outline-container-org37d0e73" class="outline-3">
-<h3 id="org37d0e73">11-2</h3>
-<div class="outline-text-3" id="text-org37d0e73">
+<div id="outline-container-orgdcd28d5" class="outline-3">
+<h3 id="orgdcd28d5">11-2</h3>
+<div class="outline-text-3" id="text-orgdcd28d5">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
@@ -430,6 +430,31 @@ be a slot contains exactly \(k\) keys, which means \(P_k \leq nQ_k\).
 </p>
 
 <p>
+We have
+</p>
+\begin{align*}
+Q_k
+&=\bigg(\frac{1}{n}\bigg)^k\bigg(1-\frac{1}{n}\bigg)^{n-k}\binom{n}{k}\\
+&=\frac{(n-1)^{n-k}}{n^n}\cdot\frac{n!}{(n-k)!k!}\\
+&< \frac{n!}{n^k(n-k)!k!}\\
+&< \frac{1}{k!}\\
+&=\frac{1}{\sqrt{2\pi k}(\frac{k}{e})^k\big(1+\Theta(\frac{1}{k})\big)}\\
+&< \frac{e^k}{k^k}
+\end{align*}</li>
+<li><p>
+<b>d.</b>
+</p>
+
+<p>
+Assume \(Q_{k_0} < e^{k_0}/k_0^{k_0} \leq 1/n^3\), then we have
+</p>
+\begin{align*}
+f(n)=\frac{c}{\lg\lg n}\cdot(\lg c-\lg \mathrm{e}+\lg\lg n-\lg\lg\lg n) > 3
+\end{align*}
+<p>
+Since \(f(n)\) is monotonically decreasing on the range \([3,\infty]\), we
+could obtain \(c > 3\) from \(\lim_{n\to\infty}f(n)>3\), and choose
+\(c = 4\) to satisfy the requirement.
 todo
 </p></li>
 </ul>
@@ -439,7 +464,7 @@ todo
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2020-09-11 Fri 10:26</p>
+<p class="date">Created: 2020-09-14 Mon 09:35</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
