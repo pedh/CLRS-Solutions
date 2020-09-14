@@ -333,28 +333,28 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgb56e17b">ch10.1</a>
+<li><a href="#orga5c46ca">ch10.1</a>
 <ul>
-<li><a href="#org2af39d2">10.1-1</a></li>
-<li><a href="#org31e96f7">10.1-2</a></li>
-<li><a href="#org2cb5bfa">10.1-3</a></li>
-<li><a href="#org3a2ac5f">10.1-4</a></li>
-<li><a href="#org3c14eb7">10.1-5</a></li>
-<li><a href="#org8e19ef4">10.1-6</a></li>
-<li><a href="#org22bcdb5">10.1-7</a></li>
+<li><a href="#orgeb9c12e">10.1-1</a></li>
+<li><a href="#orgbf418ae">10.1-2</a></li>
+<li><a href="#org5197463">10.1-3</a></li>
+<li><a href="#orgdf237db">10.1-4</a></li>
+<li><a href="#org290a164">10.1-5</a></li>
+<li><a href="#orgdb1a8bf">10.1-6</a></li>
+<li><a href="#org7fbb148">10.1-7</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgb56e17b" class="outline-2">
-<h2 id="orgb56e17b">ch10.1</h2>
-<div class="outline-text-2" id="text-orgb56e17b">
+<div id="outline-container-orga5c46ca" class="outline-2">
+<h2 id="orga5c46ca">ch10.1</h2>
+<div class="outline-text-2" id="text-orga5c46ca">
 </div>
-<div id="outline-container-org2af39d2" class="outline-3">
-<h3 id="org2af39d2">10.1-1</h3>
-<div class="outline-text-3" id="text-org2af39d2">
+<div id="outline-container-orgeb9c12e" class="outline-3">
+<h3 id="orgeb9c12e">10.1-1</h3>
+<div class="outline-text-3" id="text-orgeb9c12e">
 <pre class="example">
 Initially empty stack S
 |-------+---+---+---+---+---+---|
@@ -407,18 +407,18 @@ POP(S) -&gt; 8
 </pre>
 </div>
 </div>
-<div id="outline-container-org31e96f7" class="outline-3">
-<h3 id="org31e96f7">10.1-2</h3>
-<div class="outline-text-3" id="text-org31e96f7">
+<div id="outline-container-orgbf418ae" class="outline-3">
+<h3 id="orgbf418ae">10.1-2</h3>
+<div class="outline-text-3" id="text-orgbf418ae">
 <p>
 We could store the elements of one stack from A[1] up to A[n], and store the
 elements of another stack from A[n] down to A[1].
 </p>
 </div>
 </div>
-<div id="outline-container-org2cb5bfa" class="outline-3">
-<h3 id="org2cb5bfa">10.1-3</h3>
-<div class="outline-text-3" id="text-org2cb5bfa">
+<div id="outline-container-org5197463" class="outline-3">
+<h3 id="org5197463">10.1-3</h3>
+<div class="outline-text-3" id="text-org5197463">
 <pre class="example">
 Initially empty queue Q
 |---------------+---+---+---+---+---+---|
@@ -471,9 +471,9 @@ DEQUEUE(Q) -&gt; 1
 </pre>
 </div>
 </div>
-<div id="outline-container-org3a2ac5f" class="outline-3">
-<h3 id="org3a2ac5f">10.1-4</h3>
-<div class="outline-text-3" id="text-org3a2ac5f">
+<div id="outline-container-orgdf237db" class="outline-3">
+<h3 id="orgdf237db">10.1-4</h3>
+<div class="outline-text-3" id="text-orgdf237db">
 <pre class="example">
 QUEUE-EMPTY?(Q)
     return Q.head == Q.tail
@@ -502,9 +502,9 @@ DEQUEUE(Q)
 </pre>
 </div>
 </div>
-<div id="outline-container-org3c14eb7" class="outline-3">
-<h3 id="org3c14eb7">10.1-5</h3>
-<div class="outline-text-3" id="text-org3c14eb7">
+<div id="outline-container-org290a164" class="outline-3">
+<h3 id="org290a164">10.1-5</h3>
+<div class="outline-text-3" id="text-org290a164">
 <p>
 The <code>ENQUEUE</code> and <code>DEQUEUE</code> operations of deque are same as those of queue.
 </p>
@@ -527,9 +527,9 @@ DEQUEUE-COUNTER(Q)
 </pre>
 </div>
 </div>
-<div id="outline-container-org8e19ef4" class="outline-3">
-<h3 id="org8e19ef4">10.1-6</h3>
-<div class="outline-text-3" id="text-org8e19ef4">
+<div id="outline-container-orgdb1a8bf" class="outline-3">
+<h3 id="orgdb1a8bf">10.1-6</h3>
+<div class="outline-text-3" id="text-orgdb1a8bf">
 <p>
 Assume the queue <code>Q</code> has two internal stacks <code>Q.S1</code> and <code>Q.S2</code>.
 </p>
@@ -551,9 +551,9 @@ takes \(O(n)\) worst-case running time and \(O(1)\) running time on average.
 </p>
 </div>
 </div>
-<div id="outline-container-org22bcdb5" class="outline-3">
-<h3 id="org22bcdb5">10.1-7</h3>
-<div class="outline-text-3" id="text-org22bcdb5">
+<div id="outline-container-org7fbb148" class="outline-3">
+<h3 id="org7fbb148">10.1-7</h3>
+<div class="outline-text-3" id="text-org7fbb148">
 <p>
 Assume the stack <code>S</code> has two internal queues <code>S.Q1</code> and <code>S.Q2</code>, and the queue
 supports <code>QUEUE-EMPTY?</code> operation.
