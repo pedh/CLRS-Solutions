@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-09-14 Mon 09:35 -->
+<!-- 2020-09-15 Tue 10:33 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 11 problems</title>
@@ -333,23 +333,24 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgdaa5225">ch11-problems</a>
+<li><a href="#org70b62e0">ch11-problems</a>
 <ul>
-<li><a href="#org38299d9">11-1</a></li>
-<li><a href="#org3f41715">11-2</a></li>
+<li><a href="#org11400d7">11-1</a></li>
+<li><a href="#orgbb17ad0">11-2</a></li>
+<li><a href="#org2dde929">11-3</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgdaa5225" class="outline-2">
-<h2 id="orgdaa5225">ch11-problems</h2>
-<div class="outline-text-2" id="text-orgdaa5225">
+<div id="outline-container-org70b62e0" class="outline-2">
+<h2 id="org70b62e0">ch11-problems</h2>
+<div class="outline-text-2" id="text-org70b62e0">
 </div>
-<div id="outline-container-org38299d9" class="outline-3">
-<h3 id="org38299d9">11-1</h3>
-<div class="outline-text-3" id="text-org38299d9">
+<div id="outline-container-org11400d7" class="outline-3">
+<h3 id="org11400d7">11-1</h3>
+<div class="outline-text-3" id="text-org11400d7">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
@@ -400,9 +401,9 @@ E[X]
 </ul>
 </div>
 </div>
-<div id="outline-container-org3f41715" class="outline-3">
-<h3 id="org3f41715">11-2</h3>
-<div class="outline-text-3" id="text-org3f41715">
+<div id="outline-container-orgbb17ad0" class="outline-3">
+<h3 id="orgbb17ad0">11-2</h3>
+<div class="outline-text-3" id="text-orgbb17ad0">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
@@ -454,7 +455,57 @@ f(n)=\frac{c}{\lg\lg n}\cdot(\lg c-\lg \mathrm{e}+\lg\lg n-\lg\lg\lg n) > 3
 <p>
 Since \(f(n)\) is monotonically decreasing on the range \([3,\infty]\), we
 could obtain \(c > 3\) from \(\lim_{n\to\infty}f(n)>3\), and choose
-\(c = 4\) to satisfy the requirement.
+\(c = 4\) to satisfy the requirement. For \(k>k_0=c\lg n/\lg\lg n\), we
+have \(P_k\leq nQ_k\leq nQ_{k_0}<1/n^2\).
+</p></li>
+<li><p>
+<b>e.</b>
+</p>
+
+<p>
+We have
+</p>
+\begin{align*}
+E[M]
+&=\sum_{k=1}^{n}k\cdot P_k\\
+&\leq n\cdot\sum_{k_0 < k\leq n}P_k+k_0\cdot\sum_{1\leq k\leq k_0}P_k\\
+&=\Pr\bigg\{M > \frac{c\lg n}{\lg\lg n}\bigg\}\cdot n+\Pr\bigg\{M\leq
+  \frac{c\lg n}{\lg\lg n}\bigg\}\cdot\frac{c\lg n}{\lg\lg n}\\
+&\leq n\cdot\frac{1}{n^2}\cdot n+\frac{c\lg n}{\lg\lg n}\\
+&=O(\lg n/\lg\lg n)
+\end{align*}</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org2dde929" class="outline-3">
+<h3 id="org2dde929">11-3</h3>
+<div class="outline-text-3" id="text-org2dde929">
+<ul class="org-ul">
+<li><p>
+<b>a.</b>
+</p>
+
+<p>
+Let \(j_i\) indicates the value of \(j\) after \(i\) iterations of steps
+2-3, we have
+</p>
+\begin{align*}
+j_i=
+\begin{cases}
+h(k) &\text{, if $i=0$}\\
+(j_{i-1}+i)\mod m &\text{, if $i>0$}
+\end{cases}
+\end{align*}
+<p>
+By induction, we have \(j_i=h(k)+\frac{i(i+1)}{2}\), thus the given scheme
+is an instance of the general "quadratic probing" scheme, by exhibiting the
+appropriate constants \(c_1=1/2\) and \(c_2=1/2\).
+</p></li>
+<li><p>
+<b>b.</b>
+</p>
+
+<p>
 todo
 </p></li>
 </ul>
@@ -464,7 +515,7 @@ todo
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2020-09-14 Mon 09:35</p>
+<p class="date">Created: 2020-09-15 Tue 10:33</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
