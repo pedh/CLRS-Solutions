@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-09-15 Tue 10:33 -->
+<!-- 2020-09-24 Thu 09:39 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 11 problems</title>
@@ -333,24 +333,25 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgb58f1c8">ch11-problems</a>
+<li><a href="#org7fc13d4">ch11-problems</a>
 <ul>
-<li><a href="#org7f95893">11-1</a></li>
-<li><a href="#org7f817e5">11-2</a></li>
-<li><a href="#org349403f">11-3</a></li>
+<li><a href="#orgab49501">11-1</a></li>
+<li><a href="#orgcd7a245">11-2</a></li>
+<li><a href="#orge0e77bb">11-3</a></li>
+<li><a href="#org5e6efdc">11-4</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgb58f1c8" class="outline-2">
-<h2 id="orgb58f1c8">ch11-problems</h2>
-<div class="outline-text-2" id="text-orgb58f1c8">
+<div id="outline-container-org7fc13d4" class="outline-2">
+<h2 id="org7fc13d4">ch11-problems</h2>
+<div class="outline-text-2" id="text-org7fc13d4">
 </div>
-<div id="outline-container-org7f95893" class="outline-3">
-<h3 id="org7f95893">11-1</h3>
-<div class="outline-text-3" id="text-org7f95893">
+<div id="outline-container-orgab49501" class="outline-3">
+<h3 id="orgab49501">11-1</h3>
+<div class="outline-text-3" id="text-orgab49501">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
@@ -401,9 +402,9 @@ E[X]
 </ul>
 </div>
 </div>
-<div id="outline-container-org7f817e5" class="outline-3">
-<h3 id="org7f817e5">11-2</h3>
-<div class="outline-text-3" id="text-org7f817e5">
+<div id="outline-container-orgcd7a245" class="outline-3">
+<h3 id="orgcd7a245">11-2</h3>
+<div class="outline-text-3" id="text-orgcd7a245">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
@@ -477,9 +478,9 @@ E[M]
 </ul>
 </div>
 </div>
-<div id="outline-container-org349403f" class="outline-3">
-<h3 id="org349403f">11-3</h3>
-<div class="outline-text-3" id="text-org349403f">
+<div id="outline-container-orge0e77bb" class="outline-3">
+<h3 id="orge0e77bb">11-3</h3>
+<div class="outline-text-3" id="text-orge0e77bb">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
@@ -506,7 +507,89 @@ appropriate constants \(c_1=1/2\) and \(c_2=1/2\).
 </p>
 
 <p>
-todo
+Assume the algorithm does not examine every table position in the worst
+case, then there must be \(0\leq x < y\leq m-1\) that \(j_x=j_y\), we have
+</p>
+\begin{align*}
+& h(k)+x(x+1)/2\equiv h(k)+y(y+1)/2\pmod{m}\\
+\implies & y^2+y-x^2-x\equiv 0\pmod{2m}\\
+\implies & (y-x)(y+x+1)\equiv 0\pmod{2m}
+\end{align*}
+<p>
+Since \(m\) is a power of \(2\), if \(y-x\) is odd, then we have
+\((y+x+1)\equiv 0\pmod{2m}\), which is impossible because \(y+x+1< 2m\); if
+\(y-x\) is even, then \(y+x+1 = (y-x)+2x+1\) is odd, hence
+\((y-x)\equiv 0\pmod{2m}\), which is also impossible.
+</p>
+
+<p>
+In conclusion, the algorithm examines every table position in the worst
+case.
+</p></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org5e6efdc" class="outline-3">
+<h3 id="org5e6efdc">11-4</h3>
+<div class="outline-text-3" id="text-org5e6efdc">
+<ul class="org-ul">
+<li><p>
+<b>a.</b>
+</p>
+
+<p>
+If the family \(\mathcal{H}\) of hash function is \(2\)-universal, then for
+each two distinct keys \(\langle x^{(1)},x^{(2)}\rangle\) and any
+\(h\in\mathcal{H}\), the sequence \(\langle h(x^{(1)}),h(x^{(2)})\rangle\)
+is equally likely to be any of the \(m^2\) sequences of length \(2\) with
+elements drawn from \(\{0,1,\dots,m-1\}\), that is, \(m\) collisions out of
+\(m^2\) pairs, the probability of collision is no more than \(1/m\), thus
+the family \(\mathcal{H}\) is universal.
+</p></li>
+<li><p>
+<b>b.</b>
+</p>
+
+<p>
+For each pair of distinct elements \(x,y\in U\) and a hash function \(h_a\)
+randomly chosen from \(\mathcal{H}\), if \(x\) and \(y\) collides, i.e.
+\(h_a(x) = h_a(y)\), then we have
+</p>
+\begin{align*}
+\Bigg(\sum_{j=0}^{n-1}a_j(x_j-y_j)\Bigg)\equiv 0\pmod{p}
+\end{align*}
+<p>
+Since \(p\) is prime, the number of hash functions \(h_a\in\mathcal{H}\)
+for which \(h_a(x) = h_a(y)\) is at most \(|\mathcal{H}|/m\), hence
+\(\mathcal{H}\) is universal.
+However, for \(x=\langle 0,0,\cdots,0\rangle\), all hash functions in
+\(\mathcal{H}\) produce the same value \(0\), hence \(\mathcal{H}\) is not
+\(2\)-universal.
+</p></li>
+<li><p>
+<b>c.</b>
+</p>
+
+<p>
+For each pair of distinct elements \(x,y\in U\), the hash values
+\(h'_{ab}(x)\) and \(h'_{ab}(y)\) are both equally likely to be any of the
+values in \(\mathbb{Z}_p\), and are independent, hence the sequence
+\(\langle h'_{ab}(x),h'_{ab}(y) \rangle\) is equally likely to be any of
+the \(p^2\) sequences of length \(2\) with elements drawn from
+\(\mathbb{Z}_p\), thus \(\mathcal{H}\) is \(2\)-universal.
+</p></li>
+<li><p>
+<b>d.</b>
+</p>
+
+<p>
+Let \(\langle m, m'\rangle\) to be a sequence of two distinct keys drawn
+from \(U\), since \(\mathcal{H}\) is \(2\)-universal, for any \(h\) chosen
+at random from \(\mathcal{H}\), the sequence \(\langle h(m),h(m') \rangle\)
+is equally likely to be any of the \(p\)<sup>2</sup> sequences of length \(2\) with
+elements drawn from \(\mathbb{Z}_p\). Thus for fixed values \(m,t,m'\), the
+value of \(t'\) is equally likely to be any of \(\mathbb{Z}_p\), hence the
+probability that the adversary succeeds in fooling Bob is at most \(1/p\).
 </p></li>
 </ul>
 </div>
@@ -515,7 +598,7 @@ todo
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2020-09-15 Tue 10:33</p>
+<p class="date">Created: 2020-09-24 Thu 09:39</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
