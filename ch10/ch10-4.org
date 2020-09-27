@@ -1,16 +1,16 @@
 #+TITLE: Chapter 10.4
+#+PROPERTY: header-args:dot :output-dir ../static/generated/images/
 
 * ch10.4
 ** 10.4-1
-#+BEGIN_SRC dot :file ch10-4-1.png :output-dir ../static/generated/images/ :exports results
-digraph {
-  12 -> 7, 4;
-  4 -> 5;
-  10 -> 2, 21;
-  18 -> 12, 10;
-}
-#+END_SRC
-
+   #+BEGIN_SRC dot :file ch10-4-1.png :exports results
+   digraph {
+     12 -> 7, 4;
+     4 -> 5;
+     10 -> 2, 21;
+     18 -> 12, 10;
+   }
+   #+END_SRC
 ** 10.4-2
    #+BEGIN_SRC
    PRINT-BINARY-TREE-KEYS(T)
