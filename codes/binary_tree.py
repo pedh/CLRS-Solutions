@@ -5,10 +5,11 @@ Binary tree.
 
 class Node:
     """Binary tree node."""
-    def __init__(self, key, left=None, right=None):
+    def __init__(self, key, left=None, right=None, p=None):
         self._key = key
         self._left = left
         self._right = right
+        self._p = p
 
     @property
     def key(self):
@@ -25,6 +26,11 @@ class Node:
         """The right child node."""
         return self._right
 
+    @property
+    def p(self):
+        """The parent of the node"""
+        return self._p
+
     @key.setter
     def key(self, key):
         self._key = key
@@ -36,6 +42,10 @@ class Node:
     @right.setter
     def right(self, right):
         self._right = right
+
+    @p.setter
+    def p(self, p):
+        self._p = p
 
     def __repr__(self):
         return "(%s %s %s)" % (self.key, self.left, self.right)
@@ -61,15 +71,18 @@ class Stack:
         self._lst.append(val)
 
 
-def list_to_tree(lst):
+def list_to_tree(lst, p=None):
     """Convert a list into a binary tree."""
     length = len(lst)
     if length == 0:
         return None
     if length == 1:
-        return Node(lst[0])
+        return Node(lst[0], p=p)
     mid = (length - 1) // 2
-    return Node(lst[mid], list_to_tree(lst[:mid]), list_to_tree(lst[mid + 1:]))
+    node = Node(lst[mid], p=p)
+    node.left = list_to_tree(lst[:mid], p=node)
+    node.right = list_to_tree(lst[mid + 1:], p=node)
+    return node
 
 
 def print_tree_pre_order(node):
@@ -172,6 +185,25 @@ def print_tree_in_pre_order_iter_no_stack(node):
                 prev = prev.right
 
 
+def print_tree_in_order_iter_no_stack_with_parent(node):
+    """Iteratively binary tree in-order traversal with parent, but no stack."""
+    cur = node
+    left_done = False
+    while cur:
+        if not left_done:
+            while cur.left:
+                cur = cur.left
+            left_done = True
+        print(cur.key, end=' ')
+        if cur.right:
+            cur = cur.right
+            left_done = False
+        else:
+            while cur.p and cur == cur.p.right:
+                cur = cur.p
+            cur = cur.p
+
+
 def main():
     """The main function."""
     length = 20
@@ -199,6 +231,9 @@ def main():
     print('\n')
     print("iteration in order without stack")
     print_tree_in_order_iter_no_stack(tree)
+    print('\n')
+    print("iteration in order using parent, without stack")
+    print_tree_in_order_iter_no_stack_with_parent(tree)
     print('\n')
 
 

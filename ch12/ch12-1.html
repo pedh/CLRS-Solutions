@@ -6,7 +6,7 @@
 <!-- 2020-09-27 Sun 09:30 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Chapter 4.5</title>
+<title>Chapter 12.1</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="pedh" />
 <style type="text/css">
@@ -328,128 +328,121 @@ for the JavaScript code in this tag.
  |
  <a accesskey="H" href="/CLRS-Solutions"> HOME </a>
 </div><div id="content">
-<h1 class="title">Chapter 4.5</h1>
+<h1 class="title">Chapter 12.1</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org493e152">ch4.5</a>
+<li><a href="#org4616630">ch12.1</a>
 <ul>
-<li><a href="#orgaffd48d">4.5-1</a></li>
-<li><a href="#orgd3a6e6d">4.5-2</a></li>
-<li><a href="#org0c933e7">4.5-3</a></li>
-<li><a href="#org3eb9305">4.5-4</a></li>
-<li><a href="#org966702c">4.5-5</a></li>
+<li><a href="#orgcca442b">12.1-1</a></li>
+<li><a href="#org6b1ad92">12.1-2</a></li>
+<li><a href="#org8725e3d">12.1-3</a></li>
+<li><a href="#orgc4fe32a">12.1-4</a></li>
+<li><a href="#org16a1f57">12.1-5</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org493e152" class="outline-2">
-<h2 id="org493e152">ch4.5</h2>
-<div class="outline-text-2" id="text-org493e152">
+<div id="outline-container-org4616630" class="outline-2">
+<h2 id="org4616630">ch12.1</h2>
+<div class="outline-text-2" id="text-org4616630">
 </div>
-<div id="outline-container-orgaffd48d" class="outline-3">
-<h3 id="orgaffd48d">4.5-1</h3>
-<div class="outline-text-3" id="text-orgaffd48d">
-<ul class="org-ul">
-<li><p>
-<b>a.</b>
-</p>
+<div id="outline-container-orgcca442b" class="outline-3">
+<h3 id="orgcca442b">12.1-1</h3>
+<div class="outline-text-3" id="text-orgcca442b">
 
-<p>
-\(T(n) = 2T(n/4) + 1 = \Theta(\sqrt n)\)
-</p></li>
-<li><p>
-<b>b.</b>
+<div class="figure">
+<p><img src="../static/generated/images/ch12-1-2.png" alt="ch12-1-2.png" />
 </p>
+</div>
+</div>
+</div>
 
+<div id="outline-container-org6b1ad92" class="outline-3">
+<h3 id="org6b1ad92">12.1-2</h3>
+<div class="outline-text-3" id="text-org6b1ad92">
 <p>
-\(T(n) = 2T(n/4) + \sqrt n = \Theta(\sqrt n \lg n)\)
-</p></li>
-<li><p>
-<b>c.</b>
+If \(x\) is a node of a min-heap, then we have \(x.key \leq x.left.key\) and
+\(x.key \leq x.right.key\). If \(x\) is a node of a binary search tree, then
+we have \(x.left.key \leq x.key \leq x.right.key\). Since the sorted order of
+the left child and the right child of a node could not be determined via the
+min-heap, we cannot print out the keys of an \(n\)-node min-heap in sorted
+order in \(O(n)\) time.
 </p>
+</div>
+</div>
+<div id="outline-container-org8725e3d" class="outline-3">
+<h3 id="org8725e3d">12.1-3</h3>
+<div class="outline-text-3" id="text-org8725e3d">
+<pre class="example">
+INORDER-TREE-WALK-ITER(x)
+    let S be a new stack
+    PUSH(S, x)
+    while not EMPTY?(S)
+	cur = POP(S)
+	while cur != NIL
+	    PUSH(S, cur)
+	    cur = cur.left
+	if not EMPTY?(S)
+	    prev = POP(S)
+	    print prev.key
+	    PUSH(S, prev.right)
 
+INORDER-TREE-WALK-ITER-NO-STACK(x)
+    cur = x
+    left_done = FALSE
+    while cur != NIL
+	if left_done == FALSE
+	    while cur.left != NIL
+		cur = cur.left
+	    left_done = TRUE
+	print cur.key
+	if cur.right != NIL
+	   cur = cur.right
+	   left_done = FALSE
+	else while cur.p != NIL and cur == cur.p.right
+		cur = cur.p
+	    cur = cur.p
+</pre>
 <p>
-\(T(n) = 2T(n/4) + n = \Theta(n)\)
-</p></li>
-<li><p>
-<b>d.</b>
+<a href="../codes/binary_tree.py">Implementation</a>
 </p>
+</div>
+</div>
+<div id="outline-container-orgc4fe32a" class="outline-3">
+<h3 id="orgc4fe32a">12.1-4</h3>
+<div class="outline-text-3" id="text-orgc4fe32a">
+<pre class="example">
+PREORDER-TREE-WALK(x)
+    while x != NIL
+	print x.key
+	PREORDER-TREE-WALK(x.left)
+	PREORDER-TREE-WALK(x.right)
 
-<p>
-\(T(n) = 2T(n/4) + n^2 = \Theta(n^2)\)
-</p></li>
-</ul>
+POSTORDER-TREE-WALK(x)
+    while x != NIL
+	POSTORDER-TREE-WALK(x.left)
+	POSTORDER-TREE-WALK(x.right)
+	print x.key
+</pre>
 </div>
 </div>
-<div id="outline-container-orgd3a6e6d" class="outline-3">
-<h3 id="orgd3a6e6d">4.5-2</h3>
-<div class="outline-text-3" id="text-orgd3a6e6d">
+<div id="outline-container-org16a1f57" class="outline-3">
+<h3 id="org16a1f57">12.1-5</h3>
+<div class="outline-text-3" id="text-org16a1f57">
 <p>
-The running time of Strassen's algorithm is \(\Theta(n^{\lg 7})\),
-the running time that \(T(n) = aT(n/4) + \Theta(n^2)\) is
-\(\Theta(n^{\log_4 a})\) when \(a > 4^2 = 16\).
+Since we could get the ordered list from the binary search tree in \(O(n)\)
+running time, the comparison-based algorithm for constructing a binary search
+tree from an arbitrary list of \(n\) elements should take \(T(n)\) time in
+the worst case that
 </p>
-
-<p>
-The largest integer value of a such that \(\log_4 a < \lg 7\) is 48.
-</p>
-</div>
-</div>
-<div id="outline-container-org0c933e7" class="outline-3">
-<h3 id="org0c933e7">4.5-3</h3>
-<div class="outline-text-3" id="text-org0c933e7">
-<p>
-Use the master method,
-\(T(n) = T(n/2) + \Theta(1) = aT(n/b) + \Theta(n^c)\),
-then we have \(a = 1\), \(b = 2\) and \(c = 0\).
-</p>
-
-<p>
-And \(log_b a = 0 = c\), thus \(T(n) = \Theta(n^0 \lg n) =\Theta(\lg n)\).
-</p>
-</div>
-</div>
-<div id="outline-container-org3eb9305" class="outline-3">
-<h3 id="org3eb9305">4.5-4</h3>
-<div class="outline-text-3" id="text-org3eb9305">
-<p>
-The master method can't be applied to the recurrence
-\(T(n) = 4T(n/2) + n^2\lg n\), because \(n^2\lg n\) is larger but not
-polynomially larger than \(n^2\).
-</p>
-
-<p>
-We guess the asymptotic upper bound is \(n^2\lg n\lg n\).
-</p>
-</div>
-</div>
-<div id="outline-container-org966702c" class="outline-3">
-<h3 id="org966702c">4.5-5</h3>
-<div class="outline-text-3" id="text-org966702c">
-<p>
-\(T(n) = T(n/2) + n(1 + \sin n)\).
-</p>
-
-<p>
-For the regular condition,
-</p>
-\begin{equation*}
-\frac{n}{2}(1+\sin\frac{n}{2})\leq cn(1+\sin n)
-\end{equation*}
-<p>
-Let \(d \in \mathbb{R}^{+},\ n = (2d + 1)\pi\), we have
-</p>
-\begin{equation*}
-\frac{1}{2}(1+\sin((d+\frac{1}{2})\pi))\leq c(1+\sin((2d+1)\pi))
-\implies 1\leq c
-\end{equation*}
-<p>
-Which conflicts with the precondition \(c < 1\).
-</p>
+\begin{align*}
+&T(n) + O(n) \geq \Omega(n\lg n)\\
+\implies &T(n) = \Omega(n\lg n)
+\end{align*}
 </div>
 </div>
 </div>
