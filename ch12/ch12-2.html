@@ -6,7 +6,7 @@
 <!-- 2020-09-28 Mon 12:09 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Chapter 8.4</title>
+<title>Chapter 12.2</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="pedh" />
 <style type="text/css">
@@ -328,125 +328,128 @@ for the JavaScript code in this tag.
  |
  <a accesskey="H" href="/CLRS-Solutions"> HOME </a>
 </div><div id="content">
-<h1 class="title">Chapter 8.4</h1>
+<h1 class="title">Chapter 12.2</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org81111f5">ch8.4</a>
+<li><a href="#orgb3dff12">ch12.2</a>
 <ul>
-<li><a href="#orgcd1f000">8.4-1</a></li>
-<li><a href="#org708e471">8.4-2</a></li>
-<li><a href="#org40ce297">8.4-3</a></li>
-<li><a href="#org7789c5c">8.4-4</a></li>
-<li><a href="#org5d5d7d3">8.4-5</a></li>
+<li><a href="#org15c1f1c">12.2-1</a></li>
+<li><a href="#org648446e">12.2-2</a></li>
+<li><a href="#org8b6c838">12.2-3</a></li>
+<li><a href="#orgdca7fb2">12.2-4</a></li>
+<li><a href="#orga3d8fc3">12.2-5</a></li>
+<li><a href="#orgfe646b6">12.2-6</a></li>
+<li><a href="#org5a30b95">12.2-7</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org81111f5" class="outline-2">
-<h2 id="org81111f5">ch8.4</h2>
-<div class="outline-text-2" id="text-org81111f5">
+<div id="outline-container-orgb3dff12" class="outline-2">
+<h2 id="orgb3dff12">ch12.2</h2>
+<div class="outline-text-2" id="text-orgb3dff12">
 </div>
-<div id="outline-container-orgcd1f000" class="outline-3">
-<h3 id="orgcd1f000">8.4-1</h3>
-<div class="outline-text-3" id="text-orgcd1f000">
+<div id="outline-container-org15c1f1c" class="outline-3">
+<h3 id="org15c1f1c">12.2-1</h3>
+<div class="outline-text-3" id="text-org15c1f1c">
+<p>
+The sequence <b>c.</b> is impossible because \(911 > 240\) and \(911 < 912\).
+The sequence <b>e.</b> is impossible because \(347 < 621\) and \(347 > 299\).
+</p>
+</div>
+</div>
+<div id="outline-container-org648446e" class="outline-3">
+<h3 id="org648446e">12.2-2</h3>
+<div class="outline-text-3" id="text-org648446e">
 <pre class="example">
-|    |   A |   |   | B         |
-|----+-----+---+---+-----------|
-|  1 | .79 |   | 0 |           |
-|  2 | .13 |   | 1 | (.13 .16) |
-|  3 | .16 |   | 2 | (.20)     |
-|  4 | .64 |   | 3 | (.39)     |
-|  5 | .39 |   | 4 | (.4)      |
-|  6 | .20 |   | 5 | (.53)     |
-|  7 | .89 |   | 6 | (.64)     |
-|  8 | .53 |   | 7 | (.79 .71) |
-|  9 | .71 |   | 8 | (.89)     |
-| 10 |  .4 |   | 9 |           |
-|----+-----+---+---+-----------|
+TREE-MINIMUM(x)
+    if x.left != NIL
+	return TREE-MINIMUM(x.left)
+    return x
+
+TREE-MAXIMUM(x)
+    if x.right != NIL
+	return TREE-MAXIMUM(x.right)
+    return x
 </pre>
 </div>
 </div>
-<div id="outline-container-org708e471" class="outline-3">
-<h3 id="org708e471">8.4-2</h3>
-<div class="outline-text-3" id="text-org708e471">
+<div id="outline-container-org8b6c838" class="outline-3">
+<h3 id="org8b6c838">12.2-3</h3>
+<div class="outline-text-3" id="text-org8b6c838">
+<pre class="example">
+TREE-PREDECESSOR(x)
+    if x.left != NIL
+	return TREE-MAXIMUM(x.left)
+    y = x.p
+    while y != NIL and x == y.left
+	x = y
+	y = y.p
+    return y
+</pre>
+</div>
+</div>
+<div id="outline-container-orgdca7fb2" class="outline-3">
+<h3 id="orgdca7fb2">12.2-4</h3>
+<div class="outline-text-3" id="text-orgdca7fb2">
+
+<div class="figure">
+<p><img src="../static/generated/images/ch12-2-1.png" alt="ch12-2-1.png" />
+</p>
+</div>
+
 <p>
-The worst case appears when all elements fall in one bucket, the worst-case
-running time is \(\Theta(n^2)\).
+To find \(7\) in the tree as above, we have \(A=\{2,5\}\), \(B=\{4,6,7\}\)
+and \(C=\emptyset\), and the inequation \(5 > 4\) conflicts with the
+professor's claim.
+</p>
+</div>
+</div>
+<div id="outline-container-orga3d8fc3" class="outline-3">
+<h3 id="orga3d8fc3">12.2-5</h3>
+<div class="outline-text-3" id="text-orga3d8fc3">
+<p>
+If a node in a binary search tree has two children, then its successor is the
+minimum key of the right subtree of the node, which has no left child; its
+predecessor is the maximum key of the left subtree of the node, which has no
+right child.
+</p>
+</div>
+</div>
+<div id="outline-container-orgfe646b6" class="outline-3">
+<h3 id="orgfe646b6">12.2-6</h3>
+<div class="outline-text-3" id="text-orgfe646b6">
+<p>
+If \(y\) is not the ancestor of \(x\), then \(x\) and \(y\) must have a
+common ancestor \(z\), which means \(x.key < z.key < y.key\), and conflicts
+with the prerequisite, thus \(y\) is the ancestor of \(x\).
 </p>
 
 <p>
-We could use \(O(n\lg n)\) sorting algorithm like heapsort or merge sort
-instead of insertion sort as the intermediate sorting algorithm, then we
-preserve the linear average-case running time and make the worst-case running
-time \(O(n\lg n)\).
+If the left child of \(y\) is not the ancestor of \(x\), then the right child
+of \(y\) is the ancestor of \(x\), which means \(x.key > y.key\), and
+conflicts with the prerequisite, thus the left child of \(y\) is the ancestor
+of \(x\).
+</p>
+
+<p>
+If \(y\) is not the lowest ancestor of \(x\) whose left child is also an
+ancestor of \(x\), let \(z\) be the lowest ancestor of \(x\) whose left child
+is also an ancestor of \(x\), then \(z\) must be in the left subtree of
+\(y\), which means \(x.key < z.key < y.key\), and conflicts with the
+prerequisite, thus \(y\) is the lowest ancestor of \(x\) whose left child is
+also an ancestor of \(x\).
 </p>
 </div>
 </div>
-<div id="outline-container-org40ce297" class="outline-3">
-<h3 id="org40ce297">8.4-3</h3>
-<div class="outline-text-3" id="text-org40ce297">
+<div id="outline-container-org5a30b95" class="outline-3">
+<h3 id="org5a30b95">12.2-7</h3>
+<div class="outline-text-3" id="text-org5a30b95">
 <p>
-We define indicator random variable
-</p>
-\begin{align*}
-X_i &= I\{\text{got head in the ith flip of coin}\}
-\end{align*}
-<p>
-The indicator random variable \(X_i\) is \(1\) with probability \(1/2\) and
-\(0\) with probability \(1/2\). We have
-</p>
-\begin{align*}
-E[X^2]
-&=E\Bigg[\bigg(\sum_{i=1}^{2}X_i\bigg)^2\Bigg]\\
-&=E\bigg[\sum_{i=1}^{2}X_i^2
-  +\sum_{1\leq i\leq 2}\sum_{1\leq j\leq 2,\ j\neq i}X_i X_j\bigg]\\
-&=\sum_{i=1}^{2}E[X_i^2]
-  +\sum_{1\leq i\leq 2}\sum_{1\leq j\leq 2,\ j\neq i}E[X_i X_j]\\
-&=2\times(1)^2\times(1/2)+2\times(2-1)\times(1/2)^2\\
-&=3/2
-\end{align*}
-<p>
-and
-</p>
-\begin{align*}
-E^2[X]
-&=(E[X])^2\\
-&=\Bigg(E\bigg[\sum_{i=1}^{2} X_i\bigg]\Bigg)^2\\
-&=\bigg(\sum_{i=1}^{2} E[X_i]\bigg)^2\\
-&=(2\times (1/2))^2\\
-&=1
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org7789c5c" class="outline-3">
-<h3 id="org7789c5c">8.4-4</h3>
-<div class="outline-text-3" id="text-org7789c5c">
-<p>
-Sort the \(n\) points by their distances \(d_i = \sqrt{x_i^2 + y_i^2}\),
-we define the \(n\) buckets, which for \(k = 1..n\), the \(k\)th bucket is
-</p>
-\begin{align*}
-B_k &= \Bigg\{(x_i,y_i)
-       \bigg|\sqrt{\frac{k-1}{n}}\leq d_i\leq\sqrt{\frac{k}{n}}\Bigg\}
-\end{align*}
-<p>
-The \(n\) buckets divide the circle region into \(n\) regions which have the
-same areas, thus a point has equal probability to fall into any bucket, the
-average-case running time of the bucket sort algorithm is \(\Theta(n)\).
-</p>
-</div>
-</div>
-<div id="outline-container-org5d5d7d3" class="outline-3">
-<h3 id="org5d5d7d3">8.4-5</h3>
-<div class="outline-text-3" id="text-org5d5d7d3">
-<p>
-We sort the \(n\) random variables with bucket sort by \(P(x)\), such we know
-that a variable has the same probability to fall into each bucket, thus the
-average-case running time is linear.
+todo
 </p>
 </div>
 </div>

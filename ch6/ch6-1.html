@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-09-28 Mon 07:38 -->
+<!-- 2020-09-28 Mon 12:09 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 6.1</title>
@@ -333,79 +333,79 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org747fec6">ch6.1</a>
+<li><a href="#org755bdfe">ch6.1</a>
 <ul>
-<li><a href="#org913563e">6.1-1</a></li>
-<li><a href="#orgd6a542e">6.1-2</a></li>
-<li><a href="#org861c523">6.1-3</a></li>
-<li><a href="#orga5fe469">6.1-4</a></li>
-<li><a href="#org6210032">6.1-5</a></li>
-<li><a href="#orgbbd5013">6.1-6</a></li>
-<li><a href="#orgb334436">6.1-7</a></li>
+<li><a href="#org215b367">6.1-1</a></li>
+<li><a href="#org5b087d6">6.1-2</a></li>
+<li><a href="#org0f84d39">6.1-3</a></li>
+<li><a href="#orgdb2732d">6.1-4</a></li>
+<li><a href="#org537d3e5">6.1-5</a></li>
+<li><a href="#orgc7355bb">6.1-6</a></li>
+<li><a href="#orgaf16cd1">6.1-7</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org747fec6" class="outline-2">
-<h2 id="org747fec6">ch6.1</h2>
-<div class="outline-text-2" id="text-org747fec6">
+<div id="outline-container-org755bdfe" class="outline-2">
+<h2 id="org755bdfe">ch6.1</h2>
+<div class="outline-text-2" id="text-org755bdfe">
 </div>
-<div id="outline-container-org913563e" class="outline-3">
-<h3 id="org913563e">6.1-1</h3>
-<div class="outline-text-3" id="text-org913563e">
+<div id="outline-container-org215b367" class="outline-3">
+<h3 id="org215b367">6.1-1</h3>
+<div class="outline-text-3" id="text-org215b367">
 <p>
 In a heap of height \(h\), the minimum numbers of elements is \(2^h\),
 the maximum numbers of elements is \(2^{h+1} - 1\).
 </p>
 </div>
 </div>
-<div id="outline-container-orgd6a542e" class="outline-3">
-<h3 id="orgd6a542e">6.1-2</h3>
-<div class="outline-text-3" id="text-orgd6a542e">
+<div id="outline-container-org5b087d6" class="outline-3">
+<h3 id="org5b087d6">6.1-2</h3>
+<div class="outline-text-3" id="text-org5b087d6">
 <p>
 We know that \(2^h \leq n \leq 2^{h+1} - 1\), so that the height is
 \(h = \lfloor \lg n \rfloor\).
 </p>
 </div>
 </div>
-<div id="outline-container-org861c523" class="outline-3">
-<h3 id="org861c523">6.1-3</h3>
-<div class="outline-text-3" id="text-org861c523">
+<div id="outline-container-org0f84d39" class="outline-3">
+<h3 id="org0f84d39">6.1-3</h3>
+<div class="outline-text-3" id="text-org0f84d39">
 <p>
 All the nodes in the subtree were derived from the root, so that the root has
 contains the largest value in the subtree.
 </p>
 </div>
 </div>
-<div id="outline-container-orga5fe469" class="outline-3">
-<h3 id="orga5fe469">6.1-4</h3>
-<div class="outline-text-3" id="text-orga5fe469">
+<div id="outline-container-orgdb2732d" class="outline-3">
+<h3 id="orgdb2732d">6.1-4</h3>
+<div class="outline-text-3" id="text-orgdb2732d">
 <p>
 The smallest elements only resides in the leaves.
 </p>
 </div>
 </div>
-<div id="outline-container-org6210032" class="outline-3">
-<h3 id="org6210032">6.1-5</h3>
-<div class="outline-text-3" id="text-org6210032">
+<div id="outline-container-org537d3e5" class="outline-3">
+<h3 id="org537d3e5">6.1-5</h3>
+<div class="outline-text-3" id="text-org537d3e5">
 <p>
 Certainly it is.
 </p>
 </div>
 </div>
-<div id="outline-container-orgbbd5013" class="outline-3">
-<h3 id="orgbbd5013">6.1-6</h3>
-<div class="outline-text-3" id="text-orgbbd5013">
+<div id="outline-container-orgc7355bb" class="outline-3">
+<h3 id="orgc7355bb">6.1-6</h3>
+<div class="outline-text-3" id="text-orgc7355bb">
 <p>
 No, because the parent of 7 is 6.
 </p>
 </div>
 </div>
-<div id="outline-container-orgb334436" class="outline-3">
-<h3 id="orgb334436">6.1-7</h3>
-<div class="outline-text-3" id="text-orgb334436">
+<div id="outline-container-orgaf16cd1" class="outline-3">
+<h3 id="orgaf16cd1">6.1-7</h3>
+<div class="outline-text-3" id="text-orgaf16cd1">
 <p>
 The leaves are the nodes indexed by \(\{i\ |\ n < 2i, i\leq n\}\),
 i.e., \(\lfloor n/2 \rfloor + 1, \lfloor n/2 \rfloor + 2,\ldots,n\).
@@ -416,7 +416,7 @@ i.e., \(\lfloor n/2 \rfloor + 1, \lfloor n/2 \rfloor + 2,\ldots,n\).
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2020-09-28 Mon 07:38</p>
+<p class="date">Created: 2020-09-28 Mon 12:09</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
