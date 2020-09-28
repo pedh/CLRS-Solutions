@@ -333,28 +333,28 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org0904b00">ch4.2</a>
+<li><a href="#org408c885">ch4.2</a>
 <ul>
-<li><a href="#orgc19edc0">4.2-1</a></li>
-<li><a href="#org8872c14">4.2-2</a></li>
-<li><a href="#orgb55d37e">4.2-3</a></li>
-<li><a href="#org14f0ab3">4.2-4</a></li>
-<li><a href="#orgca3672d">4.2-5</a></li>
-<li><a href="#orgaf73b33">4.2-6</a></li>
-<li><a href="#org2c92f8b">4.2-7</a></li>
+<li><a href="#org7ae1e7b">4.2-1</a></li>
+<li><a href="#org2a5220c">4.2-2</a></li>
+<li><a href="#org39d17d0">4.2-3</a></li>
+<li><a href="#org0c35bcf">4.2-4</a></li>
+<li><a href="#org3295602">4.2-5</a></li>
+<li><a href="#orgd819faa">4.2-6</a></li>
+<li><a href="#org523d8f5">4.2-7</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org0904b00" class="outline-2">
-<h2 id="org0904b00">ch4.2</h2>
-<div class="outline-text-2" id="text-org0904b00">
+<div id="outline-container-org408c885" class="outline-2">
+<h2 id="org408c885">ch4.2</h2>
+<div class="outline-text-2" id="text-org408c885">
 </div>
-<div id="outline-container-orgc19edc0" class="outline-3">
-<h3 id="orgc19edc0">4.2-1</h3>
-<div class="outline-text-3" id="text-orgc19edc0">
+<div id="outline-container-org7ae1e7b" class="outline-3">
+<h3 id="org7ae1e7b">4.2-1</h3>
+<div class="outline-text-3" id="text-org7ae1e7b">
 \begin{equation*}
 A=
 \begin{pmatrix}
@@ -411,9 +411,9 @@ C=
 \end{equation*}
 </div>
 </div>
-<div id="outline-container-org8872c14" class="outline-3">
-<h3 id="org8872c14">4.2-2</h3>
-<div class="outline-text-3" id="text-org8872c14">
+<div id="outline-container-org2a5220c" class="outline-3">
+<h3 id="org2a5220c">4.2-2</h3>
+<div class="outline-text-3" id="text-org2a5220c">
 <pre class="example">
 MATRIX-MULTIPLY-STRASSEN(A, B)
     n = A.rows
@@ -446,9 +446,9 @@ MATRIX-MULTIPLY-STRASSEN(A, B)
 </pre>
 </div>
 </div>
-<div id="outline-container-orgb55d37e" class="outline-3">
-<h3 id="orgb55d37e">4.2-3</h3>
-<div class="outline-text-3" id="text-orgb55d37e">
+<div id="outline-container-org39d17d0" class="outline-3">
+<h3 id="org39d17d0">4.2-3</h3>
+<div class="outline-text-3" id="text-org39d17d0">
 <p>
 Let \(k = \lceil \lg n \rceil\), extend the \(n \times n\) matrices to
 \(2^k \times 2^k\) matrices and pad them with zeroes.
@@ -461,9 +461,9 @@ hence the running time is still \(\Theta(n^{\lg 7})\).
 </p>
 </div>
 </div>
-<div id="outline-container-org14f0ab3" class="outline-3">
-<h3 id="org14f0ab3">4.2-4</h3>
-<div class="outline-text-3" id="text-org14f0ab3">
+<div id="outline-container-org0c35bcf" class="outline-3">
+<h3 id="org0c35bcf">4.2-4</h3>
+<div class="outline-text-3" id="text-org0c35bcf">
 <p>
 We have
 </p>
@@ -485,9 +485,9 @@ is 21. The running time is \(\Theta(n^{\log_3{21}})\).
 </p>
 </div>
 </div>
-<div id="outline-container-orgca3672d" class="outline-3">
-<h3 id="orgca3672d">4.2-5</h3>
-<div class="outline-text-3" id="text-orgca3672d">
+<div id="outline-container-org3295602" class="outline-3">
+<h3 id="org3295602">4.2-5</h3>
+<div class="outline-text-3" id="text-org3295602">
 <p>
 Calculate the logarithms of the three ways
 </p>
@@ -503,9 +503,9 @@ It's better than Strassen's algorithm which \(\lg 7 \approx 2.81\).
 </p>
 </div>
 </div>
-<div id="outline-container-orgaf73b33" class="outline-3">
-<h3 id="orgaf73b33">4.2-6</h3>
-<div class="outline-text-3" id="text-orgaf73b33">
+<div id="outline-container-orgd819faa" class="outline-3">
+<h3 id="orgd819faa">4.2-6</h3>
+<div class="outline-text-3" id="text-orgd819faa">
 <ul class="org-ul">
 <li><p>
 Multiply a \(kn \times n\) matrix by an \(n \times kn\) matrix:
@@ -533,9 +533,9 @@ The running time is \(\Theta(k n^{\lg 7} + (k - 1)n^2)\).
 </ul>
 </div>
 </div>
-<div id="outline-container-org2c92f8b" class="outline-3">
-<h3 id="org2c92f8b">4.2-7</h3>
-<div class="outline-text-3" id="text-org2c92f8b">
+<div id="outline-container-org523d8f5" class="outline-3">
+<h3 id="org523d8f5">4.2-7</h3>
+<div class="outline-text-3" id="text-org523d8f5">
 <p>
 Let \(p_1 = ad\), \(p_2 = bc\), \(p_3 = (a - b)(c + d)\), then
 </p>
