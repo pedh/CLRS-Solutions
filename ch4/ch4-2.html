@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-10-21 Wed 09:23 -->
+<!-- 2020-10-21 Wed 09:28 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 4.2</title>
@@ -333,28 +333,28 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org2637538">ch4.2</a>
+<li><a href="#orgdff1467">ch4.2</a>
 <ul>
-<li><a href="#org8b5e9ef">4.2-1</a></li>
-<li><a href="#org6a3e002">4.2-2</a></li>
-<li><a href="#orgaa1ea69">4.2-3</a></li>
-<li><a href="#org1589709">4.2-4</a></li>
-<li><a href="#org1cffbf6">4.2-5</a></li>
-<li><a href="#orgad77c9c">4.2-6</a></li>
-<li><a href="#org602d847">4.2-7</a></li>
+<li><a href="#org1211395">4.2-1</a></li>
+<li><a href="#orgc972813">4.2-2</a></li>
+<li><a href="#orgd88a2a8">4.2-3</a></li>
+<li><a href="#orgdd09cef">4.2-4</a></li>
+<li><a href="#orgbcafee0">4.2-5</a></li>
+<li><a href="#org5e9ef20">4.2-6</a></li>
+<li><a href="#org4e6c109">4.2-7</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org2637538" class="outline-2">
-<h2 id="org2637538">ch4.2</h2>
-<div class="outline-text-2" id="text-org2637538">
+<div id="outline-container-orgdff1467" class="outline-2">
+<h2 id="orgdff1467">ch4.2</h2>
+<div class="outline-text-2" id="text-orgdff1467">
 </div>
-<div id="outline-container-org8b5e9ef" class="outline-3">
-<h3 id="org8b5e9ef">4.2-1</h3>
-<div class="outline-text-3" id="text-org8b5e9ef">
+<div id="outline-container-org1211395" class="outline-3">
+<h3 id="org1211395">4.2-1</h3>
+<div class="outline-text-3" id="text-org1211395">
 \begin{equation*}
 A=
 \begin{pmatrix}
@@ -411,9 +411,9 @@ C=
 \end{equation*}
 </div>
 </div>
-<div id="outline-container-org6a3e002" class="outline-3">
-<h3 id="org6a3e002">4.2-2</h3>
-<div class="outline-text-3" id="text-org6a3e002">
+<div id="outline-container-orgc972813" class="outline-3">
+<h3 id="orgc972813">4.2-2</h3>
+<div class="outline-text-3" id="text-orgc972813">
 <pre class="example">
 MATRIX-MULTIPLY-STRASSEN(A, B)
     n = A.rows
@@ -446,9 +446,9 @@ MATRIX-MULTIPLY-STRASSEN(A, B)
 </pre>
 </div>
 </div>
-<div id="outline-container-orgaa1ea69" class="outline-3">
-<h3 id="orgaa1ea69">4.2-3</h3>
-<div class="outline-text-3" id="text-orgaa1ea69">
+<div id="outline-container-orgd88a2a8" class="outline-3">
+<h3 id="orgd88a2a8">4.2-3</h3>
+<div class="outline-text-3" id="text-orgd88a2a8">
 <p>
 Let \(k = \lceil \lg n \rceil\), extend the \(n \times n\) matrices to
 \(2^k \times 2^k\) matrices and pad them with zeroes.
@@ -461,9 +461,9 @@ hence the running time is still \(\Theta(n^{\lg 7})\).
 </p>
 </div>
 </div>
-<div id="outline-container-org1589709" class="outline-3">
-<h3 id="org1589709">4.2-4</h3>
-<div class="outline-text-3" id="text-org1589709">
+<div id="outline-container-orgdd09cef" class="outline-3">
+<h3 id="orgdd09cef">4.2-4</h3>
+<div class="outline-text-3" id="text-orgdd09cef">
 <p>
 We have
 </p>
@@ -485,9 +485,9 @@ is 21. The running time is \(\Theta(n^{\log_3{21}})\).
 </p>
 </div>
 </div>
-<div id="outline-container-org1cffbf6" class="outline-3">
-<h3 id="org1cffbf6">4.2-5</h3>
-<div class="outline-text-3" id="text-org1cffbf6">
+<div id="outline-container-orgbcafee0" class="outline-3">
+<h3 id="orgbcafee0">4.2-5</h3>
+<div class="outline-text-3" id="text-orgbcafee0">
 <p>
 Calculate the logarithms of the three ways
 </p>
@@ -503,9 +503,9 @@ It's better than Strassen's algorithm which \(\lg 7 \approx 2.81\).
 </p>
 </div>
 </div>
-<div id="outline-container-orgad77c9c" class="outline-3">
-<h3 id="orgad77c9c">4.2-6</h3>
-<div class="outline-text-3" id="text-orgad77c9c">
+<div id="outline-container-org5e9ef20" class="outline-3">
+<h3 id="org5e9ef20">4.2-6</h3>
+<div class="outline-text-3" id="text-org5e9ef20">
 <ul class="org-ul">
 <li><p>
 Multiply a \(kn \times n\) matrix by an \(n \times kn\) matrix:
@@ -533,9 +533,9 @@ The running time is \(\Theta(k n^{\lg 7} + (k - 1)n^2)\).
 </ul>
 </div>
 </div>
-<div id="outline-container-org602d847" class="outline-3">
-<h3 id="org602d847">4.2-7</h3>
-<div class="outline-text-3" id="text-org602d847">
+<div id="outline-container-org4e6c109" class="outline-3">
+<h3 id="org4e6c109">4.2-7</h3>
+<div class="outline-text-3" id="text-org4e6c109">
 <p>
 Let \(p_1 = ad\), \(p_2 = bc\), \(p_3 = (a - b)(c + d)\), then
 </p>
@@ -551,7 +551,7 @@ Let \(p_1 = ad\), \(p_2 = bc\), \(p_3 = (a - b)(c + d)\), then
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2020-10-21 Wed 09:23</p>
+<p class="date">Created: 2020-10-21 Wed 09:28</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
