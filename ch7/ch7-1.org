@@ -39,7 +39,7 @@
        return i, i + c
    #+END_SRC
    #+BEGIN_SRC
-   QUICK-SORT(A, p, r)
+   QUICKSORT(A, p, r)
        if p < r
            q, s = PARTITION(A, p, r)
            QUICKSORT(A, p, q - 1)

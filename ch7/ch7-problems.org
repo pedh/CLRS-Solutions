@@ -116,7 +116,7 @@
      \begin{align*}
      \sum_{k=2}^{n-1}k\lg k
      &\leq \sum_{k=2}^{\lceil n/2 \rceil-1}k\lg(n/2)
-      +\sum_{k=\lceil n/2 \rceil}^{n-1}k\lg n\\
+      + \sum_{k=\lceil n/2 \rceil}^{n-1}k\lg n\\
      &\leq \frac{n^2}{8}(\lg n-1)+\frac{3n^2}{8}\lg n\\
      &=\frac{1}{2}n^2\lg n-\frac{1}{8}n^2
      \end{align*}
@@ -127,11 +127,11 @@
      \begin{align*}
      E[T(n)]
      &=\frac{2}{n}\sum_{q=2}^{n-1}E[T(q)]+\Theta(n)\\
-     &\leq \frac{2}{n}\sum_{q=2}^{n-1}aq\lg q|\Theta(n)\\
+     &\leq \frac{2}{n}\sum_{q=2}^{n-1}aq\lg q+\Theta(n)\\
      &\leq \frac{2a}{n}(\frac{1}{2}n^2\lg n-\frac{1}{8}n^2)+\Theta(n)
      &\text{, From equation (7.7)}\\
      &=an\lg n-\frac{a}{4}n+\Theta(n)\\
-     &\leq an\lg n &\text{, for constant a large enough}
+     &\leq an\lg n &\text{, for enough large constant $a$}
      \end{align*}
 ** 7-4
    - *a.*
