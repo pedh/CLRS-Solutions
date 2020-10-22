@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-10-22 Thu 10:05 -->
+<!-- 2020-10-22 Thu 10:06 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 2.3</title>
@@ -333,28 +333,28 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org9e1ccc9">ch2.3</a>
+<li><a href="#orgae8ffbf">ch2.3</a>
 <ul>
-<li><a href="#orgdf1d42f">2.3-1</a></li>
-<li><a href="#org069247b">2.3-2</a></li>
-<li><a href="#org57f569c">2.3-3</a></li>
-<li><a href="#orgcd69849">2.3-4</a></li>
-<li><a href="#org6917974">2.3-5</a></li>
-<li><a href="#orgc35ae07">2.3-6</a></li>
-<li><a href="#orgce954a2">2.3-7</a></li>
+<li><a href="#orgdc66fd2">2.3-1</a></li>
+<li><a href="#org14bf9b8">2.3-2</a></li>
+<li><a href="#org3acc96c">2.3-3</a></li>
+<li><a href="#org0474cdb">2.3-4</a></li>
+<li><a href="#org09bffcb">2.3-5</a></li>
+<li><a href="#org0855b55">2.3-6</a></li>
+<li><a href="#org6e14b77">2.3-7</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org9e1ccc9" class="outline-2">
-<h2 id="org9e1ccc9">ch2.3</h2>
-<div class="outline-text-2" id="text-org9e1ccc9">
+<div id="outline-container-orgae8ffbf" class="outline-2">
+<h2 id="orgae8ffbf">ch2.3</h2>
+<div class="outline-text-2" id="text-orgae8ffbf">
 </div>
-<div id="outline-container-orgdf1d42f" class="outline-3">
-<h3 id="orgdf1d42f">2.3-1</h3>
-<div class="outline-text-3" id="text-orgdf1d42f">
+<div id="outline-container-orgdc66fd2" class="outline-3">
+<h3 id="orgdc66fd2">2.3-1</h3>
+<div class="outline-text-3" id="text-orgdc66fd2">
 <pre class="example">
 		      +--------------------------------+
 		      |  3  9  26  38  41  49  52  57  |
@@ -377,9 +377,9 @@ for the JavaScript code in this tag.
 </pre>
 </div>
 </div>
-<div id="outline-container-org069247b" class="outline-3">
-<h3 id="org069247b">2.3-2</h3>
-<div class="outline-text-3" id="text-org069247b">
+<div id="outline-container-org14bf9b8" class="outline-3">
+<h3 id="org14bf9b8">2.3-2</h3>
+<div class="outline-text-3" id="text-org14bf9b8">
 <pre class="example">
 MERGE(A, p, q, r)
     n1 = q - p + 1
@@ -410,9 +410,9 @@ MERGE(A, p, q, r)
 </pre>
 </div>
 </div>
-<div id="outline-container-org57f569c" class="outline-3">
-<h3 id="org57f569c">2.3-3</h3>
-<div class="outline-text-3" id="text-org57f569c">
+<div id="outline-container-org3acc96c" class="outline-3">
+<h3 id="org3acc96c">2.3-3</h3>
+<div class="outline-text-3" id="text-org3acc96c">
 <p>
 <b>Base Case:</b> \(T(2) = 2\lg{2}\)
 </p>
@@ -432,9 +432,9 @@ when n is an exact power of 2.
 </p>
 </div>
 </div>
-<div id="outline-container-orgcd69849" class="outline-3">
-<h3 id="orgcd69849">2.3-4</h3>
-<div class="outline-text-3" id="text-orgcd69849">
+<div id="outline-container-org0474cdb" class="outline-3">
+<h3 id="org0474cdb">2.3-4</h3>
+<div class="outline-text-3" id="text-org0474cdb">
 \begin{equation*}
 T(n)=
 \begin{cases}
@@ -444,9 +444,9 @@ T(n-1)+t(n) & \text{if n > 1, $t(n)=\Omega(1)$, $t(n)=O(n)$}
 \end{equation*}
 </div>
 </div>
-<div id="outline-container-org6917974" class="outline-3">
-<h3 id="org6917974">2.3-5</h3>
-<div class="outline-text-3" id="text-org6917974">
+<div id="outline-container-org09bffcb" class="outline-3">
+<h3 id="org09bffcb">2.3-5</h3>
+<div class="outline-text-3" id="text-org09bffcb">
 <pre class="example">
 BINARY-SEARCH(A, v)
     low = 1
@@ -480,9 +480,9 @@ T(n)& \leq T(2^{\lceil \lg{n} \rceil})\\
 \end{align*}
 </div>
 </div>
-<div id="outline-container-orgc35ae07" class="outline-3">
-<h3 id="orgc35ae07">2.3-6</h3>
-<div class="outline-text-3" id="text-orgc35ae07">
+<div id="outline-container-org0855b55" class="outline-3">
+<h3 id="org0855b55">2.3-6</h3>
+<div class="outline-text-3" id="text-org0855b55">
 <p>
 No, even we use binary search to find the proper position of the element,
 the bigger elements still need to be move forward, the worst-case running
@@ -490,9 +490,9 @@ time is \(\Theta(n^2)\).
 </p>
 </div>
 </div>
-<div id="outline-container-orgce954a2" class="outline-3">
-<h3 id="orgce954a2">2.3-7</h3>
-<div class="outline-text-3" id="text-orgce954a2">
+<div id="outline-container-org6e14b77" class="outline-3">
+<h3 id="org6e14b77">2.3-7</h3>
+<div class="outline-text-3" id="text-org6e14b77">
 <pre class="example">
 EXIST-TWO-OF-SUM(S, x)
     A = MERGE-SORT(S)
@@ -508,7 +508,7 @@ EXIST-TWO-OF-SUM(S, x)
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2020-10-22 Thu 10:05</p>
+<p class="date">Created: 2020-10-22 Thu 10:06</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
