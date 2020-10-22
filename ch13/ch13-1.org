@@ -1,0 +1,167 @@
+#+TITLE: Chapter 13.1
+#+PROPERTY: header-args:dot :output-dir ../static/generated/images/
+
+* 13.1
+** 13.1-1
+   #+begin_src dot :file ch13-1-1.png :exports results
+   digraph G {
+       label="complete binary search tree";
+       edge [dir="none"];
+       8 -> 4, 12;
+       4 -> 2, 6;
+       2 -> 1, 3;
+       6 -> 5, 7;
+       12 -> 10, 14;
+       10 -> 9, 11;
+       14 -> 13, 15;
+   }
+   #+end_src
+   #+begin_src dot :file ch13-1-2.png :exports results
+   digraph G {
+       label="red-black tree of black-height 2";
+       edge [dir="none"];
+       node [style="filled", fillcolor="grey", fontcolor="black"]
+       1; 3; 4; 5; 7; 9; 11; 12; 13; 15;
+       node [style="filled", fillcolor="black", fontcolor="white"]
+       8; 2; 6; 10; 14;
+       node [style="filled", fillcolor="black", fontcolor="white", label="NIL"]
+       l1; l2; l3; l4; l5; l6; l7; l8; l9; l10; l11; l12; l13; l14; l15; l16;
+       8 -> 4, 12;
+       4 -> 2, 6;
+       2 -> 1, 3;
+       6 -> 5, 7;
+       12 -> 10, 14;
+       10 -> 9, 11;
+       14 -> 13, 15;
+       1 -> l1, l2;
+       3 -> l3, l4;
+       5 -> l5, l6;
+       7 -> l7, l8;
+       9 -> l9, l10;
+       11 -> l11, l12;
+       13 -> l13, l14;
+       15 -> l15, l16;
+   }
+   #+end_src
+   #+begin_src dot :file ch13-1-3.png :exports results
+   digraph G {
+       label="red-black tree of black-height 3";
+       edge [dir="none"];
+       node [style="filled", fillcolor="grey", fontcolor="black"]
+       1; 3; 5; 7; 9; 11; 13; 15;
+       node [style="filled", fillcolor="black", fontcolor="white"]
+       8; 4; 12; 2; 6; 10; 14;
+       node [style="filled", fillcolor="black", fontcolor="white", label="NIL"]
+       l1; l2; l3; l4; l5; l6; l7; l8; l9; l10; l11; l12; l13; l14; l15; l16;
+       8 -> 4, 12;
+       4 -> 2, 6;
+       2 -> 1, 3;
+       6 -> 5, 7;
+       12 -> 10, 14;
+       10 -> 9, 11;
+       14 -> 13, 15;
+       1 -> l1, l2;
+       3 -> l3, l4;
+       5 -> l5, l6;
+       7 -> l7, l8;
+       9 -> l9, l10;
+       11 -> l11, l12;
+       13 -> l13, l14;
+       15 -> l15, l16;
+   }
+   #+end_src
+   #+begin_src dot :file ch13-1-4.png :exports results
+   digraph G {
+       label="red-black tree of black-height 4";
+       edge [dir="none"];
+       node [style="filled", fillcolor="black", fontcolor="white"]
+       1; 2; 3; 4; 5; 6; 7; 8; 9; 10; 11; 12; 13; 14; 15;
+       node [style="filled", fillcolor="black", fontcolor="white", label="NIL"]
+       l1; l2; l3; l4; l5; l6; l7; l8; l9; l10; l11; l12; l13; l14; l15; l16;
+       8 -> 4, 12;
+       4 -> 2, 6;
+       2 -> 1, 3;
+       6 -> 5, 7;
+       12 -> 10, 14;
+       10 -> 9, 11;
+       14 -> 13, 15;
+       1 -> l1, l2;
+       3 -> l3, l4;
+       5 -> l5, l6;
+       7 -> l7, l8;
+       9 -> l9, l10;
+       11 -> l11, l12;
+       13 -> l13, l14;
+       15 -> l15, l16;
+   }
+   #+end_src
+** 13.1-2
+   Below is the tree after the node with key \(36\) is inserted.
+   #+begin_src dot :file ch13-1-5.png :exports results
+   digraph G {
+       label="red-black tree after insert 36";
+       edge [dir="none"];
+       36;
+       node [style="filled", fillcolor="grey", fontcolor="black"]
+       17; 30; 10; 15; 20; 35; 39; 3;
+       node [style="filled", fillcolor="black", fontcolor="white"]
+       26; 41; 14; 21; 47; 16; 19; 23; 28; 38; 7; 12;
+       26 -> 17, 41;
+       17 -> 14, 21;
+       41 -> 30, 47;
+       14 -> 10, 16;
+       21 -> 19, 23;
+       30 -> 28, 38;
+       10 -> 7, 12;
+       16 -> 15;
+       19 -> 20;
+       38 -> 35, 39;
+       7 -> 3;
+       35 -> 36;
+   }
+   #+end_src
+   If the inserted node is colored red, the resulting tree is not a red-black
+   tree, because the parent of the node is also colored red.
+
+   If the inserted node is colored black, the resulting tree is not a red-black
+   tree, because not all the simple paths from the root to descendant leaves
+   contain the same number of black nodes.
+** 13.1-3
+   The resulting tree will still be a red-black tree, because the trees rooted
+   at \(T.root.left\) and \(T.root.right\) were red-black trees, and after we
+   colored the root of \(T\) black, the tree \(T\) become a red-black tree.
+** 13.1-4
+   The degree of a node is the number of edges connected to the node. Below are
+   the possible degrees of a black node after all its red children are absorbed.
+   |--------+------------------------------------------------------------------|
+   | Degree | Possible state of the node before absorption                     |
+   |--------+------------------------------------------------------------------|
+   |      0 | The root of the tree with no child.                              |
+   |--------+------------------------------------------------------------------|
+   |      1 | A leaf.                                                          |
+   |--------+------------------------------------------------------------------|
+   |      2 | The root of the tree with two black children.                    |
+   |--------+------------------------------------------------------------------|
+   |      3 | A non-root internal node with two black children.                |
+   |--------+------------------------------------------------------------------|
+   |      4 | A non-root internal node with a black child and a red child, and |
+   |        | the red child has two black children.                            |
+   |--------+------------------------------------------------------------------|
+   |      5 | A non-root internal node with two red children, and each red     |
+   |        | child has two black children.                                    |
+   |--------+------------------------------------------------------------------|
+   The depths of the leaves of the resulting tree is the black height of the
+   root in the original tree.
+** 13.1-5
+   Since the children of a red node must be black, we know that the length of
+   the longest simple path from a node \(x\) to a descendant leaf is at most
+   \(2bh(x)\), and the shortest simple path from a node x to a descendant leaf
+   is at least \(bh(x)\).
+** 13.1-6
+   The largest possible number of internal nodes is \(2^{2k} - 1\), and the
+   smallest possible number is \(2^k-1\).
+** 13.1-7
+   The red-black tree on \(3\) keys with \(2\) red children of the root, has the
+   largest possible ratio \(2\).
+   The red-black tree which is a complete binary tree constructed by all black
+   nodes, has the smallest possible ratio \(0\).
