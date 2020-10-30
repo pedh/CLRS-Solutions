@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-10-22 Thu 10:06 -->
+<!-- 2020-10-30 Fri 07:31 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 10.4</title>
@@ -311,27 +311,27 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org8a8ad61">ch10.4</a>
+<li><a href="#org6d5da05">ch10.4</a>
 <ul>
-<li><a href="#org17b951a">10.4-1</a></li>
-<li><a href="#org60812c1">10.4-2</a></li>
-<li><a href="#org583a46f">10.4-3</a></li>
-<li><a href="#orgcec19b8">10.4-4</a></li>
-<li><a href="#org82bc768">10.4-5</a></li>
-<li><a href="#orgac8a287">10.4-6</a></li>
+<li><a href="#orga5558ea">10.4-1</a></li>
+<li><a href="#orga164b7a">10.4-2</a></li>
+<li><a href="#orgcff79b3">10.4-3</a></li>
+<li><a href="#org61d640e">10.4-4</a></li>
+<li><a href="#org2d10a88">10.4-5</a></li>
+<li><a href="#orgac13708">10.4-6</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org8a8ad61" class="outline-2">
-<h2 id="org8a8ad61">ch10.4</h2>
-<div class="outline-text-2" id="text-org8a8ad61">
+<div id="outline-container-org6d5da05" class="outline-2">
+<h2 id="org6d5da05">ch10.4</h2>
+<div class="outline-text-2" id="text-org6d5da05">
 </div>
-<div id="outline-container-org17b951a" class="outline-3">
-<h3 id="org17b951a">10.4-1</h3>
-<div class="outline-text-3" id="text-org17b951a">
+<div id="outline-container-orga5558ea" class="outline-3">
+<h3 id="orga5558ea">10.4-1</h3>
+<div class="outline-text-3" id="text-orga5558ea">
 
 <div class="figure">
 <p><img src="../static/generated/images/ch10-4-1.png" alt="ch10-4-1.png" />
@@ -340,9 +340,9 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org60812c1" class="outline-3">
-<h3 id="org60812c1">10.4-2</h3>
-<div class="outline-text-3" id="text-org60812c1">
+<div id="outline-container-orga164b7a" class="outline-3">
+<h3 id="orga164b7a">10.4-2</h3>
+<div class="outline-text-3" id="text-orga164b7a">
 <pre class="example">
 PRINT-BINARY-TREE-KEYS(T)
     PRINT-NODE-KEYS(T.root)
@@ -355,9 +355,9 @@ PRINT-NODE-KEYS(x)
 </pre>
 </div>
 </div>
-<div id="outline-container-org583a46f" class="outline-3">
-<h3 id="org583a46f">10.4-3</h3>
-<div class="outline-text-3" id="text-org583a46f">
+<div id="outline-container-orgcff79b3" class="outline-3">
+<h3 id="orgcff79b3">10.4-3</h3>
+<div class="outline-text-3" id="text-orgcff79b3">
 <pre class="example">
 PRINT-BINARY-TREE-KEYS(T)
     let s to be an empty stack
@@ -371,9 +371,9 @@ PRINT-BINARY-TREE-KEYS(T)
 </pre>
 </div>
 </div>
-<div id="outline-container-orgcec19b8" class="outline-3">
-<h3 id="orgcec19b8">10.4-4</h3>
-<div class="outline-text-3" id="text-orgcec19b8">
+<div id="outline-container-org61d640e" class="outline-3">
+<h3 id="org61d640e">10.4-4</h3>
+<div class="outline-text-3" id="text-org61d640e">
 <pre class="example">
 PRINT-LCRS-TREE-KEYS(T)
     PRINT-LCRS-NODE-KEYS(T.root)
@@ -386,9 +386,9 @@ PRINT-LCRS-NODE-KEYS(x)
 </pre>
 </div>
 </div>
-<div id="outline-container-org82bc768" class="outline-3">
-<h3 id="org82bc768">10.4-5</h3>
-<div class="outline-text-3" id="text-org82bc768">
+<div id="outline-container-org2d10a88" class="outline-3">
+<h3 id="org2d10a88">10.4-5</h3>
+<div class="outline-text-3" id="text-org2d10a88">
 <pre class="example">
 PRINT-BINARY-TREE-KEYS(T)
     // in-order binary tree traversal
@@ -409,9 +409,9 @@ PRINT-BINARY-TREE-KEYS(T)
 </pre>
 </div>
 </div>
-<div id="outline-container-orgac8a287" class="outline-3">
-<h3 id="orgac8a287">10.4-6</h3>
-<div class="outline-text-3" id="text-orgac8a287">
+<div id="outline-container-orgac13708" class="outline-3">
+<h3 id="orgac13708">10.4-6</h3>
+<div class="outline-text-3" id="text-orgac13708">
 <p>
 We can use two pointers <code>left-child</code> and <code>right-sibling</code> and one boolean
 value <code>is-last-child</code> to represent an arbitrary rooted trees. If the node is
@@ -424,7 +424,7 @@ is true, and the <code>right-sibling</code> pointer of the node points to its pa
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2020-10-22 Thu 10:06</p>
+<p class="date">Created: 2020-10-30 Fri 07:31</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
