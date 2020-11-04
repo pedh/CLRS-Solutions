@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-10-30 Fri 07:46 -->
+<!-- 2020-11-04 Wed 10:01 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 13.1</title>
@@ -333,25 +333,25 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org39a45ac">13.1</a>
+<li><a href="#org1a07f9e">13.1</a>
 <ul>
-<li><a href="#org925e7c2">13.1-1</a></li>
-<li><a href="#org7d074b0">13.1-2</a></li>
-<li><a href="#orgd175c57">13.1-3</a></li>
-<li><a href="#orge8cc0e4">13.1-4</a></li>
+<li><a href="#org4543a67">13.1-1</a></li>
+<li><a href="#org0126472">13.1-2</a></li>
+<li><a href="#org54ddf28">13.1-3</a></li>
+<li><a href="#orgdc13979">13.1-4</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org39a45ac" class="outline-2">
-<h2 id="org39a45ac">13.1</h2>
-<div class="outline-text-2" id="text-org39a45ac">
+<div id="outline-container-org1a07f9e" class="outline-2">
+<h2 id="org1a07f9e">13.1</h2>
+<div class="outline-text-2" id="text-org1a07f9e">
 </div>
-<div id="outline-container-org925e7c2" class="outline-3">
-<h3 id="org925e7c2">13.1-1</h3>
-<div class="outline-text-3" id="text-org925e7c2">
+<div id="outline-container-org4543a67" class="outline-3">
+<h3 id="org4543a67">13.1-1</h3>
+<div class="outline-text-3" id="text-org4543a67">
 
 <div class="figure">
 <p><img src="../static/generated/images/ch13-1-1.png" alt="ch13-1-1.png" />
@@ -378,9 +378,9 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org7d074b0" class="outline-3">
-<h3 id="org7d074b0">13.1-2</h3>
-<div class="outline-text-3" id="text-org7d074b0">
+<div id="outline-container-org0126472" class="outline-3">
+<h3 id="org0126472">13.1-2</h3>
+<div class="outline-text-3" id="text-org0126472">
 <p>
 Below is the tree after the node with key \(36\) is inserted.
 </p>
@@ -402,9 +402,9 @@ contain the same number of black nodes.
 </p>
 </div>
 </div>
-<div id="outline-container-orgd175c57" class="outline-3">
-<h3 id="orgd175c57">13.1-3</h3>
-<div class="outline-text-3" id="text-orgd175c57">
+<div id="outline-container-org54ddf28" class="outline-3">
+<h3 id="org54ddf28">13.1-3</h3>
+<div class="outline-text-3" id="text-org54ddf28">
 <p>
 The resulting tree will still be a red-black tree, because the trees rooted
 at \(T.root.left\) and \(T.root.right\) were red-black trees, and after we
@@ -412,11 +412,76 @@ colored the root of \(T\) black, the tree \(T\) become a red-black tree.
 </p>
 </div>
 </div>
-<div id="outline-container-orge8cc0e4" class="outline-3">
-<h3 id="orge8cc0e4">13.1-4</h3>
-<div class="outline-text-3" id="text-orge8cc0e4">
+<div id="outline-container-orgdc13979" class="outline-3">
+<h3 id="orgdc13979">13.1-4</h3>
+<div class="outline-text-3" id="text-orgdc13979">
 <p>
-todo
+The degree of a node is the number of edges connected to the node. Below are
+the possible degrees of a black node after all its red children are absorbed.
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">Degree</th>
+<th scope="col" class="org-left">Possible state of the node before absorption</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">0</td>
+<td class="org-left">The root of the tree with no child.</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-right">1</td>
+<td class="org-left">A leaf.</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-right">2</td>
+<td class="org-left">The root of the tree with two black children.</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-right">3</td>
+<td class="org-left">An inner node with two black children.</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-right">4</td>
+<td class="org-left">An inner node with a black child and a red child, the red child</td>
+</tr>
+
+<tr>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">has two black children.</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-right">5</td>
+<td class="org-left">An inner node with two red children, each red child has two</td>
+</tr>
+
+<tr>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">black children.</td>
+</tr>
+</tbody>
+</table>
+<p>
+Todo
 </p>
 </div>
 </div>
@@ -424,7 +489,7 @@ todo
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2020-10-30 Fri 07:46</p>
+<p class="date">Created: 2020-11-04 Wed 10:01</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

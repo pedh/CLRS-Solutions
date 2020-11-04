@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-10-30 Fri 07:46 -->
+<!-- 2020-11-04 Wed 10:01 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 10.3</title>
@@ -333,26 +333,26 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgdd2629e">ch10.3</a>
+<li><a href="#org62d54ab">ch10.3</a>
 <ul>
-<li><a href="#orgfee4763">10.3-1</a></li>
-<li><a href="#org6af5e74">10.3-2</a></li>
-<li><a href="#org1feb108">10.3-3</a></li>
-<li><a href="#orga8c90dd">10.3-4</a></li>
-<li><a href="#org439b91c">10.3-5</a></li>
+<li><a href="#orgb99650f">10.3-1</a></li>
+<li><a href="#orgaccf15a">10.3-2</a></li>
+<li><a href="#org6eed452">10.3-3</a></li>
+<li><a href="#org9bc7afb">10.3-4</a></li>
+<li><a href="#orge7f5c47">10.3-5</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgdd2629e" class="outline-2">
-<h2 id="orgdd2629e">ch10.3</h2>
-<div class="outline-text-2" id="text-orgdd2629e">
+<div id="outline-container-org62d54ab" class="outline-2">
+<h2 id="org62d54ab">ch10.3</h2>
+<div class="outline-text-2" id="text-org62d54ab">
 </div>
-<div id="outline-container-orgfee4763" class="outline-3">
-<h3 id="orgfee4763">10.3-1</h3>
-<div class="outline-text-3" id="text-orgfee4763">
+<div id="outline-container-orgb99650f" class="outline-3">
+<h3 id="orgb99650f">10.3-1</h3>
+<div class="outline-text-3" id="text-orgb99650f">
 <pre class="example">
 (13, 4, 8, 19, 5, 11) stored as a doubly linked list.
 
@@ -388,9 +388,9 @@ for the JavaScript code in this tag.
 </pre>
 </div>
 </div>
-<div id="outline-container-org6af5e74" class="outline-3">
-<h3 id="org6af5e74">10.3-2</h3>
-<div class="outline-text-3" id="text-org6af5e74">
+<div id="outline-container-orgaccf15a" class="outline-3">
+<h3 id="orgaccf15a">10.3-2</h3>
+<div class="outline-text-3" id="text-orgaccf15a">
 <pre class="example">
 ALLOCATE-OBJECT()
     if free == NIL
@@ -405,18 +405,18 @@ FREE-OBJECT(x)
 </pre>
 </div>
 </div>
-<div id="outline-container-org1feb108" class="outline-3">
-<h3 id="org1feb108">10.3-3</h3>
-<div class="outline-text-3" id="text-org1feb108">
+<div id="outline-container-org6eed452" class="outline-3">
+<h3 id="org6eed452">10.3-3</h3>
+<div class="outline-text-3" id="text-org6eed452">
 <p>
 We don't need to set or reset the <code>prev</code> attributes of objects, because the
 free list works like a stack, i.e. a singly linked list.
 </p>
 </div>
 </div>
-<div id="outline-container-orga8c90dd" class="outline-3">
-<h3 id="orga8c90dd">10.3-4</h3>
-<div class="outline-text-3" id="text-orga8c90dd">
+<div id="outline-container-org9bc7afb" class="outline-3">
+<h3 id="org9bc7afb">10.3-4</h3>
+<div class="outline-text-3" id="text-org9bc7afb">
 <pre class="example">
 ALLOCATE-OBJECT()
     PUSH(S, NIL)
@@ -429,9 +429,9 @@ FREE-OBJECT(x)
 </pre>
 </div>
 </div>
-<div id="outline-container-org439b91c" class="outline-3">
-<h3 id="org439b91c">10.3-5</h3>
-<div class="outline-text-3" id="text-org439b91c">
+<div id="outline-container-orge7f5c47" class="outline-3">
+<h3 id="orge7f5c47">10.3-5</h3>
+<div class="outline-text-3" id="text-orge7f5c47">
 <pre class="example">
 COMPACTIFY-LIST(L, F)
     cur = L.head
@@ -467,7 +467,7 @@ After the procedure is done, the items in \(L\) occupy array positions
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2020-10-30 Fri 07:46</p>
+<p class="date">Created: 2020-11-04 Wed 10:01</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
