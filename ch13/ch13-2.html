@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-11-05 Thu 10:10 -->
+<!-- 2020-11-06 Fri 06:54 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 13.2</title>
@@ -333,26 +333,26 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgb67c88c">13.2</a>
+<li><a href="#org9fd2582">13.2</a>
 <ul>
-<li><a href="#org40ac22d">13.2-1</a></li>
-<li><a href="#orge92f51f">13.2-2</a></li>
-<li><a href="#orgbd3eed9">13.2-3</a></li>
-<li><a href="#orge757db4">13.2-4</a></li>
-<li><a href="#org26e5454">13.2-5</a></li>
+<li><a href="#org95b5270">13.2-1</a></li>
+<li><a href="#org5c0161a">13.2-2</a></li>
+<li><a href="#org20ffc06">13.2-3</a></li>
+<li><a href="#org45d4f9d">13.2-4</a></li>
+<li><a href="#org0f1620c">13.2-5</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgb67c88c" class="outline-2">
-<h2 id="orgb67c88c">13.2</h2>
-<div class="outline-text-2" id="text-orgb67c88c">
+<div id="outline-container-org9fd2582" class="outline-2">
+<h2 id="org9fd2582">13.2</h2>
+<div class="outline-text-2" id="text-org9fd2582">
 </div>
-<div id="outline-container-org40ac22d" class="outline-3">
-<h3 id="org40ac22d">13.2-1</h3>
-<div class="outline-text-3" id="text-org40ac22d">
+<div id="outline-container-org95b5270" class="outline-3">
+<h3 id="org95b5270">13.2-1</h3>
+<div class="outline-text-3" id="text-org95b5270">
 <pre class="example">
 RIGHT-ROTATE(T, y)
     x = y.left
@@ -370,9 +370,9 @@ RIGHT-ROTATE(T, y)
 </pre>
 </div>
 </div>
-<div id="outline-container-orge92f51f" class="outline-3">
-<h3 id="orge92f51f">13.2-2</h3>
-<div class="outline-text-3" id="text-orge92f51f">
+<div id="outline-container-org5c0161a" class="outline-3">
+<h3 id="org5c0161a">13.2-2</h3>
+<div class="outline-text-3" id="text-org5c0161a">
 <p>
 Each two adjacent nodes generates a unique rotation, thus the number of the
 possible rotations is the number of edges in the tree, for an \(n\)-node
@@ -380,44 +380,36 @@ binary search tree, the number is \(n - 1\).
 </p>
 </div>
 </div>
-<div id="outline-container-orgbd3eed9" class="outline-3">
-<h3 id="orgbd3eed9">13.2-3</h3>
-<div class="outline-text-3" id="text-orgbd3eed9">
+<div id="outline-container-org20ffc06" class="outline-3">
+<h3 id="org20ffc06">13.2-3</h3>
+<div class="outline-text-3" id="text-org20ffc06">
 <p>
 After the left rotation, the depth of \(a\) is increased by \(1\), the depth
 of \(b\) is unchanged, and the depth of \(c\) is decreased by \(1\).
 </p>
 </div>
 </div>
-<div id="outline-container-orge757db4" class="outline-3">
-<h3 id="orge757db4">13.2-4</h3>
-<div class="outline-text-3" id="text-orge757db4">
+<div id="outline-container-org45d4f9d" class="outline-3">
+<h3 id="org45d4f9d">13.2-4</h3>
+<div class="outline-text-3" id="text-org45d4f9d">
 <p>
-We describe an edge from a node to its left child by left edge, and vice
-versa. After a right rotation, the number of the left edges is decreased by
-\(1\), and the number of the right edges is increased by \(1\).
-</p>
-
-<p>
-For an \(n\)-node binary search tree \(T\), we denote the number of the left
-edges in \(T\) as \(l_T\), then after exactly \(l_T\) right rotations on
-\(T\), the number of the left edges becomes \(0\), which means the tree is
-transformed into a right-going chain, and we know \(l_T \leq n - 1\), hence
-at most \(n - 1\) right rotations suffice to transform any arbitrary
-\(n\)-node binary search tree into a right-going chain.
-</p>
-
-<p>
-Thus we could first transform any arbitrary \(n\)-node binary search tree
-into a right-going chain, by at most \(n - 1\) right rotations, and then
-transform the right-going chain into the any other arbitrary \(n\)-node
-binary search tree, by at most \(n - 1\) left rotations.
+Consider transforming an \(n\)-node binary search tree into a right-going
+chain, let the root and all its successive right children be the initial
+chain, then we could say all the other nodes are on the left side of the
+chain, denote a node in the chain as \(y\) and its left child as \(x\), we
+could perform <code>RIGHT-ROTATE</code> on \(y\) to add \(x\) to the chain. Thus at most
+\(n - 1\) right rotations suffice to transform the tree into a right-going
+chain. Since the rotations are reversible, we could transform any arbitrary
+\(n\)-node binary search tree into a right-going chain using at most
+\(n - 1\) right rotations, then transform the right-going chain into any
+other arbitrary \(n\)-node binary search tree using at most \(n - 1\)
+left rotations.
 </p>
 </div>
 </div>
-<div id="outline-container-org26e5454" class="outline-3">
-<h3 id="org26e5454">13.2-5</h3>
-<div class="outline-text-3" id="text-org26e5454">
+<div id="outline-container-org0f1620c" class="outline-3">
+<h3 id="org0f1620c">13.2-5</h3>
+<div class="outline-text-3" id="text-org0f1620c">
 <p>
 Below is the example of two trees \(T_1\) and \(T_2\) such that \(T_1\)
 cannot be right-converted to \(T_2\).
@@ -429,7 +421,23 @@ cannot be right-converted to \(T_2\).
 </div>
 
 <p>
-todo
+We define the left depth of node \(x\) in a binary search tree \(T\), as the
+number of left edges in the simple path from the root to \(x\), and the total
+left depths of a binary search tree \(T\) as the sum of the left depths of
+all the nodes in \(T\). We know that for a \(n\)-node binary search tree
+\(T\), the left depth of a single node in \(T\) is \(O(n)\), and the total
+left depths of \(T\) is \(O(n^2)\).
+</p>
+
+<p>
+Consider of Figure 13.2, after the right rotation on \(y\), the left depths
+of \(x\) and the nodes in \(\alpha\) are decreased by \(1\), and the left
+depths of other nodes are unchanged, thus the total left depths of \(T\) is
+decreased by \(|\alpha| + 1\). Hence after at most \(O(n^2)\) calls to
+<code>RIGHT-ROTATE</code>, the total left depths of \(T\) is decreased to \(0\) and no
+more <code>RIGHT-ROTATE</code> could be performed. Therefore, if a tree \(T_1\) can be
+right-converted to \(T_2\), it can be right-converted using \(O(n^2)\) calls
+to <code>RIGHT-ROTATE</code>.
 </p>
 </div>
 </div>
@@ -437,7 +445,7 @@ todo
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2020-11-05 Thu 10:10</p>
+<p class="date">Created: 2020-11-06 Fri 06:54</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
