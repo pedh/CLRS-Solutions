@@ -6,7 +6,7 @@
 <!-- 2020-11-09 Mon 10:27 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Chapter 7 problems</title>
+<title>Chapter 13.3</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="pedh" />
 <style type="text/css">
@@ -328,430 +328,146 @@ for the JavaScript code in this tag.
  |
  <a accesskey="H" href="/CLRS-Solutions"> HOME </a>
 </div><div id="content">
-<h1 class="title">Chapter 7 problems</h1>
+<h1 class="title">Chapter 13.3</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgba19aed">ch7-problems</a>
+<li><a href="#org018f163">13.3</a>
 <ul>
-<li><a href="#orgae6434a">7-1</a></li>
-<li><a href="#org853efe0">7-2</a></li>
-<li><a href="#org531b751">7-3</a></li>
-<li><a href="#org0431200">7-4</a></li>
-<li><a href="#org1475097">7-5</a></li>
-<li><a href="#org210a135">7-6</a></li>
+<li><a href="#org695158e">13.3-1</a></li>
+<li><a href="#orgf6c42be">13.3-2</a></li>
+<li><a href="#org1b421b1">13.3-3</a></li>
+<li><a href="#org73dd716">13.3-4</a></li>
+<li><a href="#orgb7c3474">13.3-5</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgba19aed" class="outline-2">
-<h2 id="orgba19aed">ch7-problems</h2>
-<div class="outline-text-2" id="text-orgba19aed">
+<div id="outline-container-org018f163" class="outline-2">
+<h2 id="org018f163">13.3</h2>
+<div class="outline-text-2" id="text-org018f163">
 </div>
-<div id="outline-container-orgae6434a" class="outline-3">
-<h3 id="orgae6434a">7-1</h3>
-<div class="outline-text-3" id="text-orgae6434a">
-<ul class="org-ul">
-<li><p>
-<b>a.</b>
-</p>
-
-<pre class="example">
-   A = (13 19 9 5 12 8 7 4 11 2 6 21), x = 13, p = 1, r = 12, i = 0, j = 13
--&gt; A = (6 19 9 5 12 8 7 4 11 2 13 21), i = 1, j = 11
--&gt; A = (6 13 9 5 12 8 7 4 11 2 19 21), i = 2, j = 11
--&gt; A = (6 2 9 5 12 8 7 4 11 13 19 21), i = 2, j = 10
--&gt; A = (6 2 9 5 12 8 7 4 11 13 19 21), return 10
-</pre></li>
-<li><p>
-<b>b.</b>
-</p>
-
+<div id="outline-container-org695158e" class="outline-3">
+<h3 id="org695158e">13.3-1</h3>
+<div class="outline-text-3" id="text-org695158e">
 <p>
-We start with \(i = p - 1\) and \(j = r + 1\), then we keep increasing i
-and decreasing j until \(i \geq j\), thus we never access an element of A
-outside the subarray A[p..r].
-</p></li>
-<li><p>
-<b>c.</b>
+If we set the newly inserted node \(z\) to black, then property 5 might be
+violated, and it's more difficult to fix property 5 than property 4.
 </p>
-
-<p>
-We terminated when \(i \geq j\), and we know that at least one exchange
-happens, thus the procedure returns a value j such that \(p \leq j < r\).
-</p></li>
-<li><p>
-<b>d.</b>
-</p>
-
-<p>
-When the procedure terminates, we have \(A[p..j] \leq x \leq A[j+1..r]\).
-</p></li>
-<li><p>
-<b>e.</b>
-</p>
-
-<pre class="example">
-HOARE-QUICKSORT(A, p, r)
-    if p &lt; r
-	q = HOARE-PARTITION(A, p, r)
-	HOARE-QUICKSORT(A, p, q)
-	HOARE-QUICKSORT(A, q + 1, r)
-</pre></li>
-</ul>
 </div>
 </div>
-<div id="outline-container-org853efe0" class="outline-3">
-<h3 id="org853efe0">7-2</h3>
-<div class="outline-text-3" id="text-org853efe0">
-<ul class="org-ul">
+<div id="outline-container-orgf6c42be" class="outline-3">
+<h3 id="orgf6c42be">13.3-2</h3>
+<div class="outline-text-3" id="text-orgf6c42be">
+<ol class="org-ol">
 <li><p>
-<b>a.</b>
+Insert \(41\).
 </p>
 
-<p>
-The running time is \(T(n) = T(n - 1) + \Theta(n) = \Theta(n^2)\).
-</p></li>
+<div class="figure">
+<p><img src="../static/generated/images/ch13-3-1.png" alt="ch13-3-1.png" />
+</p>
+</div></li>
+
 <li><p>
-<b>b.</b>
+Insert \(38\).
 </p>
 
-<pre class="example">
-PARTITION'(A, p, r)
-    x = A[r]
-    i = j = p - 1
-    for k = p to r - 1
-	if A[k] &lt; x
-	    i = i + 1
-	    j = j + 1
-	    y = A[j]
-	    A[j] = A[i]
-	    A[i] = A[k]
-	    A[k] = y
-	else if A[k] == x:
-	    j = j + 1
-	    exchange A[j] with A[k]
-    exchange A[r] with A[j + 1]
-    return i + 1, j + 1
-</pre></li>
+<div class="figure">
+<p><img src="../static/generated/images/ch13-3-2.png" alt="ch13-3-2.png" />
+</p>
+</div></li>
+
 <li><p>
-<b>c.</b>
+Insert \(31\).
 </p>
 
-<pre class="example">
-RANDOMIZED-PARTITION'(A, p, r)
-    i = RANDOM(p, r)
-    exchange A[r] with A[i]
-    return PARTITION'(A, p, r)
-</pre>
-<pre class="example">
-QUICKSORT'(A, p, r)
-    if p &lt; r
-	q, t = RANDOMIZED-PARTITION'(A, p, r)
-	QUICKSORT'(A, p, q - 1)
-	QUICKSORT'(A, t + 1, r)
-</pre></li>
+<div class="figure">
+<p><img src="../static/generated/images/ch13-3-3.png" alt="ch13-3-3.png" />
+</p>
+</div></li>
+
 <li><p>
-<b>d.</b>
+Insert \(12\).
 </p>
 
-<p>
-The running time is
+<div class="figure">
+<p><img src="../static/generated/images/ch13-3-4.png" alt="ch13-3-4.png" />
 </p>
-\begin{align*}
-T(n)
-&=T(m)+T(n-k-m)+O(n)
-&\text{, m elements less than the pivot, k elements equal to the pivot}\\
-&\leq T(m+k)+T(n-m-k)+O(n)\\
-&=O(n\lg n)
-\end{align*}</li>
-</ul>
+</div></li>
+
+<li><p>
+Insert \(19\).
+</p>
+
+<div class="figure">
+<p><img src="../static/generated/images/ch13-3-5.png" alt="ch13-3-5.png" />
+</p>
+</div></li>
+
+<li><p>
+Insert \(8\).
+</p>
+
+<div class="figure">
+<p><img src="../static/generated/images/ch13-3-6.png" alt="ch13-3-6.png" />
+</p>
+</div></li>
+</ol>
 </div>
 </div>
-<div id="outline-container-org531b751" class="outline-3">
-<h3 id="org531b751">7-3</h3>
-<div class="outline-text-3" id="text-org531b751">
-<ul class="org-ul">
+
+<div id="outline-container-org1b421b1" class="outline-3">
+<h3 id="org1b421b1">13.3-3</h3>
+<div class="outline-text-3" id="text-org1b421b1">
+<ol class="org-ol">
 <li><p>
-<b>a.</b>
+Case 1.
 </p>
 
-<p>
-We randomly pick the pivot from the n elements, thus the probability that
-any particular element is chosen as the pivot is \(1 / n\).
+<div class="figure">
+<p><img src="../static/generated/images/ch13-3-7.png" alt="ch13-3-7.png" />
 </p>
+</div>
 
-<p>
-Let \(X_i = I\{ith\ smallest\ element\ is\ chosen\ as\ the\ pivot\}\), then
-</p>
-\begin{align*}
-E[X_i]
-&=\Pr\text{{ith smallest element is chosen as the pivot}}\\
-&=\frac{1}{n}
-\end{align*}</li>
-<li><p>
-<b>b.</b>
-</p>
 
-<p>
-We have
+<div class="figure">
+<p><img src="../static/generated/images/ch13-3-8.png" alt="ch13-3-8.png" />
 </p>
-\begin{align*}
-E[T(n)]
-&=E\Bigg[\sum_{q=1}^{n}X_q T(\text{when $X_q$ happens})\Bigg]\\
-&=E\Bigg[\sum_{q=1}^{n}X_q(T(q-1)+T(n-q)+\Theta(n))\Bigg]
-\end{align*}</li>
-<li><p>
-<b>c.</b>
-</p>
-
-<p>
-We have
-</p>
-\begin{align*}
-E[T(n)]
-&=E\Bigg[\sum_{q=1}^{n}X_q(T(q-1)+T(n-q)+\Theta(n))\Bigg]\\
-&=E\Bigg[\frac{1}{n}\sum_{q=1}^{n}(T(q-1)+T(n-q)+\Theta(n))\Bigg]\\
-&=\frac{2}{n}\sum_{q=2}^{n-1}E[T(q)]+\Theta(n)
-\end{align*}</li>
-<li><p>
-<b>d.</b>
-</p>
-
-<p>
-We have
-</p>
-\begin{align*}
-\sum_{k=2}^{n-1}k\lg k
-&\leq \sum_{k=2}^{\lceil n/2 \rceil-1}k\lg(n/2)
- + \sum_{k=\lceil n/2 \rceil}^{n-1}k\lg n\\
-&\leq \frac{n^2}{8}(\lg n-1)+\frac{3n^2}{8}\lg n\\
-&=\frac{1}{2}n^2\lg n-\frac{1}{8}n^2
-\end{align*}</li>
+</div></li>
 
 <li><p>
-<b>e.</b>
+Case 2 &amp; 3.
 </p>
 
-<p>
-Guess \(E[T(n)] \leq an\lg n\), then
+<div class="figure">
+<p><img src="../static/generated/images/ch13-3-9.png" alt="ch13-3-9.png" />
 </p>
-\begin{align*}
-E[T(n)]
-&=\frac{2}{n}\sum_{q=2}^{n-1}E[T(q)]+\Theta(n)\\
-&\leq \frac{2}{n}\sum_{q=2}^{n-1}aq\lg q+\Theta(n)\\
-&\leq \frac{2a}{n}(\frac{1}{2}n^2\lg n-\frac{1}{8}n^2)+\Theta(n)
-&\text{, From equation (7.7)}\\
-&=an\lg n-\frac{a}{4}n+\Theta(n)\\
-&\leq an\lg n &\text{, for enough large constant $a$}
-\end{align*}</li>
-</ul>
+</div></li>
+</ol>
 </div>
 </div>
-<div id="outline-container-org0431200" class="outline-3">
-<h3 id="org0431200">7-4</h3>
-<div class="outline-text-3" id="text-org0431200">
-<ul class="org-ul">
-<li><p>
-<b>a.</b>
-</p>
 
+<div id="outline-container-org73dd716" class="outline-3">
+<h3 id="org73dd716">13.3-4</h3>
+<div class="outline-text-3" id="text-org73dd716">
 <p>
-We use loop invariants to prove the correctness of the procedure.
+If we set \(T.nil.color\) to RED, then the color of the root must have been
+set to RED too, this is impossible because we would only set the color of one
+node to RED in an iteration, and then move up two levels in the tree or end
+the loop. Thus <code>RB-INSERT-FIXUP</code> never sets \(T.nil.color\) to RED.
 </p>
-
-<p>
-<b>Loop Invariant:</b>
-At the start of each iteration of the while loop, \(A[1..A.length]\) is
-partitioned by \(p\) and \(A[1..p]\) is sorted.
-</p>
-
-<p>
-<b>Initialization:</b>
-\(A[1..p]\) is empty.
-</p>
-
-<p>
-<b>Maintenance:</b>
-We partition \(A[p..r]\) at \(q\) and sort \(A[p..q-1]\), then we know that
-\(A[1..q]\) is sorted, and we let \(p = q+1\) and continue with the next
-iteration.
-</p>
-
-<p>
-<b>Termination:</b>
-The loop terminates when \(p \geq A.length\), thus the array \(A\) is
-sorted.
-</p></li>
-<li><p>
-<b>b.</b>
-</p>
-
-<p>
-When each PARTITION in the recursion does a \([p..r-1]\) to \([r..r]\)
-split, the stack depth is \(\Theta(n)\).
-</p></li>
-<li><p>
-<b>c.</b>
-</p>
-
-<p>
-After each PARTITION, we choose the smaller part for the recursion.
-</p>
-<pre class="example">
-TAIL-RECURSIVE-QUICKSORT(A, p, r)
-    while p &lt; r
-	//Partition and sort the smaller subarray
-	q = PARTITION(A, p, r)
-	if q &lt; (p + r) / 2
-	    TAIL-RECURSIVE-QUICKSORT(A, p, q - 1)
-	    p = q + 1
-	else TAIL-RECURSIVE-QUICKSORT(A, q + 1, r)
-	     r = q - 1
-</pre></li>
-</ul>
 </div>
 </div>
-<div id="outline-container-org1475097" class="outline-3">
-<h3 id="org1475097">7-5</h3>
-<div class="outline-text-3" id="text-org1475097">
-<ul class="org-ul">
-<li><p>
-<b>a.</b>
-</p>
-
+<div id="outline-container-orgb7c3474" class="outline-3">
+<h3 id="orgb7c3474">13.3-5</h3>
+<div class="outline-text-3" id="text-orgb7c3474">
 <p>
-The probability is
+todo
 </p>
-\begin{align*}
-p_i
-&=\Pr\{x=A'[i]\}\\
-&=\frac{(i-1)(n-i)}{\binom{n}{3}}
-\end{align*}</li>
-<li><p>
-<b>b.</b>
-</p>
-
-<p>
-Let \(m = \lfloor (n + 1) / 2 \rfloor\), then the probability of the
-developed implementation is \(\frac{(m-1)(n-m)}{\binom{n}{3}}\), and the
-probability of the ordinary implementation is \(\frac{1}{n}\).
-</p>
-
-<p>
-The limit ratio of them is
-</p>
-\begin{align*}
-r
-&=\lim_{n\to \infty}\frac{\frac{(m-1)(n-m)}{\binom{n}{3}}}{\frac{1}{n}}\\
-&=\frac{3}{2}
-\end{align*}</li>
-<li><p>
-<b>c.</b>
-</p>
-
-<p>
-The probability of the ordinary implementation is
-</p>
-\begin{align*}
-p'
-&\approx \int_{\frac{n}{3}}^{\frac{2n}{3}} \frac{1}{n}dx\\
-&=\frac{1}{3}
-\end{align*}
-<p>
-The probability of the developed implementation is
-</p>
-\begin{align*}
-p
-&\approx \int_{\frac{n}{3}}^{\frac{2n}{3}}
- \frac{(x-1)(n-x)}{\binom{n}{3}}dx\\
-\end{align*}
-<p>
-And the limit ratio of them is
-</p>
-\begin{align*}
-r
-&=\lim_{n\to \infty}\frac{p}{p'}\\
-&=\frac{13}{9}
-\end{align*}</li>
-<li><p>
-<b>d.</b>
-</p>
-
-<p>
-The median-of-3 method only improve the probability of choosing a good
-pivot, the running time is still \(\Omega(n \lg n)\).
-</p></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-org210a135" class="outline-3">
-<h3 id="org210a135">7-6</h3>
-<div class="outline-text-3" id="text-org210a135">
-<ul class="org-ul">
-<li><p>
-<b>a.</b>
-</p>
-
-<p>
-The FUZZY-SORT should take advantage of overlapping intervals by consider
-the elements with overlapped intervals as equal, then use the developed
-algorithm in problem <a href="#org853efe0">7-2</a>.
-</p>
-
-<pre class="example">
-FUZZY-SORT(A, B, p, r)
-    if p &lt; r
-	q, s = FUZZY-PARTITION(A, B, p, r)
-	FUZZY-SORT(A, B, p, q - 1)
-	FUZZY-SORT(A, B, s + 1, r)
-</pre>
-<pre class="example">
-FUZZY-PARTITION(A, B, p, r)
-    i = j = p - 1
-    left = A[r]
-    right = B[r]
-    for k = p to r - 1
-	if B[k] &lt; left
-	    x = A[k]
-	    y = B[k]
-	    i = i + 1
-	    j = j + 1
-	    A[k], B[k] = A[j], B[j]
-	    A[j], B[j] = A[i], B[i]
-	    A[i], B[i] = x, y
-	else if A[k] &lt;= right
-	    if A[k] &gt; left
-		left = A[k]
-	    if B[k] &lt; right
-		right = B[k]
-	    j = j + 1
-	    exchange A[k], B[k] with A[j], B[j]
-    exchange A[r], B[r] with A[j + 1], B[j + 1]
-    return i + 1, j + 1
-</pre></li>
-<li><p>
-<b>b.</b>
-</p>
-
-<p>
-Assume the partition on n elements returns k overlapped elements,
-then we get the running time
-</p>
-\begin{align*}
-T(n) = T(n-k-i) + T(i) + \Theta(n)
-\end{align*}
-<p>
-The expected running time is \(\Theta(n\lg n)\) when k is negligible to n.
-</p>
-
-<p>
-When all of the intervals overlap, the running time is \(\Theta(n)\).
-</p></li>
-</ul>
 </div>
 </div>
 </div>
