@@ -1,0 +1,291 @@
+#+TITLE: Chapter 13.3
+#+PROPERTY: header-args:dot :output-dir ../static/generated/images/
+
+* 13.3
+** 13.3-1
+   If we set the newly inserted node \(z\) to black, then property 5 might be
+   violated, and it's more difficult to fix property 5 than property 4.
+** 13.3-2
+   1. Insert \(41\).
+      #+begin_src dot :file ch13-3-1.png :exports results
+      digraph G {
+          edge [dir="none"];
+          node [style="filled", fillcolor="black", fontcolor="white"]
+          41;
+      }
+      #+end_src
+   2. Insert \(38\).
+      #+begin_src dot :file ch13-3-2.png :exports results
+      digraph G {
+          edge [dir="none"];
+          node [style="filled", fillcolor="grey", fontcolor="black"]
+          38;
+          node [style="filled", fillcolor="black", fontcolor="white"]
+          41;
+          41 -> 38;
+      }
+      #+end_src
+   3. Insert \(31\).
+      #+begin_src dot :file ch13-3-3.png :exports results
+      digraph G {
+          edge [dir="none"];
+          node [style="filled", fillcolor="grey", fontcolor="black"]
+          31; 41;
+          node [style="filled", fillcolor="black", fontcolor="white"]
+          38;
+          38 -> 31, 41;
+      }
+      #+end_src
+   4. Insert \(12\).
+      #+begin_src dot :file ch13-3-4.png :exports results
+      digraph G {
+          edge [dir="none"];
+          node [style="filled", fillcolor="grey", fontcolor="black"]
+          12;
+          node [style="filled", fillcolor="black", fontcolor="white"]
+          38; 31; 41;
+          38 -> 31, 41;
+          31 -> 12;
+      }
+      #+end_src
+   5. Insert \(19\).
+      #+begin_src dot :file ch13-3-5.png :exports results
+      digraph G {
+          edge [dir="none"];
+          node [style="filled", fillcolor="grey", fontcolor="black"]
+          12; 31;
+          node [style="filled", fillcolor="black", fontcolor="white"]
+          38; 19; 41;
+          38 -> 19, 41;
+          19 -> 12, 31;
+      }
+      #+end_src
+   6. Insert \(8\).
+      #+begin_src dot :file ch13-3-6.png :exports results
+      digraph G {
+          edge [dir="none"];
+          node [style="filled", fillcolor="grey", fontcolor="black"]
+          19; 8;
+          node [style="filled", fillcolor="black", fontcolor="white"]
+          38; 41; 12; 31;
+          38 -> 19, 41;
+          19 -> 12, 31;
+          12 -> 8;
+      }
+      #+end_src
+** 13.3-3
+   1. For case 1.
+      #+begin_src dot :file ch13-3-7.png :exports results
+      digraph G {
+          subgraph cluster0 {
+              label="case 1 (a)";
+              edge [dir="none"];
+              node [color="white"]
+              a [label=<&alpha;>]; b [label=<&beta;>]; c [label=<&gamma;>];
+              d [label=<&delta;>]; e [label=<&epsilon;>];
+              r [fontcolor="white"];
+              node [style="filled", fillcolor="grey", fontcolor="black"]
+              A [label="A:k"]; B [label="B:k"]; D [label="D:k"];
+              node [style="filled", fillcolor="black", fontcolor="white"]
+              C [label="C:k"];
+              r -> C;
+              C -> A, D;
+              A -> a, B;
+              B -> b, c;
+              D -> d, e;
+          }
+          subgraph cluster1 {
+              label="result";
+              edge [dir="none"];
+              node [color="white"]
+              a1 [label=<&alpha;>]; b1 [label=<&beta;>]; c1 [label=<&gamma;>];
+              d1 [label=<&delta;>]; e1 [label=<&epsilon;>];
+              r1 [fontcolor="white"];
+              node [style="filled", fillcolor="grey", fontcolor="black"]
+              C1 [label="C:k+1"]; B1 [label="B:k"];
+              node [style="filled", fillcolor="black", fontcolor="white"]
+              A1 [label="A:k"]; D1 [label="D:k"];
+              r1 -> C1;
+              C1 -> A1, D1;
+              A1 -> a1, B1;
+              B1 -> b1, c1;
+              D1 -> d1, e1;
+          }
+      }
+      #+end_src
+      #+begin_src dot :file ch13-3-8.png :exports results
+      digraph G {
+          subgraph cluster0 {
+              label="case 1 (b)";
+              edge [dir="none"];
+              node [style="filled", fillcolor="grey", fontcolor="black"]
+              B [label="B:k"]; A [label="A:k"]; D [label="D:k"];
+              node [style="filled", fillcolor="black", fontcolor="white"]
+              C [label="C:k"];
+              node [color="white", fillcolor="white", fontcolor="black"]
+              a [label=<&alpha;>]; b [label=<&beta;>]; c [label=<&gamma;>];
+              d [label=<&delta;>]; e [label=<&epsilon;>];
+              r [fontcolor="white"];
+              r -> C;
+              C -> B, D;
+              B -> A, c;
+              A -> a, b;
+              D -> d, e;
+          }
+          subgraph cluster1 {
+              label="result";
+              edge [dir="none"];
+              node [style="filled", fillcolor="grey", fontcolor="black"]
+              C1 [label="C:k+1"]; A1 [label="A:k"];
+              node [style="filled", fillcolor="black", fontcolor="white"]
+              B1 [label="B:k"]; D1 [label="D:k"];
+              node [color="white", fillcolor="white", fontcolor="black"]
+              a1 [label=<&alpha;>]; b1 [label=<&beta;>]; c1 [label=<&gamma;>];
+              d1 [label=<&delta;>]; e1 [label=<&epsilon;>];
+              r1 [fontcolor="white"];
+              r1 -> C1;
+              C1 -> B1, D1;
+              B1 -> A1, c1;
+              A1 -> a1, b1;
+              D1 -> d1, e1;
+          }
+      }
+      #+end_src
+   3. For case 2 & 3.
+      #+begin_src dot :file ch13-3-9.png :exports results
+      digraph G {
+          subgraph cluster0 {
+              label="case 2";
+              edge [dir="none"];
+              node [color="white"]
+              a [label=<&alpha;>];
+              node [style="filled", fillcolor="grey", fontcolor="black"]
+              A [label="A:k"]; B [label="B:k"];
+              node [style="filled", fillcolor="black", fontcolor="white"]
+              C [label="C:k"];
+              node [color="white", fillcolor="white", fontcolor="black"]
+              b [label=<&beta;>]; c [label=<&gamma;>]; d [label=<&delta;>];
+              r [fontcolor="white"];
+              r -> C;
+              C -> A, d;
+              A -> a, B;
+              B -> b, c;
+          }
+          subgraph cluster1 {
+              label="case 3";
+              edge [dir="none"];
+              node [style="filled", fillcolor="grey", fontcolor="black"]
+              A1 [label="A:k"]; B1 [label="B:k"];
+              node [style="filled", fillcolor="black", fontcolor="white"]
+              C1 [label="C:k"];
+              node [color="white", fillcolor="white", fontcolor="black"]
+              a1 [label=<&alpha;>]; b1 [label=<&beta;>]; c1 [label=<&gamma;>];
+              d1 [label=<&delta;>];
+              r1 [fontcolor="white"];
+              r1 -> C1;
+              C1 -> B1, d1;
+              B1 -> A1, c1;
+              A1 -> a1, b1;
+          }
+          subgraph cluster2 {
+              label="result";
+              edge [dir="none"];
+              node [color="white"]
+              a2 [label=<&alpha;>]; b2 [label=<&beta;>]; c2 [label=<&gamma;>];
+              d2 [label=<&delta;>];
+              node [style="filled", fillcolor="grey", fontcolor="black"]
+              A2 [label="A:k"]; C2 [label="C:k"];
+              node [style="filled", fillcolor="black", fontcolor="white"]
+              B2 [label="B:k"];
+              node [color="white", fillcolor="white", fontcolor="black"]
+              r2 [fontcolor="white"];
+              r2 -> B2;
+              B2 -> A2, C2;
+              A2 -> a2, b2;
+              C2 -> c2, d2;
+          }
+      }
+      #+end_src
+** 13.3-4
+   If we set \(T.nil.color\) to RED, then the color of \(T.root\) must have been
+   set to RED too, this is impossible because we would only set the color of one
+   node to RED in an iteration, and then move up two levels in the tree or end
+   the loop. Thus =RB-INSERT-FIXUP= never sets \(T.nil.color\) to RED.
+** 13.3-5
+   Note that we would only color the nodes BLACK in =RB-INSERT-FIXUP=, in the
+   =RB-INSERT-FIXUP= procedure, if the while loop never iterates, then we only
+   color \(T.root\) BLACK, but we have \(n > 1\), thus the new node \(z\) is not
+   colored BLACK; else the while loop iterates, for each iteration, if it goes
+   case 1 in Figure 13.5, after the iteration the node on the bottom is RED, and
+   if it goes case 2 or case 3 in Figure 13.6, after the iteration the two nodes
+   on the bottom is RED, when the while loop finished, we color \(T.root\)
+   BLACK, but the bottom red nodes after the iterations will not be colored
+   BLACK. Hence if \(n > 1\), the tree has at least one red node.
+** 13.3-6
+   We could use a stack to store the nodes on the simple path down to \(z\), and
+   pop the nodes out if we need to get the ancestor nodes of \(z\), the modified
+   procedures are as below.
+   #+begin_src
+   RB-INSERT(T, z)
+       y = T.nil
+       x = T.root
+       let S be an empty stack
+       PUSH(S, y)
+       while x != T.nil
+           y = x
+           PUSH(S, y)
+           if z.key < x.key
+               x = x.left
+           else x = x.right
+       if y == T.nil
+           T.root = z
+       elseif z.key < y.key
+           y.left = z
+       else y.right = z
+       z.left = T.nil
+       z.right = T.nil
+       z.color = RED
+       RB-INSERT-FIXUP(T, z, S)
+
+   RB-INSERT-FIXUP(T, z, S)
+       zp = POP(S)
+       while zp.color == RED
+           zpp = POP(S)
+           if zp == zpp.left
+               y = zpp.right
+               if y.color == RED
+                   zp.color = BLACK
+                   y.color = BLACK
+                   zpp.color = RED
+                   z = zpp
+                   zp = POP(S)
+               else if z == zp.right
+                        z = zp
+                        LEFT-ROTATE(T, z, zp)
+                    zp.color = BLACK
+                    zpp.color = RED
+                    zppp = POP(S)
+                    RIGHT-ROTATE(T, zpp, zppp)
+           else (same as then clause with "right" and "left" exchanged)
+       T.root.color = BLACK
+
+   LEFT-ROTATE(T, x, xp)
+       y = x.right
+       x.right = y.left
+       if xp == T.nil
+           T.root = y
+       elseif x == xp.left
+           xp.left = y
+       else xp.right = y
+       y.left = x
+
+   RIGHT-ROTATE(T, y, yp)
+       x = y.left
+       y.left = x.right
+       if yp == T.nil
+           T.root = x
+       elseif y == yp.left
+           yp.left = x
+       else yp.right = x
+       x.right = y
+   #+end_src

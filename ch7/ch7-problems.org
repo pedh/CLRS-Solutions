@@ -50,7 +50,7 @@
                  A[j] = A[i]
                  A[i] = A[k]
                  A[k] = y
-             else if A[k] == x:
+             elseif A[k] == x:
                  j = j + 1
                  exchange A[j] with A[k]
          exchange A[r] with A[j + 1]
@@ -244,7 +244,7 @@
                  A[k], B[k] = A[j], B[j]
                  A[j], B[j] = A[i], B[i]
                  A[i], B[i] = x, y
-             else if A[k] <= right
+             elseif A[k] <= right
                  if A[k] > left
                      left = A[k]
                  if B[k] < right

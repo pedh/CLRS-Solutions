@@ -63,7 +63,7 @@
            pre.succ = z
        if y == NIL
            T.root = z
-       else if z.key < y.key
+       elseif z.key < y.key
            y.left = z
            z.succ = y
        else y.right = z
@@ -100,7 +100,7 @@
        pre = PREDECESSOR(T, u)
        if p == NIL
            T.root = v
-       else if u == p.left
+       elseif u == p.left
            p.left = v
        else p.right = v
        if v != NIL
@@ -111,7 +111,7 @@
    TREE-DELETE(T, z)
    if z.left == NIL
        TRANSPLANT(T, z, z.right)
-   else if z.right == NIL
+   elseif z.right == NIL
        TRANSPLANT(T, z, z.left)
    else y = z.succ
         if y != z.right
@@ -130,7 +130,7 @@
    TREE-DELETE'(T, z)
        if z.left == NIL
            TRANSPLANT(T, z, z.right)
-       else if z.right == NIL
+       elseif z.right == NIL
            TRANSPLANT(T, z, z.left)
        else y = TREE-MAXIMUM(z.left)
             if y.p != z

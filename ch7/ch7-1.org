@@ -30,7 +30,7 @@
            if A[j] == x
                c = c + 1
                exchange A[i + c] with A[j]
-           else if A[j] < x
+           elseif A[j] < x
                i = i + 1
                exchange A[i] with A[j]
                if c > 0

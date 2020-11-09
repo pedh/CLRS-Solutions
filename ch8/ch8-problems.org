@@ -190,7 +190,7 @@
                      if k < j
                          R.remove(k)
                          RL.add(k)
-             else if i < j
+             elseif i < j
                  B.remove(j)
                  BL.add(j)
          FIND-WATER-JUGS-GROUPS(RL, BL, C)
