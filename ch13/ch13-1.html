@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-11-09 Mon 10:38 -->
+<!-- 2020-11-10 Tue 03:29 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 13.1</title>
@@ -333,28 +333,28 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgdb14741">13.1</a>
+<li><a href="#org25e2c74">13.1</a>
 <ul>
-<li><a href="#org9dd66b7">13.1-1</a></li>
-<li><a href="#orgc46ee02">13.1-2</a></li>
-<li><a href="#org2efe60b">13.1-3</a></li>
-<li><a href="#org31132e4">13.1-4</a></li>
-<li><a href="#org76c90fe">13.1-5</a></li>
-<li><a href="#orgef2358b">13.1-6</a></li>
-<li><a href="#org7fd07db">13.1-7</a></li>
+<li><a href="#org4ad903e">13.1-1</a></li>
+<li><a href="#orga517d17">13.1-2</a></li>
+<li><a href="#org3c01f24">13.1-3</a></li>
+<li><a href="#orgfd4269f">13.1-4</a></li>
+<li><a href="#org8f71130">13.1-5</a></li>
+<li><a href="#org01e756d">13.1-6</a></li>
+<li><a href="#orgb795bf0">13.1-7</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgdb14741" class="outline-2">
-<h2 id="orgdb14741">13.1</h2>
-<div class="outline-text-2" id="text-orgdb14741">
+<div id="outline-container-org25e2c74" class="outline-2">
+<h2 id="org25e2c74">13.1</h2>
+<div class="outline-text-2" id="text-org25e2c74">
 </div>
-<div id="outline-container-org9dd66b7" class="outline-3">
-<h3 id="org9dd66b7">13.1-1</h3>
-<div class="outline-text-3" id="text-org9dd66b7">
+<div id="outline-container-org4ad903e" class="outline-3">
+<h3 id="org4ad903e">13.1-1</h3>
+<div class="outline-text-3" id="text-org4ad903e">
 
 <div class="figure">
 <p><img src="../static/generated/images/ch13-1-1.png" alt="ch13-1-1.png" />
@@ -381,9 +381,9 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgc46ee02" class="outline-3">
-<h3 id="orgc46ee02">13.1-2</h3>
-<div class="outline-text-3" id="text-orgc46ee02">
+<div id="outline-container-orga517d17" class="outline-3">
+<h3 id="orga517d17">13.1-2</h3>
+<div class="outline-text-3" id="text-orga517d17">
 <p>
 Below is the tree after the node with key \(36\) is inserted.
 </p>
@@ -405,9 +405,9 @@ contain the same number of black nodes.
 </p>
 </div>
 </div>
-<div id="outline-container-org2efe60b" class="outline-3">
-<h3 id="org2efe60b">13.1-3</h3>
-<div class="outline-text-3" id="text-org2efe60b">
+<div id="outline-container-org3c01f24" class="outline-3">
+<h3 id="org3c01f24">13.1-3</h3>
+<div class="outline-text-3" id="text-org3c01f24">
 <p>
 The resulting tree will still be a red-black tree, because the trees rooted
 at \(T.root.left\) and \(T.root.right\) were red-black trees, and after we
@@ -415,9 +415,9 @@ colored the root of \(T\) black, the tree \(T\) become a red-black tree.
 </p>
 </div>
 </div>
-<div id="outline-container-org31132e4" class="outline-3">
-<h3 id="org31132e4">13.1-4</h3>
-<div class="outline-text-3" id="text-org31132e4">
+<div id="outline-container-orgfd4269f" class="outline-3">
+<h3 id="orgfd4269f">13.1-4</h3>
+<div class="outline-text-3" id="text-orgfd4269f">
 <p>
 The degree of a node is the number of edges connected to the node. Below are
 the possible degrees of a black node after all its red children are absorbed.
@@ -489,9 +489,9 @@ root in the original tree.
 </p>
 </div>
 </div>
-<div id="outline-container-org76c90fe" class="outline-3">
-<h3 id="org76c90fe">13.1-5</h3>
-<div class="outline-text-3" id="text-org76c90fe">
+<div id="outline-container-org8f71130" class="outline-3">
+<h3 id="org8f71130">13.1-5</h3>
+<div class="outline-text-3" id="text-org8f71130">
 <p>
 Since the children of a red node must be black, we know that the length of
 the longest simple path from a node \(x\) to a descendant leaf is at most
@@ -500,18 +500,18 @@ is at least \(bh(x)\).
 </p>
 </div>
 </div>
-<div id="outline-container-orgef2358b" class="outline-3">
-<h3 id="orgef2358b">13.1-6</h3>
-<div class="outline-text-3" id="text-orgef2358b">
+<div id="outline-container-org01e756d" class="outline-3">
+<h3 id="org01e756d">13.1-6</h3>
+<div class="outline-text-3" id="text-org01e756d">
 <p>
 The largest possible number of internal nodes is \(2^{2k} - 1\), and the
 smallest possible number is \(2^k-1\).
 </p>
 </div>
 </div>
-<div id="outline-container-org7fd07db" class="outline-3">
-<h3 id="org7fd07db">13.1-7</h3>
-<div class="outline-text-3" id="text-org7fd07db">
+<div id="outline-container-orgb795bf0" class="outline-3">
+<h3 id="orgb795bf0">13.1-7</h3>
+<div class="outline-text-3" id="text-orgb795bf0">
 <p>
 The red-black tree on \(3\) keys with \(2\) red children of the root, has the
 largest possible ratio \(2\).
@@ -524,7 +524,7 @@ nodes, has the smallest possible ratio \(0\).
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2020-11-09 Mon 10:38</p>
+<p class="date">Created: 2020-11-10 Tue 03:29</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

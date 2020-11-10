@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-11-09 Mon 10:38 -->
+<!-- 2020-11-10 Tue 03:29 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 13.3</title>
@@ -333,35 +333,36 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org28ce208">13.3</a>
+<li><a href="#orgf4a942f">13.3</a>
 <ul>
-<li><a href="#org8b28df0">13.3-1</a></li>
-<li><a href="#orgfa937be">13.3-2</a></li>
-<li><a href="#orgb46693d">13.3-3</a></li>
-<li><a href="#orge002ba3">13.3-4</a></li>
-<li><a href="#orgbfe7756">13.3-5</a></li>
+<li><a href="#org4569d45">13.3-1</a></li>
+<li><a href="#org54f7172">13.3-2</a></li>
+<li><a href="#orgd13c74c">13.3-3</a></li>
+<li><a href="#org21a0ef7">13.3-4</a></li>
+<li><a href="#org7a8c5e4">13.3-5</a></li>
+<li><a href="#orgc0bcbe4">13.3-6</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org28ce208" class="outline-2">
-<h2 id="org28ce208">13.3</h2>
-<div class="outline-text-2" id="text-org28ce208">
+<div id="outline-container-orgf4a942f" class="outline-2">
+<h2 id="orgf4a942f">13.3</h2>
+<div class="outline-text-2" id="text-orgf4a942f">
 </div>
-<div id="outline-container-org8b28df0" class="outline-3">
-<h3 id="org8b28df0">13.3-1</h3>
-<div class="outline-text-3" id="text-org8b28df0">
+<div id="outline-container-org4569d45" class="outline-3">
+<h3 id="org4569d45">13.3-1</h3>
+<div class="outline-text-3" id="text-org4569d45">
 <p>
 If we set the newly inserted node \(z\) to black, then property 5 might be
 violated, and it's more difficult to fix property 5 than property 4.
 </p>
 </div>
 </div>
-<div id="outline-container-orgfa937be" class="outline-3">
-<h3 id="orgfa937be">13.3-2</h3>
-<div class="outline-text-3" id="text-orgfa937be">
+<div id="outline-container-org54f7172" class="outline-3">
+<h3 id="org54f7172">13.3-2</h3>
+<div class="outline-text-3" id="text-org54f7172">
 <ol class="org-ol">
 <li><p>
 Insert \(41\).
@@ -420,12 +421,12 @@ Insert \(8\).
 </div>
 </div>
 
-<div id="outline-container-orgb46693d" class="outline-3">
-<h3 id="orgb46693d">13.3-3</h3>
-<div class="outline-text-3" id="text-orgb46693d">
+<div id="outline-container-orgd13c74c" class="outline-3">
+<h3 id="orgd13c74c">13.3-3</h3>
+<div class="outline-text-3" id="text-orgd13c74c">
 <ol class="org-ol">
 <li><p>
-Case 1.
+For case 1.
 </p>
 
 <div class="figure">
@@ -440,7 +441,7 @@ Case 1.
 </div></li>
 
 <li><p>
-Case 2 &amp; 3.
+For case 2 &amp; 3.
 </p>
 
 <div class="figure">
@@ -451,30 +452,112 @@ Case 2 &amp; 3.
 </div>
 </div>
 
-<div id="outline-container-orge002ba3" class="outline-3">
-<h3 id="orge002ba3">13.3-4</h3>
-<div class="outline-text-3" id="text-orge002ba3">
+<div id="outline-container-org21a0ef7" class="outline-3">
+<h3 id="org21a0ef7">13.3-4</h3>
+<div class="outline-text-3" id="text-org21a0ef7">
 <p>
-If we set \(T.nil.color\) to RED, then the color of the root must have been
+If we set \(T.nil.color\) to RED, then the color of \(T.root\) must have been
 set to RED too, this is impossible because we would only set the color of one
 node to RED in an iteration, and then move up two levels in the tree or end
 the loop. Thus <code>RB-INSERT-FIXUP</code> never sets \(T.nil.color\) to RED.
 </p>
 </div>
 </div>
-<div id="outline-container-orgbfe7756" class="outline-3">
-<h3 id="orgbfe7756">13.3-5</h3>
-<div class="outline-text-3" id="text-orgbfe7756">
+<div id="outline-container-org7a8c5e4" class="outline-3">
+<h3 id="org7a8c5e4">13.3-5</h3>
+<div class="outline-text-3" id="text-org7a8c5e4">
 <p>
-todo
+Note that we would only color the nodes BLACK in <code>RB-INSERT-FIXUP</code>, in the
+<code>RB-INSERT-FIXUP</code> procedure, if the while loop never iterates, then we only
+color \(T.root\) BLACK, but we have \(n > 1\), thus the new node \(z\) is not
+colored BLACK; else the while loop iterates, for each iteration, if it goes
+case 1 in Figure 13.5, after the iteration the node on the bottom is RED, and
+if it goes case 2 or case 3 in Figure 13.6, after the iteration the two nodes
+on the bottom is RED, when the while loop finished, we color \(T.root\)
+BLACK, but the bottom red nodes after the iterations will not be colored
+BLACK. Hence if \(n > 1\), the tree has at least one red node.
 </p>
+</div>
+</div>
+<div id="outline-container-orgc0bcbe4" class="outline-3">
+<h3 id="orgc0bcbe4">13.3-6</h3>
+<div class="outline-text-3" id="text-orgc0bcbe4">
+<p>
+We could use a stack to store the nodes on the simple path down to \(z\), and
+pop the nodes out if we need to get the ancestor nodes of \(z\), the modified
+procedures are as below.
+</p>
+<pre class="example">
+RB-INSERT(T, z)
+    y = T.nil
+    x = T.root
+    let S be an empty stack
+    PUSH(S, y)
+    while x != T.nil
+	y = x
+	PUSH(S, y)
+	if z.key &lt; x.key
+	    x = x.left
+	else x = x.right
+    if y == T.nil
+	T.root = z
+    elseif z.key &lt; y.key
+	y.left = z
+    else y.right = z
+    z.left = T.nil
+    z.right = T.nil
+    z.color = RED
+    RB-INSERT-FIXUP(T, z, S)
+
+RB-INSERT-FIXUP(T, z, S)
+    zp = POP(S)
+    while zp.color == RED
+	zpp = POP(S)
+	if zp == zpp.left
+	    y = zpp.right
+	    if y.color == RED
+		zp.color = BLACK
+		y.color = BLACK
+		zpp.color = RED
+		z = zpp
+		zp = POP(S)
+	    else if z == zp.right
+		     z = zp
+		     LEFT-ROTATE(T, z, zp)
+		 zp.color = BLACK
+		 zpp.color = RED
+		 zppp = POP(S)
+		 RIGHT-ROTATE(T, zpp, zppp)
+	else (same as then clause with "right" and "left" exchanged)
+    T.root.color = BLACK
+
+LEFT-ROTATE(T, x, xp)
+    y = x.right
+    x.right = y.left
+    if xp == T.nil
+	T.root = y
+    elseif x == xp.left
+	xp.left = y
+    else xp.right = y
+    y.left = x
+
+RIGHT-ROTATE(T, y, yp)
+    x = y.left
+    y.left = x.right
+    if yp == T.nil
+	T.root = x
+    elseif y == yp.left
+	yp.left = x
+    else yp.right = x
+    x.right = y
+</pre>
 </div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2020-11-09 Mon 10:38</p>
+<p class="date">Created: 2020-11-10 Tue 03:29</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
