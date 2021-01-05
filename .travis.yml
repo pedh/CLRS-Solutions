@@ -2,7 +2,7 @@ language: generic
 dist: xenial
 
 env:
-  EMACS_VERSION=26.2
+  EMACS_VERSION=27
 
 before_install:
   - sudo apt-get update -y

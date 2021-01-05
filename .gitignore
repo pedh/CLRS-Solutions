@@ -7,3 +7,4 @@ _build
 index.org
 static/generated/images
 ltximg
+.DS_Store

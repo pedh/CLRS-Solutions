@@ -1,0 +1,200 @@
+#+TITLE: Chapter 13.4
+#+PROPERTY: header-args:dot :output-dir ../static/generated/images/
+
+* 13.4
+** 13.4-1
+   In both cases, we won't change the color of the root, thus after executing
+   =RB-DELETE-FIXUP=, the root of the tree must be black.
+** 13.4-2
+   If both \(x\) and \(x.p\) are red, the call to =RB-DELETE-FIXUP= will simply
+   color \(x\) black, and restore property 4.
+** 13.4-3
+   1. The initial tree.
+      #+begin_src dot :file ch13-4-1.png :exports results
+      digraph G {
+          edge [dir="none"];
+          node [style="filled", fillcolor="grey", fontcolor="black"]
+          19; 8;
+          node [style="filled", fillcolor="black", fontcolor="white"]
+          38; 41; 12; 31;
+          38 -> 19, 41;
+          19 -> 12, 31;
+          12 -> 8;
+      }
+      #+end_src
+   2. Delete \(8\).
+      #+begin_src dot :file ch13-4-2.png :exports results
+      digraph G {
+          edge [dir="none"];
+          node [style="filled", fillcolor="grey", fontcolor="black"]
+          19;
+          node [style="filled", fillcolor="black", fontcolor="white"]
+          38; 41; 12; 31;
+          38 -> 19, 41;
+          19 -> 12, 31;
+      }
+      #+end_src
+   3. Delete \(12\).
+      #+begin_src dot :file ch13-4-3.png :exports results
+      digraph G {
+          edge [dir="none"];
+          node [style="filled", fillcolor="grey", fontcolor="black"]
+          31;
+          node [style="filled", fillcolor="black", fontcolor="white"]
+          38; 19; 41;
+          38 -> 19, 41;
+          19 -> 31;
+      }
+      #+end_src
+   4. Delete \(19\).
+      #+begin_src dot :file ch13-4-4.png :exports results
+      digraph G {
+          edge [dir="none"];
+          node [style="filled", fillcolor="black", fontcolor="white"]
+          38; 31; 41;
+          38 -> 31, 41;
+      }
+      #+end_src
+   5. Delete \(31\).
+      #+begin_src dot :file ch13-4-5.png :exports results
+      digraph G {
+          edge [dir="none"];
+          node [style="filled", fillcolor="grey", fontcolor="black"]
+          41;
+          node [style="filled", fillcolor="black", fontcolor="white"]
+          38;
+          38 -> 41;
+      }
+      #+end_src
+   6. Delete \(38\).
+      #+begin_src dot :file ch13-4-6.png :exports results
+      digraph G {
+          edge [dir="none"];
+          node [style="filled", fillcolor="black", fontcolor="white"]
+          41;
+      }
+      #+end_src
+   7. Delete \(41\), the tree becomes empty.
+** 13.4-4
+   We might examine or modify the sentinel \(T.nil\) in those lines as below.
+   - Line 1, since \(x\) might be \(T.nil\), and we examine the condition
+     \(x.color == BLACK\).
+   - Line 2, since \(x\) might be \(T.nil\), and we examine the condition
+     \(x == x.p.left\).
+   - Line 9, since both \(w.left\) and \(w.right\) might be \(T.nil\), and we
+     examine the conditions \(w.left.color == BLACK\) and
+     \(w.right.color == BLACK\).
+   - Line 12, since \(w.right\) might be \(T.nil\), and we examine the condition
+     \(w.right.color == BLACK\).
+   - Line 20, since \(w.left\) might be \(T.nil\), and we modify \(w.left.p\)
+     from \(w\) to \(x.p\).
+   - Line 23, since \(x\) might be \(T.nil\), and we modify \(x.color\) to
+     \(BLACK\).
+** 13.4-5
+   - Case 1
+     |----------+-----------------------+----------------------|
+     |          | Before transformation | After transformation |
+     |----------+-----------------------+----------------------|
+     | \alpha   |                     2 |                    2 |
+     |----------+-----------------------+----------------------|
+     | \beta    |                     2 |                    2 |
+     |----------+-----------------------+----------------------|
+     | \gamma   |                     2 |                    2 |
+     |----------+-----------------------+----------------------|
+     | \delta   |                     2 |                    2 |
+     |----------+-----------------------+----------------------|
+     | \epsilon |                     2 |                    2 |
+     |----------+-----------------------+----------------------|
+     | \zeta    |                     2 |                    2 |
+     |----------+-----------------------+----------------------|
+   - Case 2
+     |----------+-----------------------+----------------------|
+     |          | Before transformation | After transformation |
+     |----------+-----------------------+----------------------|
+     | \alpha   | color(c) + 1          | color(c) + 1         |
+     |----------+-----------------------+----------------------|
+     | \beta    | color(c) + 1          | color(c) + 1         |
+     |----------+-----------------------+----------------------|
+     | \gamma   | color(c) + 2          | color(c) + 2         |
+     |----------+-----------------------+----------------------|
+     | \delta   | color(c) + 2          | color(c) + 2         |
+     |----------+-----------------------+----------------------|
+     | \epsilon | color(c) + 2          | color(c) + 2         |
+     |----------+-----------------------+----------------------|
+     | \zeta    | color(c) + 2          | color(c) + 2         |
+     |----------+-----------------------+----------------------|
+   - Case 3
+     |----------+-----------------------+----------------------|
+     |          | Before transformation | After transformation |
+     |----------+-----------------------+----------------------|
+     | \alpha   | color(c) + 1          | color(c) + 1         |
+     |----------+-----------------------+----------------------|
+     | \beta    | color(c) + 1          | color(c) + 1         |
+     |----------+-----------------------+----------------------|
+     | \gamma   | color(c) + 1          | color(c) + 1         |
+     |----------+-----------------------+----------------------|
+     | \delta   | color(c) + 1          | color(c) + 1         |
+     |----------+-----------------------+----------------------|
+     | \epsilon | color(c) + 2          | color(c) + 2         |
+     |----------+-----------------------+----------------------|
+     | \zeta    | color(c) + 2          | color(c) + 2         |
+     |----------+-----------------------+----------------------|
+   - Case 4
+     |----------+--------------------------+--------------------------|
+     |          | Before transformation    | After transformation     |
+     |----------+--------------------------+--------------------------|
+     | \alpha   | color(c) + 1             | color(c) + 1             |
+     |----------+--------------------------+--------------------------|
+     | \beta    | color(c) + 1             | color(c) + 1             |
+     |----------+--------------------------+--------------------------|
+     | \gamma   | color(c) + color(c') + 1 | color(c) + color(c') + 1 |
+     |----------+--------------------------+--------------------------|
+     | \delta   | color(c) + color(c') + 1 | color(c) + color(c') + 1 |
+     |----------+--------------------------+--------------------------|
+     | \epsilon | color(c) + 1             | color(c) + 1             |
+     |----------+--------------------------+--------------------------|
+     | \zeta    | color(c) + 1             | color(c) + 1             |
+     |----------+--------------------------+--------------------------|
+** 13.4-6
+   In case 1, \(x\)'s sibling \(w\) is red, and both \(w\) and its parent \(p\)
+   were left untouched before =RB-DELETE-FIXUP=, thus \(p\) must be black at the
+   start of case 1, otherwise the red-black property 4 is violated.
+** 13.4-7
+   The resulting tree may not be the same as the initial red-black tree. Below
+   is the counter example.
+   1. The initial tree.
+      #+begin_src dot :file ch13-4-7.png :exports results
+      digraph G {
+          edge [dir="none"];
+          node [style="filled", fillcolor="grey", fontcolor="black"]
+          7;
+          node [style="filled", fillcolor="black", fontcolor="white"]
+          11; 6; 14;
+          11 -> 7, 14;
+          7 -> 6;
+      }
+      #+end_src
+   2. Insert \(8\).
+      #+begin_src dot :file ch13-4-8.png :exports results
+      digraph G {
+          edge [dir="none"];
+          node [style="filled", fillcolor="black", fontcolor="white"]
+          7; 6; 8; 14;
+          node [style="filled", fillcolor="grey", fontcolor="black"]
+          11;
+          7 -> 6, 11;
+          11 -> 8, 14;
+      }
+      #+end_src
+   3. Delete \(8\).
+      #+begin_src dot :file ch13-4-9.png :exports results
+      digraph G {
+          edge [dir="none"];
+          node [style="filled", fillcolor="grey", fontcolor="black"]
+          14;
+          node [style="filled", fillcolor="black", fontcolor="white"]
+          7; 6; 11;
+          7 -> 6, 11;
+          11 -> 14;
+      }
+      #+end_src
