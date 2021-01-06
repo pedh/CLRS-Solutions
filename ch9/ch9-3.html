@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-11-10 Tue 04:04 -->
+<!-- 2021-01-06 Wed 12:12 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 9.3</title>
@@ -40,7 +40,7 @@
   }
   pre.src {
     position: relative;
-    overflow: visible;
+    overflow: auto;
     padding-top: 1.2em;
   }
   pre.src:before {
@@ -52,7 +52,7 @@
     padding: 3px;
     border: 1px solid black;
   }
-  pre.src:hover:before { display: inline;}
+  pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
@@ -161,6 +161,19 @@
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
   .inlinetask {
     padding: 10px;
     border: 2px solid gray;
@@ -183,63 +196,12 @@
 <link rel="stylesheet" type="text/css" href="/css/org-info.css" />
 
 <script type="text/javascript" src="/js/org-info.js">
-/**
- *
- * @source: /js/org-info.js
- *
- * @licstart  The following is the entire license notice for the
- *  JavaScript code in /js/org-info.js.
- *
- * Copyright (C) 2012-2019 Free Software Foundation, Inc.
- *
- *
- * The JavaScript code in this tag is free software: you can
- * redistribute it and/or modify it under the terms of the GNU
- * General Public License (GNU GPL) as published by the Free Software
- * Foundation, either version 3 of the License, or (at your option)
- * any later version.  The code is distributed WITHOUT ANY WARRANTY;
- * without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
- *
- * As additional permission under GNU GPL version 3 section 7, you
- * may distribute non-source (e.g., minimized or compacted) forms of
- * that code without the copy of the GNU GPL normally required by
- * section 4, provided you include this license notice and a URL
- * through which recipients can access the Corresponding Source.
- *
- * @licend  The above is the entire license notice
- * for the JavaScript code in /js/org-info.js.
- *
- */
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+// @license-end
 </script>
 
 <script type="text/javascript">
-
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2019 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
 <!--/*--><![CDATA[/*><!--*/
 org_html_manager.set("TOC_DEPTH", "3");
 org_html_manager.set("LINK_HOME", "/CLRS-Solutions");
@@ -252,52 +214,29 @@ org_html_manager.set("TOC", "1");
 org_html_manager.set("VIEW", "info");
 org_html_manager.setup();  // activate after the parameters are set
 /*]]>*///-->
+// @license-end
 </script>
 <script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2019 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
 </script>
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -333,30 +272,30 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orge4564c1">ch9.3</a>
+<li><a href="#org153093e">ch9.3</a>
 <ul>
-<li><a href="#orga4cdf13">9.3-1</a></li>
-<li><a href="#org9eeb414">9.3-2</a></li>
-<li><a href="#org7d2173e">9.3-3</a></li>
-<li><a href="#orgb3a135d">9.3-4</a></li>
-<li><a href="#orgb0efb39">9.3-5</a></li>
-<li><a href="#org1267869">9.3-6</a></li>
-<li><a href="#org89ccb88">9.3-7</a></li>
-<li><a href="#org5ad7a2b">9.3-8</a></li>
-<li><a href="#orgc676f44">9.3-9</a></li>
+<li><a href="#orgb9a8089">9.3-1</a></li>
+<li><a href="#orgf4f0b4f">9.3-2</a></li>
+<li><a href="#org9ad250b">9.3-3</a></li>
+<li><a href="#orgd47e711">9.3-4</a></li>
+<li><a href="#org5f81a86">9.3-5</a></li>
+<li><a href="#orgfccd25e">9.3-6</a></li>
+<li><a href="#org351385f">9.3-7</a></li>
+<li><a href="#org8f5fbb3">9.3-8</a></li>
+<li><a href="#org5703815">9.3-9</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orge4564c1" class="outline-2">
-<h2 id="orge4564c1">ch9.3</h2>
-<div class="outline-text-2" id="text-orge4564c1">
+<div id="outline-container-org153093e" class="outline-2">
+<h2 id="org153093e">ch9.3</h2>
+<div class="outline-text-2" id="text-org153093e">
 </div>
-<div id="outline-container-orga4cdf13" class="outline-3">
-<h3 id="orga4cdf13">9.3-1</h3>
-<div class="outline-text-3" id="text-orga4cdf13">
+<div id="outline-container-orgb9a8089" class="outline-3">
+<h3 id="orgb9a8089">9.3-1</h3>
+<div class="outline-text-3" id="text-orgb9a8089">
 <p>
 If we divide the input elements into groups of \(7\), the running time is
 </p>
@@ -389,26 +328,26 @@ into groups of \(3\).
 </div>
 </div>
 
-<div id="outline-container-org9eeb414" class="outline-3">
-<h3 id="org9eeb414">9.3-2</h3>
-<div class="outline-text-3" id="text-org9eeb414">
+<div id="outline-container-orgf4f0b4f" class="outline-3">
+<h3 id="orgf4f0b4f">9.3-2</h3>
+<div class="outline-text-3" id="text-orgf4f0b4f">
 <p>
 If \(n \geq 140\), we have \(3n/10 - 6 \geq n/4 + 1 \geq \lceil n/4 \rceil\).
 </p>
 </div>
 </div>
-<div id="outline-container-org7d2173e" class="outline-3">
-<h3 id="org7d2173e">9.3-3</h3>
-<div class="outline-text-3" id="text-org7d2173e">
+<div id="outline-container-org9ad250b" class="outline-3">
+<h3 id="org9ad250b">9.3-3</h3>
+<div class="outline-text-3" id="text-org9ad250b">
 <p>
 We can achieve the \(O(n\lg n)\) worst-case running time of quicksort, with
 using SELECT algorithm to choose the pivot in partitions.
 </p>
 </div>
 </div>
-<div id="outline-container-orgb3a135d" class="outline-3">
-<h3 id="orgb3a135d">9.3-4</h3>
-<div class="outline-text-3" id="text-orgb3a135d">
+<div id="outline-container-orgd47e711" class="outline-3">
+<h3 id="orgd47e711">9.3-4</h3>
+<div class="outline-text-3" id="text-orgd47e711">
 <p>
 First we create a graph of \(n\) vertices, the \(i\)th vertex (named \(V_i\))
 points to the \(i\)th element (named \(A_i\)).
@@ -428,9 +367,9 @@ is one of to the \(i - 1\) smaller element.
 </p>
 </div>
 </div>
-<div id="outline-container-orgb0efb39" class="outline-3">
-<h3 id="orgb0efb39">9.3-5</h3>
-<div class="outline-text-3" id="text-orgb0efb39">
+<div id="outline-container-org5f81a86" class="outline-3">
+<h3 id="org5f81a86">9.3-5</h3>
+<div class="outline-text-3" id="text-org5f81a86">
 <p>
 We use the "black-box" median subroutine to find the median, and use the
 median as the pivot in partition.
@@ -447,9 +386,9 @@ T(n)
 \end{align*}
 </div>
 </div>
-<div id="outline-container-org1267869" class="outline-3">
-<h3 id="org1267869">9.3-6</h3>
-<div class="outline-text-3" id="text-org1267869">
+<div id="outline-container-orgfccd25e" class="outline-3">
+<h3 id="orgfccd25e">9.3-6</h3>
+<div class="outline-text-3" id="text-orgfccd25e">
 <p>
 We partition the n-elements by the median, and recursively find the
 propotional quantiles of the left and right part, then we combine the
@@ -489,9 +428,9 @@ T(n,k)
 \end{align*}
 </div>
 </div>
-<div id="outline-container-org89ccb88" class="outline-3">
-<h3 id="org89ccb88">9.3-7</h3>
-<div class="outline-text-3" id="text-org89ccb88">
+<div id="outline-container-org351385f" class="outline-3">
+<h3 id="org351385f">9.3-7</h3>
+<div class="outline-text-3" id="text-org351385f">
 <p>
 First we find the median of \(S\), and SELECT the \(k\)th closest number to
 the median of \(S\) by comparing the absolute deviation to the median, then
@@ -507,9 +446,9 @@ PARTITION(A, k_closest) by comparing abs(A_i, med)
 </pre>
 </div>
 </div>
-<div id="outline-container-org5ad7a2b" class="outline-3">
-<h3 id="org5ad7a2b">9.3-8</h3>
-<div class="outline-text-3" id="text-org5ad7a2b">
+<div id="outline-container-org8f5fbb3" class="outline-3">
+<h3 id="org8f5fbb3">9.3-8</h3>
+<div class="outline-text-3" id="text-org8f5fbb3">
 <p>
 The algotithm is as below
 </p>
@@ -531,9 +470,9 @@ T(n)
 \end{align*}
 </div>
 </div>
-<div id="outline-container-orgc676f44" class="outline-3">
-<h3 id="orgc676f44">9.3-9</h3>
-<div class="outline-text-3" id="text-orgc676f44">
+<div id="outline-container-org5703815" class="outline-3">
+<h3 id="org5703815">9.3-9</h3>
+<div class="outline-text-3" id="text-org5703815">
 <p>
 Assume the y-coordinate of the optimal location is \(y_0\), and name the
 y-coordinate of the \(i\)th well after \(y_i\), and we minimize the total
@@ -555,8 +494,8 @@ and the upper median of the y-coordinates of the wells.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2020-11-10 Tue 04:04</p>
-<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+<p class="date">Created: 2021-01-06 Wed 12:12</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>

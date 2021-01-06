@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-11-10 Tue 04:04 -->
+<!-- 2021-01-06 Wed 12:12 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 5.3</title>
@@ -40,7 +40,7 @@
   }
   pre.src {
     position: relative;
-    overflow: visible;
+    overflow: auto;
     padding-top: 1.2em;
   }
   pre.src:before {
@@ -52,7 +52,7 @@
     padding: 3px;
     border: 1px solid black;
   }
-  pre.src:hover:before { display: inline;}
+  pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
@@ -161,6 +161,19 @@
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
   .inlinetask {
     padding: 10px;
     border: 2px solid gray;
@@ -183,63 +196,12 @@
 <link rel="stylesheet" type="text/css" href="/css/org-info.css" />
 
 <script type="text/javascript" src="/js/org-info.js">
-/**
- *
- * @source: /js/org-info.js
- *
- * @licstart  The following is the entire license notice for the
- *  JavaScript code in /js/org-info.js.
- *
- * Copyright (C) 2012-2019 Free Software Foundation, Inc.
- *
- *
- * The JavaScript code in this tag is free software: you can
- * redistribute it and/or modify it under the terms of the GNU
- * General Public License (GNU GPL) as published by the Free Software
- * Foundation, either version 3 of the License, or (at your option)
- * any later version.  The code is distributed WITHOUT ANY WARRANTY;
- * without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
- *
- * As additional permission under GNU GPL version 3 section 7, you
- * may distribute non-source (e.g., minimized or compacted) forms of
- * that code without the copy of the GNU GPL normally required by
- * section 4, provided you include this license notice and a URL
- * through which recipients can access the Corresponding Source.
- *
- * @licend  The above is the entire license notice
- * for the JavaScript code in /js/org-info.js.
- *
- */
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+// @license-end
 </script>
 
 <script type="text/javascript">
-
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2019 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
 <!--/*--><![CDATA[/*><!--*/
 org_html_manager.set("TOC_DEPTH", "3");
 org_html_manager.set("LINK_HOME", "/CLRS-Solutions");
@@ -252,52 +214,29 @@ org_html_manager.set("TOC", "1");
 org_html_manager.set("VIEW", "info");
 org_html_manager.setup();  // activate after the parameters are set
 /*]]>*///-->
+// @license-end
 </script>
 <script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2019 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
 </script>
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -333,28 +272,28 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org7ca0b09">ch5.3</a>
+<li><a href="#orgb147955">ch5.3</a>
 <ul>
-<li><a href="#org74430ee">5.3-1</a></li>
-<li><a href="#org26f5fc7">5.3-2</a></li>
-<li><a href="#org75ea56e">5.3-3</a></li>
-<li><a href="#org76e9cda">5.3-4</a></li>
-<li><a href="#org8ad377d">5.3-5</a></li>
-<li><a href="#org4bd1252">5.3-6</a></li>
-<li><a href="#org598e347">5.3-7</a></li>
+<li><a href="#orgbebf6e7">5.3-1</a></li>
+<li><a href="#org4192f6f">5.3-2</a></li>
+<li><a href="#org7bbc8e7">5.3-3</a></li>
+<li><a href="#org9b47800">5.3-4</a></li>
+<li><a href="#orgd6c276f">5.3-5</a></li>
+<li><a href="#orgc92b065">5.3-6</a></li>
+<li><a href="#org653f720">5.3-7</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org7ca0b09" class="outline-2">
-<h2 id="org7ca0b09">ch5.3</h2>
-<div class="outline-text-2" id="text-org7ca0b09">
+<div id="outline-container-orgb147955" class="outline-2">
+<h2 id="orgb147955">ch5.3</h2>
+<div class="outline-text-2" id="text-orgb147955">
 </div>
-<div id="outline-container-org74430ee" class="outline-3">
-<h3 id="org74430ee">5.3-1</h3>
-<div class="outline-text-3" id="text-org74430ee">
+<div id="outline-container-orgbebf6e7" class="outline-3">
+<h3 id="orgbebf6e7">5.3-1</h3>
+<div class="outline-text-3" id="text-orgbebf6e7">
 <pre class="example">
 RANDOMIZE-IN-PLACE(A)
     n = A.length
@@ -367,18 +306,18 @@ Modify the initialization case by replace \(i = 1\) to \(i = 2\).
 </p>
 </div>
 </div>
-<div id="outline-container-org26f5fc7" class="outline-3">
-<h3 id="org26f5fc7">5.3-2</h3>
-<div class="outline-text-3" id="text-org26f5fc7">
+<div id="outline-container-org4192f6f" class="outline-3">
+<h3 id="org4192f6f">5.3-2</h3>
+<div class="outline-text-3" id="text-org4192f6f">
 <p>
 No, because the procedure can't generate the premutations that keep any
 element identical, e.g., \(\langle A[3], A[2], A[1], \ldots\rangle\).
 </p>
 </div>
 </div>
-<div id="outline-container-org75ea56e" class="outline-3">
-<h3 id="org75ea56e">5.3-3</h3>
-<div class="outline-text-3" id="text-org75ea56e">
+<div id="outline-container-org7bbc8e7" class="outline-3">
+<h3 id="org7bbc8e7">5.3-3</h3>
+<div class="outline-text-3" id="text-org7bbc8e7">
 <p>
 No, because the algorithm will generate \(n^n\) permutations
 in the same probability, and \(n^n\) does not divide by \(n!\),
@@ -386,9 +325,9 @@ thus the \(n!\) permutations can not have the same probability.
 </p>
 </div>
 </div>
-<div id="outline-container-org76e9cda" class="outline-3">
-<h3 id="org76e9cda">5.3-4</h3>
-<div class="outline-text-3" id="text-org76e9cda">
+<div id="outline-container-org9b47800" class="outline-3">
+<h3 id="org9b47800">5.3-4</h3>
+<div class="outline-text-3" id="text-org9b47800">
 <p>
 Each offset in RANDOM(1, n) transpose A[i] to distinct position in B, i.e.,
 each element A[i] has a 1/n probability of winding up in any particular
@@ -401,9 +340,9 @@ is not uniformly random.
 </p>
 </div>
 </div>
-<div id="outline-container-org8ad377d" class="outline-3">
-<h3 id="org8ad377d">5.3-5</h3>
-<div class="outline-text-3" id="text-org8ad377d">
+<div id="outline-container-orgd6c276f" class="outline-3">
+<h3 id="orgd6c276f">5.3-5</h3>
+<div class="outline-text-3" id="text-orgd6c276f">
 <p>
 The probability that all elements are unique is
 </p>
@@ -416,17 +355,17 @@ The probability that all elements are unique is
 \end{align*}
 </div>
 </div>
-<div id="outline-container-org4bd1252" class="outline-3">
-<h3 id="org4bd1252">5.3-6</h3>
-<div class="outline-text-3" id="text-org4bd1252">
+<div id="outline-container-orgc92b065" class="outline-3">
+<h3 id="orgc92b065">5.3-6</h3>
+<div class="outline-text-3" id="text-orgc92b065">
 <p>
 Sort the elements with same priority in random order.
 </p>
 </div>
 </div>
-<div id="outline-container-org598e347" class="outline-3">
-<h3 id="org598e347">5.3-7</h3>
-<div class="outline-text-3" id="text-org598e347">
+<div id="outline-container-org653f720" class="outline-3">
+<h3 id="org653f720">5.3-7</h3>
+<div class="outline-text-3" id="text-org653f720">
 <p>
 We use math induction to prove the correctness of the algorithm.
 </p>
@@ -472,8 +411,8 @@ thus \((\forall x \in \{1,2,3,\ldots,n\}) [\Pr\{x \in S\} = \frac{m}{n}]\).
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2020-11-10 Tue 04:04</p>
-<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+<p class="date">Created: 2021-01-06 Wed 12:12</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>

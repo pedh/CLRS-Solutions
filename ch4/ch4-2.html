@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-11-10 Tue 04:04 -->
+<!-- 2021-01-06 Wed 12:12 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 4.2</title>
@@ -40,7 +40,7 @@
   }
   pre.src {
     position: relative;
-    overflow: visible;
+    overflow: auto;
     padding-top: 1.2em;
   }
   pre.src:before {
@@ -52,7 +52,7 @@
     padding: 3px;
     border: 1px solid black;
   }
-  pre.src:hover:before { display: inline;}
+  pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
@@ -161,6 +161,19 @@
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
   .inlinetask {
     padding: 10px;
     border: 2px solid gray;
@@ -183,63 +196,12 @@
 <link rel="stylesheet" type="text/css" href="/css/org-info.css" />
 
 <script type="text/javascript" src="/js/org-info.js">
-/**
- *
- * @source: /js/org-info.js
- *
- * @licstart  The following is the entire license notice for the
- *  JavaScript code in /js/org-info.js.
- *
- * Copyright (C) 2012-2019 Free Software Foundation, Inc.
- *
- *
- * The JavaScript code in this tag is free software: you can
- * redistribute it and/or modify it under the terms of the GNU
- * General Public License (GNU GPL) as published by the Free Software
- * Foundation, either version 3 of the License, or (at your option)
- * any later version.  The code is distributed WITHOUT ANY WARRANTY;
- * without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
- *
- * As additional permission under GNU GPL version 3 section 7, you
- * may distribute non-source (e.g., minimized or compacted) forms of
- * that code without the copy of the GNU GPL normally required by
- * section 4, provided you include this license notice and a URL
- * through which recipients can access the Corresponding Source.
- *
- * @licend  The above is the entire license notice
- * for the JavaScript code in /js/org-info.js.
- *
- */
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+// @license-end
 </script>
 
 <script type="text/javascript">
-
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2019 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
 <!--/*--><![CDATA[/*><!--*/
 org_html_manager.set("TOC_DEPTH", "3");
 org_html_manager.set("LINK_HOME", "/CLRS-Solutions");
@@ -252,52 +214,29 @@ org_html_manager.set("TOC", "1");
 org_html_manager.set("VIEW", "info");
 org_html_manager.setup();  // activate after the parameters are set
 /*]]>*///-->
+// @license-end
 </script>
 <script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2019 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
 </script>
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -333,28 +272,28 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org1f9266b">ch4.2</a>
+<li><a href="#org2e53e95">ch4.2</a>
 <ul>
-<li><a href="#orgf745e9c">4.2-1</a></li>
-<li><a href="#org7516f3a">4.2-2</a></li>
-<li><a href="#org6dc2710">4.2-3</a></li>
-<li><a href="#org9ee0558">4.2-4</a></li>
-<li><a href="#orgceac321">4.2-5</a></li>
-<li><a href="#orgc3ff72b">4.2-6</a></li>
-<li><a href="#orgc6931a5">4.2-7</a></li>
+<li><a href="#org50114a5">4.2-1</a></li>
+<li><a href="#org463657f">4.2-2</a></li>
+<li><a href="#org8efe767">4.2-3</a></li>
+<li><a href="#orgacfadf1">4.2-4</a></li>
+<li><a href="#org0ba8787">4.2-5</a></li>
+<li><a href="#org2afb5e7">4.2-6</a></li>
+<li><a href="#orgc205bbf">4.2-7</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org1f9266b" class="outline-2">
-<h2 id="org1f9266b">ch4.2</h2>
-<div class="outline-text-2" id="text-org1f9266b">
+<div id="outline-container-org2e53e95" class="outline-2">
+<h2 id="org2e53e95">ch4.2</h2>
+<div class="outline-text-2" id="text-org2e53e95">
 </div>
-<div id="outline-container-orgf745e9c" class="outline-3">
-<h3 id="orgf745e9c">4.2-1</h3>
-<div class="outline-text-3" id="text-orgf745e9c">
+<div id="outline-container-org50114a5" class="outline-3">
+<h3 id="org50114a5">4.2-1</h3>
+<div class="outline-text-3" id="text-org50114a5">
 \begin{equation*}
 A=
 \begin{pmatrix}
@@ -411,9 +350,9 @@ C=
 \end{equation*}
 </div>
 </div>
-<div id="outline-container-org7516f3a" class="outline-3">
-<h3 id="org7516f3a">4.2-2</h3>
-<div class="outline-text-3" id="text-org7516f3a">
+<div id="outline-container-org463657f" class="outline-3">
+<h3 id="org463657f">4.2-2</h3>
+<div class="outline-text-3" id="text-org463657f">
 <pre class="example">
 MATRIX-MULTIPLY-STRASSEN(A, B)
     n = A.rows
@@ -446,9 +385,9 @@ MATRIX-MULTIPLY-STRASSEN(A, B)
 </pre>
 </div>
 </div>
-<div id="outline-container-org6dc2710" class="outline-3">
-<h3 id="org6dc2710">4.2-3</h3>
-<div class="outline-text-3" id="text-org6dc2710">
+<div id="outline-container-org8efe767" class="outline-3">
+<h3 id="org8efe767">4.2-3</h3>
+<div class="outline-text-3" id="text-org8efe767">
 <p>
 Let \(k = \lceil \lg n \rceil\), extend the \(n \times n\) matrices to
 \(2^k \times 2^k\) matrices and pad them with zeroes.
@@ -461,9 +400,9 @@ hence the running time is still \(\Theta(n^{\lg 7})\).
 </p>
 </div>
 </div>
-<div id="outline-container-org9ee0558" class="outline-3">
-<h3 id="org9ee0558">4.2-4</h3>
-<div class="outline-text-3" id="text-org9ee0558">
+<div id="outline-container-orgacfadf1" class="outline-3">
+<h3 id="orgacfadf1">4.2-4</h3>
+<div class="outline-text-3" id="text-orgacfadf1">
 <p>
 We have
 </p>
@@ -485,9 +424,9 @@ is 21. The running time is \(\Theta(n^{\log_3{21}})\).
 </p>
 </div>
 </div>
-<div id="outline-container-orgceac321" class="outline-3">
-<h3 id="orgceac321">4.2-5</h3>
-<div class="outline-text-3" id="text-orgceac321">
+<div id="outline-container-org0ba8787" class="outline-3">
+<h3 id="org0ba8787">4.2-5</h3>
+<div class="outline-text-3" id="text-org0ba8787">
 <p>
 Calculate the logarithms of the three ways
 </p>
@@ -503,9 +442,9 @@ It's better than Strassen's algorithm which \(\lg 7 \approx 2.81\).
 </p>
 </div>
 </div>
-<div id="outline-container-orgc3ff72b" class="outline-3">
-<h3 id="orgc3ff72b">4.2-6</h3>
-<div class="outline-text-3" id="text-orgc3ff72b">
+<div id="outline-container-org2afb5e7" class="outline-3">
+<h3 id="org2afb5e7">4.2-6</h3>
+<div class="outline-text-3" id="text-org2afb5e7">
 <ul class="org-ul">
 <li><p>
 Multiply a \(kn \times n\) matrix by an \(n \times kn\) matrix:
@@ -533,9 +472,9 @@ The running time is \(\Theta(k n^{\lg 7} + (k - 1)n^2)\).
 </ul>
 </div>
 </div>
-<div id="outline-container-orgc6931a5" class="outline-3">
-<h3 id="orgc6931a5">4.2-7</h3>
-<div class="outline-text-3" id="text-orgc6931a5">
+<div id="outline-container-orgc205bbf" class="outline-3">
+<h3 id="orgc205bbf">4.2-7</h3>
+<div class="outline-text-3" id="text-orgc205bbf">
 <p>
 Let \(p_1 = ad\), \(p_2 = bc\), \(p_3 = (a - b)(c + d)\), then
 </p>
@@ -551,8 +490,8 @@ Let \(p_1 = ad\), \(p_2 = bc\), \(p_3 = (a - b)(c + d)\), then
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2020-11-10 Tue 04:04</p>
-<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+<p class="date">Created: 2021-01-06 Wed 12:12</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>

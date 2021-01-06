@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-11-10 Tue 04:04 -->
+<!-- 2021-01-06 Wed 12:12 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 3.2</title>
@@ -40,7 +40,7 @@
   }
   pre.src {
     position: relative;
-    overflow: visible;
+    overflow: auto;
     padding-top: 1.2em;
   }
   pre.src:before {
@@ -52,7 +52,7 @@
     padding: 3px;
     border: 1px solid black;
   }
-  pre.src:hover:before { display: inline;}
+  pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
@@ -161,6 +161,19 @@
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
   .inlinetask {
     padding: 10px;
     border: 2px solid gray;
@@ -183,63 +196,12 @@
 <link rel="stylesheet" type="text/css" href="/css/org-info.css" />
 
 <script type="text/javascript" src="/js/org-info.js">
-/**
- *
- * @source: /js/org-info.js
- *
- * @licstart  The following is the entire license notice for the
- *  JavaScript code in /js/org-info.js.
- *
- * Copyright (C) 2012-2019 Free Software Foundation, Inc.
- *
- *
- * The JavaScript code in this tag is free software: you can
- * redistribute it and/or modify it under the terms of the GNU
- * General Public License (GNU GPL) as published by the Free Software
- * Foundation, either version 3 of the License, or (at your option)
- * any later version.  The code is distributed WITHOUT ANY WARRANTY;
- * without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
- *
- * As additional permission under GNU GPL version 3 section 7, you
- * may distribute non-source (e.g., minimized or compacted) forms of
- * that code without the copy of the GNU GPL normally required by
- * section 4, provided you include this license notice and a URL
- * through which recipients can access the Corresponding Source.
- *
- * @licend  The above is the entire license notice
- * for the JavaScript code in /js/org-info.js.
- *
- */
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+// @license-end
 </script>
 
 <script type="text/javascript">
-
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2019 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
 <!--/*--><![CDATA[/*><!--*/
 org_html_manager.set("TOC_DEPTH", "3");
 org_html_manager.set("LINK_HOME", "/CLRS-Solutions");
@@ -252,52 +214,29 @@ org_html_manager.set("TOC", "1");
 org_html_manager.set("VIEW", "info");
 org_html_manager.setup();  // activate after the parameters are set
 /*]]>*///-->
+// @license-end
 </script>
 <script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2019 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
 </script>
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -333,29 +272,29 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org1a14fc1">ch3.2</a>
+<li><a href="#org4f13af4">ch3.2</a>
 <ul>
-<li><a href="#orge1a9021">3.2-1</a></li>
-<li><a href="#org6245957">3.2-2</a></li>
-<li><a href="#orgaf88729">3.2-3</a></li>
-<li><a href="#org462e467">3.2-4</a></li>
-<li><a href="#org81d3287">3.2-5</a></li>
-<li><a href="#org73cb868">3.2-6</a></li>
-<li><a href="#org3fd397a">3.2-7</a></li>
-<li><a href="#org2d64ac7">3.2-8</a></li>
+<li><a href="#org5c75a20">3.2-1</a></li>
+<li><a href="#org494b0a4">3.2-2</a></li>
+<li><a href="#org0a9b9f6">3.2-3</a></li>
+<li><a href="#orgafede3a">3.2-4</a></li>
+<li><a href="#org05064af">3.2-5</a></li>
+<li><a href="#orgb35f844">3.2-6</a></li>
+<li><a href="#orga6a950d">3.2-7</a></li>
+<li><a href="#org297b6b1">3.2-8</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org1a14fc1" class="outline-2">
-<h2 id="org1a14fc1">ch3.2</h2>
-<div class="outline-text-2" id="text-org1a14fc1">
+<div id="outline-container-org4f13af4" class="outline-2">
+<h2 id="org4f13af4">ch3.2</h2>
+<div class="outline-text-2" id="text-org4f13af4">
 </div>
-<div id="outline-container-orge1a9021" class="outline-3">
-<h3 id="orge1a9021">3.2-1</h3>
-<div class="outline-text-3" id="text-orge1a9021">
+<div id="outline-container-org5c75a20" class="outline-3">
+<h3 id="org5c75a20">3.2-1</h3>
+<div class="outline-text-3" id="text-org5c75a20">
 <ul class="org-ul">
 <li><p>
 If \(m \leq n\), then
@@ -383,9 +322,9 @@ So \(f(n)\cdot g(n)\) is monotonically increasing.
 </ul>
 </div>
 </div>
-<div id="outline-container-org6245957" class="outline-3">
-<h3 id="org6245957">3.2-2</h3>
-<div class="outline-text-3" id="text-org6245957">
+<div id="outline-container-org494b0a4" class="outline-3">
+<h3 id="org494b0a4">3.2-2</h3>
+<div class="outline-text-3" id="text-org494b0a4">
 \begin{align*}
 a^{\log_b c}&=a^{\frac{\log_a c}{\log_a b}}\\
             &=(a^{\log_a c})^{\frac{1}{\log_a b}}\\
@@ -394,9 +333,9 @@ a^{\log_b c}&=a^{\frac{\log_a c}{\log_a b}}\\
 \end{align*}
 </div>
 </div>
-<div id="outline-container-orgaf88729" class="outline-3">
-<h3 id="orgaf88729">3.2-3</h3>
-<div class="outline-text-3" id="text-orgaf88729">
+<div id="outline-container-org0a9b9f6" class="outline-3">
+<h3 id="org0a9b9f6">3.2-3</h3>
+<div class="outline-text-3" id="text-org0a9b9f6">
 <ul class="org-ul">
 <li><p>
 According to Stirling’s approximation, we have
@@ -434,9 +373,9 @@ So \(n! = o(n^n)\).
 </ul>
 </div>
 </div>
-<div id="outline-container-org462e467" class="outline-3">
-<h3 id="org462e467">3.2-4</h3>
-<div class="outline-text-3" id="text-org462e467">
+<div id="outline-container-orgafede3a" class="outline-3">
+<h3 id="orgafede3a">3.2-4</h3>
+<div class="outline-text-3" id="text-orgafede3a">
 <ul class="org-ul">
 <li><p>
 \(\lceil \lg n \rceil !\) is not polynomial bounded.
@@ -471,9 +410,9 @@ let \(x = c\lg\lg n\),
 </ul>
 </div>
 </div>
-<div id="outline-container-org81d3287" class="outline-3">
-<h3 id="org81d3287">3.2-5</h3>
-<div class="outline-text-3" id="text-org81d3287">
+<div id="outline-container-org05064af" class="outline-3">
+<h3 id="org05064af">3.2-5</h3>
+<div class="outline-text-3" id="text-org05064af">
 <p>
 \(\lg^*(\lg{n})\) is asymptotically larger.
 </p>
@@ -484,9 +423,9 @@ let \(x = c\lg\lg n\),
 \end{align*}
 </div>
 </div>
-<div id="outline-container-org73cb868" class="outline-3">
-<h3 id="org73cb868">3.2-6</h3>
-<div class="outline-text-3" id="text-org73cb868">
+<div id="outline-container-orgb35f844" class="outline-3">
+<h3 id="orgb35f844">3.2-6</h3>
+<div class="outline-text-3" id="text-orgb35f844">
 <ul class="org-ul">
 <li><p>
 \(\phi = \frac{1 + \sqrt{5}}{2}\)
@@ -511,9 +450,9 @@ let \(x = c\lg\lg n\),
 </ul>
 </div>
 </div>
-<div id="outline-container-org3fd397a" class="outline-3">
-<h3 id="org3fd397a">3.2-7</h3>
-<div class="outline-text-3" id="text-org3fd397a">
+<div id="outline-container-orga6a950d" class="outline-3">
+<h3 id="orga6a950d">3.2-7</h3>
+<div class="outline-text-3" id="text-orga6a950d">
 <p>
 <b>Base case:</b> \(F_1 = \frac{\phi - \hat{\phi}}{2} = 1\),
 \(F_2 = \frac{\phi^2 - \hat{\phi}^2}{2} = 1\)
@@ -538,9 +477,9 @@ F_{i+2}
 </p>
 </div>
 </div>
-<div id="outline-container-org2d64ac7" class="outline-3">
-<h3 id="org2d64ac7">3.2-8</h3>
-<div class="outline-text-3" id="text-org2d64ac7">
+<div id="outline-container-org297b6b1" class="outline-3">
+<h3 id="org297b6b1">3.2-8</h3>
+<div class="outline-text-3" id="text-org297b6b1">
 <ul class="org-ul">
 <li><p>
 If \(f_1(n) = \Theta(g_1(n))\) and \(f_2(n) = \Theta(g_2(n))\),
@@ -614,8 +553,8 @@ k&=\frac{k\ln k}{\ln k}\\
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2020-11-10 Tue 04:04</p>
-<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+<p class="date">Created: 2021-01-06 Wed 12:12</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>

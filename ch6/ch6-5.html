@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-11-10 Tue 04:04 -->
+<!-- 2021-01-06 Wed 12:12 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 6.5</title>
@@ -40,7 +40,7 @@
   }
   pre.src {
     position: relative;
-    overflow: visible;
+    overflow: auto;
     padding-top: 1.2em;
   }
   pre.src:before {
@@ -52,7 +52,7 @@
     padding: 3px;
     border: 1px solid black;
   }
-  pre.src:hover:before { display: inline;}
+  pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
@@ -161,6 +161,19 @@
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
   .inlinetask {
     padding: 10px;
     border: 2px solid gray;
@@ -183,63 +196,12 @@
 <link rel="stylesheet" type="text/css" href="/css/org-info.css" />
 
 <script type="text/javascript" src="/js/org-info.js">
-/**
- *
- * @source: /js/org-info.js
- *
- * @licstart  The following is the entire license notice for the
- *  JavaScript code in /js/org-info.js.
- *
- * Copyright (C) 2012-2019 Free Software Foundation, Inc.
- *
- *
- * The JavaScript code in this tag is free software: you can
- * redistribute it and/or modify it under the terms of the GNU
- * General Public License (GNU GPL) as published by the Free Software
- * Foundation, either version 3 of the License, or (at your option)
- * any later version.  The code is distributed WITHOUT ANY WARRANTY;
- * without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
- *
- * As additional permission under GNU GPL version 3 section 7, you
- * may distribute non-source (e.g., minimized or compacted) forms of
- * that code without the copy of the GNU GPL normally required by
- * section 4, provided you include this license notice and a URL
- * through which recipients can access the Corresponding Source.
- *
- * @licend  The above is the entire license notice
- * for the JavaScript code in /js/org-info.js.
- *
- */
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+// @license-end
 </script>
 
 <script type="text/javascript">
-
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2019 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
 <!--/*--><![CDATA[/*><!--*/
 org_html_manager.set("TOC_DEPTH", "3");
 org_html_manager.set("LINK_HOME", "/CLRS-Solutions");
@@ -252,52 +214,29 @@ org_html_manager.set("TOC", "1");
 org_html_manager.set("VIEW", "info");
 org_html_manager.setup();  // activate after the parameters are set
 /*]]>*///-->
+// @license-end
 </script>
 <script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2019 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
 </script>
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -333,30 +272,30 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org160166a">ch6.5</a>
+<li><a href="#org04d2540">ch6.5</a>
 <ul>
-<li><a href="#org48d9d3e">6.5-1</a></li>
-<li><a href="#orga2b1865">6.5-2</a></li>
-<li><a href="#orgf878f80">6.5-3</a></li>
-<li><a href="#org86d095e">6.5-4</a></li>
-<li><a href="#org5f07f21">6.5-5</a></li>
-<li><a href="#orgac48cdd">6.5-6</a></li>
-<li><a href="#org7d2e958">6.5-7</a></li>
-<li><a href="#org15e2cf2">6.5-8</a></li>
-<li><a href="#orgb3aefd8">6.5-9</a></li>
+<li><a href="#org464f169">6.5-1</a></li>
+<li><a href="#org712e71c">6.5-2</a></li>
+<li><a href="#org8f53101">6.5-3</a></li>
+<li><a href="#org7fdfa4f">6.5-4</a></li>
+<li><a href="#org013663c">6.5-5</a></li>
+<li><a href="#orge7a1e64">6.5-6</a></li>
+<li><a href="#orgee9c366">6.5-7</a></li>
+<li><a href="#org56fcb47">6.5-8</a></li>
+<li><a href="#orgeaa0060">6.5-9</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org160166a" class="outline-2">
-<h2 id="org160166a">ch6.5</h2>
-<div class="outline-text-2" id="text-org160166a">
+<div id="outline-container-org04d2540" class="outline-2">
+<h2 id="org04d2540">ch6.5</h2>
+<div class="outline-text-2" id="text-org04d2540">
 </div>
-<div id="outline-container-org48d9d3e" class="outline-3">
-<h3 id="org48d9d3e">6.5-1</h3>
-<div class="outline-text-3" id="text-org48d9d3e">
+<div id="outline-container-org464f169" class="outline-3">
+<h3 id="org464f169">6.5-1</h3>
+<div class="outline-text-3" id="text-org464f169">
 <pre class="example">
    (15 (13 (5 (4) (0)) (12 (6) (2))) (9 (8 (1)) (7)))
 -&gt; (1 (13 (5 (4) (0)) (12 (6) (2))) (9 (8) (7)))       # extract 15
@@ -364,9 +303,9 @@ for the JavaScript code in this tag.
 </pre>
 </div>
 </div>
-<div id="outline-container-orga2b1865" class="outline-3">
-<h3 id="orga2b1865">6.5-2</h3>
-<div class="outline-text-3" id="text-orga2b1865">
+<div id="outline-container-org712e71c" class="outline-3">
+<h3 id="org712e71c">6.5-2</h3>
+<div class="outline-text-3" id="text-org712e71c">
 <pre class="example">
    (15 (13 (5 (4) (0)) (12 (6) (2))) (9 (8 (1)) (7)))
 -&gt; (15 (13 (5 (4) (0)) (12 (6) (2))) (9 (8 (1) (*10*)) (7)))
@@ -376,9 +315,9 @@ for the JavaScript code in this tag.
 </pre>
 </div>
 </div>
-<div id="outline-container-orgf878f80" class="outline-3">
-<h3 id="orgf878f80">6.5-3</h3>
-<div class="outline-text-3" id="text-orgf878f80">
+<div id="outline-container-org8f53101" class="outline-3">
+<h3 id="org8f53101">6.5-3</h3>
+<div class="outline-text-3" id="text-org8f53101">
 <pre class="example">
 HEAP-MINIMUM(A)
     return A[1]
@@ -410,18 +349,18 @@ MIN-HEAP-INSERT(A, key)
 </pre>
 </div>
 </div>
-<div id="outline-container-org86d095e" class="outline-3">
-<h3 id="org86d095e">6.5-4</h3>
-<div class="outline-text-3" id="text-org86d095e">
+<div id="outline-container-org7fdfa4f" class="outline-3">
+<h3 id="org7fdfa4f">6.5-4</h3>
+<div class="outline-text-3" id="text-org7fdfa4f">
 <p>
 Set the key to \(-\infty\) to keep the max heap and ensure that the desired
 value is larger than the current value.
 </p>
 </div>
 </div>
-<div id="outline-container-org5f07f21" class="outline-3">
-<h3 id="org5f07f21">6.5-5</h3>
-<div class="outline-text-3" id="text-org5f07f21">
+<div id="outline-container-org013663c" class="outline-3">
+<h3 id="org013663c">6.5-5</h3>
+<div class="outline-text-3" id="text-org013663c">
 <p>
 <b>Initialization:</b> The subarray is same as the original max heap except
 \(A[i] = key\), and there may exists one exception that \(A[i] = key\) may be
@@ -441,9 +380,9 @@ the violation is resolved, the subarray becomes a max heap.
 </div>
 </div>
 
-<div id="outline-container-orgac48cdd" class="outline-3">
-<h3 id="orgac48cdd">6.5-6</h3>
-<div class="outline-text-3" id="text-orgac48cdd">
+<div id="outline-container-orge7a1e64" class="outline-3">
+<h3 id="orge7a1e64">6.5-6</h3>
+<div class="outline-text-3" id="text-orge7a1e64">
 <pre class="example">
 HEAP-INCREASE-KEY(A, i, key)
     if key &lt; A[i]
@@ -455,9 +394,9 @@ HEAP-INCREASE-KEY(A, i, key)
 </pre>
 </div>
 </div>
-<div id="outline-container-org7d2e958" class="outline-3">
-<h3 id="org7d2e958">6.5-7</h3>
-<div class="outline-text-3" id="text-org7d2e958">
+<div id="outline-container-orgee9c366" class="outline-3">
+<h3 id="orgee9c366">6.5-7</h3>
+<div class="outline-text-3" id="text-orgee9c366">
 <p>
 <b>FIFO queue:</b> Use a min-priority queue, increase the priority on every
 insertion.
@@ -474,9 +413,9 @@ need to consider reassignment of the priorities.
 </p>
 </div>
 </div>
-<div id="outline-container-org15e2cf2" class="outline-3">
-<h3 id="org15e2cf2">6.5-8</h3>
-<div class="outline-text-3" id="text-org15e2cf2">
+<div id="outline-container-org56fcb47" class="outline-3">
+<h3 id="org56fcb47">6.5-8</h3>
+<div class="outline-text-3" id="text-org56fcb47">
 <pre class="example">
 HEAP-DELETE(A, i)
     key = A[A.heap-size]
@@ -488,9 +427,9 @@ HEAP-DELETE(A, i)
 </pre>
 </div>
 </div>
-<div id="outline-container-orgb3aefd8" class="outline-3">
-<h3 id="orgb3aefd8">6.5-9</h3>
-<div class="outline-text-3" id="text-orgb3aefd8">
+<div id="outline-container-orgeaa0060" class="outline-3">
+<h3 id="orgeaa0060">6.5-9</h3>
+<div class="outline-text-3" id="text-orgeaa0060">
 <pre class="example">
 MERGE-SORTED-LISTS(L, k)
     let A[1..k] be a new array
@@ -514,8 +453,8 @@ MERGE-SORTED-LISTS(L, k)
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2020-11-10 Tue 04:04</p>
-<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+<p class="date">Created: 2021-01-06 Wed 12:12</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>

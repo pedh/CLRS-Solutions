@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-11-10 Tue 04:04 -->
+<!-- 2021-01-06 Wed 12:12 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 12.3</title>
@@ -40,7 +40,7 @@
   }
   pre.src {
     position: relative;
-    overflow: visible;
+    overflow: auto;
     padding-top: 1.2em;
   }
   pre.src:before {
@@ -52,7 +52,7 @@
     padding: 3px;
     border: 1px solid black;
   }
-  pre.src:hover:before { display: inline;}
+  pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
@@ -161,6 +161,19 @@
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
   .inlinetask {
     padding: 10px;
     border: 2px solid gray;
@@ -183,63 +196,12 @@
 <link rel="stylesheet" type="text/css" href="/css/org-info.css" />
 
 <script type="text/javascript" src="/js/org-info.js">
-/**
- *
- * @source: /js/org-info.js
- *
- * @licstart  The following is the entire license notice for the
- *  JavaScript code in /js/org-info.js.
- *
- * Copyright (C) 2012-2019 Free Software Foundation, Inc.
- *
- *
- * The JavaScript code in this tag is free software: you can
- * redistribute it and/or modify it under the terms of the GNU
- * General Public License (GNU GPL) as published by the Free Software
- * Foundation, either version 3 of the License, or (at your option)
- * any later version.  The code is distributed WITHOUT ANY WARRANTY;
- * without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
- *
- * As additional permission under GNU GPL version 3 section 7, you
- * may distribute non-source (e.g., minimized or compacted) forms of
- * that code without the copy of the GNU GPL normally required by
- * section 4, provided you include this license notice and a URL
- * through which recipients can access the Corresponding Source.
- *
- * @licend  The above is the entire license notice
- * for the JavaScript code in /js/org-info.js.
- *
- */
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+// @license-end
 </script>
 
 <script type="text/javascript">
-
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2019 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
 <!--/*--><![CDATA[/*><!--*/
 org_html_manager.set("TOC_DEPTH", "3");
 org_html_manager.set("LINK_HOME", "/CLRS-Solutions");
@@ -252,52 +214,29 @@ org_html_manager.set("TOC", "1");
 org_html_manager.set("VIEW", "info");
 org_html_manager.setup();  // activate after the parameters are set
 /*]]>*///-->
+// @license-end
 </script>
 <script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2019 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
 </script>
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -333,27 +272,27 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org2e0800e">ch12.3</a>
+<li><a href="#orgdcb1659">ch12.3</a>
 <ul>
-<li><a href="#orgb561a35">12.3-1</a></li>
-<li><a href="#orgc909e07">12.3-2</a></li>
-<li><a href="#org77d6789">12.3-3</a></li>
-<li><a href="#orgc36d234">12.3-4</a></li>
-<li><a href="#orga4e0cd5">12.3-5</a></li>
-<li><a href="#org981778d">12.3-6</a></li>
+<li><a href="#orgbb664f9">12.3-1</a></li>
+<li><a href="#org011adab">12.3-2</a></li>
+<li><a href="#org081a749">12.3-3</a></li>
+<li><a href="#org5a453ef">12.3-4</a></li>
+<li><a href="#org5f07029">12.3-5</a></li>
+<li><a href="#orgfd87cad">12.3-6</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org2e0800e" class="outline-2">
-<h2 id="org2e0800e">ch12.3</h2>
-<div class="outline-text-2" id="text-org2e0800e">
+<div id="outline-container-orgdcb1659" class="outline-2">
+<h2 id="orgdcb1659">ch12.3</h2>
+<div class="outline-text-2" id="text-orgdcb1659">
 </div>
-<div id="outline-container-orgb561a35" class="outline-3">
-<h3 id="orgb561a35">12.3-1</h3>
-<div class="outline-text-3" id="text-orgb561a35">
+<div id="outline-container-orgbb664f9" class="outline-3">
+<h3 id="orgbb664f9">12.3-1</h3>
+<div class="outline-text-3" id="text-orgbb664f9">
 <pre class="example">
 TREE-INSERT(T, z)
     x = T.root
@@ -372,18 +311,18 @@ TREE-INSERT-REC(x, z)
 </pre>
 </div>
 </div>
-<div id="outline-container-orgc909e07" class="outline-3">
-<h3 id="orgc909e07">12.3-2</h3>
-<div class="outline-text-3" id="text-orgc909e07">
+<div id="outline-container-org011adab" class="outline-3">
+<h3 id="org011adab">12.3-2</h3>
+<div class="outline-text-3" id="text-org011adab">
 <p>
 To search for a value in the tree, we need perform one more test&#x2014;from the
 parent to the desired node, than first insertion of the value into the tree.
 </p>
 </div>
 </div>
-<div id="outline-container-org77d6789" class="outline-3">
-<h3 id="org77d6789">12.3-3</h3>
-<div class="outline-text-3" id="text-org77d6789">
+<div id="outline-container-org081a749" class="outline-3">
+<h3 id="org081a749">12.3-3</h3>
+<div class="outline-text-3" id="text-org081a749">
 <p>
 The worst-case is when the \(n\) numbers are already sorted, the running time
 will be \(O(n^2)\), the best-case is when the \(n\) numbers make the tree
@@ -391,25 +330,25 @@ balance, the running time will be \(O(n\lg n)\).
 </p>
 </div>
 </div>
-<div id="outline-container-orgc36d234" class="outline-3">
-<h3 id="orgc36d234">12.3-4</h3>
-<div class="outline-text-3" id="text-orgc36d234">
+<div id="outline-container-org5a453ef" class="outline-3">
+<h3 id="org5a453ef">12.3-4</h3>
+<div class="outline-text-3" id="text-org5a453ef">
 <p>
 The operation of deletion is not commutative. Below is the example, deletion
 of \(1\) then \(2\) will generate a different tree than deletion of \(2\)
 then \(1\).
 </p>
 
-<div class="figure">
+<div id="org3fd408f" class="figure">
 <p><img src="../static/generated/images/ch12-3-1.png" alt="ch12-3-1.png" />
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orga4e0cd5" class="outline-3">
-<h3 id="orga4e0cd5">12.3-5</h3>
-<div class="outline-text-3" id="text-orga4e0cd5">
+<div id="outline-container-org5f07029" class="outline-3">
+<h3 id="org5f07029">12.3-5</h3>
+<div class="outline-text-3" id="text-org5f07029">
 <pre class="example">
 SEARCH(T, k)
     x = T.root
@@ -495,9 +434,9 @@ else y = z.succ
 </pre>
 </div>
 </div>
-<div id="outline-container-org981778d" class="outline-3">
-<h3 id="org981778d">12.3-6</h3>
-<div class="outline-text-3" id="text-org981778d">
+<div id="outline-container-orgfd87cad" class="outline-3">
+<h3 id="orgfd87cad">12.3-6</h3>
+<div class="outline-text-3" id="text-orgfd87cad">
 <p>
 Below is the modified <code>TREE-DELETE'</code> to choose the predecessor rather than
 the successor.
@@ -528,8 +467,8 @@ the modified <code>TREE-DELETE'</code> procedure.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2020-11-10 Tue 04:04</p>
-<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+<p class="date">Created: 2021-01-06 Wed 12:12</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>

@@ -6,7 +6,7 @@
 <!-- 2021-01-06 Wed 12:12 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Introduction to Algorithms Third Edition</title>
+<title>Chapter 13.4</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="pedh" />
 <style type="text/css">
@@ -238,6 +238,28 @@ org_html_manager.setup();  // activate after the parameters are set
     /*]]>*///-->
 // @license-end
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -245,22 +267,114 @@ org_html_manager.setup();  // activate after the parameters are set
  |
  <a accesskey="H" href="/CLRS-Solutions"> HOME </a>
 </div><div id="content">
-<h1 class="title">Introduction to Algorithms Third Edition</h1>
+<h1 class="title">Chapter 13.4</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org74ffb56">The pdf book</a></li>
+<li><a href="#org1b87232">13.4</a>
+<ul>
+<li><a href="#org0a57559">13.4-1</a></li>
+<li><a href="#orgac11329">13.4-2</a></li>
+<li><a href="#orgf003da2">13.4-3</a></li>
+<li><a href="#org41bac1a">13.4-4</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org74ffb56" class="outline-2">
-<h2 id="org74ffb56">The pdf book</h2>
-<div class="outline-text-2" id="text-org74ffb56">
+<div id="outline-container-org1b87232" class="outline-2">
+<h2 id="org1b87232">13.4</h2>
+<div class="outline-text-2" id="text-org1b87232">
+</div>
+<div id="outline-container-org0a57559" class="outline-3">
+<h3 id="org0a57559">13.4-1</h3>
+<div class="outline-text-3" id="text-org0a57559">
 <p>
-<a href="../static/misc/clrs.pdf">Introduction to Algorithms Third Edition</a>
+In both cases, we won't change the color of the root, thus after executing
+<code>RB-DELETE-FIXUP</code>, the root of the tree must be black.
 </p>
+</div>
+</div>
+<div id="outline-container-orgac11329" class="outline-3">
+<h3 id="orgac11329">13.4-2</h3>
+<div class="outline-text-3" id="text-orgac11329">
+<p>
+If both \(x\) and \(x.p\) are red, the call to <code>RB-DELETE-FIXUP</code> will simply
+color \(x\) black, and restore property 4.
+</p>
+</div>
+</div>
+<div id="outline-container-orgf003da2" class="outline-3">
+<h3 id="orgf003da2">13.4-3</h3>
+<div class="outline-text-3" id="text-orgf003da2">
+<ol class="org-ol">
+<li><p>
+The initial tree.
+</p>
+
+<div id="orgfa9ed5b" class="figure">
+<p><img src="../static/generated/images/ch13-4-1.png" alt="ch13-4-1.png" />
+</p>
+</div></li>
+
+<li><p>
+Delete \(8\).
+</p>
+
+<div id="org1097f45" class="figure">
+<p><img src="../static/generated/images/ch13-4-2.png" alt="ch13-4-2.png" />
+</p>
+</div></li>
+
+<li><p>
+Delete \(12\).
+</p>
+
+<div id="orgdf49537" class="figure">
+<p><img src="../static/generated/images/ch13-4-3.png" alt="ch13-4-3.png" />
+</p>
+</div></li>
+
+<li><p>
+Delete \(19\).
+</p>
+
+<div id="org6659d7f" class="figure">
+<p><img src="../static/generated/images/ch13-4-4.png" alt="ch13-4-4.png" />
+</p>
+</div></li>
+
+<li><p>
+Delete \(31\).
+</p>
+
+<div id="org6c9cdec" class="figure">
+<p><img src="../static/generated/images/ch13-4-5.png" alt="ch13-4-5.png" />
+</p>
+</div></li>
+
+<li><p>
+Delete \(38\).
+</p>
+
+<div id="org35f3e5c" class="figure">
+<p><img src="../static/generated/images/ch13-4-6.png" alt="ch13-4-6.png" />
+</p>
+</div></li>
+
+<li>Delete \(41\), the tree becomes empty.</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org41bac1a" class="outline-3">
+<h3 id="org41bac1a">13.4-4</h3>
+<div class="outline-text-3" id="text-org41bac1a">
+<p>
+todo
+</p>
+</div>
 </div>
 </div>
 </div>

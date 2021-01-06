@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-11-10 Tue 04:04 -->
+<!-- 2021-01-06 Wed 12:12 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 13.3</title>
@@ -40,7 +40,7 @@
   }
   pre.src {
     position: relative;
-    overflow: visible;
+    overflow: auto;
     padding-top: 1.2em;
   }
   pre.src:before {
@@ -52,7 +52,7 @@
     padding: 3px;
     border: 1px solid black;
   }
-  pre.src:hover:before { display: inline;}
+  pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
@@ -161,6 +161,19 @@
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
   .inlinetask {
     padding: 10px;
     border: 2px solid gray;
@@ -183,63 +196,12 @@
 <link rel="stylesheet" type="text/css" href="/css/org-info.css" />
 
 <script type="text/javascript" src="/js/org-info.js">
-/**
- *
- * @source: /js/org-info.js
- *
- * @licstart  The following is the entire license notice for the
- *  JavaScript code in /js/org-info.js.
- *
- * Copyright (C) 2012-2019 Free Software Foundation, Inc.
- *
- *
- * The JavaScript code in this tag is free software: you can
- * redistribute it and/or modify it under the terms of the GNU
- * General Public License (GNU GPL) as published by the Free Software
- * Foundation, either version 3 of the License, or (at your option)
- * any later version.  The code is distributed WITHOUT ANY WARRANTY;
- * without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
- *
- * As additional permission under GNU GPL version 3 section 7, you
- * may distribute non-source (e.g., minimized or compacted) forms of
- * that code without the copy of the GNU GPL normally required by
- * section 4, provided you include this license notice and a URL
- * through which recipients can access the Corresponding Source.
- *
- * @licend  The above is the entire license notice
- * for the JavaScript code in /js/org-info.js.
- *
- */
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+// @license-end
 </script>
 
 <script type="text/javascript">
-
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2019 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
 <!--/*--><![CDATA[/*><!--*/
 org_html_manager.set("TOC_DEPTH", "3");
 org_html_manager.set("LINK_HOME", "/CLRS-Solutions");
@@ -252,52 +214,29 @@ org_html_manager.set("TOC", "1");
 org_html_manager.set("VIEW", "info");
 org_html_manager.setup();  // activate after the parameters are set
 /*]]>*///-->
+// @license-end
 </script>
 <script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2019 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
 </script>
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -333,42 +272,42 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgf3d5d84">13.3</a>
+<li><a href="#org920aa7f">13.3</a>
 <ul>
-<li><a href="#org2c5ed4e">13.3-1</a></li>
-<li><a href="#org79edbd2">13.3-2</a></li>
-<li><a href="#orgfb873e5">13.3-3</a></li>
-<li><a href="#orgebd0064">13.3-4</a></li>
-<li><a href="#org8b4ae92">13.3-5</a></li>
-<li><a href="#org07c1d16">13.3-6</a></li>
+<li><a href="#orgf94d2eb">13.3-1</a></li>
+<li><a href="#orgc373d40">13.3-2</a></li>
+<li><a href="#org8897d55">13.3-3</a></li>
+<li><a href="#org4008188">13.3-4</a></li>
+<li><a href="#org8ac79a9">13.3-5</a></li>
+<li><a href="#org3a8209b">13.3-6</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgf3d5d84" class="outline-2">
-<h2 id="orgf3d5d84">13.3</h2>
-<div class="outline-text-2" id="text-orgf3d5d84">
+<div id="outline-container-org920aa7f" class="outline-2">
+<h2 id="org920aa7f">13.3</h2>
+<div class="outline-text-2" id="text-org920aa7f">
 </div>
-<div id="outline-container-org2c5ed4e" class="outline-3">
-<h3 id="org2c5ed4e">13.3-1</h3>
-<div class="outline-text-3" id="text-org2c5ed4e">
+<div id="outline-container-orgf94d2eb" class="outline-3">
+<h3 id="orgf94d2eb">13.3-1</h3>
+<div class="outline-text-3" id="text-orgf94d2eb">
 <p>
 If we set the newly inserted node \(z\) to black, then property 5 might be
 violated, and it's more difficult to fix property 5 than property 4.
 </p>
 </div>
 </div>
-<div id="outline-container-org79edbd2" class="outline-3">
-<h3 id="org79edbd2">13.3-2</h3>
-<div class="outline-text-3" id="text-org79edbd2">
+<div id="outline-container-orgc373d40" class="outline-3">
+<h3 id="orgc373d40">13.3-2</h3>
+<div class="outline-text-3" id="text-orgc373d40">
 <ol class="org-ol">
 <li><p>
 Insert \(41\).
 </p>
 
-<div class="figure">
+<div id="org0902706" class="figure">
 <p><img src="../static/generated/images/ch13-3-1.png" alt="ch13-3-1.png" />
 </p>
 </div></li>
@@ -377,7 +316,7 @@ Insert \(41\).
 Insert \(38\).
 </p>
 
-<div class="figure">
+<div id="orga4b124e" class="figure">
 <p><img src="../static/generated/images/ch13-3-2.png" alt="ch13-3-2.png" />
 </p>
 </div></li>
@@ -386,7 +325,7 @@ Insert \(38\).
 Insert \(31\).
 </p>
 
-<div class="figure">
+<div id="org114b02d" class="figure">
 <p><img src="../static/generated/images/ch13-3-3.png" alt="ch13-3-3.png" />
 </p>
 </div></li>
@@ -395,7 +334,7 @@ Insert \(31\).
 Insert \(12\).
 </p>
 
-<div class="figure">
+<div id="orgf7be027" class="figure">
 <p><img src="../static/generated/images/ch13-3-4.png" alt="ch13-3-4.png" />
 </p>
 </div></li>
@@ -404,7 +343,7 @@ Insert \(12\).
 Insert \(19\).
 </p>
 
-<div class="figure">
+<div id="orgaa18a39" class="figure">
 <p><img src="../static/generated/images/ch13-3-5.png" alt="ch13-3-5.png" />
 </p>
 </div></li>
@@ -413,7 +352,7 @@ Insert \(19\).
 Insert \(8\).
 </p>
 
-<div class="figure">
+<div id="orgc20437e" class="figure">
 <p><img src="../static/generated/images/ch13-3-6.png" alt="ch13-3-6.png" />
 </p>
 </div></li>
@@ -421,21 +360,21 @@ Insert \(8\).
 </div>
 </div>
 
-<div id="outline-container-orgfb873e5" class="outline-3">
-<h3 id="orgfb873e5">13.3-3</h3>
-<div class="outline-text-3" id="text-orgfb873e5">
+<div id="outline-container-org8897d55" class="outline-3">
+<h3 id="org8897d55">13.3-3</h3>
+<div class="outline-text-3" id="text-org8897d55">
 <ol class="org-ol">
 <li><p>
 For case 1.
 </p>
 
-<div class="figure">
+<div id="orgebec6bb" class="figure">
 <p><img src="../static/generated/images/ch13-3-7.png" alt="ch13-3-7.png" />
 </p>
 </div>
 
 
-<div class="figure">
+<div id="org3119c93" class="figure">
 <p><img src="../static/generated/images/ch13-3-8.png" alt="ch13-3-8.png" />
 </p>
 </div></li>
@@ -444,7 +383,7 @@ For case 1.
 For case 2 &amp; 3.
 </p>
 
-<div class="figure">
+<div id="orgc5d8060" class="figure">
 <p><img src="../static/generated/images/ch13-3-9.png" alt="ch13-3-9.png" />
 </p>
 </div></li>
@@ -452,9 +391,9 @@ For case 2 &amp; 3.
 </div>
 </div>
 
-<div id="outline-container-orgebd0064" class="outline-3">
-<h3 id="orgebd0064">13.3-4</h3>
-<div class="outline-text-3" id="text-orgebd0064">
+<div id="outline-container-org4008188" class="outline-3">
+<h3 id="org4008188">13.3-4</h3>
+<div class="outline-text-3" id="text-org4008188">
 <p>
 If we set \(T.nil.color\) to RED, then the color of \(T.root\) must have been
 set to RED too, this is impossible because we would only set the color of one
@@ -463,9 +402,9 @@ the loop. Thus <code>RB-INSERT-FIXUP</code> never sets \(T.nil.color\) to RED.
 </p>
 </div>
 </div>
-<div id="outline-container-org8b4ae92" class="outline-3">
-<h3 id="org8b4ae92">13.3-5</h3>
-<div class="outline-text-3" id="text-org8b4ae92">
+<div id="outline-container-org8ac79a9" class="outline-3">
+<h3 id="org8ac79a9">13.3-5</h3>
+<div class="outline-text-3" id="text-org8ac79a9">
 <p>
 Note that we would only color the nodes BLACK in <code>RB-INSERT-FIXUP</code>, in the
 <code>RB-INSERT-FIXUP</code> procedure, if the while loop never iterates, then we only
@@ -479,9 +418,9 @@ BLACK. Hence if \(n > 1\), the tree has at least one red node.
 </p>
 </div>
 </div>
-<div id="outline-container-org07c1d16" class="outline-3">
-<h3 id="org07c1d16">13.3-6</h3>
-<div class="outline-text-3" id="text-org07c1d16">
+<div id="outline-container-org3a8209b" class="outline-3">
+<h3 id="org3a8209b">13.3-6</h3>
+<div class="outline-text-3" id="text-org3a8209b">
 <p>
 We could use a stack to store the nodes on the simple path down to \(z\), and
 pop the nodes out if we need to get the ancestor nodes of \(z\), the modified
@@ -557,8 +496,8 @@ RIGHT-ROTATE(T, y, yp)
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2020-11-10 Tue 04:04</p>
-<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+<p class="date">Created: 2021-01-06 Wed 12:12</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>

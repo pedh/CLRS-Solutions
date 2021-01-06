@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-11-10 Tue 04:04 -->
+<!-- 2021-01-06 Wed 12:12 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 4.4</title>
@@ -40,7 +40,7 @@
   }
   pre.src {
     position: relative;
-    overflow: visible;
+    overflow: auto;
     padding-top: 1.2em;
   }
   pre.src:before {
@@ -52,7 +52,7 @@
     padding: 3px;
     border: 1px solid black;
   }
-  pre.src:hover:before { display: inline;}
+  pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
@@ -161,6 +161,19 @@
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
   .inlinetask {
     padding: 10px;
     border: 2px solid gray;
@@ -183,63 +196,12 @@
 <link rel="stylesheet" type="text/css" href="/css/org-info.css" />
 
 <script type="text/javascript" src="/js/org-info.js">
-/**
- *
- * @source: /js/org-info.js
- *
- * @licstart  The following is the entire license notice for the
- *  JavaScript code in /js/org-info.js.
- *
- * Copyright (C) 2012-2019 Free Software Foundation, Inc.
- *
- *
- * The JavaScript code in this tag is free software: you can
- * redistribute it and/or modify it under the terms of the GNU
- * General Public License (GNU GPL) as published by the Free Software
- * Foundation, either version 3 of the License, or (at your option)
- * any later version.  The code is distributed WITHOUT ANY WARRANTY;
- * without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
- *
- * As additional permission under GNU GPL version 3 section 7, you
- * may distribute non-source (e.g., minimized or compacted) forms of
- * that code without the copy of the GNU GPL normally required by
- * section 4, provided you include this license notice and a URL
- * through which recipients can access the Corresponding Source.
- *
- * @licend  The above is the entire license notice
- * for the JavaScript code in /js/org-info.js.
- *
- */
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+// @license-end
 </script>
 
 <script type="text/javascript">
-
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2019 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
 <!--/*--><![CDATA[/*><!--*/
 org_html_manager.set("TOC_DEPTH", "3");
 org_html_manager.set("LINK_HOME", "/CLRS-Solutions");
@@ -252,52 +214,29 @@ org_html_manager.set("TOC", "1");
 org_html_manager.set("VIEW", "info");
 org_html_manager.setup();  // activate after the parameters are set
 /*]]>*///-->
+// @license-end
 </script>
 <script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2019 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
 </script>
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -333,30 +272,30 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgdfb5a0d">ch4.4</a>
+<li><a href="#org6394081">ch4.4</a>
 <ul>
-<li><a href="#org0e926ca">4.4-1</a></li>
-<li><a href="#org5966378">4.4-2</a></li>
-<li><a href="#org9592a16">4.4-3</a></li>
-<li><a href="#org988d2de">4.4-4</a></li>
-<li><a href="#orga9edd61">4.4-5</a></li>
-<li><a href="#org2791cc9">4.4-6</a></li>
-<li><a href="#org4910adf">4.4-7</a></li>
-<li><a href="#org8f77aa1">4.4-8</a></li>
-<li><a href="#org0178290">4.4-9</a></li>
+<li><a href="#orge2ed88c">4.4-1</a></li>
+<li><a href="#org284dd4c">4.4-2</a></li>
+<li><a href="#orgaf6487d">4.4-3</a></li>
+<li><a href="#orgaf5e7bb">4.4-4</a></li>
+<li><a href="#orgeafb4d7">4.4-5</a></li>
+<li><a href="#orga198991">4.4-6</a></li>
+<li><a href="#orgda8da91">4.4-7</a></li>
+<li><a href="#org7683905">4.4-8</a></li>
+<li><a href="#orga5e2819">4.4-9</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgdfb5a0d" class="outline-2">
-<h2 id="orgdfb5a0d">ch4.4</h2>
-<div class="outline-text-2" id="text-orgdfb5a0d">
+<div id="outline-container-org6394081" class="outline-2">
+<h2 id="org6394081">ch4.4</h2>
+<div class="outline-text-2" id="text-org6394081">
 </div>
-<div id="outline-container-org0e926ca" class="outline-3">
-<h3 id="org0e926ca">4.4-1</h3>
-<div class="outline-text-3" id="text-org0e926ca">
+<div id="outline-container-orge2ed88c" class="outline-3">
+<h3 id="orge2ed88c">4.4-1</h3>
+<div class="outline-text-3" id="text-orge2ed88c">
 <ul class="org-ul">
 <li><p>
 Use a recursion tree, we have
@@ -382,9 +321,9 @@ T(n)
 </ul>
 </div>
 </div>
-<div id="outline-container-org5966378" class="outline-3">
-<h3 id="org5966378">4.4-2</h3>
-<div class="outline-text-3" id="text-org5966378">
+<div id="outline-container-org284dd4c" class="outline-3">
+<h3 id="org284dd4c">4.4-2</h3>
+<div class="outline-text-3" id="text-org284dd4c">
 <ul class="org-ul">
 <li><p>
 Use a recursion tree, we have
@@ -408,9 +347,9 @@ T(n)
 </ul>
 </div>
 </div>
-<div id="outline-container-org9592a16" class="outline-3">
-<h3 id="org9592a16">4.4-3</h3>
-<div class="outline-text-3" id="text-org9592a16">
+<div id="outline-container-orgaf6487d" class="outline-3">
+<h3 id="orgaf6487d">4.4-3</h3>
+<div class="outline-text-3" id="text-orgaf6487d">
 <ul class="org-ul">
 <li><p>
 Use a recursion tree, we have
@@ -437,9 +376,9 @@ T(n)
 </ul>
 </div>
 </div>
-<div id="outline-container-org988d2de" class="outline-3">
-<h3 id="org988d2de">4.4-4</h3>
-<div class="outline-text-3" id="text-org988d2de">
+<div id="outline-container-orgaf5e7bb" class="outline-3">
+<h3 id="orgaf5e7bb">4.4-4</h3>
+<div class="outline-text-3" id="text-orgaf5e7bb">
 <ul class="org-ul">
 <li><p>
 Use a recursion tree, we have
@@ -463,9 +402,9 @@ T(n)
 </ul>
 </div>
 </div>
-<div id="outline-container-orga9edd61" class="outline-3">
-<h3 id="orga9edd61">4.4-5</h3>
-<div class="outline-text-3" id="text-orga9edd61">
+<div id="outline-container-orgeafb4d7" class="outline-3">
+<h3 id="orgeafb4d7">4.4-5</h3>
+<div class="outline-text-3" id="text-orgeafb4d7">
 <ul class="org-ul">
 <li><p>
 Use a recursion tree, we have
@@ -490,9 +429,9 @@ T(n)
 </ul>
 </div>
 </div>
-<div id="outline-container-org2791cc9" class="outline-3">
-<h3 id="org2791cc9">4.4-6</h3>
-<div class="outline-text-3" id="text-org2791cc9">
+<div id="outline-container-orga198991" class="outline-3">
+<h3 id="orga198991">4.4-6</h3>
+<div class="outline-text-3" id="text-orga198991">
 <p>
 The length of shortest simple path from the root to a leaf is \(\log_3 n\),
 so the running time should be
@@ -504,9 +443,9 @@ T(n)
 \end{align*}
 </div>
 </div>
-<div id="outline-container-org4910adf" class="outline-3">
-<h3 id="org4910adf">4.4-7</h3>
-<div class="outline-text-3" id="text-org4910adf">
+<div id="outline-container-orgda8da91" class="outline-3">
+<h3 id="orgda8da91">4.4-7</h3>
+<div class="outline-text-3" id="text-orgda8da91">
 <ul class="org-ul">
 <li><p>
 Use a recursion tree, we have
@@ -542,9 +481,9 @@ T(n)
 </ul>
 </div>
 </div>
-<div id="outline-container-org8f77aa1" class="outline-3">
-<h3 id="org8f77aa1">4.4-8</h3>
-<div class="outline-text-3" id="text-org8f77aa1">
+<div id="outline-container-org7683905" class="outline-3">
+<h3 id="org7683905">4.4-8</h3>
+<div class="outline-text-3" id="text-org7683905">
 <p>
 Use a recursion tree, we have
 </p>
@@ -556,9 +495,9 @@ T(n)
 \end{align*}
 </div>
 </div>
-<div id="outline-container-org0178290" class="outline-3">
-<h3 id="org0178290">4.4-9</h3>
-<div class="outline-text-3" id="text-org0178290">
+<div id="outline-container-orga5e2819" class="outline-3">
+<h3 id="orga5e2819">4.4-9</h3>
+<div class="outline-text-3" id="text-orga5e2819">
 <p>
 The running time \(T(n)\) should be between \(cn\log_{1/a}n + \Theta(n)\)
 and \(cn\log_{1/(1-a)}n + \Theta(n)\), which shows \(T(n) = \Theta(n\lg n)\).
@@ -569,8 +508,8 @@ and \(cn\log_{1/(1-a)}n + \Theta(n)\), which shows \(T(n) = \Theta(n\lg n)\).
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2020-11-10 Tue 04:04</p>
-<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+<p class="date">Created: 2021-01-06 Wed 12:12</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-11-10 Tue 04:04 -->
+<!-- 2021-01-06 Wed 12:12 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 4.3</title>
@@ -40,7 +40,7 @@
   }
   pre.src {
     position: relative;
-    overflow: visible;
+    overflow: auto;
     padding-top: 1.2em;
   }
   pre.src:before {
@@ -52,7 +52,7 @@
     padding: 3px;
     border: 1px solid black;
   }
-  pre.src:hover:before { display: inline;}
+  pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
@@ -161,6 +161,19 @@
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
   .inlinetask {
     padding: 10px;
     border: 2px solid gray;
@@ -183,63 +196,12 @@
 <link rel="stylesheet" type="text/css" href="/css/org-info.css" />
 
 <script type="text/javascript" src="/js/org-info.js">
-/**
- *
- * @source: /js/org-info.js
- *
- * @licstart  The following is the entire license notice for the
- *  JavaScript code in /js/org-info.js.
- *
- * Copyright (C) 2012-2019 Free Software Foundation, Inc.
- *
- *
- * The JavaScript code in this tag is free software: you can
- * redistribute it and/or modify it under the terms of the GNU
- * General Public License (GNU GPL) as published by the Free Software
- * Foundation, either version 3 of the License, or (at your option)
- * any later version.  The code is distributed WITHOUT ANY WARRANTY;
- * without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
- *
- * As additional permission under GNU GPL version 3 section 7, you
- * may distribute non-source (e.g., minimized or compacted) forms of
- * that code without the copy of the GNU GPL normally required by
- * section 4, provided you include this license notice and a URL
- * through which recipients can access the Corresponding Source.
- *
- * @licend  The above is the entire license notice
- * for the JavaScript code in /js/org-info.js.
- *
- */
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+// @license-end
 </script>
 
 <script type="text/javascript">
-
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2019 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
 <!--/*--><![CDATA[/*><!--*/
 org_html_manager.set("TOC_DEPTH", "3");
 org_html_manager.set("LINK_HOME", "/CLRS-Solutions");
@@ -252,52 +214,29 @@ org_html_manager.set("TOC", "1");
 org_html_manager.set("VIEW", "info");
 org_html_manager.setup();  // activate after the parameters are set
 /*]]>*///-->
+// @license-end
 </script>
 <script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2019 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
 </script>
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -333,30 +272,30 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgd0ad57e">ch4.3</a>
+<li><a href="#org9442d57">ch4.3</a>
 <ul>
-<li><a href="#orgf309b18">4.3-1</a></li>
-<li><a href="#orgcf2934e">4.3-2</a></li>
-<li><a href="#orge94c276">4.3-3</a></li>
-<li><a href="#org0336d1a">4.3-4</a></li>
-<li><a href="#org7663493">4.3-5</a></li>
-<li><a href="#orgc61bca6">4.3-6</a></li>
-<li><a href="#org57efd8e">4.3-7</a></li>
-<li><a href="#org26bdd72">4.3-8</a></li>
-<li><a href="#orgc5d0981">4.3-9</a></li>
+<li><a href="#orgbf067db">4.3-1</a></li>
+<li><a href="#orge075bc5">4.3-2</a></li>
+<li><a href="#org2861903">4.3-3</a></li>
+<li><a href="#orgdac8fd6">4.3-4</a></li>
+<li><a href="#org8627d3d">4.3-5</a></li>
+<li><a href="#org207d534">4.3-6</a></li>
+<li><a href="#org4d26d75">4.3-7</a></li>
+<li><a href="#org7bac7c8">4.3-8</a></li>
+<li><a href="#org0f2b946">4.3-9</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgd0ad57e" class="outline-2">
-<h2 id="orgd0ad57e">ch4.3</h2>
-<div class="outline-text-2" id="text-orgd0ad57e">
+<div id="outline-container-org9442d57" class="outline-2">
+<h2 id="org9442d57">ch4.3</h2>
+<div class="outline-text-2" id="text-org9442d57">
 </div>
-<div id="outline-container-orgf309b18" class="outline-3">
-<h3 id="orgf309b18">4.3-1</h3>
-<div class="outline-text-3" id="text-orgf309b18">
+<div id="outline-container-orgbf067db" class="outline-3">
+<h3 id="orgbf067db">4.3-1</h3>
+<div class="outline-text-3" id="text-orgbf067db">
 <p>
 Guess \(c \in \mathbb{R}^{+},\ T(n) \leq cn^2\), then
 </p>
@@ -369,9 +308,9 @@ T(n)
 \end{align*}
 </div>
 </div>
-<div id="outline-container-orgcf2934e" class="outline-3">
-<h3 id="orgcf2934e">4.3-2</h3>
-<div class="outline-text-3" id="text-orgcf2934e">
+<div id="outline-container-orge075bc5" class="outline-3">
+<h3 id="orge075bc5">4.3-2</h3>
+<div class="outline-text-3" id="text-orge075bc5">
 <p>
 Guess \(c,d \in \mathbb{R}^{+},\ T(n) \leq c\lg(n - d)\), then
 </p>
@@ -385,9 +324,9 @@ T(n)
 \end{align*}
 </div>
 </div>
-<div id="outline-container-orge94c276" class="outline-3">
-<h3 id="orge94c276">4.3-3</h3>
-<div class="outline-text-3" id="text-orge94c276">
+<div id="outline-container-org2861903" class="outline-3">
+<h3 id="org2861903">4.3-3</h3>
+<div class="outline-text-3" id="text-org2861903">
 <p>
 Guess \(c,d \in \mathbb{R}^{+},\ T(n) \geq c(n + d)\lg(n + d)\), then
 </p>
@@ -401,9 +340,9 @@ T(n)
 \end{align*}
 </div>
 </div>
-<div id="outline-container-org0336d1a" class="outline-3">
-<h3 id="org0336d1a">4.3-4</h3>
-<div class="outline-text-3" id="text-org0336d1a">
+<div id="outline-container-orgdac8fd6" class="outline-3">
+<h3 id="orgdac8fd6">4.3-4</h3>
+<div class="outline-text-3" id="text-orgdac8fd6">
 <p>
 Guess \(c \in \mathbb{R}^{+},\ T(n) \leq cn\lg n + 1\), then
 </p>
@@ -417,9 +356,9 @@ T(n)
 \end{align*}
 </div>
 </div>
-<div id="outline-container-org7663493" class="outline-3">
-<h3 id="org7663493">4.3-5</h3>
-<div class="outline-text-3" id="text-org7663493">
+<div id="outline-container-org8627d3d" class="outline-3">
+<h3 id="org8627d3d">4.3-5</h3>
+<div class="outline-text-3" id="text-org8627d3d">
 <ul class="org-ul">
 <li><p>
 Guess \(T(n) \leq c(n - d)\lg(n - d)\), then
@@ -453,9 +392,9 @@ Hence \(T(n) = \Omega(n\lg n)\).
 </ul>
 </div>
 </div>
-<div id="outline-container-orgc61bca6" class="outline-3">
-<h3 id="orgc61bca6">4.3-6</h3>
-<div class="outline-text-3" id="text-orgc61bca6">
+<div id="outline-container-org207d534" class="outline-3">
+<h3 id="org207d534">4.3-6</h3>
+<div class="outline-text-3" id="text-org207d534">
 <p>
 Guess \(T(n) \leq c(n - d)\lg(n - d)\), then
 </p>
@@ -472,9 +411,9 @@ Hence \(T(n) = O(n\lg n)\).
 </p>
 </div>
 </div>
-<div id="outline-container-org57efd8e" class="outline-3">
-<h3 id="org57efd8e">4.3-7</h3>
-<div class="outline-text-3" id="text-org57efd8e">
+<div id="outline-container-org4d26d75" class="outline-3">
+<h3 id="org4d26d75">4.3-7</h3>
+<div class="outline-text-3" id="text-org4d26d75">
 <ul class="org-ul">
 <li><p>
 First we guess \(T(n) \leq cn^{\log_3 4}\), then
@@ -502,18 +441,18 @@ T(n)
 </ul>
 </div>
 </div>
-<div id="outline-container-org26bdd72" class="outline-3">
-<h3 id="org26bdd72">4.3-8</h3>
-<div class="outline-text-3" id="text-org26bdd72">
+<div id="outline-container-org7bac7c8" class="outline-3">
+<h3 id="org7bac7c8">4.3-8</h3>
+<div class="outline-text-3" id="text-org7bac7c8">
 <p>
 Using master method, the solution to the recurrence \(T(n) = 4T(n/2) + n^2\)
 should be \(T(n) = \Theta(n^2\lg n)\).
 </p>
 </div>
 </div>
-<div id="outline-container-orgc5d0981" class="outline-3">
-<h3 id="orgc5d0981">4.3-9</h3>
-<div class="outline-text-3" id="text-orgc5d0981">
+<div id="outline-container-org0f2b946" class="outline-3">
+<h3 id="org0f2b946">4.3-9</h3>
+<div class="outline-text-3" id="text-org0f2b946">
 <p>
 Let \(m = \lg n\), then
 </p>
@@ -540,8 +479,8 @@ We obtain
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2020-11-10 Tue 04:04</p>
-<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+<p class="date">Created: 2021-01-06 Wed 12:12</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>

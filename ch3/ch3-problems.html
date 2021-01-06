@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-11-10 Tue 04:04 -->
+<!-- 2021-01-06 Wed 12:12 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 3 problems</title>
@@ -40,7 +40,7 @@
   }
   pre.src {
     position: relative;
-    overflow: visible;
+    overflow: auto;
     padding-top: 1.2em;
   }
   pre.src:before {
@@ -52,7 +52,7 @@
     padding: 3px;
     border: 1px solid black;
   }
-  pre.src:hover:before { display: inline;}
+  pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
@@ -161,6 +161,19 @@
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
   .inlinetask {
     padding: 10px;
     border: 2px solid gray;
@@ -183,63 +196,12 @@
 <link rel="stylesheet" type="text/css" href="/css/org-info.css" />
 
 <script type="text/javascript" src="/js/org-info.js">
-/**
- *
- * @source: /js/org-info.js
- *
- * @licstart  The following is the entire license notice for the
- *  JavaScript code in /js/org-info.js.
- *
- * Copyright (C) 2012-2019 Free Software Foundation, Inc.
- *
- *
- * The JavaScript code in this tag is free software: you can
- * redistribute it and/or modify it under the terms of the GNU
- * General Public License (GNU GPL) as published by the Free Software
- * Foundation, either version 3 of the License, or (at your option)
- * any later version.  The code is distributed WITHOUT ANY WARRANTY;
- * without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
- *
- * As additional permission under GNU GPL version 3 section 7, you
- * may distribute non-source (e.g., minimized or compacted) forms of
- * that code without the copy of the GNU GPL normally required by
- * section 4, provided you include this license notice and a URL
- * through which recipients can access the Corresponding Source.
- *
- * @licend  The above is the entire license notice
- * for the JavaScript code in /js/org-info.js.
- *
- */
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+// @license-end
 </script>
 
 <script type="text/javascript">
-
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2019 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
 <!--/*--><![CDATA[/*><!--*/
 org_html_manager.set("TOC_DEPTH", "3");
 org_html_manager.set("LINK_HOME", "/CLRS-Solutions");
@@ -252,52 +214,29 @@ org_html_manager.set("TOC", "1");
 org_html_manager.set("VIEW", "info");
 org_html_manager.setup();  // activate after the parameters are set
 /*]]>*///-->
+// @license-end
 </script>
 <script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2019 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
 </script>
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -333,27 +272,27 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org6422cd4">ch3-problems</a>
+<li><a href="#orge170853">ch3-problems</a>
 <ul>
-<li><a href="#orga7369e9">3-1</a></li>
-<li><a href="#org6b9ac63">3-2</a></li>
-<li><a href="#orgfdc36e3">3-3</a></li>
-<li><a href="#org0c55981">3-4</a></li>
-<li><a href="#org6a84bb8">3-5</a></li>
-<li><a href="#org68e70f3">3-6</a></li>
+<li><a href="#org4f611b0">3-1</a></li>
+<li><a href="#orgab5b4db">3-2</a></li>
+<li><a href="#org2de7739">3-3</a></li>
+<li><a href="#org3e58d29">3-4</a></li>
+<li><a href="#org36c388b">3-5</a></li>
+<li><a href="#org36c7b84">3-6</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org6422cd4" class="outline-2">
-<h2 id="org6422cd4">ch3-problems</h2>
-<div class="outline-text-2" id="text-org6422cd4">
+<div id="outline-container-orge170853" class="outline-2">
+<h2 id="orge170853">ch3-problems</h2>
+<div class="outline-text-2" id="text-orge170853">
 </div>
-<div id="outline-container-orga7369e9" class="outline-3">
-<h3 id="orga7369e9">3-1</h3>
-<div class="outline-text-3" id="text-orga7369e9">
+<div id="outline-container-org4f611b0" class="outline-3">
+<h3 id="org4f611b0">3-1</h3>
+<div class="outline-text-3" id="text-org4f611b0">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
@@ -431,9 +370,9 @@ Hence \(p(n) = \omega(n^k)\).
 </ul>
 </div>
 </div>
-<div id="outline-container-org6b9ac63" class="outline-3">
-<h3 id="org6b9ac63">3-2</h3>
-<div class="outline-text-3" id="text-org6b9ac63">
+<div id="outline-container-orgab5b4db" class="outline-3">
+<h3 id="orgab5b4db">3-2</h3>
+<div class="outline-text-3" id="text-orgab5b4db">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -536,9 +475,9 @@ Hence \(p(n) = \omega(n^k)\).
 </table>
 </div>
 </div>
-<div id="outline-container-orgfdc36e3" class="outline-3">
-<h3 id="orgfdc36e3">3-3</h3>
-<div class="outline-text-3" id="text-orgfdc36e3">
+<div id="outline-container-org2de7739" class="outline-3">
+<h3 id="org2de7739">3-3</h3>
+<div class="outline-text-3" id="text-org2de7739">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
@@ -583,9 +522,9 @@ n^3
 </ul>
 </div>
 </div>
-<div id="outline-container-org0c55981" class="outline-3">
-<h3 id="org0c55981">3-4</h3>
-<div class="outline-text-3" id="text-org0c55981">
+<div id="outline-container-org3e58d29" class="outline-3">
+<h3 id="org3e58d29">3-4</h3>
+<div class="outline-text-3" id="text-org3e58d29">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
@@ -651,9 +590,9 @@ hence \(f(n) + o(f(n)) = \Theta(f(n))\).
 </ul>
 </div>
 </div>
-<div id="outline-container-org6a84bb8" class="outline-3">
-<h3 id="org6a84bb8">3-5</h3>
-<div class="outline-text-3" id="text-org6a84bb8">
+<div id="outline-container-org36c388b" class="outline-3">
+<h3 id="org36c388b">3-5</h3>
+<div class="outline-text-3" id="text-org36c388b">
 <ul class="org-ul">
 <li><b>a.</b>
 
@@ -765,9 +704,9 @@ Theorem 3.1 is still established.
 </ul>
 </div>
 </div>
-<div id="outline-container-org68e70f3" class="outline-3">
-<h3 id="org68e70f3">3-6</h3>
-<div class="outline-text-3" id="text-org68e70f3">
+<div id="outline-container-org36c7b84" class="outline-3">
+<h3 id="org36c7b84">3-6</h3>
+<div class="outline-text-3" id="text-org36c7b84">
 <p>
 For appropriate large n
 </p>
@@ -855,8 +794,8 @@ For appropriate large n
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2020-11-10 Tue 04:04</p>
-<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+<p class="date">Created: 2021-01-06 Wed 12:12</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>
