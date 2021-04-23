@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-04-23 Fri 08:26 -->
+<!-- 2021-04-23 Fri 08:29 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 6.5</title>
@@ -272,30 +272,30 @@ org_html_manager.setup();  // activate after the parameters are set
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org6083dbd">ch6.5</a>
+<li><a href="#org9c28a83">ch6.5</a>
 <ul>
-<li><a href="#orgbd287b2">6.5-1</a></li>
-<li><a href="#org13df23d">6.5-2</a></li>
-<li><a href="#orgf7ea499">6.5-3</a></li>
-<li><a href="#orgaf9f3d8">6.5-4</a></li>
-<li><a href="#orgff2230e">6.5-5</a></li>
-<li><a href="#org9c29e0d">6.5-6</a></li>
-<li><a href="#orgdb79c3d">6.5-7</a></li>
-<li><a href="#orgaa47793">6.5-8</a></li>
-<li><a href="#orgd360a66">6.5-9</a></li>
+<li><a href="#org5de2823">6.5-1</a></li>
+<li><a href="#orged04c6b">6.5-2</a></li>
+<li><a href="#org275ab61">6.5-3</a></li>
+<li><a href="#orge5c29cf">6.5-4</a></li>
+<li><a href="#orgb5b3e98">6.5-5</a></li>
+<li><a href="#org460f4b0">6.5-6</a></li>
+<li><a href="#org121f456">6.5-7</a></li>
+<li><a href="#orgf49733a">6.5-8</a></li>
+<li><a href="#orgb193327">6.5-9</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org6083dbd" class="outline-2">
-<h2 id="org6083dbd">ch6.5</h2>
-<div class="outline-text-2" id="text-org6083dbd">
+<div id="outline-container-org9c28a83" class="outline-2">
+<h2 id="org9c28a83">ch6.5</h2>
+<div class="outline-text-2" id="text-org9c28a83">
 </div>
-<div id="outline-container-orgbd287b2" class="outline-3">
-<h3 id="orgbd287b2">6.5-1</h3>
-<div class="outline-text-3" id="text-orgbd287b2">
+<div id="outline-container-org5de2823" class="outline-3">
+<h3 id="org5de2823">6.5-1</h3>
+<div class="outline-text-3" id="text-org5de2823">
 <pre class="example">
    (15 (13 (5 (4) (0)) (12 (6) (2))) (9 (8 (1)) (7)))
 -&gt; (1 (13 (5 (4) (0)) (12 (6) (2))) (9 (8) (7)))       # extract 15
@@ -303,9 +303,9 @@ org_html_manager.setup();  // activate after the parameters are set
 </pre>
 </div>
 </div>
-<div id="outline-container-org13df23d" class="outline-3">
-<h3 id="org13df23d">6.5-2</h3>
-<div class="outline-text-3" id="text-org13df23d">
+<div id="outline-container-orged04c6b" class="outline-3">
+<h3 id="orged04c6b">6.5-2</h3>
+<div class="outline-text-3" id="text-orged04c6b">
 <pre class="example">
    (15 (13 (5 (4) (0)) (12 (6) (2))) (9 (8 (1)) (7)))
 -&gt; (15 (13 (5 (4) (0)) (12 (6) (2))) (9 (8 (1) (*10*)) (7)))
@@ -315,9 +315,9 @@ org_html_manager.setup();  // activate after the parameters are set
 </pre>
 </div>
 </div>
-<div id="outline-container-orgf7ea499" class="outline-3">
-<h3 id="orgf7ea499">6.5-3</h3>
-<div class="outline-text-3" id="text-orgf7ea499">
+<div id="outline-container-org275ab61" class="outline-3">
+<h3 id="org275ab61">6.5-3</h3>
+<div class="outline-text-3" id="text-org275ab61">
 <pre class="example">
 HEAP-MINIMUM(A)
     return A[1]
@@ -349,18 +349,18 @@ MIN-HEAP-INSERT(A, key)
 </pre>
 </div>
 </div>
-<div id="outline-container-orgaf9f3d8" class="outline-3">
-<h3 id="orgaf9f3d8">6.5-4</h3>
-<div class="outline-text-3" id="text-orgaf9f3d8">
+<div id="outline-container-orge5c29cf" class="outline-3">
+<h3 id="orge5c29cf">6.5-4</h3>
+<div class="outline-text-3" id="text-orge5c29cf">
 <p>
 Set the key to \(-\infty\) to keep the max heap and ensure that the desired
 value is larger than the current value.
 </p>
 </div>
 </div>
-<div id="outline-container-orgff2230e" class="outline-3">
-<h3 id="orgff2230e">6.5-5</h3>
-<div class="outline-text-3" id="text-orgff2230e">
+<div id="outline-container-orgb5b3e98" class="outline-3">
+<h3 id="orgb5b3e98">6.5-5</h3>
+<div class="outline-text-3" id="text-orgb5b3e98">
 <p>
 <b>Initialization:</b> The subarray is same as the original max heap except
 \(A[i] = key\), and there may exists one exception that \(A[i] = key\) may be
@@ -380,9 +380,9 @@ the violation is resolved, the subarray becomes a max heap.
 </div>
 </div>
 
-<div id="outline-container-org9c29e0d" class="outline-3">
-<h3 id="org9c29e0d">6.5-6</h3>
-<div class="outline-text-3" id="text-org9c29e0d">
+<div id="outline-container-org460f4b0" class="outline-3">
+<h3 id="org460f4b0">6.5-6</h3>
+<div class="outline-text-3" id="text-org460f4b0">
 <pre class="example">
 HEAP-INCREASE-KEY(A, i, key)
     if key &lt; A[i]
@@ -394,9 +394,9 @@ HEAP-INCREASE-KEY(A, i, key)
 </pre>
 </div>
 </div>
-<div id="outline-container-orgdb79c3d" class="outline-3">
-<h3 id="orgdb79c3d">6.5-7</h3>
-<div class="outline-text-3" id="text-orgdb79c3d">
+<div id="outline-container-org121f456" class="outline-3">
+<h3 id="org121f456">6.5-7</h3>
+<div class="outline-text-3" id="text-org121f456">
 <p>
 <b>FIFO queue:</b> Use a min-priority queue, increase the priority on every
 insertion.
@@ -413,9 +413,9 @@ need to consider reassignment of the priorities.
 </p>
 </div>
 </div>
-<div id="outline-container-orgaa47793" class="outline-3">
-<h3 id="orgaa47793">6.5-8</h3>
-<div class="outline-text-3" id="text-orgaa47793">
+<div id="outline-container-orgf49733a" class="outline-3">
+<h3 id="orgf49733a">6.5-8</h3>
+<div class="outline-text-3" id="text-orgf49733a">
 <pre class="example">
 HEAP-DELETE(A, i)
     key = A[A.heap-size]
@@ -427,9 +427,9 @@ HEAP-DELETE(A, i)
 </pre>
 </div>
 </div>
-<div id="outline-container-orgd360a66" class="outline-3">
-<h3 id="orgd360a66">6.5-9</h3>
-<div class="outline-text-3" id="text-orgd360a66">
+<div id="outline-container-orgb193327" class="outline-3">
+<h3 id="orgb193327">6.5-9</h3>
+<div class="outline-text-3" id="text-orgb193327">
 <pre class="example">
 MERGE-SORTED-LISTS(L, k)
     let A[1..k] be a new array
@@ -453,7 +453,7 @@ MERGE-SORTED-LISTS(L, k)
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2021-04-23 Fri 08:26</p>
+<p class="date">Created: 2021-04-23 Fri 08:29</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
