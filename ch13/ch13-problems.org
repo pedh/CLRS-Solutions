@@ -1,0 +1,72 @@
+#+TITLE: Chapter 13 problems
+
+* ch13-problems
+** 13-1
+   - a.
+
+     For a general persistent binary search tree, the nodes we need change to
+     insert a key \(k\) are all the nodes on the simple path from root down to
+     the new node during the insertion; the nodes we need to change to delete a
+     node \(y\) are all the ancestors of \(y\) in the tree.
+   - b.
+     #+begin_src
+     PERSISTENT-TREE-INSERT(T, k)
+         Let T' be a new tree
+         Let z be a new node
+         z.key = k
+         y = T.nil
+         x = T.root
+         Let x' be a new node
+         T'.root = x'
+         T'.nil = T.nil
+         while x != T.nil
+             y = x
+             x'.key = x.key
+             if z.key < x.key
+                 x = x.left
+                 Let x'.left be a new node
+                 x'.left.key = x.left.ley
+                 x'.right = x.right
+                 x' = x'.left
+             else x = x.right
+                  Let x'.right be a new node
+                  x'.right.key = x.right.key
+                  x'.left = x.left
+                  x' = x'.right
+         if y == T.nil
+             z.p = T'.nil
+             T'.root = z
+         elseif z.key < y.key
+                x'.left = z
+                x'.right = T'.nil
+                z.p = x'
+         else x'.right = z
+              x'.left = T'.nil
+              z.p = x'
+         z.left = T'.nil
+         z.right = T'.nil
+         return T'
+     #+end_src
+   - c.
+
+     If the height of the persistent binary search tree \(T\) is \(h\), to
+     insert a node using =PERSISTENT-TREE-INSERT=, the time requirement is
+     \(O(h)\), since we need to traverse from the root to the bottom; the space
+     requirements is \(O(h)\), since the new nodes we need to create are the
+     nodes on the simple path from the root down to the inserted node.
+  - d.
+
+    If we had included the parent attribute in each node, then we need
+    \(\Omega(n)\) time and space, since we need to create a new root node for
+    the new tree, that means all the descendant nodes of the new root need to be
+    created, i.e. we need to copy the entire tree,  which introduces
+    \(\Omega(n)\) time and space complexity.
+  - e.
+
+    If we use red-black tree to implement a persistent binary search tree, then
+    we know that the worst-case running time and space are \(O(h)\) per
+    insertion or deletion, and the height \(h\) of a red-black tree is
+    \(O(\lg(n))\), thus the \(O(\lg(n))\) worst-case running time and space
+    complexities are guaranteed.
+** 13-2
+   todo
