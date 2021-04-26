@@ -1,0 +1,325 @@
+#+TITLE: Chapter 13 problems
+
+* ch13-problems
+** 13-1
+   - a.
+
+     For a general persistent binary search tree, the nodes we need to change to
+     insert a key \(k\), are all the nodes on the simple path from the root down
+     to the inserted new node; and the nodes we need to change to delete a node
+     \(y\) are all the ancestors of \(y\) in the tree.
+   - b.
+     #+begin_src
+     PERSISTENT-TREE-INSERT(T, k)
+         Let T' be a new tree
+         Let z be a new node
+         z.key = k
+         y = T.nil
+         x = T.root
+         Let x' be a new node
+         T'.root = x'
+         T'.nil = T.nil
+         while x != T.nil
+             y = x
+             x'.key = x.key
+             if z.key < x.key
+                 x = x.left
+                 Let x'.left be a new node
+                 x'.left.key = x.left.ley
+                 x'.right = x.right
+                 x' = x'.left
+             else x = x.right
+                  Let x'.right be a new node
+                  x'.right.key = x.right.key
+                  x'.left = x.left
+                  x' = x'.right
+         if y == T.nil
+             z.p = T'.nil
+             T'.root = z
+         elseif z.key < y.key
+                x'.left = z
+                x'.right = T'.nil
+                z.p = x'
+         else x'.right = z
+              x'.left = T'.nil
+              z.p = x'
+         z.left = T'.nil
+         z.right = T'.nil
+         return T'
+     #+end_src
+   - c.
+
+     Let \(h\) be the height of the persistent binary search tree \(T\), using
+     =PERSISTENT-TREE-INSERT= to insert a node, the time requirement is
+     \(O(h)\), since we need to traverse from the root to the bottom; the space
+     requirements is \(O(h)\), since the new nodes we need to create are the
+     nodes on the simple path from the root down to the inserted node.
+  - d.
+
+    If we had included the parent attribute in each node, then we need
+    \(\Omega(n)\) time and space, since we need to create a new root node for
+    the new tree, that means all the descendant nodes of the new root need to be
+    created, i.e. we would copy the entire tree, which introduces \(\Omega(n)\)
+    time and space complexity.
+  - e.
+
+    If we are using use red-black tree to implement a persistent binary search
+    tree, then we should know that the worst-case running time and space are
+    \(O(h)\) per insertion or deletion, and the height \(h\) of a red-black tree
+    is \(O(\lg n)\), thus the \(O(\lg n)\) worst-case running time and space
+    complexity is guaranteed.
+** 13-2
+   - a.
+
+     While descending through \(T\), we can simply determine the black-height of
+     each node we visit in \(O(1)\) time, by keeping track of the number of
+     black nodes we've visited so far.
+   - b.
+     #+begin_src
+     FIND-LARGEST-NODE-MATCH-HEIGHT(T1, T2)
+         x = T1.root
+         i = 0
+         while i < T1.bh - T2.bh
+             if x.color == BLACK
+                 i = i + 1
+             if x.right == T.nil
+                 x = x.left
+             else x = x.right
+         return x
+     #+end_src
+   - c.
+
+     Since \(T_y\) and \(T_2\) have the same black height, we could simply build
+     a binary search tree \(T_x\) in \(O(1)\) time, that we let \(x\) be the
+     root of \(T_x\), \(T_y\) be the left subtree of \(x\), and \(T_2\) be the
+     right subtree of \(x\).
+   - d.
+
+     We should color \(x\) red to make red-black properties 1, 3, and 5 still
+     maintained, and we need perform =RB-INSERT-FIXUP(T1, x)= to enforce
+     properties 2 and 4, in \(O(\lg n)\) time.
+   - e.
+
+     Since we could also handle the symmetric situation \(T_1.bh \leq T_2.bh\)
+     as below, no generality is lost by making the assumption in part (b).
+
+     Assume that \(T_1.bh \leq T_2.bh\), we could perform the algorithm in part
+     (b), symmetrically, to find a black node \(y\) in \(T_2\) with the smallest
+     key, from among those nodes whose black height is \(T_1.bh\), and replace
+     \(T_y\) with \(T_y \cup \{x\} \cup T_2\) in \(O(1)\) time.
+   - f.
+
+     We could perform =RB-JOIN= in \(O(\lg n)\) running time, as described in
+     part (d) and (e).
+** 13-3
+   - a.
+
+     Since all the subtrees of AVL tree are also AVL trees, denote that an AVL
+     tree with height \(h\) has at least \(N_h\) nodes, then we have
+     \begin{align*}
+     N_h =
+     \begin{cases}
+     1 & \text{, if $h = 1$}\\
+     N_h + N_{h-1} & \text{, if $h > 1$}
+     \end{cases}
+     \end{align*}
+     In conclusion, we know that \(N_h = F_h\), where \(F_h\) is the \(h\)th
+     Fibonacci number, and since that Fibonacci number is exponential, an AVL
+     tree with \(n\) nodes has height \(O(\lg n)\).
+   - b.
+
+     #+begin_src
+     BALANCE(T, x)
+         xlr = x.left.h - x.right.h
+         if xlr == 2
+             xllr = x.left.left.h - x.left.right.h
+             if xllr == 1
+                 RIGHT-ROTATE(T, x)
+                 x.h = x.p.h - 1
+             else if xllr == -1
+                 LEFT-ROTATE(T, x.left)
+                 RIGHT-ROTATE(T, x)
+                 x.p.h = x.p.left.h + 1
+                 x.h = x.p.h - 1
+             else if xllr == 2 || xllr == -2
+                 BALANCE(T, x.left)
+                 x.h = x.h - 1
+         else if xlr == -2
+             xrlr = x.right.left.h - x.right.right.h
+             if xrlr == -1
+                 LEFT-ROTATE(T, x)
+                 x.h = x.p.h - 1
+             else if xrlr == 1
+                 RIGHT-ROTATE(T, x.right)
+                 LEFT-ROTATE(T, x)
+                 x.p.h = x.p.right.h + 1
+                 x.h = x.p.h - 1
+             else if xrlr == 2 || xrlr == -2
+                 BALANCE(T, x.right)
+                 x.h = x.h - 1
+     #+end_src
+   - c.
+
+     #+begin_src
+     AVL-INSERT(x, z)
+         if x == NIL
+             z.p = x.p
+             if z.p.key > z.key
+                 z.p.left = z
+             else z.p.right = z
+         else if x.key > z.key
+             AVL-INSERT(x.left, z)
+             if x.h < x.left.h + 1
+                 x.h = x.left.h + 1
+         else
+             AVL-INSERT(x.right, z)
+             if x.h < x.right.h + 1
+                 x.h = x.right.h + 1
+         BALANCE(T, x)
+     #+end_src
+   - d.
+
+     Since the height of an \(n\)-nodes AVL tree is \(O(\lg n)\), to perform
+     =AVL-INSERT= on an \(n\)-nodes AVL tree, we need to do \(O(\lg n)\)
+     recursions, the running time of each recursion is \(O(1)\), thus we take
+     \(O(\lg n)\) time.
+
+     According to the properties of AVL tree, we know that at most 2 ancestors
+     of the inserted node are not height balanced, thus we only perform \(O(1)\)
+     rotations.
+** 13-4
+   - a.
+
+     If all the keys and priorities are distinct, it is equivalent to insert all
+     nodes to a binary search tree, in order of priorities, which generates the
+     unique treap.
+   - b.
+
+     Since a treap is equivalent to a randomly build binary search tree, we
+     could show that the expected height of a treap is \(\Theta(\lg n)\), based
+     on *Theorem 12.4*, and hence the expected time to search for a value in the
+     treap is \(\Theta(\lg n)\).
+     #+begin_quote
+     *Theorem 12.4*
+
+     The expected height of a randomly built binary search tree on \(n\)
+     distinct keys is \(O(\lg n)\).
+     #+end_quote
+   - c.
+
+     To perform =TREAP-INSERT=, first we use the usual binary-search-tree
+     insertion procedure to insert the new node into the treap, then we perform
+     rotations to restore the min-heap order property.
+     #+begin_src
+     TREAP-INSERT(T, z)
+         y = T.nil
+         x = T.root
+         while x != T.nil
+             y = x
+             if z.key < x.key
+                 x = x.left
+             else x = x.right
+         z.p = y
+         if y == T.nil
+             T.root = z
+         else if z.key < y.key
+             y.left = z
+         else y.right = z
+         TREAP-INSERT-FIXUP(T, z)
+
+     TREAP-INSERT-FIXUP(T, z)
+         while z != T.root and z.p.priority > z.priority
+             if z == z.p.right
+                 LEFT-ROTATE(T, z.p)
+             else RIGHT-ROTATE(T, z.p)
+     #+end_src
+   - d.
+
+     To perform =TREAP-INSERT=, we first traverse from the root to the left of
+     the treap, which costs \(\Theta(\lg n)\) expected running time, then we use
+     =TREAP-INSERT-FIXUP= to restore the min-heap order property, since each
+     rotation move \(z\) to the position of its parent, the expected running
+     time of =TREAP-INSERT-FIXUP= is \(O(\lg n)\), thus the expected running
+     time of =TREAP-INSERT= is \(\Theta(\lg n)\).
+   - e.
+
+     From =Figure 13.2=, we could obtains that each rotation in
+     =TREAP-INSERT-FIXUP= increases \(C+D\) by 1, thus the total number of
+     rotations that were performed during the insertion of \(x\) is equal to
+     \(C+D\).
+   - f.
+
+     First it's obvious that, \(y\) is in the left subtree of \(x\), if and only
+     if \(y.priority > x.priority\), \(y.key < x.key\).
+
+     If \(y\) is in the right spine of the left subtree of \(x\), for every
+     \(z\) such that \(y.key < z.key < x.key\), we have
+     \(y.priority < z.priority\), because every \(z\) is in the right spine and
+     is a descendant of \(y\).
+
+     Then we assume that \(y\) is in the left subtree of \(x\), but not in the
+     right spine of the left subtree of \(x\), we know that for every \(z\) such
+     that \(y.key < z.key < x.key\), it's possible that \(z\) is not a
+     descendant of \(y\), that \(z.priority\) may not be larger than
+     \(y.priority\), thus if \(y\) is in the left subtree of \(x\), and for
+     every \(z\) such that \(y.key < z.key < x.key\), we have
+     \(y.priority < z.priority\), then \(y\) is in the right spine of the left
+     subtree of \(x\).
+
+     In conclusion, \(y\) is in the right spine of the left subtree of \(x\), if
+     and only if \(y.priority > x.priority\), \(y.key < x.key\), and for every
+     \(z\) such that \(y.key < z.key < x.key\), we have
+     \(y.priority < z.priority\).
+   - g.
+
+     For each \(z\) that \(y.key < z.key < x.key\), we have
+     \begin{align*}
+     \Pr\{X_{ik} = 1\}
+     &=\Pr\{x.priority < y.priority < z.priority\}\\
+     &=\frac{\text{the number of permutations of all $z$}}
+     {\text{the number of permutations of $x$, $y$ and all $z$}}\\
+     &=\frac{(k-i-1)!}{(k-i+1)!}\\
+     &=\frac{1}{(k-i+1)(k-i)}
+
+     \end{align*}
+   - h.
+
+     We have
+     \begin{align*}
+     E[C]
+     &=\sum_{i=1}^{k-1}\Pr\{X_{ik}=1\}\\
+     &=\sum_{i=1}^{k-1}\frac{1}{(k-i+1)(k-i)}\\
+     &=1-\frac{1}{k}
+     \end{align*}
+   - i.
+
+     Define indicator random variables
+     \begin{align*}
+     Y_{ik} = I\{y\text{ is in the left spine of the right subtree of }x\}.
+     \end{align*}
+     For each \(z\) that \(y.key < z.key < x.key\), we have
+     \begin{align*}
+     \Pr\{Y_{ik} = 1\}
+     &=\Pr\{x.priority < y.priority < z.priority\}\\
+     &=\frac{\text{the number of permutations of all $z$}}
+     {\text{the number of permutations of $x$, $y$ and all $z$}}\\
+     &=\frac{(i-k-1)!}{(i-k+1)!}\\
+     &=\frac{1}{(i-k+1)(i-k)}
+     \end{align*}
+     thus
+     \begin{align*}
+     E[D]
+     &=\sum_{i=k+1}^{n}\Pr\{Y_{ik}=1\}\\
+     &=\sum_{i=k+1}^{n}\frac{1}{(i-k+1)(i-k)}\\
+     &=1-\frac{1}{n-k+1}
+     \end{align*}
+   - j.
+
+     In conclusion, the expected number of rotations when inserting a node into
+     a treap is less than 2, as below
+     \begin{align*}
+     E[C + D]
+     &=E[C] + E[D] &\text{, C and D are independent from each other}\\
+     &=2-\frac{1}{k}-\frac{1}{n-k+1}\\
+     & < 2
+     \end{align*}
