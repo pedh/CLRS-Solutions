@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-02-25 Fri 05:54 -->
+<!-- 2022-03-03 Thu 09:45 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 13 problems</title>
@@ -272,24 +272,25 @@ org_html_manager.setup();  // activate after the parameters are set
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgbeac753">ch13-problems</a>
+<li><a href="#org65abfb7">ch13-problems</a>
 <ul>
-<li><a href="#org4fa4d42">13-1</a></li>
-<li><a href="#org71283c0">13-2</a></li>
-<li><a href="#orgaa4960c">13-3</a></li>
+<li><a href="#orgcb33fa4">13-1</a></li>
+<li><a href="#orgef7e567">13-2</a></li>
+<li><a href="#org8676b90">13-3</a></li>
+<li><a href="#orgf6b8322">13-4</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgbeac753" class="outline-2">
-<h2 id="orgbeac753">ch13-problems</h2>
-<div class="outline-text-2" id="text-orgbeac753">
+<div id="outline-container-org65abfb7" class="outline-2">
+<h2 id="org65abfb7">ch13-problems</h2>
+<div class="outline-text-2" id="text-org65abfb7">
 </div>
-<div id="outline-container-org4fa4d42" class="outline-3">
-<h3 id="org4fa4d42">13-1</h3>
-<div class="outline-text-3" id="text-org4fa4d42">
+<div id="outline-container-orgcb33fa4" class="outline-3">
+<h3 id="orgcb33fa4">13-1</h3>
+<div class="outline-text-3" id="text-orgcb33fa4">
 <ul class="org-ul">
 <li><p>
 a.
@@ -380,9 +381,9 @@ complexities are guaranteed.
 </ul>
 </div>
 </div>
-<div id="outline-container-org71283c0" class="outline-3">
-<h3 id="org71283c0">13-2</h3>
-<div class="outline-text-3" id="text-org71283c0">
+<div id="outline-container-orgef7e567" class="outline-3">
+<h3 id="orgef7e567">13-2</h3>
+<div class="outline-text-3" id="text-orgef7e567">
 <ul class="org-ul">
 <li><p>
 a.
@@ -454,9 +455,107 @@ part (d) and (e).
 </ul>
 </div>
 </div>
-<div id="outline-container-orgaa4960c" class="outline-3">
-<h3 id="orgaa4960c">13-3</h3>
-<div class="outline-text-3" id="text-orgaa4960c">
+<div id="outline-container-org8676b90" class="outline-3">
+<h3 id="org8676b90">13-3</h3>
+<div class="outline-text-3" id="text-org8676b90">
+<ul class="org-ul">
+<li><p>
+a.
+</p>
+
+<p>
+Since all the subtrees of AVL tree is also AVL tree, denote that an AVL
+tree of height \(h\) has at least \(N_h\) nodes, then we have
+</p>
+\begin{align*}
+N_h =
+\begin{cases}
+1 & \text{, if $h = 1$}\\
+N_h + N_{h-1} & \text{, if $h > 1$}
+\end{cases}
+\end{align*}
+<p>
+In conclusion, we know that \(N_h = F_h\), where \(F_h\) is the \(h\)th
+Fibonacci number, and since that Fibonacci number is exponential, an AVL
+tree with \(n\) nodes has height \(O(\lg n)\).
+</p></li>
+<li><p>
+b.
+</p>
+
+<pre class="example">
+BALANCE(T, x)
+    xlr = x.left.h - x.right.h
+    if xlr == 2
+	xllr = x.left.left.h - x.left.right.h
+	if xllr == 1
+	    RIGHT-ROTATE(T, x)
+	    x.h = x.p.h - 1
+	else if xllr == -1
+	    LEFT-ROTATE(T, x.left)
+	    RIGHT-ROTATE(T, x)
+	    x.p.h = x.p.left.h + 1
+	    x.h = x.p.h - 1
+	else if xllr == 2 || xllr == -2
+	    BALANCE(T, x.left)
+	    x.h = x.h - 1
+    else if xlr == -2
+	xrlr = x.right.left.h - x.right.right.h
+	if xrlr == -1
+	    LEFT-ROTATE(T, x)
+	    x.h = x.p.h - 1
+	else if xrlr == 1
+	    RIGHT-ROTATE(T, x.right)
+	    LEFT-ROTATE(T, x)
+	    x.p.h = x.p.right.h + 1
+	    x.h = x.p.h - 1
+	else if xrlr == 2 || xrlr == -2
+	    BALANCE(T, x.right)
+	    x.h = x.h - 1
+</pre></li>
+<li><p>
+c.
+</p>
+
+<pre class="example">
+AVL-INSERT(x, z)
+    if x == NIL
+	z.p = x.p
+	if z.p.key &gt; z.key
+	    z.p.left = z
+	else z.p.right = z
+    else if x.key &gt; z.key
+	AVL-INSERT(x.left, z)
+	if x.h &lt; x.left.h + 1
+	    x.h = x.left.h + 1
+    else
+	AVL-INSERT(x.right, z)
+	if x.h &lt; x.right.h + 1
+	    x.h = x.right.h + 1
+    BALANCE(T, x)
+</pre></li>
+<li><p>
+d.
+</p>
+
+<p>
+Since the height of an \(n\)-node AVL tree has height \(O(\lg n)\), to
+perform <code>AVL-INSERT</code> on an \(n\)-node AVL tree, we need \(O(\lg n)\)
+recursions, and the running time of each recursion is \(O(1)\), thus we
+takes \(O(\lg n)\) time.
+</p>
+
+<p>
+According to the properties of AVL tree, we know that at most 2 ancestors
+of the inserted node are not height balanced, thus we only perform \(O(1)\)
+rotations.
+</p></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgf6b8322" class="outline-3">
+<h3 id="orgf6b8322">13-4</h3>
+<div class="outline-text-3" id="text-orgf6b8322">
 <p>
 todo
 </p>
@@ -466,7 +565,7 @@ todo
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2022-02-25 Fri 05:54</p>
+<p class="date">Created: 2022-03-03 Thu 09:45</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
