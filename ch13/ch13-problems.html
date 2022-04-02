@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-03-04 Fri 10:01 -->
+<!-- 2022-04-02 Sat 10:03 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 13 problems</title>
@@ -272,25 +272,25 @@ org_html_manager.setup();  // activate after the parameters are set
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org9195308">ch13-problems</a>
+<li><a href="#orgd3fc0b8">ch13-problems</a>
 <ul>
-<li><a href="#org18e12bd">13-1</a></li>
-<li><a href="#org6195f4a">13-2</a></li>
-<li><a href="#orgc16e23b">13-3</a></li>
-<li><a href="#org8e11d02">13-4</a></li>
+<li><a href="#orge574ee1">13-1</a></li>
+<li><a href="#org1e88b2c">13-2</a></li>
+<li><a href="#org2456c7d">13-3</a></li>
+<li><a href="#orge2485ba">13-4</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org9195308" class="outline-2">
-<h2 id="org9195308">ch13-problems</h2>
-<div class="outline-text-2" id="text-org9195308">
+<div id="outline-container-orgd3fc0b8" class="outline-2">
+<h2 id="orgd3fc0b8">ch13-problems</h2>
+<div class="outline-text-2" id="text-orgd3fc0b8">
 </div>
-<div id="outline-container-org18e12bd" class="outline-3">
-<h3 id="org18e12bd">13-1</h3>
-<div class="outline-text-3" id="text-org18e12bd">
+<div id="outline-container-orge574ee1" class="outline-3">
+<h3 id="orge574ee1">13-1</h3>
+<div class="outline-text-3" id="text-orge574ee1">
 <ul class="org-ul">
 <li><p>
 a.
@@ -381,9 +381,9 @@ complexities are guaranteed.
 </ul>
 </div>
 </div>
-<div id="outline-container-org6195f4a" class="outline-3">
-<h3 id="org6195f4a">13-2</h3>
-<div class="outline-text-3" id="text-org6195f4a">
+<div id="outline-container-org1e88b2c" class="outline-3">
+<h3 id="org1e88b2c">13-2</h3>
+<div class="outline-text-3" id="text-org1e88b2c">
 <ul class="org-ul">
 <li><p>
 a.
@@ -455,9 +455,9 @@ part (d) and (e).
 </ul>
 </div>
 </div>
-<div id="outline-container-orgc16e23b" class="outline-3">
-<h3 id="orgc16e23b">13-3</h3>
-<div class="outline-text-3" id="text-orgc16e23b">
+<div id="outline-container-org2456c7d" class="outline-3">
+<h3 id="org2456c7d">13-3</h3>
+<div class="outline-text-3" id="text-org2456c7d">
 <ul class="org-ul">
 <li><p>
 a.
@@ -553,9 +553,9 @@ rotations.
 </ul>
 </div>
 </div>
-<div id="outline-container-org8e11d02" class="outline-3">
-<h3 id="org8e11d02">13-4</h3>
-<div class="outline-text-3" id="text-org8e11d02">
+<div id="outline-container-orge2485ba" class="outline-3">
+<h3 id="orge2485ba">13-4</h3>
+<div class="outline-text-3" id="text-orge2485ba">
 <ul class="org-ul">
 <li><p>
 a.
@@ -611,7 +611,143 @@ TREAP-INSERT(T, z)
 	y.left = z
     else y.right = z
     TREAP-INSERT-FIXUP(T, z)
+
+TREAP-INSERT-FIXUP(T, z)
+    while z != T.root and z.p.priority &gt; z.priority
+	if z == z.p.right
+	    LEFT-ROTATE(T, z.p)
+	else RIGHT-ROTATE(T, z.p)
 </pre></li>
+<li><p>
+d.
+</p>
+
+<p>
+To perform <code>TREAP-INSERT</code>, we first traverse from the root to the left of
+the treap, which costs \(\Theta(\lg n)\) expected running time, then we use
+<code>TREAP-INSERT-FIXUP</code> to restore the min-heap order property, since each
+rotation move \(z\) to the position of its parent, the expected running
+time of <code>TREAP-INSERT-FIXUP</code> is \(O(\lg n)\), thus the expected running
+time of <code>TREAP-INSERT</code> is \(\Theta(\lg n)\).
+</p></li>
+<li><p>
+e.
+</p>
+
+<p>
+From <code>Figure 13.2</code>, we could obtains that each rotation in
+<code>TREAP-INSERT-FIXUP</code> increases \(C+D\) by 1, thus the total number of
+rotations that were performed during the insertion of \(x\) is equal to
+\(C+D\).
+</p></li>
+<li><p>
+f.
+</p>
+
+<p>
+First it's obviously that, \(y\) is in the left subtree of \(x\), if and
+only if \(y.priority > x.priority\), \(y.key < x.key\).
+</p>
+
+<p>
+If \(y\) is in the right spine of the left subtree of \(x\), for every
+\(z\) such that \(y.key < z.key < x.key\), we have
+\(y.priority < z.priority\), because every \(z\) is in the right spine and
+is a descendant of \(y\).
+</p>
+
+<p>
+Then we assume that \(y\) is in the left subtree of \(x\), but not in the
+right spine of the left subtree of \(x\), we know that for every \(z\) such
+that \(y.key < z.key < x.key\), it's possible that \(z\) is not a
+descendant of \(y\), that \(z.priority\) may not be larger than
+\(y.priority\), thus if \(y\) is in the left subtree of \(x\), and for
+every \(z\) such that \(y.key < z.key < x.key\), we have
+\(y.priority < z.priority\), then \(y\) is in the right spine of the left
+subtree of \(x\).
+</p>
+
+<p>
+Finally, we have that, in conclusion, \(y\) is in the right spine of the
+left subtree of \(x\), if and only if \(y.priority > x.priority\),
+\(y.key < x.key\), and for every \(z\) such that \(y.key < z.key < x.key\),
+we have \(y.priority < z.priority\).
+</p></li>
+<li><p>
+g.
+</p>
+
+<p>
+We have that, denote \(z\) as for every \(z\) such that
+\(y.key < z.key < x.key\),
+</p>
+\begin{align*}
+\Pr\{X_{ik} = 1\}
+&=\Pr\{x.priority < y.priority < z.priority\}\\
+&=\frac{\text{the number of permutations of all $z$}}
+{\text{the number of permutations of $x$, $y$ and all $z$}}\\
+&=\frac{(k-i-1)!}{(k-i+1)!}\\
+&=\frac{1}{(k-i+1)(k-i)}
+
+\end{align*}</li>
+<li><p>
+h.
+</p>
+
+<p>
+We have
+</p>
+\begin{align*}
+E[C]
+&=\sum_{i=1}^{k-1}\Pr\{X_{ik}=1\}\\
+&=\sum_{i=1}^{k-1}\frac{1}{(k-i+1)(k-i)}\\
+&=1-\frac{1}{k}
+\end{align*}</li>
+<li><p>
+i.
+</p>
+
+<p>
+We define indicator random variables
+</p>
+\begin{align*}
+Y_{ik} = I\{y\text{ is in the left spine of the right subtree of }x\}.
+\end{align*}
+<p>
+then we have that, denote \(z\) as for every \(z\) such that
+\(x.key < z.key < y.key\),
+</p>
+\begin{align*}
+\Pr\{Y_{ik} = 1\}
+&=\Pr\{x.priority < y.priority < z.priority\}\\
+&=\frac{\text{the number of permutations of all $z$}}
+{\text{the number of permutations of $x$, $y$ and all $z$}}\\
+&=\frac{(i-k-1)!}{(i-k+1)!}\\
+&=\frac{1}{(i-k+1)(i-k)}
+\end{align*}
+<p>
+thus
+</p>
+\begin{align*}
+E[D]
+&=\sum_{i=k+1}^{n}\Pr{Y_{ik}=1}\\
+&=\sum_{i=k+1}^{n}\frac{1}{(i-k+1)(i-k)}\\
+&=1-\frac{1}{n-k+1}
+\end{align*}</li>
+<li><p>
+j.
+</p>
+
+<p>
+In conclusion, the expected number of rotations performed when inserting a
+node into a treap is less than 2, as below
+</p>
+\begin{align*}
+E[C + D]
+&=E[C] + E[D] &\text{, C and D is independent from each other}\\
+&=2-\frac{1}{k}-\frac{1}{n-k+1}\\
+& < 2
+\end{align*}</li>
 </ul>
 </div>
 </div>
@@ -619,7 +755,7 @@ TREAP-INSERT(T, z)
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2022-03-04 Fri 10:01</p>
+<p class="date">Created: 2022-04-02 Sat 10:03</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
