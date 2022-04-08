@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-04-08 Fri 08:49 -->
+<!-- 2022-04-08 Fri 09:28 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 12.4</title>
@@ -193,9 +193,9 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
-<link rel="stylesheet" type="text/css" href="/CLRS-Solutions/static/css/org-info.css" />
+<link rel="stylesheet" type="text/css" href="/css/org-info.css" />
 
-<script type="text/javascript" src="/CLRS-Solutions/static/js/org-info.js">
+<script type="text/javascript" src="/js/org-info.js">
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
 // @license-end
 </script>
@@ -272,26 +272,26 @@ org_html_manager.setup();  // activate after the parameters are set
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org068ffeb">ch12.4</a>
+<li><a href="#org78fbabe">ch12.4</a>
 <ul>
-<li><a href="#org798c672">12.4-1</a></li>
-<li><a href="#org1778401">12.4-2</a></li>
-<li><a href="#org50459fa">12.4-3</a></li>
-<li><a href="#org2cc8d12">12.4-4</a></li>
-<li><a href="#orgfc7a645">12.4-5</a></li>
+<li><a href="#org38eee67">12.4-1</a></li>
+<li><a href="#org546979f">12.4-2</a></li>
+<li><a href="#orgc991a3e">12.4-3</a></li>
+<li><a href="#orgbeca5a1">12.4-4</a></li>
+<li><a href="#org9d5c257">12.4-5</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org068ffeb" class="outline-2">
-<h2 id="org068ffeb">ch12.4</h2>
-<div class="outline-text-2" id="text-org068ffeb">
+<div id="outline-container-org78fbabe" class="outline-2">
+<h2 id="org78fbabe">ch12.4</h2>
+<div class="outline-text-2" id="text-org78fbabe">
 </div>
-<div id="outline-container-org798c672" class="outline-3">
-<h3 id="org798c672">12.4-1</h3>
-<div class="outline-text-3" id="text-org798c672">
+<div id="outline-container-org38eee67" class="outline-3">
+<h3 id="org38eee67">12.4-1</h3>
+<div class="outline-text-3" id="text-org38eee67">
 <p>
 To choose \(k\) elements from \(n\) elements, we could first choose one
 element, to be the largest of \(k\) elements, then we choose the remaining
@@ -306,9 +306,9 @@ we have
 \end{align*}
 </div>
 </div>
-<div id="outline-container-org1778401" class="outline-3">
-<h3 id="org1778401">12.4-2</h3>
-<div class="outline-text-3" id="text-org1778401">
+<div id="outline-container-org546979f" class="outline-3">
+<h3 id="org546979f">12.4-2</h3>
+<div class="outline-text-3" id="text-org546979f">
 <p>
 Consider a \(n\)-nodes binary search tree, with \(\sqrt{n}\) nodes to be a
 chain, and the other \(n-\sqrt{n}\) nodes to be asymptotically a complete
@@ -324,9 +324,9 @@ and the height of the tree is \(h(n)=\sqrt{n}=\omega(\lg n)\).
 </p>
 </div>
 </div>
-<div id="outline-container-org50459fa" class="outline-3">
-<h3 id="org50459fa">12.4-3</h3>
-<div class="outline-text-3" id="text-org50459fa">
+<div id="outline-container-orgc991a3e" class="outline-3">
+<h3 id="orgc991a3e">12.4-3</h3>
+<div class="outline-text-3" id="text-orgc991a3e">
 <p>
 When \(n=3\), the \(n! = 6\) inputs generate \(5\) different trees, which the
 inputs \(\langle 2,1,3 \rangle\) and \(\langle 2,3,1 \rangle\) generate the
@@ -335,18 +335,18 @@ of \(n\) keys is equally likely to be chosen.
 </p>
 </div>
 </div>
-<div id="outline-container-org2cc8d12" class="outline-3">
-<h3 id="org2cc8d12">12.4-4</h3>
-<div class="outline-text-3" id="text-org2cc8d12">
+<div id="outline-container-orgbeca5a1" class="outline-3">
+<h3 id="orgbeca5a1">12.4-4</h3>
+<div class="outline-text-3" id="text-orgbeca5a1">
 <p>
 We know that \(f(x)=2^x\) has a second derivative for \(x\in\mathbb{R}\), and
 \(f''(x) = 2^x\ln^2{2} > 0\), thus \(f(x)\) is strictly convex.
 </p>
 </div>
 </div>
-<div id="outline-container-orgfc7a645" class="outline-3">
-<h3 id="orgfc7a645">12.4-5</h3>
-<div class="outline-text-3" id="text-orgfc7a645">
+<div id="outline-container-org9d5c257" class="outline-3">
+<h3 id="org9d5c257">12.4-5</h3>
+<div class="outline-text-3" id="text-org9d5c257">
 <p>
 We could build a \(n\)-nodes binary search tree from performing <code>QUICKSORT</code>
 on \(n\) elements, by while a pivot is selected, we make the pivot a new node
@@ -390,7 +390,7 @@ permutations yield an \(O(n\lg n)\) running time.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2022-04-08 Fri 08:49</p>
+<p class="date">Created: 2022-04-08 Fri 09:28</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
