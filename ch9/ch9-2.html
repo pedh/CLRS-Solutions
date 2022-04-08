@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-04-06 Wed 06:11 -->
+<!-- 2022-04-08 Fri 08:49 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 9.2</title>
@@ -193,9 +193,9 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
-<link rel="stylesheet" type="text/css" href="/css/org-info.css" />
+<link rel="stylesheet" type="text/css" href="/CLRS-Solutions/static/css/org-info.css" />
 
-<script type="text/javascript" src="/js/org-info.js">
+<script type="text/javascript" src="/CLRS-Solutions/static/js/org-info.js">
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
 // @license-end
 </script>
@@ -272,25 +272,25 @@ org_html_manager.setup();  // activate after the parameters are set
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgd33237b">ch9.2</a>
+<li><a href="#org6a7ef39">ch9.2</a>
 <ul>
-<li><a href="#org15f4a90">9.2-1</a></li>
-<li><a href="#org0fe2aaf">9.2-2</a></li>
-<li><a href="#org1e985dd">9.2-3</a></li>
-<li><a href="#org11f72c1">9.2-4</a></li>
+<li><a href="#orgbef1b5c">9.2-1</a></li>
+<li><a href="#orgbe2c49a">9.2-2</a></li>
+<li><a href="#org5eff878">9.2-3</a></li>
+<li><a href="#org7d3f5bd">9.2-4</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgd33237b" class="outline-2">
-<h2 id="orgd33237b">ch9.2</h2>
-<div class="outline-text-2" id="text-orgd33237b">
+<div id="outline-container-org6a7ef39" class="outline-2">
+<h2 id="org6a7ef39">ch9.2</h2>
+<div class="outline-text-2" id="text-org6a7ef39">
 </div>
-<div id="outline-container-org15f4a90" class="outline-3">
-<h3 id="org15f4a90">9.2-1</h3>
-<div class="outline-text-3" id="text-org15f4a90">
+<div id="outline-container-orgbef1b5c" class="outline-3">
+<h3 id="orgbef1b5c">9.2-1</h3>
+<div class="outline-text-3" id="text-orgbef1b5c">
 <p>
 If we make a recursive call to \(0\)-length array in line 8, then we have
 \(q - 1 < p\), and \(i < k = q - p + 1\), thus we have \(i < 1\), which is
@@ -308,9 +308,9 @@ Thus RANDOMIZED-SELECT never makes a recursive call to a \(0\)-length array.
 </p>
 </div>
 </div>
-<div id="outline-container-org0fe2aaf" class="outline-3">
-<h3 id="org0fe2aaf">9.2-2</h3>
-<div class="outline-text-3" id="text-org0fe2aaf">
+<div id="outline-container-orgbe2c49a" class="outline-3">
+<h3 id="orgbe2c49a">9.2-2</h3>
+<div class="outline-text-3" id="text-orgbe2c49a">
 <p>
 The value \(T(max(k-1,n-k))\) does not affect the incicator random variable
 \(X_k\), and the \(X_k\) does not affect \(T(max(k-1,n-k))\) either, thus
@@ -318,9 +318,9 @@ they are independent.
 </p>
 </div>
 </div>
-<div id="outline-container-org1e985dd" class="outline-3">
-<h3 id="org1e985dd">9.2-3</h3>
-<div class="outline-text-3" id="text-org1e985dd">
+<div id="outline-container-org5eff878" class="outline-3">
+<h3 id="org5eff878">9.2-3</h3>
+<div class="outline-text-3" id="text-org5eff878">
 <pre class="example">
 RANDOMIZED-SELECT-ITER(A, i)
     p = 1
@@ -338,9 +338,9 @@ RANDOMIZED-SELECT-ITER(A, i)
 </pre>
 </div>
 </div>
-<div id="outline-container-org11f72c1" class="outline-3">
-<h3 id="org11f72c1">9.2-4</h3>
-<div class="outline-text-3" id="text-org11f72c1">
+<div id="outline-container-org7d3f5bd" class="outline-3">
+<h3 id="org7d3f5bd">9.2-4</h3>
+<div class="outline-text-3" id="text-org7d3f5bd">
 <p>
 The sequence of partitions results in a worst-case performance of
 RANDOMIZED-SELECT, if we always choose the maximum element of the subarray
@@ -352,7 +352,7 @@ as the pivot.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2022-04-06 Wed 06:11</p>
+<p class="date">Created: 2022-04-08 Fri 08:49</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

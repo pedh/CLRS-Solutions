@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-04-06 Wed 06:11 -->
+<!-- 2022-04-08 Fri 08:49 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 10.3</title>
@@ -193,9 +193,9 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
-<link rel="stylesheet" type="text/css" href="/css/org-info.css" />
+<link rel="stylesheet" type="text/css" href="/CLRS-Solutions/static/css/org-info.css" />
 
-<script type="text/javascript" src="/js/org-info.js">
+<script type="text/javascript" src="/CLRS-Solutions/static/js/org-info.js">
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
 // @license-end
 </script>
@@ -272,26 +272,26 @@ org_html_manager.setup();  // activate after the parameters are set
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgb241a19">ch10.3</a>
+<li><a href="#org934bc2f">ch10.3</a>
 <ul>
-<li><a href="#orgc69a928">10.3-1</a></li>
-<li><a href="#org03bec98">10.3-2</a></li>
-<li><a href="#orgfb08f83">10.3-3</a></li>
-<li><a href="#org025a7f2">10.3-4</a></li>
-<li><a href="#org96cc192">10.3-5</a></li>
+<li><a href="#org4eb494e">10.3-1</a></li>
+<li><a href="#orgdb37b5f">10.3-2</a></li>
+<li><a href="#org705ead8">10.3-3</a></li>
+<li><a href="#org0231593">10.3-4</a></li>
+<li><a href="#org4bd9831">10.3-5</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgb241a19" class="outline-2">
-<h2 id="orgb241a19">ch10.3</h2>
-<div class="outline-text-2" id="text-orgb241a19">
+<div id="outline-container-org934bc2f" class="outline-2">
+<h2 id="org934bc2f">ch10.3</h2>
+<div class="outline-text-2" id="text-org934bc2f">
 </div>
-<div id="outline-container-orgc69a928" class="outline-3">
-<h3 id="orgc69a928">10.3-1</h3>
-<div class="outline-text-3" id="text-orgc69a928">
+<div id="outline-container-org4eb494e" class="outline-3">
+<h3 id="org4eb494e">10.3-1</h3>
+<div class="outline-text-3" id="text-org4eb494e">
 <pre class="example">
 (13, 4, 8, 19, 5, 11) stored as a doubly linked list.
 
@@ -327,9 +327,9 @@ org_html_manager.setup();  // activate after the parameters are set
 </pre>
 </div>
 </div>
-<div id="outline-container-org03bec98" class="outline-3">
-<h3 id="org03bec98">10.3-2</h3>
-<div class="outline-text-3" id="text-org03bec98">
+<div id="outline-container-orgdb37b5f" class="outline-3">
+<h3 id="orgdb37b5f">10.3-2</h3>
+<div class="outline-text-3" id="text-orgdb37b5f">
 <pre class="example">
 ALLOCATE-OBJECT()
     if free == NIL
@@ -344,18 +344,18 @@ FREE-OBJECT(x)
 </pre>
 </div>
 </div>
-<div id="outline-container-orgfb08f83" class="outline-3">
-<h3 id="orgfb08f83">10.3-3</h3>
-<div class="outline-text-3" id="text-orgfb08f83">
+<div id="outline-container-org705ead8" class="outline-3">
+<h3 id="org705ead8">10.3-3</h3>
+<div class="outline-text-3" id="text-org705ead8">
 <p>
 We don't need to set or reset the <code>prev</code> attributes of objects, because the
 free list works like a stack, i.e. a singly linked list.
 </p>
 </div>
 </div>
-<div id="outline-container-org025a7f2" class="outline-3">
-<h3 id="org025a7f2">10.3-4</h3>
-<div class="outline-text-3" id="text-org025a7f2">
+<div id="outline-container-org0231593" class="outline-3">
+<h3 id="org0231593">10.3-4</h3>
+<div class="outline-text-3" id="text-org0231593">
 <pre class="example">
 ALLOCATE-OBJECT()
     PUSH(S, NIL)
@@ -368,9 +368,9 @@ FREE-OBJECT(x)
 </pre>
 </div>
 </div>
-<div id="outline-container-org96cc192" class="outline-3">
-<h3 id="org96cc192">10.3-5</h3>
-<div class="outline-text-3" id="text-org96cc192">
+<div id="outline-container-org4bd9831" class="outline-3">
+<h3 id="org4bd9831">10.3-5</h3>
+<div class="outline-text-3" id="text-org4bd9831">
 <pre class="example">
 COMPACTIFY-LIST(L, F)
     cur = L.head
@@ -406,7 +406,7 @@ After the procedure is done, the items in \(L\) occupy array positions
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2022-04-06 Wed 06:11</p>
+<p class="date">Created: 2022-04-08 Fri 08:49</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-04-06 Wed 06:11 -->
+<!-- 2022-04-08 Fri 08:49 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 11.2</title>
@@ -193,9 +193,9 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
-<link rel="stylesheet" type="text/css" href="/css/org-info.css" />
+<link rel="stylesheet" type="text/css" href="/CLRS-Solutions/static/css/org-info.css" />
 
-<script type="text/javascript" src="/js/org-info.js">
+<script type="text/javascript" src="/CLRS-Solutions/static/js/org-info.js">
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
 // @license-end
 </script>
@@ -272,27 +272,27 @@ org_html_manager.setup();  // activate after the parameters are set
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orge26734c">ch11.2</a>
+<li><a href="#orgd42ecff">ch11.2</a>
 <ul>
-<li><a href="#orgd0c2c26">11.2-1</a></li>
-<li><a href="#orgfa2d66d">11.2-2</a></li>
-<li><a href="#org84cb882">11.2-3</a></li>
-<li><a href="#org38af1fb">11.2-4</a></li>
-<li><a href="#org7986460">11.2-5</a></li>
-<li><a href="#org3c03a45">11.2-6</a></li>
+<li><a href="#org33cb825">11.2-1</a></li>
+<li><a href="#orgc0b2280">11.2-2</a></li>
+<li><a href="#orgf1b21fa">11.2-3</a></li>
+<li><a href="#org8331ec0">11.2-4</a></li>
+<li><a href="#org7b854f8">11.2-5</a></li>
+<li><a href="#org541127a">11.2-6</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orge26734c" class="outline-2">
-<h2 id="orge26734c">ch11.2</h2>
-<div class="outline-text-2" id="text-orge26734c">
+<div id="outline-container-orgd42ecff" class="outline-2">
+<h2 id="orgd42ecff">ch11.2</h2>
+<div class="outline-text-2" id="text-orgd42ecff">
 </div>
-<div id="outline-container-orgd0c2c26" class="outline-3">
-<h3 id="orgd0c2c26">11.2-1</h3>
-<div class="outline-text-3" id="text-orgd0c2c26">
+<div id="outline-container-org33cb825" class="outline-3">
+<h3 id="org33cb825">11.2-1</h3>
+<div class="outline-text-3" id="text-org33cb825">
 <p>
 Let \(k_1, k_2, ..., k_n\) denote the \(n\) distinct keys, for keys \(k_i\)
 and \(k_j\), we define the indicator random variable
@@ -308,9 +308,9 @@ C(n,m)
 \end{align*}
 </div>
 </div>
-<div id="outline-container-orgfa2d66d" class="outline-3">
-<h3 id="orgfa2d66d">11.2-2</h3>
-<div class="outline-text-3" id="text-orgfa2d66d">
+<div id="outline-container-orgc0b2280" class="outline-3">
+<h3 id="orgc0b2280">11.2-2</h3>
+<div class="outline-text-3" id="text-orgc0b2280">
 <pre class="example">
 1. The keys remaining: 5, 28, 19, 15, 20, 33, 12, 17, 10
 |---+---+---+---+---+---+---+---+---|
@@ -384,9 +384,9 @@ C(n,m)
 </pre>
 </div>
 </div>
-<div id="outline-container-org84cb882" class="outline-3">
-<h3 id="org84cb882">11.2-3</h3>
-<div class="outline-text-3" id="text-org84cb882">
+<div id="outline-container-orgf1b21fa" class="outline-3">
+<h3 id="orgf1b21fa">11.2-3</h3>
+<div class="outline-text-3" id="text-orgf1b21fa">
 <p>
 The data structure of the chain would affect the running time after the
 modification.
@@ -406,9 +406,9 @@ average running time for deletions is \(O(1)\).
 </p>
 </div>
 </div>
-<div id="outline-container-org38af1fb" class="outline-3">
-<h3 id="org38af1fb">11.2-4</h3>
-<div class="outline-text-3" id="text-org38af1fb">
+<div id="outline-container-org8331ec0" class="outline-3">
+<h3 id="org8331ec0">11.2-4</h3>
+<div class="outline-text-3" id="text-org8331ec0">
 <p>
 Define a hash table <code>T</code> and a free list <code>F</code> within , each slot <code>s</code> stores one
 flag <code>s.free?</code> and two pointers, <code>s.prev</code> and <code>s.next</code>.
@@ -446,9 +446,9 @@ for deletion in the free list.
 </p>
 </div>
 </div>
-<div id="outline-container-org7986460" class="outline-3">
-<h3 id="org7986460">11.2-5</h3>
-<div class="outline-text-3" id="text-org7986460">
+<div id="outline-container-org7b854f8" class="outline-3">
+<h3 id="org7b854f8">11.2-5</h3>
+<div class="outline-text-3" id="text-org7b854f8">
 <p>
 Assume that when hash all keys from \(U\) to the hash table, there are no
 more than \(n\) keys be hashed to the same slot, then the total number of
@@ -459,9 +459,9 @@ searching time for hasing with chaining is \(\Theta(n)\).
 </p>
 </div>
 </div>
-<div id="outline-container-org3c03a45" class="outline-3">
-<h3 id="org3c03a45">11.2-6</h3>
-<div class="outline-text-3" id="text-org3c03a45">
+<div id="outline-container-org541127a" class="outline-3">
+<h3 id="org541127a">11.2-6</h3>
+<div class="outline-text-3" id="text-org541127a">
 <p>
 We could select a key uniformly at random from among the keys in the hash
 table as below.
@@ -486,7 +486,7 @@ expected running time is \(O(L \cdot (1 + 1 / \alpha))\).
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2022-04-06 Wed 06:11</p>
+<p class="date">Created: 2022-04-08 Fri 08:49</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

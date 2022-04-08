@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-04-06 Wed 06:11 -->
+<!-- 2022-04-08 Fri 08:49 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 10.2</title>
@@ -193,9 +193,9 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
-<link rel="stylesheet" type="text/css" href="/css/org-info.css" />
+<link rel="stylesheet" type="text/css" href="/CLRS-Solutions/static/css/org-info.css" />
 
-<script type="text/javascript" src="/js/org-info.js">
+<script type="text/javascript" src="/CLRS-Solutions/static/js/org-info.js">
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
 // @license-end
 </script>
@@ -272,29 +272,29 @@ org_html_manager.setup();  // activate after the parameters are set
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org6c7897e">ch10.2</a>
+<li><a href="#org75e0671">ch10.2</a>
 <ul>
-<li><a href="#orgfd3f5be">10.2-1</a></li>
-<li><a href="#org6b025c4">10.2-2</a></li>
-<li><a href="#orgb82b78c">10.2-3</a></li>
-<li><a href="#org3cea40a">10.2-4</a></li>
-<li><a href="#org70767ee">10.2-5</a></li>
-<li><a href="#orge711e99">10.2-6</a></li>
-<li><a href="#orga9aca59">10.2-7</a></li>
-<li><a href="#orge8e0d50">10.2-8</a></li>
+<li><a href="#orgf26c709">10.2-1</a></li>
+<li><a href="#orgad05820">10.2-2</a></li>
+<li><a href="#org85861f5">10.2-3</a></li>
+<li><a href="#orgae2e3a1">10.2-4</a></li>
+<li><a href="#org35a7f0b">10.2-5</a></li>
+<li><a href="#org8c50a2f">10.2-6</a></li>
+<li><a href="#org713cb6e">10.2-7</a></li>
+<li><a href="#org31182da">10.2-8</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org6c7897e" class="outline-2">
-<h2 id="org6c7897e">ch10.2</h2>
-<div class="outline-text-2" id="text-org6c7897e">
+<div id="outline-container-org75e0671" class="outline-2">
+<h2 id="org75e0671">ch10.2</h2>
+<div class="outline-text-2" id="text-org75e0671">
 </div>
-<div id="outline-container-orgfd3f5be" class="outline-3">
-<h3 id="orgfd3f5be">10.2-1</h3>
-<div class="outline-text-3" id="text-orgfd3f5be">
+<div id="outline-container-orgf26c709" class="outline-3">
+<h3 id="orgf26c709">10.2-1</h3>
+<div class="outline-text-3" id="text-orgf26c709">
 <p>
 We could implement the dynamic-set operation <code>INSERT</code> by the singly linked
 list <code>LIST-INSERT</code> operation, to achieve \(O(1)\) running time. But the
@@ -304,9 +304,9 @@ the given key.
 </p>
 </div>
 </div>
-<div id="outline-container-org6b025c4" class="outline-3">
-<h3 id="org6b025c4">10.2-2</h3>
-<div class="outline-text-3" id="text-org6b025c4">
+<div id="outline-container-orgad05820" class="outline-3">
+<h3 id="orgad05820">10.2-2</h3>
+<div class="outline-text-3" id="text-orgad05820">
 <pre class="example">
 PUSH(L, x)
     nx = new node to carry x
@@ -321,9 +321,9 @@ POP(L)
 </pre>
 </div>
 </div>
-<div id="outline-container-orgb82b78c" class="outline-3">
-<h3 id="orgb82b78c">10.2-3</h3>
-<div class="outline-text-3" id="text-orgb82b78c">
+<div id="outline-container-org85861f5" class="outline-3">
+<h3 id="org85861f5">10.2-3</h3>
+<div class="outline-text-3" id="text-org85861f5">
 <p>
 The singly linked list \(L\) should support \(L.tail\) attribute.
 </p>
@@ -344,9 +344,9 @@ DEQUEUE(L)
 </pre>
 </div>
 </div>
-<div id="outline-container-org3cea40a" class="outline-3">
-<h3 id="org3cea40a">10.2-4</h3>
-<div class="outline-text-3" id="text-org3cea40a">
+<div id="outline-container-orgae2e3a1" class="outline-3">
+<h3 id="orgae2e3a1">10.2-4</h3>
+<div class="outline-text-3" id="text-orgae2e3a1">
 <pre class="example">
 LIST-SEARCH'(L, k)
     x = L.nil.next
@@ -357,9 +357,9 @@ LIST-SEARCH'(L, k)
 </pre>
 </div>
 </div>
-<div id="outline-container-org70767ee" class="outline-3">
-<h3 id="org70767ee">10.2-5</h3>
-<div class="outline-text-3" id="text-org70767ee">
+<div id="outline-container-org35a7f0b" class="outline-3">
+<h3 id="org35a7f0b">10.2-5</h3>
+<div class="outline-text-3" id="text-org35a7f0b">
 <pre class="example">
 INSERT(L, k, v)
     x = SEARCH(L, k)
@@ -386,9 +386,9 @@ The running times of <code>INSERT</code>, <code>SEARCH</code> and <code>DELETE</
 </p>
 </div>
 </div>
-<div id="outline-container-orge711e99" class="outline-3">
-<h3 id="orge711e99">10.2-6</h3>
-<div class="outline-text-3" id="text-orge711e99">
+<div id="outline-container-org8c50a2f" class="outline-3">
+<h3 id="org8c50a2f">10.2-6</h3>
+<div class="outline-text-3" id="text-org8c50a2f">
 <p>
 We can represent the dynamic set as a doubly linked list, and implement
 <code>UNION</code> as below.
@@ -403,9 +403,9 @@ UNION(S1, S2)
 </pre>
 </div>
 </div>
-<div id="outline-container-orga9aca59" class="outline-3">
-<h3 id="orga9aca59">10.2-7</h3>
-<div class="outline-text-3" id="text-orga9aca59">
+<div id="outline-container-org713cb6e" class="outline-3">
+<h3 id="org713cb6e">10.2-7</h3>
+<div class="outline-text-3" id="text-org713cb6e">
 <pre class="example">
 REVERSE(L)
     x = L.head
@@ -423,9 +423,9 @@ REVERSE(L)
 </p>
 </div>
 </div>
-<div id="outline-container-orge8e0d50" class="outline-3">
-<h3 id="orge8e0d50">10.2-8</h3>
-<div class="outline-text-3" id="text-orge8e0d50">
+<div id="outline-container-org31182da" class="outline-3">
+<h3 id="org31182da">10.2-8</h3>
+<div class="outline-text-3" id="text-org31182da">
 <p>
 We need the pointer to the head to access the head of the list.
 </p>
@@ -518,7 +518,7 @@ REVERSE(L)
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2022-04-06 Wed 06:11</p>
+<p class="date">Created: 2022-04-08 Fri 08:49</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
