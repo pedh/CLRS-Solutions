@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-04-08 Fri 09:28 -->
+<!-- 2022-09-27 Tue 09:29 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 12.3</title>
@@ -272,27 +272,27 @@ org_html_manager.setup();  // activate after the parameters are set
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgc0667d0">ch12.3</a>
+<li><a href="#orgf19aa55">ch12.3</a>
 <ul>
-<li><a href="#orga83ad89">12.3-1</a></li>
-<li><a href="#org60bbefe">12.3-2</a></li>
-<li><a href="#org4c3a3ae">12.3-3</a></li>
-<li><a href="#org71f50cc">12.3-4</a></li>
-<li><a href="#orgd5e042d">12.3-5</a></li>
-<li><a href="#org1a91790">12.3-6</a></li>
+<li><a href="#org79d3b4f">12.3-1</a></li>
+<li><a href="#org30815d1">12.3-2</a></li>
+<li><a href="#org77d707d">12.3-3</a></li>
+<li><a href="#org5f853f8">12.3-4</a></li>
+<li><a href="#org23b7907">12.3-5</a></li>
+<li><a href="#org4308eb8">12.3-6</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgc0667d0" class="outline-2">
-<h2 id="orgc0667d0">ch12.3</h2>
-<div class="outline-text-2" id="text-orgc0667d0">
+<div id="outline-container-orgf19aa55" class="outline-2">
+<h2 id="orgf19aa55">ch12.3</h2>
+<div class="outline-text-2" id="text-orgf19aa55">
 </div>
-<div id="outline-container-orga83ad89" class="outline-3">
-<h3 id="orga83ad89">12.3-1</h3>
-<div class="outline-text-3" id="text-orga83ad89">
+<div id="outline-container-org79d3b4f" class="outline-3">
+<h3 id="org79d3b4f">12.3-1</h3>
+<div class="outline-text-3" id="text-org79d3b4f">
 <pre class="example">
 TREE-INSERT(T, z)
     x = T.root
@@ -311,18 +311,18 @@ TREE-INSERT-REC(x, z)
 </pre>
 </div>
 </div>
-<div id="outline-container-org60bbefe" class="outline-3">
-<h3 id="org60bbefe">12.3-2</h3>
-<div class="outline-text-3" id="text-org60bbefe">
+<div id="outline-container-org30815d1" class="outline-3">
+<h3 id="org30815d1">12.3-2</h3>
+<div class="outline-text-3" id="text-org30815d1">
 <p>
 To search for a value in the tree, we need perform one more test&#x2014;from the
 parent to the desired node, than first insertion of the value into the tree.
 </p>
 </div>
 </div>
-<div id="outline-container-org4c3a3ae" class="outline-3">
-<h3 id="org4c3a3ae">12.3-3</h3>
-<div class="outline-text-3" id="text-org4c3a3ae">
+<div id="outline-container-org77d707d" class="outline-3">
+<h3 id="org77d707d">12.3-3</h3>
+<div class="outline-text-3" id="text-org77d707d">
 <p>
 The worst-case is when the \(n\) numbers are already sorted, the running time
 will be \(O(n^2)\), the best-case is when the \(n\) numbers make the tree
@@ -330,25 +330,25 @@ balance, the running time will be \(O(n\lg n)\).
 </p>
 </div>
 </div>
-<div id="outline-container-org71f50cc" class="outline-3">
-<h3 id="org71f50cc">12.3-4</h3>
-<div class="outline-text-3" id="text-org71f50cc">
+<div id="outline-container-org5f853f8" class="outline-3">
+<h3 id="org5f853f8">12.3-4</h3>
+<div class="outline-text-3" id="text-org5f853f8">
 <p>
 The operation of deletion is not commutative. Below is the example, deletion
 of \(1\) then \(2\) will generate a different tree than deletion of \(2\)
 then \(1\).
 </p>
 
-<div id="orgc533298" class="figure">
+<div id="org15862c2" class="figure">
 <p><img src="../static/generated/images/ch12-3-1.png" alt="ch12-3-1.png" />
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgd5e042d" class="outline-3">
-<h3 id="orgd5e042d">12.3-5</h3>
-<div class="outline-text-3" id="text-orgd5e042d">
+<div id="outline-container-org23b7907" class="outline-3">
+<h3 id="org23b7907">12.3-5</h3>
+<div class="outline-text-3" id="text-org23b7907">
 <pre class="example">
 SEARCH(T, k)
     x = T.root
@@ -434,9 +434,9 @@ else y = z.succ
 </pre>
 </div>
 </div>
-<div id="outline-container-org1a91790" class="outline-3">
-<h3 id="org1a91790">12.3-6</h3>
-<div class="outline-text-3" id="text-org1a91790">
+<div id="outline-container-org4308eb8" class="outline-3">
+<h3 id="org4308eb8">12.3-6</h3>
+<div class="outline-text-3" id="text-org4308eb8">
 <p>
 Below is the modified <code>TREE-DELETE'</code> to choose the predecessor rather than
 the successor.
@@ -467,7 +467,7 @@ the modified <code>TREE-DELETE'</code> procedure.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2022-04-08 Fri 09:28</p>
+<p class="date">Created: 2022-09-27 Tue 09:29</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

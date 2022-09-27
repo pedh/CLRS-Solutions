@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-04-08 Fri 09:28 -->
+<!-- 2022-09-27 Tue 09:29 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 7.4</title>
@@ -272,27 +272,27 @@ org_html_manager.setup();  // activate after the parameters are set
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org46a86a7">ch7.4</a>
+<li><a href="#orgb1cfb87">ch7.4</a>
 <ul>
-<li><a href="#org27c9b88">7.4-1</a></li>
-<li><a href="#orgf8a2236">7.4-2</a></li>
-<li><a href="#org9bc08f9">7.4-3</a></li>
-<li><a href="#orgfd5fd73">7.4-4</a></li>
-<li><a href="#orgb13f369">7.4-5</a></li>
-<li><a href="#orga48fb14">7.4-6</a></li>
+<li><a href="#orge22ab84">7.4-1</a></li>
+<li><a href="#org2f2cfe6">7.4-2</a></li>
+<li><a href="#org5894656">7.4-3</a></li>
+<li><a href="#orgefaa216">7.4-4</a></li>
+<li><a href="#org09ceb8c">7.4-5</a></li>
+<li><a href="#org6a8c22a">7.4-6</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org46a86a7" class="outline-2">
-<h2 id="org46a86a7">ch7.4</h2>
-<div class="outline-text-2" id="text-org46a86a7">
+<div id="outline-container-orgb1cfb87" class="outline-2">
+<h2 id="orgb1cfb87">ch7.4</h2>
+<div class="outline-text-2" id="text-orgb1cfb87">
 </div>
-<div id="outline-container-org27c9b88" class="outline-3">
-<h3 id="org27c9b88">7.4-1</h3>
-<div class="outline-text-3" id="text-org27c9b88">
+<div id="outline-container-orge22ab84" class="outline-3">
+<h3 id="orge22ab84">7.4-1</h3>
+<div class="outline-text-3" id="text-orge22ab84">
 <p>
 We have
 </p>
@@ -304,18 +304,18 @@ T(n)
 \end{align*}
 </div>
 </div>
-<div id="outline-container-orgf8a2236" class="outline-3">
-<h3 id="orgf8a2236">7.4-2</h3>
-<div class="outline-text-3" id="text-orgf8a2236">
+<div id="outline-container-org2f2cfe6" class="outline-3">
+<h3 id="org2f2cfe6">7.4-2</h3>
+<div class="outline-text-3" id="text-org2f2cfe6">
 <p>
 The best-case running time of quicksort is \(T(n) = 2T(n/2) + \Theta(n)\),
 by the master theorem, we know it's \(\Theta(n\lg n)\).
 </p>
 </div>
 </div>
-<div id="outline-container-org9bc08f9" class="outline-3">
-<h3 id="org9bc08f9">7.4-3</h3>
-<div class="outline-text-3" id="text-org9bc08f9">
+<div id="outline-container-org5894656" class="outline-3">
+<h3 id="org5894656">7.4-3</h3>
+<div class="outline-text-3" id="text-org5894656">
 <p>
 Let \(f(q) = q^2 + (n - q - 1)^2\), then \(f''(q) = 4\), thus f(q) is a
 strict convex, and \(f(0) = f(n - 1) = (n - 1)^2\), hence the expression
@@ -323,9 +323,9 @@ achieves a maximum when \(q = 0\) or \(q = n - 1\).
 </p>
 </div>
 </div>
-<div id="outline-container-orgfd5fd73" class="outline-3">
-<h3 id="orgfd5fd73">7.4-4</h3>
-<div class="outline-text-3" id="text-orgfd5fd73">
+<div id="outline-container-orgefaa216" class="outline-3">
+<h3 id="orgefaa216">7.4-4</h3>
+<div class="outline-text-3" id="text-orgefaa216">
 <p>
 The expected running time is
 </p>
@@ -337,9 +337,9 @@ E[X]
 \end{align*}
 </div>
 </div>
-<div id="outline-container-orgb13f369" class="outline-3">
-<h3 id="orgb13f369">7.4-5</h3>
-<div class="outline-text-3" id="text-orgb13f369">
+<div id="outline-container-org09ceb8c" class="outline-3">
+<h3 id="org09ceb8c">7.4-5</h3>
+<div class="outline-text-3" id="text-org09ceb8c">
 <p>
 Using the improved quicksort, first we perform quicksort until the size of
 the subarrays are smaller than k, it costs \(O(n\lg(n/k))\) running time in
@@ -359,9 +359,9 @@ satisfies the condition \(c_1 nk + c_2 n\lg(n/k) < c_2 n\lg n\).
 </div>
 </div>
 
-<div id="outline-container-orga48fb14" class="outline-3">
-<h3 id="orga48fb14">7.4-6</h3>
-<div class="outline-text-3" id="text-orga48fb14">
+<div id="outline-container-org6a8c22a" class="outline-3">
+<h3 id="org6a8c22a">7.4-6</h3>
+<div class="outline-text-3" id="text-org6a8c22a">
 <p>
 Assume \(\alpha \leq 1/2\), else substitude \(\alpha\) with \(1 - \alpha\),
 the probability of getting at worst an \(\alpha\)-to-\((1-\alpha)\) split is
@@ -378,7 +378,7 @@ the probability of getting at worst an \(\alpha\)-to-\((1-\alpha)\) split is
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2022-04-08 Fri 09:28</p>
+<p class="date">Created: 2022-09-27 Tue 09:29</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
