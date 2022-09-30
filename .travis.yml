@@ -6,7 +6,9 @@ env:
 
 before_install:
   - sudo apt-get update -y
-  - sudo apt-get install -y graphviz
+  - sudo apt-get install -y graphviz texlive-full imagemagick
+  # disable imagemagick policy checking
+  - sudo rm -f /etc/ImageMagick-6/policy.xml
 
 install:
   - curl -LO https://github.com/npostavs/emacs-travis/releases/download/bins/emacs-bin-${EMACS_VERSION}.tar.gz
