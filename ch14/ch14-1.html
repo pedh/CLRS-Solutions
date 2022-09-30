@@ -6,7 +6,7 @@
 <!-- 2022-09-30 Fri 10:01 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Chapter 6.4</title>
+<title>Chapter 14.1</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="pedh" />
 <style type="text/css">
@@ -267,128 +267,202 @@ org_html_manager.setup();  // activate after the parameters are set
  |
  <a accesskey="H" href="/CLRS-Solutions"> HOME </a>
 </div><div id="content">
-<h1 class="title">Chapter 6.4</h1>
+<h1 class="title">Chapter 14.1</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org92d9d61">ch6.4</a>
+<li><a href="#org0fc77cc">14.1</a>
 <ul>
-<li><a href="#org09d74b2">6.4-1</a></li>
-<li><a href="#org2024003">6.4-2</a></li>
-<li><a href="#org56e1e03">6.4-3</a></li>
-<li><a href="#orge97b181">6.4-4</a></li>
-<li><a href="#org6cb466c">6.4-5</a></li>
+<li><a href="#orgbd96e2d">14.1-1</a></li>
+<li><a href="#org3014fb7">14.1-2</a></li>
+<li><a href="#org28f6bf0">14.1-3</a></li>
+<li><a href="#org6cb8d1e">14.1-4</a></li>
+<li><a href="#org6fde3b7">14.1-5</a></li>
+<li><a href="#org08f9100">14.1-6</a></li>
+<li><a href="#orga41f1d4">14.1-7</a></li>
+<li><a href="#orga1cd236">14.1-8</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org92d9d61" class="outline-2">
-<h2 id="org92d9d61">ch6.4</h2>
-<div class="outline-text-2" id="text-org92d9d61">
+<div id="outline-container-org0fc77cc" class="outline-2">
+<h2 id="org0fc77cc">14.1</h2>
+<div class="outline-text-2" id="text-org0fc77cc">
 </div>
-<div id="outline-container-org09d74b2" class="outline-3">
-<h3 id="org09d74b2">6.4-1</h3>
-<div class="outline-text-3" id="text-org09d74b2">
+<div id="outline-container-orgbd96e2d" class="outline-3">
+<h3 id="orgbd96e2d">14.1-1</h3>
+<div class="outline-text-3" id="text-orgbd96e2d">
+<p>
+To see how <code>OS-SELECT</code> operates. We begin with \(x\) as the root, whose key
+is \(26\), and with \(i = 10\).
+Since the size of \(26\)'s left subtree is \(12\), its rank is \(13\). Thus
+we know that the node with rank \(10\) is the \(10\)th smallest element in
+\(26\)'s left subtree. After the recursive call, \(x\) is the node with key
+\(17\), and \(i = 10\).
+Since the size of \(17\)'s left subtree is \(7\), its rank is \(8\). Thus we
+know that the node with rank \(10\) is the \(10 - 8 = 2\)nd smallest element
+in \(17\)'s right subtree. After the recursive call, \(x\) is the node with
+key \(21\), and \(i = 2\).
+Since the size of \(21\)'s left subtree is \(2\), its rank is \(3\). Thus we
+know that the node with rank \(2\) is the \(2\)nd smallest element in
+\(21\)'s left subtree. After the recursive call, \(x\) is the node with key
+\(19\), and \(i = 2\).
+Since the size of \(19\)'s left subtree is \(0\), its rank is \(1\). Thus we
+know that the node with rank \(2\) is the \(2 - 1 = 1\)st smallest element in
+\(19\)'s right subtree. After the recursive call, \(x\) is the node with key
+\(20\), and \(i = 1\).
+Since the size of \(20\)'s left subtree is \(0\), its rank is \(1\). Thus we
+know that the node with rank \(1\) is \(20\), the procedure returns a pointer
+to the node with key \(20\).
+</p>
+</div>
+</div>
+<div id="outline-container-org3014fb7" class="outline-3">
+<h3 id="org3014fb7">14.1-2</h3>
+<div class="outline-text-3" id="text-org3014fb7">
+<p>
+When we run <code>OS-RANK</code> to find the rank of the node with key \(35\), we get
+the following sequence of values of \(y.key\) and \(r\) at the top of the
+<b>while</b> loop:
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">iteration</th>
+<th scope="col" class="org-right">y.key</th>
+<th scope="col" class="org-right">r</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">35</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">38</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-right">3</td>
+<td class="org-right">30</td>
+<td class="org-right">3</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">41</td>
+<td class="org-right">3</td>
+</tr>
+
+<tr>
+<td class="org-right">5</td>
+<td class="org-right">26</td>
+<td class="org-right">16</td>
+</tr>
+</tbody>
+</table>
+<p>
+The procedure returns the rank \(17\).
+</p>
+</div>
+</div>
+<div id="outline-container-org28f6bf0" class="outline-3">
+<h3 id="org28f6bf0">14.1-3</h3>
+<div class="outline-text-3" id="text-org28f6bf0">
 <pre class="example">
-   (5 13 2 25 7 17 20 8 4)
--&gt; ((25 (13 (8 (5) (4)) (7)) (20 (17) (2))))    # BUILD-MAX-HEAP
--&gt; ((4 (13 (8 (5)) (7)) (20 (17) (2))) 25)
--&gt; ((20 (13 (8 (5)) (7)) (17 (4) (2))) 25)
--&gt; ((5 (13 (8) (7)) (17 (4) (2))) 20 25)
--&gt; ((17 (13 (8) (7)) (5 (4) (2))) 20 25)
--&gt; ((2 (13 (8) (7)) (5 (4))) 17 20 25)
--&gt; ((13 (8 (2) (7)) (5 (4))) 17 20 25)
--&gt; ((4 (8 (2) (7)) (5)) 13 17 20 25)
--&gt; ((8 (7 (2) (4)) (5)) 13 17 20 25)
--&gt; ((4 (7 (2)) (5)) 8 13 17 20 25)
--&gt; ((7 (4 (2)) (5)) 8 13 17 20 25)
--&gt; ((2 (4) (5)) 7 8 13 17 20 25)
--&gt; ((5 (4) (2)) 7 8 13 17 20 25)
--&gt; ((2 (4)) 5 7 8 13 17 20 25)
--&gt; ((4 (2)) 5 7 8 13 17 20 25)
--&gt; ((2) 4 5 7 8 13 17 20 25)
--&gt; (2 4 5 7 8 13 17 20 25)
+OS-SELECT-ITER(x, i)
+    while i != x.left.size + 1
+	if i &lt; x.left.size + 1
+	    x = x.left
+	else
+	    x = x.right
+	    i = i - x.left.size - 1
+    return x
 </pre>
 </div>
 </div>
-<div id="outline-container-org2024003" class="outline-3">
-<h3 id="org2024003">6.4-2</h3>
-<div class="outline-text-3" id="text-org2024003">
-<p>
-<b>Initialization:</b> A[1..n] is a max heap contains the \(n\) smallest elements,
-A[n+1..n] is empty.
-</p>
+<div id="outline-container-org6cb8d1e" class="outline-3">
+<h3 id="org6cb8d1e">14.1-4</h3>
+<div class="outline-text-3" id="text-org6cb8d1e">
+<pre class="example">
+OS-KEY-RANK(T, k)
+    return OS-KEY-RANK-REC(T.root, k, 0)
 
-<p>
-<b>Maintenance:</b> At the start of ith iteration, A[1] is the root of the max
-heap A[1..i] which contains the \(i\) smallest elements of A[1..n], thus A[1]
-is the ith largest element, and A[i+1..n] contains the \(n-i\) largest
-elements of A[1..n] and is sorted, after we exchange A[1] with A[i], A[i..n]
-contains the \(n-i+1\) largest elements of A[1..n] and is sorted, and the
-A[1..i-1] is a max heap besides A[1], then we perform MAX-HEAPIFY on A[1],
-after that A[1..i-1] becomes a max heap containing the \(i-1\) smallest
-elements of A[1..n].
-</p>
-
-<p>
-<b>Termination:</b> The procedure terminates when \(i=1\), A[1] is the smallest
-element of A[1..n], and A[2..n] contains the \(n-1\) largest elements of
-A[1..n] and is sorted, thus A[1..n] is the sorted permutation of the input
-array A.
-</p>
+OS-KEY-RANK-REC(x, k, r)
+    if x == nil
+	// node with key k not found
+	return -1
+    if x.key &gt; k
+	return OS-KEY-RANK-REC(x.left, k, r)
+    if x.key &lt; k
+	return OS-KEY-RANK-REC(x.right, k, r + x.left.size + 1)
+    return r + x.left.size + 1
+</pre>
 </div>
 </div>
-
-<div id="outline-container-org56e1e03" class="outline-3">
-<h3 id="org56e1e03">6.4-3</h3>
-<div class="outline-text-3" id="text-org56e1e03">
-<p>
-Both of them have \(\Theta(n\lg n)\) running time, the BUILD-MAX-HEAP costs
-\(O(n)\) running time, and the sort loop costs \(\Theta(n\lg n)\) running
-time.
-</p>
+<div id="outline-container-org6fde3b7" class="outline-3">
+<h3 id="org6fde3b7">14.1-5</h3>
+<div class="outline-text-3" id="text-org6fde3b7">
+<pre class="example">
+OS-SUCCESSOR(x, i)
+    if i == 0
+	return x
+    if i &gt; x.right.size
+	if x.p == nil
+	    return nil
+	if x == x.p.left
+	    return OS-SUCCESSOR(x.p, i - x.right.size - 1)
+	return nil
+    else return OS-SELECT(x.right, i)
+</pre>
 </div>
 </div>
-<div id="outline-container-orge97b181" class="outline-3">
-<h3 id="orge97b181">6.4-4</h3>
-<div class="outline-text-3" id="text-orge97b181">
+<div id="outline-container-org08f9100" class="outline-3">
+<h3 id="org08f9100">14.1-6</h3>
+<div class="outline-text-3" id="text-org08f9100">
 <p>
-If A is already sorted in decreasing order, then each MAX-HEAPIFY in the sort
-loop will keep moving the root element till the bottom of the heap, thus the
-running time of the sort loop is
+In <code>LEFT-ROTATE(T, x)</code> and <code>RIGHT-ROTATE(T, y)</code>, we add the following lines:
 </p>
-\begin{align*}
-T(n)
-&=\sum_{i=1}^{n-1}(\Theta(1)+\Theta(\lfloor \lg(n-i)\rfloor))\\
-&\geq \Omega(\sum_{i=1}^{n-1}(\lg(i/2)))+\Omega(n)\\
-&=\Omega(n\lg n)
-\end{align*}
+<pre class="example">
+y.rank = y.left.size + 1
+</pre>
 </div>
 </div>
-<div id="outline-container-org6cb466c" class="outline-3">
-<h3 id="org6cb466c">6.4-5</h3>
-<div class="outline-text-3" id="text-org6cb466c">
+<div id="outline-container-orga41f1d4" class="outline-3">
+<h3 id="orga41f1d4">14.1-7</h3>
+<div class="outline-text-3" id="text-orga41f1d4">
+<pre class="example">
+COUNT-INVERSIONS(A)
+    k = 0
+    let T be a new order-statistic tree
+    for i = 1 to A.length
+	OS-INSERT(T, A[i])
+	k = k + (i - OS-RANK(T, A[i]))
+    return k
+</pre>
+</div>
+</div>
+<div id="outline-container-orga1cd236" class="outline-3">
+<h3 id="orga1cd236">14.1-8</h3>
+<div class="outline-text-3" id="text-orga1cd236">
 <p>
-The BUILD-MAX-HEAP has linear running time, so we just need to analyze the
-runnig time of the sort loop.
-</p>
-
-<p>
-Assume there are \(2^k - 1\) elements, then the max heap is a height \(k\)
-complete heap, we mark the nodes from top to bottom as level \(1\) to \(k\).
-</p>
-
-<p>
-There are \(2^{k-1}\) nodes at \(k\) level, and obviously there are at most
-\(2^{k-2}\) largest nodes at \(k\) level, thus there are at least
-\(2^{k-2} - 1\) large nodes at \(1\) to \(k - 1\) levels, and there are
-totally \(2^{k-3} - 1\) nodes at \(1\) to \(k - 3\) levels, so there are at
-least \(2^{k-3}\) large nodes at \(k - 2\) or \(k - 3\) level, these nodes
-need totally at least \(2^{k-3}(k-3)\) moves to get to the top, the running
-time is \(\Omega(n\lg n)\).
+todo
 </p>
 </div>
 </div>
