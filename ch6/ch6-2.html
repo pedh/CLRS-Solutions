@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-09-30 Fri 10:01 -->
+<!-- 2022-10-08 Sat 08:41 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 6.2</title>
@@ -272,27 +272,27 @@ org_html_manager.setup();  // activate after the parameters are set
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org98bc8ba">ch6.2</a>
+<li><a href="#orgc5b59c7">ch6.2</a>
 <ul>
-<li><a href="#org0779e5b">6.2-1</a></li>
-<li><a href="#orgeacc3ae">6.2-2</a></li>
-<li><a href="#org097590f">6.2-3</a></li>
-<li><a href="#org586b9c7">6.2-4</a></li>
-<li><a href="#org9bd0864">6.2-5</a></li>
-<li><a href="#orgc74548a">6.2-6</a></li>
+<li><a href="#org81c1794">6.2-1</a></li>
+<li><a href="#orga046652">6.2-2</a></li>
+<li><a href="#orga61ab92">6.2-3</a></li>
+<li><a href="#org46e5446">6.2-4</a></li>
+<li><a href="#org351b8ef">6.2-5</a></li>
+<li><a href="#org0216b4c">6.2-6</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org98bc8ba" class="outline-2">
-<h2 id="org98bc8ba">ch6.2</h2>
-<div class="outline-text-2" id="text-org98bc8ba">
+<div id="outline-container-orgc5b59c7" class="outline-2">
+<h2 id="orgc5b59c7">ch6.2</h2>
+<div class="outline-text-2" id="text-orgc5b59c7">
 </div>
-<div id="outline-container-org0779e5b" class="outline-3">
-<h3 id="org0779e5b">6.2-1</h3>
-<div class="outline-text-3" id="text-org0779e5b">
+<div id="outline-container-org81c1794" class="outline-3">
+<h3 id="org81c1794">6.2-1</h3>
+<div class="outline-text-3" id="text-org81c1794">
 <pre class="example">
    (3 (10 (8 9)) (1 (0)))
 -&gt; (10 (3 (8 9)) ...)
@@ -300,9 +300,9 @@ org_html_manager.setup();  // activate after the parameters are set
 </pre>
 </div>
 </div>
-<div id="outline-container-orgeacc3ae" class="outline-3">
-<h3 id="orgeacc3ae">6.2-2</h3>
-<div class="outline-text-3" id="text-orgeacc3ae">
+<div id="outline-container-orga046652" class="outline-3">
+<h3 id="orga046652">6.2-2</h3>
+<div class="outline-text-3" id="text-orga046652">
 <pre class="example">
 MIN-HEAPIFY(A, i)
     l = LEFT(i)
@@ -321,26 +321,26 @@ The Running time of MIN-HEAPIFY is same as MAX-HEAPIFY.
 </p>
 </div>
 </div>
-<div id="outline-container-org097590f" class="outline-3">
-<h3 id="org097590f">6.2-3</h3>
-<div class="outline-text-3" id="text-org097590f">
+<div id="outline-container-orga61ab92" class="outline-3">
+<h3 id="orga61ab92">6.2-3</h3>
+<div class="outline-text-3" id="text-orga61ab92">
 <p>
 A[i] appears to be the largest element between itself and its children, the
 procedure returns with nothing changes.
 </p>
 </div>
 </div>
-<div id="outline-container-org586b9c7" class="outline-3">
-<h3 id="org586b9c7">6.2-4</h3>
-<div class="outline-text-3" id="text-org586b9c7">
+<div id="outline-container-org46e5446" class="outline-3">
+<h3 id="org46e5446">6.2-4</h3>
+<div class="outline-text-3" id="text-org46e5446">
 <p>
 A[i] has no child in A, the procedure returns with nothing changes.
 </p>
 </div>
 </div>
-<div id="outline-container-org9bd0864" class="outline-3">
-<h3 id="org9bd0864">6.2-5</h3>
-<div class="outline-text-3" id="text-org9bd0864">
+<div id="outline-container-org351b8ef" class="outline-3">
+<h3 id="org351b8ef">6.2-5</h3>
+<div class="outline-text-3" id="text-org351b8ef">
 <p>
 The compilers without tail recursion optimization will produce inefficient
 code.
@@ -367,9 +367,9 @@ MAX-HEAPIFY(A, i)
 </pre>
 </div>
 </div>
-<div id="outline-container-orgc74548a" class="outline-3">
-<h3 id="orgc74548a">6.2-6</h3>
-<div class="outline-text-3" id="text-orgc74548a">
+<div id="outline-container-org0216b4c" class="outline-3">
+<h3 id="org0216b4c">6.2-6</h3>
+<div class="outline-text-3" id="text-org0216b4c">
 <p>
 The MAX-HEAPIFY would be called \(h\) (heap height) times in the worst
 case, and we know that \(h = \lfloor \lg n \rfloor\), so that the worst case
@@ -381,7 +381,7 @@ running time is \(T(n) = \Theta{\lfloor \lg n \rfloor} = \Omega(\lg n)\).
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2022-09-30 Fri 10:01</p>
+<p class="date">Created: 2022-10-08 Sat 08:41</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
