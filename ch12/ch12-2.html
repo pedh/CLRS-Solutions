@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-10-12 Wed 03:33 -->
+<!-- 2022-10-12 Wed 03:39 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 12.2</title>
@@ -272,39 +272,39 @@ org_html_manager.setup();  // activate after the parameters are set
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgcfa80b1">ch12.2</a>
+<li><a href="#org4ce3b15">ch12.2</a>
 <ul>
-<li><a href="#orgfad7ea4">12.2-1</a></li>
-<li><a href="#org2852256">12.2-2</a></li>
-<li><a href="#org4dfaacd">12.2-3</a></li>
-<li><a href="#orgdc9bc3b">12.2-4</a></li>
-<li><a href="#orgac907a6">12.2-5</a></li>
-<li><a href="#org2065ea7">12.2-6</a></li>
-<li><a href="#org9b01672">12.2-7</a></li>
-<li><a href="#orgecb7eba">12.2-8</a></li>
-<li><a href="#orge242273">12.2-9</a></li>
+<li><a href="#orgf0baa2f">12.2-1</a></li>
+<li><a href="#org33f37d6">12.2-2</a></li>
+<li><a href="#orgd360118">12.2-3</a></li>
+<li><a href="#org5b24ed1">12.2-4</a></li>
+<li><a href="#org8235586">12.2-5</a></li>
+<li><a href="#orge4a8100">12.2-6</a></li>
+<li><a href="#orgcb6d014">12.2-7</a></li>
+<li><a href="#org5c7898b">12.2-8</a></li>
+<li><a href="#orgd7bc2a7">12.2-9</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgcfa80b1" class="outline-2">
-<h2 id="orgcfa80b1">ch12.2</h2>
-<div class="outline-text-2" id="text-orgcfa80b1">
+<div id="outline-container-org4ce3b15" class="outline-2">
+<h2 id="org4ce3b15">ch12.2</h2>
+<div class="outline-text-2" id="text-org4ce3b15">
 </div>
-<div id="outline-container-orgfad7ea4" class="outline-3">
-<h3 id="orgfad7ea4">12.2-1</h3>
-<div class="outline-text-3" id="text-orgfad7ea4">
+<div id="outline-container-orgf0baa2f" class="outline-3">
+<h3 id="orgf0baa2f">12.2-1</h3>
+<div class="outline-text-3" id="text-orgf0baa2f">
 <p>
 The sequence <b>c.</b> is impossible because \(911 > 240\) and \(911 < 912\).
 The sequence <b>e.</b> is impossible because \(347 < 621\) and \(347 > 299\).
 </p>
 </div>
 </div>
-<div id="outline-container-org2852256" class="outline-3">
-<h3 id="org2852256">12.2-2</h3>
-<div class="outline-text-3" id="text-org2852256">
+<div id="outline-container-org33f37d6" class="outline-3">
+<h3 id="org33f37d6">12.2-2</h3>
+<div class="outline-text-3" id="text-org33f37d6">
 <pre class="example">
 TREE-MINIMUM(x)
     if x.left != NIL
@@ -318,27 +318,26 @@ TREE-MAXIMUM(x)
 </pre>
 </div>
 </div>
-<div id="outline-container-org4dfaacd" class="outline-3">
-<h3 id="org4dfaacd">12.2-3</h3>
-<div class="outline-text-3" id="text-org4dfaacd">
+<div id="outline-container-orgd360118" class="outline-3">
+<h3 id="orgd360118">12.2-3</h3>
+<div class="outline-text-3" id="text-orgd360118">
 <pre class="example">
 TREE-PREDECESSOR(x)
     if x.left != NIL
 	return TREE-MAXIMUM(x.left)
     y = x.p
-    // The TREE-SUCCESSOR is wrong in the textbook, should be y.left
-    while y != NIL and x == y.right
+    while y != NIL and x == y.left
 	x = y
 	y = y.p
     return y
 </pre>
 </div>
 </div>
-<div id="outline-container-orgdc9bc3b" class="outline-3">
-<h3 id="orgdc9bc3b">12.2-4</h3>
-<div class="outline-text-3" id="text-orgdc9bc3b">
+<div id="outline-container-org5b24ed1" class="outline-3">
+<h3 id="org5b24ed1">12.2-4</h3>
+<div class="outline-text-3" id="text-org5b24ed1">
 
-<div id="orgf70038e" class="figure">
+<div id="org79dfbfa" class="figure">
 <p><img src="../static/generated/images/ch12-2-1.png" alt="ch12-2-1.png" />
 </p>
 </div>
@@ -350,9 +349,9 @@ professor's claim.
 </p>
 </div>
 </div>
-<div id="outline-container-orgac907a6" class="outline-3">
-<h3 id="orgac907a6">12.2-5</h3>
-<div class="outline-text-3" id="text-orgac907a6">
+<div id="outline-container-org8235586" class="outline-3">
+<h3 id="org8235586">12.2-5</h3>
+<div class="outline-text-3" id="text-org8235586">
 <p>
 If a node in a binary search tree has two children, then its successor is the
 minimum key of the right subtree of the node, which has no left child; its
@@ -361,9 +360,9 @@ right child.
 </p>
 </div>
 </div>
-<div id="outline-container-org2065ea7" class="outline-3">
-<h3 id="org2065ea7">12.2-6</h3>
-<div class="outline-text-3" id="text-org2065ea7">
+<div id="outline-container-orge4a8100" class="outline-3">
+<h3 id="orge4a8100">12.2-6</h3>
+<div class="outline-text-3" id="text-orge4a8100">
 <p>
 If \(y\) is not the ancestor of \(x\), then \(x\) and \(y\) must have a
 common ancestor \(z\), which means \(x.key < z.key < y.key\), and conflicts
@@ -387,9 +386,9 @@ also an ancestor of \(x\).
 </p>
 </div>
 </div>
-<div id="outline-container-org9b01672" class="outline-3">
-<h3 id="org9b01672">12.2-7</h3>
-<div class="outline-text-3" id="text-org9b01672">
+<div id="outline-container-orgcb6d014" class="outline-3">
+<h3 id="orgcb6d014">12.2-7</h3>
+<div class="outline-text-3" id="text-orgcb6d014">
 <p>
 We denote the procedure by \(F(x)\), when performing \(F(x)\), we first walk
 down to \(x.left\), and perform \(F(x.left)\), after that we walk up from
@@ -412,9 +411,9 @@ the algorithm runs in \(\Theta(n)\) time.
 </p>
 </div>
 </div>
-<div id="outline-container-orgecb7eba" class="outline-3">
-<h3 id="orgecb7eba">12.2-8</h3>
-<div class="outline-text-3" id="text-orgecb7eba">
+<div id="outline-container-org5c7898b" class="outline-3">
+<h3 id="org5c7898b">12.2-8</h3>
+<div class="outline-text-3" id="text-org5c7898b">
 <p>
 Each edge won't be visited more than twice, and we find at least one
 successor from a double visit of an edge, thus we visit at most \(k\) edges
@@ -428,9 +427,9 @@ to <code>TREE-SUCCESSOR</code>, which takes \(O(k+h)\) time.
 </p>
 </div>
 </div>
-<div id="outline-container-orge242273" class="outline-3">
-<h3 id="orge242273">12.2-9</h3>
-<div class="outline-text-3" id="text-orge242273">
+<div id="outline-container-orgd7bc2a7" class="outline-3">
+<h3 id="orgd7bc2a7">12.2-9</h3>
+<div class="outline-text-3" id="text-orgd7bc2a7">
 <p>
 Let \(x\) be a leaf node and \(y\) be its parent, then we know there are no
 other nodes which its key is between \(x.key\) and \(y.key\), thus \(y\) is
@@ -442,7 +441,7 @@ either the predecessor of \(x\) or the successor of \(x\).
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2022-10-12 Wed 03:33</p>
+<p class="date">Created: 2022-10-12 Wed 03:39</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

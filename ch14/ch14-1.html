@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-10-12 Wed 03:33 -->
+<!-- 2022-10-12 Wed 03:39 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 14.1</title>
@@ -272,29 +272,29 @@ org_html_manager.setup();  // activate after the parameters are set
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgd01febf">14.1</a>
+<li><a href="#org10c11b3">14.1</a>
 <ul>
-<li><a href="#orgc379913">14.1-1</a></li>
-<li><a href="#org57e9e65">14.1-2</a></li>
-<li><a href="#org618c8e5">14.1-3</a></li>
-<li><a href="#org83e17fa">14.1-4</a></li>
-<li><a href="#org79e012c">14.1-5</a></li>
-<li><a href="#orga4b3388">14.1-6</a></li>
-<li><a href="#org665603c">14.1-7</a></li>
-<li><a href="#orgc640efe">14.1-8</a></li>
+<li><a href="#orgb3c0eae">14.1-1</a></li>
+<li><a href="#org11dc25b">14.1-2</a></li>
+<li><a href="#org716a367">14.1-3</a></li>
+<li><a href="#org2ab13a6">14.1-4</a></li>
+<li><a href="#orgcf693f6">14.1-5</a></li>
+<li><a href="#org631c5f9">14.1-6</a></li>
+<li><a href="#orgcec4ca0">14.1-7</a></li>
+<li><a href="#org6007eef">14.1-8</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgd01febf" class="outline-2">
-<h2 id="orgd01febf">14.1</h2>
-<div class="outline-text-2" id="text-orgd01febf">
+<div id="outline-container-org10c11b3" class="outline-2">
+<h2 id="org10c11b3">14.1</h2>
+<div class="outline-text-2" id="text-org10c11b3">
 </div>
-<div id="outline-container-orgc379913" class="outline-3">
-<h3 id="orgc379913">14.1-1</h3>
-<div class="outline-text-3" id="text-orgc379913">
+<div id="outline-container-orgb3c0eae" class="outline-3">
+<h3 id="orgb3c0eae">14.1-1</h3>
+<div class="outline-text-3" id="text-orgb3c0eae">
 <p>
 To see how <code>OS-SELECT</code> operates. We begin with \(x\) as the root, whose key
 is \(26\), and with \(i = 10\).
@@ -320,9 +320,9 @@ to the node with key \(20\).
 </p>
 </div>
 </div>
-<div id="outline-container-org57e9e65" class="outline-3">
-<h3 id="org57e9e65">14.1-2</h3>
-<div class="outline-text-3" id="text-org57e9e65">
+<div id="outline-container-org11dc25b" class="outline-3">
+<h3 id="org11dc25b">14.1-2</h3>
+<div class="outline-text-3" id="text-org11dc25b">
 <p>
 When we run <code>OS-RANK</code> to find the rank of the node with key \(35\), we get
 the following sequence of values of \(y.key\) and \(r\) at the top of the
@@ -382,9 +382,9 @@ The procedure returns the rank \(17\).
 </p>
 </div>
 </div>
-<div id="outline-container-org618c8e5" class="outline-3">
-<h3 id="org618c8e5">14.1-3</h3>
-<div class="outline-text-3" id="text-org618c8e5">
+<div id="outline-container-org716a367" class="outline-3">
+<h3 id="org716a367">14.1-3</h3>
+<div class="outline-text-3" id="text-org716a367">
 <pre class="example">
 OS-SELECT-ITER(x, i)
     while i != x.left.size + 1
@@ -397,9 +397,9 @@ OS-SELECT-ITER(x, i)
 </pre>
 </div>
 </div>
-<div id="outline-container-org83e17fa" class="outline-3">
-<h3 id="org83e17fa">14.1-4</h3>
-<div class="outline-text-3" id="text-org83e17fa">
+<div id="outline-container-org2ab13a6" class="outline-3">
+<h3 id="org2ab13a6">14.1-4</h3>
+<div class="outline-text-3" id="text-org2ab13a6">
 <pre class="example">
 OS-KEY-RANK(T, k)
     return OS-KEY-RANK-REC(T.root, k, 0)
@@ -416,9 +416,9 @@ OS-KEY-RANK-REC(x, k, r)
 </pre>
 </div>
 </div>
-<div id="outline-container-org79e012c" class="outline-3">
-<h3 id="org79e012c">14.1-5</h3>
-<div class="outline-text-3" id="text-org79e012c">
+<div id="outline-container-orgcf693f6" class="outline-3">
+<h3 id="orgcf693f6">14.1-5</h3>
+<div class="outline-text-3" id="text-orgcf693f6">
 <pre class="example">
 OS-SUCCESSOR(x, i)
     if i == 0
@@ -433,9 +433,9 @@ OS-SUCCESSOR(x, i)
 </pre>
 </div>
 </div>
-<div id="outline-container-orga4b3388" class="outline-3">
-<h3 id="orga4b3388">14.1-6</h3>
-<div class="outline-text-3" id="text-orga4b3388">
+<div id="outline-container-org631c5f9" class="outline-3">
+<h3 id="org631c5f9">14.1-6</h3>
+<div class="outline-text-3" id="text-org631c5f9">
 <p>
 In <code>LEFT-ROTATE(T, x)</code> and <code>RIGHT-ROTATE(T, y)</code>, we add the following lines:
 </p>
@@ -444,9 +444,9 @@ y.rank = y.left.size + 1
 </pre>
 </div>
 </div>
-<div id="outline-container-org665603c" class="outline-3">
-<h3 id="org665603c">14.1-7</h3>
-<div class="outline-text-3" id="text-org665603c">
+<div id="outline-container-orgcec4ca0" class="outline-3">
+<h3 id="orgcec4ca0">14.1-7</h3>
+<div class="outline-text-3" id="text-orgcec4ca0">
 <pre class="example">
 COUNT-INVERSIONS(A)
     k = 0
@@ -458,15 +458,15 @@ COUNT-INVERSIONS(A)
 </pre>
 </div>
 </div>
-<div id="outline-container-orgc640efe" class="outline-3">
-<h3 id="orgc640efe">14.1-8</h3>
-<div class="outline-text-3" id="text-orgc640efe">
+<div id="outline-container-org6007eef" class="outline-3">
+<h3 id="org6007eef">14.1-8</h3>
+<div class="outline-text-3" id="text-org6007eef">
 <p>
 Name the angle of an endpoint \(a\) on the circle, to be the angle \(\theta\)
 from \(x\)-axis to the line from the origin to the endpoint \(a\).
 </p>
 
-<div id="org7895d8c" class="figure">
+<div id="orgcf8f8d3" class="figure">
 <p><object type="image/svg+xml" data="../static/generated/images/ch14-1-1.svg" class="org-svg">
 Sorry, your browser does not support SVG.</object>
 </p>
@@ -488,7 +488,7 @@ intersect inside the circle.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2022-10-12 Wed 03:33</p>
+<p class="date">Created: 2022-10-12 Wed 03:39</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
