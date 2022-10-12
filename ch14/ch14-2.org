@@ -1,0 +1,74 @@
+#+TITLE: Chapter 14.2
+
+* 14.2
+** 14.2-1
+   As below, we add 4 pointers to the nodes, and support the dynamic-set queries
+   in \(O(1)\) worst-case time.
+   #+begin_src
+   x.left-spine-top: The top of the left spine where x resides
+   x.right-spine-top: The top of the right spine where x resides
+   x.left-spine-bottom: The bottom of the left spine where x resides
+   x.right-spine-bottom: The bottom of the right spine where x resides
+
+   MINIMUM(x)
+       return x.left-spine-bottom
+
+   MAXIMUM()
+       return x.right-spine-bottom
+
+   SUCCESSOR()
+       if x.right != NIL
+           return x.right.left-spine-bottom
+       return x.right-spine-top.p
+
+   PREDECESSOR()
+       if x.left != NIL
+           return x.left.right-spine-bottom
+       return x.left-spine-top.p
+   #+end_src
+   Since the pointers we added depend on only the information in nodes x, x.left
+   and x.right, and those pointers in x.left and x.right, according to *Theorem
+   14.1*, the asymptotic performance of other operations on order-statistic
+   trees are not affected.
+** 14.2-2
+   We can maintain the black-heights of nodes in a red-black tree as attributes
+   in the nodes of the tree, without affecting the asymptotic performance of any
+   of the red-black tree operations, since \(x.bh = x.left.bh + 1\).
+
+   The depths of nodes cannot be maintained, since the depth of x does not
+   depend on only the information in nodes x, x.left, and x.right, and the
+   depths of x.left and x.right.
+** 14.2-3
+   We can update the \(f\) attributes in \(O(1)\) time after a rotation, by
+   calculating \(x.f = x.left.f \otimes x.a \otimes x.right.f\).
+
+   Let the value of attributes \(a\) of all nodes be \(1\), and the associative
+   binary operator \(\otimes\) be \(+\), then we have the \(size\) attributes in
+   order-statistic tree.
+** 14.2-4
+   #+begin_src
+   RB-LARGER-MINIMUM(x, a, c)
+       if x == NIL
+           return c
+       if k < x.key
+           return RB-LARGER-MINIMUM(x.left, a)
+       else
+           if x.key < c.key
+               c = x
+           return RB-LARGER-MINIMUM(x.right, a, c)
+
+   RB-ENUMERATE(x, a, b)
+       c = RB-LARGER-MINIMUM(x, a, x)
+       let keys be an empty array
+       while c.key <= b
+           keys.append(c)
+           // use the O(1) implementation in 14.2-1
+           c = RB-SUCCESSOR(c)
+       return keys
+   #+end_src
+   First we use =RB-LARGER-MINIMUM= to find the minimum node which has the
+   larger key than \(a\), this costs \(\Theta(\lg n)\) time, then we perform
+   iterations of =RB-SUCCESSOR= to find the next \(m\) nodes until we met the
+   larger key than \(b\), this costs \(Theta(m)\) time if we are using the
+   \(O(1)\) time implementation of =RB-SUCCESSOR= in *14.2-1*. We implement
+   =RB-ENUMERATE= in \(\Theta(m + \lg n)\) time.
