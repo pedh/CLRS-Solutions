@@ -6,7 +6,7 @@
 <!-- 2022-10-12 Wed 03:33 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Chapter 5 problems</title>
+<title>Chapter 14.2</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="pedh" />
 <style type="text/css">
@@ -267,148 +267,53 @@ org_html_manager.setup();  // activate after the parameters are set
  |
  <a accesskey="H" href="/CLRS-Solutions"> HOME </a>
 </div><div id="content">
-<h1 class="title">Chapter 5 problems</h1>
+<h1 class="title">Chapter 14.2</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org65196e6">ch5-problems</a>
+<li><a href="#org23073e5">14.2</a>
 <ul>
-<li><a href="#orgdf834c1">5-1</a></li>
-<li><a href="#orgb2931fd">5-2</a></li>
+<li><a href="#org41daa7d">14.2-1</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org65196e6" class="outline-2">
-<h2 id="org65196e6">ch5-problems</h2>
-<div class="outline-text-2" id="text-org65196e6">
+<div id="outline-container-org23073e5" class="outline-2">
+<h2 id="org23073e5">14.2</h2>
+<div class="outline-text-2" id="text-org23073e5">
 </div>
-<div id="outline-container-orgdf834c1" class="outline-3">
-<h3 id="orgdf834c1">5-1</h3>
-<div class="outline-text-3" id="text-orgdf834c1">
-<ul class="org-ul">
-<li><p>
-<b>a.</b>
-</p>
-
+<div id="outline-container-org41daa7d" class="outline-3">
+<h3 id="org41daa7d">14.2-1</h3>
+<div class="outline-text-3" id="text-org41daa7d">
 <p>
-After each INCREMENT operation, the expected value represented by the
-counter increased by \(\frac{1}{n_{i+1}-n_i}(n_{i+1}-n_i) = 1\), thus the
-expected value represented by the counter after n INCREMENT operations have
-been performed is exactly n.
-</p></li>
-<li><p>
-<b>b.</b>
+As below, we add 4 pointers to the nodes, and support the dynamic-set queries
+in \(O(1)\) worst-case time.
 </p>
-
-<p>
-The variance of each INCREMENT operation is
-</p>
-\begin{align*}
-Var\{X\}
-&=E[X^2]-E[X]^2\\
-&=99
-\end{align*}
-<p>
-The n INCREMENT operations are independent, thus the total variance is
-</p>
-\begin{align*}
-Var\{X[n]\}
-&=\sum_{i=1}^{n}Var\{X_i\}\\
-&=99n
-\end{align*}</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-orgb2931fd" class="outline-3">
-<h3 id="orgb2931fd">5-2</h3>
-<div class="outline-text-3" id="text-orgb2931fd">
-<ul class="org-ul">
-<li><p>
-<b>a.</b>
-</p>
-
 <pre class="example">
-RANDOM-SEARCH(A, x)
-    let S to be an empty set
-    n = A.length
-    while S.length &lt; n
-	i = RANDOM(1, n)
-	if i not in S
-	    S.add(i)
-	    if A[i] == x
-		return i
-    return NIL
-</pre></li>
-<li><p>
-<b>b.</b>
-</p>
+x.left-spine-top: The top of the left spine where x resides
+x.right-spine-top: The top of the right spine where x resides
+x.left-spine-bottom: The bottom of the left spine where x resides
+x.right-spine-bottom: The bottom of the right spine where x resides
 
-<p>
-The problems is a geometric distribution, the expected value of trials
-is \(n\).
-</p></li>
-<li><p>
-<b>c.</b>
-</p>
+MINIMUM(x)
+    return x.left-spine-bottom
 
-<p>
-The expected value of trials is \(n/k\).
-</p></li>
-<li><p>
-<b>d.</b>
-</p>
+MAXIMUM()
+    return x.right-spine-bottom
 
-<p>
-The expected value of trials is \(n\ln n + O(1)\), the problem is
-equivalent to the problem of balls and bins which each bins contains
-at least one ball.
-</p></li>
-<li><p>
-<b>e.</b>
-</p>
+SUCCESSOR()
+    if x.right != NIL
+	return x.right.left-spine-bottom
+    return x.left-spine-top
 
-<p>
-The average running time is \(\Theta((n+1)/2)\), the worst case running
-time is \(\Theta(n)\).
-</p></li>
-<li><p>
-<b>f.</b>
-</p>
-
-<p>
-The average running time is \(\Theta((n+1)/(k+1))\), the worst case running
-time is \(\Theta(n-k+1)\).
-</p></li>
-<li><p>
-<b>g.</b>
-</p>
-
-<p>
-The average running time and the worst case running time are the same
-\(\Theta(n)\).
-</p></li>
-<li><p>
-<b>h.</b>
-</p>
-
-<p>
-Shuffling the input array costs \(\Theta(n)\) running time, the rest is
-same as DETERMINISTIC-SEARCH, the expected running time is the average
-running time of DETERMINISTIC-SEARCH.
-</p></li>
-<li><p>
-<b>i.</b>
-</p>
-
-<p>
-I would never use the RANDOM-SEARCH, and I prefer SCRAMBLE-SEARCH to
-DETERMINISTIC-SEARCH when the input array is less random.
-</p></li>
-</ul>
+PREDECESSOR()
+    if x.left != NIL
+	return x.left.right-spine-bottom
+    return x.right-spine-top
+</pre>
 </div>
 </div>
 </div>
