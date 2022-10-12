@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-10-12 Wed 03:39 -->
+<!-- 2022-10-12 Wed 08:39 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 14.2</title>
@@ -272,22 +272,25 @@ org_html_manager.setup();  // activate after the parameters are set
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgfb712da">14.2</a>
+<li><a href="#org7828158">14.2</a>
 <ul>
-<li><a href="#orgb226cc6">14.2-1</a></li>
+<li><a href="#org7589fb6">14.2-1</a></li>
+<li><a href="#orgef4c6a0">14.2-2</a></li>
+<li><a href="#org606be02">14.2-3</a></li>
+<li><a href="#orgf72822b">14.2-4</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgfb712da" class="outline-2">
-<h2 id="orgfb712da">14.2</h2>
-<div class="outline-text-2" id="text-orgfb712da">
+<div id="outline-container-org7828158" class="outline-2">
+<h2 id="org7828158">14.2</h2>
+<div class="outline-text-2" id="text-org7828158">
 </div>
-<div id="outline-container-orgb226cc6" class="outline-3">
-<h3 id="orgb226cc6">14.2-1</h3>
-<div class="outline-text-3" id="text-orgb226cc6">
+<div id="outline-container-org7589fb6" class="outline-3">
+<h3 id="org7589fb6">14.2-1</h3>
+<div class="outline-text-3" id="text-org7589fb6">
 <p>
 As below, we add 4 pointers to the nodes, and support the dynamic-set queries
 in \(O(1)\) worst-case time.
@@ -307,20 +310,90 @@ MAXIMUM()
 SUCCESSOR()
     if x.right != NIL
 	return x.right.left-spine-bottom
-    return x.left-spine-top
+    return x.right-spine-top.p
 
 PREDECESSOR()
     if x.left != NIL
 	return x.left.right-spine-bottom
-    return x.right-spine-top
+    return x.left-spine-top.p
 </pre>
+<p>
+Since the pointers we added depend on only the information in nodes x, x.left
+and x.right, and those pointers in x.left and x.right, according to <b>Theorem
+14.1</b>, the asymptotic performance of other operations on order-statistic
+trees are not affected.
+</p>
+</div>
+</div>
+<div id="outline-container-orgef4c6a0" class="outline-3">
+<h3 id="orgef4c6a0">14.2-2</h3>
+<div class="outline-text-3" id="text-orgef4c6a0">
+<p>
+We can maintain the black-heights of nodes in a red-black tree as attributes
+in the nodes of the tree, without affecting the asymptotic performance of any
+of the red-black tree operations, since \(x.bh = x.left.bh + 1\).
+</p>
+
+<p>
+The depths of nodes cannot be maintained, since the depth of x does not
+depend on only the information in nodes x, x.left, and x.right, and the
+depths of x.left and x.right.
+</p>
+</div>
+</div>
+<div id="outline-container-org606be02" class="outline-3">
+<h3 id="org606be02">14.2-3</h3>
+<div class="outline-text-3" id="text-org606be02">
+<p>
+We can update the \(f\) attributes in \(O(1)\) time after a rotation, by
+calculating \(x.f = x.left.f \otimes x.a \otimes x.right.f\).
+</p>
+
+<p>
+Let the value of attributes \(a\) of all nodes be \(1\), and the associative
+binary operator \(\otimes\) be \(+\), then we have the \(size\) attributes in
+order-statistic tree.
+</p>
+</div>
+</div>
+<div id="outline-container-orgf72822b" class="outline-3">
+<h3 id="orgf72822b">14.2-4</h3>
+<div class="outline-text-3" id="text-orgf72822b">
+<pre class="example">
+RB-LARGER-MINIMUM(x, a, c)
+    if x == NIL
+	return c
+    if k &lt; x.key
+	return RB-LARGER-MINIMUM(x.left, a)
+    else
+	if x.key &lt; c.key
+	    c = x
+	return RB-LARGER-MINIMUM(x.right, a, c)
+
+RB-ENUMERATE(x, a, b)
+    c = RB-LARGER-MINIMUM(x, a, x)
+    let keys be an empty array
+    while c.key &lt;= b
+	keys.append(c)
+	// use the O(1) implementation in 14.2-1
+	c = RB-SUCCESSOR(c)
+    return keys
+</pre>
+<p>
+First we use <code>RB-LARGER-MINIMUM</code> to find the minimum node which has the
+larger key than \(a\), this costs \(\Theta(\lg n)\) time, then we perform
+iterations of <code>RB-SUCCESSOR</code> to find the next \(m\) nodes until we met the
+larger key than \(b\), this costs \(Theta(m)\) time if we are using the
+\(O(1)\) time implementation of <code>RB-SUCCESSOR</code> in <b>14.2-1</b>. We implement
+<code>RB-ENUMERATE</code> in \(\Theta(m + \lg n)\) time.
+</p>
 </div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2022-10-12 Wed 03:39</p>
+<p class="date">Created: 2022-10-12 Wed 08:39</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
