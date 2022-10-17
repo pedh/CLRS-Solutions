@@ -1,0 +1,138 @@
+#+TITLE: Chapter 14.3
+
+* 14.3
+** 14.3-1
+   Add following lines after the 12th line in =LEFT-ROTATE=
+   #+begin_src
+       y.max = x.max
+       x.max = MAXIMUM(x.int.high, x.left.max, x.right.max)
+   #+end_src
+** 14.3-2
+   #+begin_src
+   INTERVAL-SEARCH-OPEN(T, i)
+       x = T.root
+       while x != T.nil and i does not overlap x.int
+           // x.left.max == i.low means no overlapping for open interval
+           if x.left != T.nil and x.left.max > i.low
+               x = x.left
+           else x = x.right
+       return x
+   #+end_src
+** 14.3-3
+   #+begin_src
+   INTERVAL-SEARCH-MINIMUM(T, i)
+       x = T.root
+       z = T.nil
+       while x != T.nil
+           if i overlaps x.int and (x.int.low < z.int.low or z == T.nil)
+              z = x
+           if x.left != T.nil and x.left.max >= i.low
+               x = x.left
+           else x = x.right
+       return z
+   #+end_src
+** 14.3-4
+   #+begin_src
+   INTERVAL-SEARCH-ALL(T, i)
+       let a be an empty array of nodes
+       if T.root != T.nil
+           INTERVAL-SEARCH-ALL-REC(T, T.root, i, a)
+       return a
+
+   INTERVAL-SEARCH-ALL-REC(T, x, i, a)
+       if i overlaps x.int
+           a.append(x)
+       if x.left != T.nil and x.left.max >= i.low
+           INTERVAL-SEARCH-ALL-REC(T, x.left, i, a)
+       if i.low > x.int.high and x.right != T.nil and x.right.max >= i.low
+           INTERVAL-SEARCH-ALL-REC(T, x.right, i, a)
+   #+end_src
+** 14.3-5
+   We only need to modify the internal red-black tree operations of the
+   interval-tree, by changing the key of node \(x\) from the low endpoint
+   \(x.int.low\) to the median \(\frac{x.int.low + x.int.high}{2}\), and if two
+   interval have the same median, we compare the low endpoints.
+   The =INTERVAL-SEARCH-EXACTLY(T, i)= is implemented as below
+   #+begin_src
+   INTERVAL-SEARCH-EXACTLY(T, i)
+       x = T.root
+       while x != T.nil and not (x.i.low == i.low and x.i.high == i.high)
+           if (x.i.low + x.i.high) > (i.low + i.high)
+               x = x.left
+           else if (x.i.low + x.i.high) < (i.low + i.high) or x.i.low < i.low
+               x = x.right
+           else x = x.left
+       return x
+   #+end_src
+** 14.3-6
+   We augment the red-black tree, by adding the three =max=, =min= and =min-gap=
+   attributes to the nodes, and we could maintain the three attributes as below
+   #+begin_src
+   x.max: The maximum key of nodes in the subtree rooted at x
+   x.min: The minimum key of nodes in the subtree rooted at x
+   x.min-gap: The minimum magnitude of the differences of the two closest keys
+     in the subtree rooted at x, infinite greatness if x is a leaf node
+
+   x.max = x.right.max if x.right != T.nil else x.key
+   x.min = x.left.min if x.left != T.nil else x.key
+   x.min-gap = min(x.left.min-gap, x.right.min-gap, x.key - x.left.max,
+                   x.right.min - x.key)
+   #+end_src
+   By *Theorem 14.1*, we know that the \(O(\lg n)\) running time of the
+   dynamic set operations are not asymptotically affected, and =MIN-GAP= could
+   be implemented in \(O(1)\) running time by retrieving =T.root.min-gap=.
+** 14.3-7
+   We represent an rectilinearly oriented rectangle as an object \(r\), with
+   following attributes
+   #+begin_src
+   r.x-min: The minimum x-coordinate of the rectangle
+   r.x-max: The maximum x-coordinate of the rectangle
+   r.y-min: The minimum y-coordinate of the rectangle
+   r.y-max: The maximum y-coordinate of the rectangle
+   #+end_src
+   We use an *interval tree* to store the left and right sides of the
+   rectilinearly oriented rectangles. And we define a new object
+   =rectangle-side=, the attributes of =rectangle-side= object \(s\) are
+   #+begin_src
+   s.node: The node contains the interval of the side
+   s.x-coord: The x-coordinate of the side
+   s.left: The left side of the rectangle, if s contains the right side else NIL
+   #+end_src
+   And we could implement an \(O(n\lg n)\)-time algorithm to decide whether or
+   not a set of n rectangles so represented contains two rectangles that
+   overlap, as following
+   #+begin_src
+   RECTANGLES-OVERLAP(rs)
+       let T be a new interval tree
+       let a be a new array of rectangle-sides
+       for r in rs
+           let i be a new interval
+           let x be a new interval tree node
+           let left-side be a new rectangle-side
+           let right-side be a new rectangle-side
+           i.low = r.y-min
+           i.high = r.y-max
+           x.int = i
+           left-side.node = x
+           left-side.x-coord = r.x-min
+           left-side.left = NIL
+           right-side.x-coord = r.x-max
+           right-side.left = left-side
+           a.append(left-side)
+           a.append(right-side)
+       // using asymptotically best running time sort algorithm, like MERGE-SORT
+       // or HEAPSORT
+       sort a by the x-coord attributes
+       for s in a
+           // s is the left side, if the interval containing in s overlaps with
+           // the intervals in the tree, the rectangle of s overlaps
+           if s.left == NIL
+               x = INTERVAL-SEARCH(T, s.node.int)
+               if x != T.nil
+                   return true
+               // if not overlaps, we insert the interval into the tree
+               INTERVAL-INSERT(T, s.node)
+           // we delete the interval if s is the right side
+           else INTERVAL-DELETE(T, s.left.node)
+       return false
+   #+end_src
