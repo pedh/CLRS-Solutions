@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-10-12 Wed 08:39 -->
+<!-- 2022-10-17 Mon 10:06 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 11.2</title>
@@ -272,27 +272,27 @@ org_html_manager.setup();  // activate after the parameters are set
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org87774eb">ch11.2</a>
+<li><a href="#org48937fd">ch11.2</a>
 <ul>
-<li><a href="#org47da68e">11.2-1</a></li>
-<li><a href="#org4dd1dbc">11.2-2</a></li>
-<li><a href="#org9d128e4">11.2-3</a></li>
-<li><a href="#org0c4ed55">11.2-4</a></li>
-<li><a href="#org7bfbd6d">11.2-5</a></li>
-<li><a href="#orgba8a752">11.2-6</a></li>
+<li><a href="#org232740a">11.2-1</a></li>
+<li><a href="#orgad6e7e3">11.2-2</a></li>
+<li><a href="#org98bb5cb">11.2-3</a></li>
+<li><a href="#org14b64bb">11.2-4</a></li>
+<li><a href="#orgaeb488b">11.2-5</a></li>
+<li><a href="#orgcb95968">11.2-6</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org87774eb" class="outline-2">
-<h2 id="org87774eb">ch11.2</h2>
-<div class="outline-text-2" id="text-org87774eb">
+<div id="outline-container-org48937fd" class="outline-2">
+<h2 id="org48937fd">ch11.2</h2>
+<div class="outline-text-2" id="text-org48937fd">
 </div>
-<div id="outline-container-org47da68e" class="outline-3">
-<h3 id="org47da68e">11.2-1</h3>
-<div class="outline-text-3" id="text-org47da68e">
+<div id="outline-container-org232740a" class="outline-3">
+<h3 id="org232740a">11.2-1</h3>
+<div class="outline-text-3" id="text-org232740a">
 <p>
 Let \(k_1, k_2, ..., k_n\) denote the \(n\) distinct keys, for keys \(k_i\)
 and \(k_j\), we define the indicator random variable
@@ -308,9 +308,9 @@ C(n,m)
 \end{align*}
 </div>
 </div>
-<div id="outline-container-org4dd1dbc" class="outline-3">
-<h3 id="org4dd1dbc">11.2-2</h3>
-<div class="outline-text-3" id="text-org4dd1dbc">
+<div id="outline-container-orgad6e7e3" class="outline-3">
+<h3 id="orgad6e7e3">11.2-2</h3>
+<div class="outline-text-3" id="text-orgad6e7e3">
 <pre class="example">
 1. The keys remaining: 5, 28, 19, 15, 20, 33, 12, 17, 10
 |---+---+---+---+---+---+---+---+---|
@@ -384,9 +384,9 @@ C(n,m)
 </pre>
 </div>
 </div>
-<div id="outline-container-org9d128e4" class="outline-3">
-<h3 id="org9d128e4">11.2-3</h3>
-<div class="outline-text-3" id="text-org9d128e4">
+<div id="outline-container-org98bb5cb" class="outline-3">
+<h3 id="org98bb5cb">11.2-3</h3>
+<div class="outline-text-3" id="text-org98bb5cb">
 <p>
 The data structure of the chain would affect the running time after the
 modification.
@@ -406,9 +406,9 @@ average running time for deletions is \(O(1)\).
 </p>
 </div>
 </div>
-<div id="outline-container-org0c4ed55" class="outline-3">
-<h3 id="org0c4ed55">11.2-4</h3>
-<div class="outline-text-3" id="text-org0c4ed55">
+<div id="outline-container-org14b64bb" class="outline-3">
+<h3 id="org14b64bb">11.2-4</h3>
+<div class="outline-text-3" id="text-org14b64bb">
 <p>
 Define a hash table <code>T</code> and a free list <code>F</code> within , each slot <code>s</code> stores one
 flag <code>s.free?</code> and two pointers, <code>s.prev</code> and <code>s.next</code>.
@@ -446,9 +446,9 @@ for deletion in the free list.
 </p>
 </div>
 </div>
-<div id="outline-container-org7bfbd6d" class="outline-3">
-<h3 id="org7bfbd6d">11.2-5</h3>
-<div class="outline-text-3" id="text-org7bfbd6d">
+<div id="outline-container-orgaeb488b" class="outline-3">
+<h3 id="orgaeb488b">11.2-5</h3>
+<div class="outline-text-3" id="text-orgaeb488b">
 <p>
 Assume that when hash all keys from \(U\) to the hash table, there are no
 more than \(n\) keys be hashed to the same slot, then the total number of
@@ -459,9 +459,9 @@ searching time for hasing with chaining is \(\Theta(n)\).
 </p>
 </div>
 </div>
-<div id="outline-container-orgba8a752" class="outline-3">
-<h3 id="orgba8a752">11.2-6</h3>
-<div class="outline-text-3" id="text-orgba8a752">
+<div id="outline-container-orgcb95968" class="outline-3">
+<h3 id="orgcb95968">11.2-6</h3>
+<div class="outline-text-3" id="text-orgcb95968">
 <p>
 We could select a key uniformly at random from among the keys in the hash
 table as below.
@@ -486,7 +486,7 @@ expected running time is \(O(L \cdot (1 + 1 / \alpha))\).
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2022-10-12 Wed 08:39</p>
+<p class="date">Created: 2022-10-17 Mon 10:06</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

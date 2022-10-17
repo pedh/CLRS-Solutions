@@ -6,7 +6,7 @@
 <!-- 2022-10-17 Mon 10:06 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Chapter 13.1</title>
+<title>Chapter 14.3</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="pedh" />
 <style type="text/css">
@@ -238,28 +238,6 @@ org_html_manager.setup();  // activate after the parameters are set
     /*]]>*///-->
 // @license-end
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
-
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
-</script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -267,195 +245,76 @@ org_html_manager.setup();  // activate after the parameters are set
  |
  <a accesskey="H" href="/CLRS-Solutions"> HOME </a>
 </div><div id="content">
-<h1 class="title">Chapter 13.1</h1>
+<h1 class="title">Chapter 14.3</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org0683ddb">13.1</a>
+<li><a href="#org87e9e19">14.3</a>
 <ul>
-<li><a href="#org15bb7c2">13.1-1</a></li>
-<li><a href="#org0cfe6e3">13.1-2</a></li>
-<li><a href="#org38a9d56">13.1-3</a></li>
-<li><a href="#org1693a3f">13.1-4</a></li>
-<li><a href="#org50f42bb">13.1-5</a></li>
-<li><a href="#orgc180993">13.1-6</a></li>
-<li><a href="#org54855cd">13.1-7</a></li>
+<li><a href="#org0881dee">14.3-1</a></li>
+<li><a href="#org4dfaf6d">14.3-2</a></li>
+<li><a href="#org28c2e6c">14.3-3</a></li>
+<li><a href="#orgda7aaf9">14.3-4</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org0683ddb" class="outline-2">
-<h2 id="org0683ddb">13.1</h2>
-<div class="outline-text-2" id="text-org0683ddb">
+<div id="outline-container-org87e9e19" class="outline-2">
+<h2 id="org87e9e19">14.3</h2>
+<div class="outline-text-2" id="text-org87e9e19">
 </div>
-<div id="outline-container-org15bb7c2" class="outline-3">
-<h3 id="org15bb7c2">13.1-1</h3>
-<div class="outline-text-3" id="text-org15bb7c2">
-
-<div id="org5c32b05" class="figure">
-<p><img src="../static/generated/images/ch13-1-1.png" alt="ch13-1-1.png" />
-</p>
-</div>
-
-
-<div id="org115b6fb" class="figure">
-<p><img src="../static/generated/images/ch13-1-2.png" alt="ch13-1-2.png" />
-</p>
-</div>
-
-
-<div id="org554cd32" class="figure">
-<p><img src="../static/generated/images/ch13-1-3.png" alt="ch13-1-3.png" />
-</p>
-</div>
-
-
-<div id="org2cc9f5c" class="figure">
-<p><img src="../static/generated/images/ch13-1-4.png" alt="ch13-1-4.png" />
-</p>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org0cfe6e3" class="outline-3">
-<h3 id="org0cfe6e3">13.1-2</h3>
-<div class="outline-text-3" id="text-org0cfe6e3">
+<div id="outline-container-org0881dee" class="outline-3">
+<h3 id="org0881dee">14.3-1</h3>
+<div class="outline-text-3" id="text-org0881dee">
 <p>
-Below is the tree after the node with key \(36\) is inserted.
+Add following lines after the 12th line in <code>LEFT-ROTATE</code>
 </p>
-
-<div id="org41f4c31" class="figure">
-<p><img src="../static/generated/images/ch13-1-5.png" alt="ch13-1-5.png" />
-</p>
+<pre class="example">
+y.max = x.max
+x.max = MAXIMUM(x.int.high, x.left.max, x.right.max)
+</pre>
 </div>
-
+</div>
+<div id="outline-container-org4dfaf6d" class="outline-3">
+<h3 id="org4dfaf6d">14.3-2</h3>
+<div class="outline-text-3" id="text-org4dfaf6d">
+<pre class="example">
+INTERVAL-SEARCH-OPEN(T, i)
+    x = T.root
+    while x != T.nil and i does not overlap x.int
+	// x.left.max == i.low means no overlapping for open interval
+	if x.left != T.nil and x.left.max &gt; i.low
+	    x = x.left
+	else x = x.right
+    return x
+</pre>
+</div>
+</div>
+<div id="outline-container-org28c2e6c" class="outline-3">
+<h3 id="org28c2e6c">14.3-3</h3>
+<div class="outline-text-3" id="text-org28c2e6c">
+<pre class="example">
+INTERVAL-SEARCH-MINIMUM(T, i)
+    x = T.root
+    z = T.nil
+    while x != T.nil
+	if i overlaps x.int and (x.int.low &lt; z.int.low or z == T.nil)
+	   z = x
+	if x.left != T.nil and x.left.max &gt;= i.low
+	    x = x.left
+	else x = x.right
+    return z
+</pre>
+</div>
+</div>
+<div id="outline-container-orgda7aaf9" class="outline-3">
+<h3 id="orgda7aaf9">14.3-4</h3>
+<div class="outline-text-3" id="text-orgda7aaf9">
 <p>
-If the inserted node is colored red, the resulting tree is not a red-black
-tree, because the parent of the node is also colored red.
-</p>
-
-<p>
-If the inserted node is colored black, the resulting tree is not a red-black
-tree, because not all the simple paths from the root to descendant leaves
-contain the same number of black nodes.
-</p>
-</div>
-</div>
-<div id="outline-container-org38a9d56" class="outline-3">
-<h3 id="org38a9d56">13.1-3</h3>
-<div class="outline-text-3" id="text-org38a9d56">
-<p>
-The resulting tree will still be a red-black tree, because the trees rooted
-at \(T.root.left\) and \(T.root.right\) were red-black trees, and after we
-colored the root of \(T\) black, the tree \(T\) become a red-black tree.
-</p>
-</div>
-</div>
-<div id="outline-container-org1693a3f" class="outline-3">
-<h3 id="org1693a3f">13.1-4</h3>
-<div class="outline-text-3" id="text-org1693a3f">
-<p>
-The degree of a node is the number of edges connected to the node. Below are
-the possible degrees of a black node after all its red children are absorbed.
-</p>
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-right" />
-
-<col  class="org-left" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-right">Degree</th>
-<th scope="col" class="org-left">Possible state of the node before absorption</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="org-right">0</td>
-<td class="org-left">The root of the tree with no child.</td>
-</tr>
-</tbody>
-<tbody>
-<tr>
-<td class="org-right">1</td>
-<td class="org-left">A leaf.</td>
-</tr>
-</tbody>
-<tbody>
-<tr>
-<td class="org-right">2</td>
-<td class="org-left">The root of the tree with two black children.</td>
-</tr>
-</tbody>
-<tbody>
-<tr>
-<td class="org-right">3</td>
-<td class="org-left">A non-root internal node with two black children.</td>
-</tr>
-</tbody>
-<tbody>
-<tr>
-<td class="org-right">4</td>
-<td class="org-left">A non-root internal node with a black child and a red child, and</td>
-</tr>
-
-<tr>
-<td class="org-right">&#xa0;</td>
-<td class="org-left">the red child has two black children.</td>
-</tr>
-</tbody>
-<tbody>
-<tr>
-<td class="org-right">5</td>
-<td class="org-left">A non-root internal node with two red children, and each red</td>
-</tr>
-
-<tr>
-<td class="org-right">&#xa0;</td>
-<td class="org-left">child has two black children.</td>
-</tr>
-</tbody>
-</table>
-<p>
-The depths of the leaves of the resulting tree is the black height of the
-root in the original tree.
-</p>
-</div>
-</div>
-<div id="outline-container-org50f42bb" class="outline-3">
-<h3 id="org50f42bb">13.1-5</h3>
-<div class="outline-text-3" id="text-org50f42bb">
-<p>
-Since the children of a red node must be black, we know that the length of
-the longest simple path from a node \(x\) to a descendant leaf is at most
-\(2bh(x)\), and the shortest simple path from a node x to a descendant leaf
-is at least \(bh(x)\).
-</p>
-</div>
-</div>
-<div id="outline-container-orgc180993" class="outline-3">
-<h3 id="orgc180993">13.1-6</h3>
-<div class="outline-text-3" id="text-orgc180993">
-<p>
-The largest possible number of internal nodes is \(2^{2k} - 1\), and the
-smallest possible number is \(2^k-1\).
-</p>
-</div>
-</div>
-<div id="outline-container-org54855cd" class="outline-3">
-<h3 id="org54855cd">13.1-7</h3>
-<div class="outline-text-3" id="text-org54855cd">
-<p>
-The red-black tree on \(3\) keys with \(2\) red children of the root, has the
-largest possible ratio \(2\).
-The red-black tree which is a complete binary tree constructed by all black
-nodes, has the smallest possible ratio \(0\).
+todo
 </p>
 </div>
 </div>
