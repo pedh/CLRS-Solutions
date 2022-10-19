@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-10-18 Tue 09:57 -->
+<!-- 2022-10-19 Wed 09:57 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 14.2</title>
@@ -272,25 +272,25 @@ org_html_manager.setup();  // activate after the parameters are set
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org4ac919c">14.2</a>
+<li><a href="#org7029846">14.2</a>
 <ul>
-<li><a href="#orgf62f5ee">14.2-1</a></li>
-<li><a href="#org7f5f276">14.2-2</a></li>
-<li><a href="#org4badb93">14.2-3</a></li>
-<li><a href="#org8e41f3f">14.2-4</a></li>
+<li><a href="#org9fcf4cd">14.2-1</a></li>
+<li><a href="#org234595d">14.2-2</a></li>
+<li><a href="#org6901053">14.2-3</a></li>
+<li><a href="#org8ee7dd4">14.2-4</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org4ac919c" class="outline-2">
-<h2 id="org4ac919c">14.2</h2>
-<div class="outline-text-2" id="text-org4ac919c">
+<div id="outline-container-org7029846" class="outline-2">
+<h2 id="org7029846">14.2</h2>
+<div class="outline-text-2" id="text-org7029846">
 </div>
-<div id="outline-container-orgf62f5ee" class="outline-3">
-<h3 id="orgf62f5ee">14.2-1</h3>
-<div class="outline-text-3" id="text-orgf62f5ee">
+<div id="outline-container-org9fcf4cd" class="outline-3">
+<h3 id="org9fcf4cd">14.2-1</h3>
+<div class="outline-text-3" id="text-org9fcf4cd">
 <p>
 As below, we add 4 pointers to the nodes, and support the dynamic-set queries
 in \(O(1)\) worst-case time.
@@ -325,9 +325,9 @@ trees are not affected.
 </p>
 </div>
 </div>
-<div id="outline-container-org7f5f276" class="outline-3">
-<h3 id="org7f5f276">14.2-2</h3>
-<div class="outline-text-3" id="text-org7f5f276">
+<div id="outline-container-org234595d" class="outline-3">
+<h3 id="org234595d">14.2-2</h3>
+<div class="outline-text-3" id="text-org234595d">
 <p>
 We can maintain the black-heights of nodes in a red-black tree as attributes
 in the nodes of the tree, without affecting the asymptotic performance of any
@@ -341,9 +341,9 @@ depths of x.left and x.right.
 </p>
 </div>
 </div>
-<div id="outline-container-org4badb93" class="outline-3">
-<h3 id="org4badb93">14.2-3</h3>
-<div class="outline-text-3" id="text-org4badb93">
+<div id="outline-container-org6901053" class="outline-3">
+<h3 id="org6901053">14.2-3</h3>
+<div class="outline-text-3" id="text-org6901053">
 <p>
 We can update the \(f\) attributes in \(O(1)\) time after a rotation, by
 calculating \(x.f = x.left.f \otimes x.a \otimes x.right.f\).
@@ -356,9 +356,9 @@ order-statistic tree.
 </p>
 </div>
 </div>
-<div id="outline-container-org8e41f3f" class="outline-3">
-<h3 id="org8e41f3f">14.2-4</h3>
-<div class="outline-text-3" id="text-org8e41f3f">
+<div id="outline-container-org8ee7dd4" class="outline-3">
+<h3 id="org8ee7dd4">14.2-4</h3>
+<div class="outline-text-3" id="text-org8ee7dd4">
 <pre class="example">
 RB-LARGER-MINIMUM(x, a, c)
     if x == NIL
@@ -393,7 +393,7 @@ larger key than \(b\), this costs \(Theta(m)\) time if we are using the
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2022-10-18 Tue 09:57</p>
+<p class="date">Created: 2022-10-19 Wed 09:57</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
