@@ -1,0 +1,41 @@
+#+TITLE: Chapter 14 problems
+
+* ch14-problems
+** 14-1
+   - a.
+
+     If \(x\) is a point of maximum overlap, then we know that the closest
+     endpoint of one of the segments to \(x\) is also a point of maximum
+     overlap, thus there will always be a point of maximum overlap that is an
+     endpoint of one of the segments.
+   - b.
+
+     We insert all the start and end endpoints of the intervals to a red-black
+     tree, by augmenting the following attributes to the node \(x\)
+     #+begin_src
+     x.flag: 1 if x is the start endpoint of an interval, -1 if x is the end
+       endpoint of an interval, 0 if x is the sentinel T.nil.
+     x.flag-sum: the total sum of the flag attribute of all nodes in the subtree
+       rooted at x, include x
+     x.max-overlap: the number of maximum overlaps in the subtree rooted at x
+     x.pom: the point of maximum overlap in the subtree rooted at x
+     #+end_src
+     Those attributes could be maintained as following
+     #+begin_src
+     x.flag:
+       as description
+     x.flag-sum:
+       x.flag-sum = x.left.flag-sum + x.flag + x.right.flag-sum
+     x.max-overlap and x.pom:
+       x.max-overlap = max(
+         x.left.max-overlap, (x.pom = x.left.pom)
+         x.left.flag-sum + x.flag, (x.pom = x)
+         x.left.flag-sum + x.flag + x.right.max-overlap, (x.pom = x.right.pom))
+     #+end_src
+     According to *Theorem 14.1*, the operations =INTERVAL-INSERT= and
+     =INTERVAL-DELETE= run in \(O(\lg n)\) time. And =FIND-POM= run in \(O(1)\)
+     time by simply retrieving \(T.root.pom\).
+** 14.2
+   - a.
+
+   todo
