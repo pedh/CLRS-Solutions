@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-10-19 Wed 10:10 -->
+<!-- 2022-11-08 Tue 06:25 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 14 problems</title>
@@ -272,22 +272,23 @@ org_html_manager.setup();  // activate after the parameters are set
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org0918075">ch14-problems</a>
+<li><a href="#org00d9e48">ch14-problems</a>
 <ul>
-<li><a href="#org461f95e">14-1</a></li>
+<li><a href="#orgf01f8f5">14-1</a></li>
+<li><a href="#orge295fc2">14.2</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org0918075" class="outline-2">
-<h2 id="org0918075">ch14-problems</h2>
-<div class="outline-text-2" id="text-org0918075">
+<div id="outline-container-org00d9e48" class="outline-2">
+<h2 id="org00d9e48">ch14-problems</h2>
+<div class="outline-text-2" id="text-org00d9e48">
 </div>
-<div id="outline-container-org461f95e" class="outline-3">
-<h3 id="org461f95e">14-1</h3>
-<div class="outline-text-3" id="text-org461f95e">
+<div id="outline-container-orgf01f8f5" class="outline-3">
+<h3 id="orgf01f8f5">14-1</h3>
+<div class="outline-text-3" id="text-orgf01f8f5">
 <ul class="org-ul">
 <li><p>
 a.
@@ -304,16 +305,56 @@ b.
 </p>
 
 <p>
-todo
+We insert all the start and end endpoints of the intervals to a red-black
+tree, by augmenting the following attributes to the node \(x\)
+</p>
+<pre class="example">
+x.flag: 1 if x is the start endpoint of an interval, -1 if x is the end
+  endpoint of an interval, 0 if x is the sentinel T.nil.
+x.flag-sum: the total sum of the flag attribute of all nodes in the subtree
+  rooted at x, include x
+x.max-overlap: the number of maximum overlaps in the subtree rooted at x
+x.pom: the point of maximum overlap in the subtree rooted at x
+</pre>
+<p>
+Those attributes could be maintained as following
+</p>
+<pre class="example">
+x.flag:
+  as description
+x.flag-sum:
+  x.flag-sum = x.left.flag-sum + x.flag + x.right.flag-sum
+x.max-overlap and x.pom:
+  x.max-overlap = max(
+    x.left.max-overlap, (x.pom = x.left.pom)
+    x.left.flag-sum + x.flag, (x.pom = x)
+    x.left.flag-sum + x.flag + x.right.max-overlap, (x.pom = x.right.pom))
+</pre>
+<p>
+According to <b>Theorem 14.1</b>, the operations <code>INTERVAL-INSERT</code> and
+<code>INTERVAL-DELETE</code> run in \(O(\lg n)\) time. And <code>FIND-POM</code> run in \(O(1)\)
+time by simply retrieving \(T.root.pom\).
 </p></li>
 </ul>
+</div>
+</div>
+<div id="outline-container-orge295fc2" class="outline-3">
+<h3 id="orge295fc2">14.2</h3>
+<div class="outline-text-3" id="text-orge295fc2">
+<ul class="org-ul">
+<li>a.</li>
+</ul>
+
+<p>
+todo
+</p>
 </div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2022-10-19 Wed 10:10</p>
+<p class="date">Created: 2022-11-08 Tue 06:25</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

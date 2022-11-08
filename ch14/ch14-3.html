@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-10-19 Wed 10:10 -->
+<!-- 2022-11-08 Tue 06:25 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 14.3</title>
@@ -272,28 +272,28 @@ org_html_manager.setup();  // activate after the parameters are set
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org0778221">14.3</a>
+<li><a href="#orgd2fc006">14.3</a>
 <ul>
-<li><a href="#org66ba781">14.3-1</a></li>
-<li><a href="#orgfd13a4b">14.3-2</a></li>
-<li><a href="#orga9dc81b">14.3-3</a></li>
-<li><a href="#org9faf186">14.3-4</a></li>
-<li><a href="#org67be787">14.3-5</a></li>
-<li><a href="#org01a20c2">14.3-6</a></li>
-<li><a href="#org2e037d5">14.3-7</a></li>
+<li><a href="#orgde3b740">14.3-1</a></li>
+<li><a href="#org276d240">14.3-2</a></li>
+<li><a href="#org6782396">14.3-3</a></li>
+<li><a href="#org86e116f">14.3-4</a></li>
+<li><a href="#orgb4e2562">14.3-5</a></li>
+<li><a href="#org9404c75">14.3-6</a></li>
+<li><a href="#org1498a76">14.3-7</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org0778221" class="outline-2">
-<h2 id="org0778221">14.3</h2>
-<div class="outline-text-2" id="text-org0778221">
+<div id="outline-container-orgd2fc006" class="outline-2">
+<h2 id="orgd2fc006">14.3</h2>
+<div class="outline-text-2" id="text-orgd2fc006">
 </div>
-<div id="outline-container-org66ba781" class="outline-3">
-<h3 id="org66ba781">14.3-1</h3>
-<div class="outline-text-3" id="text-org66ba781">
+<div id="outline-container-orgde3b740" class="outline-3">
+<h3 id="orgde3b740">14.3-1</h3>
+<div class="outline-text-3" id="text-orgde3b740">
 <p>
 Add following lines after the 12th line in <code>LEFT-ROTATE</code>
 </p>
@@ -303,9 +303,9 @@ x.max = MAXIMUM(x.int.high, x.left.max, x.right.max)
 </pre>
 </div>
 </div>
-<div id="outline-container-orgfd13a4b" class="outline-3">
-<h3 id="orgfd13a4b">14.3-2</h3>
-<div class="outline-text-3" id="text-orgfd13a4b">
+<div id="outline-container-org276d240" class="outline-3">
+<h3 id="org276d240">14.3-2</h3>
+<div class="outline-text-3" id="text-org276d240">
 <pre class="example">
 INTERVAL-SEARCH-OPEN(T, i)
     x = T.root
@@ -318,9 +318,9 @@ INTERVAL-SEARCH-OPEN(T, i)
 </pre>
 </div>
 </div>
-<div id="outline-container-orga9dc81b" class="outline-3">
-<h3 id="orga9dc81b">14.3-3</h3>
-<div class="outline-text-3" id="text-orga9dc81b">
+<div id="outline-container-org6782396" class="outline-3">
+<h3 id="org6782396">14.3-3</h3>
+<div class="outline-text-3" id="text-org6782396">
 <pre class="example">
 INTERVAL-SEARCH-MINIMUM(T, i)
     x = T.root
@@ -335,9 +335,9 @@ INTERVAL-SEARCH-MINIMUM(T, i)
 </pre>
 </div>
 </div>
-<div id="outline-container-org9faf186" class="outline-3">
-<h3 id="org9faf186">14.3-4</h3>
-<div class="outline-text-3" id="text-org9faf186">
+<div id="outline-container-org86e116f" class="outline-3">
+<h3 id="org86e116f">14.3-4</h3>
+<div class="outline-text-3" id="text-org86e116f">
 <pre class="example">
 INTERVAL-SEARCH-ALL(T, i)
     let a be an empty array of nodes
@@ -355,9 +355,9 @@ INTERVAL-SEARCH-ALL-REC(T, x, i, a)
 </pre>
 </div>
 </div>
-<div id="outline-container-org67be787" class="outline-3">
-<h3 id="org67be787">14.3-5</h3>
-<div class="outline-text-3" id="text-org67be787">
+<div id="outline-container-orgb4e2562" class="outline-3">
+<h3 id="orgb4e2562">14.3-5</h3>
+<div class="outline-text-3" id="text-orgb4e2562">
 <p>
 We only need to modify the internal red-black tree operations of the
 interval-tree, by changing the key of node \(x\) from the low endpoint
@@ -378,9 +378,9 @@ INTERVAL-SEARCH-EXACTLY(T, i)
 </pre>
 </div>
 </div>
-<div id="outline-container-org01a20c2" class="outline-3">
-<h3 id="org01a20c2">14.3-6</h3>
-<div class="outline-text-3" id="text-org01a20c2">
+<div id="outline-container-org9404c75" class="outline-3">
+<h3 id="org9404c75">14.3-6</h3>
+<div class="outline-text-3" id="text-org9404c75">
 <p>
 We augment the red-black tree, by adding the three <code>max</code>, <code>min</code> and <code>min-gap</code>
 attributes to the nodes, and we could maintain the three attributes as below
@@ -403,9 +403,9 @@ be implemented in \(O(1)\) running time by retrieving <code>T.root.min-gap</code
 </p>
 </div>
 </div>
-<div id="outline-container-org2e037d5" class="outline-3">
-<h3 id="org2e037d5">14.3-7</h3>
-<div class="outline-text-3" id="text-org2e037d5">
+<div id="outline-container-org1498a76" class="outline-3">
+<h3 id="org1498a76">14.3-7</h3>
+<div class="outline-text-3" id="text-org1498a76">
 <p>
 We represent an rectilinearly oriented rectangle as an object \(r\), with
 following attributes
@@ -472,7 +472,7 @@ RECTANGLES-OVERLAP(rs)
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2022-10-19 Wed 10:10</p>
+<p class="date">Created: 2022-11-08 Tue 06:25</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
