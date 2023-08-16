@@ -11,7 +11,7 @@
    #+END_SRC
    Modify the initialization case by replace \(i = 1\) to \(i = 2\).
 ** 5.3-2
-   No, because the procedure can't generate the premutations that keep any
+   No, because the procedure can't generate the permutations that keep any
    element identical, e.g., \(\langle A[3], A[2], A[1], \ldots\rangle\).
 ** 5.3-3
    No, because the algorithm will generate \(n^n\) permutations
@@ -44,7 +44,7 @@
 
    *Initialization:* The procedure returns \(\emptyset\) when \(m = 0\).
 
-   *Maintenance:* We assumes that the procedure holds the loop invariant
+   *Maintenance:* We assume that the procedure holds the loop invariant
    of (m-1)-subset S' of \(\{1,2,3,\ldots,n-1\}\), then for m-subset S of
    \(\{1,2,3,\ldots,n\}\), we have
    \begin{align*}

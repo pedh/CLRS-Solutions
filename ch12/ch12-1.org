@@ -63,10 +63,10 @@
 ** 12.1-2
    If \(x\) is a node of a min-heap, then we have \(x.key \leq x.left.key\) and
    \(x.key \leq x.right.key\). If \(x\) is a node of a binary search tree, then
-   we have \(x.left.key \leq x.key \leq x.right.key\). Since the sorted order of
-   the left child and the right child of a node could not be determined via the
-   min-heap, we cannot print out the keys of an \(n\)-node min-heap in sorted
-   order in \(O(n)\) time.
+   we have \(x.left.key \leq x.key \leq x.right.key\). Since we cannot
+   determine the sorted order of the left child and the right child of a node
+   via the min-heap, we cannot print out the keys of an \(n\)-node min-heap in
+   sorted order in \(O(n)\) time.
 ** 12.1-3
    #+begin_src
    INORDER-TREE-WALK-ITER(x)

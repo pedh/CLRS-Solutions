@@ -3,10 +3,10 @@
 * ch8.1
 ** 8.1-1
    Consider a graph \(G = (V, E)\), which \(V\) represents the set of all \(n\)
-   elements, and \(E\) represents the set of all comparison, then we know that
-   the graph \(G\) should be connected for a comparison sort, at least \(n - 1\)
-   edges is needed, thus the smallest possible depth of a leaf in a decision
-   tree for a comparison sort is \(n - 1\).
+   elements, and \(E\) represents the set of all comparison, then we should
+   connect graph \(G\) for a comparison sort, at we need at least \(n - 1\)
+   edges, thus the smallest possible depth of a leaf in a decision tree for a
+   comparison sort is \(n - 1\).
 
    For example, we do comparisons between \(a_i\) and \(a_{i+1}\)
    for \(i \in [1, n - 1]\),

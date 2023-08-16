@@ -5,9 +5,9 @@
    - *a.*
 
      After each INCREMENT operation, the expected value represented by the
-     counter increased by \(\frac{1}{n_{i+1}-n_i}(n_{i+1}-n_i) = 1\), thus the
-     expected value represented by the counter after n INCREMENT operations have
-     been performed is exactly n.
+     counter increased by \(\frac{1}{n_{i+1}-n_i}(n_{i+1}-n_i) = 1\), thus
+     after we performed n INCREMENT operations, the expected value
+     represented by the counter is n.
    - *b.*
 
      The variance of each INCREMENT operation is
@@ -47,7 +47,7 @@
    - *d.*
 
      The expected value of trials is \(n\ln n + O(1)\), the problem is
-     equivalent to the problem of balls and bins which each bins contains
+     equivalent to the problem of balls and bins which each bin contains
      at least one ball.
    - *e.*
 

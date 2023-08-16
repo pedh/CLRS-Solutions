@@ -32,12 +32,12 @@
    trees are not affected.
 ** 14.2-2
    We can maintain the black-heights of nodes in a red-black tree as attributes
-   in the nodes of the tree, without affecting the asymptotic performance of any
-   of the red-black tree operations, since \(x.bh = x.left.bh + 1\).
+   in the nodes of the tree, without affecting the asymptotic performance of the
+   red-black tree operations, since \(x.bh = x.left.bh + 1\).
 
-   The depths of nodes cannot be maintained, since the depth of x does not
-   depend on only the information in nodes x, x.left, and x.right, and the
-   depths of x.left and x.right.
+   We cannot maintain The depths of nodes, since the depth of x does not depend
+   on only the information in nodes x, x.left, and x.right, and the depths of
+   x.left and x.right.
 ** 14.2-3
    We can update the \(f\) attributes in \(O(1)\) time after a rotation, by
    calculating \(x.f = x.left.f \otimes x.a \otimes x.right.f\).

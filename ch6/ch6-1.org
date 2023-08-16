@@ -8,8 +8,8 @@
    We know that \(2^h \leq n \leq 2^{h+1} - 1\), so that the height is
    \(h = \lfloor \lg n \rfloor\).
 ** 6.1-3
-   All the nodes in the subtree were derived from the root, so that the root has
-   contains the largest value in the subtree.
+   All the nodes in the subtree derive from the root, so that the root
+   has the largest value in the subtree.
 ** 6.1-4
    The smallest elements only resides in the leaves.
 ** 6.1-5

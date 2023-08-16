@@ -3,16 +3,16 @@
 * ch7.3
 ** 7.3-1
    The randomized algorithm does not improve the worst-case running time,
-   it just improve the equity of pivot selection.
+   it just improves the equity of pivot selection.
 ** 7.3-2
    The number of calls made to the random number generator RANDOM is
    \begin{align*}
    T(n)
-   &=T(n-1)+\Theta(1) &\text{, worst case}\\
+   &=T(n-1)+\Theta(1) &\text{, the worst case}\\
    &=\Theta(n)
    \end{align*}
    \begin{align*}
    T(n)
-   &=2T(n/2)+\Theta(1) &\text{, best case}\\
+   &=2T(n/2)+\Theta(1) &\text{, the best case}\\
    &=\Theta(n)
    \end{align*}

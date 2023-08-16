@@ -6,7 +6,7 @@
    transitive, and a connex relation.
 
    A binary relation R is a total order on set X if the following statements
-   hold for all a,b and c in X:
+   hold for all a, b and c in X:
 
    - *Antisymmetry*:
      If \(aRb\) and \(bRa\), then \(a = b\).

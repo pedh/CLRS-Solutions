@@ -4,8 +4,8 @@
 ** 12.4-1
    To choose \(k\) elements from \(n\) elements, we could first choose one
    element, to be the largest of \(k\) elements, then we choose the remaining
-   \(k-1\) elements, hence \(\binom{n}{k}=\sum_{i=1}^{n}\binom{i-1}{k-1}\). Thus
-   we have
+   \(k-1\) elements, hence \(\binom{n}{k}=\sum_{i=1}^{n}\binom{i-1}{k-1}\).
+   Thus, we have
    \begin{align*}
    \binom{n+3}{4}
    &=\sum_{i=1}^{n+3}\binom{i-1}{3}\\
@@ -32,7 +32,7 @@
    \(f''(x) = 2^x\ln^2{2} > 0\), thus \(f(x)\) is strictly convex.
 ** 12.4-5
    We could build a \(n\)-nodes binary search tree from performing =QUICKSORT=
-   on \(n\) elements, by while a pivot is selected, we make the pivot a new node
+   on \(n\) elements, by when we select a pivot, we make the pivot a new node
    and add it to that tree. Let \(h\) be the height of the tree, then we know
    the running time of =QUICKSORT= is \(O(nh)\). And for the \(n!\) input
    permutations, we have got a randomly built binary search tree on \(n\) keys.

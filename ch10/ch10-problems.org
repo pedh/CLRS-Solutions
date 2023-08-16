@@ -204,6 +204,6 @@
      expected time.
    - *h.*
 
-     If not all the keys of the compact list is dinstinct, then the random skips
+     If not all the keys of the compact list is distinct, then the random skips
      will fail between the repeated keys, when there are plenty enough repeated
      keys, the random skips do not necessarily help asymptotically.

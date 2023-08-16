@@ -3,8 +3,8 @@
 
 * 13.3
 ** 13.3-1
-   If we set the newly inserted node \(z\) to black, then property 5 might be
-   violated, and it's more difficult to fix property 5 than property 4.
+   If we set the newly inserted node \(z\) to black, then we might violate the
+   property 5, and it's more difficult to fix property 5 than property 4.
 ** 13.3-2
    1. Insert \(41\).
       #+begin_src dot :file ch13-3-1.png :exports results
@@ -207,20 +207,22 @@
       }
       #+end_src
 ** 13.3-4
-   If we set \(T.nil.color\) to RED, then the color of \(T.root\) must have been
-   set to RED too, this is impossible because we would only set the color of one
-   node to RED in an iteration, and then move up two levels in the tree or end
-   the loop. Thus =RB-INSERT-FIXUP= never sets \(T.nil.color\) to RED.
+   If we set \(T.nil.color\) to RED, then we must have set the color of
+   \(T.root\) RED too, this is impossible because we would only set the color of
+   one node to RED in an iteration, and then move up two levels in the tree or
+   end the loop. Thus, we never sets \(T.nil.color\) to RED in
+   =RB-INSERT-FIXUP=.
 ** 13.3-5
    Note that we would only color the nodes BLACK in =RB-INSERT-FIXUP=, in the
    =RB-INSERT-FIXUP= procedure, if the while loop never iterates, then we only
    color \(T.root\) BLACK, but we have \(n > 1\), thus the new node \(z\) is not
    colored BLACK; else the while loop iterates, for each iteration, if it goes
-   case 1 in Figure 13.5, after the iteration the node on the bottom is RED, and
-   if it goes case 2 or case 3 in Figure 13.6, after the iteration the two nodes
-   on the bottom is RED, when the while loop finished, we color \(T.root\)
-   BLACK, but the bottom red nodes after the iterations will not be colored
-   BLACK. Hence if \(n > 1\), the tree has at least one red node.
+   case 1 in Figure 13.5, after the iteration, we colored the node on the
+   bottom RED, and if it goes case 2 or case 3 in Figure 13.6, after the
+   iteration, we colored the two nodes on the bottom RED, when the while loop
+   finished, we color \(T.root\) BLACK, but after the iterations, we will not
+   color the bottom red nodes BLACK. Hence, if \(n > 1\), the tree has at least
+   one red node.
 ** 13.3-6
    We could use a stack to store the nodes on the simple path down to \(z\), and
    pop the nodes out if we need to get the ancestor nodes of \(z\), the modified
@@ -239,7 +241,7 @@
            else x = x.right
        if y == T.nil
            T.root = z
-       elseif z.key < y.key
+       else if z.key < y.key
            y.left = z
        else y.right = z
        z.left = T.nil
@@ -274,7 +276,7 @@
        x.right = y.left
        if xp == T.nil
            T.root = y
-       elseif x == xp.left
+       else if x == xp.left
            xp.left = y
        else xp.right = y
        y.left = x
@@ -284,7 +286,7 @@
        y.left = x.right
        if yp == T.nil
            T.root = x
-       elseif y == yp.left
+       else if y == yp.left
            yp.left = x
        else yp.right = x
        x.right = y

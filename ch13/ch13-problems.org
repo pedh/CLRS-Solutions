@@ -25,7 +25,7 @@
              if z.key < x.key
                  x = x.left
                  Let x'.left be a new node
-                 x'.left.key = x.left.ley
+                 x'.left.key = x.left.key
                  x'.right = x.right
                  x' = x'.left
              else x = x.right
@@ -36,7 +36,7 @@
          if y == T.nil
              z.p = T'.nil
              T'.root = z
-         elseif z.key < y.key
+         else if z.key < y.key
                 x'.left = z
                 x'.right = T'.nil
                 z.p = x'
@@ -52,22 +52,22 @@
      Let \(h\) be the height of the persistent binary search tree \(T\), using
      =PERSISTENT-TREE-INSERT= to insert a node, the time requirement is
      \(O(h)\), since we need to traverse from the root to the bottom; the space
-     requirements is \(O(h)\), since the new nodes we need to create are the
+     requirement is \(O(h)\), since the new nodes we need to create are the
      nodes on the simple path from the root down to the inserted node.
   - d.
 
     If we had included the parent attribute in each node, then we need
     \(\Omega(n)\) time and space, since we need to create a new root node for
-    the new tree, that means all the descendant nodes of the new root need to be
-    created, i.e. we would copy the entire tree, which introduces \(\Omega(n)\)
+    the new tree, that means we need to create all the descendant nodes of the
+    new root, i.e. we would copy the entire tree, which introduces \(\Omega(n)\)
     time and space complexity.
   - e.
 
-    If we are using use red-black tree to implement a persistent binary search
+    If we are using the red-black tree to implement a persistent binary search
     tree, then we should know that the worst-case running time and space are
     \(O(h)\) per insertion or deletion, and the height \(h\) of a red-black tree
-    is \(O(\lg n)\), thus the \(O(\lg n)\) worst-case running time and space
-    complexity is guaranteed.
+    is \(O(\lg n)\), thus we guarantee the \(O(\lg n)\) worst-case running time
+    and space complexity.
 ** 13-2
    - a.
 
@@ -195,7 +195,7 @@
      unique treap.
    - b.
 
-     Since a treap is equivalent to a randomly build binary search tree, we
+     Since a treap is equivalent to a randomly built binary search tree, we
      could show that the expected height of a treap is \(\Theta(\lg n)\), based
      on *Theorem 12.4*, and hence the expected time to search for a value in the
      treap is \(\Theta(\lg n)\).
@@ -243,7 +243,7 @@
      time of =TREAP-INSERT= is \(\Theta(\lg n)\).
    - e.
 
-     From =Figure 13.2=, we could obtains that each rotation in
+     From =Figure 13.2=, we could obtain that each rotation in
      =TREAP-INSERT-FIXUP= increases \(C+D\) by 1, thus the total number of
      rotations that were performed during the insertion of \(x\) is equal to
      \(C+D\).

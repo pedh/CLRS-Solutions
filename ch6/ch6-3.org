@@ -12,8 +12,8 @@
    -> (84 (22 (10 (5) (9)) (3)) (19 (17) (6)))
    #+END_SRC
 ** 6.3-2
-   Because the recursive MAX-HEAPIFY procedure was based on the premise that the
-   children of the node are max heaps, so we must first build the nodes with
+   Since the recursive MAX-HEAPIFY procedure depends on the premise that, the
+   children of the node are max heaps, we must first build the nodes with
    larger index into max heaps.
 ** 6.3-3
    We prove the hypothesis with mathematical induction.

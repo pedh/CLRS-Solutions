@@ -20,7 +20,7 @@
      x.max-overlap: the number of maximum overlaps in the subtree rooted at x
      x.pom: the point of maximum overlap in the subtree rooted at x
      #+end_src
-     Those attributes could be maintained as following
+     We could maintain those attributes as following
      #+begin_src
      x.flag:
        as description

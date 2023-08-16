@@ -77,13 +77,13 @@
    |---+---+---+---+---+---+---+---+---+----+----|
    #+END_SRC
 ** 8.2-2
-   When placing the elements into the output array B, the elements with larger
-   indices in A are placed earlier, and the elements with the same value which
-   were placed earlier are placed into the larger index in B, thus the elements
-   with the same value appear in the output array B in the same order with the
-   input array A.
+   When placing the elements into the output array B, we place the elements with
+   larger indices in A before those with smaller indices, and when we place the
+   elements into B, we are placing them from larger index to smaller index in B
+   too, thus the elements with the same value appear in the output array B in
+   the same order with the input array A.
 ** 8.2-3
-   The algorithm works but it's not stable, because the elements with the same
+   The algorithm works, but it's not stable, because the elements with the same
    value appear in the output array in the reverse order.
 ** 8.2-4
    Count the elements and then accumulate the count \(C\), the range count of

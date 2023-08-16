@@ -27,7 +27,7 @@
 
    And \(log_b a = 0 = c\), thus \(T(n) = \Theta(n^0 \lg n) =\Theta(\lg n)\).
 ** 4.5-4
-   The master method can't be applied to the recurrence
+   We cannot apply The master method to the recurrence
    \(T(n) = 4T(n/2) + n^2\lg n\), because \(n^2\lg n\) is larger but not
    polynomially larger than \(n^2\).
 

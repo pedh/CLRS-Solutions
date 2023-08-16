@@ -4,11 +4,11 @@
 ** 11-1
    - *a.*
 
-     Suppose \(i\)th insertion requires strictly more than \(k\) probes, we know
-     that for the happend \(i\) insertions, there must be more than one probes
-     in each of the \(k\) insertions, and we have \(n\leq m/2\), thus each of
-     the \(k\) events has at most \(1/2\) probability, and the probability of
-     the intersection of the \(k\) events is at most \(2^{-k}\).
+     Suppose the \(i\)th insertion requires strictly more than \(k\) probes, we
+     know that for the happened \(i\) insertions, there must be more than one
+     probes in each of the \(k\) insertions, and we have \(n\leq m/2\), thus
+     each of the \(k\) events has at most \(1/2\) probability, and the
+     probability of the intersection of the \(k\) events is at most \(2^{-k}\).
    - *b.*
 
      Substitute the conclusion of *a.* with equation \(k = 2\lg n\), we got the
@@ -38,7 +38,7 @@
      To hash exactly \(k\) keys to a particular slot, we need to choose \(k\)
      keys first, which contains \(\binom{n}{k}\) cases, then we put the \(k\)
      keys to the particular slot and the \(n - k\) keys to other slots, all the
-     events of key hashing are distinct. Thus the probability \(Q_k\) is
+     events of key hashing are distinct. Thus, the probability \(Q_k\) is
      \begin{align*}
      Q_k=\bigg(\frac{1}{n}\bigg)^k\bigg(1-\frac{1}{n}\bigg)^{n-k}\binom{n}{k}
      \end{align*}
@@ -149,6 +149,7 @@
      from \(U\), since \(\mathcal{H}\) is \(2\)-universal, for any \(h\) chosen
      at random from \(\mathcal{H}\), the sequence \(\langle h(m),h(m') \rangle\)
      is equally likely to be any of the \(p\)^2 sequences of length \(2\) with
-     elements drawn from \(\mathbb{Z}_p\). Thus for fixed values \(m,t,m'\), the
-     value of \(t'\) is equally likely to be any of \(\mathbb{Z}_p\), hence the
-     probability that the adversary succeeds in fooling Bob is at most \(1/p\).
+     elements drawn from \(\mathbb{Z}_p\). Thus, for fixed values \(m,t,m'\),
+     the value of \(t'\) is equally likely to be any of \(\mathbb{Z}_p\), hence
+     the probability that the adversary succeeds in fooling Bob is at most
+     \(1/p\).

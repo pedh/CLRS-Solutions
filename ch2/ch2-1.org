@@ -59,7 +59,7 @@
    terminate at i > A.length, i.e. v does not appear in A, then we return NIL.
 
 ** 2.1-4
-   *Input:* Two n-element arrays A and B, each stands for a n-bit binary
+   *Input:* Two n-element arrays A and B, each stands for an n-bit binary
    integers. Higher bit stores at larger index.
 
    *Output:* The sum of the two input integers, stores in (n + 1)-element

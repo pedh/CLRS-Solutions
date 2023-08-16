@@ -6,23 +6,23 @@
 ** 14.1-1
    To see how =OS-SELECT= operates. We begin with \(x\) as the root, whose key
    is \(26\), and with \(i = 10\).
-   Since the size of \(26\)'s left subtree is \(12\), its rank is \(13\). Thus
+   Since the size of \(26\)'s left subtree is \(12\), its rank is \(13\). Thus,
    we know that the node with rank \(10\) is the \(10\)th smallest element in
    \(26\)'s left subtree. After the recursive call, \(x\) is the node with key
    \(17\), and \(i = 10\).
-   Since the size of \(17\)'s left subtree is \(7\), its rank is \(8\). Thus we
+   Since the size of \(17\)'s left subtree is \(7\), its rank is \(8\). Thus, we
    know that the node with rank \(10\) is the \(10 - 8 = 2\)nd smallest element
    in \(17\)'s right subtree. After the recursive call, \(x\) is the node with
    key \(21\), and \(i = 2\).
-   Since the size of \(21\)'s left subtree is \(2\), its rank is \(3\). Thus we
+   Since the size of \(21\)'s left subtree is \(2\), its rank is \(3\). Thus, we
    know that the node with rank \(2\) is the \(2\)nd smallest element in
    \(21\)'s left subtree. After the recursive call, \(x\) is the node with key
    \(19\), and \(i = 2\).
-   Since the size of \(19\)'s left subtree is \(0\), its rank is \(1\). Thus we
+   Since the size of \(19\)'s left subtree is \(0\), its rank is \(1\). Thus, we
    know that the node with rank \(2\) is the \(2 - 1 = 1\)st smallest element in
    \(19\)'s right subtree. After the recursive call, \(x\) is the node with key
    \(20\), and \(i = 1\).
-   Since the size of \(20\)'s left subtree is \(0\), its rank is \(1\). Thus we
+   Since the size of \(20\)'s left subtree is \(0\), its rank is \(1\). Thus, we
    know that the node with rank \(1\) is \(20\), the procedure returns a pointer
    to the node with key \(20\).
 ** 14.1-2

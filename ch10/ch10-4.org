@@ -66,6 +66,6 @@
    #+END_SRC
 ** 10.4-6
    We can use two pointers =left-child= and =right-sibling= and one boolean
-   value =is-last-child= to represent an arbitrary rooted trees. If the node is
+   value =is-last-child= to represent an arbitrary rooted tree. If the node is
    the rightmost child of its parent, then the =is-last-child= value of the node
    is true, and the =right-sibling= pointer of the node points to its parent.

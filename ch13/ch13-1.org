@@ -120,10 +120,10 @@
        35 -> 36;
    }
    #+end_src
-   If the inserted node is colored red, the resulting tree is not a red-black
+   If we color the inserted node red, the resulting tree is not a red-black
    tree, because the parent of the node is also colored red.
 
-   If the inserted node is colored black, the resulting tree is not a red-black
+   If we color the inserted node black, the resulting tree is not a red-black
    tree, because not all the simple paths from the root to descendant leaves
    contain the same number of black nodes.
 ** 13.1-3

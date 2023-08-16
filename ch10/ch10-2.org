@@ -3,9 +3,9 @@
 * ch10.2
 ** 10.2-1
    We could implement the dynamic-set operation =INSERT= by the singly linked
-   list =LIST-INSERT= operation, to achieve \(O(1)\) running time. But the
-   dynamic-set operation =DELETE= cannot be implemented in \(O(1)\) running
-   time, because we must first call the =LIST-SEARCH= to find the element with
+   list =LIST-INSERT= operation, to achieve \(O(1)\) running time. But we
+   cannot implement \(O(1)\) running time dynamic-set operation =DELETE=,
+   because we must first call the =LIST-SEARCH= to find the element with
    the given key.
 ** 10.2-2
    #+BEGIN_SRC

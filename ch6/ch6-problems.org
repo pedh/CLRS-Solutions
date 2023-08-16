@@ -158,7 +158,7 @@
      Then we insert the \(n^2\) elements into Y, it costs \(O(n^3)\)
      running time.
 
-     At last we extract the \(n^2\) elements from Y, it costs
+     At last, we extract the \(n^2\) elements from Y, it costs
      \(O(n^3)\) running time, the total running time is \(O(n^3)\).
    - *f.*
 

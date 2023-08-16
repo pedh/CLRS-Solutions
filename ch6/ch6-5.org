@@ -50,15 +50,15 @@
    value is larger than the current value.
 ** 6.5-5
    *Initialization:* The subarray is same as the original max heap except
-   \(A[i] = key\), and there may exists one exception that \(A[i] = key\) may be
+   \(A[i] = key\), and there may exist one exception that \(A[i] = key\) may be
    larger than \(A[PARENT(i)]\).
 
    *Maintenance:* We exchange \(A[i]\) with \(A[PARENT(i)]\) if
    \(A[i] > A[PARENT(i)]\), so the violation becomes that \(A[PARENT(i)]\) may
    be larger than \(A[PARENT(PARENT(i))]\).
 
-   *Termination:* We terminates when \(i = 1\) or \(A[PARENT(i)] \leq A[i]\),
-   the violation is resolved, the subarray becomes a max heap.
+   *Termination:* We terminate when \(i = 1\) or \(A[PARENT(i)] \leq A[i]\),
+   we resolved the violation and the subarray becomes a max heap.
 
 ** 6.5-6
    #+BEGIN_SRC

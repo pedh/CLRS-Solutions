@@ -131,11 +131,11 @@
           and f(n) and g(n) are nonnegative, then
           \begin{align*}
           \neg(\exists c\in\mathbb{R}^{+})
-          [0\leq cg(n)\leq f(n)\text{ for infinitely many integers n}]\\
+          [0\leq cg(n)\leq f(n)\text{ for infinite integers n}]\\
           \implies(\forall c\in\mathbb{R}^{+})
-          [0\leq cg(n)\leq f(n)\text{ for only finitely many integers n}]
+          [0\leq cg(n)\leq f(n)\text{ for finite integers n}]
           \end{align*}
-          Let \(n_0\) = max(finitely many integers) + 1, we have
+          Let \(n_0\) = max(finite integers) + 1, we have
           \begin{equation*}
           (\forall c\in\mathbb{R}^{+})
           [(\exists n_0\in\mathbb{R}^{+})
@@ -148,9 +148,9 @@
           [(\exists n_0\in\mathbb{R}^{+})
            [(\forall n\leq n_0)[0\leq f(n)< cg(n)]]]\\
           \implies(\forall c\in\mathbb{R}^{+})
-          [0\leq cg(n)\leq f(n)\text{ for only finitely many integers n}]\\
+          [0\leq cg(n)\leq f(n)\text{ for finite integers n}]\\
           \implies\neg(\exists c\in\mathbb{R}^{+})
-          [0\leq cg(n)\leq f(n)\text{ for infinitely many integers n}]
+          [0\leq cg(n)\leq f(n)\text{ for infinite integers n}]
           \end{align*}
           Hence \(f(n) \neq \overset{\infty}{\Omega}(g(n))\).
      + According to the previous theorem, we can show that
@@ -171,8 +171,8 @@
    - *b.*
 
      *Pros:*
-     The relation between nonnegative functions f(n) and g(n)
-     can be completely covered as above.
+     We have shown the relation between nonnegative functions f(n) and g(n)
+    as above.
 
      *Cons:*
      We can not tell the value of running time exactly.

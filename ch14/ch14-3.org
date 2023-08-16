@@ -51,8 +51,8 @@
    We only need to modify the internal red-black tree operations of the
    interval-tree, by changing the key of node \(x\) from the low endpoint
    \(x.int.low\) to the median \(\frac{x.int.low + x.int.high}{2}\), and if two
-   interval have the same median, we compare the low endpoints.
-   The =INTERVAL-SEARCH-EXACTLY(T, i)= is implemented as below
+   intervals have the same median, we compare the low endpoints.
+   We could implement the =INTERVAL-SEARCH-EXACTLY(T, i)= as below
    #+begin_src
    INTERVAL-SEARCH-EXACTLY(T, i)
        x = T.root
@@ -79,10 +79,10 @@
                    x.right.min - x.key)
    #+end_src
    By *Theorem 14.1*, we know that the \(O(\lg n)\) running time of the
-   dynamic set operations are not asymptotically affected, and =MIN-GAP= could
-   be implemented in \(O(1)\) running time by retrieving =T.root.min-gap=.
+   dynamic set operations are not asymptotically affected, and we could
+   implement \(O(1)\) running time =MIN-GAP= by retrieving =T.root.min-gap=.
 ** 14.3-7
-   We represent an rectilinearly oriented rectangle as an object \(r\), with
+   We represent a rectilinearly oriented rectangle as an object \(r\), with
    following attributes
    #+begin_src
    r.x-min: The minimum x-coordinate of the rectangle
@@ -98,9 +98,8 @@
    s.x-coord: The x-coordinate of the side
    s.left: The left side of the rectangle, if s contains the right side else NIL
    #+end_src
-   And we could implement an \(O(n\lg n)\)-time algorithm to decide whether or
-   not a set of n rectangles so represented contains two rectangles that
-   overlap, as following
+   And we could implement an \(O(n\lg n)\)-time algorithm to decide whether a
+   set of n rectangles contains two rectangles that overlap, as following
    #+begin_src
    RECTANGLES-OVERLAP(rs)
        let T be a new interval tree

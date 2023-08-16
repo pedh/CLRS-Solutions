@@ -8,11 +8,11 @@
    *Hire n times:* The candidates appears in decrease order,
    the probability is \(\frac{1}{n!}\).
 ** 5.2-2
-   We know that the first candidate and the best candidate will
-   always been hired, let the first candidate to be \(A[1]\), and the
-   best candidate to be \(A[k]\), there should be \(A[1] = best(A[1..k-1])\)
-   to hire exactly two candidates, i.e., choose the best of \(k-1\) candidates,
-   the total probability is \(\frac{1}{n}\sum_{k=2}^{n-1}\frac{1}{k-1}\).
+   We should always hire the first candidate and the best candidate, let the
+   first candidate to be \(A[1]\), and the best candidate to be \(A[k]\),
+   there should be \(A[1] = best(A[1..k-1])\) to hire exactly two candidates,
+   i.e., choose the best of \(k-1\) candidates, the total probability is
+   \(\frac{1}{n}\sum_{k=2}^{n-1}\frac{1}{k-1}\).
 ** 5.2-3
    The expected value of k-th dice is
    \begin{align*}

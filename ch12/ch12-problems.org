@@ -12,9 +12,9 @@
      The number of nodes in the tree rooted at \(x.left\), whose keys are
      identical with \(x\), are approximately the same as those in the tree
      rooted at \(x.right\), thus after having inserted \(n\) items with
-     identical keys, the binary search tree is balanced, the height of the tree
-     should be \(\Theta(\lg n)\). Hence the total running time is
-     \(\Theta(n\lg n)\), and only \(O(1)\) extra memory space is required.
+     identical keys, we balance the binary search tree, the height of the tree
+     should be \(\Theta(\lg n)\). Hence, the total running time is
+     \(\Theta(n\lg n)\), and we only require \(O(1)\) extra memory space.
    - *c.*
 
      If the running time of list insertion is a constant, then the totally
@@ -24,15 +24,15 @@
 
      When a node is inserting into the tree rooted at node \(x\), if the key of
      the node is identical with \(x\), then the node will be equally likely
-     inserted into the tree rooted at \(x.left\) or \(x.right\). Thus after
+     inserted into the tree rooted at \(x.left\) or \(x.right\). Thus, after
      having inserted \(n\) items with identical keys, the binary search tree is
-     expectly balanced, hence the expected running time is \(O(n\lg n)\), but
+     on expect balanced, hence the expected running time is \(O(n\lg n)\), but
      the worst-case running time is still \(O(n^2)\), and the extra memory space
      we need is \(O(1)\).
 ** 12-2
    Consider a node \(x\) and its children \(x.left\) and \(x.right\) in the
    radix tree, then we know that lexicographically \(x < x.left < x.right\) by
-   the rules, which corresponding to the preorder tree traverse. Thus we could
+   the rules, which corresponding to the preorder tree traverse. Thus, we could
    traverse the radix tree in preorder, to sort \(S\) lexicographically, the
    running time is \(\Theta(n)\) if the lengths of strings in \(S\) sum to n.
 ** 12-3
@@ -44,7 +44,7 @@
      \end{align*}
      Hence if we have proved that the expected value of \(P(T)\) is
      \(O(n\lg n)\), then the expected value the average depth of a node in \(T\)
-     should be \(O(\lg n)\), and we could obtains that the average depth of a
+     should be \(O(\lg n)\), and we could obtain that the average depth of a
      node in a randomly built binary search tree with \(n\) nodes is
      \(O(\lg n)\).
    - *b.*
@@ -60,7 +60,7 @@
      \(i \in [1, n]\), let \(x_i\) denote the \(i\)th smallest element of the
      input permutation, the possibility for \(x_i\) to be the root of \(T\) is
      \(1/n\), then \(T_L\) is randomly built from \(x_1,\ldots,x_{i-1}\), and
-     \(T_R\) is randomly built from \(x_{i+1},\ldots,x_n\). Thus we have
+     \(T_R\) is randomly built from \(x_{i+1},\ldots,x_n\). Thus, we have
      \begin{align*}
      P(n)
      &=P(T)\\
@@ -119,7 +119,7 @@
 
    - *a.*
 
-     The binary search tree with \(0\) nodes is an special empty tree, thus
+     The binary search tree with \(0\) nodes is a special empty tree, thus
      \(b_0 = 1\), and for \(n \geq 1\), we could first choose an element to be
      the root, if the root is the \(i\)th smallest element, the left subtree of
      the root would have \(i - 1\) elements, and the right subtree of the root
@@ -152,7 +152,7 @@
      &=\sum_{k=1}^{\infty}\frac{(2(k-1)!}{(k-1)!k!}x^{k-1}\\
      &=\sum_{n=0}^{\infty}\bigg(\frac{1}{n+1}\binom{2n}{n}x^k\bigg)
      \end{align*}
-     Substitude the equation above with \(B(x)=\sum_{n=0}^{\infty}b_n x^n\), we
+     Substitute the equation above with \(B(x)=\sum_{n=0}^{\infty}b_n x^n\), we
      have \(b_n = \frac{1}{n+1}\binom{2n}{n}\).
    - *d.*
 

@@ -11,7 +11,7 @@
    \end{cases}
    \end{align*}
    we can prove \(T(n) = O(n)\) by substitution method, thus the algorithm works
-   in linear time if the input elements were divided into groups of \(7\).
+   in linear time if we divide the input elements into groups of \(7\).
 
    If we divide the input elements into groups of \(3\), the running time is
    \begin{align*}
@@ -21,7 +21,7 @@
    T(\lceil n/3 \rceil)+T(2n/3+4)+O(n) &\text{if $n \geq 60$}
    \end{cases}
    \end{align*}
-   The algorithm does not work in linear time if the input elements were divided
+   The algorithm does not work in linear time if we divide the input elements
    into groups of \(3\).
 
 ** 9.3-2
@@ -36,7 +36,7 @@
    Then we perform the given algorithm, we add a directed edge from \(V_i\) to
    \(V_j\) if we have compared \(A_i\) and \(A_j\) and got \(A_i \geq A_j\).
 
-   Finally we find the vertex point to the \(i\)th smallest element, named
+   Finally, we find the vertex point to the \(i\)th smallest element, named
    \(V_x\), then for all the vertices in the graph besides \(V_x\), if there
    exists a path from \(V_i\) to \(V_x\), then \(A_i\) is one of the \(n - i\)
    larger element, if there exists a path from \(V_x\) to \(V_i\), then \(A_i\)
@@ -54,7 +54,7 @@
    \end{align*}
 ** 9.3-6
    We partition the n-elements by the median, and recursively find the
-   propotional quantiles of the left and right part, then we combine the
+   proportional quantiles of the left and right part, then we combine the
    quantiles together, finally we obtain the \(k\)th quantiles.
    #+BEGIN_SRC
    KTH-QUANTILES(A, k)
@@ -97,7 +97,7 @@
    PARTITION(A, k_closest) by comparing abs(A_i, med)
    #+END_SRC
 ** 9.3-8
-   The algotithm is as below
+   The algorithm is as below
    #+BEGIN_SRC
    MEDIAN-OF-TWO-ARRAYS(X, Y)
        if MEDIAN(X) == MEDIAN(Y):

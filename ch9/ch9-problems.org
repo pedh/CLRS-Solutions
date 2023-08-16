@@ -21,7 +21,7 @@
    - *c.*
 
      We use an order-statistic algorithm to find the \(i\)th largest number, and
-     partiton around that number, which takes \(O(n)\) running time, then we
+     partition around that number, which takes \(O(n)\) running time, then we
      use worst-case \(O(n\lg n)\) running time sorting method, such as heapsort
      or merge sort, to sort the \(i\) largest numbers, which takes \(O(i\lg i)\)
      running time.
@@ -102,7 +102,7 @@
      &=(p-q)(\sum_{p_i\geq p}\omega_i-\sum_{p_i < p}\omega_i)\\
      &>0
      \end{align*}
-     It's similar when \(q > p\), thus the weighted median is a best solution
+     It's similar when \(q > p\), thus the weighted median is the best solution
      for the 1-dimensional post-office location problem.
    - *e.*
 
@@ -209,5 +209,5 @@
      \end{align*}
    - *d.*
 
-     The running time of RANDOMIZED-SELECT is determined by the total number of
-     comparisons, thus the expected running time is \(O(n)\).
+     The total number of comparisons determines the running time of
+     RANDOMIZED-SELECT, thus the expected running time is \(O(n)\).

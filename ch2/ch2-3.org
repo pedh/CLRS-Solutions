@@ -80,7 +80,7 @@
            med = (high + low) // 2
            if A[med] == v
                return med
-           elseif A[med] > v
+           else if A[med] > v
                high = med - 1
            else low = med + 1
        return NIL

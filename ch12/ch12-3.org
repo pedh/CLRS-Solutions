@@ -20,8 +20,9 @@
             else TREE-INSERT-REC(x.right, z)
    #+end_src
 ** 12.3-2
-   To search for a value in the tree, we need perform one more test---from the
-   parent to the desired node, than first insertion of the value into the tree.
+   To search for a value in the tree, we need to perform one more test---from
+   the parent to the desired node, than first insertion of the value into the
+   tree.
 ** 12.3-3
    The worst-case is when the \(n\) numbers are already sorted, the running time
    will be \(O(n^2)\), the best-case is when the \(n\) numbers make the tree
@@ -63,7 +64,7 @@
            pre.succ = z
        if y == NIL
            T.root = z
-       elseif z.key < y.key
+       else if z.key < y.key
            y.left = z
            z.succ = y
        else y.right = z
@@ -100,7 +101,7 @@
        pre = PREDECESSOR(T, u)
        if p == NIL
            T.root = v
-       elseif u == p.left
+       else if u == p.left
            p.left = v
        else p.right = v
        if v != NIL
@@ -111,7 +112,7 @@
    TREE-DELETE(T, z)
    if z.left == NIL
        TRANSPLANT(T, z, z.right)
-   elseif z.right == NIL
+   else if z.right == NIL
        TRANSPLANT(T, z, z.left)
    else y = z.succ
         if y != z.right
@@ -130,7 +131,7 @@
    TREE-DELETE'(T, z)
        if z.left == NIL
            TRANSPLANT(T, z, z.right)
-       elseif z.right == NIL
+       else if z.right == NIL
            TRANSPLANT(T, z, z.left)
        else y = TREE-MAXIMUM(z.left)
             if y.p != z

@@ -50,7 +50,7 @@
                  A[j] = A[i]
                  A[i] = A[k]
                  A[k] = y
-             elseif A[k] == x:
+             else if A[k] == x:
                  j = j + 1
                  exchange A[j] with A[k]
          exchange A[r] with A[j + 1]
@@ -90,7 +90,7 @@
      Let \(X_i = I\{ith\ smallest\ element\ is\ chosen\ as\ the\ pivot\}\), then
      \begin{align*}
      E[X_i]
-     &=\Pr\text{{ith smallest element is chosen as the pivot}}\\
+     &=\Pr\text{{we choose the smallest ith element as the pivot}}\\
      &=\frac{1}{n}
      \end{align*}
    - *b.*
@@ -136,11 +136,11 @@
 ** 7-4
    - *a.*
 
-     We use loop invariants to prove the correctness of the procedure.
+     We use loop invariant to prove the correctness of the procedure.
 
      *Loop Invariant:*
-     At the start of each iteration of the while loop, \(A[1..A.length]\) is
-     partitioned by \(p\) and \(A[1..p]\) is sorted.
+     At the start of each iteration of the while loop, we have partitioned
+     \(A[1..A.length]\) by \(p\) and sorted \(A[1..p]\).
 
      *Initialization:*
      \(A[1..p]\) is empty.
@@ -214,7 +214,7 @@
      \end{align*}
    - *d.*
 
-     The median-of-3 method only improve the probability of choosing a good
+     The median-of-3 method only improves the probability of choosing a good
      pivot, the running time is still \(\Omega(n \lg n)\).
 ** 7-6
    - *a.*
@@ -244,7 +244,7 @@
                  A[k], B[k] = A[j], B[j]
                  A[j], B[j] = A[i], B[i]
                  A[i], B[i] = x, y
-             elseif A[k] <= right
+             else if A[k] <= right
                  if A[k] > left
                      left = A[k]
                  if B[k] < right
@@ -263,4 +263,4 @@
      \end{align*}
      The expected running time is \(\Theta(n\lg n)\) when k is negligible to n.
 
-     When all of the intervals overlap, the running time is \(\Theta(n)\).
+     When all the intervals overlap, the running time is \(\Theta(n)\).

@@ -9,12 +9,12 @@
    the top of the tree, then we find the smallest element, the number of
    comparisons is \(n - 1\).
 
-   Then we consider about the second smallest element, the second smallest
-   element must have been compared to the smallest element in the first step,
-   we trace the path of the smallest element in the tree, the smallest element
-   of the elements who have been compared to the smallest element, is the second
-   smallest element, and the number of comparisons we need in this step is at
-   most \(\lceil \lg n \rceil - 1\).
+   Then we consider the second smallest element, we have already compared the
+   second smallest element to the smallest element in the first step, we trace
+   the path of the smallest element in the tree, the smallest element between
+   those have compared to the smallest element, is the second smallest element,
+   and the number of comparisons we need in this step is at most
+   \(\lceil \lg n \rceil - 1\).
 
    The total number of comparisons is at most \(n + \lceil \lg n \rceil - 2\).
 

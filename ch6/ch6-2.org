@@ -49,6 +49,6 @@
        return
    #+END_SRC
 ** 6.2-6
-   The MAX-HEAPIFY would be called \(h\) (heap height) times in the worst
+   We need to call the MAX-HEAPIFY \(h\) (heap height) times in the worst
    case, and we know that \(h = \lfloor \lg n \rfloor\), so that the worst case
    running time is \(T(n) = \Theta{\lfloor \lg n \rfloor} = \Omega(\lg n)\).

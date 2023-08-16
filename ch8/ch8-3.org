@@ -3,7 +3,7 @@
 * ch8.3
 ** 8.3-1
    #+BEGIN_SRC
-            --*      -*-      *--
+   ---      --*      -*-      *--
    COW      SEA      TAB      BAR
    DOG      TEA      BAR      BIG
    SEA      MOB      EAR      BOX
@@ -46,7 +46,7 @@
    *Termination:* When the loop terminates, the array is \(1..d\) digits radix
    sorted.
 
-   The assumption that the intermediate sort is stable is needed when the
+   We need the assumption that the intermediate sort is stable, when the
    \(ith\) digits of two elements are the same.
 ** 8.3-4
    From Lemma 8.4, we have
@@ -60,5 +60,5 @@
    In despite of the low level bits, we could simply perform a \(3\)-digit
    radix sort on the integers, each digit holds \(0\) to \(n - 1\).
 ** 8.3-5
-   In the worst case, \(d\) sorting passes are needed to sort \(d\)-digit
+   In the worst case, we need \(d\) sorting passes to sort \(d\)-digit
    decimal numbers, and an operator need to keep track of \(10\) piles of cards.

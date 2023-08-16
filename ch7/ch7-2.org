@@ -34,7 +34,7 @@
    split, thus the minimum depth is approximately \(-\lg n / \lg \alpha\),
    similarly, the maximum depth is approximately \(-\lg n / \lg (1 - \alpha)\).
 ** 7.2-6
-   We needs \(\alpha n < k < (1 - \alpha)n\) to produce a split more balanced
-   than \(1 - \alpha\) to \(\alpha\), which the pivot is the \(k\)-th smallest
+   We need \(\alpha n < k < (1 - \alpha)n\) to produce a split more balanced
+   than \(1 - \alpha\) to \(\alpha\), which the pivot is the smallest \(k\)-th
    element, the probability is approximately \(1 - 2\alpha\) for an random input
    array.

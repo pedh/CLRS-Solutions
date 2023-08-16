@@ -37,7 +37,7 @@
    satisfies the condition \(c_1 nk + c_2 n\lg(n/k) < c_2 n\lg n\).
 
 ** 7.4-6
-   Assume \(\alpha \leq 1/2\), else substitude \(\alpha\) with \(1 - \alpha\),
+   Assume \(\alpha \leq 1/2\), else substitute \(\alpha\) with \(1 - \alpha\),
    the probability of getting at worst an \(\alpha\)-to-\((1-\alpha)\) split is
    \begin{align*}
    \Pr\{\text{at worst an $\alpha$-to-$(1-\alpha)$ split}\}

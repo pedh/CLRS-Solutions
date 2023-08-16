@@ -98,7 +98,7 @@
    searches, unsuccessful searches and insertions is \(O(1 + \lg\alpha)\), the
    average running time for deletions is \(O(1)\).
 ** 11.2-4
-   Define a hash table =T= and a free list =F= within , each slot =s= stores one
+   Define a hash table =T= and a free list =F= within, each slot =s= stores one
    flag =s.free?= and two pointers, =s.prev= and =s.next=.
    #+begin_src
    INITIALIZE(T, F)
@@ -130,12 +130,12 @@
    The free list need to be doubly linked, to ensure the \(O(1)\) running time
    for deletion in the free list.
 ** 11.2-5
-   Assume that when hash all keys from \(U\) to the hash table, there are no
-   more than \(n\) keys be hashed to the same slot, then the total number of
-   keys in the hash table is no more than \(nm\), which conflicts with the
-   precondition \(|U|>nm\), thus \(U\) must have a subset of size \(n\)
-   consisting of keys that all hash to the same slot, so that the worst-case
-   searching time for hasing with chaining is \(\Theta(n)\).
+   Assume that when we hash all keys from \(U\) to the hash table, we hash no
+   more than \(n\) keys to the same slot, then the total number of keys in the
+   hash table is no more than \(nm\), which conflicts with the precondition
+   \(|U|>nm\), thus \(U\) must have a subset of size \(n\) consisting of keys
+   that all hash to the same slot, so that the worst-case searching time for
+   hashing with chaining is \(\Theta(n)\).
 ** 11.2-6
    We could select a key uniformly at random from among the keys in the hash
    table as below.

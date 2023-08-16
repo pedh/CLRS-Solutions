@@ -6,8 +6,8 @@
    In both cases, we won't change the color of the root, thus after executing
    =RB-DELETE-FIXUP=, the root of the tree must be black.
 ** 13.4-2
-   If both \(x\) and \(x.p\) are red, the call to =RB-DELETE-FIXUP= will simply
-   color \(x\) black, and restore property 4.
+   If we have colored both \(x\) and \(x.p\) red, the call to =RB-DELETE-FIXUP=
+   will simply color \(x\) black, and restore property 4.
 ** 13.4-3
    1. The initial tree.
       #+begin_src dot :file ch13-4-1.png :exports results
@@ -156,9 +156,9 @@
      | \zeta    | color(c) + 1             | color(c) + 1             |
      |----------+--------------------------+--------------------------|
 ** 13.4-6
-   In case 1, \(x\)'s sibling \(w\) is red, and both \(w\) and its parent \(p\)
-   were left untouched before =RB-DELETE-FIXUP=, thus \(p\) must be black at the
-   start of case 1, otherwise the red-black property 4 is violated.
+   In case 1, \(x\)'s sibling \(w\) is a red node, and we left both \(w\) and
+   its parent \(p\) untouched before =RB-DELETE-FIXUP=, thus \(p\) must be black
+   at the start of case 1, otherwise we violate red-black property 4.
 ** 13.4-7
    The resulting tree may not be the same as the initial red-black tree. Below
    is the counter example.

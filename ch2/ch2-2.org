@@ -19,14 +19,14 @@
    A[1..i - 1] contains the (i - 1) smallest elements.
 
    When the first (n - 1) elements contains the (n - 1) smallest elements, the
-   nth element is indeed the largest element.
+   nth element is the largest element.
 
    The running time of selection sort is \(\Theta(n^2)\) on any cases.
 ** 2.2-3
-   Half of the input sequence need to be checked on the average case.
+   We need to check Half of the input sequence on the average case.
 
-   The worst-case appears when v is not in A, all elements in A need to be
-   checked.
+   The worst-case appears when v is not in A, we need to check all elements
+   in A.
 
    The average-case and worst-case running times are both \(\Theta(n)\).
 ** 2.2-4

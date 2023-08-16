@@ -4,10 +4,10 @@
 ** 8-1
    - *a.*
 
-     There are totalling \(n!\) permutations and therefore \(n!\) unique leaves,
+     There are total \(n!\) permutations and therefore \(n!\) unique leaves,
      every permutation is equally likely, and the algorithm is deterministic,
-     thus there are exactly \(n!\) leaves labeled by \(1/n!\), the rest are
-     labeled \(0\).
+     thus there are exactly \(n!\) leaves labeled by \(1/n!\), we labeled the
+     rest by \(0\).
    - *b.*
 
      Let \(d_T(i)\) denote the depth of leaf \(i\) in tree \(T\), and
@@ -69,11 +69,11 @@
 
    - *f.*
 
-     The needed leaves does not reduce from a randomization node to any of its
+     The needed leaves do not reduce from a randomization node to any of its
      children, therefore if we replace each randomization node with its child
      which minimizing the external path length, we will get a deterministic
      comparison sort \(A\) whose expected number of comparisons is no more than
-     those mader by \(B\).
+     those made by \(B\).
 ** 8-2
    - *a.*
 
@@ -190,7 +190,7 @@
                      if k < j
                          R.remove(k)
                          RL.add(k)
-             elseif i < j
+             else if i < j
                  B.remove(j)
                  BL.add(j)
          FIND-WATER-JUGS-GROUPS(RL, BL, C)
@@ -260,9 +260,9 @@
      \end{align*}
    - *c.*
 
-     If two elements are consecutive in the sorted order, the the order of them
-     cannot be decided by comparing to other elements, and they are from
-     different lists, which means the two elements must be compared.
+     If two elements are consecutive in the sorted order, we cannot decide the
+     order of them by comparing them to other elements, and they are from
+     different lists, which means we must compare the two elements.
 
    - *d.*
 
@@ -296,13 +296,13 @@
      can treat columnsort as an oblivious compare-exchange algorithm.
    - *d.*
 
-     After step 1, all of the columns are sorted, which means, each column has
+     After step 1, we have sorted all the columns, which means, each column has
      at most one \(0 \to 1\) transition.
 
-     After step 2, each column is transposed to \(r / s\) rows, and at most one
-     of them is dirty, hence we have totally at most \(s\) dirty rows.
+     After step 2, we have transposed each column into \(r / s\) rows, and at
+     most one of them is dirty, hence we have totally at most \(s\) dirty rows.
 
-     After step 3, all of the columns are sorted, the array consists the clean
+     After step 3, we have sorted all the columns, the array consists the clean
      rows of \(0\)s at the top, the clean rows of \(1\)s at the bottom, and the
      dirty rows between them, the dirty rows come from the differences between
      the numbers of \(0\)s and \(1\)s of each column, according to the result of
@@ -341,14 +341,14 @@
 
      Suppose \(s\) does not divide \(r\).
 
-     After step 1, all of the columns are sorted, which means, each column has
+     After step 1, we have sorted all the columns, which means, each column has
      at most one \(0 \to 1\) transition.
 
      After step 2, we have at most \(s\) dirty rows from the \(0 \to 1\)
      transition, and \(s - 1\) dirty rows from the crosses of the adjacent
      columns, totally at most \(2s - 1\) dirty rows.
 
-     After step 3, all of the columns are sorted, the array consists the clean
+     After step 3, we have sorted all the columns, the array consists the clean
      rows of \(0\)s at the top, the clean rows of \(1\)s at the bottom, and the
      dirty rows between them, the dirty rows come from the differences between
      the numbers of \(0\)s and \(1\)s of each column, according to the result of

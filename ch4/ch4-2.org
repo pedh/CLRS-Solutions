@@ -110,7 +110,7 @@
    \log_{72}{155424} &\approx 2.795147
    \end{align*}
    So the way of multiplying \(70 \times 70\) matrices
-   using 143640 multiplications has best asymptotic running time.
+   using 143640 multiplications has optimal asymptotic running time.
    It's better than Strassen's algorithm which \(\lg 7 \approx 2.81\).
 ** 4.2-6
    - Multiply a \(kn \times n\) matrix by an \(n \times kn\) matrix:

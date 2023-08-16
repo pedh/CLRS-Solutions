@@ -135,7 +135,7 @@
      \end{align*}
      We know \(\int_0^x \frac{dt}{\ln t} = li(x)\)
      (Logarithmic integral function), and \(li(x) = \Theta(\frac{x}{\ln x})\),
-     so we guess that \(T(n) = \Theta(\frac{n}{\lg n})\), the proof is omitted.
+     so we guess that \(T(n) = \Theta(\frac{n}{\lg n})\).
    - *j.*
 
      \(T(n) = \sqrt n T(\sqrt n) + n = n\lg\lg n\).
@@ -194,8 +194,8 @@
 ** 4-5
    - *a.*
 
-     The bad chips could fool the professor by saying all other bad chips are
-     good and all good chips are bad.
+     The bad chips could fool the professor, by saying that all other bad
+     chips are good, and all good chips are bad.
    - *b.*
 
      Generate \(\lfloor n/2 \rfloor\) distinct pairwise tests from the n chips,
@@ -262,7 +262,7 @@
      If there exists \(i < j\) that \(f(i) > f(j)\),
      then \(A[i, f(i)] < A[i, f(j)]\), \(A[j, f(j) < A[j, f(i)]]\),
      thus \(A[i, f(j)] + A[j, f(i)] > A[j, f(j)] + A[i, f(i)]\),
-     the array is not monge.
+     the array is not Monge.
 
      Hence \(f(1) \leq f(2) \leq \cdots \leq f(m)\)
      for any \(m \times n\) Monge array.
