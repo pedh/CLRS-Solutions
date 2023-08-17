@@ -3,14 +3,14 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-11-08 Tue 06:25 -->
+<!-- 2023-08-17 Thu 10:35 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 6.5</title>
-<meta name="generator" content="Org mode" />
 <meta name="author" content="pedh" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
   .subtitle { text-align: center;
@@ -31,8 +31,9 @@
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
   pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -41,21 +42,21 @@
   pre.src {
     position: relative;
     overflow: auto;
-    padding-top: 1.2em;
   }
   pre.src:before {
     display: none;
     position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
+    top: -8px;
+    right: 12px;
     padding: 3px;
-    border: 1px solid black;
+    color: #555;
+    background-color: #f2f2f299;
   }
   pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -190,19 +191,17 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
-  /*]]>*/-->
+  .org-svg { }
 </style>
 <link rel="stylesheet" type="text/css" href="/css/org-info.css" />
 
-<script type="text/javascript" src="/js/org-info.js">
+<script src="/js/org-info.js">
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
 // @license-end
 </script>
 
-<script type="text/javascript">
+<script>
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
-<!--/*--><![CDATA[/*><!--*/
 org_html_manager.set("TOC_DEPTH", "3");
 org_html_manager.set("LINK_HOME", "/CLRS-Solutions");
 org_html_manager.set("LINK_UP", "/CLRS-Solutions");
@@ -213,89 +212,76 @@ org_html_manager.set("FIXED_TOC", "0");
 org_html_manager.set("TOC", "1");
 org_html_manager.set("VIEW", "info");
 org_html_manager.setup();  // activate after the parameters are set
-/*]]>*///-->
 // @license-end
 </script>
-<script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
-<!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
 
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="org-div-home-and-up">
  <a accesskey="h" href="/CLRS-Solutions"> UP </a>
  |
  <a accesskey="H" href="/CLRS-Solutions"> HOME </a>
-</div><div id="content">
+</div><div id="content" class="content">
 <h1 class="title">Chapter 6.5</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgc53a74f">ch6.5</a>
+<li><a href="#org9cdfa4e">ch6.5</a>
 <ul>
-<li><a href="#orgb63995d">6.5-1</a></li>
-<li><a href="#orgabe2168">6.5-2</a></li>
-<li><a href="#org5f0776c">6.5-3</a></li>
-<li><a href="#orgb21ea18">6.5-4</a></li>
-<li><a href="#orgb6f5be4">6.5-5</a></li>
-<li><a href="#org98b2932">6.5-6</a></li>
-<li><a href="#org4be4fcf">6.5-7</a></li>
-<li><a href="#orgfdbf915">6.5-8</a></li>
-<li><a href="#org9868b5c">6.5-9</a></li>
+<li><a href="#orge5dd021">6.5-1</a></li>
+<li><a href="#orgc160c76">6.5-2</a></li>
+<li><a href="#org0f654d6">6.5-3</a></li>
+<li><a href="#orgcc3048a">6.5-4</a></li>
+<li><a href="#orge351325">6.5-5</a></li>
+<li><a href="#orge85daa6">6.5-6</a></li>
+<li><a href="#org6e8545d">6.5-7</a></li>
+<li><a href="#orgdda1157">6.5-8</a></li>
+<li><a href="#org8c4db13">6.5-9</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgc53a74f" class="outline-2">
-<h2 id="orgc53a74f">ch6.5</h2>
-<div class="outline-text-2" id="text-orgc53a74f">
+<div id="outline-container-org9cdfa4e" class="outline-2">
+<h2 id="org9cdfa4e">ch6.5</h2>
+<div class="outline-text-2" id="text-org9cdfa4e">
 </div>
-<div id="outline-container-orgb63995d" class="outline-3">
-<h3 id="orgb63995d">6.5-1</h3>
-<div class="outline-text-3" id="text-orgb63995d">
+<div id="outline-container-orge5dd021" class="outline-3">
+<h3 id="orge5dd021">6.5-1</h3>
+<div class="outline-text-3" id="text-orge5dd021">
 <pre class="example">
    (15 (13 (5 (4) (0)) (12 (6) (2))) (9 (8 (1)) (7)))
 -&gt; (1 (13 (5 (4) (0)) (12 (6) (2))) (9 (8) (7)))       # extract 15
@@ -303,9 +289,9 @@ org_html_manager.setup();  // activate after the parameters are set
 </pre>
 </div>
 </div>
-<div id="outline-container-orgabe2168" class="outline-3">
-<h3 id="orgabe2168">6.5-2</h3>
-<div class="outline-text-3" id="text-orgabe2168">
+<div id="outline-container-orgc160c76" class="outline-3">
+<h3 id="orgc160c76">6.5-2</h3>
+<div class="outline-text-3" id="text-orgc160c76">
 <pre class="example">
    (15 (13 (5 (4) (0)) (12 (6) (2))) (9 (8 (1)) (7)))
 -&gt; (15 (13 (5 (4) (0)) (12 (6) (2))) (9 (8 (1) (*10*)) (7)))
@@ -315,9 +301,9 @@ org_html_manager.setup();  // activate after the parameters are set
 </pre>
 </div>
 </div>
-<div id="outline-container-org5f0776c" class="outline-3">
-<h3 id="org5f0776c">6.5-3</h3>
-<div class="outline-text-3" id="text-org5f0776c">
+<div id="outline-container-org0f654d6" class="outline-3">
+<h3 id="org0f654d6">6.5-3</h3>
+<div class="outline-text-3" id="text-org0f654d6">
 <pre class="example">
 HEAP-MINIMUM(A)
     return A[1]
@@ -325,7 +311,7 @@ HEAP-MINIMUM(A)
 <pre class="example">
 HEAP-EXTRACT-MIN(A)
     if A.heapsize &lt; 1
-	error "heap underflow"
+        error "heap underflow"
     min = A[1]
     A[1] = A[A.heapsize]
     A.heapsize = A.heapsize - 1
@@ -335,11 +321,11 @@ HEAP-EXTRACT-MIN(A)
 <pre class="example">
 HEAP-DECREASE-KEY(A, i, key)
     if key &gt; A[i]
-	error "new key is larger than current key"
+        error "new key is larger than current key"
     A[i] = key
     while i &gt; 1 and A[PARENT(i)] &gt; A[i]
-	exchange A[i] with A[PARENT(i)]
-	i = PARENT(i)
+        exchange A[i] with A[PARENT(i)]
+        i = PARENT(i)
 </pre>
 <pre class="example">
 MIN-HEAP-INSERT(A, key)
@@ -349,21 +335,21 @@ MIN-HEAP-INSERT(A, key)
 </pre>
 </div>
 </div>
-<div id="outline-container-orgb21ea18" class="outline-3">
-<h3 id="orgb21ea18">6.5-4</h3>
-<div class="outline-text-3" id="text-orgb21ea18">
+<div id="outline-container-orgcc3048a" class="outline-3">
+<h3 id="orgcc3048a">6.5-4</h3>
+<div class="outline-text-3" id="text-orgcc3048a">
 <p>
 Set the key to \(-\infty\) to keep the max heap and ensure that the desired
 value is larger than the current value.
 </p>
 </div>
 </div>
-<div id="outline-container-orgb6f5be4" class="outline-3">
-<h3 id="orgb6f5be4">6.5-5</h3>
-<div class="outline-text-3" id="text-orgb6f5be4">
+<div id="outline-container-orge351325" class="outline-3">
+<h3 id="orge351325">6.5-5</h3>
+<div class="outline-text-3" id="text-orge351325">
 <p>
 <b>Initialization:</b> The subarray is same as the original max heap except
-\(A[i] = key\), and there may exists one exception that \(A[i] = key\) may be
+\(A[i] = key\), and there may exist one exception that \(A[i] = key\) may be
 larger than \(A[PARENT(i)]\).
 </p>
 
@@ -374,29 +360,29 @@ be larger than \(A[PARENT(PARENT(i))]\).
 </p>
 
 <p>
-<b>Termination:</b> We terminates when \(i = 1\) or \(A[PARENT(i)] \leq A[i]\),
-the violation is resolved, the subarray becomes a max heap.
+<b>Termination:</b> We terminate when \(i = 1\) or \(A[PARENT(i)] \leq A[i]\),
+we resolved the violation and the subarray becomes a max heap.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org98b2932" class="outline-3">
-<h3 id="org98b2932">6.5-6</h3>
-<div class="outline-text-3" id="text-org98b2932">
+<div id="outline-container-orge85daa6" class="outline-3">
+<h3 id="orge85daa6">6.5-6</h3>
+<div class="outline-text-3" id="text-orge85daa6">
 <pre class="example">
 HEAP-INCREASE-KEY(A, i, key)
     if key &lt; A[i]
-	error "new key is smaller than current key"
+        error "new key is smaller than current key"
     while i &gt; 1 and A[PARENT(i)] &lt; A[i]
-	A[i] = A[PARENT(i)]
-	i = PARENT(i)
+        A[i] = A[PARENT(i)]
+        i = PARENT(i)
     A[i] = key
 </pre>
 </div>
 </div>
-<div id="outline-container-org4be4fcf" class="outline-3">
-<h3 id="org4be4fcf">6.5-7</h3>
-<div class="outline-text-3" id="text-org4be4fcf">
+<div id="outline-container-org6e8545d" class="outline-3">
+<h3 id="org6e8545d">6.5-7</h3>
+<div class="outline-text-3" id="text-org6e8545d">
 <p>
 <b>FIFO queue:</b> Use a min-priority queue, increase the priority on every
 insertion.
@@ -413,38 +399,38 @@ need to consider reassignment of the priorities.
 </p>
 </div>
 </div>
-<div id="outline-container-orgfdbf915" class="outline-3">
-<h3 id="orgfdbf915">6.5-8</h3>
-<div class="outline-text-3" id="text-orgfdbf915">
+<div id="outline-container-orgdda1157" class="outline-3">
+<h3 id="orgdda1157">6.5-8</h3>
+<div class="outline-text-3" id="text-orgdda1157">
 <pre class="example">
 HEAP-DELETE(A, i)
     key = A[A.heap-size]
     if A[i] &gt; key
-	A[i] = key
-	MAX-HEAPIFY(A, i)
+        A[i] = key
+        MAX-HEAPIFY(A, i)
     else HEAP-INCREASE-KEY(A, i, key)
     A.heap-size = A.heap-size - 1
 </pre>
 </div>
 </div>
-<div id="outline-container-org9868b5c" class="outline-3">
-<h3 id="org9868b5c">6.5-9</h3>
-<div class="outline-text-3" id="text-org9868b5c">
+<div id="outline-container-org8c4db13" class="outline-3">
+<h3 id="org8c4db13">6.5-9</h3>
+<div class="outline-text-3" id="text-org8c4db13">
 <pre class="example">
 MERGE-SORTED-LISTS(L, k)
     let A[1..k] be a new array
     let B be a new array
     for i = 1 to k
-	A[i].list-index = i
-	A[i].index = 1
-	A[i].key = L[i][1]
+        A[i].list-index = i
+        A[i].index = 1
+        A[i].key = L[i][1]
     BUILD-MIN-HEAP(A)
     while A.heap-size &gt; 0
-	B.append(A[1].key)
-	if A[1].index &lt; L[A[1].list-index].length
-	    A[1].index = A[1].index + 1
-	    A[1].key = L[A[1].list-index][A[1].index]
-	else HEAP-EXTRACT-MIN(A)
+        B.append(A[1].key)
+        if A[1].index &lt; L[A[1].list-index].length
+            A[1].index = A[1].index + 1
+            A[1].key = L[A[1].list-index][A[1].index]
+        else HEAP-EXTRACT-MIN(A)
     return B
 </pre>
 </div>
@@ -453,7 +439,7 @@ MERGE-SORTED-LISTS(L, k)
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2022-11-08 Tue 06:25</p>
+<p class="date">Created: 2023-08-17 Thu 10:35</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

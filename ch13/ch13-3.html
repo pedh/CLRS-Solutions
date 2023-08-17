@@ -3,14 +3,14 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-11-08 Tue 06:25 -->
+<!-- 2023-08-17 Thu 10:36 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 13.3</title>
-<meta name="generator" content="Org mode" />
 <meta name="author" content="pedh" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
   .subtitle { text-align: center;
@@ -31,8 +31,9 @@
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
   pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -41,21 +42,21 @@
   pre.src {
     position: relative;
     overflow: auto;
-    padding-top: 1.2em;
   }
   pre.src:before {
     display: none;
     position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
+    top: -8px;
+    right: 12px;
     padding: 3px;
-    border: 1px solid black;
+    color: #555;
+    background-color: #f2f2f299;
   }
   pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -190,19 +191,17 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
-  /*]]>*/-->
+  .org-svg { }
 </style>
 <link rel="stylesheet" type="text/css" href="/css/org-info.css" />
 
-<script type="text/javascript" src="/js/org-info.js">
+<script src="/js/org-info.js">
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
 // @license-end
 </script>
 
-<script type="text/javascript">
+<script>
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
-<!--/*--><![CDATA[/*><!--*/
 org_html_manager.set("TOC_DEPTH", "3");
 org_html_manager.set("LINK_HOME", "/CLRS-Solutions");
 org_html_manager.set("LINK_UP", "/CLRS-Solutions");
@@ -213,101 +212,88 @@ org_html_manager.set("FIXED_TOC", "0");
 org_html_manager.set("TOC", "1");
 org_html_manager.set("VIEW", "info");
 org_html_manager.setup();  // activate after the parameters are set
-/*]]>*///-->
 // @license-end
 </script>
-<script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
-<!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
 
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="org-div-home-and-up">
  <a accesskey="h" href="/CLRS-Solutions"> UP </a>
  |
  <a accesskey="H" href="/CLRS-Solutions"> HOME </a>
-</div><div id="content">
+</div><div id="content" class="content">
 <h1 class="title">Chapter 13.3</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org3ea156a">13.3</a>
+<li><a href="#orga1d150a">13.3</a>
 <ul>
-<li><a href="#org3215926">13.3-1</a></li>
-<li><a href="#org33c8037">13.3-2</a></li>
-<li><a href="#orgc61de32">13.3-3</a></li>
-<li><a href="#org5ee3f65">13.3-4</a></li>
-<li><a href="#orge73d1da">13.3-5</a></li>
-<li><a href="#org11ddf87">13.3-6</a></li>
+<li><a href="#orgf54d4a3">13.3-1</a></li>
+<li><a href="#orge069d29">13.3-2</a></li>
+<li><a href="#org370b1f8">13.3-3</a></li>
+<li><a href="#org78d0967">13.3-4</a></li>
+<li><a href="#org6b739a9">13.3-5</a></li>
+<li><a href="#org7eaa46e">13.3-6</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org3ea156a" class="outline-2">
-<h2 id="org3ea156a">13.3</h2>
-<div class="outline-text-2" id="text-org3ea156a">
+<div id="outline-container-orga1d150a" class="outline-2">
+<h2 id="orga1d150a">13.3</h2>
+<div class="outline-text-2" id="text-orga1d150a">
 </div>
-<div id="outline-container-org3215926" class="outline-3">
-<h3 id="org3215926">13.3-1</h3>
-<div class="outline-text-3" id="text-org3215926">
+<div id="outline-container-orgf54d4a3" class="outline-3">
+<h3 id="orgf54d4a3">13.3-1</h3>
+<div class="outline-text-3" id="text-orgf54d4a3">
 <p>
-If we set the newly inserted node \(z\) to black, then property 5 might be
-violated, and it's more difficult to fix property 5 than property 4.
+If we set the newly inserted node \(z\) to black, then we might violate the
+property 5, and it's more difficult to fix property 5 than property 4.
 </p>
 </div>
 </div>
-<div id="outline-container-org33c8037" class="outline-3">
-<h3 id="org33c8037">13.3-2</h3>
-<div class="outline-text-3" id="text-org33c8037">
+<div id="outline-container-orge069d29" class="outline-3">
+<h3 id="orge069d29">13.3-2</h3>
+<div class="outline-text-3" id="text-orge069d29">
 <ol class="org-ol">
 <li><p>
 Insert \(41\).
 </p>
 
-<div id="org648f099" class="figure">
+<div id="orgcde71cd" class="figure">
 <p><img src="../static/generated/images/ch13-3-1.png" alt="ch13-3-1.png" />
 </p>
 </div></li>
@@ -316,7 +302,7 @@ Insert \(41\).
 Insert \(38\).
 </p>
 
-<div id="orgb70829e" class="figure">
+<div id="orgde111d4" class="figure">
 <p><img src="../static/generated/images/ch13-3-2.png" alt="ch13-3-2.png" />
 </p>
 </div></li>
@@ -325,7 +311,7 @@ Insert \(38\).
 Insert \(31\).
 </p>
 
-<div id="org5c6f434" class="figure">
+<div id="org7088346" class="figure">
 <p><img src="../static/generated/images/ch13-3-3.png" alt="ch13-3-3.png" />
 </p>
 </div></li>
@@ -334,7 +320,7 @@ Insert \(31\).
 Insert \(12\).
 </p>
 
-<div id="org0f92546" class="figure">
+<div id="orgb93a03d" class="figure">
 <p><img src="../static/generated/images/ch13-3-4.png" alt="ch13-3-4.png" />
 </p>
 </div></li>
@@ -343,7 +329,7 @@ Insert \(12\).
 Insert \(19\).
 </p>
 
-<div id="org19ccf43" class="figure">
+<div id="org841f34d" class="figure">
 <p><img src="../static/generated/images/ch13-3-5.png" alt="ch13-3-5.png" />
 </p>
 </div></li>
@@ -352,7 +338,7 @@ Insert \(19\).
 Insert \(8\).
 </p>
 
-<div id="org4422c1c" class="figure">
+<div id="orgb942d11" class="figure">
 <p><img src="../static/generated/images/ch13-3-6.png" alt="ch13-3-6.png" />
 </p>
 </div></li>
@@ -360,21 +346,21 @@ Insert \(8\).
 </div>
 </div>
 
-<div id="outline-container-orgc61de32" class="outline-3">
-<h3 id="orgc61de32">13.3-3</h3>
-<div class="outline-text-3" id="text-orgc61de32">
+<div id="outline-container-org370b1f8" class="outline-3">
+<h3 id="org370b1f8">13.3-3</h3>
+<div class="outline-text-3" id="text-org370b1f8">
 <ol class="org-ol">
 <li><p>
 For case 1.
 </p>
 
-<div id="org6f4b903" class="figure">
+<div id="org6512743" class="figure">
 <p><img src="../static/generated/images/ch13-3-7.png" alt="ch13-3-7.png" />
 </p>
 </div>
 
 
-<div id="orgf19e399" class="figure">
+<div id="org276087f" class="figure">
 <p><img src="../static/generated/images/ch13-3-8.png" alt="ch13-3-8.png" />
 </p>
 </div></li>
@@ -383,7 +369,7 @@ For case 1.
 For case 2 &amp; 3.
 </p>
 
-<div id="orgcedab30" class="figure">
+<div id="org7178588" class="figure">
 <p><img src="../static/generated/images/ch13-3-9.png" alt="ch13-3-9.png" />
 </p>
 </div></li>
@@ -391,36 +377,38 @@ For case 2 &amp; 3.
 </div>
 </div>
 
-<div id="outline-container-org5ee3f65" class="outline-3">
-<h3 id="org5ee3f65">13.3-4</h3>
-<div class="outline-text-3" id="text-org5ee3f65">
+<div id="outline-container-org78d0967" class="outline-3">
+<h3 id="org78d0967">13.3-4</h3>
+<div class="outline-text-3" id="text-org78d0967">
 <p>
-If we set \(T.nil.color\) to RED, then the color of \(T.root\) must have been
-set to RED too, this is impossible because we would only set the color of one
-node to RED in an iteration, and then move up two levels in the tree or end
-the loop. Thus <code>RB-INSERT-FIXUP</code> never sets \(T.nil.color\) to RED.
+If we set \(T.nil.color\) to RED, then we must have set the color of
+\(T.root\) RED too, this is impossible because we would only set the color of
+one node to RED in an iteration, and then move up two levels in the tree or
+end the loop. Thus, we never sets \(T.nil.color\) to RED in
+<code>RB-INSERT-FIXUP</code>.
 </p>
 </div>
 </div>
-<div id="outline-container-orge73d1da" class="outline-3">
-<h3 id="orge73d1da">13.3-5</h3>
-<div class="outline-text-3" id="text-orge73d1da">
+<div id="outline-container-org6b739a9" class="outline-3">
+<h3 id="org6b739a9">13.3-5</h3>
+<div class="outline-text-3" id="text-org6b739a9">
 <p>
 Note that we would only color the nodes BLACK in <code>RB-INSERT-FIXUP</code>, in the
 <code>RB-INSERT-FIXUP</code> procedure, if the while loop never iterates, then we only
 color \(T.root\) BLACK, but we have \(n > 1\), thus the new node \(z\) is not
 colored BLACK; else the while loop iterates, for each iteration, if it goes
-case 1 in Figure 13.5, after the iteration the node on the bottom is RED, and
-if it goes case 2 or case 3 in Figure 13.6, after the iteration the two nodes
-on the bottom is RED, when the while loop finished, we color \(T.root\)
-BLACK, but the bottom red nodes after the iterations will not be colored
-BLACK. Hence if \(n > 1\), the tree has at least one red node.
+case 1 in Figure 13.5, after the iteration, we colored the node on the
+bottom RED, and if it goes case 2 or case 3 in Figure 13.6, after the
+iteration, we colored the two nodes on the bottom RED, when the while loop
+finished, we color \(T.root\) BLACK, but after the iterations, we will not
+color the bottom red nodes BLACK. Hence, if \(n > 1\), the tree has at least
+one red node.
 </p>
 </div>
 </div>
-<div id="outline-container-org11ddf87" class="outline-3">
-<h3 id="org11ddf87">13.3-6</h3>
-<div class="outline-text-3" id="text-org11ddf87">
+<div id="outline-container-org7eaa46e" class="outline-3">
+<h3 id="org7eaa46e">13.3-6</h3>
+<div class="outline-text-3" id="text-org7eaa46e">
 <p>
 We could use a stack to store the nodes on the simple path down to \(z\), and
 pop the nodes out if we need to get the ancestor nodes of \(z\), the modified
@@ -433,15 +421,15 @@ RB-INSERT(T, z)
     let S be an empty stack
     PUSH(S, y)
     while x != T.nil
-	y = x
-	PUSH(S, y)
-	if z.key &lt; x.key
-	    x = x.left
-	else x = x.right
+        y = x
+        PUSH(S, y)
+        if z.key &lt; x.key
+            x = x.left
+        else x = x.right
     if y == T.nil
-	T.root = z
-    elseif z.key &lt; y.key
-	y.left = z
+        T.root = z
+    else if z.key &lt; y.key
+        y.left = z
     else y.right = z
     z.left = T.nil
     z.right = T.nil
@@ -451,32 +439,32 @@ RB-INSERT(T, z)
 RB-INSERT-FIXUP(T, z, S)
     zp = POP(S)
     while zp.color == RED
-	zpp = POP(S)
-	if zp == zpp.left
-	    y = zpp.right
-	    if y.color == RED
-		zp.color = BLACK
-		y.color = BLACK
-		zpp.color = RED
-		z = zpp
-		zp = POP(S)
-	    else if z == zp.right
-		     z = zp
-		     LEFT-ROTATE(T, z, zp)
-		 zp.color = BLACK
-		 zpp.color = RED
-		 zppp = POP(S)
-		 RIGHT-ROTATE(T, zpp, zppp)
-	else (same as then clause with "right" and "left" exchanged)
+        zpp = POP(S)
+        if zp == zpp.left
+            y = zpp.right
+            if y.color == RED
+                zp.color = BLACK
+                y.color = BLACK
+                zpp.color = RED
+                z = zpp
+                zp = POP(S)
+            else if z == zp.right
+                     z = zp
+                     LEFT-ROTATE(T, z, zp)
+                 zp.color = BLACK
+                 zpp.color = RED
+                 zppp = POP(S)
+                 RIGHT-ROTATE(T, zpp, zppp)
+        else (same as then clause with "right" and "left" exchanged)
     T.root.color = BLACK
 
 LEFT-ROTATE(T, x, xp)
     y = x.right
     x.right = y.left
     if xp == T.nil
-	T.root = y
-    elseif x == xp.left
-	xp.left = y
+        T.root = y
+    else if x == xp.left
+        xp.left = y
     else xp.right = y
     y.left = x
 
@@ -484,9 +472,9 @@ RIGHT-ROTATE(T, y, yp)
     x = y.left
     y.left = x.right
     if yp == T.nil
-	T.root = x
-    elseif y == yp.left
-	yp.left = x
+        T.root = x
+    else if y == yp.left
+        yp.left = x
     else yp.right = x
     x.right = y
 </pre>
@@ -496,7 +484,7 @@ RIGHT-ROTATE(T, y, yp)
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2022-11-08 Tue 06:25</p>
+<p class="date">Created: 2023-08-17 Thu 10:36</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

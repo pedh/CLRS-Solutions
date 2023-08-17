@@ -3,14 +3,14 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-11-08 Tue 06:25 -->
+<!-- 2023-08-17 Thu 10:35 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 9 problems</title>
-<meta name="generator" content="Org mode" />
 <meta name="author" content="pedh" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
   .subtitle { text-align: center;
@@ -31,8 +31,9 @@
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
   pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -41,21 +42,21 @@
   pre.src {
     position: relative;
     overflow: auto;
-    padding-top: 1.2em;
   }
   pre.src:before {
     display: none;
     position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
+    top: -8px;
+    right: 12px;
     padding: 3px;
-    border: 1px solid black;
+    color: #555;
+    background-color: #f2f2f299;
   }
   pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -190,19 +191,17 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
-  /*]]>*/-->
+  .org-svg { }
 </style>
 <link rel="stylesheet" type="text/css" href="/css/org-info.css" />
 
-<script type="text/javascript" src="/js/org-info.js">
+<script src="/js/org-info.js">
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
 // @license-end
 </script>
 
-<script type="text/javascript">
+<script>
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
-<!--/*--><![CDATA[/*><!--*/
 org_html_manager.set("TOC_DEPTH", "3");
 org_html_manager.set("LINK_HOME", "/CLRS-Solutions");
 org_html_manager.set("LINK_UP", "/CLRS-Solutions");
@@ -213,84 +212,71 @@ org_html_manager.set("FIXED_TOC", "0");
 org_html_manager.set("TOC", "1");
 org_html_manager.set("VIEW", "info");
 org_html_manager.setup();  // activate after the parameters are set
-/*]]>*///-->
 // @license-end
 </script>
-<script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
-<!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
 
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="org-div-home-and-up">
  <a accesskey="h" href="/CLRS-Solutions"> UP </a>
  |
  <a accesskey="H" href="/CLRS-Solutions"> HOME </a>
-</div><div id="content">
+</div><div id="content" class="content">
 <h1 class="title">Chapter 9 problems</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orga91cb88">ch9-problems</a>
+<li><a href="#orgabac924">ch9-problems</a>
 <ul>
-<li><a href="#org56cd1ed">9-1</a></li>
-<li><a href="#org5767a22">9-2</a></li>
-<li><a href="#org6b024ce">9-3</a></li>
-<li><a href="#org1560dcb">9-4</a></li>
+<li><a href="#org41ba9b1">9-1</a></li>
+<li><a href="#orga704500">9-2</a></li>
+<li><a href="#org19d9ba0">9-3</a></li>
+<li><a href="#org2444c11">9-4</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orga91cb88" class="outline-2">
-<h2 id="orga91cb88">ch9-problems</h2>
-<div class="outline-text-2" id="text-orga91cb88">
+<div id="outline-container-orgabac924" class="outline-2">
+<h2 id="orgabac924">ch9-problems</h2>
+<div class="outline-text-2" id="text-orgabac924">
 </div>
-<div id="outline-container-org56cd1ed" class="outline-3">
-<h3 id="org56cd1ed">9-1</h3>
-<div class="outline-text-3" id="text-org56cd1ed">
+<div id="outline-container-org41ba9b1" class="outline-3">
+<h3 id="org41ba9b1">9-1</h3>
+<div class="outline-text-3" id="text-org41ba9b1">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
@@ -326,7 +312,7 @@ The running time is \(O(n + i\lg n)\).
 
 <p>
 We use an order-statistic algorithm to find the \(i\)th largest number, and
-partiton around that number, which takes \(O(n)\) running time, then we
+partition around that number, which takes \(O(n)\) running time, then we
 use worst-case \(O(n\lg n)\) running time sorting method, such as heapsort
 or merge sort, to sort the \(i\) largest numbers, which takes \(O(i\lg i)\)
 running time.
@@ -338,9 +324,9 @@ The running time is \(O(n + i\lg i)\).
 </ul>
 </div>
 </div>
-<div id="outline-container-org5767a22" class="outline-3">
-<h3 id="org5767a22">9-2</h3>
-<div class="outline-text-3" id="text-org5767a22">
+<div id="outline-container-orga704500" class="outline-3">
+<h3 id="orga704500">9-2</h3>
+<div class="outline-text-3" id="text-orga704500">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
@@ -388,17 +374,17 @@ WEIGHTED-MEDIAN(A)
 
 WEIGHTED-MEDIAN-R(A, x)
     if A.length == 1
-	return A[1]
+        return A[1]
     m = A.length / 2
     med = SELECT(A, m)
     PARTITION(A, med)
     sum = 0
     for i = 1 to m - 1
-	sum = sum + A[i]
+        sum = sum + A[i]
     if sum &lt; x
-	if sum + med &gt;= x
-	    return med
-	return WEIGHTED-MEDIAN-R(A[m + 1..A.length], x - sum - med)
+        if sum + med &gt;= x
+            return med
+        return WEIGHTED-MEDIAN-R(A[m + 1..A.length], x - sum - med)
     return WEIGHTED-MEDIAN-R(A[1..m - 1], x)
 </pre>
 <p>
@@ -443,7 +429,7 @@ then
 &>0
 \end{align*}
 <p>
-It's similar when \(q > p\), thus the weighted median is a best solution
+It's similar when \(q > p\), thus the weighted median is the best solution
 for the 1-dimensional post-office location problem.
 </p></li>
 <li><p>
@@ -465,9 +451,9 @@ solution for the 2-dimensional post-office problem \((x_m, y_m)\).
 </ul>
 </div>
 </div>
-<div id="outline-container-org6b024ce" class="outline-3">
-<h3 id="org6b024ce">9-3</h3>
-<div class="outline-text-3" id="text-org6b024ce">
+<div id="outline-container-org19d9ba0" class="outline-3">
+<h3 id="org19d9ba0">9-3</h3>
+<div class="outline-text-3" id="text-org19d9ba0">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
@@ -532,9 +518,9 @@ U_i(n)
 </ul>
 </div>
 </div>
-<div id="outline-container-org1560dcb" class="outline-3">
-<h3 id="org1560dcb">9-4</h3>
-<div class="outline-text-3" id="text-org1560dcb">
+<div id="outline-container-org2444c11" class="outline-3">
+<h3 id="org2444c11">9-4</h3>
+<div class="outline-text-3" id="text-org2444c11">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
@@ -606,8 +592,8 @@ E[X_k]
 </p>
 
 <p>
-The running time of RANDOMIZED-SELECT is determined by the total number of
-comparisons, thus the expected running time is \(O(n)\).
+The total number of comparisons determines the running time of
+RANDOMIZED-SELECT, thus the expected running time is \(O(n)\).
 </p></li>
 </ul>
 </div>
@@ -616,7 +602,7 @@ comparisons, thus the expected running time is \(O(n)\).
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2022-11-08 Tue 06:25</p>
+<p class="date">Created: 2023-08-17 Thu 10:35</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

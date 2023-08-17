@@ -3,14 +3,14 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-11-08 Tue 06:25 -->
+<!-- 2023-08-17 Thu 10:36 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 14.1</title>
-<meta name="generator" content="Org mode" />
 <meta name="author" content="pedh" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
   .subtitle { text-align: center;
@@ -31,8 +31,9 @@
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
   pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -41,21 +42,21 @@
   pre.src {
     position: relative;
     overflow: auto;
-    padding-top: 1.2em;
   }
   pre.src:before {
     display: none;
     position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
+    top: -8px;
+    right: 12px;
     padding: 3px;
-    border: 1px solid black;
+    color: #555;
+    background-color: #f2f2f299;
   }
   pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -190,19 +191,17 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
-  /*]]>*/-->
+  .org-svg { }
 </style>
 <link rel="stylesheet" type="text/css" href="/css/org-info.css" />
 
-<script type="text/javascript" src="/js/org-info.js">
+<script src="/js/org-info.js">
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
 // @license-end
 </script>
 
-<script type="text/javascript">
+<script>
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
-<!--/*--><![CDATA[/*><!--*/
 org_html_manager.set("TOC_DEPTH", "3");
 org_html_manager.set("LINK_HOME", "/CLRS-Solutions");
 org_html_manager.set("LINK_UP", "/CLRS-Solutions");
@@ -213,116 +212,103 @@ org_html_manager.set("FIXED_TOC", "0");
 org_html_manager.set("TOC", "1");
 org_html_manager.set("VIEW", "info");
 org_html_manager.setup();  // activate after the parameters are set
-/*]]>*///-->
 // @license-end
 </script>
-<script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
-<!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
 
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="org-div-home-and-up">
  <a accesskey="h" href="/CLRS-Solutions"> UP </a>
  |
  <a accesskey="H" href="/CLRS-Solutions"> HOME </a>
-</div><div id="content">
+</div><div id="content" class="content">
 <h1 class="title">Chapter 14.1</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgc4d5ef8">14.1</a>
+<li><a href="#orgb2d3354">14.1</a>
 <ul>
-<li><a href="#org1af244f">14.1-1</a></li>
-<li><a href="#org7fc14ad">14.1-2</a></li>
-<li><a href="#orgfd1218d">14.1-3</a></li>
-<li><a href="#orgcdbb07a">14.1-4</a></li>
-<li><a href="#org83f1a19">14.1-5</a></li>
-<li><a href="#org21502fd">14.1-6</a></li>
-<li><a href="#orga22387e">14.1-7</a></li>
-<li><a href="#orgb86dbda">14.1-8</a></li>
+<li><a href="#org039d9d5">14.1-1</a></li>
+<li><a href="#org9ebc051">14.1-2</a></li>
+<li><a href="#org6991510">14.1-3</a></li>
+<li><a href="#org30de023">14.1-4</a></li>
+<li><a href="#org4cb5168">14.1-5</a></li>
+<li><a href="#org0a8041d">14.1-6</a></li>
+<li><a href="#orge28a6e0">14.1-7</a></li>
+<li><a href="#orgff538cc">14.1-8</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgc4d5ef8" class="outline-2">
-<h2 id="orgc4d5ef8">14.1</h2>
-<div class="outline-text-2" id="text-orgc4d5ef8">
+<div id="outline-container-orgb2d3354" class="outline-2">
+<h2 id="orgb2d3354">14.1</h2>
+<div class="outline-text-2" id="text-orgb2d3354">
 </div>
-<div id="outline-container-org1af244f" class="outline-3">
-<h3 id="org1af244f">14.1-1</h3>
-<div class="outline-text-3" id="text-org1af244f">
+<div id="outline-container-org039d9d5" class="outline-3">
+<h3 id="org039d9d5">14.1-1</h3>
+<div class="outline-text-3" id="text-org039d9d5">
 <p>
 To see how <code>OS-SELECT</code> operates. We begin with \(x\) as the root, whose key
 is \(26\), and with \(i = 10\).
-Since the size of \(26\)'s left subtree is \(12\), its rank is \(13\). Thus
+Since the size of \(26\)'s left subtree is \(12\), its rank is \(13\). Thus,
 we know that the node with rank \(10\) is the \(10\)th smallest element in
 \(26\)'s left subtree. After the recursive call, \(x\) is the node with key
 \(17\), and \(i = 10\).
-Since the size of \(17\)'s left subtree is \(7\), its rank is \(8\). Thus we
+Since the size of \(17\)'s left subtree is \(7\), its rank is \(8\). Thus, we
 know that the node with rank \(10\) is the \(10 - 8 = 2\)nd smallest element
 in \(17\)'s right subtree. After the recursive call, \(x\) is the node with
 key \(21\), and \(i = 2\).
-Since the size of \(21\)'s left subtree is \(2\), its rank is \(3\). Thus we
+Since the size of \(21\)'s left subtree is \(2\), its rank is \(3\). Thus, we
 know that the node with rank \(2\) is the \(2\)nd smallest element in
 \(21\)'s left subtree. After the recursive call, \(x\) is the node with key
 \(19\), and \(i = 2\).
-Since the size of \(19\)'s left subtree is \(0\), its rank is \(1\). Thus we
+Since the size of \(19\)'s left subtree is \(0\), its rank is \(1\). Thus, we
 know that the node with rank \(2\) is the \(2 - 1 = 1\)st smallest element in
 \(19\)'s right subtree. After the recursive call, \(x\) is the node with key
 \(20\), and \(i = 1\).
-Since the size of \(20\)'s left subtree is \(0\), its rank is \(1\). Thus we
+Since the size of \(20\)'s left subtree is \(0\), its rank is \(1\). Thus, we
 know that the node with rank \(1\) is \(20\), the procedure returns a pointer
 to the node with key \(20\).
 </p>
 </div>
 </div>
-<div id="outline-container-org7fc14ad" class="outline-3">
-<h3 id="org7fc14ad">14.1-2</h3>
-<div class="outline-text-3" id="text-org7fc14ad">
+<div id="outline-container-org9ebc051" class="outline-3">
+<h3 id="org9ebc051">14.1-2</h3>
+<div class="outline-text-3" id="text-org9ebc051">
 <p>
 When we run <code>OS-RANK</code> to find the rank of the node with key \(35\), we get
 the following sequence of values of \(y.key\) and \(r\) at the top of the
@@ -382,60 +368,60 @@ The procedure returns the rank \(17\).
 </p>
 </div>
 </div>
-<div id="outline-container-orgfd1218d" class="outline-3">
-<h3 id="orgfd1218d">14.1-3</h3>
-<div class="outline-text-3" id="text-orgfd1218d">
+<div id="outline-container-org6991510" class="outline-3">
+<h3 id="org6991510">14.1-3</h3>
+<div class="outline-text-3" id="text-org6991510">
 <pre class="example">
 OS-SELECT-ITER(x, i)
     while i != x.left.size + 1
-	if i &lt; x.left.size + 1
-	    x = x.left
-	else
-	    x = x.right
-	    i = i - x.left.size - 1
+        if i &lt; x.left.size + 1
+            x = x.left
+        else
+            x = x.right
+            i = i - x.left.size - 1
     return x
 </pre>
 </div>
 </div>
-<div id="outline-container-orgcdbb07a" class="outline-3">
-<h3 id="orgcdbb07a">14.1-4</h3>
-<div class="outline-text-3" id="text-orgcdbb07a">
+<div id="outline-container-org30de023" class="outline-3">
+<h3 id="org30de023">14.1-4</h3>
+<div class="outline-text-3" id="text-org30de023">
 <pre class="example">
 OS-KEY-RANK(T, k)
     return OS-KEY-RANK-REC(T.root, k, 0)
 
 OS-KEY-RANK-REC(x, k, r)
     if x == nil
-	// node with key k not found
-	return -1
+        // node with key k not found
+        return -1
     if x.key &gt; k
-	return OS-KEY-RANK-REC(x.left, k, r)
+        return OS-KEY-RANK-REC(x.left, k, r)
     if x.key &lt; k
-	return OS-KEY-RANK-REC(x.right, k, r + x.left.size + 1)
+        return OS-KEY-RANK-REC(x.right, k, r + x.left.size + 1)
     return r + x.left.size + 1
 </pre>
 </div>
 </div>
-<div id="outline-container-org83f1a19" class="outline-3">
-<h3 id="org83f1a19">14.1-5</h3>
-<div class="outline-text-3" id="text-org83f1a19">
+<div id="outline-container-org4cb5168" class="outline-3">
+<h3 id="org4cb5168">14.1-5</h3>
+<div class="outline-text-3" id="text-org4cb5168">
 <pre class="example">
 OS-SUCCESSOR(x, i)
     if i == 0
-	return x
+        return x
     if i &gt; x.right.size
-	if x.p == nil
-	    return nil
-	if x == x.p.left
-	    return OS-SUCCESSOR(x.p, i - x.right.size - 1)
-	return nil
+        if x.p == nil
+            return nil
+        if x == x.p.left
+            return OS-SUCCESSOR(x.p, i - x.right.size - 1)
+        return nil
     else return OS-SELECT(x.right, i)
 </pre>
 </div>
 </div>
-<div id="outline-container-org21502fd" class="outline-3">
-<h3 id="org21502fd">14.1-6</h3>
-<div class="outline-text-3" id="text-org21502fd">
+<div id="outline-container-org0a8041d" class="outline-3">
+<h3 id="org0a8041d">14.1-6</h3>
+<div class="outline-text-3" id="text-org0a8041d">
 <p>
 In <code>LEFT-ROTATE(T, x)</code> and <code>RIGHT-ROTATE(T, y)</code>, we add the following lines:
 </p>
@@ -444,31 +430,30 @@ y.rank = y.left.size + 1
 </pre>
 </div>
 </div>
-<div id="outline-container-orga22387e" class="outline-3">
-<h3 id="orga22387e">14.1-7</h3>
-<div class="outline-text-3" id="text-orga22387e">
+<div id="outline-container-orge28a6e0" class="outline-3">
+<h3 id="orge28a6e0">14.1-7</h3>
+<div class="outline-text-3" id="text-orge28a6e0">
 <pre class="example">
 COUNT-INVERSIONS(A)
     k = 0
     let T be a new order-statistic tree
     for i = 1 to A.length
-	OS-INSERT(T, A[i])
-	k = k + (i - OS-RANK(T, A[i]))
+        OS-INSERT(T, A[i])
+        k = k + (i - OS-RANK(T, A[i]))
     return k
 </pre>
 </div>
 </div>
-<div id="outline-container-orgb86dbda" class="outline-3">
-<h3 id="orgb86dbda">14.1-8</h3>
-<div class="outline-text-3" id="text-orgb86dbda">
+<div id="outline-container-orgff538cc" class="outline-3">
+<h3 id="orgff538cc">14.1-8</h3>
+<div class="outline-text-3" id="text-orgff538cc">
 <p>
 Name the angle of an endpoint \(a\) on the circle, to be the angle \(\theta\)
 from \(x\)-axis to the line from the origin to the endpoint \(a\).
 </p>
 
-<div id="orgc1cce24" class="figure">
-<p><object type="image/svg+xml" data="../static/generated/images/ch14-1-1.svg" class="org-svg">
-Sorry, your browser does not support SVG.</object>
+<div id="org57ffe5e" class="figure">
+<p><img src="../static/generated/images/ch14-1-1.svg" alt="ch14-1-1.svg" class="org-svg" />
 </p>
 </div>
 
@@ -488,7 +473,7 @@ intersect inside the circle.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2022-11-08 Tue 06:25</p>
+<p class="date">Created: 2023-08-17 Thu 10:36</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

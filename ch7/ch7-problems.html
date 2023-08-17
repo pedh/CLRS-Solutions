@@ -3,14 +3,14 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-11-08 Tue 06:25 -->
+<!-- 2023-08-17 Thu 10:35 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 7 problems</title>
-<meta name="generator" content="Org mode" />
 <meta name="author" content="pedh" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
   .subtitle { text-align: center;
@@ -31,8 +31,9 @@
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
   pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -41,21 +42,21 @@
   pre.src {
     position: relative;
     overflow: auto;
-    padding-top: 1.2em;
   }
   pre.src:before {
     display: none;
     position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
+    top: -8px;
+    right: 12px;
     padding: 3px;
-    border: 1px solid black;
+    color: #555;
+    background-color: #f2f2f299;
   }
   pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -190,19 +191,17 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
-  /*]]>*/-->
+  .org-svg { }
 </style>
 <link rel="stylesheet" type="text/css" href="/css/org-info.css" />
 
-<script type="text/javascript" src="/js/org-info.js">
+<script src="/js/org-info.js">
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
 // @license-end
 </script>
 
-<script type="text/javascript">
+<script>
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
-<!--/*--><![CDATA[/*><!--*/
 org_html_manager.set("TOC_DEPTH", "3");
 org_html_manager.set("LINK_HOME", "/CLRS-Solutions");
 org_html_manager.set("LINK_UP", "/CLRS-Solutions");
@@ -213,86 +212,73 @@ org_html_manager.set("FIXED_TOC", "0");
 org_html_manager.set("TOC", "1");
 org_html_manager.set("VIEW", "info");
 org_html_manager.setup();  // activate after the parameters are set
-/*]]>*///-->
 // @license-end
 </script>
-<script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
-<!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
 
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="org-div-home-and-up">
  <a accesskey="h" href="/CLRS-Solutions"> UP </a>
  |
  <a accesskey="H" href="/CLRS-Solutions"> HOME </a>
-</div><div id="content">
+</div><div id="content" class="content">
 <h1 class="title">Chapter 7 problems</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgad263ca">ch7-problems</a>
+<li><a href="#org8c47296">ch7-problems</a>
 <ul>
-<li><a href="#org598624f">7-1</a></li>
-<li><a href="#orga3d121b">7-2</a></li>
-<li><a href="#org24f9a94">7-3</a></li>
-<li><a href="#org29a5f77">7-4</a></li>
-<li><a href="#orgcffc159">7-5</a></li>
-<li><a href="#org1257653">7-6</a></li>
+<li><a href="#org0cf8c21">7-1</a></li>
+<li><a href="#org3a70d08">7-2</a></li>
+<li><a href="#org900b316">7-3</a></li>
+<li><a href="#orgf608bdd">7-4</a></li>
+<li><a href="#orgfc5271a">7-5</a></li>
+<li><a href="#org7c16455">7-6</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgad263ca" class="outline-2">
-<h2 id="orgad263ca">ch7-problems</h2>
-<div class="outline-text-2" id="text-orgad263ca">
+<div id="outline-container-org8c47296" class="outline-2">
+<h2 id="org8c47296">ch7-problems</h2>
+<div class="outline-text-2" id="text-org8c47296">
 </div>
-<div id="outline-container-org598624f" class="outline-3">
-<h3 id="org598624f">7-1</h3>
-<div class="outline-text-3" id="text-org598624f">
+<div id="outline-container-org0cf8c21" class="outline-3">
+<h3 id="org0cf8c21">7-1</h3>
+<div class="outline-text-3" id="text-org0cf8c21">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
@@ -336,16 +322,16 @@ When the procedure terminates, we have \(A[p..j] \leq x \leq A[j+1..r]\).
 <pre class="example">
 HOARE-QUICKSORT(A, p, r)
     if p &lt; r
-	q = HOARE-PARTITION(A, p, r)
-	HOARE-QUICKSORT(A, p, q)
-	HOARE-QUICKSORT(A, q + 1, r)
+        q = HOARE-PARTITION(A, p, r)
+        HOARE-QUICKSORT(A, p, q)
+        HOARE-QUICKSORT(A, q + 1, r)
 </pre></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orga3d121b" class="outline-3">
-<h3 id="orga3d121b">7-2</h3>
-<div class="outline-text-3" id="text-orga3d121b">
+<div id="outline-container-org3a70d08" class="outline-3">
+<h3 id="org3a70d08">7-2</h3>
+<div class="outline-text-3" id="text-org3a70d08">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
@@ -363,16 +349,16 @@ PARTITION'(A, p, r)
     x = A[r]
     i = j = p - 1
     for k = p to r - 1
-	if A[k] &lt; x
-	    i = i + 1
-	    j = j + 1
-	    y = A[j]
-	    A[j] = A[i]
-	    A[i] = A[k]
-	    A[k] = y
-	elseif A[k] == x:
-	    j = j + 1
-	    exchange A[j] with A[k]
+        if A[k] &lt; x
+            i = i + 1
+            j = j + 1
+            y = A[j]
+            A[j] = A[i]
+            A[i] = A[k]
+            A[k] = y
+        else if A[k] == x:
+            j = j + 1
+            exchange A[j] with A[k]
     exchange A[r] with A[j + 1]
     return i + 1, j + 1
 </pre></li>
@@ -389,9 +375,9 @@ RANDOMIZED-PARTITION'(A, p, r)
 <pre class="example">
 QUICKSORT'(A, p, r)
     if p &lt; r
-	q, t = RANDOMIZED-PARTITION'(A, p, r)
-	QUICKSORT'(A, p, q - 1)
-	QUICKSORT'(A, t + 1, r)
+        q, t = RANDOMIZED-PARTITION'(A, p, r)
+        QUICKSORT'(A, p, q - 1)
+        QUICKSORT'(A, t + 1, r)
 </pre></li>
 <li><p>
 <b>d.</b>
@@ -410,9 +396,9 @@ T(n)
 </ul>
 </div>
 </div>
-<div id="outline-container-org24f9a94" class="outline-3">
-<h3 id="org24f9a94">7-3</h3>
-<div class="outline-text-3" id="text-org24f9a94">
+<div id="outline-container-org900b316" class="outline-3">
+<h3 id="org900b316">7-3</h3>
+<div class="outline-text-3" id="text-org900b316">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
@@ -428,7 +414,7 @@ Let \(X_i = I\{ith\ smallest\ element\ is\ chosen\ as\ the\ pivot\}\), then
 </p>
 \begin{align*}
 E[X_i]
-&=\Pr\text{{ith smallest element is chosen as the pivot}}\\
+&=\Pr\text{{we choose the smallest ith element as the pivot}}\\
 &=\frac{1}{n}
 \end{align*}</li>
 <li><p>
@@ -490,22 +476,22 @@ E[T(n)]
 </ul>
 </div>
 </div>
-<div id="outline-container-org29a5f77" class="outline-3">
-<h3 id="org29a5f77">7-4</h3>
-<div class="outline-text-3" id="text-org29a5f77">
+<div id="outline-container-orgf608bdd" class="outline-3">
+<h3 id="orgf608bdd">7-4</h3>
+<div class="outline-text-3" id="text-orgf608bdd">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
 </p>
 
 <p>
-We use loop invariants to prove the correctness of the procedure.
+We use loop invariant to prove the correctness of the procedure.
 </p>
 
 <p>
 <b>Loop Invariant:</b>
-At the start of each iteration of the while loop, \(A[1..A.length]\) is
-partitioned by \(p\) and \(A[1..p]\) is sorted.
+At the start of each iteration of the while loop, we have partitioned
+\(A[1..A.length]\) by \(p\) and sorted \(A[1..p]\).
 </p>
 
 <p>
@@ -543,20 +529,20 @@ After each PARTITION, we choose the smaller part for the recursion.
 <pre class="example">
 TAIL-RECURSIVE-QUICKSORT(A, p, r)
     while p &lt; r
-	//Partition and sort the smaller subarray
-	q = PARTITION(A, p, r)
-	if q &lt; (p + r) / 2
-	    TAIL-RECURSIVE-QUICKSORT(A, p, q - 1)
-	    p = q + 1
-	else TAIL-RECURSIVE-QUICKSORT(A, q + 1, r)
-	     r = q - 1
+        //Partition and sort the smaller subarray
+        q = PARTITION(A, p, r)
+        if q &lt; (p + r) / 2
+            TAIL-RECURSIVE-QUICKSORT(A, p, q - 1)
+            p = q + 1
+        else TAIL-RECURSIVE-QUICKSORT(A, q + 1, r)
+             r = q - 1
 </pre></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgcffc159" class="outline-3">
-<h3 id="orgcffc159">7-5</h3>
-<div class="outline-text-3" id="text-orgcffc159">
+<div id="outline-container-orgfc5271a" class="outline-3">
+<h3 id="orgfc5271a">7-5</h3>
+<div class="outline-text-3" id="text-orgfc5271a">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
@@ -621,15 +607,15 @@ r
 </p>
 
 <p>
-The median-of-3 method only improve the probability of choosing a good
+The median-of-3 method only improves the probability of choosing a good
 pivot, the running time is still \(\Omega(n \lg n)\).
 </p></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org1257653" class="outline-3">
-<h3 id="org1257653">7-6</h3>
-<div class="outline-text-3" id="text-org1257653">
+<div id="outline-container-org7c16455" class="outline-3">
+<h3 id="org7c16455">7-6</h3>
+<div class="outline-text-3" id="text-org7c16455">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
@@ -638,15 +624,15 @@ pivot, the running time is still \(\Omega(n \lg n)\).
 <p>
 The FUZZY-SORT should take advantage of overlapping intervals by consider
 the elements with overlapped intervals as equal, then use the developed
-algorithm in problem <a href="#orga3d121b">7-2</a>.
+algorithm in problem <a href="#org3a70d08">7-2</a>.
 </p>
 
 <pre class="example">
 FUZZY-SORT(A, B, p, r)
     if p &lt; r
-	q, s = FUZZY-PARTITION(A, B, p, r)
-	FUZZY-SORT(A, B, p, q - 1)
-	FUZZY-SORT(A, B, s + 1, r)
+        q, s = FUZZY-PARTITION(A, B, p, r)
+        FUZZY-SORT(A, B, p, q - 1)
+        FUZZY-SORT(A, B, s + 1, r)
 </pre>
 <pre class="example">
 FUZZY-PARTITION(A, B, p, r)
@@ -654,21 +640,21 @@ FUZZY-PARTITION(A, B, p, r)
     left = A[r]
     right = B[r]
     for k = p to r - 1
-	if B[k] &lt; left
-	    x = A[k]
-	    y = B[k]
-	    i = i + 1
-	    j = j + 1
-	    A[k], B[k] = A[j], B[j]
-	    A[j], B[j] = A[i], B[i]
-	    A[i], B[i] = x, y
-	elseif A[k] &lt;= right
-	    if A[k] &gt; left
-		left = A[k]
-	    if B[k] &lt; right
-		right = B[k]
-	    j = j + 1
-	    exchange A[k], B[k] with A[j], B[j]
+        if B[k] &lt; left
+            x = A[k]
+            y = B[k]
+            i = i + 1
+            j = j + 1
+            A[k], B[k] = A[j], B[j]
+            A[j], B[j] = A[i], B[i]
+            A[i], B[i] = x, y
+        else if A[k] &lt;= right
+            if A[k] &gt; left
+                left = A[k]
+            if B[k] &lt; right
+                right = B[k]
+            j = j + 1
+            exchange A[k], B[k] with A[j], B[j]
     exchange A[r], B[r] with A[j + 1], B[j + 1]
     return i + 1, j + 1
 </pre></li>
@@ -688,7 +674,7 @@ The expected running time is \(\Theta(n\lg n)\) when k is negligible to n.
 </p>
 
 <p>
-When all of the intervals overlap, the running time is \(\Theta(n)\).
+When all the intervals overlap, the running time is \(\Theta(n)\).
 </p></li>
 </ul>
 </div>
@@ -697,7 +683,7 @@ When all of the intervals overlap, the running time is \(\Theta(n)\).
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2022-11-08 Tue 06:25</p>
+<p class="date">Created: 2023-08-17 Thu 10:35</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

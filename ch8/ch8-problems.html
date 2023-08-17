@@ -3,14 +3,14 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-11-08 Tue 06:25 -->
+<!-- 2023-08-17 Thu 10:35 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 8 problems</title>
-<meta name="generator" content="Org mode" />
 <meta name="author" content="pedh" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
   .subtitle { text-align: center;
@@ -31,8 +31,9 @@
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
   pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -41,21 +42,21 @@
   pre.src {
     position: relative;
     overflow: auto;
-    padding-top: 1.2em;
   }
   pre.src:before {
     display: none;
     position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
+    top: -8px;
+    right: 12px;
     padding: 3px;
-    border: 1px solid black;
+    color: #555;
+    background-color: #f2f2f299;
   }
   pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -190,19 +191,17 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
-  /*]]>*/-->
+  .org-svg { }
 </style>
 <link rel="stylesheet" type="text/css" href="/css/org-info.css" />
 
-<script type="text/javascript" src="/js/org-info.js">
+<script src="/js/org-info.js">
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
 // @license-end
 </script>
 
-<script type="text/javascript">
+<script>
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
-<!--/*--><![CDATA[/*><!--*/
 org_html_manager.set("TOC_DEPTH", "3");
 org_html_manager.set("LINK_HOME", "/CLRS-Solutions");
 org_html_manager.set("LINK_UP", "/CLRS-Solutions");
@@ -213,97 +212,84 @@ org_html_manager.set("FIXED_TOC", "0");
 org_html_manager.set("TOC", "1");
 org_html_manager.set("VIEW", "info");
 org_html_manager.setup();  // activate after the parameters are set
-/*]]>*///-->
 // @license-end
 </script>
-<script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
-<!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
 
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="org-div-home-and-up">
  <a accesskey="h" href="/CLRS-Solutions"> UP </a>
  |
  <a accesskey="H" href="/CLRS-Solutions"> HOME </a>
-</div><div id="content">
+</div><div id="content" class="content">
 <h1 class="title">Chapter 8 problems</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org5a7f2b5">ch8-problems</a>
+<li><a href="#org232f863">ch8-problems</a>
 <ul>
-<li><a href="#org51aba69">8-1</a></li>
-<li><a href="#org55d2b76">8-2</a></li>
-<li><a href="#org2937632">8-3</a></li>
-<li><a href="#org72087b6">8-4</a></li>
-<li><a href="#orga223ab4">8-5</a></li>
-<li><a href="#org0aaa4f9">8-6</a></li>
-<li><a href="#orgdd50089">8-7</a></li>
+<li><a href="#org2da4a5e">8-1</a></li>
+<li><a href="#org37d626f">8-2</a></li>
+<li><a href="#org98591ff">8-3</a></li>
+<li><a href="#org4dfe156">8-4</a></li>
+<li><a href="#org90265cc">8-5</a></li>
+<li><a href="#org0aa949a">8-6</a></li>
+<li><a href="#org98cfb33">8-7</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org5a7f2b5" class="outline-2">
-<h2 id="org5a7f2b5">ch8-problems</h2>
-<div class="outline-text-2" id="text-org5a7f2b5">
+<div id="outline-container-org232f863" class="outline-2">
+<h2 id="org232f863">ch8-problems</h2>
+<div class="outline-text-2" id="text-org232f863">
 </div>
-<div id="outline-container-org51aba69" class="outline-3">
-<h3 id="org51aba69">8-1</h3>
-<div class="outline-text-3" id="text-org51aba69">
+<div id="outline-container-org2da4a5e" class="outline-3">
+<h3 id="org2da4a5e">8-1</h3>
+<div class="outline-text-3" id="text-org2da4a5e">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
 </p>
 
 <p>
-There are totalling \(n!\) permutations and therefore \(n!\) unique leaves,
+There are total \(n!\) permutations and therefore \(n!\) unique leaves,
 every permutation is equally likely, and the algorithm is deterministic,
-thus there are exactly \(n!\) leaves labeled by \(1/n!\), the rest are
-labeled \(0\).
+thus there are exactly \(n!\) leaves labeled by \(1/n!\), we labeled the
+rest by \(0\).
 </p></li>
 <li><p>
 <b>b.</b>
@@ -395,18 +381,18 @@ There are more than \(n!\) leaves in \(T_A\), thus we have
 </p>
 
 <p>
-The needed leaves does not reduce from a randomization node to any of its
+The needed leaves do not reduce from a randomization node to any of its
 children, therefore if we replace each randomization node with its child
 which minimizing the external path length, we will get a deterministic
 comparison sort \(A\) whose expected number of comparisons is no more than
-those mader by \(B\).
+those made by \(B\).
 </p></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org55d2b76" class="outline-3">
-<h3 id="org55d2b76">8-2</h3>
-<div class="outline-text-3" id="text-org55d2b76">
+<div id="outline-container-org37d626f" class="outline-3">
+<h3 id="org37d626f">8-2</h3>
+<div class="outline-text-3" id="text-org37d626f">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
@@ -424,15 +410,15 @@ BIT-SORT(A)
     i = 1
     j = A.length
     while j &gt; i
-	if A[i] == 0
-	    i = i + 1
-	    continue
-	if A[j] == 1
-	    j = j - 1
-	    continue
-	exchange A[i] with A[j]
-	i = i + 1
-	j = j - 1
+        if A[i] == 0
+            i = i + 1
+            continue
+        if A[j] == 1
+            j = j - 1
+            continue
+        exchange A[i] with A[j]
+        i = i + 1
+        j = j - 1
 </pre></li>
 <li><p>
 <b>c.</b>
@@ -463,25 +449,25 @@ The algorithm is not stable.
 COUNTING-SORT-IN-PLACE(A, k)
     let C[0..k] be a new array
     for i = 0 to k
-	C[i] = 0
+        C[i] = 0
     for j = 1 to A.length
-	C[A[j]] = C[A[j]] + 1
+        C[A[j]] = C[A[j]] + 1
     for i = 1 to k
-	C[i] = C[i] + C[i - 1]
+        C[i] = C[i] + C[i - 1]
     j = A.length
     while j &gt; 0
-	p = C[A[j]]
-	if j &gt; p
-	    j = j - 1
-	else exchange A[j] with A[p]
-	     C[A[p]] = p - 1
+        p = C[A[j]]
+        if j &gt; p
+            j = j - 1
+        else exchange A[j] with A[p]
+             C[A[p]] = p - 1
 </pre></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org2937632" class="outline-3">
-<h3 id="org2937632">8-3</h3>
-<div class="outline-text-3" id="text-org2937632">
+<div id="outline-container-org98591ff" class="outline-3">
+<h3 id="org98591ff">8-3</h3>
+<div class="outline-text-3" id="text-org98591ff">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
@@ -506,9 +492,9 @@ MSD radix sort (<a href="../codes/radix_sort.py">implementation</a>)</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org72087b6" class="outline-3">
-<h3 id="org72087b6">8-4</h3>
-<div class="outline-text-3" id="text-org72087b6">
+<div id="outline-container-org4dfe156" class="outline-3">
+<h3 id="org4dfe156">8-4</h3>
+<div class="outline-text-3" id="text-org4dfe156">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
@@ -522,11 +508,11 @@ jugs into pairs.
 FIND-WATER-JUGS-GROUPS(R, B)
     Let C be a new empty set
     while R is not empty
-	i = R.pop()
-	for j in B
-	    if i == j
-		C.add((i, j))
-		B.remove(j)
+        i = R.pop()
+        for j in B
+            if i == j
+                C.add((i, j))
+                B.remove(j)
     return C
 </pre></li>
 <li><p>
@@ -560,22 +546,22 @@ Let C be a new empty set
 
 FIND-WARTER-JUGS-GROUPS(R, B, C)
     if R is empty
-	return
+        return
     Let i be a random jug from R
     Let RL be a new empty set
     Let BL be a new empty set
     for j in B
-	if i == j
-	    R.remove(i)
-	    B.remove(j)
-	    C.add((i, j))
-	    for k in R
-		if k &lt; j
-		    R.remove(k)
-		    RL.add(k)
-	elseif i &lt; j
-	    B.remove(j)
-	    BL.add(j)
+        if i == j
+            R.remove(i)
+            B.remove(j)
+            C.add((i, j))
+            for k in R
+                if k &lt; j
+                    R.remove(k)
+                    RL.add(k)
+        else if i &lt; j
+            B.remove(j)
+            BL.add(j)
     FIND-WATER-JUGS-GROUPS(RL, BL, C)
     FIND-WATER-JUGS-GROUPS(R, B, C)
 </pre>
@@ -589,9 +575,9 @@ the worst-case value of \(S(n)\) is \(\Theta(n^2)\).
 </ul>
 </div>
 </div>
-<div id="outline-container-orga223ab4" class="outline-3">
-<h3 id="orga223ab4">8-5</h3>
-<div class="outline-text-3" id="text-orga223ab4">
+<div id="outline-container-org90265cc" class="outline-3">
+<h3 id="org90265cc">8-5</h3>
+<div class="outline-text-3" id="text-org90265cc">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
@@ -629,7 +615,7 @@ The algorithm is as below.
 <pre class="example">
 K-SORT(A, k)
     for i = 1 to k
-	sort A[i,k+i,2k+i,...,((A.length-1)//k)*k+i] with HEAPSORT
+        sort A[i,k+i,2k+i,...,((A.length-1)//k)*k+i] with HEAPSORT
 </pre>
 <p>
 The running time is \(O(n\lg(n/k))\).
@@ -641,14 +627,14 @@ The running time is \(O(n\lg(n/k))\).
 <p>
 The algorithm is as below, which MERGE-SORTED-LISTS is an \(O(n\lg k)\)
 running time algorithm to merge \(k\) sorted lists into one sorted list.
-(<a href="file:///home/travis/git/CLRS-Solutions/ch6/ch6-5.html">exercise ch6.5-9</a>)
+(<a href="file:///Users/hc/git/CLRS-Solutions/ch6/ch6-5.html">exercise ch6.5-9</a>)
 </p>
 <pre class="example">
 SORT-K-SORTED-LIST(A, k)
     B = MERGE-SORTED-LISTS([A[i,k+i,2k+i,...,((A.length-1)//k)*k+i]
-			   for i = 1 to k], k)
+                           for i = 1 to k], k)
     for i = 1 to A.length
-	A[i] = B[i]
+        A[i] = B[i]
 </pre></li>
 <li><p>
 <b>f.</b>
@@ -666,9 +652,9 @@ T(n)
 </ul>
 </div>
 </div>
-<div id="outline-container-org0aaa4f9" class="outline-3">
-<h3 id="org0aaa4f9">8-6</h3>
-<div class="outline-text-3" id="text-org0aaa4f9">
+<div id="outline-container-org0aa949a" class="outline-3">
+<h3 id="org0aa949a">8-6</h3>
+<div class="outline-text-3" id="text-org0aa949a">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
@@ -694,9 +680,9 @@ h
 </p>
 
 <p>
-If two elements are consecutive in the sorted order, the the order of them
-cannot be decided by comparing to other elements, and they are from
-different lists, which means the two elements must be compared.
+If two elements are consecutive in the sorted order, we cannot decide the
+order of them by comparing them to other elements, and they are from
+different lists, which means we must compare the two elements.
 </p></li>
 
 <li><p>
@@ -718,9 +704,9 @@ we must compare at least \((\forall i\in[1,n])(A[i],B[i])\) and
 </ul>
 </div>
 </div>
-<div id="outline-container-orgdd50089" class="outline-3">
-<h3 id="orgdd50089">8-7</h3>
-<div class="outline-text-3" id="text-orgdd50089">
+<div id="outline-container-org98cfb33" class="outline-3">
+<h3 id="org98cfb33">8-7</h3>
+<div class="outline-text-3" id="text-org98cfb33">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
@@ -760,17 +746,17 @@ can treat columnsort as an oblivious compare-exchange algorithm.
 </p>
 
 <p>
-After step 1, all of the columns are sorted, which means, each column has
+After step 1, we have sorted all the columns, which means, each column has
 at most one \(0 \to 1\) transition.
 </p>
 
 <p>
-After step 2, each column is transposed to \(r / s\) rows, and at most one
-of them is dirty, hence we have totally at most \(s\) dirty rows.
+After step 2, we have transposed each column into \(r / s\) rows, and at
+most one of them is dirty, hence we have totally at most \(s\) dirty rows.
 </p>
 
 <p>
-After step 3, all of the columns are sorted, the array consists the clean
+After step 3, we have sorted all the columns, the array consists the clean
 rows of \(0\)s at the top, the clean rows of \(1\)s at the bottom, and the
 dirty rows between them, the dirty rows come from the differences between
 the numbers of \(0\)s and \(1\)s of each column, according to the result of
@@ -835,7 +821,7 @@ Suppose \(s\) does not divide \(r\).
 </p>
 
 <p>
-After step 1, all of the columns are sorted, which means, each column has
+After step 1, we have sorted all the columns, which means, each column has
 at most one \(0 \to 1\) transition.
 </p>
 
@@ -846,7 +832,7 @@ columns, totally at most \(2s - 1\) dirty rows.
 </p>
 
 <p>
-After step 3, all of the columns are sorted, the array consists the clean
+After step 3, we have sorted all the columns, the array consists the clean
 rows of \(0\)s at the top, the clean rows of \(1\)s at the bottom, and the
 dirty rows between them, the dirty rows come from the differences between
 the numbers of \(0\)s and \(1\)s of each column, according to the result of
@@ -880,7 +866,7 @@ The columnsort algorithm could benefit from parallel processing.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2022-11-08 Tue 06:25</p>
+<p class="date">Created: 2023-08-17 Thu 10:35</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

@@ -3,14 +3,14 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-11-08 Tue 06:25 -->
+<!-- 2023-08-17 Thu 10:36 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 12.3</title>
-<meta name="generator" content="Org mode" />
 <meta name="author" content="pedh" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
   .subtitle { text-align: center;
@@ -31,8 +31,9 @@
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
   pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -41,21 +42,21 @@
   pre.src {
     position: relative;
     overflow: auto;
-    padding-top: 1.2em;
   }
   pre.src:before {
     display: none;
     position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
+    top: -8px;
+    right: 12px;
     padding: 3px;
-    border: 1px solid black;
+    color: #555;
+    background-color: #f2f2f299;
   }
   pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -190,19 +191,17 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
-  /*]]>*/-->
+  .org-svg { }
 </style>
 <link rel="stylesheet" type="text/css" href="/css/org-info.css" />
 
-<script type="text/javascript" src="/js/org-info.js">
+<script src="/js/org-info.js">
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
 // @license-end
 </script>
 
-<script type="text/javascript">
+<script>
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
-<!--/*--><![CDATA[/*><!--*/
 org_html_manager.set("TOC_DEPTH", "3");
 org_html_manager.set("LINK_HOME", "/CLRS-Solutions");
 org_html_manager.set("LINK_UP", "/CLRS-Solutions");
@@ -213,116 +212,104 @@ org_html_manager.set("FIXED_TOC", "0");
 org_html_manager.set("TOC", "1");
 org_html_manager.set("VIEW", "info");
 org_html_manager.setup();  // activate after the parameters are set
-/*]]>*///-->
 // @license-end
 </script>
-<script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
-<!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
 
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="org-div-home-and-up">
  <a accesskey="h" href="/CLRS-Solutions"> UP </a>
  |
  <a accesskey="H" href="/CLRS-Solutions"> HOME </a>
-</div><div id="content">
+</div><div id="content" class="content">
 <h1 class="title">Chapter 12.3</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orga2f3b72">ch12.3</a>
+<li><a href="#org16e952e">ch12.3</a>
 <ul>
-<li><a href="#orgc32a00a">12.3-1</a></li>
-<li><a href="#orgf59d84e">12.3-2</a></li>
-<li><a href="#orgdbd2a70">12.3-3</a></li>
-<li><a href="#org721cd07">12.3-4</a></li>
-<li><a href="#org04a6c1d">12.3-5</a></li>
-<li><a href="#orgfaf8f83">12.3-6</a></li>
+<li><a href="#orgbdc8eca">12.3-1</a></li>
+<li><a href="#org6473f9c">12.3-2</a></li>
+<li><a href="#org84db1fd">12.3-3</a></li>
+<li><a href="#org8602ae3">12.3-4</a></li>
+<li><a href="#orgb8ef8db">12.3-5</a></li>
+<li><a href="#orgd43bfbb">12.3-6</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orga2f3b72" class="outline-2">
-<h2 id="orga2f3b72">ch12.3</h2>
-<div class="outline-text-2" id="text-orga2f3b72">
+<div id="outline-container-org16e952e" class="outline-2">
+<h2 id="org16e952e">ch12.3</h2>
+<div class="outline-text-2" id="text-org16e952e">
 </div>
-<div id="outline-container-orgc32a00a" class="outline-3">
-<h3 id="orgc32a00a">12.3-1</h3>
-<div class="outline-text-3" id="text-orgc32a00a">
+<div id="outline-container-orgbdc8eca" class="outline-3">
+<h3 id="orgbdc8eca">12.3-1</h3>
+<div class="outline-text-3" id="text-orgbdc8eca">
 <pre class="example">
 TREE-INSERT(T, z)
     x = T.root
     if x == NIL
-	T.root = z
+        T.root = z
     else TREE-INSERT-REC(x, z)
 
 TREE-INSERT-REC(x, z)
     if z.key &lt; x.key
-	if x.left == NIL
-	    x.left = z
-	else TREE-INSERT-REC(x.left, z)
+        if x.left == NIL
+            x.left = z
+        else TREE-INSERT-REC(x.left, z)
     else if x.right == NIL
-	     x.right = z
-	 else TREE-INSERT-REC(x.right, z)
+             x.right = z
+         else TREE-INSERT-REC(x.right, z)
 </pre>
 </div>
 </div>
-<div id="outline-container-orgf59d84e" class="outline-3">
-<h3 id="orgf59d84e">12.3-2</h3>
-<div class="outline-text-3" id="text-orgf59d84e">
+<div id="outline-container-org6473f9c" class="outline-3">
+<h3 id="org6473f9c">12.3-2</h3>
+<div class="outline-text-3" id="text-org6473f9c">
 <p>
-To search for a value in the tree, we need perform one more test&#x2014;from the
-parent to the desired node, than first insertion of the value into the tree.
+To search for a value in the tree, we need to perform one more test&#x2014;from
+the parent to the desired node, than first insertion of the value into the
+tree.
 </p>
 </div>
 </div>
-<div id="outline-container-orgdbd2a70" class="outline-3">
-<h3 id="orgdbd2a70">12.3-3</h3>
-<div class="outline-text-3" id="text-orgdbd2a70">
+<div id="outline-container-org84db1fd" class="outline-3">
+<h3 id="org84db1fd">12.3-3</h3>
+<div class="outline-text-3" id="text-org84db1fd">
 <p>
 The worst-case is when the \(n\) numbers are already sorted, the running time
 will be \(O(n^2)\), the best-case is when the \(n\) numbers make the tree
@@ -330,32 +317,32 @@ balance, the running time will be \(O(n\lg n)\).
 </p>
 </div>
 </div>
-<div id="outline-container-org721cd07" class="outline-3">
-<h3 id="org721cd07">12.3-4</h3>
-<div class="outline-text-3" id="text-org721cd07">
+<div id="outline-container-org8602ae3" class="outline-3">
+<h3 id="org8602ae3">12.3-4</h3>
+<div class="outline-text-3" id="text-org8602ae3">
 <p>
 The operation of deletion is not commutative. Below is the example, deletion
 of \(1\) then \(2\) will generate a different tree than deletion of \(2\)
 then \(1\).
 </p>
 
-<div id="org4e8aa2f" class="figure">
+<div id="org6f9d838" class="figure">
 <p><img src="../static/generated/images/ch12-3-1.png" alt="ch12-3-1.png" />
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org04a6c1d" class="outline-3">
-<h3 id="org04a6c1d">12.3-5</h3>
-<div class="outline-text-3" id="text-org04a6c1d">
+<div id="outline-container-orgb8ef8db" class="outline-3">
+<h3 id="orgb8ef8db">12.3-5</h3>
+<div class="outline-text-3" id="text-orgb8ef8db">
 <pre class="example">
 SEARCH(T, k)
     x = T.root
     while x != NIL and x.key != k
-	if x.key &gt; k
-	    x = x.left
-	else x = x.right
+        if x.key &gt; k
+            x = x.left
+        else x = x.right
     return x
 
 INSERT(T, z)
@@ -363,44 +350,44 @@ INSERT(T, z)
     x = T.root
     pre = NIL
     while x != NIL
-	y = x
-	if z.key &lt; x.key
-	    x = x.left
-	else pre = x
-	     x = x.right
+        y = x
+        if z.key &lt; x.key
+            x = x.left
+        else pre = x
+             x = x.right
     if pre != NIL
-	pre.succ = z
+        pre.succ = z
     if y == NIL
-	T.root = z
-    elseif z.key &lt; y.key
-	y.left = z
-	z.succ = y
+        T.root = z
+    else if z.key &lt; y.key
+        y.left = z
+        z.succ = y
     else y.right = z
-	 z.succ = y.succ
+         z.succ = y.succ
 
 PARENT(T, z)
     x = T.root
     y = NIL
     while x != NIL and x.key != z.key
-	y = x
-	if z.key &lt; x.key
-	    x = x.left
-	else x = x.right
+        y = x
+        if z.key &lt; x.key
+            x = x.left
+        else x = x.right
     return y
 
 PREDECESSOR(T, z)
     if z.left != NIL
-	x = z.left
-	while x.right != NIL
-	    x = x.right
-	return x
+        x = z.left
+        while x.right != NIL
+            x = x.right
+        return x
     x = T.root
     y = NIL
     while x != NIL and x.key != z.key
-	if z.key &lt; x.key
-	    x = x.left
-	else y = x
-	     x = x.right
+        if z.key &lt; x.key
+            x = x.left
+        else y = x
+             x = x.right
     return y
 
 TRANSPLANT(T, u, v)
@@ -408,35 +395,35 @@ TRANSPLANT(T, u, v)
     p = PARENT(T, u)
     pre = PREDECESSOR(T, u)
     if p == NIL
-	T.root = v
-    elseif u == p.left
-	p.left = v
+        T.root = v
+    else if u == p.left
+        p.left = v
     else p.right = v
     if v != NIL
-	v.succ = u.succ
+        v.succ = u.succ
     if pre != NIL and pre != v
-	pre.succ = v
+        pre.succ = v
 
 TREE-DELETE(T, z)
 if z.left == NIL
     TRANSPLANT(T, z, z.right)
-elseif z.right == NIL
+else if z.right == NIL
     TRANSPLANT(T, z, z.left)
 else y = z.succ
      if y != z.right
-	 TRANSPLANT(T, y, y.right)
-	 y.right = z.right
+         TRANSPLANT(T, y, y.right)
+         y.right = z.right
      TRANSPLANT(T, z, y)
      y.left = z.left
      pre = PREDECESSOR(T, z)
      if pre != NIL
-	 pre.succ = y
+         pre.succ = y
 </pre>
 </div>
 </div>
-<div id="outline-container-orgfaf8f83" class="outline-3">
-<h3 id="orgfaf8f83">12.3-6</h3>
-<div class="outline-text-3" id="text-orgfaf8f83">
+<div id="outline-container-orgd43bfbb" class="outline-3">
+<h3 id="orgd43bfbb">12.3-6</h3>
+<div class="outline-text-3" id="text-orgd43bfbb">
 <p>
 Below is the modified <code>TREE-DELETE'</code> to choose the predecessor rather than
 the successor.
@@ -444,17 +431,17 @@ the successor.
 <pre class="example">
 TREE-DELETE'(T, z)
     if z.left == NIL
-	TRANSPLANT(T, z, z.right)
-    elseif z.right == NIL
-	TRANSPLANT(T, z, z.left)
+        TRANSPLANT(T, z, z.right)
+    else if z.right == NIL
+        TRANSPLANT(T, z, z.left)
     else y = TREE-MAXIMUM(z.left)
-	 if y.p != z
-	     TRANSPLANT(T, y, y.left)
-	     y.left = z.left
-	     y.left.p = y
-	 TRANSPLANT(T, z, y)
-	 y.right = z.right
-	 y.right.p = y
+         if y.p != z
+             TRANSPLANT(T, y, y.left)
+             y.left = z.left
+             y.left.p = y
+         TRANSPLANT(T, z, y)
+         y.right = z.right
+         y.right.p = y
 </pre>
 <p>
 We could implement a fair strategy, giving equal priority to predecessor and
@@ -467,7 +454,7 @@ the modified <code>TREE-DELETE'</code> procedure.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2022-11-08 Tue 06:25</p>
+<p class="date">Created: 2023-08-17 Thu 10:36</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

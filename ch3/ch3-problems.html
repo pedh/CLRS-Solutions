@@ -3,14 +3,14 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-11-08 Tue 06:25 -->
+<!-- 2023-08-17 Thu 10:36 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 3 problems</title>
-<meta name="generator" content="Org mode" />
 <meta name="author" content="pedh" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
   .subtitle { text-align: center;
@@ -31,8 +31,9 @@
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
   pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -41,21 +42,21 @@
   pre.src {
     position: relative;
     overflow: auto;
-    padding-top: 1.2em;
   }
   pre.src:before {
     display: none;
     position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
+    top: -8px;
+    right: 12px;
     padding: 3px;
-    border: 1px solid black;
+    color: #555;
+    background-color: #f2f2f299;
   }
   pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -190,19 +191,17 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
-  /*]]>*/-->
+  .org-svg { }
 </style>
 <link rel="stylesheet" type="text/css" href="/css/org-info.css" />
 
-<script type="text/javascript" src="/js/org-info.js">
+<script src="/js/org-info.js">
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
 // @license-end
 </script>
 
-<script type="text/javascript">
+<script>
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
-<!--/*--><![CDATA[/*><!--*/
 org_html_manager.set("TOC_DEPTH", "3");
 org_html_manager.set("LINK_HOME", "/CLRS-Solutions");
 org_html_manager.set("LINK_UP", "/CLRS-Solutions");
@@ -213,86 +212,73 @@ org_html_manager.set("FIXED_TOC", "0");
 org_html_manager.set("TOC", "1");
 org_html_manager.set("VIEW", "info");
 org_html_manager.setup();  // activate after the parameters are set
-/*]]>*///-->
 // @license-end
 </script>
-<script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
-<!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
 
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="org-div-home-and-up">
  <a accesskey="h" href="/CLRS-Solutions"> UP </a>
  |
  <a accesskey="H" href="/CLRS-Solutions"> HOME </a>
-</div><div id="content">
+</div><div id="content" class="content">
 <h1 class="title">Chapter 3 problems</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org117f38a">ch3-problems</a>
+<li><a href="#orgfb7f0c0">ch3-problems</a>
 <ul>
-<li><a href="#org1ce6818">3-1</a></li>
-<li><a href="#orgb004772">3-2</a></li>
-<li><a href="#orgae31425">3-3</a></li>
-<li><a href="#orge2deff1">3-4</a></li>
-<li><a href="#org1b3fd5c">3-5</a></li>
-<li><a href="#org5d31567">3-6</a></li>
+<li><a href="#org8e5229b">3-1</a></li>
+<li><a href="#org6495c95">3-2</a></li>
+<li><a href="#orgdbbb4b3">3-3</a></li>
+<li><a href="#orgbec0e28">3-4</a></li>
+<li><a href="#orgec8a2ae">3-5</a></li>
+<li><a href="#org2b29b7e">3-6</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org117f38a" class="outline-2">
-<h2 id="org117f38a">ch3-problems</h2>
-<div class="outline-text-2" id="text-org117f38a">
+<div id="outline-container-orgfb7f0c0" class="outline-2">
+<h2 id="orgfb7f0c0">ch3-problems</h2>
+<div class="outline-text-2" id="text-orgfb7f0c0">
 </div>
-<div id="outline-container-org1ce6818" class="outline-3">
-<h3 id="org1ce6818">3-1</h3>
-<div class="outline-text-3" id="text-org1ce6818">
+<div id="outline-container-org8e5229b" class="outline-3">
+<h3 id="org8e5229b">3-1</h3>
+<div class="outline-text-3" id="text-org8e5229b">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
@@ -370,9 +356,9 @@ Hence \(p(n) = \omega(n^k)\).
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb004772" class="outline-3">
-<h3 id="orgb004772">3-2</h3>
-<div class="outline-text-3" id="text-orgb004772">
+<div id="outline-container-org6495c95" class="outline-3">
+<h3 id="org6495c95">3-2</h3>
+<div class="outline-text-3" id="text-org6495c95">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -475,9 +461,9 @@ Hence \(p(n) = \omega(n^k)\).
 </table>
 </div>
 </div>
-<div id="outline-container-orgae31425" class="outline-3">
-<h3 id="orgae31425">3-3</h3>
-<div class="outline-text-3" id="text-orgae31425">
+<div id="outline-container-orgdbbb4b3" class="outline-3">
+<h3 id="orgdbbb4b3">3-3</h3>
+<div class="outline-text-3" id="text-orgdbbb4b3">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
@@ -522,9 +508,9 @@ n^3
 </ul>
 </div>
 </div>
-<div id="outline-container-orge2deff1" class="outline-3">
-<h3 id="orge2deff1">3-4</h3>
-<div class="outline-text-3" id="text-orge2deff1">
+<div id="outline-container-orgbec0e28" class="outline-3">
+<h3 id="orgbec0e28">3-4</h3>
+<div class="outline-text-3" id="text-orgbec0e28">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
@@ -590,9 +576,9 @@ hence \(f(n) + o(f(n)) = \Theta(f(n))\).
 </ul>
 </div>
 </div>
-<div id="outline-container-org1b3fd5c" class="outline-3">
-<h3 id="org1b3fd5c">3-5</h3>
-<div class="outline-text-3" id="text-org1b3fd5c">
+<div id="outline-container-orgec8a2ae" class="outline-3">
+<h3 id="orgec8a2ae">3-5</h3>
+<div class="outline-text-3" id="text-orgec8a2ae">
 <ul class="org-ul">
 <li><b>a.</b>
 
@@ -611,12 +597,12 @@ and f(n) and g(n) are nonnegative, then
 </p>
 \begin{align*}
 \neg(\exists c\in\mathbb{R}^{+})
-[0\leq cg(n)\leq f(n)\text{ for infinitely many integers n}]\\
+[0\leq cg(n)\leq f(n)\text{ for infinite integers n}]\\
 \implies(\forall c\in\mathbb{R}^{+})
-[0\leq cg(n)\leq f(n)\text{ for only finitely many integers n}]
+[0\leq cg(n)\leq f(n)\text{ for finite integers n}]
 \end{align*}
 <p>
-Let \(n_0\) = max(finitely many integers) + 1, we have
+Let \(n_0\) = max(finite integers) + 1, we have
 </p>
 \begin{equation*}
 (\forall c\in\mathbb{R}^{+})
@@ -634,9 +620,9 @@ If \(f(n) = o(g(n))\), then
 [(\exists n_0\in\mathbb{R}^{+})
  [(\forall n\leq n_0)[0\leq f(n)< cg(n)]]]\\
 \implies(\forall c\in\mathbb{R}^{+})
-[0\leq cg(n)\leq f(n)\text{ for only finitely many integers n}]\\
+[0\leq cg(n)\leq f(n)\text{ for finite integers n}]\\
 \implies\neg(\exists c\in\mathbb{R}^{+})
-[0\leq cg(n)\leq f(n)\text{ for infinitely many integers n}]
+[0\leq cg(n)\leq f(n)\text{ for infinite integers n}]
 \end{align*}
 <p>
 Hence \(f(n) \neq \overset{\infty}{\Omega}(g(n))\).
@@ -667,9 +653,9 @@ This is not true if we use \(\Omega\) in place of
 </p>
 
 <p>
-<b>Pros:</b>
-The relation between nonnegative functions f(n) and g(n)
-can be completely covered as above.
+ <b>Pros:</b>
+ We have shown the relation between nonnegative functions f(n) and g(n)
+as above.
 </p>
 
 <p>
@@ -704,9 +690,9 @@ Theorem 3.1 is still established.
 </ul>
 </div>
 </div>
-<div id="outline-container-org5d31567" class="outline-3">
-<h3 id="org5d31567">3-6</h3>
-<div class="outline-text-3" id="text-org5d31567">
+<div id="outline-container-org2b29b7e" class="outline-3">
+<h3 id="org2b29b7e">3-6</h3>
+<div class="outline-text-3" id="text-org2b29b7e">
 <p>
 For appropriate large n
 </p>
@@ -794,7 +780,7 @@ For appropriate large n
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2022-11-08 Tue 06:25</p>
+<p class="date">Created: 2023-08-17 Thu 10:36</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

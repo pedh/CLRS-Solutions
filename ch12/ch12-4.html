@@ -3,14 +3,14 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-11-08 Tue 06:25 -->
+<!-- 2023-08-17 Thu 10:36 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 12.4</title>
-<meta name="generator" content="Org mode" />
 <meta name="author" content="pedh" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
   .subtitle { text-align: center;
@@ -31,8 +31,9 @@
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
   pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -41,21 +42,21 @@
   pre.src {
     position: relative;
     overflow: auto;
-    padding-top: 1.2em;
   }
   pre.src:before {
     display: none;
     position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
+    top: -8px;
+    right: 12px;
     padding: 3px;
-    border: 1px solid black;
+    color: #555;
+    background-color: #f2f2f299;
   }
   pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -190,19 +191,17 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
-  /*]]>*/-->
+  .org-svg { }
 </style>
 <link rel="stylesheet" type="text/css" href="/css/org-info.css" />
 
-<script type="text/javascript" src="/js/org-info.js">
+<script src="/js/org-info.js">
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
 // @license-end
 </script>
 
-<script type="text/javascript">
+<script>
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
-<!--/*--><![CDATA[/*><!--*/
 org_html_manager.set("TOC_DEPTH", "3");
 org_html_manager.set("LINK_HOME", "/CLRS-Solutions");
 org_html_manager.set("LINK_UP", "/CLRS-Solutions");
@@ -213,90 +212,77 @@ org_html_manager.set("FIXED_TOC", "0");
 org_html_manager.set("TOC", "1");
 org_html_manager.set("VIEW", "info");
 org_html_manager.setup();  // activate after the parameters are set
-/*]]>*///-->
 // @license-end
 </script>
-<script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
-<!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
 
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="org-div-home-and-up">
  <a accesskey="h" href="/CLRS-Solutions"> UP </a>
  |
  <a accesskey="H" href="/CLRS-Solutions"> HOME </a>
-</div><div id="content">
+</div><div id="content" class="content">
 <h1 class="title">Chapter 12.4</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org4addaea">ch12.4</a>
+<li><a href="#orgfbb3c40">ch12.4</a>
 <ul>
-<li><a href="#org2813f99">12.4-1</a></li>
-<li><a href="#org9ffe30d">12.4-2</a></li>
-<li><a href="#org0df88d4">12.4-3</a></li>
-<li><a href="#org5581b88">12.4-4</a></li>
-<li><a href="#orge876606">12.4-5</a></li>
+<li><a href="#orgd361fdf">12.4-1</a></li>
+<li><a href="#org9faa75d">12.4-2</a></li>
+<li><a href="#orgbaf1b07">12.4-3</a></li>
+<li><a href="#org2a86335">12.4-4</a></li>
+<li><a href="#org869eb18">12.4-5</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org4addaea" class="outline-2">
-<h2 id="org4addaea">ch12.4</h2>
-<div class="outline-text-2" id="text-org4addaea">
+<div id="outline-container-orgfbb3c40" class="outline-2">
+<h2 id="orgfbb3c40">ch12.4</h2>
+<div class="outline-text-2" id="text-orgfbb3c40">
 </div>
-<div id="outline-container-org2813f99" class="outline-3">
-<h3 id="org2813f99">12.4-1</h3>
-<div class="outline-text-3" id="text-org2813f99">
+<div id="outline-container-orgd361fdf" class="outline-3">
+<h3 id="orgd361fdf">12.4-1</h3>
+<div class="outline-text-3" id="text-orgd361fdf">
 <p>
 To choose \(k\) elements from \(n\) elements, we could first choose one
 element, to be the largest of \(k\) elements, then we choose the remaining
-\(k-1\) elements, hence \(\binom{n}{k}=\sum_{i=1}^{n}\binom{i-1}{k-1}\). Thus
-we have
+\(k-1\) elements, hence \(\binom{n}{k}=\sum_{i=1}^{n}\binom{i-1}{k-1}\).
+Thus, we have
 </p>
 \begin{align*}
 \binom{n+3}{4}
@@ -306,9 +292,9 @@ we have
 \end{align*}
 </div>
 </div>
-<div id="outline-container-org9ffe30d" class="outline-3">
-<h3 id="org9ffe30d">12.4-2</h3>
-<div class="outline-text-3" id="text-org9ffe30d">
+<div id="outline-container-org9faa75d" class="outline-3">
+<h3 id="org9faa75d">12.4-2</h3>
+<div class="outline-text-3" id="text-org9faa75d">
 <p>
 Consider a \(n\)-nodes binary search tree, with \(\sqrt{n}\) nodes to be a
 chain, and the other \(n-\sqrt{n}\) nodes to be asymptotically a complete
@@ -324,9 +310,9 @@ and the height of the tree is \(h(n)=\sqrt{n}=\omega(\lg n)\).
 </p>
 </div>
 </div>
-<div id="outline-container-org0df88d4" class="outline-3">
-<h3 id="org0df88d4">12.4-3</h3>
-<div class="outline-text-3" id="text-org0df88d4">
+<div id="outline-container-orgbaf1b07" class="outline-3">
+<h3 id="orgbaf1b07">12.4-3</h3>
+<div class="outline-text-3" id="text-orgbaf1b07">
 <p>
 When \(n=3\), the \(n! = 6\) inputs generate \(5\) different trees, which the
 inputs \(\langle 2,1,3 \rangle\) and \(\langle 2,3,1 \rangle\) generate the
@@ -335,21 +321,21 @@ of \(n\) keys is equally likely to be chosen.
 </p>
 </div>
 </div>
-<div id="outline-container-org5581b88" class="outline-3">
-<h3 id="org5581b88">12.4-4</h3>
-<div class="outline-text-3" id="text-org5581b88">
+<div id="outline-container-org2a86335" class="outline-3">
+<h3 id="org2a86335">12.4-4</h3>
+<div class="outline-text-3" id="text-org2a86335">
 <p>
 We know that \(f(x)=2^x\) has a second derivative for \(x\in\mathbb{R}\), and
 \(f''(x) = 2^x\ln^2{2} > 0\), thus \(f(x)\) is strictly convex.
 </p>
 </div>
 </div>
-<div id="outline-container-orge876606" class="outline-3">
-<h3 id="orge876606">12.4-5</h3>
-<div class="outline-text-3" id="text-orge876606">
+<div id="outline-container-org869eb18" class="outline-3">
+<h3 id="org869eb18">12.4-5</h3>
+<div class="outline-text-3" id="text-org869eb18">
 <p>
 We could build a \(n\)-nodes binary search tree from performing <code>QUICKSORT</code>
-on \(n\) elements, by while a pivot is selected, we make the pivot a new node
+on \(n\) elements, by when we select a pivot, we make the pivot a new node
 and add it to that tree. Let \(h\) be the height of the tree, then we know
 the running time of <code>QUICKSORT</code> is \(O(nh)\). And for the \(n!\) input
 permutations, we have got a randomly built binary search tree on \(n\) keys.
@@ -390,7 +376,7 @@ permutations yield an \(O(n\lg n)\) running time.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2022-11-08 Tue 06:25</p>
+<p class="date">Created: 2023-08-17 Thu 10:36</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

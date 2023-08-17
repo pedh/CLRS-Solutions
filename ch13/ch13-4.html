@@ -3,14 +3,14 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-11-08 Tue 06:25 -->
+<!-- 2023-08-17 Thu 10:36 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 13.4</title>
-<meta name="generator" content="Org mode" />
 <meta name="author" content="pedh" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
   .subtitle { text-align: center;
@@ -31,8 +31,9 @@
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
   pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -41,21 +42,21 @@
   pre.src {
     position: relative;
     overflow: auto;
-    padding-top: 1.2em;
   }
   pre.src:before {
     display: none;
     position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
+    top: -8px;
+    right: 12px;
     padding: 3px;
-    border: 1px solid black;
+    color: #555;
+    background-color: #f2f2f299;
   }
   pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -190,19 +191,17 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
-  /*]]>*/-->
+  .org-svg { }
 </style>
 <link rel="stylesheet" type="text/css" href="/css/org-info.css" />
 
-<script type="text/javascript" src="/js/org-info.js">
+<script src="/js/org-info.js">
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
 // @license-end
 </script>
 
-<script type="text/javascript">
+<script>
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
-<!--/*--><![CDATA[/*><!--*/
 org_html_manager.set("TOC_DEPTH", "3");
 org_html_manager.set("LINK_HOME", "/CLRS-Solutions");
 org_html_manager.set("LINK_UP", "/CLRS-Solutions");
@@ -213,111 +212,98 @@ org_html_manager.set("FIXED_TOC", "0");
 org_html_manager.set("TOC", "1");
 org_html_manager.set("VIEW", "info");
 org_html_manager.setup();  // activate after the parameters are set
-/*]]>*///-->
 // @license-end
 </script>
-<script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
-<!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
 
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="org-div-home-and-up">
  <a accesskey="h" href="/CLRS-Solutions"> UP </a>
  |
  <a accesskey="H" href="/CLRS-Solutions"> HOME </a>
-</div><div id="content">
+</div><div id="content" class="content">
 <h1 class="title">Chapter 13.4</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org2584e5e">13.4</a>
+<li><a href="#orgd20cc8d">13.4</a>
 <ul>
-<li><a href="#orga4e3de6">13.4-1</a></li>
-<li><a href="#org263ae8e">13.4-2</a></li>
-<li><a href="#orgffc67cd">13.4-3</a></li>
-<li><a href="#org0641cc9">13.4-4</a></li>
-<li><a href="#orge642def">13.4-5</a></li>
-<li><a href="#orgfeec287">13.4-6</a></li>
-<li><a href="#orgfdecb32">13.4-7</a></li>
+<li><a href="#org14e2d57">13.4-1</a></li>
+<li><a href="#org1c7b53c">13.4-2</a></li>
+<li><a href="#orga87137d">13.4-3</a></li>
+<li><a href="#org3e46eee">13.4-4</a></li>
+<li><a href="#org7082cb8">13.4-5</a></li>
+<li><a href="#orged40a87">13.4-6</a></li>
+<li><a href="#org0511eef">13.4-7</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org2584e5e" class="outline-2">
-<h2 id="org2584e5e">13.4</h2>
-<div class="outline-text-2" id="text-org2584e5e">
+<div id="outline-container-orgd20cc8d" class="outline-2">
+<h2 id="orgd20cc8d">13.4</h2>
+<div class="outline-text-2" id="text-orgd20cc8d">
 </div>
-<div id="outline-container-orga4e3de6" class="outline-3">
-<h3 id="orga4e3de6">13.4-1</h3>
-<div class="outline-text-3" id="text-orga4e3de6">
+<div id="outline-container-org14e2d57" class="outline-3">
+<h3 id="org14e2d57">13.4-1</h3>
+<div class="outline-text-3" id="text-org14e2d57">
 <p>
 In both cases, we won't change the color of the root, thus after executing
 <code>RB-DELETE-FIXUP</code>, the root of the tree must be black.
 </p>
 </div>
 </div>
-<div id="outline-container-org263ae8e" class="outline-3">
-<h3 id="org263ae8e">13.4-2</h3>
-<div class="outline-text-3" id="text-org263ae8e">
+<div id="outline-container-org1c7b53c" class="outline-3">
+<h3 id="org1c7b53c">13.4-2</h3>
+<div class="outline-text-3" id="text-org1c7b53c">
 <p>
-If both \(x\) and \(x.p\) are red, the call to <code>RB-DELETE-FIXUP</code> will simply
-color \(x\) black, and restore property 4.
+If we have colored both \(x\) and \(x.p\) red, the call to <code>RB-DELETE-FIXUP</code>
+will simply color \(x\) black, and restore property 4.
 </p>
 </div>
 </div>
-<div id="outline-container-orgffc67cd" class="outline-3">
-<h3 id="orgffc67cd">13.4-3</h3>
-<div class="outline-text-3" id="text-orgffc67cd">
+<div id="outline-container-orga87137d" class="outline-3">
+<h3 id="orga87137d">13.4-3</h3>
+<div class="outline-text-3" id="text-orga87137d">
 <ol class="org-ol">
 <li><p>
 The initial tree.
 </p>
 
-<div id="org4040b04" class="figure">
+<div id="org2bc3300" class="figure">
 <p><img src="../static/generated/images/ch13-4-1.png" alt="ch13-4-1.png" />
 </p>
 </div></li>
@@ -326,7 +312,7 @@ The initial tree.
 Delete \(8\).
 </p>
 
-<div id="org0764295" class="figure">
+<div id="orga0f77a5" class="figure">
 <p><img src="../static/generated/images/ch13-4-2.png" alt="ch13-4-2.png" />
 </p>
 </div></li>
@@ -335,7 +321,7 @@ Delete \(8\).
 Delete \(12\).
 </p>
 
-<div id="org53f8984" class="figure">
+<div id="org09803a5" class="figure">
 <p><img src="../static/generated/images/ch13-4-3.png" alt="ch13-4-3.png" />
 </p>
 </div></li>
@@ -344,7 +330,7 @@ Delete \(12\).
 Delete \(19\).
 </p>
 
-<div id="org9d983f9" class="figure">
+<div id="org90ae0ed" class="figure">
 <p><img src="../static/generated/images/ch13-4-4.png" alt="ch13-4-4.png" />
 </p>
 </div></li>
@@ -353,7 +339,7 @@ Delete \(19\).
 Delete \(31\).
 </p>
 
-<div id="orgfc9c047" class="figure">
+<div id="orgb79d6f0" class="figure">
 <p><img src="../static/generated/images/ch13-4-5.png" alt="ch13-4-5.png" />
 </p>
 </div></li>
@@ -362,7 +348,7 @@ Delete \(31\).
 Delete \(38\).
 </p>
 
-<div id="orgd213dca" class="figure">
+<div id="org8d72219" class="figure">
 <p><img src="../static/generated/images/ch13-4-6.png" alt="ch13-4-6.png" />
 </p>
 </div></li>
@@ -371,9 +357,9 @@ Delete \(38\).
 </ol>
 </div>
 </div>
-<div id="outline-container-org0641cc9" class="outline-3">
-<h3 id="org0641cc9">13.4-4</h3>
-<div class="outline-text-3" id="text-org0641cc9">
+<div id="outline-container-org3e46eee" class="outline-3">
+<h3 id="org3e46eee">13.4-4</h3>
+<div class="outline-text-3" id="text-org3e46eee">
 <p>
 We might examine or modify the sentinel \(T.nil\) in those lines as below.
 </p>
@@ -394,9 +380,9 @@ from \(w\) to \(x.p\).</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orge642def" class="outline-3">
-<h3 id="orge642def">13.4-5</h3>
-<div class="outline-text-3" id="text-orge642def">
+<div id="outline-container-org7082cb8" class="outline-3">
+<h3 id="org7082cb8">13.4-5</h3>
+<div class="outline-text-3" id="text-org7082cb8">
 <ul class="org-ul">
 <li><p>
 Case 1
@@ -653,19 +639,19 @@ Case 4
 </ul>
 </div>
 </div>
-<div id="outline-container-orgfeec287" class="outline-3">
-<h3 id="orgfeec287">13.4-6</h3>
-<div class="outline-text-3" id="text-orgfeec287">
+<div id="outline-container-orged40a87" class="outline-3">
+<h3 id="orged40a87">13.4-6</h3>
+<div class="outline-text-3" id="text-orged40a87">
 <p>
-In case 1, \(x\)'s sibling \(w\) is red, and both \(w\) and its parent \(p\)
-were left untouched before <code>RB-DELETE-FIXUP</code>, thus \(p\) must be black at the
-start of case 1, otherwise the red-black property 4 is violated.
+In case 1, \(x\)'s sibling \(w\) is a red node, and we left both \(w\) and
+its parent \(p\) untouched before <code>RB-DELETE-FIXUP</code>, thus \(p\) must be black
+at the start of case 1, otherwise we violate red-black property 4.
 </p>
 </div>
 </div>
-<div id="outline-container-orgfdecb32" class="outline-3">
-<h3 id="orgfdecb32">13.4-7</h3>
-<div class="outline-text-3" id="text-orgfdecb32">
+<div id="outline-container-org0511eef" class="outline-3">
+<h3 id="org0511eef">13.4-7</h3>
+<div class="outline-text-3" id="text-org0511eef">
 <p>
 The resulting tree may not be the same as the initial red-black tree. Below
 is the counter example.
@@ -675,7 +661,7 @@ is the counter example.
 The initial tree.
 </p>
 
-<div id="org24f678e" class="figure">
+<div id="org83e37d6" class="figure">
 <p><img src="../static/generated/images/ch13-4-7.png" alt="ch13-4-7.png" />
 </p>
 </div></li>
@@ -684,7 +670,7 @@ The initial tree.
 Insert \(8\).
 </p>
 
-<div id="org06c955d" class="figure">
+<div id="org148851a" class="figure">
 <p><img src="../static/generated/images/ch13-4-8.png" alt="ch13-4-8.png" />
 </p>
 </div></li>
@@ -693,7 +679,7 @@ Insert \(8\).
 Delete \(8\).
 </p>
 
-<div id="org06e8c88" class="figure">
+<div id="org80f70ea" class="figure">
 <p><img src="../static/generated/images/ch13-4-9.png" alt="ch13-4-9.png" />
 </p>
 </div></li>
@@ -704,7 +690,7 @@ Delete \(8\).
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2022-11-08 Tue 06:25</p>
+<p class="date">Created: 2023-08-17 Thu 10:36</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

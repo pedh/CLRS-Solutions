@@ -3,14 +3,14 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-11-08 Tue 06:25 -->
+<!-- 2023-08-17 Thu 10:36 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 14.2</title>
-<meta name="generator" content="Org mode" />
 <meta name="author" content="pedh" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
   .subtitle { text-align: center;
@@ -31,8 +31,9 @@
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
   pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -41,21 +42,21 @@
   pre.src {
     position: relative;
     overflow: auto;
-    padding-top: 1.2em;
   }
   pre.src:before {
     display: none;
     position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
+    top: -8px;
+    right: 12px;
     padding: 3px;
-    border: 1px solid black;
+    color: #555;
+    background-color: #f2f2f299;
   }
   pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -190,19 +191,17 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
-  /*]]>*/-->
+  .org-svg { }
 </style>
 <link rel="stylesheet" type="text/css" href="/css/org-info.css" />
 
-<script type="text/javascript" src="/js/org-info.js">
+<script src="/js/org-info.js">
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
 // @license-end
 </script>
 
-<script type="text/javascript">
+<script>
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
-<!--/*--><![CDATA[/*><!--*/
 org_html_manager.set("TOC_DEPTH", "3");
 org_html_manager.set("LINK_HOME", "/CLRS-Solutions");
 org_html_manager.set("LINK_UP", "/CLRS-Solutions");
@@ -213,84 +212,71 @@ org_html_manager.set("FIXED_TOC", "0");
 org_html_manager.set("TOC", "1");
 org_html_manager.set("VIEW", "info");
 org_html_manager.setup();  // activate after the parameters are set
-/*]]>*///-->
 // @license-end
 </script>
-<script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
-<!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
 
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="org-div-home-and-up">
  <a accesskey="h" href="/CLRS-Solutions"> UP </a>
  |
  <a accesskey="H" href="/CLRS-Solutions"> HOME </a>
-</div><div id="content">
+</div><div id="content" class="content">
 <h1 class="title">Chapter 14.2</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org0e2d142">14.2</a>
+<li><a href="#org8d235d1">14.2</a>
 <ul>
-<li><a href="#org44f6565">14.2-1</a></li>
-<li><a href="#orgd87a6a9">14.2-2</a></li>
-<li><a href="#org1081fc5">14.2-3</a></li>
-<li><a href="#orgd5b3255">14.2-4</a></li>
+<li><a href="#orgbb845f0">14.2-1</a></li>
+<li><a href="#orgffc8de3">14.2-2</a></li>
+<li><a href="#orgbcbb43a">14.2-3</a></li>
+<li><a href="#org31e3b53">14.2-4</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org0e2d142" class="outline-2">
-<h2 id="org0e2d142">14.2</h2>
-<div class="outline-text-2" id="text-org0e2d142">
+<div id="outline-container-org8d235d1" class="outline-2">
+<h2 id="org8d235d1">14.2</h2>
+<div class="outline-text-2" id="text-org8d235d1">
 </div>
-<div id="outline-container-org44f6565" class="outline-3">
-<h3 id="org44f6565">14.2-1</h3>
-<div class="outline-text-3" id="text-org44f6565">
+<div id="outline-container-orgbb845f0" class="outline-3">
+<h3 id="orgbb845f0">14.2-1</h3>
+<div class="outline-text-3" id="text-orgbb845f0">
 <p>
 As below, we add 4 pointers to the nodes, and support the dynamic-set queries
 in \(O(1)\) worst-case time.
@@ -309,12 +295,12 @@ MAXIMUM()
 
 SUCCESSOR()
     if x.right != NIL
-	return x.right.left-spine-bottom
+        return x.right.left-spine-bottom
     return x.right-spine-top.p
 
 PREDECESSOR()
     if x.left != NIL
-	return x.left.right-spine-bottom
+        return x.left.right-spine-bottom
     return x.left-spine-top.p
 </pre>
 <p>
@@ -325,25 +311,25 @@ trees are not affected.
 </p>
 </div>
 </div>
-<div id="outline-container-orgd87a6a9" class="outline-3">
-<h3 id="orgd87a6a9">14.2-2</h3>
-<div class="outline-text-3" id="text-orgd87a6a9">
+<div id="outline-container-orgffc8de3" class="outline-3">
+<h3 id="orgffc8de3">14.2-2</h3>
+<div class="outline-text-3" id="text-orgffc8de3">
 <p>
 We can maintain the black-heights of nodes in a red-black tree as attributes
-in the nodes of the tree, without affecting the asymptotic performance of any
-of the red-black tree operations, since \(x.bh = x.left.bh + 1\).
+in the nodes of the tree, without affecting the asymptotic performance of the
+red-black tree operations, since \(x.bh = x.left.bh + 1\).
 </p>
 
 <p>
-The depths of nodes cannot be maintained, since the depth of x does not
-depend on only the information in nodes x, x.left, and x.right, and the
-depths of x.left and x.right.
+We cannot maintain The depths of nodes, since the depth of x does not depend
+on only the information in nodes x, x.left, and x.right, and the depths of
+x.left and x.right.
 </p>
 </div>
 </div>
-<div id="outline-container-org1081fc5" class="outline-3">
-<h3 id="org1081fc5">14.2-3</h3>
-<div class="outline-text-3" id="text-org1081fc5">
+<div id="outline-container-orgbcbb43a" class="outline-3">
+<h3 id="orgbcbb43a">14.2-3</h3>
+<div class="outline-text-3" id="text-orgbcbb43a">
 <p>
 We can update the \(f\) attributes in \(O(1)\) time after a rotation, by
 calculating \(x.f = x.left.f \otimes x.a \otimes x.right.f\).
@@ -356,27 +342,27 @@ order-statistic tree.
 </p>
 </div>
 </div>
-<div id="outline-container-orgd5b3255" class="outline-3">
-<h3 id="orgd5b3255">14.2-4</h3>
-<div class="outline-text-3" id="text-orgd5b3255">
+<div id="outline-container-org31e3b53" class="outline-3">
+<h3 id="org31e3b53">14.2-4</h3>
+<div class="outline-text-3" id="text-org31e3b53">
 <pre class="example">
 RB-LARGER-MINIMUM(x, a, c)
     if x == NIL
-	return c
+        return c
     if k &lt; x.key
-	return RB-LARGER-MINIMUM(x.left, a)
+        return RB-LARGER-MINIMUM(x.left, a)
     else
-	if x.key &lt; c.key
-	    c = x
-	return RB-LARGER-MINIMUM(x.right, a, c)
+        if x.key &lt; c.key
+            c = x
+        return RB-LARGER-MINIMUM(x.right, a, c)
 
 RB-ENUMERATE(x, a, b)
     c = RB-LARGER-MINIMUM(x, a, x)
     let keys be an empty array
     while c.key &lt;= b
-	keys.append(c)
-	// use the O(1) implementation in 14.2-1
-	c = RB-SUCCESSOR(c)
+        keys.append(c)
+        // use the O(1) implementation in 14.2-1
+        c = RB-SUCCESSOR(c)
     return keys
 </pre>
 <p>
@@ -393,7 +379,7 @@ larger key than \(b\), this costs \(Theta(m)\) time if we are using the
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2022-11-08 Tue 06:25</p>
+<p class="date">Created: 2023-08-17 Thu 10:36</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

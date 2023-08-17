@@ -3,14 +3,14 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-11-08 Tue 06:25 -->
+<!-- 2023-08-17 Thu 10:36 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 10.3</title>
-<meta name="generator" content="Org mode" />
 <meta name="author" content="pedh" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
   .subtitle { text-align: center;
@@ -31,8 +31,9 @@
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
   pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -41,21 +42,21 @@
   pre.src {
     position: relative;
     overflow: auto;
-    padding-top: 1.2em;
   }
   pre.src:before {
     display: none;
     position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
+    top: -8px;
+    right: 12px;
     padding: 3px;
-    border: 1px solid black;
+    color: #555;
+    background-color: #f2f2f299;
   }
   pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -190,19 +191,17 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
-  /*]]>*/-->
+  .org-svg { }
 </style>
 <link rel="stylesheet" type="text/css" href="/css/org-info.css" />
 
-<script type="text/javascript" src="/js/org-info.js">
+<script src="/js/org-info.js">
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
 // @license-end
 </script>
 
-<script type="text/javascript">
+<script>
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
-<!--/*--><![CDATA[/*><!--*/
 org_html_manager.set("TOC_DEPTH", "3");
 org_html_manager.set("LINK_HOME", "/CLRS-Solutions");
 org_html_manager.set("LINK_UP", "/CLRS-Solutions");
@@ -213,89 +212,76 @@ org_html_manager.set("FIXED_TOC", "0");
 org_html_manager.set("TOC", "1");
 org_html_manager.set("VIEW", "info");
 org_html_manager.setup();  // activate after the parameters are set
-/*]]>*///-->
 // @license-end
 </script>
-<script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
-<!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
 
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="org-div-home-and-up">
  <a accesskey="h" href="/CLRS-Solutions"> UP </a>
  |
  <a accesskey="H" href="/CLRS-Solutions"> HOME </a>
-</div><div id="content">
+</div><div id="content" class="content">
 <h1 class="title">Chapter 10.3</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org9d4edcb">ch10.3</a>
+<li><a href="#org677d2c3">ch10.3</a>
 <ul>
-<li><a href="#org4a631bf">10.3-1</a></li>
-<li><a href="#org99c4d4a">10.3-2</a></li>
-<li><a href="#org3ab8f5f">10.3-3</a></li>
-<li><a href="#org224e610">10.3-4</a></li>
-<li><a href="#org8647d4d">10.3-5</a></li>
+<li><a href="#orge5f49e5">10.3-1</a></li>
+<li><a href="#org05cbefc">10.3-2</a></li>
+<li><a href="#org09e335f">10.3-3</a></li>
+<li><a href="#orgb9853f6">10.3-4</a></li>
+<li><a href="#orge86a87e">10.3-5</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org9d4edcb" class="outline-2">
-<h2 id="org9d4edcb">ch10.3</h2>
-<div class="outline-text-2" id="text-org9d4edcb">
+<div id="outline-container-org677d2c3" class="outline-2">
+<h2 id="org677d2c3">ch10.3</h2>
+<div class="outline-text-2" id="text-org677d2c3">
 </div>
-<div id="outline-container-org4a631bf" class="outline-3">
-<h3 id="org4a631bf">10.3-1</h3>
-<div class="outline-text-3" id="text-org4a631bf">
+<div id="outline-container-orge5f49e5" class="outline-3">
+<h3 id="orge5f49e5">10.3-1</h3>
+<div class="outline-text-3" id="text-orge5f49e5">
 <pre class="example">
 (13, 4, 8, 19, 5, 11) stored as a doubly linked list.
 
-1. using the multiple-array representation
+1. Using the multiple-array representation
 |----------+----+----+---+---+----+---|
 | L.head=2 |  1 |  2 | 3 | 4 |  5 | 6 |
 |----------+----+----+---+---+----+---|
@@ -306,12 +292,12 @@ org_html_manager.setup();  // activate after the parameters are set
 | prev     |  6 |  / | 2 | 1 |  4 | 3 |
 |----------+----+----+---+---+----+---|
 
-2. using the single-array representation
-|---------------+----+----+----+----+---+---|
-| L.head=4      |  1 |  2 |  3 |  4 | 5 | 6 |
-|---------------+----+----+----+----+---+---|
-| key,next,prev | 19 | 10 | 16 | 13 | 7 | / |
-|---------------+----+----+----+----+---+---|
+2. Using the single-array representation
+|-----------------+----+----+----+----+---+---|
+| L.head=4        |  1 |  2 |  3 |  4 | 5 | 6 |
+|-----------------+----+----+----+----+---+---|
+| key, next, prev | 19 | 10 | 16 | 13 | 7 | / |
+|-----------------+----+----+----+----+---+---|
 
 |---+----+---+----+----+----|
 | 7 |  8 | 9 | 10 | 11 | 12 |
@@ -327,13 +313,13 @@ org_html_manager.setup();  // activate after the parameters are set
 </pre>
 </div>
 </div>
-<div id="outline-container-org99c4d4a" class="outline-3">
-<h3 id="org99c4d4a">10.3-2</h3>
-<div class="outline-text-3" id="text-org99c4d4a">
+<div id="outline-container-org05cbefc" class="outline-3">
+<h3 id="org05cbefc">10.3-2</h3>
+<div class="outline-text-3" id="text-org05cbefc">
 <pre class="example">
 ALLOCATE-OBJECT()
     if free == NIL
-	error "out of space"
+        error "out of space"
     x = free
     free = A[x + 1]
     return x
@@ -344,18 +330,18 @@ FREE-OBJECT(x)
 </pre>
 </div>
 </div>
-<div id="outline-container-org3ab8f5f" class="outline-3">
-<h3 id="org3ab8f5f">10.3-3</h3>
-<div class="outline-text-3" id="text-org3ab8f5f">
+<div id="outline-container-org09e335f" class="outline-3">
+<h3 id="org09e335f">10.3-3</h3>
+<div class="outline-text-3" id="text-org09e335f">
 <p>
 We don't need to set or reset the <code>prev</code> attributes of objects, because the
 free list works like a stack, i.e. a singly linked list.
 </p>
 </div>
 </div>
-<div id="outline-container-org224e610" class="outline-3">
-<h3 id="org224e610">10.3-4</h3>
-<div class="outline-text-3" id="text-org224e610">
+<div id="outline-container-orgb9853f6" class="outline-3">
+<h3 id="orgb9853f6">10.3-4</h3>
+<div class="outline-text-3" id="text-orgb9853f6">
 <pre class="example">
 ALLOCATE-OBJECT()
     PUSH(S, NIL)
@@ -363,37 +349,37 @@ ALLOCATE-OBJECT()
 
 FREE-OBJECT(x)
     for i = x to S.top - 1
-	S[i] = S[i + 1]
+        S[i] = S[i + 1]
     S.top = S.top - 1
 </pre>
 </div>
 </div>
-<div id="outline-container-org8647d4d" class="outline-3">
-<h3 id="org8647d4d">10.3-5</h3>
-<div class="outline-text-3" id="text-org8647d4d">
+<div id="outline-container-orge86a87e" class="outline-3">
+<h3 id="orge86a87e">10.3-5</h3>
+<div class="outline-text-3" id="text-orge86a87e">
 <pre class="example">
 COMPACTIFY-LIST(L, F)
     cur = L.head
     if cur != NIL
-	L.head = 1
+        L.head = 1
     i = 1
     while cur != NIL
-	if cur != i
-	    if F.head == i
-		 F.head = cur
-	    if next[cur] != NIL
-		prev[next[cur]] = i
-	    if prev[cur] != NIL
-		next[prev[cur]] = i
-	    if next[i] != NIL
-		prev[next[i]] = cur
-	    if prev[i] != NIL
-		next[prev[i]] = cur
-	    exchange key[cur] with key[i]
-	    exchange next[cur] with next[i]
-	    exchange prev[cur] with prev[i]
-	cur = next[i]
-	i = i + 1
+        if cur != i
+            if F.head == i
+                 F.head = cur
+            if next[cur] != NIL
+                prev[next[cur]] = i
+            if prev[cur] != NIL
+                next[prev[cur]] = i
+            if next[i] != NIL
+                prev[next[i]] = cur
+            if prev[i] != NIL
+                next[prev[i]] = cur
+            exchange key[cur] with key[i]
+            exchange next[cur] with next[i]
+            exchange prev[cur] with prev[i]
+        cur = next[i]
+        i = i + 1
 </pre>
 <p>
 After the procedure is done, the items in \(L\) occupy array positions
@@ -406,7 +392,7 @@ After the procedure is done, the items in \(L\) occupy array positions
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2022-11-08 Tue 06:25</p>
+<p class="date">Created: 2023-08-17 Thu 10:36</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

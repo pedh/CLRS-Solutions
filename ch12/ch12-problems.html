@@ -3,14 +3,14 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-11-08 Tue 06:25 -->
+<!-- 2023-08-17 Thu 10:35 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 12 problems</title>
-<meta name="generator" content="Org mode" />
 <meta name="author" content="pedh" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
   .subtitle { text-align: center;
@@ -31,8 +31,9 @@
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
   pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -41,21 +42,21 @@
   pre.src {
     position: relative;
     overflow: auto;
-    padding-top: 1.2em;
   }
   pre.src:before {
     display: none;
     position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
+    top: -8px;
+    right: 12px;
     padding: 3px;
-    border: 1px solid black;
+    color: #555;
+    background-color: #f2f2f299;
   }
   pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -190,19 +191,17 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
-  /*]]>*/-->
+  .org-svg { }
 </style>
 <link rel="stylesheet" type="text/css" href="/css/org-info.css" />
 
-<script type="text/javascript" src="/js/org-info.js">
+<script src="/js/org-info.js">
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
 // @license-end
 </script>
 
-<script type="text/javascript">
+<script>
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
-<!--/*--><![CDATA[/*><!--*/
 org_html_manager.set("TOC_DEPTH", "3");
 org_html_manager.set("LINK_HOME", "/CLRS-Solutions");
 org_html_manager.set("LINK_UP", "/CLRS-Solutions");
@@ -213,84 +212,71 @@ org_html_manager.set("FIXED_TOC", "0");
 org_html_manager.set("TOC", "1");
 org_html_manager.set("VIEW", "info");
 org_html_manager.setup();  // activate after the parameters are set
-/*]]>*///-->
 // @license-end
 </script>
-<script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
-<!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
 
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="org-div-home-and-up">
  <a accesskey="h" href="/CLRS-Solutions"> UP </a>
  |
  <a accesskey="H" href="/CLRS-Solutions"> HOME </a>
-</div><div id="content">
+</div><div id="content" class="content">
 <h1 class="title">Chapter 12 problems</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org4ea0727">ch12-problems</a>
+<li><a href="#org9b1750a">ch12-problems</a>
 <ul>
-<li><a href="#orgb4a39ce">12-1</a></li>
-<li><a href="#orgb71f88c">12-2</a></li>
-<li><a href="#org62e5adb">12-3</a></li>
-<li><a href="#org29fb45e">12-4</a></li>
+<li><a href="#org0f55430">12-1</a></li>
+<li><a href="#org51de0d8">12-2</a></li>
+<li><a href="#org807a61f">12-3</a></li>
+<li><a href="#orga402459">12-4</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org4ea0727" class="outline-2">
-<h2 id="org4ea0727">ch12-problems</h2>
-<div class="outline-text-2" id="text-org4ea0727">
+<div id="outline-container-org9b1750a" class="outline-2">
+<h2 id="org9b1750a">ch12-problems</h2>
+<div class="outline-text-2" id="text-org9b1750a">
 </div>
-<div id="outline-container-orgb4a39ce" class="outline-3">
-<h3 id="orgb4a39ce">12-1</h3>
-<div class="outline-text-3" id="text-orgb4a39ce">
+<div id="outline-container-org0f55430" class="outline-3">
+<h3 id="org0f55430">12-1</h3>
+<div class="outline-text-3" id="text-org0f55430">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
@@ -309,9 +295,9 @@ strictly sorted items, which takes totally \(\Theta(n^2)\) running time.
 The number of nodes in the tree rooted at \(x.left\), whose keys are
 identical with \(x\), are approximately the same as those in the tree
 rooted at \(x.right\), thus after having inserted \(n\) items with
-identical keys, the binary search tree is balanced, the height of the tree
-should be \(\Theta(\lg n)\). Hence the total running time is
-\(\Theta(n\lg n)\), and only \(O(1)\) extra memory space is required.
+identical keys, we balance the binary search tree, the height of the tree
+should be \(\Theta(\lg n)\). Hence, the total running time is
+\(\Theta(n\lg n)\), and we only require \(O(1)\) extra memory space.
 </p></li>
 <li><p>
 <b>c.</b>
@@ -329,30 +315,30 @@ is \(0\), but we need \(O(n)\) extra memory space outside the tree.
 <p>
 When a node is inserting into the tree rooted at node \(x\), if the key of
 the node is identical with \(x\), then the node will be equally likely
-inserted into the tree rooted at \(x.left\) or \(x.right\). Thus after
+inserted into the tree rooted at \(x.left\) or \(x.right\). Thus, after
 having inserted \(n\) items with identical keys, the binary search tree is
-expectly balanced, hence the expected running time is \(O(n\lg n)\), but
+on expect balanced, hence the expected running time is \(O(n\lg n)\), but
 the worst-case running time is still \(O(n^2)\), and the extra memory space
 we need is \(O(1)\).
 </p></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb71f88c" class="outline-3">
-<h3 id="orgb71f88c">12-2</h3>
-<div class="outline-text-3" id="text-orgb71f88c">
+<div id="outline-container-org51de0d8" class="outline-3">
+<h3 id="org51de0d8">12-2</h3>
+<div class="outline-text-3" id="text-org51de0d8">
 <p>
 Consider a node \(x\) and its children \(x.left\) and \(x.right\) in the
 radix tree, then we know that lexicographically \(x < x.left < x.right\) by
-the rules, which corresponding to the preorder tree traverse. Thus we could
+the rules, which corresponding to the preorder tree traverse. Thus, we could
 traverse the radix tree in preorder, to sort \(S\) lexicographically, the
 running time is \(\Theta(n)\) if the lengths of strings in \(S\) sum to n.
 </p>
 </div>
 </div>
-<div id="outline-container-org62e5adb" class="outline-3">
-<h3 id="org62e5adb">12-3</h3>
-<div class="outline-text-3" id="text-org62e5adb">
+<div id="outline-container-org807a61f" class="outline-3">
+<h3 id="org807a61f">12-3</h3>
+<div class="outline-text-3" id="text-org807a61f">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
@@ -367,7 +353,7 @@ We obtain the average depth of a node in \(T\) by its definition, which is
 <p>
 Hence if we have proved that the expected value of \(P(T)\) is
 \(O(n\lg n)\), then the expected value the average depth of a node in \(T\)
-should be \(O(\lg n)\), and we could obtains that the average depth of a
+should be \(O(\lg n)\), and we could obtain that the average depth of a
 node in a randomly built binary search tree with \(n\) nodes is
 \(O(\lg n)\).
 </p></li>
@@ -391,7 +377,7 @@ the input permutation, if there are \(n\) nodes in the tree \(T\), then for
 \(i \in [1, n]\), let \(x_i\) denote the \(i\)th smallest element of the
 input permutation, the possibility for \(x_i\) to be the root of \(T\) is
 \(1/n\), then \(T_L\) is randomly built from \(x_1,\ldots,x_{i-1}\), and
-\(T_R\) is randomly built from \(x_{i+1},\ldots,x_n\). Thus we have
+\(T_R\) is randomly built from \(x_{i+1},\ldots,x_n\). Thus, we have
 </p>
 \begin{align*}
 P(n)
@@ -445,35 +431,35 @@ PARTITION(A, p, r)
     let right be a new array
     x = A[p]
     for i = p + 1 to r
-	if A[i] &lt; x
-	    left.append(A[i])
-	else right.append(A[i])
+        if A[i] &lt; x
+            left.append(A[i])
+        else right.append(A[i])
     for j = 1 to left.length
-	A[j] = left[j]
+        A[j] = left[j]
     A[left.length + 1] = x
     for k = 1 to right.length
-	A[left.length + 1 + k] = right[k]
+        A[left.length + 1 + k] = right[k]
     return left.length + 1
 
 QUICKSORT(A, p, r)
     if p &lt; r
-	q = PARTITION(A, p, r)
-	QUICKSORT(A, p, q - 1)
-	QUICKSORT(A, q + 1, r)
+        q = PARTITION(A, p, r)
+        QUICKSORT(A, p, q - 1)
+        QUICKSORT(A, q + 1, r)
 </pre></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org29fb45e" class="outline-3">
-<h3 id="org29fb45e">12-4</h3>
-<div class="outline-text-3" id="text-org29fb45e">
+<div id="outline-container-orga402459" class="outline-3">
+<h3 id="orga402459">12-4</h3>
+<div class="outline-text-3" id="text-orga402459">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
 </p>
 
 <p>
-The binary search tree with \(0\) nodes is an special empty tree, thus
+The binary search tree with \(0\) nodes is a special empty tree, thus
 \(b_0 = 1\), and for \(n \geq 1\), we could first choose an element to be
 the root, if the root is the \(i\)th smallest element, the left subtree of
 the root would have \(i - 1\) elements, and the right subtree of the root
@@ -518,7 +504,7 @@ B(x)
 &=\sum_{n=0}^{\infty}\bigg(\frac{1}{n+1}\binom{2n}{n}x^k\bigg)
 \end{align*}
 <p>
-Substitude the equation above with \(B(x)=\sum_{n=0}^{\infty}b_n x^n\), we
+Substitute the equation above with \(B(x)=\sum_{n=0}^{\infty}b_n x^n\), we
 have \(b_n = \frac{1}{n+1}\binom{2n}{n}\).
 </p></li>
 <li><p>
@@ -550,7 +536,7 @@ b_n
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2022-11-08 Tue 06:25</p>
+<p class="date">Created: 2023-08-17 Thu 10:35</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

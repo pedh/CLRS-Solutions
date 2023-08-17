@@ -3,14 +3,14 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-11-08 Tue 06:25 -->
+<!-- 2023-08-17 Thu 10:35 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 8.1</title>
-<meta name="generator" content="Org mode" />
 <meta name="author" content="pedh" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
   .subtitle { text-align: center;
@@ -31,8 +31,9 @@
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
   pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -41,21 +42,21 @@
   pre.src {
     position: relative;
     overflow: auto;
-    padding-top: 1.2em;
   }
   pre.src:before {
     display: none;
     position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
+    top: -8px;
+    right: 12px;
     padding: 3px;
-    border: 1px solid black;
+    color: #555;
+    background-color: #f2f2f299;
   }
   pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -190,19 +191,17 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
-  /*]]>*/-->
+  .org-svg { }
 </style>
 <link rel="stylesheet" type="text/css" href="/css/org-info.css" />
 
-<script type="text/javascript" src="/js/org-info.js">
+<script src="/js/org-info.js">
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
 // @license-end
 </script>
 
-<script type="text/javascript">
+<script>
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
-<!--/*--><![CDATA[/*><!--*/
 org_html_manager.set("TOC_DEPTH", "3");
 org_html_manager.set("LINK_HOME", "/CLRS-Solutions");
 org_html_manager.set("LINK_UP", "/CLRS-Solutions");
@@ -213,90 +212,77 @@ org_html_manager.set("FIXED_TOC", "0");
 org_html_manager.set("TOC", "1");
 org_html_manager.set("VIEW", "info");
 org_html_manager.setup();  // activate after the parameters are set
-/*]]>*///-->
 // @license-end
 </script>
-<script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
-<!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
 
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="org-div-home-and-up">
  <a accesskey="h" href="/CLRS-Solutions"> UP </a>
  |
  <a accesskey="H" href="/CLRS-Solutions"> HOME </a>
-</div><div id="content">
+</div><div id="content" class="content">
 <h1 class="title">Chapter 8.1</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org50d8253">ch8.1</a>
+<li><a href="#org9ee2d85">ch8.1</a>
 <ul>
-<li><a href="#org4c4466d">8.1-1</a></li>
-<li><a href="#org2248a0f">8.1-2</a></li>
-<li><a href="#org9094a4a">8.1-3</a></li>
-<li><a href="#org8900671">8.1-4</a></li>
+<li><a href="#org590c651">8.1-1</a></li>
+<li><a href="#orgd781fb0">8.1-2</a></li>
+<li><a href="#orgb64451b">8.1-3</a></li>
+<li><a href="#org060ec43">8.1-4</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org50d8253" class="outline-2">
-<h2 id="org50d8253">ch8.1</h2>
-<div class="outline-text-2" id="text-org50d8253">
+<div id="outline-container-org9ee2d85" class="outline-2">
+<h2 id="org9ee2d85">ch8.1</h2>
+<div class="outline-text-2" id="text-org9ee2d85">
 </div>
-<div id="outline-container-org4c4466d" class="outline-3">
-<h3 id="org4c4466d">8.1-1</h3>
-<div class="outline-text-3" id="text-org4c4466d">
+<div id="outline-container-org590c651" class="outline-3">
+<h3 id="org590c651">8.1-1</h3>
+<div class="outline-text-3" id="text-org590c651">
 <p>
 Consider a graph \(G = (V, E)\), which \(V\) represents the set of all \(n\)
-elements, and \(E\) represents the set of all comparison, then we know that
-the graph \(G\) should be connected for a comparison sort, at least \(n - 1\)
-edges is needed, thus the smallest possible depth of a leaf in a decision
-tree for a comparison sort is \(n - 1\).
+elements, and \(E\) represents the set of all comparison, then we should
+connect graph \(G\) for a comparison sort, at we need at least \(n - 1\)
+edges, thus the smallest possible depth of a leaf in a decision tree for a
+comparison sort is \(n - 1\).
 </p>
 
 <p>
@@ -306,9 +292,9 @@ when \(a_1 \leq a_2 \leq a_3 \leq ... \leq a_{n-1} \leq a_n\).
 </p>
 </div>
 </div>
-<div id="outline-container-org2248a0f" class="outline-3">
-<h3 id="org2248a0f">8.1-2</h3>
-<div class="outline-text-3" id="text-org2248a0f">
+<div id="outline-container-orgd781fb0" class="outline-3">
+<h3 id="orgd781fb0">8.1-2</h3>
+<div class="outline-text-3" id="text-orgd781fb0">
 <p>
 Since \(\lg k\) is monotonically increasing, we can approximate the summation
 use the formula \(A.11\).
@@ -332,9 +318,9 @@ From the inequation, we obtain the asymptotically tight bounds
 </p>
 </div>
 </div>
-<div id="outline-container-org9094a4a" class="outline-3">
-<h3 id="org9094a4a">8.1-3</h3>
-<div class="outline-text-3" id="text-org9094a4a">
+<div id="outline-container-orgb64451b" class="outline-3">
+<h3 id="orgb64451b">8.1-3</h3>
+<div class="outline-text-3" id="text-orgb64451b">
 <p>
 Assume the running time is at most \(cn\), we know that there are at most
 \(2^{cn+1}\) leaves under depth \(cn\).
@@ -359,9 +345,9 @@ length \(n\).
 </p>
 </div>
 </div>
-<div id="outline-container-org8900671" class="outline-3">
-<h3 id="org8900671">8.1-4</h3>
-<div class="outline-text-3" id="text-org8900671">
+<div id="outline-container-org060ec43" class="outline-3">
+<h3 id="org060ec43">8.1-4</h3>
+<div class="outline-text-3" id="text-org060ec43">
 <p>
 Build a decision tree to represent a comparison sort of the given problem,
 assume the number of leaves is \(l\) and the height of the tree is \(h\),
@@ -387,7 +373,7 @@ Thus the lower bound of the number of comparisons is \(\Omega(n\lg k)\).
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2022-11-08 Tue 06:25</p>
+<p class="date">Created: 2023-08-17 Thu 10:35</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

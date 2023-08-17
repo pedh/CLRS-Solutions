@@ -3,14 +3,14 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-11-08 Tue 06:25 -->
+<!-- 2023-08-17 Thu 10:36 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 2 problems</title>
-<meta name="generator" content="Org mode" />
 <meta name="author" content="pedh" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
   .subtitle { text-align: center;
@@ -31,8 +31,9 @@
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
   pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -41,21 +42,21 @@
   pre.src {
     position: relative;
     overflow: auto;
-    padding-top: 1.2em;
   }
   pre.src:before {
     display: none;
     position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
+    top: -8px;
+    right: 12px;
     padding: 3px;
-    border: 1px solid black;
+    color: #555;
+    background-color: #f2f2f299;
   }
   pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -190,19 +191,17 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
-  /*]]>*/-->
+  .org-svg { }
 </style>
 <link rel="stylesheet" type="text/css" href="/css/org-info.css" />
 
-<script type="text/javascript" src="/js/org-info.js">
+<script src="/js/org-info.js">
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
 // @license-end
 </script>
 
-<script type="text/javascript">
+<script>
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
-<!--/*--><![CDATA[/*><!--*/
 org_html_manager.set("TOC_DEPTH", "3");
 org_html_manager.set("LINK_HOME", "/CLRS-Solutions");
 org_html_manager.set("LINK_UP", "/CLRS-Solutions");
@@ -213,84 +212,71 @@ org_html_manager.set("FIXED_TOC", "0");
 org_html_manager.set("TOC", "1");
 org_html_manager.set("VIEW", "info");
 org_html_manager.setup();  // activate after the parameters are set
-/*]]>*///-->
 // @license-end
 </script>
-<script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
-<!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
 
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="org-div-home-and-up">
  <a accesskey="h" href="/CLRS-Solutions"> UP </a>
  |
  <a accesskey="H" href="/CLRS-Solutions"> HOME </a>
-</div><div id="content">
+</div><div id="content" class="content">
 <h1 class="title">Chapter 2 problems</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org0d6b0b0">ch2-problems</a>
+<li><a href="#org5742227">ch2-problems</a>
 <ul>
-<li><a href="#orgefe5245">2-1</a></li>
-<li><a href="#org380b6d0">2-2</a></li>
-<li><a href="#org9e51faf">2-3</a></li>
-<li><a href="#org35540df">2-4</a></li>
+<li><a href="#orga0898c0">2-1</a></li>
+<li><a href="#org6b26810">2-2</a></li>
+<li><a href="#org45a7e39">2-3</a></li>
+<li><a href="#org9fa6b2d">2-4</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org0d6b0b0" class="outline-2">
-<h2 id="org0d6b0b0">ch2-problems</h2>
-<div class="outline-text-2" id="text-org0d6b0b0">
+<div id="outline-container-org5742227" class="outline-2">
+<h2 id="org5742227">ch2-problems</h2>
+<div class="outline-text-2" id="text-org5742227">
 </div>
-<div id="outline-container-orgefe5245" class="outline-3">
-<h3 id="orgefe5245">2-1</h3>
-<div class="outline-text-3" id="text-orgefe5245">
+<div id="outline-container-orga0898c0" class="outline-3">
+<h3 id="orga0898c0">2-1</h3>
+<div class="outline-text-3" id="text-orga0898c0">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
@@ -311,9 +297,9 @@ T(n,k)&=n/k\times\Theta(k^2)\\
 MERGE-SUBLISTS(S)
     let S'[1..S.length // 2] to be new array
     for i = 1 to S.length // 2
-	S'[i] = MERGE(S[2 * i - 1], S[2 * i])
+        S'[i] = MERGE(S[2 * i - 1], S[2 * i])
     if S.length % 2 != 0
-	S'.append(S[S.length])
+        S'.append(S[S.length])
     return MERGE-SUBLIST(S')
 </pre></li>
 
@@ -336,9 +322,9 @@ than merge sort.
 </ul>
 </div>
 </div>
-<div id="outline-container-org380b6d0" class="outline-3">
-<h3 id="org380b6d0">2-2</h3>
-<div class="outline-text-3" id="text-org380b6d0">
+<div id="outline-container-org6b26810" class="outline-3">
+<h3 id="org6b26810">2-2</h3>
+<div class="outline-text-3" id="text-org6b26810">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
@@ -418,9 +404,9 @@ worst case.
 </ul>
 </div>
 </div>
-<div id="outline-container-org9e51faf" class="outline-3">
-<h3 id="org9e51faf">2-3</h3>
-<div class="outline-text-3" id="text-org9e51faf">
+<div id="outline-container-org45a7e39" class="outline-3">
+<h3 id="org45a7e39">2-3</h3>
+<div class="outline-text-3" id="text-org45a7e39">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
@@ -437,7 +423,7 @@ worst case.
 NAIVE-POLYNOMIAL-EVALUATION(A, x)
     y = 0
     for i = 1 to A.length
-	y = y + A[i] * POWER(x, i - 1)
+        y = y + A[i] * POWER(x, i - 1)
     return y
 </pre>
 
@@ -475,9 +461,9 @@ the polynomial.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org35540df" class="outline-3">
-<h3 id="org35540df">2-4</h3>
-<div class="outline-text-3" id="text-org35540df">
+<div id="outline-container-org9fa6b2d" class="outline-3">
+<h3 id="org9fa6b2d">2-4</h3>
+<div class="outline-text-3" id="text-org9fa6b2d">
 <ul class="org-ul">
 <li><p>
 <b>a.</b>
@@ -519,10 +505,10 @@ inner loop is in conclusion the same as the number of inversions.
 MERGE-SORT(A, p, r)
     inv = 0
     if p &lt; r
-	q = (p + r) // 2
-	inv = inv + MERGE-SORT(A, p, q)
-	inv = inv + MERGE-SORT(A, q + 1, r)
-	inv = inv + MERGE(A, p, q, r)
+        q = (p + r) // 2
+        inv = inv + MERGE-SORT(A, p, q)
+        inv = inv + MERGE-SORT(A, q + 1, r)
+        inv = inv + MERGE(A, p, q, r)
     return inv
 </pre>
 <pre class="example">
@@ -531,21 +517,21 @@ MERGE(A, p, q, r)
     n2 = r - q
     let L[1..n1 + 1] and R[1..n2 + 1] be new arrays
     for i = 1 to n1
-	L[i] = A[p + i - 1]
+        L[i] = A[p + i - 1]
     for j = 1 to n2
-	R[j] = A[q + j]
+        R[j] = A[q + j]
     L[n1 + 1] = \infty
     R[n2 + 1] = \infty
     i = 1
     j = 1
     inv = 0
     for k = p to r
-	if L[i] &lt;= R[j]
-	    A[k] = L[i]
-	    i = i + 1
-	else A[k] = R[j]
-	     inv = inv + n1 + 1 - i
-	     j = j + 1
+        if L[i] &lt;= R[j]
+            A[k] = L[i]
+            i = i + 1
+        else A[k] = R[j]
+             inv = inv + n1 + 1 - i
+             j = j + 1
     return inv
 </pre></li>
 </ul>
@@ -555,7 +541,7 @@ MERGE(A, p, q, r)
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2022-11-08 Tue 06:25</p>
+<p class="date">Created: 2023-08-17 Thu 10:36</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

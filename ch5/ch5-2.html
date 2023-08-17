@@ -3,14 +3,14 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-11-08 Tue 06:25 -->
+<!-- 2023-08-17 Thu 10:36 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 5.2</title>
-<meta name="generator" content="Org mode" />
 <meta name="author" content="pedh" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
   .subtitle { text-align: center;
@@ -31,8 +31,9 @@
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
   pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -41,21 +42,21 @@
   pre.src {
     position: relative;
     overflow: auto;
-    padding-top: 1.2em;
   }
   pre.src:before {
     display: none;
     position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
+    top: -8px;
+    right: 12px;
     padding: 3px;
-    border: 1px solid black;
+    color: #555;
+    background-color: #f2f2f299;
   }
   pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -190,19 +191,17 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
-  /*]]>*/-->
+  .org-svg { }
 </style>
 <link rel="stylesheet" type="text/css" href="/css/org-info.css" />
 
-<script type="text/javascript" src="/js/org-info.js">
+<script src="/js/org-info.js">
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
 // @license-end
 </script>
 
-<script type="text/javascript">
+<script>
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
-<!--/*--><![CDATA[/*><!--*/
 org_html_manager.set("TOC_DEPTH", "3");
 org_html_manager.set("LINK_HOME", "/CLRS-Solutions");
 org_html_manager.set("LINK_UP", "/CLRS-Solutions");
@@ -213,85 +212,72 @@ org_html_manager.set("FIXED_TOC", "0");
 org_html_manager.set("TOC", "1");
 org_html_manager.set("VIEW", "info");
 org_html_manager.setup();  // activate after the parameters are set
-/*]]>*///-->
 // @license-end
 </script>
-<script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
-<!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
 
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="org-div-home-and-up">
  <a accesskey="h" href="/CLRS-Solutions"> UP </a>
  |
  <a accesskey="H" href="/CLRS-Solutions"> HOME </a>
-</div><div id="content">
+</div><div id="content" class="content">
 <h1 class="title">Chapter 5.2</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org70cf997">ch5.2</a>
+<li><a href="#org215cae2">ch5.2</a>
 <ul>
-<li><a href="#org88a15fd">5.2-1</a></li>
-<li><a href="#orgbf4e655">5.2-2</a></li>
-<li><a href="#org24b8ef1">5.2-3</a></li>
-<li><a href="#orgb8b2d81">5.2-4</a></li>
-<li><a href="#org0137795">5.2-5</a></li>
+<li><a href="#org251ef91">5.2-1</a></li>
+<li><a href="#orgeeb5924">5.2-2</a></li>
+<li><a href="#orgbe5029e">5.2-3</a></li>
+<li><a href="#org2a2c4ef">5.2-4</a></li>
+<li><a href="#orgfaf3fa0">5.2-5</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org70cf997" class="outline-2">
-<h2 id="org70cf997">ch5.2</h2>
-<div class="outline-text-2" id="text-org70cf997">
+<div id="outline-container-org215cae2" class="outline-2">
+<h2 id="org215cae2">ch5.2</h2>
+<div class="outline-text-2" id="text-org215cae2">
 </div>
-<div id="outline-container-org88a15fd" class="outline-3">
-<h3 id="org88a15fd">5.2-1</h3>
-<div class="outline-text-3" id="text-org88a15fd">
+<div id="outline-container-org251ef91" class="outline-3">
+<h3 id="org251ef91">5.2-1</h3>
+<div class="outline-text-3" id="text-org251ef91">
 <p>
 <b>Hire exact one time:</b> The best candidate appears first,
 the probability is \(\frac{1}{n}\).
@@ -303,21 +289,21 @@ the probability is \(\frac{1}{n!}\).
 </p>
 </div>
 </div>
-<div id="outline-container-orgbf4e655" class="outline-3">
-<h3 id="orgbf4e655">5.2-2</h3>
-<div class="outline-text-3" id="text-orgbf4e655">
+<div id="outline-container-orgeeb5924" class="outline-3">
+<h3 id="orgeeb5924">5.2-2</h3>
+<div class="outline-text-3" id="text-orgeeb5924">
 <p>
-We know that the first candidate and the best candidate will
-always been hired, let the first candidate to be \(A[1]\), and the
-best candidate to be \(A[k]\), there should be \(A[1] = best(A[1..k-1])\)
-to hire exactly two candidates, i.e., choose the best of \(k-1\) candidates,
-the total probability is \(\frac{1}{n}\sum_{k=2}^{n-1}\frac{1}{k-1}\).
+We should always hire the first candidate and the best candidate, let the
+first candidate to be \(A[1]\), and the best candidate to be \(A[k]\),
+there should be \(A[1] = best(A[1..k-1])\) to hire exactly two candidates,
+i.e., choose the best of \(k-1\) candidates, the total probability is
+\(\frac{1}{n}\sum_{k=2}^{n-1}\frac{1}{k-1}\).
 </p>
 </div>
 </div>
-<div id="outline-container-org24b8ef1" class="outline-3">
-<h3 id="org24b8ef1">5.2-3</h3>
-<div class="outline-text-3" id="text-org24b8ef1">
+<div id="outline-container-orgbe5029e" class="outline-3">
+<h3 id="orgbe5029e">5.2-3</h3>
+<div class="outline-text-3" id="text-orgbe5029e">
 <p>
 The expected value of k-th dice is
 </p>
@@ -339,9 +325,9 @@ E[X]
 \end{align*}
 </div>
 </div>
-<div id="outline-container-orgb8b2d81" class="outline-3">
-<h3 id="orgb8b2d81">5.2-4</h3>
-<div class="outline-text-3" id="text-orgb8b2d81">
+<div id="outline-container-org2a2c4ef" class="outline-3">
+<h3 id="org2a2c4ef">5.2-4</h3>
+<div class="outline-text-3" id="text-org2a2c4ef">
 <p>
 Each customer has \(\frac{1}{n}\) probability to get back their own hat,
 the expected value is \(E[X_k] = \frac{1}{n}\).
@@ -353,9 +339,9 @@ The total expected number of customers who get back their own hat is
 </p>
 </div>
 </div>
-<div id="outline-container-org0137795" class="outline-3">
-<h3 id="org0137795">5.2-5</h3>
-<div class="outline-text-3" id="text-org0137795">
+<div id="outline-container-orgfaf3fa0" class="outline-3">
+<h3 id="orgfaf3fa0">5.2-5</h3>
+<div class="outline-text-3" id="text-orgfaf3fa0">
 <p>
 The probability that a pair is an inversion is exactly \(\frac{1}{2}\),
 the expected value is \(E[X_{ij}] = \frac{1}{2}\).
@@ -375,7 +361,7 @@ E[X]
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: pedh</p>
-<p class="date">Created: 2022-11-08 Tue 06:25</p>
+<p class="date">Created: 2023-08-17 Thu 10:36</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
